@@ -68,7 +68,7 @@ export default function ExpandableCardDemo() {
             <motion.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className="flex h-full w-full max-w-[500px] flex-col overflow-hidden bg-white sm:rounded-3xl md:h-fit md:max-h-[90%] dark:bg-neutral-900"
+              className="flex h-full w-full max-w-[500px] flex-col overflow-hidden bg-white dark:bg-neutral-900 sm:rounded-3xl md:h-fit md:max-h-[90%]"
             >
               <motion.div layoutId={`image-${active.title}-${id}`}>
                 <Image
@@ -113,7 +113,7 @@ export default function ExpandableCardDemo() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="flex h-40 flex-col items-start gap-4 overflow-auto pb-10 text-xs text-neutral-600 [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] md:h-fit md:text-sm lg:text-base dark:text-neutral-400"
+                    className="flex h-40 flex-col items-start gap-4 overflow-auto pb-10 text-xs text-neutral-600 [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] dark:text-neutral-400 md:h-fit md:text-sm lg:text-base"
                   >
                     {typeof active.content === "function"
                       ? active.content()
@@ -146,13 +146,13 @@ export default function ExpandableCardDemo() {
               <div className="">
                 <motion.h3
                   layoutId={`title-${card.title}-${id}`}
-                  className="text-center font-medium text-neutral-800 md:text-left dark:text-neutral-200"
+                  className="text-center font-medium text-neutral-800 dark:text-neutral-200 md:text-left"
                 >
                   {card.title}
                 </motion.h3>
                 <motion.p
                   layoutId={`description-${card.description}-${id}`}
-                  className="text-center text-neutral-600 md:text-left dark:text-neutral-400"
+                  className="text-center text-neutral-600 dark:text-neutral-400 md:text-left"
                 >
                   {card.description}
                 </motion.p>
@@ -171,7 +171,7 @@ export default function ExpandableCardDemo() {
   );
 }
 
-export const CloseIcon = () => {
+const CloseIcon = () => {
   return (
     <motion.svg
       initial={{
