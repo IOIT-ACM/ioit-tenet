@@ -39,6 +39,9 @@ export default function HomePage() {
         <button onClick={() => toast.error("Some error occured")}>
           Error toast
         </button>
+
+        <Link href={'/cards'}>Cards</Link>
+        <Link href={'/team'}>Teams</Link>
       </div>
     </main>
   );
