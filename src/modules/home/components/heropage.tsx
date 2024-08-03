@@ -5,8 +5,24 @@ import { motion } from 'framer-motion';
 import { Video } from '@/components/ui/Video';
 import { useStore } from '@/store';
 
+const Landing = () => {
+  return (
+    <div className='flex min-h-screen items-center justify-center'>
+      <motion.h1
+        className='text-5xl font-extrabold tracking-tight text-gray-600 sm:text-[5rem]'
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+      >
+        IOIT <span className='text-[hsl(280,100%,70%)]'>TENET</span>
+      </motion.h1>
+      {/* Add other content here */}
+    </div>
+  );
+};
+
 export const Hero = () => {
-  const [videoEnded, setVideoEnded] = useState(true);
+  const [videoEnded, setVideoEnded] = useState(false);
   const [isSkipVisible, setIsSkipVisible] = useState(false);
   const videoPlayed = useStore((state) => state.videoPlayed);
   const setVideoPlayed = useStore((state) => state.setVideoPlayed);
@@ -59,17 +75,7 @@ export const Hero = () => {
           )}
         </>
       ) : (
-        <div>
-          <motion.h1
-            className='text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]'
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-          >
-            IOIT <span className='text-[hsl(280,100%,70%)]'>TENET</span>
-          </motion.h1>
-          {/* Add other content here */}
-        </div>
+        <Landing />
       )}
     </div>
   );

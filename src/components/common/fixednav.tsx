@@ -5,8 +5,10 @@ import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useStore } from '@/store';
 
 export default function FixedNavBar({ className }: { className?: string }) {
+  const videoPlayed = useStore((state) => state.videoPlayed);
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
@@ -22,8 +24,8 @@ export default function FixedNavBar({ className }: { className?: string }) {
 
   return (
     <motion.div
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
+      initial={{ y: -100, opacity: !videoPlayed ? 0 : 1 }}
+      animate={{ y: videoPlayed ? 0 : -100, opacity: !videoPlayed ? 0 : 1 }}
       transition={{ duration: 1.5 }}
       className='fixed top-5 z-30 hidden w-screen items-center justify-between px-20 md:flex'
     >
