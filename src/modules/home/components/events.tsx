@@ -2,8 +2,22 @@ import React from 'react';
 
 export const Events = () => {
   return (
-    <div className='z-50 flex min-h-screen items-center justify-center bg-gray-200 text-9xl'>
-      Events
+    <div className='z-50 flex min-h-screen items-center justify-center border border-black bg-gray-200 px-5'>
+      <div className='grid w-full max-w-[1200px] grid-cols-3 items-center gap-7'>
+        <div className='grid h-full items-start gap-2'>
+          <div className='grid items-start gap-2'>
+            <div className='h-20 rounded-xl bg-gray-400/70'></div>
+            <div className='h-20 rounded-xl bg-gray-400/70'></div>
+            <div className='h-20 rounded-xl bg-gray-400/70'></div>
+            <div className='h-20 rounded-xl bg-gray-400/70'></div>
+            <div className='h-20 rounded-xl bg-gray-400/70'></div>
+          </div>
+        </div>
+
+        <div className='h-[600px] rounded-3xl border-2 border-black bg-gray-400'></div>
+
+        <div className='h-56 rounded-xl bg-gray-400/70'></div>
+      </div>
     </div>
   );
 };
