@@ -64,7 +64,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
           className,
         )}
       >
-        <div className='relative flex gap-0 rounded-xl bg-gray-200 px-6 py-3 text-black'>
+        <div className='relative flex gap-0 rounded-xl border border-black bg-gray-200 px-6 py-3 text-black'>
           {routes.map((route) => (
             <motion.div
               key={route.path}
