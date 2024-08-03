@@ -50,7 +50,13 @@ export default function FixedNavBar({ className }: { className?: string }) {
         animate={{ y: isVisible ? 0 : -100, opacity: isVisible ? 1 : 0 }}
         transition={{ duration: 0.8 }}
       >
-        <Image src={'/tenet.png'} alt='Tenet Logo' height={70} width={70} />
+        <Image
+          className='cursor-cell transition-all hover:scale-105'
+          src={'/tenet.png'}
+          alt='Tenet Logo'
+          height={70}
+          width={70}
+        />
       </motion.div>
       <div className={cn('fixed inset-x-0 z-50 mx-auto max-w-fit', className)}>
         <div className='relative flex gap-0 rounded-xl bg-gray-200 px-6 py-3 text-black'>
