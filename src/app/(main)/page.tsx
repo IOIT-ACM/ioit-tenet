@@ -4,8 +4,6 @@ export default function HomePage() {
   return (
     <main className=''>
       <Hero />
-      <Hero />
-      <Hero />
     </main>
   );
 }
