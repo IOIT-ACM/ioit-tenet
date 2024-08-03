@@ -24,7 +24,6 @@ const routes = [
 ];
 
 export default function FixedNavBar({ className }: { className?: string }) {
-  const [active, setActive] = useState<null | string>(null);
   const videoPlayed = useStore((state) => state.videoPlayed);
   const [isVisible, setIsVisible] = useState(true);
   const [hovering, setHovering] = useState<null | string>(null);
@@ -60,11 +59,9 @@ export default function FixedNavBar({ className }: { className?: string }) {
               key={route.path}
               className='relative cursor-pointer rounded-xl px-4 py-2'
               onMouseEnter={() => {
-                setActive(route.path);
                 setHovering(route.path);
               }}
               onMouseLeave={() => {
-                setActive(null);
                 setHovering(null);
               }}
               transition={transition}
@@ -95,9 +92,13 @@ export default function FixedNavBar({ className }: { className?: string }) {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: isVisible ? 0 : -100, opacity: isVisible ? 1 : 0 }}
         transition={{ duration: 0.8 }}
-        className='rounded-full bg-blue-950 px-5 py-2 text-white'
       >
-        Register
+        <Link
+          className='rounded-full bg-blue-950 px-5 py-3 text-white'
+          href={'/register'}
+        >
+          Register
+        </Link>
       </motion.button>
     </motion.div>
   );
