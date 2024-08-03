@@ -43,7 +43,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
       initial={{ y: -100, opacity: !videoPlayed ? 0 : 1 }}
       animate={{ y: videoPlayed ? 0 : -100, opacity: !videoPlayed ? 0 : 1 }}
       transition={{ duration: 1.5 }}
-      className='fixed top-5 z-30 hidden w-screen items-center justify-between px-20 md:flex'
+      className='fixed top-5 z-30 flex w-screen items-center justify-between px-3 md:px-20'
     >
       <motion.div
         initial={{ y: -100, opacity: 0 }}
@@ -51,14 +51,19 @@ export default function FixedNavBar({ className }: { className?: string }) {
         transition={{ duration: 0.8 }}
       >
         <Image
-          className='cursor-cell transition-all hover:scale-105'
+          className='h-10 w-10 cursor-cell transition-all hover:scale-105 md:h-20 md:w-20'
           src={'/tenet.png'}
           alt='Tenet Logo'
           height={70}
           width={70}
         />
       </motion.div>
-      <div className={cn('fixed inset-x-0 z-50 mx-auto max-w-fit', className)}>
+      <div
+        className={cn(
+          'inset-x-0 z-50 mx-auto hidden max-w-fit sm:fixed md:block',
+          className,
+        )}
+      >
         <div className='relative flex gap-0 rounded-xl bg-gray-200 px-6 py-3 text-black'>
           {routes.map((route) => (
             <motion.div
