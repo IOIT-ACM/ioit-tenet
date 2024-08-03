@@ -85,7 +85,7 @@ export const SearchEvents: React.FC = () => {
         await controls.start({
           y: scrollDirection === 'down' ? `-${listHeight}px` : '0',
           transition: {
-            duration: scrollSpeed / 100,
+            duration: scrollSpeed / 50,
             ease: 'linear',
             repeat: Infinity,
           },
