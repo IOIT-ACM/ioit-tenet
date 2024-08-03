@@ -14,6 +14,7 @@ export const Video: React.FC<VideoProps> = ({
   captions = [],
   iframe = false,
   onLoadedData,
+  onEnded,
   style = {},
 }) => {
   if (iframe) {
@@ -40,6 +41,7 @@ export const Video: React.FC<VideoProps> = ({
       preload={preload}
       playsInline={playsInline}
       onLoadedData={onLoadedData}
+      onEnded={onEnded}
       style={{ width: '100vw', height: '100vh', objectFit: 'cover', ...style }}
     >
       <source src={src} type={type} />

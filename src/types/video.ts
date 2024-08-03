@@ -18,5 +18,6 @@ export interface VideoProps {
   }[];
   iframe?: boolean;
   onLoadedData?: () => void;
+  onEnded?: () => void;
   style?: CSSProperties;
 }
