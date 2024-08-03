@@ -5,12 +5,6 @@ import { create } from 'zustand';
 import type { StoreApi, UseBoundStore } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-export type SearchMode = 'rooms' | 'roommates';
-export type Gender = 'male' | 'female' | 'any';
-export type SortOption = 'price' | 'location' | 'rating';
-export type FilterOption = 'availableNow' | 'furnished' | 'petsAllowed';
-export type Coordinates = { lat: number; lng: number };
-
 export interface State {
   videoPlayed: boolean;
 }
@@ -27,7 +21,7 @@ export const useStateStore = create<State & Action>()(
       setVideoPlayed: (videoPlayed) => set(() => ({ videoPlayed })),
     }),
     {
-      name: 'hosteze-storage',
+      name: 'ioit-tenet-storage',
       partialize: () => ({
         autoSync: true,
       }),

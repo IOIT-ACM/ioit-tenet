@@ -6,6 +6,7 @@ import { Video } from '@/components/ui/Video';
 import { useStore } from '@/store';
 
 export const Hero = () => {
+  const [videoEnded, setVideoEnded] = useState(false);
   const [isSkipVisible, setIsSkipVisible] = useState(false);
   const videoPlayed = useStore((state) => state.videoPlayed);
   const setVideoPlayed = useStore((state) => state.setVideoPlayed);
@@ -13,22 +14,24 @@ export const Hero = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsSkipVisible(true);
-    }, 4000);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
 
   const handleVideoEnded = () => {
+    setVideoEnded(true);
     setVideoPlayed(true);
   };
 
   const handleSkip = () => {
+    setVideoEnded(true);
     setVideoPlayed(true);
   };
 
   return (
     <div className='relative'>
-      {!videoPlayed ? (
+      {!videoEnded && !videoPlayed ? (
         <>
           <div>
             <Video
