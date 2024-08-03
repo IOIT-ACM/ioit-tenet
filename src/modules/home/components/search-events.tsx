@@ -44,17 +44,16 @@ export const SearchEvents: React.FC = () => {
   const controls: AnimationControls = useAnimation();
   const listRef = useRef<HTMLDivElement>(null);
   const [searchTerm, setSearchTerm] = useState('');
-  const [lastScrollTop, setLastScrollTop] = useState(0);
-  const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('down');
+  const [scrollSpeed, setScrollSpeed] = useState(20);
 
   useEffect(() => {
     const startAnimation = async () => {
       if (listRef.current) {
-        const listHeight = listRef.current.scrollHeight / 2;
+        const listHeight = listRef.current.scrollHeight;
         await controls.start({
-          y: scrollDirection === 'down' ? `-${listHeight}px` : `0px`,
+          y: `-${listHeight}px`,
           transition: {
-            duration: 20,
+            duration: scrollSpeed,
             ease: 'linear',
             repeat: Infinity,
           },
@@ -65,43 +64,14 @@ export const SearchEvents: React.FC = () => {
     startAnimation().catch((error) => {
       console.error('Animation error:', error);
     });
-  }, [controls, scrollDirection]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollTop =
-        window.scrollY || document.documentElement.scrollTop;
-
-      if (currentScrollTop > lastScrollTop) {
-        setScrollDirection('down');
-      } else {
-        setScrollDirection('up');
-      }
-
-      setLastScrollTop(currentScrollTop);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollTop]);
-
-  const handleScroll = (e: React.WheelEvent<HTMLDivElement>) => {
-    if (e.deltaY > 0) {
-      setScrollDirection('down');
-    } else if (e.deltaY < 0) {
-      setScrollDirection('up');
-    }
-  };
+  }, [controls, scrollSpeed]);
 
   const filteredItems = items.filter((item) =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   return (
-    <div
-      className='grid min-h-screen grid-cols-1 items-center justify-center gap-3 bg-gray-100 px-10 md:grid-cols-2 md:px-20'
-      onWheel={handleScroll}
-    >
+    <div className='grid min-h-screen grid-cols-1 items-center justify-center gap-3 bg-gray-100 px-10 md:grid-cols-2 md:px-20'>
       <div>
         <div className='mb-4 text-4xl font-bold'>
           Search through all events from TENET 2024
@@ -123,16 +93,33 @@ export const SearchEvents: React.FC = () => {
         ref={listRef}
       >
         <motion.div
-          className='absolute w-full'
+          className='scroll-content absolute w-full'
           animate={controls}
           initial={{ y: 0 }}
         >
-          {filteredItems.concat(filteredItems).map((item) => (
-            <div key={item.id} id={`item-${item.id}`} className='p-4'>
+          {filteredItems.map((item) => (
+            <div key={item.id} className='p-4'>
               {item.name}
             </div>
           ))}
         </motion.div>
+        <style jsx>{`
+          @keyframes scroll {
+            0% {
+              transform: translateY(0);
+            }
+            100% {
+              transform: translateY(-100%);
+            }
+          }
+
+          .scroll-content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            animation: scroll var(--scroll-speed) linear infinite;
+          }
+        `}</style>
       </div>
     </div>
   );
