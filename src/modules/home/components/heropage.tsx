@@ -6,7 +6,7 @@ import { Video } from '@/components/ui/Video';
 import { useStore } from '@/store';
 
 export const Hero = () => {
-  const [videoEnded, setVideoEnded] = useState(false);
+  const [videoEnded, setVideoEnded] = useState(true);
   const [isSkipVisible, setIsSkipVisible] = useState(false);
   const videoPlayed = useStore((state) => state.videoPlayed);
   const setVideoPlayed = useStore((state) => state.setVideoPlayed);
