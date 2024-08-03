@@ -10,23 +10,7 @@ const config = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "rook.gumlet.io",
-      },
-      {
-        protocol: "https",
-        hostname: "pbs.twimg.com",
-      },
-      {
-        protocol: "https",
         hostname: "images.unsplash.com",
-      },
-      {
-        protocol: "https",
-        hostname: "alagujothiacademy.in",
-      },
-      {
-        protocol: "https",
-        hostname: "www.nrtec.in",
       },
       {
         protocol: "https",
@@ -35,10 +19,6 @@ const config = {
       {
         protocol: "https",
         hostname: "aceternity.com",
-      },
-      {
-        protocol: "https",
-        hostname: "www.gravatar.com",
       },
       {
         protocol: "https",
