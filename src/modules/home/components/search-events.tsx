@@ -1,43 +1,54 @@
 'use client';
 
+import '@/styles/search.css';
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useAnimation, type AnimationControls } from 'framer-motion';
+import {
+  FaCalendar,
+  FaMapMarkerAlt,
+  FaRobot,
+  FaCamera,
+  FaStar,
+  FaVideo,
+  FaMicrophone,
+} from 'react-icons/fa';
 
 interface Item {
   id: number;
   name: string;
+  icon: React.ReactNode;
 }
 
 const items: Item[] = [
-  { id: 1, name: 'Tech-Fiesta' },
-  { id: 2, name: 'Product Management Conference' },
-  { id: 3, name: 'Business Intelligence Conference' },
-  { id: 4, name: 'Capture the Flag' },
-  { id: 5, name: 'Fun games (AR/VR, coding games)' },
-  { id: 6, name: 'Web - 3 Conference' },
-  { id: 7, name: "LLM's Application in Industry Conference" },
-  { id: 8, name: 'Drone/Robotics Workshop' },
-  { id: 9, name: 'Gen Ai (LLM) Development Workshop' },
-  { id: 10, name: 'Drone/Robotics Display' },
-  { id: 11, name: 'E-Summit' },
-  { id: 15, name: 'Break' },
-  { id: 17, name: 'Pitching Competition Finals' },
-  { id: 19, name: 'MUN' },
-  { id: 21, name: 'Opening Ceremony' },
-  { id: 22, name: 'Committee session' },
-  { id: 23, name: 'Lunch' },
-  { id: 24, name: 'Committee session' },
-  { id: 25, name: 'High tea' },
-  { id: 26, name: "Creator's Conclave" },
-  { id: 29, name: 'Stand UP' },
-  { id: 31, name: 'Theater act' },
-  { id: 32, name: 'PUNE OPEN MIC' },
-  { id: 33, name: 'Battle of comedians' },
-  { id: 35, name: 'Main Stage Event' },
-  { id: 36, name: 'E-Sports' },
-  { id: 37, name: 'LAN Tournaments' },
-  { id: 38, name: 'Competitions' },
-  { id: 39, name: 'Experience Arenas' },
+  { id: 1, name: 'Tech-Fiesta', icon: <FaCalendar /> },
+  { id: 2, name: 'Product Management Conference', icon: <FaCalendar /> },
+  { id: 3, name: 'Business Intelligence Conference', icon: <FaCalendar /> },
+  { id: 4, name: 'Capture the Flag', icon: <FaStar /> },
+  { id: 5, name: 'Fun games (AR/VR, coding games)', icon: <FaCamera /> },
+  { id: 6, name: 'Web - 3 Conference', icon: <FaCalendar /> },
+  { id: 7, name: "LLM's Industrial Applications", icon: <FaRobot /> },
+  { id: 8, name: 'Drone/Robotics Workshop', icon: <FaRobot /> },
+  { id: 9, name: 'Gen Ai Workshop', icon: <FaCalendar /> },
+  { id: 10, name: 'Drone/Robotics Display', icon: <FaRobot /> },
+  { id: 11, name: 'E-Summit', icon: <FaCalendar /> },
+  { id: 15, name: 'Break', icon: <FaStar /> },
+  { id: 17, name: 'Pitching Competition Finals', icon: <FaMicrophone /> },
+  { id: 19, name: 'MUN', icon: <FaMapMarkerAlt /> },
+  { id: 21, name: 'Opening Ceremony', icon: <FaVideo /> },
+  { id: 22, name: 'Committee session', icon: <FaCalendar /> },
+  { id: 23, name: 'Lunch', icon: <FaCalendar /> },
+  { id: 24, name: 'Committee session', icon: <FaCalendar /> },
+  { id: 25, name: 'High tea', icon: <FaCalendar /> },
+  { id: 26, name: "Creator's Conclave", icon: <FaStar /> },
+  { id: 29, name: 'Stand UP', icon: <FaMicrophone /> },
+  { id: 31, name: 'Theater act', icon: <FaVideo /> },
+  { id: 32, name: 'PUNE OPEN MIC', icon: <FaMicrophone /> },
+  { id: 33, name: 'Battle of comedians', icon: <FaStar /> },
+  { id: 35, name: 'Main Stage Event', icon: <FaCalendar /> },
+  { id: 36, name: 'E-Sports', icon: <FaCamera /> },
+  { id: 37, name: 'LAN Tournaments', icon: <FaCamera /> },
+  { id: 38, name: 'Competitions', icon: <FaCalendar /> },
+  { id: 39, name: 'Experience Arenas', icon: <FaCalendar /> },
 ];
 
 export const SearchEvents: React.FC = () => {
@@ -46,6 +57,7 @@ export const SearchEvents: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('down');
   const [lastScrollTop, setLastScrollTop] = useState(0);
+  const [scrollSpeed, setScrollSpeed] = useState(2000);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,12 +67,11 @@ export const SearchEvents: React.FC = () => {
       if (currentScrollTop > lastScrollTop) {
         setScrollDirection('down');
       } else {
-        setScrollDirection('up');
+        setScrollDirection('down');
       }
 
       setLastScrollTop(currentScrollTop);
-
-      // setScrollSpeed((prevSpeed) => prevSpeed + 20);
+      setScrollSpeed((prevSpeed) => Math.max(2000, prevSpeed - 10));
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -74,7 +85,7 @@ export const SearchEvents: React.FC = () => {
         await controls.start({
           y: scrollDirection === 'down' ? `-${listHeight}px` : '0',
           transition: {
-            duration: 20,
+            duration: scrollSpeed / 100,
             ease: 'linear',
             repeat: Infinity,
           },
@@ -85,7 +96,7 @@ export const SearchEvents: React.FC = () => {
     startAnimation().catch((error) => {
       console.error('Animation error:', error);
     });
-  }, [controls, scrollDirection]);
+  }, [controls, scrollDirection, scrollSpeed]);
 
   const filteredItems = items.filter((item) =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase()),
@@ -110,7 +121,7 @@ export const SearchEvents: React.FC = () => {
         />
       </div>
       <div
-        className='relative mt-8 h-96 w-full max-w-sm overflow-hidden'
+        className='scroll-container relative mt-8 h-2/3 w-full max-w-sm overflow-hidden'
         ref={listRef}
       >
         <motion.div
@@ -119,28 +130,17 @@ export const SearchEvents: React.FC = () => {
           initial={{ y: 0 }}
         >
           {filteredItems.map((item) => (
-            <div key={item.id} className='p-4'>
+            <div
+              key={item.id}
+              className='scroll-item flex items-center p-4 text-2xl'
+            >
+              <div className='mr-4 rounded-full border-4 bg-white p-4 text-black'>
+                {item.icon}
+              </div>
               {item.name}
             </div>
           ))}
         </motion.div>
-        <style jsx>{`
-          @keyframes scroll {
-            0% {
-              transform: translateY(0);
-            }
-            100% {
-              transform: translateY(-100%);
-            }
-          }
-
-          .scroll-content {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            animation: scroll var(--scroll-speed) linear infinite;
-          }
-        `}</style>
       </div>
     </div>
   );
