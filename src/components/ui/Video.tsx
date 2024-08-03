@@ -1,3 +1,4 @@
+import React from 'react';
 import { type VideoProps } from '@/types';
 
 export const Video: React.FC<VideoProps> = ({
@@ -13,6 +14,8 @@ export const Video: React.FC<VideoProps> = ({
   playsInline = false,
   captions = [],
   iframe = false,
+  onLoadedData,
+  style = {},
 }) => {
   if (iframe) {
     return (
@@ -21,7 +24,7 @@ export const Video: React.FC<VideoProps> = ({
         width={width}
         height={height}
         allowFullScreen
-        style={{ border: 'none', width: '100%', height: '100%' }}
+        style={{ border: 'none', width: '100%', height: '100%', ...style }}
         title='Embedded video'
       />
     );
@@ -37,6 +40,8 @@ export const Video: React.FC<VideoProps> = ({
       muted={muted}
       preload={preload}
       playsInline={playsInline}
+      onLoadedData={onLoadedData}
+      style={{ width: '100vw', height: '100vh', objectFit: 'cover', ...style }}
     >
       <source src={src} type={type} />
       {captions.map((caption, index) => (

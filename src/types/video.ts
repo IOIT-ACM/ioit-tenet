@@ -1,3 +1,5 @@
+import { type CSSProperties } from 'react';
+
 export interface VideoProps {
   src: string;
   type?: 'video/mp4' | 'video/webm';
@@ -15,4 +17,6 @@ export interface VideoProps {
     label: string;
   }[];
   iframe?: boolean;
+  onLoadedData?: () => void;
+  style?: CSSProperties;
 }
