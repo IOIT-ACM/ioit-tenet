@@ -1,4 +1,3 @@
-import React from 'react';
 import { type VideoProps } from '@/types';
 
 export const Video: React.FC<VideoProps> = ({
