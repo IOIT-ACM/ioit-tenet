@@ -13,7 +13,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
     const handleScroll = () => {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
 
-      setIsVisible(scrollTop < 500);
+      setIsVisible(scrollTop < 400);
     };
 
     window.addEventListener('scroll', handleScroll);
