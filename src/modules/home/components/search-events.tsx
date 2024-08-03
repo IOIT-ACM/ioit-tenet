@@ -44,15 +44,17 @@ export const SearchEvents: React.FC = () => {
   const controls: AnimationControls = useAnimation();
   const listRef = useRef<HTMLDivElement>(null);
   const [searchTerm, setSearchTerm] = useState('');
+  const [lastScrollTop, setLastScrollTop] = useState(0);
+  const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('down');
 
   useEffect(() => {
     const startAnimation = async () => {
       if (listRef.current) {
         const listHeight = listRef.current.scrollHeight / 2;
         await controls.start({
-          y: `-${listHeight}px`,
+          y: scrollDirection === 'down' ? `-${listHeight}px` : `0px`,
           transition: {
-            duration: 60,
+            duration: 20,
             ease: 'linear',
             repeat: Infinity,
           },
@@ -63,14 +65,43 @@ export const SearchEvents: React.FC = () => {
     startAnimation().catch((error) => {
       console.error('Animation error:', error);
     });
-  }, [controls]);
+  }, [controls, scrollDirection]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollTop =
+        window.scrollY || document.documentElement.scrollTop;
+
+      if (currentScrollTop > lastScrollTop) {
+        setScrollDirection('down');
+      } else {
+        setScrollDirection('up');
+      }
+
+      setLastScrollTop(currentScrollTop);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollTop]);
+
+  const handleScroll = (e: React.WheelEvent<HTMLDivElement>) => {
+    if (e.deltaY > 0) {
+      setScrollDirection('down');
+    } else if (e.deltaY < 0) {
+      setScrollDirection('up');
+    }
+  };
 
   const filteredItems = items.filter((item) =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   return (
-    <div className='grid min-h-screen grid-cols-1 items-center justify-center gap-3 bg-gray-100 px-10 md:grid-cols-2 md:px-20'>
+    <div
+      className='grid min-h-screen grid-cols-1 items-center justify-center gap-3 bg-gray-100 px-10 md:grid-cols-2 md:px-20'
+      onWheel={handleScroll}
+    >
       <div>
         <div className='mb-4 text-4xl font-bold'>
           Search through all events from TENET 2024
