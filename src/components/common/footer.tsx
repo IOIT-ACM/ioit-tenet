@@ -29,17 +29,18 @@ function Footer() {
         <div className='mb-6 md:mb-0'>
           <Link
             href='/'
-            className='cursor-pointer bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-4xl font-bold italic text-transparent'
+            className='cursor-pointer bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text py-2 text-4xl font-extrabold italic text-transparent'
           >
             TENET 2024
           </Link>
           <p className='max-w-md'>
-            TENET is the annual cultural fest of AISSMS Institute of Information
-            Technology. Scheduled for the 4th, 5th, and 6th of October 2024,
-            this event promises a weekend filled with exciting activities,
-            including Tech-Fiesta, E-Summit, MUN, Creator’s Conclave, and
-            E-Sports. Join us for an unforgettable experience celebrating talent
-            and creativity.
+            T.E.N.E.T goes beyond just an abbreviation of 5 niches. This event
+            in its inception is an amalgamation of ideas where professionalism
+            meets the academia. This is an event where students learn, connect,
+            grow and most importantly have an experience worth remembering. From
+            E-summit to eSports and from Techfiesta to IOIT MUN'24 and Creator's
+            Conclave, TENET, an event organised by the IOIT ACM Student Chapter
+            has something for everyone.
           </p>
           <div className='mt-4 flex'>
             <Link
