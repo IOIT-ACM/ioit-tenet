@@ -94,7 +94,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
         transition={{ duration: 0.8 }}
       >
         <Link
-          className='rounded-full bg-blue-950 px-5 py-3 text-white'
+          className='rounded-full bg-blue-950 px-5 py-3 text-white transition-all hover:bg-blue-700'
           href={'/register'}
         >
           Register
