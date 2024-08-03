@@ -1,1 +1,6 @@
 export { Hero } from './components/heropage';
+export { Events } from './components/events';
+export { SearchEvents } from './components/search-events';
+export { Gallery } from './components/gallery';
+export { HorizontalScroll } from './components/horizontal-scroll';
+export { MUN } from './components/mun';
