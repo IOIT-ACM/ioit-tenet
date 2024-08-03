@@ -54,7 +54,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
         <Image src={'/tenet.png'} alt='Tenet Logo' height={70} width={70} />
       </motion.div>
       <div className={cn('fixed inset-x-0 z-50 mx-auto max-w-fit', className)}>
-        <div className='relative flex gap-3 rounded-xl bg-gray-200 px-6 py-3 text-black'>
+        <div className='relative flex gap-0 rounded-xl bg-gray-200 px-6 py-3 text-black'>
           {routes.map((route) => (
             <motion.div
               key={route.path}
@@ -64,6 +64,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
                 setHovering(route.path);
               }}
               onMouseLeave={() => {
+                setActive(null);
                 setHovering(null);
               }}
               transition={transition}
@@ -73,23 +74,16 @@ export default function FixedNavBar({ className }: { className?: string }) {
                   <motion.div
                     key='hoveredBackground'
                     layoutId='hoveredBackground'
-                    initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3 }}
-                    className='absolute inset-0 rounded-xl bg-gray-300'
-                  />
-                )}
-                {route.path === active && (
-                  <motion.div
-                    key='activeBackground'
-                    layoutId='activeBackground'
+                    exit={{
+                      opacity: 0,
+                      scale: 0,
+                    }}
                     transition={{ type: 'spring', bounce: 0.3, duration: 0.6 }}
-                    className='absolute inset-0 rounded-xl bg-gray-400'
+                    className='absolute inset-0 rounded-full bg-gray-300'
                   />
                 )}
-                <span
-                  className={`relative block text-black ${route.path === active ? 'text-gray-100' : ''}`}
-                >
+                <span className={`relative block text-black`}>
                   {route.name}
                 </span>
               </Link>
