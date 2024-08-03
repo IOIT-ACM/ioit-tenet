@@ -1,6 +1,8 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useIsMobile } from '@/hooks/useismobile';
+import Image from 'next/image';
 
 const cardData = [
   {
@@ -35,39 +37,23 @@ const cardData = [
   },
 ];
 
+const images = ['/T.jpg', 'En.avif', 'N.jpg', 'Es.webp', 'T.webp'];
+
 const StackedCards: React.FC = () => {
+  const isMobile = useIsMobile();
+  const [activeIndex, setActiveIndex] = useState(-1);
+
   useEffect(() => {
-    const cards = document.querySelectorAll<HTMLDivElement>('.card');
-    const stackArea = document.querySelector<HTMLDivElement>('.stack-area');
-
-    const rotateCards = () => {
-      cards.forEach((card) => {
-        if (card.classList.contains('active')) {
-          card.style.transform = `translate(0, 0)`;
-        } else {
-          card.style.transform = `translate(0, 160vh)`;
-        }
-      });
-    };
-
-    rotateCards();
-
     const handleScroll = () => {
+      const stackArea = document.querySelector<HTMLDivElement>('.stack-area');
       if (stackArea) {
         const proportion =
           stackArea.getBoundingClientRect().top / window.innerHeight;
         if (proportion <= 0) {
-          const n = cards.length;
+          const n = cardData.length;
           let index = Math.ceil((proportion * n) / 2);
           index = Math.abs(index) - 1;
-          cards.forEach((card, i) => {
-            if (i <= index) {
-              card.classList.add('active');
-            } else {
-              card.classList.remove('active');
-            }
-          });
-          rotateCards();
+          setActiveIndex(index);
         }
       }
     };
@@ -101,13 +87,22 @@ const StackedCards: React.FC = () => {
 
   return (
     <div className='min-w-screen min-h-screen'>
-      <div className='stack-area relative flex h-[300vh] w-full justify-center'>
+      <div className='stack-area relative flex h-[400vh] w-full justify-center'>
         <div className='sticky top-0 flex h-screen items-center justify-center'>
           <div className='cards grid h-fit w-full gap-3'>
             {cardData.map((card, index) => (
               <div
                 key={index}
-                className={`card relative z-${card.zIndex} flex h-[100px] w-[250px] flex-col items-end justify-between rounded-xl ${card.color} grid p-3 transition-transform ease-in-out`}
+                className={`card relative flex h-[100px] w-[250px] flex-col items-end justify-between rounded-xl ${card.color} grid p-3 transition-transform ease-in-out`}
+                style={{
+                  transform:
+                    activeIndex >= index
+                      ? 'translate(0, 0)'
+                      : isMobile
+                        ? 'translate(0, 100vh)'
+                        : 'translate(0, 160vh)',
+                  zIndex: card.zIndex,
+                }}
               >
                 <div className='absolute right-2 top-2 text-4xl font-bold'>
                   {card.title}
@@ -119,23 +114,13 @@ const StackedCards: React.FC = () => {
             ))}
           </div>
         </div>
-        <div className='sticky top-0 flex h-screen items-center justify-center text-center'>
-          <div className='w-full max-w-[420px] text-4xl font-bold md:text-5xl lg:text-6xl'>
-            TENET
-          </div>
-          <div className='mt-4 max-w-[420px] text-sm md:text-base lg:text-lg'>
-            Τ.Ε.Ν.Ε.Τ goes beyond just an abbreviation of 5 niches. This event
-            in its inception is an amalgamation of ideas where professionalism
-            meets academia. This is an event where students learn, connect, grow
-            and most importantly have an experience worth remembering. From
-            E-summit to eSports and from Techfiesta to IOIT MUN&apos;24 and
-            Creator&apos;s Conclave, TENET, an event organized by the IOIT ACM
-            Student Chapter has something for everyone.
-            <br />
-            <button className='mt-5 rounded-2xl bg-black px-6 py-3 text-sm text-white md:text-base'>
-              See More Details
-            </button>
-          </div>
+        <div className='sticky top-0 hidden h-screen items-center justify-center text-center md:flex'>
+          <Image
+            src={`/tenet/${images[activeIndex < 4 || activeIndex > 1 ? activeIndex + 1 : 0]}`}
+            alt={`Tenet iamge ${activeIndex}`}
+            height={200}
+            width={200}
+          />
         </div>
       </div>
     </div>
