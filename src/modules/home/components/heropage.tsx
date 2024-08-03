@@ -3,10 +3,12 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Video } from '@/components/ui/Video';
+import { useStore } from '@/store';
 
 export const Hero = () => {
-  const [videoEnded, setVideoEnded] = useState(false);
   const [isSkipVisible, setIsSkipVisible] = useState(false);
+  const videoPlayed = useStore((state) => state.videoPlayed);
+  const setVideoPlayed = useStore((state) => state.setVideoPlayed);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -17,16 +19,16 @@ export const Hero = () => {
   }, []);
 
   const handleVideoEnded = () => {
-    setVideoEnded(true);
+    setVideoPlayed(true);
   };
 
   const handleSkip = () => {
-    setVideoEnded(true);
+    setVideoPlayed(true);
   };
 
   return (
     <div className='relative'>
-      {!videoEnded ? (
+      {!videoPlayed ? (
         <>
           <div>
             <Video
@@ -41,7 +43,7 @@ export const Hero = () => {
           {isSkipVisible && (
             <motion.button
               onClick={handleSkip}
-              className='absolute bottom-4 right-4 rounded-md bg-black px-4 py-2 text-white shadow-lg'
+              className='absolute bottom-4 right-4 rounded-xl bg-black px-4 py-2 text-white shadow-lg'
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
