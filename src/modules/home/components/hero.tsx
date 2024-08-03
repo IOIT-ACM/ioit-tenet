@@ -7,6 +7,7 @@ import { useIsMobile } from '@/hooks/useismobile';
 
 export const Landing = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -42,9 +43,14 @@ export const Landing = () => {
           bottom: isScrolled ? (isMobile ? 10 : 20) : isMobile ? 200 : 300,
         }}
         transition={{ duration: 0.5 }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
       >
         <GiTimeTrap />
-        Agenda
+        {isHovered ||
+          (!isScrolled && (
+            <span className={`transition-opacity duration-500`}>Agenda</span>
+          ))}
       </motion.span>
     </div>
   );
