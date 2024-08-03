@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 
 export const Landing = () => {
   const title = useParallax<HTMLDivElement>({
-    scale: [1.2, 0.5, 'easeInQuad'],
+    scale: [1, 0.5, 'easeInQuad'],
   });
 
   const [hidden, setHidden] = useState(false);
@@ -31,7 +31,7 @@ export const Landing = () => {
   return (
     <div className='flex min-h-screen flex-col items-center justify-center gap-4'>
       <motion.span
-        className={`text-6xl font-bold md:text-9xl`}
+        className={`fixed text-6xl font-bold md:text-9xl`}
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: hidden ? 0 : 1, y: 0 }}
         transition={{ duration: 1 }}
