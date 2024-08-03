@@ -6,31 +6,31 @@ const cardData = [
   {
     title: 'T',
     description: 'Technology',
-    color: 'bg-blue-600',
+    color: 'bg-blue-600/90',
     zIndex: 50,
   },
   {
     title: 'E',
     description: 'Entrepreneurship',
-    color: 'bg-red-600',
+    color: 'bg-red-600/90',
     zIndex: 40,
   },
   {
     title: 'N',
     description: 'Negotations',
-    color: 'bg-purple-600',
+    color: 'bg-purple-600/90',
     zIndex: 30,
   },
   {
     title: 'E',
     description: 'Entrepreneurship',
-    color: 'bg-pink-600',
+    color: 'bg-pink-600/90',
     zIndex: 20,
   },
   {
     title: 'T',
     description: 'Trends',
-    color: 'bg-pink-600',
+    color: 'bg-orange-600/90',
     zIndex: 10,
   },
 ];
