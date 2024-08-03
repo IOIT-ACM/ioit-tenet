@@ -1,15 +1,15 @@
-import { type VideoProps } from "@/types";
+import { type VideoProps } from '@/types';
 
 export const Video: React.FC<VideoProps> = ({
   src,
-  type = "video/mp4",
+  type = 'video/mp4',
   width,
   height,
   controls = true,
   autoPlay = false,
   loop = false,
   muted = false,
-  preload = "none",
+  preload = 'none',
   playsInline = false,
   captions = [],
   iframe = false,
@@ -21,8 +21,8 @@ export const Video: React.FC<VideoProps> = ({
         width={width}
         height={height}
         allowFullScreen
-        style={{ border: "none", width: "100%", height: "100%" }}
-        title="Embedded video"
+        style={{ border: 'none', width: '100%', height: '100%' }}
+        title='Embedded video'
       />
     );
   }
@@ -43,7 +43,7 @@ export const Video: React.FC<VideoProps> = ({
         <track
           key={index}
           src={caption.src}
-          kind="subtitles"
+          kind='subtitles'
           srcLang={caption.srcLang}
           label={caption.label}
         />
