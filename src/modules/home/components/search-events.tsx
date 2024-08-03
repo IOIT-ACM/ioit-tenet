@@ -44,7 +44,6 @@ export const SearchEvents: React.FC = () => {
   const controls: AnimationControls = useAnimation();
   const listRef = useRef<HTMLDivElement>(null);
   const [searchTerm, setSearchTerm] = useState('');
-  const [scrollSpeed, setScrollSpeed] = useState(20);
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('down');
   const [lastScrollTop, setLastScrollTop] = useState(0);
 
@@ -75,7 +74,7 @@ export const SearchEvents: React.FC = () => {
         await controls.start({
           y: scrollDirection === 'down' ? `-${listHeight}px` : '0',
           transition: {
-            duration: scrollSpeed,
+            duration: 20,
             ease: 'linear',
             repeat: Infinity,
           },
@@ -86,7 +85,7 @@ export const SearchEvents: React.FC = () => {
     startAnimation().catch((error) => {
       console.error('Animation error:', error);
     });
-  }, [controls, scrollDirection, scrollSpeed]);
+  }, [controls, scrollDirection]);
 
   const filteredItems = items.filter((item) =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase()),
