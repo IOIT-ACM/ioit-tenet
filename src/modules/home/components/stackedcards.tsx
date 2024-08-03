@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useIsMobile } from '@/hooks/useismobile';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const cardData = [
   {
@@ -91,18 +92,19 @@ const StackedCards: React.FC = () => {
         <div className='sticky top-0 flex h-screen items-center justify-center'>
           <div className='cards grid h-fit w-full gap-3'>
             {cardData.map((card, index) => (
-              <div
+              <motion.div
                 key={index}
-                className={`card relative flex h-[100px] w-[250px] flex-col items-end justify-between rounded-xl ${card.color} grid p-3 transition-transform ease-in-out`}
+                className={`card relative flex h-[100px] w-[250px] flex-col items-end justify-between rounded-xl ${card.color} grid p-3`}
                 style={{
-                  transform:
-                    activeIndex >= index
-                      ? 'translate(0, 0)'
-                      : isMobile
-                        ? 'translate(0, 100vh)'
-                        : 'translate(0, 160vh)',
                   zIndex: card.zIndex,
                 }}
+                initial={{
+                  y: isMobile ? '100vh' : '160vh',
+                }}
+                animate={{
+                  y: activeIndex >= index ? 0 : isMobile ? '100vh' : '160vh',
+                }}
+                // transition={{ type: 'spring', stiffness: 300 }}
               >
                 <div className='absolute right-2 top-2 text-4xl font-bold'>
                   {card.title}
@@ -110,14 +112,14 @@ const StackedCards: React.FC = () => {
                 <div className='h-fit w-fit rounded-full bg-white/30 px-3 py-1 text-xl'>
                   {card.description}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
         <div className='sticky top-0 hidden h-screen items-center justify-center text-center md:flex'>
           <Image
             src={`/tenet/${images[activeIndex < 4 || activeIndex > 1 ? activeIndex + 1 : 0]}`}
-            alt={`Tenet iamge ${activeIndex}`}
+            alt={`Tenet image ${activeIndex}`}
             height={200}
             width={200}
           />
