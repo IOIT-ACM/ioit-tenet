@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useAnimation, type AnimationControls } from 'framer-motion';
-import { useQuery } from '@tanstack/react-query';
 
 interface Item {
   id: number;
@@ -12,7 +11,7 @@ interface Item {
 const items: Item[] = [
   { id: 1, name: 'Tech-Fiesta' },
   { id: 2, name: 'Product Management Conference' },
-  { id: 3, name: 'Data in Business Intelligence' },
+  { id: 3, name: 'Business Intelligence Conference' },
   { id: 4, name: 'Capture the Flag' },
   { id: 5, name: 'Fun games (AR/VR, coding games)' },
   { id: 6, name: 'Web - 3 Conference' },
@@ -34,41 +33,31 @@ const items: Item[] = [
   { id: 31, name: 'Theater act' },
   { id: 32, name: 'PUNE OPEN MIC' },
   { id: 33, name: 'Battle of comedians' },
-  { id: 34, name: 'Prize Distribution' },
   { id: 35, name: 'Main Stage Event' },
   { id: 36, name: 'E-Sports' },
   { id: 37, name: 'LAN Tournaments' },
   { id: 38, name: 'Competitions' },
   { id: 39, name: 'Experience Arenas' },
-  { id: 43, name: 'High tea and Closing Ceremony' },
 ];
 
-const fetchItems = async (): Promise<Item[]> => {
-  return new Promise((resolve) => {
-    setTimeout(() => resolve(items), 1000);
-  });
-};
-
 export const SearchEvents: React.FC = () => {
-  const { data, isLoading } = useQuery<Item[]>({
-    queryKey: ['items'],
-    queryFn: fetchItems,
-  });
-
   const controls: AnimationControls = useAnimation();
   const listRef = useRef<HTMLDivElement>(null);
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const startAnimation = async () => {
-      await controls.start({
-        y: [0, -100 * items.length],
-        transition: {
-          duration: 60,
-          ease: 'linear',
-          repeat: Infinity,
-        },
-      });
+      if (listRef.current) {
+        const listHeight = listRef.current.scrollHeight / 2;
+        await controls.start({
+          y: `-${listHeight}px`,
+          transition: {
+            duration: 60,
+            ease: 'linear',
+            repeat: Infinity,
+          },
+        });
+      }
     };
 
     startAnimation().catch((error) => {
@@ -76,23 +65,9 @@ export const SearchEvents: React.FC = () => {
     });
   }, [controls]);
 
-  const handleSearch = () => {
-    const item = items.find((i) =>
-      i.name.toLowerCase().includes(searchTerm.toLowerCase()),
-    );
-    if (item && listRef.current) {
-      const itemElement = document.getElementById(`item-${item.id}`);
-      if (itemElement) {
-        listRef.current.scrollTo({
-          top: itemElement.offsetTop,
-          behavior: 'smooth',
-        });
-        controls.stop();
-      }
-    }
-  };
-
-  if (isLoading) return <div>Loading...</div>;
+  const filteredItems = items.filter((item) =>
+    item.name.toLowerCase().includes(searchTerm.toLowerCase()),
+  );
 
   return (
     <div className='grid min-h-screen grid-cols-1 items-center justify-center gap-3 bg-gray-100 px-10 md:grid-cols-2 md:px-20'>
@@ -101,7 +76,7 @@ export const SearchEvents: React.FC = () => {
           Search through all events from TENET 2024
         </div>
         <div className='mb-8 text-lg'>
-          Tenet is an anaglam of Technology, Entrepreneurship, Negotiations,
+          Tenet is an anagram of Technology, Entrepreneurship, Negotiations,
           E-Sports, Trends
         </div>
         <input
@@ -121,12 +96,8 @@ export const SearchEvents: React.FC = () => {
           animate={controls}
           initial={{ y: 0 }}
         >
-          {data?.concat(data).map((item, index) => (
-            <div
-              key={index}
-              id={`item-${item.id}`}
-              className='border-b border-gray-200 bg-white p-4'
-            >
+          {filteredItems.concat(filteredItems).map((item) => (
+            <div key={item.id} id={`item-${item.id}`} className='p-4'>
               {item.name}
             </div>
           ))}
