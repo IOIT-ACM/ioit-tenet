@@ -17,7 +17,7 @@ const cardData = [
   },
   {
     title: 'N',
-    description: 'Negotations',
+    description: 'Negotiations',
     color: 'bg-purple-600/90',
     zIndex: 30,
   },
@@ -45,7 +45,7 @@ const StackedCards: React.FC = () => {
         if (card.classList.contains('active')) {
           card.style.transform = `translate(0, 0)`;
         } else {
-          card.style.transform = `translate(0, 70vh)`;
+          card.style.transform = `translate(0, 160vh)`;
         }
       });
     };
@@ -119,18 +119,20 @@ const StackedCards: React.FC = () => {
             ))}
           </div>
         </div>
-        <div className='sticky top-0 flex h-screen items-center justify-center'>
-          <div className='w-[420px] text-8xl font-bold'>TENET</div>
-          <div className='mt-8 w-[420px] text-sm'>
+        <div className='sticky top-0 flex h-screen items-center justify-center text-center'>
+          <div className='w-full max-w-[420px] text-4xl font-bold md:text-5xl lg:text-6xl'>
+            TENET
+          </div>
+          <div className='mt-4 max-w-[420px] text-sm md:text-base lg:text-lg'>
             Τ.Ε.Ν.Ε.Τ goes beyond just an abbreviation of 5 niches. This event
             in its inception is an amalgamation of ideas where professionalism
-            meets the academia. This is an event where students learn, connect,
-            grow and most importantly have an experience worth remembering. From
+            meets academia. This is an event where students learn, connect, grow
+            and most importantly have an experience worth remembering. From
             E-summit to eSports and from Techfiesta to IOIT MUN&apos;24 and
-            Creator&apos;s Conclave, TENET, an event organised by the IOIT ACM
+            Creator&apos;s Conclave, TENET, an event organized by the IOIT ACM
             Student Chapter has something for everyone.
             <br />
-            <button className='mt-5 rounded-2xl bg-black px-6 py-3 text-white'>
+            <button className='mt-5 rounded-2xl bg-black px-6 py-3 text-sm text-white md:text-base'>
               See More Details
             </button>
           </div>
