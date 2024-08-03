@@ -95,24 +95,23 @@ export const SearchEvents: React.FC = () => {
   if (isLoading) return <div>Loading...</div>;
 
   return (
-    <div className='flex min-h-screen flex-col items-center justify-center bg-gray-100'>
-      <div className='mb-4 text-4xl font-bold'>1,800+ chains. One wallet.</div>
-      <div className='mb-8 text-lg'>
-        Ctrl Wallet supports millions of assets and NFTs on 1,800+ blockchains.
+    <div className='grid min-h-screen grid-cols-1 items-center justify-center gap-3 bg-gray-100 px-10 md:grid-cols-2 md:px-20'>
+      <div>
+        <div className='mb-4 text-4xl font-bold'>
+          Search through all events from TENET 2024
+        </div>
+        <div className='mb-8 text-lg'>
+          Tenet is an anaglam of Technology, Entrepreneurship, Negotiations,
+          E-Sports, Trends
+        </div>
+        <input
+          type='text'
+          className='mb-4 rounded-full border border-gray-400 p-3'
+          placeholder='Search events'
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
       </div>
-      <input
-        type='text'
-        className='mb-4 rounded border border-gray-400 p-2'
-        placeholder='Search'
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
-      <button
-        className='rounded bg-blue-500 p-2 text-white'
-        onClick={handleSearch}
-      >
-        Search
-      </button>
       <div
         className='relative mt-8 h-96 w-full max-w-sm overflow-hidden'
         ref={listRef}
