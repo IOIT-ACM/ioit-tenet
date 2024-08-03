@@ -17,32 +17,47 @@ const transition = {
 };
 
 const routes = [
-  { path: '/', name: 'Home' },
-  { path: '/events/techfiesta', name: 'Techfiesta' },
-  { path: '/events/esports', name: 'E-Sports' },
-  { path: '/events/entrepreneurship', name: 'Entrepreneurship' },
+  { path: '/techfiesta', name: 'Techfiesta' },
+  { path: '/esports', name: 'E-Sports' },
+  { path: '/entrepreneurship', name: 'Entrepreneurship' },
+  { path: '/esummit', name: 'ESummit' },
+  { path: '/creators', name: 'Creators Conclave' },
 ];
 
 export default function FixedNavBar({ className }: { className?: string }) {
   const videoPlayed = useStore((state) => state.videoPlayed);
   const [isVisible, setIsVisible] = useState(true);
   const [hovering, setHovering] = useState<null | string>(null);
+  const [lastScrollTop, setLastScrollTop] = useState(0);
+  const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up');
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      setIsVisible(scrollTop < 400);
+      const currentScrollTop =
+        window.scrollY || document.documentElement.scrollTop;
+
+      if (currentScrollTop > lastScrollTop) {
+        setScrollDirection('down');
+      } else {
+        setScrollDirection('up');
+      }
+
+      setLastScrollTop(currentScrollTop);
+      setIsVisible(currentScrollTop < 400);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollTop]);
 
   return (
     <motion.div
       initial={{ y: -100, opacity: !videoPlayed ? 0 : 1 }}
-      animate={{ y: videoPlayed ? 0 : -100, opacity: !videoPlayed ? 0 : 1 }}
-      transition={{ duration: 1.5 }}
+      animate={{
+        y: scrollDirection === 'down' && !isVisible ? -100 : 0,
+        opacity: !videoPlayed ? 0 : 1,
+      }}
+      transition={{ duration: 0.3 }}
       className='fixed top-5 z-30 flex w-screen items-center justify-between px-3 md:px-20'
     >
       <motion.div
