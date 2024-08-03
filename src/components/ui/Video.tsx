@@ -5,7 +5,7 @@ export const Video: React.FC<VideoProps> = ({
   type = 'video/mp4',
   width,
   height,
-  controls = true,
+  controls = false,
   autoPlay = false,
   loop = false,
   muted = false,
