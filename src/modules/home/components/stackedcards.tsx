@@ -95,7 +95,7 @@ const StackedCards: React.FC = () => {
   };
 
   return (
-    <div className='min-w-screen stack-area relative flex h-[400vh] w-full justify-center gap-8'>
+    <div className='min-w-screen stack-area relative flex h-[500vh] w-full justify-center gap-8'>
       <div className='sticky top-0 flex h-screen flex-col items-center justify-center gap-3 md:top-40 md:items-start md:justify-start'>
         <AnimatePresence>
           {cardData.map((card, index) => (
@@ -105,9 +105,13 @@ const StackedCards: React.FC = () => {
               initial={{ y: isMobile ? '100vh' : '160vh', opacity: 0 }}
               animate={{
                 y: activeIndex >= index + 1 ? 0 : isMobile ? '100vh' : '160vh',
-                opacity: 1,
+                opacity: activeIndex >= index + 1 ? 1 : 0,
               }}
               exit={{ y: isMobile ? '100vh' : '100vh', opacity: 0 }}
+              transition={{
+                y: { type: 'spring', stiffness: 50, damping: 20 },
+                opacity: { duration: 0.3 },
+              }}
             >
               <div className='absolute right-3 top-3 text-4xl font-bold'>
                 {card.title}
