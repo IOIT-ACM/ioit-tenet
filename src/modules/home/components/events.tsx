@@ -179,34 +179,32 @@ export const Events: React.FC = () => {
       </div>
 
       <div className='sticky top-0 hidden h-screen items-center text-center md:flex'>
-        {(activeIndex < 5 || activeIndex > 1) && (
-          <div className='relative h-[200px] w-[400px] overflow-hidden rounded-lg bg-gray-200 p-6 shadow-lg'>
-            <AnimatePresence initial={false}>
-              {descriptionData.map(
-                (item, index) =>
-                  activeIndex === index + 1 && (
-                    <motion.div
-                      key={item.title}
-                      initial={{
-                        y: scrollDirection === 'down' ? '100%' : '-100%',
-                        opacity: 0,
-                      }}
-                      animate={{ y: 0, opacity: 1 }}
-                      exit={{
-                        y: scrollDirection === 'down' ? '-100%' : '100%',
-                        opacity: 0,
-                      }}
-                      transition={{ duration: 0.5 }}
-                      className='absolute inset-0 p-6'
-                    >
-                      <h2 className='text-2xl font-bold'>{item.title}</h2>
-                      <p>{item.description}</p>
-                    </motion.div>
-                  ),
-              )}
-            </AnimatePresence>
-          </div>
-        )}
+        <div className='relative h-[200px] w-[400px]'>
+          <AnimatePresence initial={false}>
+            {descriptionData.map(
+              (item, index) =>
+                activeIndex === index + 1 && (
+                  <motion.div
+                    key={item.title}
+                    initial={{
+                      y: scrollDirection === 'down' ? 300 : -300,
+                      opacity: 0,
+                    }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{
+                      y: scrollDirection === 'down' ? -300 : 300,
+                      opacity: 0,
+                    }}
+                    transition={{ duration: 0.5 }}
+                    className='absolute inset-0 overflow-hidden rounded-lg bg-gray-200 p-6 shadow-lg'
+                  >
+                    <h2 className='text-2xl font-bold'>{item.title}</h2>
+                    <p>{item.description}</p>
+                  </motion.div>
+                ),
+            )}
+          </AnimatePresence>
+        </div>
       </div>
     </div>
   );
