@@ -95,20 +95,21 @@ const StackedCards: React.FC = () => {
   };
 
   return (
-    <div className='min-w-screen stack-area relative flex h-[400vh] w-full justify-center gap-5'>
-      <div className='sticky top-40 flex h-screen flex-col items-start gap-3'>
+    <div className='min-w-screen stack-area relative flex h-[400vh] w-full justify-center gap-8'>
+      <div className='sticky top-0 flex h-screen flex-col items-center justify-center gap-3 md:top-40 md:items-start md:justify-start'>
         <AnimatePresence>
           {cardData.map((card, index) => (
             <motion.div
               key={card.description}
-              className={`card relative flex h-[100px] w-[250px] flex-col items-end justify-between rounded-xl ${card.color} p-3`}
-              initial={{ y: isMobile ? '100vh' : '160vh' }}
+              className={`card relative flex h-[110px] w-[250px] cursor-pointer flex-col items-start justify-end rounded-xl hover:scale-105 ${card.color} p-3`}
+              initial={{ y: isMobile ? '100vh' : '160vh', opacity: 0 }}
               animate={{
                 y: activeIndex >= index + 1 ? 0 : isMobile ? '100vh' : '160vh',
+                opacity: 1,
               }}
-              exit={{ y: isMobile ? '100vh' : '160vh' }}
+              exit={{ y: isMobile ? '100vh' : '100vh', opacity: 0 }}
             >
-              <div className='absolute right-2 top-2 text-4xl font-bold'>
+              <div className='absolute right-3 top-3 text-4xl font-bold'>
                 {card.title}
               </div>
               <div className='h-fit w-fit rounded-full bg-white/30 px-3 py-1 text-xl'>
@@ -120,7 +121,7 @@ const StackedCards: React.FC = () => {
       </div>
 
       <div className='sticky top-40 hidden h-screen items-start text-center md:flex'>
-        <div className='relative h-[600px] w-[400px] overflow-hidden'>
+        <div className='relative h-[600px] w-[400px] overflow-hidden rounded-xl border-2 border-black'>
           <AnimatePresence initial={false}>
             <motion.div
               key={activeIndex}
@@ -138,7 +139,7 @@ const StackedCards: React.FC = () => {
         </div>
       </div>
 
-      <div className='sticky top-40 hidden h-screen items-start text-center md:flex'>
+      <div className='sticky top-0 hidden h-screen items-center justify-center text-center md:flex'>
         <div className='rounded-lg bg-gray-200 p-6 shadow-lg'>
           <h2 className='mb-4 text-2xl font-bold'>Static Text</h2>
           <p>This is a static card on the right side.</p>
