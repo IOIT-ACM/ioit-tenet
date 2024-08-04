@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable @typescript-eslint/no-floating-promises */
 'use client';
 
 import '@/styles/search.css';
@@ -56,6 +55,8 @@ export const SearchEvents: React.FC = () => {
   const scrollerRef = useRef<HTMLUListElement>(null);
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up');
   const [lastScrollTop, setLastScrollTop] = useState(0);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [isScrolling, setIsScrolling] = useState(true);
 
   useEffect(() => {
     addAnimation();
@@ -78,6 +79,37 @@ export const SearchEvents: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollTop]);
+
+  useEffect(() => {
+    if (searchTerm) {
+      console.log('Search Item');
+      const matchedItem = items.find(
+        (item) => item.name.toLowerCase() === searchTerm.toLowerCase(),
+      );
+      if (matchedItem && scrollerRef.current) {
+        console.log('Item found');
+        setIsScrolling(false);
+        const matchedElement = scrollerRef.current.children[
+          items.indexOf(matchedItem)
+        ] as HTMLElement;
+        if (matchedElement && containerRef.current) {
+          const containerHeight = containerRef.current.clientHeight;
+          const elementOffsetTop = matchedElement.offsetTop;
+          const elementHeight = matchedElement.clientHeight;
+          const scrollTop =
+            elementOffsetTop - containerHeight / 2 + elementHeight / 2;
+          containerRef.current.scrollTo({
+            top: scrollTop,
+            behavior: 'smooth',
+          });
+        }
+      } else {
+        setIsScrolling(true);
+      }
+    } else {
+      setIsScrolling(true);
+    }
+  }, [searchTerm]);
 
   const [start, setStart] = useState(false);
   function addAnimation() {
@@ -135,8 +167,8 @@ export const SearchEvents: React.FC = () => {
             type='text'
             className='mb-4 rounded-full border border-gray-400 p-3'
             placeholder='Search events'
-            // value={searchTerm}
-            // onChange={(e) => setSearchTerm(e.target.value)}
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
         <div
@@ -147,7 +179,7 @@ export const SearchEvents: React.FC = () => {
             ref={scrollerRef}
             className={cn(
               'flex w-max min-w-full shrink-0 flex-col flex-nowrap gap-3 py-4',
-              start && 'animate-scroll',
+              start && isScrolling && 'animate-scroll',
             )}
           >
             {items.map((item) => (
