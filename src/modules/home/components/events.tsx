@@ -5,6 +5,7 @@ import { useIsMobile } from '@/hooks/useismobile';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import { Separator } from '@/components/ui/separator';
 
 const cardData = [
   {
@@ -180,7 +181,7 @@ export const Events: React.FC = () => {
       </div>
 
       <div className='sticky top-0 hidden h-screen items-center text-center md:flex'>
-        <div className='relative h-[200px] w-[400px]'>
+        <div className='relative h-[300px] w-[400px]'>
           <AnimatePresence initial={false}>
             {activeIndex <= 5 ? (
               descriptionData.map(
@@ -200,7 +201,10 @@ export const Events: React.FC = () => {
                       transition={{ duration: 0.5 }}
                       className='absolute inset-0 overflow-hidden rounded-lg bg-gray-200 p-6 shadow-lg'
                     >
-                      <h2 className='text-2xl font-bold'>{item.title}</h2>
+                      <h2 className='text-2xl font-bold md:text-3xl'>
+                        {item.title}
+                      </h2>
+                      <Separator className='my-5 bg-black' />
                       <p>{item.description}</p>
                     </motion.div>
                   ),
