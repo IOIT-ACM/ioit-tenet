@@ -15,6 +15,7 @@ import {
 } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 
 interface Item {
   id: number;
@@ -126,13 +127,13 @@ export const SearchEvents: React.FC = () => {
         </div>
 
         <DrawOutlineButton />
-        <input
-          type='text'
-          className='mb-4 rounded-full border border-gray-400 p-3'
-          placeholder='Search events'
-          // value={searchTerm}
-          // onChange={(e) => setSearchTerm(e.target.value)}
-        />
+        
+  <div className='mb-4 rounded-full border border-gray-400'>
+  <ReactSearchAutocomplete
+  placeholder='Search events'
+  items={items}
+  />
+  </div>
       </div>
       <div
         ref={containerRef}
