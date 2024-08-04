@@ -15,7 +15,7 @@ import {
 } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
-
+import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 interface Item {
   id: number;
   name: string;
@@ -130,12 +130,10 @@ export const SearchEvents: React.FC = () => {
         >
           <span>View all events</span>
         </button>
-        <input
-          type='text'
-          className='mb-4 rounded-full border border-gray-400 p-3'
+        <ReactSearchAutocomplete
+          items={items}
+          className='mb-4 rounded-full border border-gray-400'
           placeholder='Search events'
-          // value={searchTerm}
-          // onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
       <div

@@ -1,25 +1,25 @@
 .scroll-container {
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  overflow: hidden;
 }
 
 .scroll-content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    animation: scroll var(--scroll-speed) linear infinite;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  animation: scroll var(--scroll-speed) linear infinite;
 }
 
 .scroll-item {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 @keyframes scroll {
-    0% {
-        transform: translateY(0);
-    }
+  0% {
+    transform: translateY(0);
+  }
 
-    100% {
-        transform: translateY(-100%);
-    }
+  100% {
+    transform: translateY(-100%);
+  }
 }
