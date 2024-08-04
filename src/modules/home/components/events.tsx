@@ -29,6 +29,34 @@ const cardData = [
   { title: 'T', description: 'Trends', color: 'bg-orange-600/90' },
 ];
 
+const descriptionData = [
+  {
+    title: 'Technology',
+    description:
+      'Join TechFiesta to explore technology and innovation. Engage in conferences on product management, Web 3.0, and AI, plus workshops on drones and generative AI. Compete in Capture the Flag, connect with industry leaders, and expand your tech horizons.',
+  },
+  {
+    title: 'Entrepreneurship',
+    description:
+      'E-Summit offers a journey into innovation, business, and marketing. Learn to transform ideas into businesses, hear success stories, and master marketing strategies. Network with industry leaders and attend workshops on business creation and securing sponsorships.',
+  },
+  {
+    title: 'Negotiations',
+    description:
+      'Join IOIT MUN 2024 for a dynamic simulation of the UN. Represent countries, debate global issues, and enhance your public speaking and negotiation skills. Connect with like-minded individuals and participate in impactful resolutions and networking opportunities.',
+  },
+  {
+    title: 'E-Sports',
+    description:
+      'Experience the thrill of eSports with our LAN tournaments. Step into an arena filled with energy and witness top-tier skill, strategy, and teamwork. Our event turns gaming into a spectacle, offering intense competition and excitement for players and spectators.',
+  },
+  {
+    title: 'Trends',
+    description:
+      'Creators Conclave is a full-day creativity explosion. Enjoy open mic, stand-up battles, and theatre showcases. Participate in workshops, network with other creatives, and immerse yourself in a funfair atmosphere. Showcase your talent and connect with the creative community.',
+  },
+];
+
 export const Events: React.FC = () => {
   const isMobile = useIsMobile();
   const [activeIndex, setActiveIndex] = useState(0);
@@ -130,6 +158,8 @@ export const Events: React.FC = () => {
       </div>
 
       <div className='sticky top-40 hidden h-screen items-start text-center md:flex'>
+        {/* Debuggind activeindex!!!!!! */}
+        {/* {activeIndex} */}
         <div className='relative h-[600px] w-full overflow-hidden rounded-xl border-2 border-black'>
           <AnimatePresence initial={false}>
             <motion.div
@@ -148,11 +178,35 @@ export const Events: React.FC = () => {
         </div>
       </div>
 
-      <div className='sticky top-0 hidden h-screen items-center justify-center text-center md:flex'>
-        <div className='rounded-lg bg-gray-200 p-6 shadow-lg'>
-          <h2 className='mb-4 text-2xl font-bold'>Static Text</h2>
-          <p>This is a static card on the right side.</p>
-        </div>
+      <div className='sticky top-0 hidden h-screen items-center text-center md:flex'>
+        {(activeIndex < 5 || activeIndex > 1) && (
+          <div className='relative h-[200px] w-[400px] overflow-hidden rounded-lg bg-gray-200 p-6 shadow-lg'>
+            <AnimatePresence initial={false}>
+              {descriptionData.map(
+                (item, index) =>
+                  activeIndex === index + 1 && (
+                    <motion.div
+                      key={item.title}
+                      initial={{
+                        y: scrollDirection === 'down' ? '100%' : '-100%',
+                        opacity: 0,
+                      }}
+                      animate={{ y: 0, opacity: 1 }}
+                      exit={{
+                        y: scrollDirection === 'down' ? '-100%' : '100%',
+                        opacity: 0,
+                      }}
+                      transition={{ duration: 0.5 }}
+                      className='absolute inset-0 p-6'
+                    >
+                      <h2 className='text-2xl font-bold'>{item.title}</h2>
+                      <p>{item.description}</p>
+                    </motion.div>
+                  ),
+              )}
+            </AnimatePresence>
+          </div>
+        )}
       </div>
     </div>
   );
