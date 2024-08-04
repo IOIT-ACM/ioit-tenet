@@ -34,6 +34,7 @@ const StackedCards: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('down');
   const lastScrollTop = useRef(0);
+  const lastActiveIndex = useRef(0);
 
   const handleScroll = useCallback(() => {
     const stackArea = document.querySelector<HTMLDivElement>('.stack-area');
@@ -44,13 +45,17 @@ const StackedCards: React.FC = () => {
         stackArea.getBoundingClientRect().top / window.innerHeight;
       if (proportion <= 0) {
         const n = cardData.length;
-        let index = Math.ceil((proportion * n) / 2);
+        let index = Math.ceil((proportion * n) / 6);
         index = Math.abs(index);
 
-        setScrollDirection(scrollTop > lastScrollTop.current ? 'down' : 'up');
-        lastScrollTop.current = scrollTop;
-
-        setActiveIndex(index);
+        // Add a threshold to prevent small scroll changes from triggering a card change
+        const threshold = 0.7; // Adjust this value to fine-tune scroll card sensitivity
+        if (Math.abs(index - lastActiveIndex.current) >= threshold) {
+          setScrollDirection(scrollTop > lastScrollTop.current ? 'down' : 'up');
+          lastScrollTop.current = scrollTop;
+          setActiveIndex(index);
+          lastActiveIndex.current = index;
+        }
       }
     }
   }, []);
@@ -95,7 +100,7 @@ const StackedCards: React.FC = () => {
   };
 
   return (
-    <div className='min-w-screen stack-area relative flex h-[500vh] w-full justify-center gap-8'>
+    <div className='min-w-screen stack-area relative flex h-[900vh] w-full justify-center gap-8'>
       <div className='sticky top-0 flex h-screen flex-col items-center justify-center gap-3 md:top-40 md:items-start md:justify-start'>
         <AnimatePresence>
           {cardData.map((card, index) => (
