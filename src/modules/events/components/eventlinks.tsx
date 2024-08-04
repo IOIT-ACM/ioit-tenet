@@ -3,8 +3,8 @@ import { useAnimate } from 'framer-motion';
 
 export const EventLinks = () => {
   return (
-    <div className='flex min-h-[70vh] items-center justify-center bg-neutral-50 px-4 py-12'>
-      <div className='mx-auto max-w-7xl'>
+    <div className='flex min-h-[70vh] w-screen items-center justify-center bg-neutral-50 px-4 py-12'>
+      <div className='mx-auto w-full max-w-screen-xl'>
         <ClipPathLinks />
       </div>
     </div>
@@ -15,7 +15,7 @@ const ClipPathLinks = () => {
   return (
     <div className='divide-y divide-neutral-900 border border-neutral-900'>
       <div className='grid grid-cols-2 divide-x divide-neutral-900'>
-        <LinkBox text='MUN' href='#' />
+        <LinkBox text='Creators Conclave' href='#' />
         <LinkBox text='Tech Fiesta' href='#' />
       </div>
       <div className='grid grid-cols-3 divide-x divide-neutral-900'>
@@ -25,7 +25,7 @@ const ClipPathLinks = () => {
       </div>
       <div className='grid grid-cols-4 divide-x divide-neutral-900'>
         <LinkBox text='Open Mic' href='#' />
-        <LinkBox text='Creators Conclave' href='#' />
+        <LinkBox text='MUN' href='#' />
         <LinkBox text='E-Sports' href='#' />
         <LinkBox text='Gaming' href='#' />
       </div>

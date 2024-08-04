@@ -228,7 +228,7 @@ export const Events: React.FC = () => {
                   href={'/events'}
                   className='text-2xl font-semibold md:text-4xl'
                 >
-                  Browse events
+                  Browse All Events
                 </Link>
               </motion.div>
             )}
