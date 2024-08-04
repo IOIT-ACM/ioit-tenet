@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { useIsMobile } from '@/hooks/useismobile';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -32,16 +32,24 @@ const cardData = [
 const StackedCards: React.FC = () => {
   const isMobile = useIsMobile();
   const [activeIndex, setActiveIndex] = useState(0);
+  const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('down');
+  const lastScrollTop = useRef(0);
 
   const handleScroll = useCallback(() => {
     const stackArea = document.querySelector<HTMLDivElement>('.stack-area');
     if (stackArea) {
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
       const proportion =
         stackArea.getBoundingClientRect().top / window.innerHeight;
       if (proportion <= 0) {
         const n = cardData.length;
         let index = Math.ceil((proportion * n) / 2);
         index = Math.abs(index);
+
+        setScrollDirection(scrollTop > lastScrollTop.current ? 'down' : 'up');
+        lastScrollTop.current = scrollTop;
+
         setActiveIndex(index);
       }
     }
@@ -74,6 +82,18 @@ const StackedCards: React.FC = () => {
     return index > 5 ? 0 : index;
   };
 
+  const getAnimationProps = (index: number) => {
+    if (index > 5) {
+      return {};
+    }
+    return {
+      initial: { y: scrollDirection === 'down' ? '100%' : '-100%' },
+      animate: { y: 0 },
+      exit: { y: scrollDirection === 'down' ? '-100%' : '100%' },
+      transition: { duration: 0.5 },
+    };
+  };
+
   return (
     <div className='min-w-screen stack-area relative flex h-[400vh] w-full justify-center gap-5'>
       <div className='sticky top-0 flex h-screen flex-col items-center justify-center gap-3'>
@@ -98,15 +118,13 @@ const StackedCards: React.FC = () => {
           ))}
         </AnimatePresence>
       </div>
+
       <div className='sticky top-0 hidden h-screen items-center justify-center text-center md:flex'>
         <div className='relative h-[600px] w-[400px] overflow-hidden'>
           <AnimatePresence initial={false}>
             <motion.div
               key={activeIndex}
-              initial={{ y: '100%' }}
-              animate={{ y: 0 }}
-              exit={{ y: '-100%' }}
-              transition={{ duration: 0.5 }}
+              {...getAnimationProps(activeIndex)}
               className='absolute inset-0'
             >
               <Image
@@ -119,6 +137,7 @@ const StackedCards: React.FC = () => {
           </AnimatePresence>
         </div>
       </div>
+
       <div className='sticky top-0 hidden h-screen items-center justify-center text-center md:flex'>
         <div className='rounded-lg bg-gray-200 p-6 shadow-lg'>
           <h2 className='mb-4 text-2xl font-bold'>Static Text</h2>
