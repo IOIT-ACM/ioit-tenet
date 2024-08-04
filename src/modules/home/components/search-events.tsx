@@ -58,6 +58,9 @@ export const SearchEvents: React.FC = () => {
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const [searchTerm, setSearchTerm] = useState('');
   const [isScrolling, setIsScrolling] = useState(true);
+  const [activeSuggestionIndex, setActiveSuggestionIndex] = useState<
+    number | null
+  >(null);
 
   useEffect(() => {
     addAnimation();
@@ -83,12 +86,10 @@ export const SearchEvents: React.FC = () => {
 
   useEffect(() => {
     if (searchTerm) {
-      console.log('Search Item');
       const matchedItem = items.find(
         (item) => item.name.toLowerCase() === searchTerm.toLowerCase(),
       );
       if (matchedItem && scrollerRef.current) {
-        console.log('Item found');
         setIsScrolling(false);
         const matchedElement = scrollerRef.current.children[
           items.indexOf(matchedItem)
@@ -111,6 +112,42 @@ export const SearchEvents: React.FC = () => {
       setIsScrolling(true);
     }
   }, [searchTerm]);
+
+  const getSuggestions = (searchTerm: string) => {
+    if (!searchTerm) return [];
+    const term = searchTerm.toLowerCase();
+    return items
+      .filter((item) => item.name.toLowerCase().includes(term))
+      .sort(
+        (a, b) =>
+          a.name.toLowerCase().indexOf(term) -
+          b.name.toLowerCase().indexOf(term),
+      );
+  };
+
+  const suggestions = getSuggestions(searchTerm);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (suggestions.length > 0) {
+        if (e.key === 'ArrowDown') {
+          setActiveSuggestionIndex((prev) =>
+            prev === null || prev === suggestions.length - 1 ? 0 : prev + 1,
+          );
+        } else if (e.key === 'ArrowUp') {
+          setActiveSuggestionIndex((prev) =>
+            prev === null || prev === 0 ? suggestions.length - 1 : prev - 1,
+          );
+        } else if (e.key === 'Enter' && activeSuggestionIndex !== null) {
+          setSearchTerm(suggestions[activeSuggestionIndex]?.name ?? '');
+          setActiveSuggestionIndex(null);
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [suggestions, activeSuggestionIndex]);
 
   const [start, setStart] = useState(false);
   function addAnimation() {
@@ -151,19 +188,15 @@ export const SearchEvents: React.FC = () => {
     }
   };
 
-  const getSuggestions = (searchTerm: string) => {
-    if (!searchTerm) return [];
-    const term = searchTerm.toLowerCase();
-    return items
-      .filter((item) => item.name.toLowerCase().includes(term))
-      .sort(
-        (a, b) =>
-          a.name.toLowerCase().indexOf(term) -
-          b.name.toLowerCase().indexOf(term),
-      );
-  };
-
-  const suggestions = getSuggestions(searchTerm);
+  useEffect(() => {
+    if (suggestions.length > 0) {
+      if (!activeSuggestionIndex) {
+        setActiveSuggestionIndex(0);
+      }
+    } else {
+      setActiveSuggestionIndex(0);
+    }
+  }, [suggestions, searchTerm]);
 
   return (
     <div className='h-[200vh]'>
@@ -189,6 +222,7 @@ export const SearchEvents: React.FC = () => {
             />
             <AnimatePresence>
               {searchTerm.length > 0 &&
+                suggestions.length > 0 &&
                 suggestions[0]?.name.toLowerCase() !==
                   searchTerm.toLowerCase() && (
                   <motion.div
@@ -197,10 +231,13 @@ export const SearchEvents: React.FC = () => {
                     exit={{ opacity: 0, y: -10 }}
                     className='absolute z-10 mt-1 max-h-[250px] w-full overflow-y-auto rounded-3xl border border-gray-400 bg-white text-gray-400'
                   >
-                    {suggestions.map((item) => (
+                    {suggestions.map((item, index) => (
                       <div
                         key={item.id}
-                        className='grid cursor-pointer items-center px-8 py-5 text-xl hover:text-gray-700'
+                        className={cn(
+                          'grid cursor-pointer items-center px-8 py-5 text-xl hover:text-gray-700',
+                          activeSuggestionIndex === index && 'bg-gray-200',
+                        )}
                         onClick={() => setSearchTerm(item.name)}
                       >
                         {item.name}
