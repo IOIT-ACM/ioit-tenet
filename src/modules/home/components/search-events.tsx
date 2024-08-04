@@ -14,6 +14,7 @@ import {
 } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface Item {
   id: number;
@@ -159,8 +160,7 @@ export const SearchEvents: React.FC = () => {
         (a, b) =>
           a.name.toLowerCase().indexOf(term) -
           b.name.toLowerCase().indexOf(term),
-      )
-      .slice(0, 6);
+      );
   };
 
   const suggestions = getSuggestions(searchTerm);
@@ -179,7 +179,7 @@ export const SearchEvents: React.FC = () => {
           >
             <span>View all events</span>
           </button>
-          <div className='w-full'>
+          <div className='relative w-full'>
             <input
               type='text'
               className='mb-2 h-[60px] w-full rounded-full border border-gray-400 p-3 px-8 text-xl'
@@ -187,19 +187,28 @@ export const SearchEvents: React.FC = () => {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-            {searchTerm.length > 0 && (
-              <div className='grid gap-4 rounded-3xl border border-gray-400 bg-white px-8 py-5 text-gray-400'>
-                {suggestions.slice(0, 6).map((item) => (
-                  <div
-                    key={item.id}
-                    className='grid cursor-pointer items-center text-xl hover:text-gray-700'
-                    onClick={() => setSearchTerm(item.name)}
+            <AnimatePresence>
+              {searchTerm.length > 0 &&
+                suggestions[0]?.name.toLowerCase() !==
+                  searchTerm.toLowerCase() && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className='absolute z-10 mt-1 max-h-[250px] w-full overflow-y-auto rounded-3xl border border-gray-400 bg-white text-gray-400'
                   >
-                    {item.name}
-                  </div>
-                ))}
-              </div>
-            )}
+                    {suggestions.map((item) => (
+                      <div
+                        key={item.id}
+                        className='grid cursor-pointer items-center px-8 py-5 text-xl hover:text-gray-700'
+                        onClick={() => setSearchTerm(item.name)}
+                      >
+                        {item.name}
+                      </div>
+                    ))}
+                  </motion.div>
+                )}
+            </AnimatePresence>
           </div>
         </div>
         <div
