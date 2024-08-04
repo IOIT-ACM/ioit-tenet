@@ -95,9 +95,9 @@ const StackedCards: React.FC = () => {
               <motion.div
                 key={index}
                 className={`card relative flex h-[100px] w-[250px] flex-col items-end justify-between rounded-xl ${card.color} grid p-3`}
-                style={{
-                  zIndex: card.zIndex,
-                }}
+                // style={{
+                //   zIndex: card.zIndex,
+                // }}
                 initial={{
                   y: isMobile ? '100vh' : '160vh',
                 }}

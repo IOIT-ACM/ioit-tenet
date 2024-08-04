@@ -65,7 +65,7 @@ const Agenda = () => {
 
       {/* Button */}
       <motion.div
-        className={`fixed flex cursor-pointer items-center justify-center gap-4 rounded-full bg-gray-500 px-8 py-4 text-xl font-bold text-white transition-all duration-500 hover:scale-105 md:text-3xl`}
+        className={`fixed z-50 flex cursor-pointer items-center justify-center gap-4 rounded-full bg-gray-500 px-8 py-4 text-xl font-bold text-white transition-all duration-500 hover:scale-105 md:text-3xl`}
         initial={{ opacity: 0, bottom: 300 }}
         animate={{
           opacity: 1,

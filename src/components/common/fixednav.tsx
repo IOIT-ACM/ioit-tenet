@@ -52,9 +52,9 @@ export default function FixedNavBar({ className }: { className?: string }) {
 
   return (
     <motion.div
-      initial={{ y: -100, opacity: !videoPlayed ? 0 : 1 }}
+      initial={{ y: -100, opacity: 0 }}
       animate={{
-        y: scrollDirection === 'down' && !isVisible ? -100 : 0,
+        y: scrollDirection === 'down' && !isVisible && videoPlayed ? -100 : 0,
         opacity: !videoPlayed ? 0 : 1,
       }}
       transition={{ duration: 0.3 }}
@@ -95,12 +95,13 @@ export default function FixedNavBar({ className }: { className?: string }) {
               <Link href={route.path}>
                 {route.path === hovering && (
                   <motion.div
+                    initial={{ scale: 0.7 }}
                     key='hoveredBackground'
                     layoutId='hoveredBackground'
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{
                       opacity: 0,
-                      scale: 0,
+                      scale: 0.1,
                     }}
                     transition={{ type: 'spring', bounce: 0.3, duration: 0.6 }}
                     className='absolute inset-0 rounded-full bg-gray-300'

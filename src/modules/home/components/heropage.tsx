@@ -7,7 +7,6 @@ import { useStore } from '@/store';
 import { Landing } from './hero';
 
 export const Hero = () => {
-  const [videoEnded, setVideoEnded] = useState(false);
   const [isSkipVisible, setIsSkipVisible] = useState(false);
   const videoPlayed = useStore((state) => state.videoPlayed);
   const setVideoPlayed = useStore((state) => state.setVideoPlayed);
@@ -21,18 +20,16 @@ export const Hero = () => {
   }, []);
 
   const handleVideoEnded = () => {
-    setVideoEnded(true);
     setVideoPlayed(true);
   };
 
   const handleSkip = () => {
-    setVideoEnded(true);
     setVideoPlayed(true);
   };
 
   return (
     <div className='relative'>
-      {!videoEnded && !videoPlayed ? (
+      {!videoPlayed ? (
         <>
           <div>
             <Video

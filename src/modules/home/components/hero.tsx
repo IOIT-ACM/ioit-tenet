@@ -2,13 +2,13 @@
 
 import { motion } from 'framer-motion';
 import Agenda from './agendabutton';
-import { useParallax } from 'react-scroll-parallax';
+// import { useParallax } from 'react-scroll-parallax';
 import { useEffect, useState } from 'react';
 
 export const Landing = () => {
-  const title = useParallax<HTMLDivElement>({
-    scale: [1.2, 0.5, 'easeInQuad'],
-  });
+  // const title = useParallax<HTMLDivElement>({
+  //   scale: [1, 0.5, 'easeInQuad'],
+  // });
 
   const [hidden, setHidden] = useState(false);
 
@@ -35,7 +35,7 @@ export const Landing = () => {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: hidden ? 0 : 1, y: 0 }}
         transition={{ duration: 1 }}
-        ref={title.ref}
+        // ref={title.ref}
       >
         IOIT <span className='text-[hsl(280,100%,70%)]'>TENET</span> 2024
       </motion.span>

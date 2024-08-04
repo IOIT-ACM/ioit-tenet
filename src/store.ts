@@ -16,14 +16,14 @@ interface Action {
 export const useStateStore = create<State & Action>()(
   persist(
     (set) => ({
-      videoPlayed: false,
+      videoPlayed: true,
 
       setVideoPlayed: (videoPlayed) => set(() => ({ videoPlayed })),
     }),
     {
       name: 'ioit-tenet-storage',
       partialize: () => ({
-        autoSync: true,
+        autoSync: false,
       }),
     },
   ),
