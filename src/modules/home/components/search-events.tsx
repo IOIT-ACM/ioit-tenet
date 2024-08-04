@@ -143,11 +143,27 @@ export const SearchEvents: React.FC = () => {
       }
     }
   };
+
   const getSpeed = () => {
     if (containerRef.current) {
       containerRef.current.style.setProperty('--animation-duration', '150s');
     }
   };
+
+  const getSuggestions = (searchTerm: string) => {
+    if (!searchTerm) return [];
+    const term = searchTerm.toLowerCase();
+    return items
+      .filter((item) => item.name.toLowerCase().includes(term))
+      .sort(
+        (a, b) =>
+          a.name.toLowerCase().indexOf(term) -
+          b.name.toLowerCase().indexOf(term),
+      )
+      .slice(0, 6);
+  };
+
+  const suggestions = getSuggestions(searchTerm);
 
   return (
     <div className='h-[200vh]'>
@@ -163,13 +179,28 @@ export const SearchEvents: React.FC = () => {
           >
             <span>View all events</span>
           </button>
-          <input
-            type='text'
-            className='mb-4 rounded-full border border-gray-400 p-3'
-            placeholder='Search events'
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
+          <div className='w-full'>
+            <input
+              type='text'
+              className='mb-2 h-[60px] w-full rounded-full border border-gray-400 p-3 px-8 text-xl'
+              placeholder='Search events'
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            {searchTerm.length > 0 && (
+              <div className='grid gap-4 rounded-3xl border border-gray-400 bg-white px-8 py-5 text-gray-400'>
+                {suggestions.slice(0, 6).map((item) => (
+                  <div
+                    key={item.id}
+                    className='grid cursor-pointer items-center text-xl hover:text-gray-700'
+                    onClick={() => setSearchTerm(item.name)}
+                  >
+                    {item.name}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
         <div
           ref={containerRef}
