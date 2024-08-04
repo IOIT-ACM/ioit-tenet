@@ -34,12 +34,10 @@ const items: Item[] = [
   { id: 9, name: 'Gen Ai Workshop', icon: <FaCalendar /> },
   { id: 10, name: 'Drone/Robotics Display', icon: <FaRobot /> },
   { id: 11, name: 'E-Summit', icon: <FaCalendar /> },
-  { id: 15, name: 'Break', icon: <FaStar /> },
   { id: 17, name: 'Pitching Competition Finals', icon: <FaMicrophone /> },
   { id: 19, name: 'MUN', icon: <FaMapMarkerAlt /> },
   { id: 21, name: 'Opening Ceremony', icon: <FaVideo /> },
   { id: 22, name: 'Committee session', icon: <FaCalendar /> },
-  { id: 23, name: 'Lunch', icon: <FaCalendar /> },
   { id: 25, name: 'High tea', icon: <FaCalendar /> },
   { id: 26, name: "Creator's Conclave", icon: <FaStar /> },
   { id: 29, name: 'Stand UP', icon: <FaMicrophone /> },
@@ -53,6 +51,7 @@ const items: Item[] = [
 ];
 
 export const SearchEvents: React.FC = () => {
+  const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollerRef = useRef<HTMLUListElement>(null);
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up');
@@ -114,18 +113,23 @@ export const SearchEvents: React.FC = () => {
   };
   const getSpeed = () => {
     if (containerRef.current) {
-      containerRef.current.style.setProperty('--animation-duration', '120s');
+      containerRef.current.style.setProperty('--animation-duration', '150s');
     }
   };
 
   return (
-    <div className='grid h-screen grid-cols-1 items-center justify-center gap-3 overflow-hidden bg-gray-100 px-10 md:grid-cols-2 md:px-20'>
+    <div className='grid h-screen grid-cols-1 items-center justify-center gap-3 overflow-hidden bg-gray-100 px-10 text-gray-800 md:grid-cols-2 md:px-20'>
       <div className='grid gap-5'>
-        <div className='text-4xl font-bold'>
-          Search through all events from TENET 2024
+        <div className='font-bold md:text-6xl'>
+          Search through all events from <br /> TENET 2024
         </div>
 
-        <DrawOutlineButton />
+        <button
+          onClick={() => router.push('/events')}
+          className='rounded-2xl border-2 border-dashed border-black bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none'
+        >
+          <span>View all events</span>
+        </button>
         <input
           type='text'
           className='mb-4 rounded-full border border-gray-400 p-3'
@@ -141,14 +145,14 @@ export const SearchEvents: React.FC = () => {
         <ul
           ref={scrollerRef}
           className={cn(
-            'flex w-max min-w-full shrink-0 flex-col flex-nowrap gap-4 py-4',
+            'flex w-max min-w-full shrink-0 flex-col flex-nowrap gap-3 py-4',
             start && 'animate-scroll',
           )}
         >
           {items.map((item) => (
             <div
               key={item.id}
-              className='scroll-item flex items-center p-4 text-2xl'
+              className='scroll-item flex items-center p-4 text-xl lg:text-4xl'
             >
               <div className='mr-4 rounded-full border-4 bg-white p-4 text-black'>
                 {item.icon}
@@ -159,30 +163,5 @@ export const SearchEvents: React.FC = () => {
         </ul>
       </div>
     </div>
-  );
-};
-
-const DrawOutlineButton = () => {
-  const router = useRouter();
-
-  return (
-    <button
-      onClick={() => router.push('/events')}
-      className='group relative w-fit px-4 py-2 font-medium text-black transition-colors hover:text-gray-500'
-    >
-      <span>View all events</span>
-
-      {/* TOP */}
-      <span className='absolute left-0 top-0 h-[2px] w-0 bg-indigo-300 transition-all duration-100 group-hover:w-full' />
-
-      {/* RIGHT */}
-      <span className='absolute right-0 top-0 h-0 w-[2px] bg-indigo-300 transition-all delay-100 duration-100 group-hover:h-full' />
-
-      {/* BOTTOM */}
-      <span className='absolute bottom-0 right-0 h-[2px] w-0 bg-indigo-300 transition-all delay-200 duration-100 group-hover:w-full' />
-
-      {/* LEFT */}
-      <span className='absolute bottom-0 left-0 h-0 w-[2px] bg-indigo-300 transition-all delay-300 duration-100 group-hover:h-full' />
-    </button>
   );
 };

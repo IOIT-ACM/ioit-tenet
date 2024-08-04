@@ -18,9 +18,8 @@ const transition = {
 
 const routes = [
   { path: '/events/techfiesta', name: 'Techfiesta' },
-  { path: '/events/esports', name: 'E-Sports' },
-  { path: '/events/entrepreneurship', name: 'Entrepreneurship' },
-  { path: '/events/esummit', name: 'ESummit' },
+  { path: '/events/esports', name: 'E-Summit' },
+  { path: '/events/entrepreneurship', name: 'MUN' },
   { path: '/events/creators', name: 'Creators Conclave' },
 ];
 
@@ -68,7 +67,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
       >
         <Image
           className='h-10 w-10 cursor-pointer transition-all hover:scale-105 md:h-20 md:w-20'
-          src={'/tenet.png'}
+          src={'/tenet-fill.png'}
           alt='Tenet Logo'
           height={70}
           width={70}

@@ -52,7 +52,7 @@ const Card = ({ card }: { card: CardType }) => {
         className='absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110'
       ></div>
       <div className='absolute inset-0 z-10 grid place-content-center overflow-hidden rounded-full'>
-        <p className='rounded-full bg-gradient-to-br from-white/20 to-white/0 p-8 text-6xl uppercase text-white backdrop-blur-lg'>
+        <p className='rounded-full bg-gradient-to-br from-white/20 to-white/0 p-8 text-3xl uppercase text-white backdrop-blur-xl'>
           {card.title}
         </p>
       </div>
@@ -69,52 +69,52 @@ type CardType = {
 const cards: CardType[] = [
   {
     url: '/imgs/events/1.jpeg',
-    title: 'Title 1',
+    title: 'Tech-Fiesta',
     id: 1,
   },
   {
     url: '/imgs/events/2.jpeg',
-    title: 'Title 2',
+    title: 'WEB 3',
     id: 2,
   },
   {
     url: '/imgs/events/3.jpeg',
-    title: 'Title 3',
+    title: 'Drone/Robotics',
     id: 3,
   },
   {
     url: '/imgs/events/4.jpeg',
-    title: 'Title 4',
+    title: 'E-Summit',
     id: 4,
   },
   {
     url: '/imgs/events/5.jpeg',
-    title: 'Title 5',
+    title: 'Stand UP',
     id: 5,
   },
   {
     url: '/imgs/events/6.jpeg',
-    title: 'Title 6',
+    title: 'Creators Conclave',
     id: 6,
   },
   {
     url: '/imgs/events/7.jpeg',
-    title: 'Title 7',
+    title: 'Theater act',
     id: 7,
   },
   {
     url: '/imgs/events/8.jpeg',
-    title: 'Title 8',
+    title: 'LAN Tournaments',
     id: 8,
   },
   {
     url: '/imgs/events/9.jpeg',
-    title: 'Title 9',
+    title: 'E-Sports',
     id: 9,
   },
   {
     url: '/imgs/events/10.jpeg',
-    title: 'Title 10',
+    title: 'Coding Games',
     id: 10,
   },
 ];

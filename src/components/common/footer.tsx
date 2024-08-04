@@ -81,13 +81,6 @@ const FlipLink = ({ children, href }: { children: string; href: string }) => {
 };
 
 function Footer() {
-  const tenetLinks = [
-    { href: '/gallery', text: 'Gallery' },
-    { href: '/events', text: 'Events' },
-    { href: '/contact', text: 'Contact Us' },
-    { href: '/about', text: 'About' },
-  ];
-
   const day1Events = [{ href: '/events/tech-fiesta', text: 'Tech-Fiesta' }];
 
   const day2Events = [
@@ -135,20 +128,6 @@ function Footer() {
               <BsLinkedin />
             </Link>
           </div>
-        </div>
-
-        <div className='mb-6 w-fit md:mb-0'>
-          <h3 className='font-bold text-white'>TENET Links</h3>
-          <Separator className='my-2' />
-          <ul>
-            {tenetLinks.map((link) => (
-              <li key={link.href}>
-                <Link href={link.href} className='hover:text-gray-400'>
-                  {link.text}
-                </Link>
-              </li>
-            ))}
-          </ul>
         </div>
 
         <div className='mb-6 w-fit md:mb-0'>

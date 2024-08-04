@@ -66,7 +66,7 @@ const Agenda = () => {
       {/* Button */}
       <AnimatePresence>
         <motion.div
-          className={`fixed z-50 flex cursor-pointer items-center justify-center ${(!isScrolled || isHovered) && 'gap-4'} overflow-hidden rounded-full bg-gray-500 px-8 py-4 text-xl font-bold text-white transition-all duration-500 md:text-3xl`}
+          className={`fixed z-50 flex cursor-pointer items-center justify-center ${(!isScrolled || isHovered) && 'gap-4'} overflow-hidden rounded-full border-2 border-black bg-green-500 px-8 py-4 text-xl font-bold text-white ring-2 ring-white transition-all duration-500 md:text-3xl`}
           initial={{ opacity: 0, bottom: 300 }}
           animate={{
             opacity: 1,

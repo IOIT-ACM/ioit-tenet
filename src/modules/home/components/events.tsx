@@ -23,7 +23,7 @@ const cardData = [
   },
   {
     title: 'E',
-    description: 'Entrepreneurship',
+    description: 'E-Sports',
     color: 'bg-pink-600/90',
   },
   { title: 'T', description: 'Trends', color: 'bg-orange-600/90' },
