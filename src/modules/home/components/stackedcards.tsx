@@ -70,6 +70,10 @@ const StackedCards: React.FC = () => {
     };
   }, [handleScroll, adjustLayout]);
 
+  const getImageIndex = (index: number) => {
+    return index > 5 ? 0 : index;
+  };
+
   return (
     <div className='min-w-screen stack-area relative flex h-[400vh] w-full justify-center gap-5'>
       <div className='sticky top-0 flex h-screen flex-col items-center justify-center gap-3'>
@@ -95,25 +99,25 @@ const StackedCards: React.FC = () => {
         </AnimatePresence>
       </div>
       <div className='sticky top-0 hidden h-screen items-center justify-center text-center md:flex'>
-        <AnimatePresence mode='wait'>
-          {activeIndex >= 0 && activeIndex <= 5 && (
+        <div className='relative h-[600px] w-[400px] overflow-hidden'>
+          <AnimatePresence initial={false}>
             <motion.div
               key={activeIndex}
-              initial={{ opacity: 0, y: 100 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -100 }}
-              transition={{ duration: 0.3 }}
+              initial={{ y: '100%' }}
+              animate={{ y: 0 }}
+              exit={{ y: '-100%' }}
+              transition={{ duration: 0.5 }}
+              className='absolute inset-0'
             >
               <Image
-                src={`/tenet/${activeIndex}.jpeg`}
-                alt={`Tenet image ${activeIndex}`}
-                height={600}
-                width={400}
-                className=''
+                src={`/tenet/${getImageIndex(activeIndex)}.jpeg`}
+                alt={`Tenet image ${getImageIndex(activeIndex)}`}
+                layout='fill'
+                objectFit='cover'
               />
             </motion.div>
-          )}
-        </AnimatePresence>
+          </AnimatePresence>
+        </div>
       </div>
       <div className='sticky top-0 hidden h-screen items-center justify-center text-center md:flex'>
         <div className='rounded-lg bg-gray-200 p-6 shadow-lg'>
