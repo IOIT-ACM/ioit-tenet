@@ -100,8 +100,8 @@ export const Events: React.FC = () => {
   };
 
   return (
-    <div className='min-w-screen stack-area relative flex h-[900vh] w-full justify-center gap-8'>
-      <div className='sticky top-0 flex h-screen flex-col items-center justify-center gap-3 md:top-40 md:items-start md:justify-start'>
+    <div className='min-w-screen stack-area relative mx-auto grid h-[900vh] w-full grid-cols-1 justify-center gap-8 md:grid-cols-3'>
+      <div className='sticky top-0 flex h-screen flex-col items-center justify-center gap-3 md:top-40 md:justify-start'>
         <AnimatePresence>
           {cardData.map((card, index) => (
             <motion.div
@@ -130,7 +130,7 @@ export const Events: React.FC = () => {
       </div>
 
       <div className='sticky top-40 hidden h-screen items-start text-center md:flex'>
-        <div className='relative h-[600px] w-[400px] overflow-hidden rounded-xl border-2 border-black'>
+        <div className='relative h-[600px] w-full overflow-hidden rounded-xl border-2 border-black'>
           <AnimatePresence initial={false}>
             <motion.div
               key={activeIndex}
