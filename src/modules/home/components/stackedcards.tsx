@@ -96,7 +96,7 @@ const StackedCards: React.FC = () => {
 
   return (
     <div className='min-w-screen stack-area relative flex h-[400vh] w-full justify-center gap-5'>
-      <div className='sticky top-0 flex h-screen flex-col items-center justify-center gap-3'>
+      <div className='sticky top-40 flex h-screen flex-col items-start gap-3'>
         <AnimatePresence>
           {cardData.map((card, index) => (
             <motion.div
@@ -119,7 +119,7 @@ const StackedCards: React.FC = () => {
         </AnimatePresence>
       </div>
 
-      <div className='sticky top-0 hidden h-screen items-center justify-center text-center md:flex'>
+      <div className='sticky top-40 hidden h-screen items-start text-center md:flex'>
         <div className='relative h-[600px] w-[400px] overflow-hidden'>
           <AnimatePresence initial={false}>
             <motion.div
@@ -138,7 +138,7 @@ const StackedCards: React.FC = () => {
         </div>
       </div>
 
-      <div className='sticky top-0 hidden h-screen items-center justify-center text-center md:flex'>
+      <div className='sticky top-40 hidden h-screen items-start text-center md:flex'>
         <div className='rounded-lg bg-gray-200 p-6 shadow-lg'>
           <h2 className='mb-4 text-2xl font-bold'>Static Text</h2>
           <p>This is a static card on the right side.</p>
