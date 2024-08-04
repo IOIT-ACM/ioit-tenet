@@ -1,128 +1,124 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useIsMobile } from '@/hooks/useismobile';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const cardData = [
   {
     title: 'T',
     description: 'Technology',
     color: 'bg-blue-600/90',
-    zIndex: 50,
   },
   {
     title: 'E',
     description: 'Entrepreneurship',
     color: 'bg-red-600/90',
-    zIndex: 40,
   },
   {
     title: 'N',
     description: 'Negotiations',
     color: 'bg-purple-600/90',
-    zIndex: 30,
   },
   {
     title: 'E',
     description: 'Entrepreneurship',
     color: 'bg-pink-600/90',
-    zIndex: 20,
   },
-  {
-    title: 'T',
-    description: 'Trends',
-    color: 'bg-orange-600/90',
-    zIndex: 10,
-  },
+  { title: 'T', description: 'Trends', color: 'bg-orange-600/90' },
 ];
-
-const images = ['/T.jpg', 'En.avif', 'N.jpg', 'Es.webp', 'T.webp'];
 
 const StackedCards: React.FC = () => {
   const isMobile = useIsMobile();
-  const [activeIndex, setActiveIndex] = useState(-1);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleScroll = useCallback(() => {
+    const stackArea = document.querySelector<HTMLDivElement>('.stack-area');
+    if (stackArea) {
+      const proportion =
+        stackArea.getBoundingClientRect().top / window.innerHeight;
+      if (proportion <= 0) {
+        const n = cardData.length;
+        let index = Math.ceil((proportion * n) / 2);
+        index = Math.abs(index);
+        setActiveIndex(index);
+      }
+    }
+  }, []);
+
+  const adjustLayout = useCallback(() => {
+    const windowWidth = window.innerWidth;
+    const left = document.querySelector<HTMLDivElement>('.left');
+    const stackArea = document.querySelector<HTMLDivElement>('.stack-area');
+    if (left && stackArea) {
+      if (windowWidth < 800) {
+        stackArea.insertAdjacentElement('beforebegin', left);
+      } else {
+        stackArea.insertAdjacentElement('afterbegin', left);
+      }
+    }
+  }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const stackArea = document.querySelector<HTMLDivElement>('.stack-area');
-      if (stackArea) {
-        const proportion =
-          stackArea.getBoundingClientRect().top / window.innerHeight;
-        if (proportion <= 0) {
-          const n = cardData.length;
-          let index = Math.ceil((proportion * n) / 2);
-          index = Math.abs(index) - 1;
-          setActiveIndex(index);
-        }
-      }
-    };
-
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', adjustLayout);
+    adjustLayout();
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', adjustLayout);
     };
-  }, []);
-
-  useEffect(() => {
-    const adjust = () => {
-      const windowWidth = window.innerWidth;
-      const left = document.querySelector<HTMLDivElement>('.left');
-      if (left) {
-        const stackArea = document.querySelector<HTMLDivElement>('.stack-area');
-        if (windowWidth < 800) {
-          stackArea?.insertAdjacentElement('beforebegin', left);
-        } else {
-          stackArea?.insertAdjacentElement('afterbegin', left);
-        }
-      }
-    };
-
-    adjust();
-    window.addEventListener('resize', adjust);
-    return () => {
-      window.removeEventListener('resize', adjust);
-    };
-  }, []);
+  }, [handleScroll, adjustLayout]);
 
   return (
-    <div className='min-w-screen min-h-screen'>
-      <div className='stack-area relative flex h-[400vh] w-full justify-center'>
-        <div className='sticky top-0 flex h-screen items-center justify-center'>
-          <div className='cards grid h-fit w-full gap-3'>
-            {cardData.map((card, index) => (
-              <motion.div
-                key={index}
-                className={`card relative flex h-[100px] w-[250px] flex-col items-end justify-between rounded-xl ${card.color} grid p-3`}
-                // style={{
-                //   zIndex: card.zIndex,
-                // }}
-                initial={{
-                  y: isMobile ? '100vh' : '160vh',
-                }}
-                animate={{
-                  y: activeIndex >= index ? 0 : isMobile ? '100vh' : '160vh',
-                }}
-                // transition={{ type: 'spring', stiffness: 300 }}
-              >
-                <div className='absolute right-2 top-2 text-4xl font-bold'>
-                  {card.title}
-                </div>
-                <div className='h-fit w-fit rounded-full bg-white/30 px-3 py-1 text-xl'>
-                  {card.description}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-        <div className='sticky top-0 hidden h-screen items-center justify-center text-center md:flex'>
-          <Image
-            src={`/tenet/${images[activeIndex < 4 || activeIndex > 1 ? activeIndex + 1 : 0]}`}
-            alt={`Tenet image ${activeIndex}`}
-            height={200}
-            width={200}
-          />
+    <div className='min-w-screen stack-area relative flex h-[400vh] w-full justify-center gap-5'>
+      <div className='sticky top-0 flex h-screen flex-col items-center justify-center gap-3'>
+        <AnimatePresence>
+          {cardData.map((card, index) => (
+            <motion.div
+              key={card.description}
+              className={`card relative flex h-[100px] w-[250px] flex-col items-end justify-between rounded-xl ${card.color} p-3`}
+              initial={{ y: isMobile ? '100vh' : '160vh' }}
+              animate={{
+                y: activeIndex >= index + 1 ? 0 : isMobile ? '100vh' : '160vh',
+              }}
+              exit={{ y: isMobile ? '100vh' : '160vh' }}
+            >
+              <div className='absolute right-2 top-2 text-4xl font-bold'>
+                {card.title}
+              </div>
+              <div className='h-fit w-fit rounded-full bg-white/30 px-3 py-1 text-xl'>
+                {card.description}
+              </div>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </div>
+      <div className='sticky top-0 hidden h-screen items-center justify-center text-center md:flex'>
+        <AnimatePresence mode='wait'>
+          {activeIndex >= 0 && activeIndex <= 5 && (
+            <motion.div
+              key={activeIndex}
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -100 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Image
+                src={`/tenet/${activeIndex}.jpeg`}
+                alt={`Tenet image ${activeIndex}`}
+                height={600}
+                width={400}
+                className=''
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+      <div className='sticky top-0 hidden h-screen items-center justify-center text-center md:flex'>
+        <div className='rounded-lg bg-gray-200 p-6 shadow-lg'>
+          <h2 className='mb-4 text-2xl font-bold'>Static Text</h2>
+          <p>This is a static card on the right side.</p>
         </div>
       </div>
     </div>
