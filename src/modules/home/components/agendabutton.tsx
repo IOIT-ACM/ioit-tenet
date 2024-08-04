@@ -36,7 +36,7 @@ const Agenda = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 0) {
+      if (window.scrollY > 80) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -64,31 +64,37 @@ const Agenda = () => {
       </AnimatePresence>
 
       {/* Button */}
-      <motion.div
-        className={`fixed z-50 flex cursor-pointer items-center justify-center gap-4 rounded-full bg-gray-500 px-8 py-4 text-xl font-bold text-white transition-all duration-500 hover:scale-105 md:text-3xl`}
-        initial={{ opacity: 0, bottom: 300 }}
-        animate={{
-          opacity: 1,
-          bottom: isScrolled ? (isMobile ? 10 : 20) : isMobile ? 200 : 300,
-        }}
-        transition={{ duration: 0.5 }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        onClick={() => setActive(true)}
-        layoutId='agenda-button'
-      >
-        {/* <motion.div layoutId={`image`}></motion.div>
-        <motion.div layoutId={`close`}></motion.div>
-        <motion.div layoutId={`image`}></motion.div> */}
-        <motion.div>
-          <GiTimeTrap />
-        </motion.div>
-        {(!isScrolled || isHovered) && (
-          <motion.h3 className={`transition-opacity duration-500`}>
+      <AnimatePresence>
+        <motion.div
+          className={`fixed z-50 flex cursor-pointer items-center justify-center ${(!isScrolled || isHovered) && 'gap-4'} overflow-hidden rounded-full bg-gray-500 px-8 py-4 text-xl font-bold text-white transition-all duration-500 md:text-3xl`}
+          initial={{ opacity: 0, bottom: 300 }}
+          animate={{
+            opacity: 1,
+            bottom: isScrolled ? (isMobile ? 10 : 20) : isMobile ? 200 : 300,
+          }}
+          transition={{ duration: 0.5 }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          onClick={() => setActive(true)}
+          layoutId='agenda-button'
+        >
+          <motion.div>
+            <GiTimeTrap />
+          </motion.div>
+          <motion.h3
+            initial={{ opacity: 0, width: 0 }}
+            animate={{
+              opacity: !isScrolled || isHovered ? 1 : 0,
+              bottom: isScrolled ? (isMobile ? 10 : 20) : isMobile ? 200 : 300,
+              width: !isScrolled || isHovered ? 90 : 0,
+            }}
+            transition={{ duration: 0.2 }}
+            className={`m-0 p-0`}
+          >
             Agenda
           </motion.h3>
-        )}
-      </motion.div>
+        </motion.div>
+      </AnimatePresence>
 
       {/* Modal */}
       <AnimatePresence>
@@ -144,9 +150,9 @@ const Agenda = () => {
                   <motion.a
                     href={'/agenda'}
                     target='_blank'
-                    className='rounded-full bg-green-500 px-4 py-3 text-sm font-bold text-white'
+                    className='rounded-full bg-blue-500 px-4 py-3 text-sm font-bold text-white'
                   >
-                    View full
+                    View full Agenda
                   </motion.a>
                 </div>
                 <div className='relative px-4 pt-4'>
