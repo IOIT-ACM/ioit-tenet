@@ -1,26 +1,158 @@
-export const Events = () => {
+'use client';
+
+import React, { useEffect, useState, useCallback, useRef } from 'react';
+import { useIsMobile } from '@/hooks/useismobile';
+import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
+
+const cardData = [
+  {
+    title: 'T',
+    description: 'Technology',
+    color: 'bg-blue-600/90',
+  },
+  {
+    title: 'E',
+    description: 'Entrepreneurship',
+    color: 'bg-red-600/90',
+  },
+  {
+    title: 'N',
+    description: 'Negotiations',
+    color: 'bg-purple-600/90',
+  },
+  {
+    title: 'E',
+    description: 'Entrepreneurship',
+    color: 'bg-pink-600/90',
+  },
+  { title: 'T', description: 'Trends', color: 'bg-orange-600/90' },
+];
+
+export const Events: React.FC = () => {
+  const isMobile = useIsMobile();
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('down');
+  const lastScrollTop = useRef(0);
+  const lastActiveIndex = useRef(0);
+
+  const handleScroll = useCallback(() => {
+    const stackArea = document.querySelector<HTMLDivElement>('.stack-area');
+    if (stackArea) {
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+      const proportion =
+        stackArea.getBoundingClientRect().top / window.innerHeight;
+      if (proportion <= 0) {
+        const n = cardData.length;
+        let index = Math.ceil((proportion * n) / 6);
+        index = Math.abs(index);
+
+        // Add a threshold to prevent small scroll changes from triggering a card change
+        const threshold = 0.7; // Adjust this value to fine-tune scroll card sensitivity
+        if (Math.abs(index - lastActiveIndex.current) >= threshold) {
+          setScrollDirection(scrollTop > lastScrollTop.current ? 'down' : 'up');
+          lastScrollTop.current = scrollTop;
+          setActiveIndex(index);
+          lastActiveIndex.current = index;
+        }
+      }
+    }
+  }, []);
+
+  const adjustLayout = useCallback(() => {
+    const windowWidth = window.innerWidth;
+    const left = document.querySelector<HTMLDivElement>('.left');
+    const stackArea = document.querySelector<HTMLDivElement>('.stack-area');
+    if (left && stackArea) {
+      if (windowWidth < 800) {
+        stackArea.insertAdjacentElement('beforebegin', left);
+      } else {
+        stackArea.insertAdjacentElement('afterbegin', left);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', adjustLayout);
+    adjustLayout();
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', adjustLayout);
+    };
+  }, [handleScroll, adjustLayout]);
+
+  const getImageIndex = (index: number) => {
+    return index > 5 ? 0 : index;
+  };
+
+  const getAnimationProps = (index: number) => {
+    if (index > 5) {
+      return {};
+    }
+    return {
+      initial: { y: scrollDirection === 'down' ? '100%' : '-100%' },
+      animate: { y: 0 },
+      exit: { y: scrollDirection === 'down' ? '-100%' : '100%' },
+      transition: { duration: 0.5 },
+    };
+  };
+
   return (
-    <div className='z-50 flex min-h-screen items-center justify-center border border-black bg-gray-200 px-5'>
-      <div className='grid w-full max-w-[1200px] grid-cols-3 items-center gap-7'>
-        {/* T-E-N-E-T */}
-        <div className='grid h-full items-start gap-2'>
-          <div className='grid items-start gap-2'>
-            <div className='h-20 rounded-xl bg-gray-400/70'>T</div>
-            <div className='h-20 rounded-xl bg-gray-400/70'>E</div>
-            <div className='h-20 rounded-xl bg-gray-400/70'>N</div>
-            <div className='h-20 rounded-xl bg-gray-400/70'>E</div>
-            <div className='h-20 rounded-xl bg-gray-400/70'>T</div>
-          </div>
+    <div className='min-w-screen stack-area relative flex h-[900vh] w-full justify-center gap-8'>
+      <div className='sticky top-0 flex h-screen flex-col items-center justify-center gap-3 md:top-40 md:items-start md:justify-start'>
+        <AnimatePresence>
+          {cardData.map((card, index) => (
+            <motion.div
+              key={card.description}
+              className={`card relative flex h-[110px] w-[250px] cursor-pointer flex-col items-start justify-end rounded-xl hover:scale-105 ${card.color} p-3`}
+              initial={{ y: isMobile ? '100vh' : '160vh', opacity: 0 }}
+              animate={{
+                y: activeIndex >= index + 1 ? 0 : isMobile ? '100vh' : '160vh',
+                opacity: activeIndex >= index + 1 ? 1 : 0,
+              }}
+              exit={{ y: isMobile ? '100vh' : '100vh', opacity: 0 }}
+              transition={{
+                y: { type: 'spring', stiffness: 50, damping: 20 },
+                opacity: { duration: 0.3 },
+              }}
+            >
+              <div className='absolute right-3 top-3 text-4xl font-bold'>
+                {card.title}
+              </div>
+              <div className='h-fit w-fit rounded-full bg-white/30 px-3 py-1 text-xl'>
+                {card.description}
+              </div>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </div>
+
+      <div className='sticky top-40 hidden h-screen items-start text-center md:flex'>
+        <div className='relative h-[600px] w-[400px] overflow-hidden rounded-xl border-2 border-black'>
+          <AnimatePresence initial={false}>
+            <motion.div
+              key={activeIndex}
+              {...getAnimationProps(activeIndex)}
+              className='absolute inset-0'
+            >
+              <Image
+                src={`/tenet/${getImageIndex(activeIndex)}.jpeg`}
+                alt={`Tenet image ${getImageIndex(activeIndex)}`}
+                layout='fill'
+                objectFit='cover'
+              />
+            </motion.div>
+          </AnimatePresence>
         </div>
+      </div>
 
-        {/* Main card */}
-        <div className='h-[600px] rounded-3xl border-2 border-black bg-gray-400'></div>
-
-        <div className='h-56 rounded-xl bg-gray-400/70'>Technology</div>
-        {/* <div className='h-56 rounded-xl bg-gray-400/70'>Enterprunership</div> */}
-        {/* <div className='h-56 rounded-xl bg-gray-400/70'>Negotiations</div> */}
-        {/* <div className='h-56 rounded-xl bg-gray-400/70'>E-Sports</div> */}
-        {/* <div className='h-56 rounded-xl bg-gray-400/70'>Trends</div> */}
+      <div className='sticky top-0 hidden h-screen items-center justify-center text-center md:flex'>
+        <div className='rounded-lg bg-gray-200 p-6 shadow-lg'>
+          <h2 className='mb-4 text-2xl font-bold'>Static Text</h2>
+          <p>This is a static card on the right side.</p>
+        </div>
       </div>
     </div>
   );
