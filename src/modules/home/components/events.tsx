@@ -4,6 +4,7 @@ import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { useIsMobile } from '@/hooks/useismobile';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 
 const cardData = [
   {
@@ -181,27 +182,51 @@ export const Events: React.FC = () => {
       <div className='sticky top-0 hidden h-screen items-center text-center md:flex'>
         <div className='relative h-[200px] w-[400px]'>
           <AnimatePresence initial={false}>
-            {descriptionData.map(
-              (item, index) =>
-                activeIndex === index + 1 && (
-                  <motion.div
-                    key={item.title}
-                    initial={{
-                      y: scrollDirection === 'down' ? 300 : -300,
-                      opacity: 0,
-                    }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{
-                      y: scrollDirection === 'down' ? -300 : 300,
-                      opacity: 0,
-                    }}
-                    transition={{ duration: 0.5 }}
-                    className='absolute inset-0 overflow-hidden rounded-lg bg-gray-200 p-6 shadow-lg'
-                  >
-                    <h2 className='text-2xl font-bold'>{item.title}</h2>
-                    <p>{item.description}</p>
-                  </motion.div>
-                ),
+            {activeIndex <= 5 ? (
+              descriptionData.map(
+                (item, index) =>
+                  activeIndex === index + 1 && (
+                    <motion.div
+                      key={item.title}
+                      initial={{
+                        y: scrollDirection === 'down' ? 300 : -300,
+                        opacity: 0,
+                      }}
+                      animate={{ y: 0, opacity: 1 }}
+                      exit={{
+                        y: scrollDirection === 'down' ? -300 : 300,
+                        opacity: 0,
+                      }}
+                      transition={{ duration: 0.5 }}
+                      className='absolute inset-0 overflow-hidden rounded-lg bg-gray-200 p-6 shadow-lg'
+                    >
+                      <h2 className='text-2xl font-bold'>{item.title}</h2>
+                      <p>{item.description}</p>
+                    </motion.div>
+                  ),
+              )
+            ) : (
+              <motion.div
+                key='browse-events'
+                initial={{
+                  y: scrollDirection === 'down' ? 300 : -300,
+                  opacity: 0,
+                }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{
+                  y: scrollDirection === 'down' ? -300 : 300,
+                  opacity: 0,
+                }}
+                transition={{ duration: 0.5 }}
+                className='absolute inset-0 flex items-center justify-center overflow-hidden rounded-lg bg-gray-200 p-6 shadow-lg'
+              >
+                <Link
+                  href={'/events'}
+                  className='text-2xl font-semibold md:text-4xl'
+                >
+                  Browse events
+                </Link>
+              </motion.div>
             )}
           </AnimatePresence>
         </div>
