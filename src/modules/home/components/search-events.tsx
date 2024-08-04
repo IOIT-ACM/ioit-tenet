@@ -1,8 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-floating-promises */
 'use client';
 
 import '@/styles/search.css';
 import React, { useEffect, useRef, useState } from 'react';
-import { motion, useAnimation, type AnimationControls } from 'framer-motion';
 import {
   FaCalendar,
   FaMapMarkerAlt,
@@ -13,6 +14,7 @@ import {
   FaMicrophone,
 } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 interface Item {
   id: number;
@@ -38,7 +40,6 @@ const items: Item[] = [
   { id: 21, name: 'Opening Ceremony', icon: <FaVideo /> },
   { id: 22, name: 'Committee session', icon: <FaCalendar /> },
   { id: 23, name: 'Lunch', icon: <FaCalendar /> },
-  { id: 24, name: 'Committee session', icon: <FaCalendar /> },
   { id: 25, name: 'High tea', icon: <FaCalendar /> },
   { id: 26, name: "Creator's Conclave", icon: <FaStar /> },
   { id: 29, name: 'Stand UP', icon: <FaMicrophone /> },
@@ -48,17 +49,18 @@ const items: Item[] = [
   { id: 35, name: 'Main Stage Event', icon: <FaCalendar /> },
   { id: 36, name: 'E-Sports', icon: <FaCamera /> },
   { id: 37, name: 'LAN Tournaments', icon: <FaCamera /> },
-  { id: 38, name: 'Competitions', icon: <FaCalendar /> },
   { id: 39, name: 'Experience Arenas', icon: <FaCalendar /> },
 ];
 
 export const SearchEvents: React.FC = () => {
-  const controls: AnimationControls = useAnimation();
-  const listRef = useRef<HTMLDivElement>(null);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('down');
+  const containerRef = useRef<HTMLDivElement>(null);
+  const scrollerRef = useRef<HTMLUListElement>(null);
+  const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up');
   const [lastScrollTop, setLastScrollTop] = useState(0);
-  const [scrollSpeed, setScrollSpeed] = useState(2000);
+
+  useEffect(() => {
+    addAnimation();
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,50 +70,59 @@ export const SearchEvents: React.FC = () => {
       if (currentScrollTop > lastScrollTop) {
         setScrollDirection('down');
       } else {
-        setScrollDirection('down');
+        setScrollDirection('up');
       }
 
       setLastScrollTop(currentScrollTop);
-      setScrollSpeed((prevSpeed) => Math.max(2000, prevSpeed - 10));
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollTop]);
 
-  useEffect(() => {
-    const startAnimation = async () => {
-      if (listRef.current) {
-        const listHeight = listRef.current.scrollHeight;
-        await controls.start({
-          y: scrollDirection === 'down' ? `-${listHeight}px` : '0',
-          transition: {
-            duration: scrollSpeed / 50,
-            ease: 'linear',
-            repeat: Infinity,
-          },
-        });
+  const [start, setStart] = useState(false);
+  function addAnimation() {
+    if (containerRef.current && scrollerRef.current) {
+      const scrollerContent = Array.from(scrollerRef.current.children);
+
+      scrollerContent.forEach((item) => {
+        const duplicatedItem = item.cloneNode(true);
+        if (scrollerRef.current) {
+          scrollerRef.current.appendChild(duplicatedItem);
+        }
+      });
+
+      getDirection();
+      getSpeed();
+      setStart(true);
+    }
+  }
+  const getDirection = () => {
+    if (containerRef.current) {
+      if (scrollDirection === 'up') {
+        containerRef.current.style.setProperty(
+          '--animation-direction',
+          'forwards',
+        );
+      } else {
+        containerRef.current.style.setProperty(
+          '--animation-direction',
+          'reverse',
+        );
       }
-    };
-
-    startAnimation().catch((error) => {
-      console.error('Animation error:', error);
-    });
-  }, [controls, scrollDirection, scrollSpeed]);
-
-  const filteredItems = items.filter((item) =>
-    item.name.toLowerCase().includes(searchTerm.toLowerCase()),
-  );
+    }
+  };
+  const getSpeed = () => {
+    if (containerRef.current) {
+      containerRef.current.style.setProperty('--animation-duration', '120s');
+    }
+  };
 
   return (
-    <div className='grid min-h-screen grid-cols-1 items-center justify-center gap-3 bg-gray-100 px-10 md:grid-cols-2 md:px-20'>
+    <div className='grid h-screen grid-cols-1 items-center justify-center gap-3 overflow-hidden bg-gray-100 px-10 md:grid-cols-2 md:px-20'>
       <div className='grid gap-5'>
         <div className='text-4xl font-bold'>
           Search through all events from TENET 2024
-        </div>
-        <div className='text-lg'>
-          Tenet is an anagram of Technology, Entrepreneurship, Negotiations,
-          E-Sports, Trends
         </div>
 
         <DrawOutlineButton />
@@ -119,20 +130,22 @@ export const SearchEvents: React.FC = () => {
           type='text'
           className='mb-4 rounded-full border border-gray-400 p-3'
           placeholder='Search events'
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          // value={searchTerm}
+          // onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
       <div
-        className='scroll-container relative mt-8 h-2/3 w-full max-w-sm overflow-hidden'
-        ref={listRef}
+        ref={containerRef}
+        className='scroller z-20 mt-8 h-2/3 w-full overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,white_20%,white_80%,transparent)]'
       >
-        <motion.div
-          className='scroll-content absolute w-full'
-          animate={controls}
-          initial={{ y: 0 }}
+        <ul
+          ref={scrollerRef}
+          className={cn(
+            'flex w-max min-w-full shrink-0 flex-col flex-nowrap gap-4 py-4',
+            start && 'animate-scroll',
+          )}
         >
-          {filteredItems.map((item) => (
+          {items.map((item) => (
             <div
               key={item.id}
               className='scroll-item flex items-center p-4 text-2xl'
@@ -143,7 +156,7 @@ export const SearchEvents: React.FC = () => {
               {item.name}
             </div>
           ))}
-        </motion.div>
+        </ul>
       </div>
     </div>
   );
@@ -155,7 +168,7 @@ const DrawOutlineButton = () => {
   return (
     <button
       onClick={() => router.push('/events')}
-      className='group relative px-4 py-2 font-medium text-black transition-colors hover:text-gray-500'
+      className='group relative w-fit px-4 py-2 font-medium text-black transition-colors hover:text-gray-500'
     >
       <span>View all events</span>
 

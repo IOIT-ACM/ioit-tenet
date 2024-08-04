@@ -89,6 +89,11 @@ const config = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
+        scroll: {
+          to: {
+            transform: 'translate(calc(-50% - 0.5rem))',
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -97,6 +102,8 @@ const config = {
         'pulse-delay-1': 'pulse 2s linear infinite 0.5s',
         'pulse-delay-2': 'pulse 2s linear infinite 1s',
         'pulse-delay-3': 'pulse 2s linear infinite 1.5s',
+        scroll:
+          'scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
       },
     },
   },
