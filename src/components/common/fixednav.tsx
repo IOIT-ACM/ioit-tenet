@@ -60,19 +60,20 @@ export default function FixedNavBar({ className }: { className?: string }) {
       transition={{ duration: 0.3 }}
       className='fixed top-5 z-30 flex w-screen items-center justify-between px-3 md:px-20'
     >
-      <motion.div
+      <motion.a
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: isVisible ? 0 : -100, opacity: isVisible ? 1 : 0 }}
         transition={{ duration: 0.8 }}
+        href='/'
       >
         <Image
-          className='h-10 w-10 cursor-cell transition-all hover:scale-105 md:h-20 md:w-20'
+          className='h-10 w-10 cursor-pointer transition-all hover:scale-105 md:h-20 md:w-20'
           src={'/tenet.png'}
           alt='Tenet Logo'
           height={70}
           width={70}
         />
-      </motion.div>
+      </motion.a>
       <div
         className={cn(
           'inset-x-0 z-50 mx-auto hidden max-w-fit sm:fixed md:block',

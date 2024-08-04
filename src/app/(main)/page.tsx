@@ -9,7 +9,7 @@ import {
 
 import ShiftingCountdown from '@/modules/home/components/countdown';
 
-export default function HomePage() {
+export default async function HomePage() {
   return (
     <main className=''>
       <Hero />

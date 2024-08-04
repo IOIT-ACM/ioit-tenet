@@ -8,15 +8,10 @@ export const HorizontalScroll = () => {
     <div className='bg-neutral-800'>
       <div className='flex h-48 items-center justify-center'>
         <span className='font-semibold uppercase text-neutral-500'>
-          Scroll down
+          Explore events at TENET 2024
         </span>
       </div>
       <HorizontalScrollCarousel />
-      <div className='flex h-48 items-center justify-center'>
-        <span className='font-semibold uppercase text-neutral-500'>
-          Scroll up
-        </span>
-      </div>
     </div>
   );
 };
@@ -27,7 +22,7 @@ const HorizontalScrollCarousel = () => {
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ['1%', '-95%']);
+  const x = useTransform(scrollYProgress, [0, 1], ['1%', '-73%']);
 
   return (
     <section ref={targetRef} className='relative h-[300vh] bg-neutral-900'>
@@ -106,5 +101,20 @@ const cards: CardType[] = [
     url: '/imgs/abstract/7.jpg',
     title: 'Title 7',
     id: 7,
+  },
+  {
+    url: '/imgs/abstract/8.jpg',
+    title: 'Title 8',
+    id: 8,
+  },
+  {
+    url: '/imgs/abstract/9.jpg',
+    title: 'Title 9',
+    id: 9,
+  },
+  {
+    url: '/imgs/abstract/10.jpg',
+    title: 'Title 10',
+    id: 10,
   },
 ];
