@@ -7,11 +7,14 @@ import {
   MUN,
 } from '@/modules/home';
 
+import ShiftingCountdown from '@/modules/home/components/countdown';
+
 export default function HomePage() {
   return (
     <main className=''>
       <Hero />
       <Events />
+      <ShiftingCountdown />
       <SearchEvents />
       <Gallery />
       <HorizontalScroll />

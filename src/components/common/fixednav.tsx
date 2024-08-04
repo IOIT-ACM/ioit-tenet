@@ -17,11 +17,11 @@ const transition = {
 };
 
 const routes = [
-  { path: '/techfiesta', name: 'Techfiesta' },
-  { path: '/esports', name: 'E-Sports' },
-  { path: '/entrepreneurship', name: 'Entrepreneurship' },
-  { path: '/esummit', name: 'ESummit' },
-  { path: '/creators', name: 'Creators Conclave' },
+  { path: '/events/techfiesta', name: 'Techfiesta' },
+  { path: '/events/esports', name: 'E-Sports' },
+  { path: '/events/entrepreneurship', name: 'Entrepreneurship' },
+  { path: '/events/esummit', name: 'ESummit' },
+  { path: '/events/creators', name: 'Creators Conclave' },
 ];
 
 export default function FixedNavBar({ className }: { className?: string }) {

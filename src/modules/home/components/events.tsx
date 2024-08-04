@@ -101,7 +101,7 @@ export const Events: React.FC = () => {
 
   return (
     <div className='min-w-screen stack-area relative mx-auto grid h-[900vh] w-full grid-cols-1 justify-center gap-8 md:grid-cols-3'>
-      <div className='sticky top-0 flex h-screen flex-col items-center justify-center gap-3 md:top-40 md:justify-start'>
+      <div className='sticky top-0 flex h-screen flex-col items-center justify-center gap-3 sm:top-14 md:top-40 md:justify-start'>
         <AnimatePresence>
           {cardData.map((card, index) => (
             <motion.div

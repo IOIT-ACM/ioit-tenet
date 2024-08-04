@@ -70,7 +70,7 @@ const Agenda = () => {
           initial={{ opacity: 0, bottom: 300 }}
           animate={{
             opacity: 1,
-            bottom: isScrolled ? (isMobile ? 10 : 20) : isMobile ? 200 : 300,
+            bottom: isScrolled ? (isMobile ? 10 : 20) : isMobile ? 200 : 250,
           }}
           transition={{ duration: 0.5 }}
           onMouseEnter={() => setIsHovered(true)}

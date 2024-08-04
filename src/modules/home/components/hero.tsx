@@ -29,7 +29,7 @@ export const Landing = () => {
   }, []);
 
   return (
-    <div className='flex h-[80vh] flex-col items-center justify-center gap-4'>
+    <div className='flex h-[90vh] flex-col items-center justify-center gap-4'>
       <motion.span
         className={`text-6xl font-bold md:text-9xl`}
         initial={{ opacity: 0, y: 50 }}
