@@ -7,11 +7,15 @@ import { useIsMobile } from '@/hooks/useismobile';
 
 export const Gallery = () => {
   return (
-    <section className='relative grid min-h-screen w-full place-content-center overflow-hidden bg-neutral-950'>
-      <h2 className='relative z-0 text-[20vw] font-black text-neutral-800 md:text-[200px]'>
-        GALLERY<span className='text-indigo-500'>.</span>
-      </h2>
-      <Cards />
+    <section className='h-[200vh] w-screen bg-neutral-950'>
+      <div className='sticky top-0 flex h-screen items-center overflow-hidden'>
+        <div>
+          <h2 className='z-0 text-[20vw] font-black text-neutral-800 md:text-[200px]'>
+            GALLERY<span className='text-indigo-500'>.</span>
+          </h2>
+          <Cards />
+        </div>
+      </div>
     </section>
   );
 };
