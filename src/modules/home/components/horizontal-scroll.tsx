@@ -22,7 +22,7 @@ const HorizontalScrollCarousel = () => {
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ['1%', '-73%']);
+  const x = useTransform(scrollYProgress, [0, 1], ['5%', '-83%']);
 
   return (
     <section ref={targetRef} className='relative h-[300vh] bg-neutral-900'>
@@ -114,7 +114,7 @@ const cards: CardType[] = [
   },
   {
     url: '/imgs/events/10.jpeg',
-    title: 'Coding Games',
+    title: 'View All',
     id: 10,
   },
 ];

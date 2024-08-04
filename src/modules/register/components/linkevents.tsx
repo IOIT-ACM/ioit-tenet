@@ -3,39 +3,28 @@
 import { useMotionValue, motion, useSpring, useTransform } from 'framer-motion';
 import React, { useRef } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
+import { Separator } from '@/components/ui/separator';
+import Link from 'next/link';
 
 export const RegisterLinks = () => {
   return (
     <section className='min-h-screen bg-neutral-950 p-4 md:p-8'>
-      <div className='max-w-5xl'>
-        <Link
-          heading='About'
-          subheading='Learn what we do here'
-          imgSrc='/imgs/random/11.jpg'
+      <h1 className='text-6xl text-gray-500'>Registration for TENET 2024</h1>
+      <Link href='/' className='my-3 text-white'>
+        Home
+      </Link>
+      <Separator className='my-5 max-w-screen-sm' />
+      <div className='mt-20 max-w-screen-lg'>
+        <CustomLink
+          heading='MUN'
+          subheading='Register for Modal United Nations at IOIT'
+          imgSrc='/imgs/events/1.jpeg'
           href='#'
         />
-        <Link
-          heading='Clients'
-          subheading='We work with great people'
-          imgSrc='/imgs/random/6.jpg'
-          href='#'
-        />
-        <Link
-          heading='Portfolio'
-          subheading='Our work speaks for itself'
-          imgSrc='/imgs/random/4.jpg'
-          href='#'
-        />
-        <Link
-          heading='Careers'
-          subheading='We want cool people'
-          imgSrc='/imgs/random/5.jpg'
-          href='#'
-        />
-        <Link
-          heading='Fun'
-          subheading="Incase you're bored"
-          imgSrc='/imgs/random/10.jpg'
+        <CustomLink
+          heading='Tech Fiesta'
+          subheading='Register for Technial Events at TENET24'
+          imgSrc='/imgs/events/2.jpeg'
           href='#'
         />
       </div>
@@ -50,7 +39,7 @@ interface LinkProps {
   href: string;
 }
 
-const Link = ({ heading, imgSrc, subheading, href }: LinkProps) => {
+const CustomLink = ({ heading, imgSrc, subheading, href }: LinkProps) => {
   const ref = useRef<HTMLAnchorElement | null>(null);
 
   const x = useMotionValue(0);

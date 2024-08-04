@@ -118,49 +118,51 @@ export const SearchEvents: React.FC = () => {
   };
 
   return (
-    <div className='grid h-screen grid-cols-1 items-center justify-center gap-3 overflow-hidden bg-gray-100 px-10 text-gray-800 md:grid-cols-2 md:px-20'>
-      <div className='grid gap-5'>
-        <div className='font-bold md:text-6xl'>
-          Search through all events from <br /> TENET 2024
-        </div>
+    <div className='h-[200vh]'>
+      <div className='sticky top-0 grid h-screen grid-cols-1 items-center justify-center gap-3 overflow-hidden bg-gray-100 px-10 text-gray-800 md:grid-cols-2 md:px-20'>
+        <div className='grid gap-5'>
+          <div className='font-bold md:text-6xl'>
+            Search through all events from <br /> TENET 2024
+          </div>
 
-        <button
-          onClick={() => router.push('/events')}
-          className='rounded-2xl border-2 border-dashed border-black bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none'
+          <button
+            onClick={() => router.push('/events')}
+            className='rounded-2xl border-2 border-dashed border-black bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none'
+          >
+            <span>View all events</span>
+          </button>
+          <input
+            type='text'
+            className='mb-4 rounded-full border border-gray-400 p-3'
+            placeholder='Search events'
+            // value={searchTerm}
+            // onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
+        <div
+          ref={containerRef}
+          className='scroller z-20 mt-8 h-2/3 w-full overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,white_20%,white_80%,transparent)]'
         >
-          <span>View all events</span>
-        </button>
-        <input
-          type='text'
-          className='mb-4 rounded-full border border-gray-400 p-3'
-          placeholder='Search events'
-          // value={searchTerm}
-          // onChange={(e) => setSearchTerm(e.target.value)}
-        />
-      </div>
-      <div
-        ref={containerRef}
-        className='scroller z-20 mt-8 h-2/3 w-full overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,white_20%,white_80%,transparent)]'
-      >
-        <ul
-          ref={scrollerRef}
-          className={cn(
-            'flex w-max min-w-full shrink-0 flex-col flex-nowrap gap-3 py-4',
-            start && 'animate-scroll',
-          )}
-        >
-          {items.map((item) => (
-            <div
-              key={item.id}
-              className='scroll-item flex items-center p-4 text-xl lg:text-4xl'
-            >
-              <div className='mr-4 rounded-full border-4 bg-white p-4 text-black'>
-                {item.icon}
+          <ul
+            ref={scrollerRef}
+            className={cn(
+              'flex w-max min-w-full shrink-0 flex-col flex-nowrap gap-3 py-4',
+              start && 'animate-scroll',
+            )}
+          >
+            {items.map((item) => (
+              <div
+                key={item.id}
+                className='scroll-item flex items-center p-4 text-xl lg:text-4xl'
+              >
+                <div className='mr-4 rounded-full border-4 bg-white p-4 text-black'>
+                  {item.icon}
+                </div>
+                {item.name}
               </div>
-              {item.name}
-            </div>
-          ))}
-        </ul>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );

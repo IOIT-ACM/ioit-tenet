@@ -13,7 +13,10 @@ const DAY = HOUR * 24;
 type Unit = 'Day' | 'Hour' | 'Minute' | 'Second';
 
 const ShiftingCountdown: React.FC = () => (
-  <div className='bg-gradient-to-br from-violet-600 to-indigo-600 p-4'>
+  <div className='bg-gradient-to-br from-violet-600 to-blue-600 p-4 py-14'>
+    <h1 className='mb-10 animate-bounce text-center text-4xl text-white md:text-6xl'>
+      TENET BEGINS IN
+    </h1>
     <div className='mx-auto flex w-full max-w-5xl items-center bg-white'>
       <CountdownItem unit='Day' text='days' />
       <CountdownItem unit='Hour' text='hours' />
@@ -30,7 +33,7 @@ const CountdownItem: React.FC<{ unit: Unit; text: string }> = ({
   const { time } = useTimer(unit);
 
   return (
-    <div className='flex h-24 w-1/4 flex-col items-center justify-center gap-1 border-r-[1px] border-slate-200 font-mono md:h-36 md:gap-2'>
+    <div className='flex h-24 w-1/4 flex-col items-center justify-center gap-1 border-r-[6px] border-slate-200 font-mono md:h-36 md:gap-2'>
       <AnimatePresence mode='popLayout'>
         <motion.span
           key={time}

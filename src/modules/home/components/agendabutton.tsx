@@ -64,37 +64,36 @@ const Agenda = () => {
       </AnimatePresence>
 
       {/* Button */}
-      <AnimatePresence>
-        <motion.div
-          className={`fixed z-50 flex cursor-pointer items-center justify-center ${(!isScrolled || isHovered) && 'gap-4'} overflow-hidden rounded-full border-2 border-black bg-green-500 px-8 py-4 text-xl font-bold text-white ring-2 ring-white transition-all duration-500 md:text-3xl`}
-          initial={{ opacity: 0, bottom: 300 }}
-          animate={{
-            opacity: 1,
-            bottom: isScrolled ? (isMobile ? 10 : 20) : isMobile ? 200 : 250,
-          }}
-          transition={{ duration: 0.5 }}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          onClick={() => setActive(true)}
-          layoutId='agenda-button'
-        >
-          <motion.div>
-            <GiTimeTrap />
-          </motion.div>
-          <motion.h3
-            initial={{ opacity: 0, width: 0 }}
-            animate={{
-              opacity: !isScrolled || isHovered ? 1 : 0,
-              bottom: isScrolled ? (isMobile ? 10 : 20) : isMobile ? 200 : 300,
-              width: !isScrolled || isHovered ? 90 : 0,
-            }}
-            transition={{ duration: 0.2 }}
-            className={`m-0 p-0`}
-          >
-            Agenda
-          </motion.h3>
+      <motion.div
+        className={`fixed z-50 flex cursor-pointer items-center justify-center ${(!isScrolled || isHovered) && 'gap-4'} overflow-hidden rounded-full border-2 border-black bg-green-500 px-8 py-4 text-xl font-bold text-white ring-2 ring-white transition-all duration-500 md:text-3xl`}
+        initial={{ opacity: 0, bottom: 300 }}
+        animate={{
+          opacity: 1,
+          bottom: isScrolled ? (isMobile ? 10 : 20) : isMobile ? 200 : 250,
+        }}
+        transition={{ duration: 0.5 }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onClick={() => setActive(true)}
+        layoutId='agenda-button'
+      >
+        <motion.div layoutId='icon'>
+          <GiTimeTrap />
         </motion.div>
-      </AnimatePresence>
+        <motion.h3
+          initial={{ opacity: 0, width: 0 }}
+          animate={{
+            opacity: !isScrolled || isHovered ? 1 : 0,
+            bottom: isScrolled ? (isMobile ? 10 : 20) : isMobile ? 200 : 300,
+            width: !isScrolled || isHovered ? 90 : 0,
+          }}
+          transition={{ duration: 0.2 }}
+          className={`m-0 p-0`}
+          layoutId='button'
+        >
+          Agenda
+        </motion.h3>
+      </motion.div>
 
       {/* Modal */}
       <AnimatePresence>
@@ -139,7 +138,10 @@ const Agenda = () => {
               <div>
                 <div className='flex items-start justify-between p-4'>
                   <div className=''>
-                    <motion.h3 className='font-bold text-neutral-700 dark:text-neutral-200'>
+                    <motion.h3
+                      layoutId='button'
+                      className='font-bold text-neutral-700 dark:text-neutral-200'
+                    >
                       Complete Agenda
                     </motion.h3>
                     <motion.p className='text-neutral-600 dark:text-neutral-400'>
@@ -147,13 +149,20 @@ const Agenda = () => {
                     </motion.p>
                   </div>
 
-                  <motion.a
-                    href={'/agenda'}
-                    target='_blank'
-                    className='rounded-full bg-blue-500 px-4 py-3 text-sm font-bold text-white'
-                  >
-                    View full Agenda
-                  </motion.a>
+                  <div className='flex items-center gap-2'>
+                    <motion.a
+                      href={'/agenda'}
+                      className='rounded-full bg-blue-500 px-4 py-3 text-sm font-bold text-white'
+                    >
+                      View full Agenda
+                    </motion.a>
+                    <motion.a
+                      href={'/events'}
+                      className='rounded-full bg-orange-500 px-4 py-3 text-sm font-bold text-white'
+                    >
+                      View Events
+                    </motion.a>
+                  </div>
                 </div>
                 <div className='relative px-4 pt-4'>
                   <motion.div

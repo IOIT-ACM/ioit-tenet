@@ -199,7 +199,7 @@ const Card = ({
       drag
       dragConstraints={containerRef}
       // Uncomment below and remove dragElastic to remove movement after release
-      //   dragMomentum={false}
+      dragMomentum={false}
       dragElastic={0.65}
     />
   );

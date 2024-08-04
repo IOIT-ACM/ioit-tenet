@@ -3,6 +3,7 @@
 import React, { type ReactNode, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { EventLinks } from './eventlinks';
+import Link from 'next/link';
 
 export const EventsList = () => {
   return (
@@ -13,6 +14,7 @@ export const EventsList = () => {
           imgUrl={item.imgUrl}
           subheading={item.subheading}
           heading={item.heading}
+          url={item.url}
         >
           <EventLinks />
         </TextParallaxContent>
@@ -28,8 +30,10 @@ const TextParallaxContent = ({
   subheading,
   heading,
   children,
+  url,
 }: {
   imgUrl: string;
+  url: string;
   subheading: string;
   heading: string;
   children: ReactNode;
@@ -43,7 +47,7 @@ const TextParallaxContent = ({
     >
       <div className='relative h-[150vh]'>
         <StickyImage imgUrl={imgUrl} />
-        <OverlayCopy heading={heading} subheading={subheading} />
+        <OverlayCopy heading={heading} subheading={subheading} url={url} />
       </div>
       {children}
     </div>
@@ -86,9 +90,11 @@ const StickyImage = ({ imgUrl }: { imgUrl: string }) => {
 const OverlayCopy = ({
   subheading,
   heading,
+  url,
 }: {
   subheading: string;
   heading: string;
+  url: string;
 }) => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -111,9 +117,12 @@ const OverlayCopy = ({
       <p className='mb-2 text-center text-xl md:mb-4 md:text-3xl'>
         {subheading}
       </p>
-      <p className='max-w-screen-lg text-center text-4xl font-bold md:text-7xl'>
+      <Link
+        href={url}
+        className='max-w-screen-lg text-center text-4xl font-bold md:text-7xl'
+      >
         {heading}
-      </p>
+      </Link>
     </motion.div>
   );
 };
@@ -124,17 +133,20 @@ const data = [
       'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2671&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     subheading: 'Day 1',
     heading: 'Tech Fiesta',
+    url: '/events/techfiesta',
   },
   {
     imgUrl:
       'https://images.unsplash.com/photo-1530893609608-32a9af3aa95c?q=80&w=2564&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     subheading: 'Day 2',
     heading: 'E-Summit & MUN',
+    url: '/events/esummit',
   },
   {
     imgUrl:
       'https://images.unsplash.com/photo-1504610926078-a1611febcad3?q=80&w=2416&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     subheading: 'Day 3',
     heading: 'Creators Conclave, E-Sports, MUN Day-2',
+    url: '/events/mun',
   },
 ];

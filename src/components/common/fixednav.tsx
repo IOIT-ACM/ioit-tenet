@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useStore } from '@/store';
+import { RegisterButton } from '../ui/registerbtn';
 
 const transition = {
   type: 'spring',
@@ -59,6 +60,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
       transition={{ duration: 0.3 }}
       className='fixed top-5 z-30 flex w-screen items-center justify-between px-3 md:px-20'
     >
+      {/* Logo link */}
       <motion.a
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: isVisible ? 0 : -100, opacity: isVisible ? 1 : 0 }}
@@ -73,13 +75,15 @@ export default function FixedNavBar({ className }: { className?: string }) {
           width={70}
         />
       </motion.a>
+
+      {/* Menu */}
       <div
         className={cn(
           'inset-x-0 z-50 mx-auto hidden max-w-fit sm:fixed md:block',
           className,
         )}
       >
-        <div className='relative flex gap-0 rounded-xl border border-black bg-gray-200 px-6 py-3 text-black'>
+        <div className='relative flex gap-0 rounded-full border-2 border-black bg-gray-300 px-4 py-3 text-black ring-2 ring-white'>
           {routes.map((route) => (
             <motion.div
               key={route.path}
@@ -104,7 +108,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
                       scale: 0.1,
                     }}
                     transition={{ type: 'spring', bounce: 0.3, duration: 0.6 }}
-                    className='absolute inset-0 rounded-full bg-gray-300'
+                    className='absolute inset-0 rounded-full bg-gray-100'
                   />
                 )}
                 <span className={`relative block text-black`}>
@@ -115,18 +119,15 @@ export default function FixedNavBar({ className }: { className?: string }) {
           ))}
         </div>
       </div>
-      <motion.button
+
+      {/* Register button */}
+      <motion.div
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: isVisible ? 0 : -100, opacity: isVisible ? 1 : 0 }}
         transition={{ duration: 0.8 }}
       >
-        <Link
-          className='rounded-full bg-blue-950 px-5 py-3 text-white transition-all hover:bg-blue-700'
-          href={'/register'}
-        >
-          Register
-        </Link>
-      </motion.button>
+        <RegisterButton />
+      </motion.div>
     </motion.div>
   );
 }
