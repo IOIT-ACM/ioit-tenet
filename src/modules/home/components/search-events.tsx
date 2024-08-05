@@ -201,21 +201,21 @@ export const SearchEvents: React.FC = () => {
   return (
     <div className='h-[200vh]'>
       <div className='sticky top-0 grid h-screen grid-cols-1 items-center justify-center gap-3 overflow-hidden bg-gray-100 px-10 text-gray-800 md:grid-cols-2 md:px-20'>
-        <div className='grid gap-5'>
-          <div className='font-bold md:text-6xl'>
+        <div className='grid gap-5 md:-translate-y-[20%] md:px-10'>
+          <div className='text-4xl font-bold md:text-6xl'>
             Search through all events from <br /> TENET 2024
           </div>
 
           <button
             onClick={() => router.push('/events')}
-            className='rounded-2xl border-2 border-dashed border-black bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none'
+            className='rounded-2xl border-2 border-dashed border-black bg-white py-2 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none md:px-6 md:py-3'
           >
             <span>View all events</span>
           </button>
           <div className='relative w-full'>
             <input
               type='text'
-              className='mb-2 h-[60px] w-full rounded-full border border-gray-400 p-3 px-8 text-xl'
+              className='text-md mb-2 h-[50px] w-full rounded-full border border-gray-400 p-3 px-5 md:h-[60px] md:px-8 md:text-xl'
               placeholder='Search events'
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -229,13 +229,13 @@ export const SearchEvents: React.FC = () => {
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className='absolute z-10 mt-1 max-h-[250px] w-full overflow-y-auto rounded-3xl border border-gray-400 bg-white text-gray-400'
+                    className='absolute z-50 mt-1 w-full overflow-y-auto rounded-3xl border border-gray-400 bg-white text-gray-400 md:max-h-[250px]'
                   >
                     {suggestions.map((item, index) => (
                       <div
                         key={item.id}
                         className={cn(
-                          'grid cursor-pointer items-center px-8 py-5 text-xl hover:text-gray-700',
+                          'grid cursor-pointer items-center px-5 py-5 text-xl hover:text-gray-700 md:px-8',
                           activeSuggestionIndex === index && 'bg-gray-200',
                         )}
                         onClick={() => setSearchTerm(item.name)}
@@ -250,19 +250,19 @@ export const SearchEvents: React.FC = () => {
         </div>
         <div
           ref={containerRef}
-          className='scroller z-20 mt-8 h-2/3 w-full overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,white_20%,white_80%,transparent)]'
+          className='scroller z-20 mt-8 h-5/6 w-full overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,white_20%,white_80%,transparent)] md:h-2/3'
         >
           <ul
             ref={scrollerRef}
             className={cn(
-              'flex w-max min-w-full shrink-0 flex-col flex-nowrap gap-3 py-4',
+              'flex w-max min-w-full shrink-0 flex-col flex-nowrap py-4 md:gap-3',
               start && isScrolling && 'animate-scroll',
             )}
           >
             {items.map((item) => (
               <div
                 key={item.id}
-                className='scroll-item flex items-center p-4 text-xl lg:text-4xl'
+                className='scroll-item flex items-center p-2 text-lg sm:text-2xl md:p-4 md:text-3xl'
               >
                 <div className='mr-4 rounded-full border-4 bg-white p-4 text-black'>
                   {item.icon}
