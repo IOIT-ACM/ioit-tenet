@@ -5,13 +5,14 @@ import {
   Gallery,
   HorizontalScroll,
   MUN,
+  ShiftingCountdown,
+  Agenda,
 } from '@/modules/home';
-
-import ShiftingCountdown from '@/modules/home/components/countdown';
 
 export default async function HomePage() {
   return (
     <main className=''>
+      <Agenda />
       <Hero />
       <Events />
       <ShiftingCountdown />

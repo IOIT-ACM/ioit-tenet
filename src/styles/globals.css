@@ -71,3 +71,10 @@
 html {
   scroll-behavior: smooth;
 }
+
+@font-face {
+  font-family: 'Zefani';
+  src: url('/fonts/Zefani.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}

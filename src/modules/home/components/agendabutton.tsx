@@ -7,7 +7,7 @@ import { GiTimeTrap } from 'react-icons/gi';
 import { useIsMobile } from '@/hooks/useismobile';
 import { IoCloseCircle } from 'react-icons/io5';
 
-const Agenda = () => {
+export const Agenda = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const isMobile = useIsMobile();
@@ -88,7 +88,7 @@ const Agenda = () => {
             width: !isScrolled || isHovered ? 90 : 0,
           }}
           transition={{ duration: 0.2 }}
-          className={`m-0 p-0`}
+          className={`m-0 select-none p-0`}
           layoutId='button'
         >
           Agenda
@@ -227,5 +227,3 @@ const Agenda = () => {
     </div>
   );
 };
-
-export default Agenda;

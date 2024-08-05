@@ -8,9 +8,14 @@ export const HorizontalScroll = () => {
   return (
     <div className='bg-neutral-800'>
       <div className='flex h-56 items-center justify-center'>
-        <span className='text-5xl font-semibold uppercase text-neutral-500'>
+        <motion.span
+          initial={{ x: 30, scale: 0.5, opacity: 0.3 }}
+          whileInView={{ x: 0, scale: 1, opacity: 1 }}
+          transition={{ type: 'spring', stiffness: 60 }}
+          className='text-5xl font-semibold uppercase text-neutral-500'
+        >
           Explore events at TENET 2024
-        </span>
+        </motion.span>
       </div>
       <HorizontalScrollCarousel />
     </div>
@@ -35,7 +40,7 @@ const HorizontalScrollCarousel = () => {
 
           <Link
             href={'/events'}
-            className='group relative h-[450px] w-[450px] cursor-pointer overflow-hidden rounded-xl border-2 border-white bg-neutral-200'
+            className='group relative h-[450px] w-[450px] cursor-pointer overflow-hidden rounded-full border-2 border-white bg-neutral-200'
           >
             <div
               style={{

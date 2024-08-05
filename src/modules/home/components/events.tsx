@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { Separator } from '@/components/ui/separator';
+import { ArrowRight } from 'lucide-react';
 
 const cardData = [
   {
@@ -130,28 +131,35 @@ export const Events: React.FC = () => {
   };
 
   return (
-    <div className='min-w-screen stack-area relative mx-auto grid h-[900vh] w-full grid-cols-1 justify-center gap-8 md:grid-cols-3'>
+    <div className='stack-area relative mx-auto grid h-[1000vh] w-screen grid-cols-1 justify-center gap-8 rounded-t-full bg-gray-700 pt-20 md:grid-cols-3'>
       <div className='sticky top-0 flex h-screen flex-col items-center justify-center gap-3 sm:top-14 md:top-40 md:justify-start'>
         <AnimatePresence>
           {cardData.map((card, index) => (
             <motion.div
               key={card.description}
               className={`card relative flex h-[110px] w-[250px] cursor-pointer flex-col items-start justify-end rounded-xl hover:scale-105 ${card.color} p-3`}
-              initial={{ y: isMobile ? '100vh' : '160vh', opacity: 0 }}
+              initial={{
+                y: isMobile ? '100vh' : '160vh',
+                opacity: 0,
+                scale: 1,
+              }}
               animate={{
                 y: activeIndex >= index + 1 ? 0 : isMobile ? '100vh' : '160vh',
                 opacity: activeIndex >= index + 1 ? 1 : 0,
+                scale: activeIndex == index + 1 ? 1.1 : 1,
               }}
-              exit={{ y: isMobile ? '100vh' : '100vh', opacity: 0 }}
+              exit={{ y: isMobile ? '100vh' : '100vh', opacity: 0, scale: 1 }}
               transition={{
                 y: { type: 'spring', stiffness: 50, damping: 20 },
                 opacity: { duration: 0.3 },
               }}
             >
-              <div className='absolute right-3 top-3 text-4xl font-bold'>
+              <div
+                className={`${activeIndex == index + 1 ? 'text-3xl' : 'text-2xl'} absolute right-3 top-3 font-bold`}
+              >
                 {card.title}
               </div>
-              <div className='h-fit w-fit rounded-full bg-white/30 px-3 py-1 text-xl'>
+              <div className='h-fit w-fit rounded-full bg-white/30 px-3 py-1 text-lg'>
                 {card.description}
               </div>
             </motion.div>
@@ -183,7 +191,7 @@ export const Events: React.FC = () => {
       <div className='sticky top-0 hidden h-screen items-center text-center md:flex'>
         <div className='relative h-[300px] w-[400px]'>
           <AnimatePresence initial={false}>
-            {activeIndex <= 5 ? (
+            {activeIndex <= 5 &&
               descriptionData.map(
                 (item, index) =>
                   activeIndex === index + 1 && (
@@ -192,11 +200,13 @@ export const Events: React.FC = () => {
                       initial={{
                         y: scrollDirection === 'down' ? 300 : -300,
                         opacity: 0,
+                        scale: 0.7,
                       }}
-                      animate={{ y: 0, opacity: 1 }}
+                      animate={{ y: 0, opacity: 1, scale: 1 }}
                       exit={{
                         y: scrollDirection === 'down' ? -300 : 300,
                         opacity: 0,
+                        scale: 0.7,
                       }}
                       transition={{ duration: 0.5 }}
                       className='absolute inset-0 overflow-hidden rounded-lg bg-gray-200 p-6 shadow-lg'
@@ -208,27 +218,30 @@ export const Events: React.FC = () => {
                       <p>{item.description}</p>
                     </motion.div>
                   ),
-              )
-            ) : (
+              )}
+
+            {activeIndex == 6 && (
               <motion.div
                 key='browse-events'
                 initial={{
                   y: scrollDirection === 'down' ? 300 : -300,
                   opacity: 0,
+                  scale: 0.7,
                 }}
-                animate={{ y: 0, opacity: 1 }}
+                animate={{ y: 0, opacity: 1, scale: 1 }}
                 exit={{
                   y: scrollDirection === 'down' ? -300 : 300,
                   opacity: 0,
+                  scale: 0.7,
                 }}
                 transition={{ duration: 0.5 }}
                 className='absolute inset-0 flex items-center justify-center overflow-hidden rounded-lg bg-gray-200 p-6 shadow-lg'
               >
                 <Link
                   href={'/events'}
-                  className='text-2xl font-semibold md:text-4xl'
+                  className='text-end text-2xl font-semibold md:text-4xl'
                 >
-                  Browse All Events
+                  Browse All Events <ArrowRight />
                 </Link>
               </motion.div>
             )}
