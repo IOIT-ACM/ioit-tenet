@@ -14,7 +14,7 @@ export const Landing = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 200) {
+      if (window.scrollY > 500) {
         setHidden(true);
       } else {
         setHidden(false);
@@ -31,7 +31,7 @@ export const Landing = () => {
   return (
     <div className='flex h-[90vh] flex-col items-center justify-center gap-4'>
       <motion.span
-        className={`text-6xl font-bold md:text-9xl`}
+        className={`text-6xl font-bold text-gray-200 md:text-9xl`}
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: hidden ? 0 : 1, y: 0 }}
         transition={{ duration: 1 }}

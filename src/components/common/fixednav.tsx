@@ -19,8 +19,9 @@ const transition = {
 
 const routes = [
   { path: '/events/techfiesta', name: 'Techfiesta' },
-  { path: '/events/esports', name: 'E-Summit' },
+  { path: '/events/esports', name: 'E-Sports' },
   { path: '/events/entrepreneurship', name: 'MUN' },
+  { path: '/events/esummit', name: 'E-Summit' },
   { path: '/events/creators', name: 'Creators Conclave' },
 ];
 
@@ -58,7 +59,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
         opacity: !videoPlayed ? 0 : 1,
       }}
       transition={{ duration: 0.3 }}
-      className='fixed top-5 z-30 flex w-screen items-center justify-between px-3 md:px-20'
+      className='fixed top-5 z-30 flex w-screen select-none items-center justify-between px-3 md:px-20'
     >
       {/* Logo link */}
       <motion.a
