@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const links = [
   { name: 'Home', href: '/#home' },
-  { name: 'Events', href: '/#events' },
+  { name: 'Intro', href: '/#intro' },
   { name: 'Search', href: '/#search' },
   { name: 'Gallery', href: '/#gallery' },
   { name: 'MUN', href: '/#mun' },
@@ -31,7 +31,7 @@ export const Navigation = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className='flex flex-col justify-around bg-gradient-to-r from-transparent via-transparent to-gray-600 pl-20'
+            className='flex flex-col justify-around pl-20'
           >
             {links.map((link, index) => (
               <motion.div

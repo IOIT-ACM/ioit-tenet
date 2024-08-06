@@ -13,7 +13,7 @@ const DAY = HOUR * 24;
 type Unit = 'Day' | 'Hour' | 'Minute' | 'Second';
 
 export const ShiftingCountdown: React.FC = () => (
-  <div className='z-50 bg-gradient-to-br from-violet-600 to-blue-600 p-4 py-14'>
+  <div className='z-50 bg-gradient-to-br from-purple-400 to-pink-600 p-4 py-14'>
     <h1 className='mb-10 animate-bounce text-center text-4xl text-white md:text-6xl'>
       TENET BEGINS IN
     </h1>

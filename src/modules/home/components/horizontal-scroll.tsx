@@ -6,13 +6,13 @@ import { useRef } from 'react';
 
 export const HorizontalScroll = () => {
   return (
-    <div className='bg-neutral-800'>
+    <div className='bg-neutral-700'>
       <div className='flex h-56 items-center justify-center'>
         <motion.span
           initial={{ x: 30, scale: 0.5, opacity: 0.3 }}
           whileInView={{ x: 0, scale: 1, opacity: 1 }}
           transition={{ type: 'spring', stiffness: 60 }}
-          className='text-center text-5xl font-semibold uppercase text-neutral-500'
+          className='text-center text-5xl font-semibold uppercase text-neutral-300'
         >
           Explore events at TENET 2024
         </motion.span>

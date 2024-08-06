@@ -197,7 +197,7 @@ export const SearchEvents: React.FC = () => {
 
   return (
     <div id='search' className='h-[200vh]'>
-      <div className='sticky top-0 grid h-screen grid-cols-1 items-center justify-center gap-3 overflow-hidden bg-gray-100 px-10 text-gray-800 md:grid-cols-2 md:px-20'>
+      <div className='sticky top-0 grid h-screen grid-cols-1 items-center justify-center gap-3 overflow-hidden bg-neutral-800 px-10 text-gray-300 md:grid-cols-2 md:px-20'>
         <div className='grid gap-5 md:-translate-y-[20%] md:px-10'>
           <div className='text-4xl font-bold md:text-6xl'>
             Search through all events from <br /> TENET 2024
@@ -205,14 +205,14 @@ export const SearchEvents: React.FC = () => {
 
           <button
             onClick={() => router.push('/events')}
-            className='rounded-2xl border-2 border-dashed border-black bg-white py-2 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none md:px-6 md:py-3'
+            className='rounded-2xl border-2 border-dashed border-black bg-gray-200 py-2 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none md:px-6 md:py-3'
           >
             <span>View all events</span>
           </button>
           <div className='relative w-full'>
             <input
               type='text'
-              className='text-md mb-2 h-[50px] w-full rounded-full border-2 p-3 px-5 md:h-[60px] md:px-8 md:text-xl'
+              className='text-md mb-2 h-[50px] w-full rounded-full border-2 p-3 px-5 text-gray-700 md:h-[60px] md:px-8 md:text-xl'
               placeholder='Search events'
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -263,7 +263,7 @@ export const SearchEvents: React.FC = () => {
                 className='scroll-item flex cursor-pointer items-center p-2 text-lg sm:text-2xl md:p-4 md:text-3xl'
                 onClick={() => setSearchTerm(item.name)}
               >
-                <div className='mr-4 rounded-full border-2 bg-white p-4 text-black'>
+                <div className='text-md mr-4 rounded-full border-2 bg-white p-3 text-black'>
                   {item.icon}
                 </div>
                 {item.name}

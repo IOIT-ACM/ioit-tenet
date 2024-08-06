@@ -7,3 +7,4 @@ export { HorizontalScroll } from './components/horizontal-scroll';
 export { MUN } from './components/mun';
 export { Agenda } from './components/agendabutton';
 export { Navigation } from './components/ui/navigation';
+export { Intro } from './components/intro';

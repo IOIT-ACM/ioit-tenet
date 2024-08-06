@@ -8,6 +8,7 @@ import {
   ShiftingCountdown,
   Agenda,
   Navigation,
+  Intro,
 } from '@/modules/home';
 
 export default async function HomePage() {
@@ -17,6 +18,7 @@ export default async function HomePage() {
       <Navigation />
       <Hero />
       <Events />
+      <Intro />
       <ShiftingCountdown />
       <SearchEvents />
       <Gallery />

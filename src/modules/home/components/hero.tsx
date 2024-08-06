@@ -38,6 +38,17 @@ export const Landing = () => {
           ref={title.ref}
         >
           IOIT <span className='text-[hsl(280,100%,70%)]'>TENET</span> 2024
+          <br />
+          <span
+            className={cn(
+              `z-10 w-full select-none text-center text-2xl font-bold text-gray-300 md:text-5xl`,
+              hidden ? 'opacity-0' : 'opacity-100',
+            )}
+            // style={{ fontFamily: 'Zefani, sans-serif' }}
+            ref={title.ref}
+          >
+            October 4,5,6
+          </span>
         </span>
       </div>
     </div>
