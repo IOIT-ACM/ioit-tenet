@@ -7,14 +7,14 @@ import {
   MUN,
   ShiftingCountdown,
   Agenda,
-  // Navigation,
+  Navigation,
 } from '@/modules/home';
 
 export default async function HomePage() {
   return (
     <main className=''>
       <Agenda />
-      {/* <Navigation /> */}
+      <Navigation />
       <Hero />
       <Events />
       <ShiftingCountdown />

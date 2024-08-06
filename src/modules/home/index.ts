@@ -6,4 +6,4 @@ export { Gallery } from './components/gallery';
 export { HorizontalScroll } from './components/horizontal-scroll';
 export { MUN } from './components/mun';
 export { Agenda } from './components/agendabutton';
-export { Navigation } from './components/navigation';
+export { Navigation } from './components/ui/navigation';

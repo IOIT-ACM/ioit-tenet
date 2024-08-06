@@ -2,13 +2,12 @@
 
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { FaBars } from 'react-icons/fa';
 import Link from 'next/link';
 
 const links = [
+  { name: 'Home', href: '/#home' },
   { name: 'Events', href: '/#events' },
   { name: 'Search', href: '/#search' },
-  { name: 'TOP', href: '/#' },
   { name: 'Gallery', href: '/#gallery' },
   { name: 'MUN', href: '/#mun' },
 ];
@@ -16,34 +15,30 @@ const links = [
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
-    <div className='fixed -bottom-8 -left-8 z-50'>
-      <motion.div
-        onClick={toggleMenu}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        className='flex cursor-pointer items-center justify-center rounded-full bg-blue-600 p-10 text-white shadow-lg'
-      >
-        <FaBars size={24} />
-      </motion.div>
+    <motion.div
+      onMouseEnter={() => {
+        setIsOpen(true);
+      }}
+      onMouseLeave={() => {
+        setIsOpen(false);
+      }}
+      className='fixed right-0 top-0 z-50 flex h-screen min-w-10'
+    >
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className='relative mt-4'
+            className='flex flex-col justify-around bg-gradient-to-r from-transparent via-transparent to-gray-600 pl-20'
           >
             {links.map((link, index) => (
               <motion.div
                 key={link.name}
-                initial={{ opacity: 0, x: -50, y: 50 }}
-                animate={{ opacity: 1, x: 0, y: 0 }}
-                exit={{ opacity: 0, x: -50, y: 50 }}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 50 }}
                 transition={{ delay: index * 0.1 }}
                 className='mb-2'
               >
@@ -51,7 +46,7 @@ export const Navigation = () => {
                   <motion.div
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
-                    className='rounded-full bg-white px-4 py-2 text-sm font-semibold text-blue-600 shadow-lg transition-colors duration-200 hover:bg-blue-100'
+                    className='px-4 py-2 text-xl font-semibold text-white transition-all duration-200'
                   >
                     {link.name}
                   </motion.div>
@@ -61,6 +56,6 @@ export const Navigation = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </motion.div>
   );
 };

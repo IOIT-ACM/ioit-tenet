@@ -27,7 +27,7 @@ export const Landing = () => {
   }, []);
 
   return (
-    <div className='flex h-[150vh] w-screen'>
+    <div id='home' className='flex h-[150vh] w-screen'>
       <div className='fixed top-0 flex h-screen w-screen items-center overflow-hidden'>
         <span
           className={cn(
