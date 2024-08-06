@@ -63,6 +63,7 @@ const descriptionData = [
 export const Events: React.FC = () => {
   const isMobile = useIsMobile();
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isAtTop, setIsAtTop] = useState(false);
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('down');
   const lastScrollTop = useRef(0);
   const lastActiveIndex = useRef(0);
@@ -74,6 +75,8 @@ export const Events: React.FC = () => {
         window.pageYOffset || document.documentElement.scrollTop;
       const proportion =
         stackArea.getBoundingClientRect().top / window.innerHeight;
+
+      setIsAtTop(stackArea.getBoundingClientRect().top <= 0);
       if (proportion <= 0) {
         const n = cardData.length;
         let index = Math.ceil((proportion * n) / 6);
@@ -133,7 +136,7 @@ export const Events: React.FC = () => {
   return (
     <div
       id='events'
-      className='stack-area relative mx-auto grid h-[1000vh] w-screen grid-cols-1 justify-center gap-8 rounded-t-full bg-gray-700 pt-20 md:grid-cols-3'
+      className={`stack-area ${isAtTop ? 'rounded-none' : 'rounded-t-full'} relative mx-auto grid h-[1000vh] w-screen grid-cols-1 justify-center gap-8 bg-gray-700 pt-20 transition-all delay-0 duration-700 md:grid-cols-3`}
     >
       <div className='sticky top-0 flex h-screen flex-col items-center justify-center gap-3 sm:top-14 md:top-40 md:justify-start'>
         <AnimatePresence>
