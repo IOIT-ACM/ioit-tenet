@@ -78,3 +78,10 @@ html {
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'exo2';
+  src: url('/fonts/exo2.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

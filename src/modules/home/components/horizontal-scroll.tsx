@@ -12,7 +12,7 @@ export const HorizontalScroll = () => {
           initial={{ x: 30, scale: 0.5, opacity: 0.3 }}
           whileInView={{ x: 0, scale: 1, opacity: 1 }}
           transition={{ type: 'spring', stiffness: 60 }}
-          className='text-5xl font-semibold uppercase text-neutral-500'
+          className='text-center text-5xl font-semibold uppercase text-neutral-500'
         >
           Explore events at TENET 2024
         </motion.span>

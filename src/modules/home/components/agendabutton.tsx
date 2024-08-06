@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import React, { useEffect, useId, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useOutsideClick } from '@/hooks/use-outside-click';
 import { GiTimeTrap } from 'react-icons/gi';
@@ -14,7 +14,6 @@ export const Agenda = () => {
   const isMobile = useIsMobile();
   const [active, setActive] = useState<boolean>(false);
   const ref = useRef<HTMLDivElement>(null);
-  const id = useId();
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
@@ -62,7 +61,7 @@ export const Agenda = () => {
       <motion.div
         className={`fixed z-50 flex cursor-pointer items-center justify-center ${
           (!isScrolled || isHovered) && 'gap-4'
-        } overflow-hidden rounded-full bg-gradient-to-r from-green-400 to-blue-500 px-8 py-4 text-xl font-bold text-white shadow-lg transition-all duration-500 hover:shadow-xl md:text-3xl`}
+        } overflow-hidden rounded-full bg-gradient-to-r from-gray-400 to-slate-500 px-8 py-4 text-xl font-bold text-white shadow-lg transition-all duration-500 hover:shadow-xl md:text-3xl`}
         initial={{ opacity: 0, bottom: 300 }}
         animate={{
           opacity: 1,
@@ -96,7 +95,6 @@ export const Agenda = () => {
         {active && (
           <div className='fixed inset-0 z-[100] grid place-items-center p-4'>
             <motion.button
-              key={`button-${id}`}
               layout
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

@@ -1,17 +1,17 @@
-.scroll-container {
+.scroller {
     position: relative;
     overflow: hidden;
+    mask-image: linear-gradient(to bottom, transparent, white 20%, white 80%, transparent);
 }
 
-.scroll-content {
+.scroller ul {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    animation: scroll var(--scroll-speed) linear infinite;
+    position: relative;
 }
 
 .scroll-item {
-    padding: 1rem;
+    flex-shrink: 0;
 }
 
 @keyframes scroll {
@@ -20,6 +20,11 @@
     }
 
     100% {
-        transform: translateY(-100%);
+        transform: translateY(-50%);
     }
 }
+
+.animate-scroll {
+    animation: scroll var(--scroll-duration, 10s) linear infinite;
+}
+

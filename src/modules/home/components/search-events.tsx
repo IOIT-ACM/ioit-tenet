@@ -54,13 +54,34 @@ export const SearchEvents: React.FC = () => {
   const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollerRef = useRef<HTMLUListElement>(null);
-  const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up');
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const [searchTerm, setSearchTerm] = useState('');
   const [isScrolling, setIsScrolling] = useState(true);
   const [activeSuggestionIndex, setActiveSuggestionIndex] = useState<
     number | null
   >(null);
+  const [scrollHeight, setScrollHeight] = useState(0);
+
+  useEffect(() => {
+    if (scrollerRef.current) {
+      const height = scrollerRef.current.scrollHeight;
+      setScrollHeight(height);
+
+      const clonedItems = Array.from(scrollerRef.current.children).map(
+        (child) => child.cloneNode(true),
+      );
+      clonedItems.forEach((item) => scrollerRef.current?.appendChild(item));
+    }
+  }, [items]);
+
+  useEffect(() => {
+    if (containerRef.current && scrollHeight > 0) {
+      containerRef.current.style.setProperty(
+        '--scroll-duration',
+        `${scrollHeight / 100}s`,
+      );
+    }
+  }, [scrollHeight]);
 
   useEffect(() => {
     addAnimation();
@@ -70,12 +91,6 @@ export const SearchEvents: React.FC = () => {
     const handleScroll = () => {
       const currentScrollTop =
         window.scrollY || document.documentElement.scrollTop;
-
-      if (currentScrollTop > lastScrollTop) {
-        setScrollDirection('down');
-      } else {
-        setScrollDirection('up');
-      }
 
       setLastScrollTop(currentScrollTop);
     };
@@ -149,7 +164,6 @@ export const SearchEvents: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [suggestions, activeSuggestionIndex]);
 
-  const [start, setStart] = useState(false);
   function addAnimation() {
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children);
@@ -161,26 +175,9 @@ export const SearchEvents: React.FC = () => {
         }
       });
 
-      getDirection();
       getSpeed();
-      setStart(true);
     }
   }
-  const getDirection = () => {
-    if (containerRef.current) {
-      if (scrollDirection === 'up') {
-        containerRef.current.style.setProperty(
-          '--animation-direction',
-          'forwards',
-        );
-      } else {
-        containerRef.current.style.setProperty(
-          '--animation-direction',
-          'reverse',
-        );
-      }
-    }
-  };
 
   const getSpeed = () => {
     if (containerRef.current) {
@@ -199,7 +196,7 @@ export const SearchEvents: React.FC = () => {
   }, [suggestions, searchTerm]);
 
   return (
-    <div className='h-[200vh]'>
+    <div id='search' className='h-[200vh]'>
       <div className='sticky top-0 grid h-screen grid-cols-1 items-center justify-center gap-3 overflow-hidden bg-gray-100 px-10 text-gray-800 md:grid-cols-2 md:px-20'>
         <div className='grid gap-5 md:-translate-y-[20%] md:px-10'>
           <div className='text-4xl font-bold md:text-6xl'>
@@ -215,7 +212,7 @@ export const SearchEvents: React.FC = () => {
           <div className='relative w-full'>
             <input
               type='text'
-              className='text-md mb-2 h-[50px] w-full rounded-full border border-gray-400 p-3 px-5 md:h-[60px] md:px-8 md:text-xl'
+              className='text-md mb-2 h-[50px] w-full rounded-full border-2 p-3 px-5 md:h-[60px] md:px-8 md:text-xl'
               placeholder='Search events'
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -250,14 +247,15 @@ export const SearchEvents: React.FC = () => {
         </div>
         <div
           ref={containerRef}
-          className='scroller z-20 mt-8 h-5/6 w-full overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,white_20%,white_80%,transparent)] md:h-2/3'
+          className='scroller z-20 mt-8 h-5/6 w-full overflow-hidden md:h-2/3'
         >
           <ul
             ref={scrollerRef}
             className={cn(
               'flex w-max min-w-full shrink-0 flex-col flex-nowrap py-4 md:gap-3',
-              start && isScrolling && 'animate-scroll',
+              isScrolling && 'animate-scroll',
             )}
+            style={{ height: `${scrollHeight}px` }}
           >
             {items.map((item) => (
               <div
@@ -265,7 +263,7 @@ export const SearchEvents: React.FC = () => {
                 className='scroll-item flex cursor-pointer items-center p-2 text-lg sm:text-2xl md:p-4 md:text-3xl'
                 onClick={() => setSearchTerm(item.name)}
               >
-                <div className='mr-4 rounded-full border-4 bg-white p-4 text-black'>
+                <div className='mr-4 rounded-full border-2 bg-white p-4 text-black'>
                   {item.icon}
                 </div>
                 {item.name}

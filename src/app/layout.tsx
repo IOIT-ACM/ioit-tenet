@@ -58,7 +58,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang='en' className={`${GeistSans.variable}`}>
-      <body className='bg-gray-800'>{children}</body>
+      <body style={{ fontFamily: 'exo2' }} className='bg-gray-800'>
+        {children}
+      </body>
       <Toaster richColors />
     </html>
   );

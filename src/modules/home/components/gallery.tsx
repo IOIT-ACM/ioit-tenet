@@ -7,7 +7,10 @@ import GalleryCard from './ui/gallerycard';
 
 export const Gallery = () => {
   return (
-    <section className='h-[200vh] w-screen bg-neutral-950'>
+    <section
+      id='gallery'
+      className='h-[200vh] w-screen select-none bg-neutral-950'
+    >
       <div className='sticky top-0 flex h-screen items-center overflow-hidden'>
         <div>
           <motion.h2
