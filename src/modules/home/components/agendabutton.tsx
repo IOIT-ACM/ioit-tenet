@@ -1,4 +1,5 @@
 'use client';
+
 import Image from 'next/image';
 import React, { useEffect, useId, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -22,7 +23,7 @@ export const Agenda = () => {
       }
     }
 
-    if (active && typeof active === 'object') {
+    if (active) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'auto';
@@ -36,17 +37,11 @@ export const Agenda = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 80) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 80);
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
@@ -58,14 +53,16 @@ export const Agenda = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className='fixed inset-0 z-10 h-screen w-screen bg-black/20'
+            className='fixed inset-0 z-10 h-screen w-screen bg-black/40 backdrop-blur-sm'
           />
         )}
       </AnimatePresence>
 
       {/* Button */}
       <motion.div
-        className={`fixed z-50 flex cursor-pointer items-center justify-center ${(!isScrolled || isHovered) && 'gap-4'} overflow-hidden rounded-full border-2 border-black bg-green-500 px-8 py-4 text-xl font-bold text-white ring-2 ring-white transition-all duration-500 md:text-3xl`}
+        className={`fixed z-50 flex cursor-pointer items-center justify-center ${
+          (!isScrolled || isHovered) && 'gap-4'
+        } overflow-hidden rounded-full bg-gradient-to-r from-green-400 to-blue-500 px-8 py-4 text-xl font-bold text-white shadow-lg transition-all duration-500 hover:shadow-xl md:text-3xl`}
         initial={{ opacity: 0, bottom: 300 }}
         animate={{
           opacity: 1,
@@ -77,14 +74,13 @@ export const Agenda = () => {
         onClick={() => setActive(true)}
         layoutId='agenda-button'
       >
-        <motion.div layoutId='icon'>
+        <motion.div layoutId='icon' className='text-yellow-300'>
           <GiTimeTrap />
         </motion.div>
         <motion.h3
           initial={{ opacity: 0, width: 0 }}
           animate={{
             opacity: !isScrolled || isHovered ? 1 : 0,
-            bottom: isScrolled ? (isMobile ? 10 : 20) : isMobile ? 200 : 300,
             width: !isScrolled || isHovered ? 90 : 0,
           }}
           transition={{ duration: 0.2 }}
@@ -98,125 +94,75 @@ export const Agenda = () => {
       {/* Modal */}
       <AnimatePresence>
         {active && (
-          <div className='fixed inset-0 z-[100] grid place-items-center'>
+          <div className='fixed inset-0 z-[100] grid place-items-center p-4'>
             <motion.button
               key={`button-${id}`}
               layout
-              initial={{
-                opacity: 0,
-              }}
-              animate={{
-                opacity: 1,
-              }}
-              exit={{
-                opacity: 0,
-                transition: {
-                  duration: 0.05,
-                },
-              }}
-              className='absolute right-2 top-2 flex h-6 w-6 items-center justify-center rounded-full lg:hidden'
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0, transition: { duration: 0.05 } }}
+              className='absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm lg:hidden'
               onClick={() => setActive(false)}
             >
-              <IoCloseCircle size={100} />
+              <IoCloseCircle size={28} />
             </motion.button>
             <motion.div
               layoutId='agenda-button'
               ref={ref}
-              className='flex h-full w-full max-w-[700px] flex-col overflow-hidden bg-white dark:bg-neutral-900 sm:rounded-3xl md:h-fit md:max-h-[80%]'
+              className='flex h-full w-full max-w-[700px] flex-col overflow-hidden bg-white shadow-2xl dark:bg-neutral-800 sm:rounded-3xl md:h-fit md:max-h-[80%]'
             >
-              <motion.div>
+              <motion.div className='relative h-80'>
                 <Image
                   priority
-                  width={200}
-                  height={200}
+                  fill
                   src='/agenda.jpg'
                   alt={'Agenda image'}
-                  className='h-80 w-full object-cover object-top sm:rounded-tl-lg sm:rounded-tr-lg lg:h-80'
+                  className='object-cover object-center sm:rounded-tl-3xl sm:rounded-tr-3xl'
                 />
+                <div className='absolute inset-0 bg-gradient-to-t from-black/60 to-transparent' />
+                <motion.h3
+                  layoutId='button'
+                  className='absolute bottom-4 left-4 text-4xl font-bold text-white'
+                >
+                  Complete Agenda
+                </motion.h3>
               </motion.div>
 
-              <div>
-                <div className='flex items-start justify-between p-4'>
-                  <div className=''>
-                    <motion.h3
-                      layoutId='button'
-                      className='font-bold text-neutral-700 dark:text-neutral-200'
-                    >
-                      Complete Agenda
-                    </motion.h3>
-                    <motion.p className='text-neutral-600 dark:text-neutral-400'>
-                      October 2024
-                    </motion.p>
-                  </div>
+              <div className='flex-1 overflow-hidden'>
+                <div className='flex items-start justify-between p-6'>
+                  <motion.p className='text-lg font-semibold text-neutral-600 dark:text-neutral-300'>
+                    October 2024
+                  </motion.p>
 
-                  <div className='flex items-center gap-2'>
+                  <div className='flex items-center gap-3'>
                     <motion.a
                       href={'/agenda'}
-                      className='rounded-full bg-blue-500 px-4 py-3 text-sm font-bold text-white'
+                      className='rounded-full bg-gradient-to-r from-blue-500 to-blue-600 px-6 py-3 text-sm font-bold text-white shadow-md transition-shadow duration-300 hover:shadow-lg'
                     >
                       View full Agenda
                     </motion.a>
                     <motion.a
                       href={'/events'}
-                      className='rounded-full bg-orange-500 px-4 py-3 text-sm font-bold text-white'
+                      className='rounded-full bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-3 text-sm font-bold text-white shadow-md transition-shadow duration-300 hover:shadow-lg'
                     >
                       View Events
                     </motion.a>
                   </div>
                 </div>
-                <div className='relative px-4 pt-4'>
+                <div className='px-6 pb-6'>
                   <motion.div
                     layout
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className='flex h-40 flex-col items-start gap-4 overflow-auto pb-10 text-xs text-neutral-600 [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] dark:text-neutral-400 md:h-fit md:text-sm lg:text-base'
+                    className='h-[calc(100vh-400px)] overflow-auto pr-4 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300 md:h-[300px] md:text-base'
+                    style={{
+                      scrollbarWidth: 'thin',
+                      scrollbarColor: 'rgba(155, 155, 155, 0.5) transparent',
+                    }}
                   >
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Nobis nostrum, sint aperiam eum unde doloremque nam
-                    reprehenderit quos quia fuga obcaecati aspernatur tenetur
-                    delectus, temporibus a error recusandae ducimus asperiores.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Quidem perferendis necessitatibus doloremque dignissimos id
-                    illum totam quos, excepturi labore expedita. Laborum magnam
-                    repellat, nisi quaerat, voluptas perspiciatis aperiam illum
-                    quisquam maiores praesentium tempora itaque ipsum sapiente!
-                    Consequuntur quidem ullam nemo harum quisquam deleniti eius
-                    dicta repellendus placeat recusandae voluptate aliquam totam
-                    natus magnam, exercitationem impedit modi quas, alias saepe
-                    minima consectetur nostrum officia. Aut necessitatibus
-                    explicabo dolores rem et veniam dolorem repudiandae cum
-                    veritatis pariatur eum, libero delectus fugiat accusantium
-                    aliquam. Autem vero assumenda debitis aperiam illo optio
-                    fugit quos, modi magni ratione blanditiis aliquid totam
-                    vitae in pariatur recusandae officia qui voluptas! Repellat
-                    magnam, vero temporibus dicta ipsam reiciendis sint pariatur
-                    sapiente possimus error placeat iste totam nobis itaque
-                    harum quasi accusantium unde? Perspiciatis ea explicabo quod
-                    excepturi obcaecati tempora ratione, labore officiis nulla
-                    porro, tenetur repellat quas quidem laborum. Nostrum velit
-                    eius laudantium maiores tenetur quod doloribus est, dicta
-                    ipsa nam. Dolorum, nam repellendus, beatae non quisquam
-                    provident neque at, iure deserunt dolor commodi adipisci
-                    laborum fuga saepe? Recusandae inventore maxime, animi
-                    consequuntur totam eius ut tempore minima sint quaerat
-                    cupiditate corporis autem tempora vero perferendis officiis!
-                    Aliquam repellat saepe velit voluptatum quidem fuga debitis
-                    perferendis quibusdam quasi inventore dolores ad corporis,
-                    maiores sapiente dicta accusantium eos incidunt?
-                    Repellendus, quam at corrupti minus quidem reiciendis soluta
-                    dicta reprehenderit voluptatum impedit quaerat molestiae
-                    numquam omnis quibusdam adipisci officiis libero veritatis
-                    eius est eos ducimus? Autem commodi tenetur ratione
-                    molestias deserunt voluptatem dignissimos aperiam reiciendis
-                    illo iste explicabo ipsa qui voluptate, recusandae, dicta
-                    similique labore. Iusto obcaecati aut assumenda voluptatum
-                    consequatur, ipsa voluptatem temporibus. Quos, explicabo
-                    dolor similique sit accusantium voluptate officia rerum
-                    aperiam libero. Ut ab, ex ipsam iure tempore tempora aperiam
-                    exercitationem eum nihil sed fugit vero natus perspiciatis
-                    impedit placeat, vitae architecto dignissimos suscipit
-                    voluptate officia non!
+                    {/* Agenda component */}
+                    {/* TODO!!!! */}
                   </motion.div>
                 </div>
               </div>

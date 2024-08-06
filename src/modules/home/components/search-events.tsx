@@ -262,7 +262,8 @@ export const SearchEvents: React.FC = () => {
             {items.map((item) => (
               <div
                 key={item.id}
-                className='scroll-item flex items-center p-2 text-lg sm:text-2xl md:p-4 md:text-3xl'
+                className='scroll-item flex cursor-pointer items-center p-2 text-lg sm:text-2xl md:p-4 md:text-3xl'
+                onClick={() => setSearchTerm(item.name)}
               >
                 <div className='mr-4 rounded-full border-4 bg-white p-4 text-black'>
                   {item.icon}
