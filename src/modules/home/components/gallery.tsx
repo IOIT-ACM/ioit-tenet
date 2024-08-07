@@ -9,7 +9,7 @@ export const Gallery = () => {
   return (
     <section
       id='gallery'
-      className='h-[200vh] w-screen select-none bg-neutral-950'
+      className='h-[120vh] w-screen select-none bg-neutral-950'
     >
       <div className='sticky top-0 flex h-screen items-center overflow-hidden'>
         <div>

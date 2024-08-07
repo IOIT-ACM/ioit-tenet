@@ -5,6 +5,11 @@
   height: 700vh;
 }
 
+.countdownspacer {
+  position: relative;
+  height: 500vh;
+}
+
 .pin {
   position: relative;
   height: 100vh;
@@ -42,6 +47,10 @@
 
     .highlight {
       color: orange;
+    }
+
+    .timer {
+      color: rgb(255, 255, 255);
     }
   }
 }

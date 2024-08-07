@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import * as Scrollytelling from '@/lib/scrollytelling-client';
 import { SlCalender } from 'react-icons/sl';
-
 import s from './intro.module.scss';
 
 export const Hero = () => {
@@ -84,8 +83,8 @@ export const Hero = () => {
             </svg>
             T.E.N.E.T goes beyond just an abbreviation of 5 niches. This event
             in its inception is an amalgamation of ideas where professionalism
-            meets the academia. This is an event where students learn, connect,
-            grow and most importantly have an experience worth remembering.
+            meets the academia. This is where students learn, connect, grow and
+            most importantly have an experience worth remembering.
           </p>
 
           <div className={s.marquees}>
@@ -140,7 +139,8 @@ const Marquee = ({
       >
         {Array.from({ length: 10 }, (_, i) => (
           <div key={i} className={s.marqueeItem}>
-            OCTOBER 4 <SlCalender />
+            OCTOBER 4 <SlCalender /> OCTOBER 5 <SlCalender /> OCTOBER 6{' '}
+            <SlCalender />
           </div>
         ))}
       </div>

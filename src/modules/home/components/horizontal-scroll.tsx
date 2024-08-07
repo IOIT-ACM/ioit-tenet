@@ -7,16 +7,6 @@ import { useRef } from 'react';
 export const HorizontalScroll = () => {
   return (
     <div className='bg-neutral-700'>
-      <div className='flex h-56 items-center justify-center'>
-        <motion.span
-          initial={{ x: 30, scale: 0.5, opacity: 0.3 }}
-          whileInView={{ x: 0, scale: 1, opacity: 1 }}
-          transition={{ type: 'spring', stiffness: 60 }}
-          className='text-center text-5xl font-semibold uppercase text-neutral-300'
-        >
-          Explore events at TENET 2024
-        </motion.span>
-      </div>
       <HorizontalScrollCarousel />
     </div>
   );
@@ -28,19 +18,27 @@ const HorizontalScrollCarousel = () => {
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ['5%', '-69%']);
+  const x = useTransform(scrollYProgress, [0, 1], ['2%', '-69%']);
 
   return (
     <section ref={targetRef} className='relative h-[300vh] bg-neutral-950'>
       <div className='sticky top-0 flex h-screen items-center overflow-hidden'>
         <motion.div style={{ x }} className='flex gap-14'>
+          <motion.span
+            initial={{ x: 30, scale: 0.5, opacity: 0.3 }}
+            whileInView={{ x: 0, scale: 1, opacity: 1 }}
+            transition={{ type: 'spring', stiffness: 60 }}
+            className='w-fit text-left text-5xl font-semibold uppercase text-neutral-300'
+          >
+            Explore <br /> events <br /> at <br /> TENET 2024
+          </motion.span>
           {cards.map((card) => {
             return <Card card={card} key={card.id} />;
           })}
 
           <Link
             href={'/events'}
-            className='group relative h-[450px] w-[450px] cursor-pointer overflow-hidden rounded-full border-2 border-white bg-neutral-200'
+            className='group relative h-[450px] w-[250px] cursor-pointer overflow-hidden rounded-full border-2 border-white bg-neutral-200 md:w-[450px]'
           >
             <div
               style={{

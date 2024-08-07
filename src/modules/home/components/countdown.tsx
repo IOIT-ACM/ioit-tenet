@@ -1,5 +1,85 @@
 'use client';
 
+import * as Scrollytelling from '@bsmnt/scrollytelling';
+
+import s from './falling-caps/falling-caps.module.scss';
+import { useMemo } from 'react';
+
+const splitText = (text: string, wordClass?: string) => {
+  const wordsArray = text.split(' ');
+
+  const htmlWords = wordsArray.map((word, i) => {
+    const hasLineBreak = word.includes('\n');
+
+    return (
+      <span className={wordClass} key={i}>
+        {word}
+        {i < wordsArray.length - 1 && ' '}
+        {hasLineBreak && <br />}
+      </span>
+    );
+  });
+
+  return htmlWords;
+};
+
+const lines = ['TENET BEGINS IN'];
+
+export const ShiftingCountdown = () => {
+  const splittedText = useMemo(
+    () =>
+      lines
+        .map((line, lineIdx) => {
+          const isLast = lineIdx === lines.length - 1;
+          const wordElements = splitText(
+            line + '\n',
+            isLast ? s.timer : undefined,
+          );
+
+          return wordElements;
+        })
+        .flat(),
+    [],
+  );
+
+  return (
+    <Scrollytelling.Root end='bottom bottom'>
+      <section className={s.countdownspacer}>
+        <div className={s.pin}>
+          <p className={s.paragraph}>
+            <Scrollytelling.Stagger
+              overlap={0}
+              tween={{
+                start: 0,
+                end: 50,
+                fromTo: [
+                  {
+                    opacity: 0.2,
+                  },
+                  {
+                    opacity: 1,
+                    ease: 'power2.out',
+                  },
+                ],
+              }}
+            >
+              {splittedText}
+            </Scrollytelling.Stagger>
+          </p>
+          <div className='z-50 p-4 py-14'>
+            <div className='mx-auto flex w-full max-w-5xl items-center gap-4 bg-none'>
+              <CountdownItem unit='Day' text='days' />
+              <CountdownItem unit='Hour' text='hours' />
+              <CountdownItem unit='Minute' text='minutes' />
+              <CountdownItem unit='Second' text='seconds' />
+            </div>
+          </div>
+        </div>
+      </section>
+    </Scrollytelling.Root>
+  );
+};
+
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -12,20 +92,6 @@ const DAY = HOUR * 24;
 
 type Unit = 'Day' | 'Hour' | 'Minute' | 'Second';
 
-export const ShiftingCountdown: React.FC = () => (
-  <div className='z-50 bg-gradient-to-br from-purple-400 to-pink-600 p-4 py-14'>
-    <h1 className='mb-10 animate-bounce text-center text-4xl text-white md:text-6xl'>
-      TENET BEGINS IN
-    </h1>
-    <div className='mx-auto flex w-full max-w-5xl items-center bg-white'>
-      <CountdownItem unit='Day' text='days' />
-      <CountdownItem unit='Hour' text='hours' />
-      <CountdownItem unit='Minute' text='minutes' />
-      <CountdownItem unit='Second' text='seconds' />
-    </div>
-  </div>
-);
-
 const CountdownItem: React.FC<{ unit: Unit; text: string }> = ({
   unit,
   text,
@@ -33,7 +99,7 @@ const CountdownItem: React.FC<{ unit: Unit; text: string }> = ({
   const { time } = useTimer(unit);
 
   return (
-    <div className='flex h-24 w-1/4 flex-col items-center justify-center gap-1 border-r-[6px] border-slate-200 font-mono md:h-36 md:gap-2'>
+    <div className='flex h-24 w-1/4 flex-col items-center justify-center gap-1 bg-white font-mono md:h-36 md:gap-2'>
       <AnimatePresence mode='popLayout'>
         <motion.span
           key={time}
