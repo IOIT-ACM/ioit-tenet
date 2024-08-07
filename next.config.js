@@ -14,6 +14,10 @@ const config = {
       },
       {
         protocol: 'https',
+        hostname: 'lab.basement.studio',
+      },
+      {
+        protocol: 'https',
         hostname: 'assets.aceternity.com',
       },
       {

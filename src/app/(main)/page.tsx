@@ -6,17 +6,18 @@ import {
   HorizontalScroll,
   MUN,
   ShiftingCountdown,
-  Agenda,
+  // Agenda,
   Navigation,
   Intro,
   HorizontalMarquee,
   LastParallax,
+  FallingCaps,
 } from '@/modules/home';
 
 export default async function HomePage() {
   return (
     <main className=''>
-      <Agenda />
+      {/* <Agenda /> */}
       <Navigation />
       <Hero />
       <Events />
@@ -27,6 +28,7 @@ export default async function HomePage() {
       <Gallery />
       <MUN />
       <HorizontalScroll />
+      <FallingCaps />
       <LastParallax />
     </main>
   );

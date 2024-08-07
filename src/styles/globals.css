@@ -29,6 +29,14 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+    --color-white: #fff;
+    --color-gray: rgba(255, 255, 255, 0.2);
+    --color-gray-light: rgba(255, 255, 255, 0.5);
+    --color-text: #101010;
+    --color-black: #101010;
+    --color-orange: #e54602;
+    --color-purple: #ae86ff;
+    --color-green: #59bd82;
   }
 
   .dark {

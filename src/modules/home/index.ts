@@ -1,5 +1,5 @@
 export { ShiftingCountdown } from './components/countdown';
-export { Hero } from './components/heropage';
+export { Hero } from './components/hero';
 export { Events } from './components/events';
 export { SearchEvents } from './components/search-events';
 export { Gallery } from './components/gallery';
@@ -10,3 +10,4 @@ export { Navigation } from './components/ui/navigation';
 export { Intro } from './components/intro';
 export { HorizontalMarquee } from './components/three/horizontal-marquee';
 export { LastParallax } from './components/last-parallax';
+export { FallingCaps } from './components/falling-caps';
