@@ -1,6 +1,8 @@
-import Footer from '@/components/common/footer';
+// import Footer from '@/components/common/footer';
 import FixedNavBar from '@/components/common/fixednav';
 import { Providers } from '@/modules/providers';
+
+import { Footer } from '@/components/footer';
 
 interface SiteLayoutProps {
   children: React.ReactNode;

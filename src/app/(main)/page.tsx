@@ -9,6 +9,8 @@ import {
   Agenda,
   Navigation,
   Intro,
+  HorizontalMarquee,
+  LastParallax,
 } from '@/modules/home';
 
 export default async function HomePage() {
@@ -19,11 +21,13 @@ export default async function HomePage() {
       <Hero />
       <Events />
       <Intro />
+      <HorizontalMarquee />
       <ShiftingCountdown />
       <SearchEvents />
       <Gallery />
       <MUN />
       <HorizontalScroll />
+      <LastParallax />
     </main>
   );
 }

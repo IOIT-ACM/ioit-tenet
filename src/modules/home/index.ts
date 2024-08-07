@@ -8,3 +8,5 @@ export { MUN } from './components/mun';
 export { Agenda } from './components/agendabutton';
 export { Navigation } from './components/ui/navigation';
 export { Intro } from './components/intro';
+export { HorizontalMarquee } from './components/three/horizontal-marquee';
+export { LastParallax } from './components/last-parallax';

@@ -197,7 +197,7 @@ export const SearchEvents: React.FC = () => {
 
   return (
     <div id='search' className='h-[200vh]'>
-      <div className='sticky top-0 grid h-screen grid-cols-1 items-center justify-center gap-3 overflow-hidden bg-neutral-800 px-10 text-gray-300 md:grid-cols-2 md:px-20'>
+      <div className='sticky top-0 grid h-screen grid-cols-1 items-center justify-center gap-3 overflow-hidden bg-neutral-950 px-10 text-gray-300 md:grid-cols-2 md:px-20'>
         <div className='grid gap-5 md:-translate-y-[20%] md:px-10'>
           <div className='text-4xl font-bold md:text-6xl'>
             Search through all events from <br /> TENET 2024

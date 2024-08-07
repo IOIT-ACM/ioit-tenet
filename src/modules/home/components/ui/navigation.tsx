@@ -10,6 +10,7 @@ const links = [
   { name: 'Search', href: '/#search' },
   { name: 'Gallery', href: '/#gallery' },
   { name: 'MUN', href: '/#mun' },
+  { name: 'Socials', href: '/#socials' },
 ];
 
 export const Navigation = () => {
