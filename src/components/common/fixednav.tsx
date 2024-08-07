@@ -44,7 +44,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
       }
 
       setLastScrollTop(currentScrollTop);
-      setIsVisible(currentScrollTop < 400);
+      setIsVisible(currentScrollTop < 200);
     };
 
     window.addEventListener('scroll', handleScroll);

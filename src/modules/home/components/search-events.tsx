@@ -196,7 +196,7 @@ export const SearchEvents: React.FC = () => {
   }, [suggestions, searchTerm]);
 
   return (
-    <div id='search' className='h-[140vh]'>
+    <div id='search' className='h-[140vh] bg-neutral-950'>
       <div className='sticky top-0 grid h-screen grid-cols-1 items-center justify-center gap-3 overflow-hidden bg-neutral-950 px-10 text-gray-300 md:grid-cols-2 md:px-20'>
         <div className='grid gap-5 md:-translate-y-[20%] md:px-10'>
           <div className='text-4xl font-bold md:text-6xl'>
@@ -204,8 +204,12 @@ export const SearchEvents: React.FC = () => {
           </div>
 
           <button
-            onClick={() => router.push('/events')}
-            className='rounded-2xl border-2 border-dashed border-black bg-gray-200 py-2 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none md:px-6 md:py-3'
+            onClick={() =>
+              setTimeout(() => {
+                router.push('/events');
+              }, 500)
+            }
+            className='rounded-2xl border-2 border-dashed border-black bg-gray-200 py-2 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_gray] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none md:px-6 md:py-3'
           >
             <span>View all events</span>
           </button>

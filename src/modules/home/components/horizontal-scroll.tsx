@@ -6,7 +6,7 @@ import { useRef } from 'react';
 
 export const HorizontalScroll = () => {
   return (
-    <div className='bg-neutral-700'>
+    <div className='bbg-neutral-950'>
       <HorizontalScrollCarousel />
     </div>
   );
@@ -21,7 +21,7 @@ const HorizontalScrollCarousel = () => {
   const x = useTransform(scrollYProgress, [0, 1], ['2%', '-69%']);
 
   return (
-    <section ref={targetRef} className='relative h-[300vh] bg-neutral-950'>
+    <section ref={targetRef} className='relative h-[300vh]'>
       <div className='sticky top-0 flex h-screen items-center overflow-hidden'>
         <motion.div style={{ x }} className='flex gap-14'>
           <motion.span
