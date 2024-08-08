@@ -5,13 +5,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export const ShiftingCountdown = () => {
   return (
-    <section className='flex min-h-[50vh] items-center justify-center'>
+    <section className='flex min-h-[100vh] items-center justify-center'>
       <div>
         <p className='text-center text-9xl font-extrabold text-white'>
           TENET BEGINS IN
         </p>
         <div className='z-50 p-4 py-14'>
-          <div className='mx-auto flex w-full max-w-5xl items-center gap-4 bg-none'>
+          <div className='mx-auto flex w-full max-w-5xl flex-col items-center gap-4 bg-none md:flex-row'>
             <CountdownItem unit='Day' text='days' />
             <CountdownItem unit='Hour' text='hours' />
             <CountdownItem unit='Minute' text='minutes' />

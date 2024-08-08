@@ -134,7 +134,7 @@ export const Events: React.FC = () => {
   return (
     <div
       id='intro'
-      className={`stack-area relative mx-auto grid h-[1000vh] w-screen grid-cols-1 justify-center gap-8 pt-20 transition-all delay-0 duration-700 md:grid-cols-3`}
+      className={`stack-area relative mx-auto grid h-[700vh] w-screen grid-cols-1 justify-center gap-8 pt-20 transition-all delay-0 duration-700 md:grid-cols-3`}
     >
       <div className='sticky top-0 flex h-screen flex-col items-center justify-center gap-3 sm:top-14 md:top-40 md:justify-start'>
         <AnimatePresence>

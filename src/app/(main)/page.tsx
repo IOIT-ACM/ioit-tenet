@@ -9,7 +9,7 @@ import {
   // Agenda,
   Navigation,
   Intro,
-  HorizontalMarquee,
+  // HorizontalMarquee,
   LastParallax,
   FallingCaps,
 } from '@/modules/home';
@@ -22,7 +22,7 @@ export default async function HomePage() {
       <Hero />
       <Events />
       <Intro />
-      <HorizontalMarquee />
+      {/* <HorizontalMarquee /> */}
       <ShiftingCountdown />
       <SearchEvents />
       <Gallery />
