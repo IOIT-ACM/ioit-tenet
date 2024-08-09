@@ -7,7 +7,7 @@ export const ShiftingCountdown = () => {
   return (
     <section
       id='intro'
-      className='flex min-h-[50vh] items-center justify-center'
+      className='flex min-h-[100vh] items-center justify-center'
     >
       <div>
         <p className='text-center text-4xl font-extrabold text-white md:text-9xl'>

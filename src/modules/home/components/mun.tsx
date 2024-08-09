@@ -161,7 +161,7 @@ const ShuffleGrid = () => {
   };
 
   return (
-    <div className='grid h-[450px] grid-cols-4 grid-rows-4 gap-1'>
+    <div className='grid h-[450px] grid-cols-4 grid-rows-4 gap-3'>
       {squares.map((sq) => sq)}
     </div>
   );

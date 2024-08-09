@@ -3,7 +3,7 @@ import {
   // Events,
   SearchEvents,
   Gallery,
-  HorizontalScroll,
+  TenetSpeakers,
   MUN,
   ShiftingCountdown,
   // Agenda,
@@ -23,15 +23,15 @@ export default async function HomePage() {
       <Navigation />
       <Hero />
       <TenetHero />
+      <Intro />
       <ShiftingCountdown />
+      <TenetSpeakers />
       <Schedule />
       {/* <Events /> */}
-      <Intro />
       {/* <HorizontalMarquee /> */}
       <SearchEvents />
-      <Gallery />
       <MUN />
-      <HorizontalScroll />
+      <Gallery />
       <FallingCaps />
       <LastParallax />
     </main>

@@ -4,15 +4,16 @@ import { motion, useTransform, useScroll } from 'framer-motion';
 import Link from 'next/link';
 import { useRef } from 'react';
 
-export const HorizontalScroll = () => {
+export const TenetSpeakers = () => {
   return (
     <div className='bbg-neutral-950'>
-      <HorizontalScrollCarousel />
+      <h1 className='text-center text-4xl text-white md:text-8xl'>Speakers</h1>
+      <TenetSpeakersCarousel />
     </div>
   );
 };
 
-const HorizontalScrollCarousel = () => {
+const TenetSpeakersCarousel = () => {
   const targetRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -24,14 +25,6 @@ const HorizontalScrollCarousel = () => {
     <section ref={targetRef} className='relative h-[300vh]'>
       <div className='sticky top-0 flex h-screen items-center overflow-hidden'>
         <motion.div style={{ x }} className='flex gap-14'>
-          <motion.span
-            initial={{ x: 30, scale: 0.5, opacity: 0.3 }}
-            whileInView={{ x: 0, scale: 1, opacity: 1 }}
-            transition={{ type: 'spring', stiffness: 60 }}
-            className='w-fit text-left text-5xl font-semibold uppercase text-neutral-300'
-          >
-            Explore <br /> events <br /> at <br /> TENET 2024
-          </motion.span>
           {cards.map((card) => {
             return <Card card={card} key={card.id} />;
           })}

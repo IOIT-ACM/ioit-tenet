@@ -13,9 +13,10 @@ import s from './footer.module.scss';
 import Link from 'next/link';
 import { useMedia } from '@/hooks/use-media';
 import { toVw } from '@/lib/utils';
-import { useCallback, useRef } from 'react';
 import { cn } from '@/lib/utils';
-import { FlipLink } from '../ui/fliplink';
+import { Socials } from '../ui/socials';
+
+import React, { useRef, useCallback } from 'react';
 
 const ghHref = 'https://adimail.github.io';
 
@@ -24,15 +25,7 @@ export const Footer = () => {
 
   return (
     <div className='pb-20'>
-      <section
-        id='socials'
-        className='grid place-content-center gap-2 px-8 py-24 text-gray-400'
-      >
-        <FlipLink href='#'>Twitter</FlipLink>
-        <FlipLink href='#'>Linkedin</FlipLink>
-        <FlipLink href='#'>Facebook</FlipLink>
-        <FlipLink href='#'>Instagram</FlipLink>
-      </section>
+      <Socials renderImageBuffer={50} rotationRange={25} />
       <Scrollytelling.Root start='top 80%'>
         <footer className={cn(s.footer, 'pb-20')}>
           <PreFooter />
