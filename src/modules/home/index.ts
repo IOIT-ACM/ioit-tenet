@@ -11,3 +11,5 @@ export { Intro } from './components/intro';
 export { HorizontalMarquee } from './components/three/horizontal-marquee';
 export { LastParallax } from './components/last-parallax';
 export { FallingCaps } from './components/falling-caps';
+export { TenetHero } from './components/tenetintro';
+export { Schedule } from './components/schedule';

@@ -1,6 +1,6 @@
 import {
   Hero,
-  Events,
+  // Events,
   SearchEvents,
   Gallery,
   HorizontalScroll,
@@ -12,6 +12,8 @@ import {
   // HorizontalMarquee,
   LastParallax,
   FallingCaps,
+  TenetHero,
+  Schedule,
 } from '@/modules/home';
 
 export default async function HomePage() {
@@ -20,10 +22,12 @@ export default async function HomePage() {
       {/* <Agenda /> */}
       <Navigation />
       <Hero />
-      <Events />
+      <TenetHero />
+      <ShiftingCountdown />
+      <Schedule />
+      {/* <Events /> */}
       <Intro />
       {/* <HorizontalMarquee /> */}
-      <ShiftingCountdown />
       <SearchEvents />
       <Gallery />
       <MUN />

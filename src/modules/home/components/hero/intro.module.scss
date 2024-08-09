@@ -30,9 +30,9 @@
   }
 
   span {
-    font-size: tovw(16px);
-    height: toem(21px, 16px);
-    padding: 0 toem(4px, 16px);
+    font-size: tovw(20px);
+    height: toem(21px, 20px);
+    padding: 0 toem(4px, 20px);
     margin-left: 1em;
     border-radius: 2px;
     border: 1px solid white;
@@ -74,7 +74,7 @@
     font-size: tovw(30px, "mobile");
     margin: 0;
     margin-top: tovw(32px, "mobile");
-    padding: 0 tovw(16px, "mobile");
+    padding: 0 tovw(20px, "mobile");
     max-width: unset;
   }
 }
@@ -91,7 +91,7 @@
     font-size: tovw(11.5px, "mobile");
     max-width: tovw(500px, "mobile");
     margin-left: tovw(90px, "mobile");
-    padding-right: tovw(16px, "mobile");
+    padding-right: tovw(20px, "mobile");
     padding-top: tovw(12px, "mobile");
   }
 

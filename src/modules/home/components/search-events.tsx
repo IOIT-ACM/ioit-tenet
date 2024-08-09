@@ -236,7 +236,7 @@ export const SearchEvents: React.FC = () => {
                       <div
                         key={item.id}
                         className={cn(
-                          'grid cursor-pointer items-center px-5 py-5 text-xl hover:text-gray-700 md:px-8',
+                          'grid cursor-pointer items-center px-5 py-3 text-xl hover:text-gray-700 md:px-8',
                           activeSuggestionIndex === index && 'bg-gray-200',
                         )}
                         onClick={() => setSearchTerm(item.name)}

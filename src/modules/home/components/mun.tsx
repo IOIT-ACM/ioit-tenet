@@ -26,13 +26,22 @@ export const MUN = () => {
           distinguished speakers such as Mr. Abhay Vaidya and Dr. Arjun Deore.
           Read further on the IOIT MUN website
         </p>
-        <Link
-          href={'https://www.ioitmun.com/'}
-          target='_blank'
-          className='rounded bg-[#26a7ff] px-4 py-2 font-medium text-white transition-all hover:bg-indigo-600 active:scale-95'
-        >
-          Visit site
-        </Link>
+        <div className='flex gap-5'>
+          <Link
+            href={'https://www.ioitmun.com/'}
+            target='_blank'
+            className='rounded bg-[#26a7ff] px-4 py-2 font-medium text-white transition-all hover:bg-indigo-600 active:scale-95'
+          >
+            Visit site
+          </Link>
+          <Link
+            href={'/events/mun'}
+            target='_blank'
+            className='rounded bg-[#26a7ff] px-4 py-2 font-medium text-white transition-all hover:bg-indigo-600 active:scale-95'
+          >
+            Register for MUN&lsquo;24
+          </Link>
+        </div>
       </div>
       <ShuffleGrid />
     </section>

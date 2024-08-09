@@ -20,7 +20,7 @@ const transition = {
 const routes = [
   { path: '/events/techfiesta', name: 'Techfiesta' },
   { path: '/events/esports', name: 'E-Sports' },
-  { path: '/events/entrepreneurship', name: 'MUN' },
+  { path: '/events/mun', name: 'MUN' },
   { path: '/events/esummit', name: 'E-Summit' },
   { path: '/events/creators', name: 'Creators Conclave' },
 ];
@@ -88,7 +88,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
           className,
         )}
       >
-        <div className='relative flex gap-0 rounded-full border-2 border-black bg-gray-300 px-4 py-3 text-black ring-2 ring-white'>
+        <div className='relative flex gap-0 rounded-full border-2 border-gray-600 bg-gray-300 px-4 py-2 text-black'>
           {routes.map((route) => (
             <motion.div
               key={route.path}

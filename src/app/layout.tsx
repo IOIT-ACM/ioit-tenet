@@ -32,9 +32,6 @@ export const metadata: Metadata = {
     {
       name: 'Swaroop Patil',
     },
-    {
-      name: 'Aayush Musale',
-    },
   ],
   creator: 'IOIT ACM',
   openGraph: {
