@@ -69,6 +69,16 @@ export const Footer = () => {
                 aissms.ioit.acm@chatpter.acm.org
               </Link>
             </div>
+            <div className='text-center'>
+              <Link
+                className='link'
+                href='/about'
+                target='_blank'
+                rel='noreferrer'
+              >
+                ABOUT TENET
+              </Link>
+            </div>
             <div>
               <span>&copy; {new Date().getFullYear()} ACM IOIT</span>
               <span>All rights reserved.</span>

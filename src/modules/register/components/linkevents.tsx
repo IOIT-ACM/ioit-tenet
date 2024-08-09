@@ -46,7 +46,7 @@ export const RegisterLinks: React.FC = () => {
             href='#'
           />
           <CustomLink
-            heading='Creators conclave'
+            heading='Creators Conclave'
             subheading='Unleash your inner performer with open mic, stand-up comedy battles, and a theatre showcase'
             imgSrc='/imgs/events/2.jpeg'
             href='#'

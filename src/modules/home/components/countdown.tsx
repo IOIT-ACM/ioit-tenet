@@ -5,9 +5,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export const ShiftingCountdown = () => {
   return (
-    <section className='flex min-h-[100vh] items-center justify-center'>
+    <section
+      id='intro'
+      className='flex min-h-[50vh] items-center justify-center'
+    >
       <div>
-        <p className='text-center text-9xl font-extrabold text-white'>
+        <p className='text-center text-4xl font-extrabold text-white md:text-9xl'>
           TENET BEGINS IN
         </p>
         <div className='z-50 p-4 py-14'>
@@ -39,7 +42,7 @@ const CountdownItem: React.FC<{ unit: Unit; text: string }> = ({
   const { time } = useTimer(unit);
 
   return (
-    <div className='flex h-24 w-1/4 flex-col items-center justify-center gap-1 rounded-xl bg-white font-mono md:h-36 md:gap-2'>
+    <div className='flex h-24 w-1/4 min-w-28 flex-col items-center justify-center gap-1 rounded-xl bg-white font-mono md:h-36 md:gap-2'>
       <AnimatePresence mode='popLayout'>
         <motion.span
           key={time}
