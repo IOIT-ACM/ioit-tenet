@@ -25,7 +25,7 @@ export const Footer = () => {
 
   return (
     <div className='pb-20'>
-      <Socials renderImageBuffer={50} rotationRange={25} />
+      <Socials />
       <Scrollytelling.Root start='top 80%'>
         <footer className={cn(s.footer, 'pb-20')}>
           <PreFooter />

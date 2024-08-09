@@ -7,10 +7,10 @@ import Link from 'next/link';
 const links = [
   { name: 'Home', href: '/#home' },
   { name: 'Intro', href: '/#intro' },
+  { name: 'Schedule', href: '/#schedule' },
   { name: 'Search', href: '/#search' },
-  { name: 'Gallery', href: '/#gallery' },
   { name: 'MUN', href: '/#mun' },
-  { name: 'Socials', href: '/#socials' },
+  { name: 'Gallery', href: '/#gallery' },
 ];
 
 export const Navigation = () => {
@@ -29,30 +29,23 @@ export const Navigation = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            initial={{ opacity: 0.5, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 30 }}
             className='flex flex-col justify-around pl-20'
           >
-            {links.map((link, index) => (
-              <motion.div
-                key={link.name}
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 50 }}
-                transition={{ delay: index * 0.1 }}
-                className='mb-2'
-              >
+            {links.map((link) => (
+              <div key={link.name} className='mb-2'>
                 <Link href={link.href}>
                   <motion.div
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
-                    className='px-4 py-2 text-xl font-semibold text-white transition-all duration-200'
+                    className='px-4 py-2 text-xl font-semibold text-gray-300 transition-all duration-200'
                   >
                     {link.name}
                   </motion.div>
                 </Link>
-              </motion.div>
+              </div>
             ))}
           </motion.div>
         )}

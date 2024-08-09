@@ -16,7 +16,7 @@ const images = [
   '/imgs/socials/twitter.png',
 ];
 
-export const Socials = ({ rotationRange }: { rotationRange: number }) => {
+export const Socials = () => {
   const [scope, animate] = useAnimate();
 
   const lastRenderPosition = useRef({ x: 0, y: 0 });
@@ -77,7 +77,7 @@ export const Socials = ({ rotationRange }: { rotationRange: number }) => {
       el.style.left = `${lastRenderPosition.current.x}px`;
       el.style.zIndex = imageRenderCount.current.toString();
 
-      const rotation = Math.random() * rotationRange;
+      const rotation = Math.random() * 20;
 
       animate(
         selector,

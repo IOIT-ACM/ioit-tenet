@@ -8,7 +8,7 @@ export { Agenda } from './components/agendabutton';
 export { Navigation } from './components/ui/navigation';
 export { Intro } from './components/intro';
 export { HorizontalMarquee } from './components/three/horizontal-marquee';
-export { LastParallax } from './components/last-parallax';
+export { ThatsAllFolks } from './components/last-parallax';
 export { FallingCaps } from './components/falling-caps';
 export { TenetHero } from './components/tenetintro';
 export { Schedule } from './components/schedule';

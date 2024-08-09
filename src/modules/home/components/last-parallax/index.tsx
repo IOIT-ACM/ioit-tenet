@@ -7,7 +7,7 @@ import PC_IMAGE from '../../../../../public/parallax/pc.png';
 
 import s from './last-parallax.module.scss';
 
-export const LastParallax = () => {
+export const ThatsAllFolks = () => {
   return (
     <Scrollytelling.Root start='top bottom' scrub={0.75}>
       <section className={s.section}>

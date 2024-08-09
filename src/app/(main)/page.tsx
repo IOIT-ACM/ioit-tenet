@@ -1,16 +1,13 @@
 import {
   Hero,
-  // Events,
   SearchEvents,
   Gallery,
   TenetSpeakers,
   MUN,
   EventCountdown,
-  // Agenda,
   Navigation,
   Intro,
-  // HorizontalMarquee,
-  LastParallax,
+  ThatsAllFolks,
   FallingCaps,
   TenetHero,
   Schedule,
@@ -19,7 +16,6 @@ import {
 export default async function HomePage() {
   return (
     <main className=''>
-      {/* <Agenda /> */}
       <Navigation />
       <Hero />
       <TenetHero />
@@ -27,13 +23,11 @@ export default async function HomePage() {
       <EventCountdown />
       <TenetSpeakers />
       <Schedule />
-      {/* <Events /> */}
-      {/* <HorizontalMarquee /> */}
       <SearchEvents />
       <MUN />
       <Gallery />
       <FallingCaps />
-      <LastParallax />
+      <ThatsAllFolks />
     </main>
   );
 }

@@ -46,6 +46,7 @@ export const Intro: React.FC = () => {
 
   return (
     <div
+      id='intro'
       ref={containerRef}
       className='min-h-[100vh] overflow-hidden p-10 pb-[200px] text-slate-100 transition-colors duration-1000 md:p-20'
     >
