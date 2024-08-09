@@ -5,7 +5,7 @@ import {
   Gallery,
   TenetSpeakers,
   MUN,
-  ShiftingCountdown,
+  EventCountdown,
   // Agenda,
   Navigation,
   Intro,
@@ -24,7 +24,7 @@ export default async function HomePage() {
       <Hero />
       <TenetHero />
       <Intro />
-      <ShiftingCountdown />
+      <EventCountdown />
       <TenetSpeakers />
       <Schedule />
       {/* <Events /> */}

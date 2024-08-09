@@ -1,4 +1,3 @@
-export { ShiftingCountdown } from './components/countdown';
 export { Hero } from './components/hero';
 export { Events } from './components/events';
 export { SearchEvents } from './components/search-events';
@@ -13,3 +12,4 @@ export { LastParallax } from './components/last-parallax';
 export { FallingCaps } from './components/falling-caps';
 export { TenetHero } from './components/tenetintro';
 export { Schedule } from './components/schedule';
+export { EventCountdown } from './components/countdown';

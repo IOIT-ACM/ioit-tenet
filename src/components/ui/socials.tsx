@@ -16,20 +16,29 @@ const images = [
   '/imgs/socials/twitter.png',
 ];
 
-export const Socials = ({
-  renderImageBuffer,
-  rotationRange,
-}: {
-  renderImageBuffer: number;
-  rotationRange: number;
-}) => {
+export const Socials = ({ rotationRange }: { rotationRange: number }) => {
   const [scope, animate] = useAnimate();
 
   const lastRenderPosition = useRef({ x: 0, y: 0 });
   const imageRenderCount = useRef(0);
+  const linkContainerRef = useRef<HTMLDivElement>(null);
 
   const handleMouseMove: MouseEventHandler<HTMLDivElement> = (e) => {
     const { clientX, clientY } = e;
+
+    if (linkContainerRef.current) {
+      const { left, top, right, bottom } =
+        linkContainerRef.current.getBoundingClientRect();
+
+      if (
+        clientX >= left &&
+        clientX <= right &&
+        clientY >= top &&
+        clientY <= bottom
+      ) {
+        return;
+      }
+    }
 
     const distance = calculateDistance(
       clientX,
@@ -38,7 +47,7 @@ export const Socials = ({
       lastRenderPosition.current.y,
     );
 
-    if (distance >= renderImageBuffer) {
+    if (distance >= 200) {
       lastRenderPosition.current.x = clientX;
       lastRenderPosition.current.y = clientY;
 
@@ -95,7 +104,7 @@ export const Socials = ({
         {
           opacity: [1, 0],
         },
-        { ease: 'linear', duration: 0.5, delay: 5 },
+        { ease: 'linear', duration: 0.5, delay: 0.2 },
       );
 
       imageRenderCount.current = imageRenderCount.current + 1;
@@ -109,14 +118,16 @@ export const Socials = ({
       className='relative grid h-[100vh] place-content-center gap-2 overflow-hidden px-8 py-24 text-gray-400'
       onMouseMove={handleMouseMove}
     >
-      <FlipLink href='#'>Twitter</FlipLink>
-      <FlipLink href='#'>Linkedin</FlipLink>
-      <FlipLink href='#'>Facebook</FlipLink>
-      <FlipLink href='#'>Instagram</FlipLink>
+      <div ref={linkContainerRef}>
+        <FlipLink href='#'>Twitter</FlipLink>
+        <FlipLink href='#'>Linkedin</FlipLink>
+        <FlipLink href='#'>Facebook</FlipLink>
+        <FlipLink href='#'>Instagram</FlipLink>
+      </div>
 
       {images.map((img, index) => (
         <img
-          className='pointer-events-none absolute left-0 top-0 z-20 h-48 w-auto object-cover opacity-0'
+          className='pointer-events-none absolute left-0 top-0 z-20 h-36 w-auto object-cover opacity-0'
           src={img}
           key={index}
           data-mouse-move-index={index}
