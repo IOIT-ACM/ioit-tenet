@@ -31,4 +31,5 @@ export type ScheduleItemType = {
   organizers: Organizer[];
   color: string;
   start: Date;
+  time: string;
 };

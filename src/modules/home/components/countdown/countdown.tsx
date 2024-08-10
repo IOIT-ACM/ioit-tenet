@@ -39,7 +39,7 @@ const CountdownItem: React.FC<{ unit: Unit; text: string }> = ({
   const { time } = useTimer(unit);
 
   return (
-    <div className='flex h-24 w-1/4 min-w-28 flex-col items-center justify-center gap-1 rounded-xl bg-white font-mono md:h-36 md:gap-2'>
+    <div className='flex h-24 w-1/4 min-w-28 cursor-cell flex-col items-center justify-center gap-1 rounded-xl bg-white font-mono md:h-36 md:gap-2'>
       <AnimatePresence mode='popLayout'>
         <motion.span
           key={time}

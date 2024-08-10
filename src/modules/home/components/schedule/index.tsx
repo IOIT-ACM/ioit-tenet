@@ -6,7 +6,8 @@ import { day1scheduleData, day2scheduleData, day3scheduleData } from './data';
 import { Separator } from '@/components/ui/separator';
 import { FollowCursor } from './cursor';
 import { useMemo, useState } from 'react';
-import { BsArrowsExpand, BsArrowsCollapse } from 'react-icons/bs';
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
+import Link from 'next/link';
 
 export const Schedule = () => {
   const [expanded, setExpanded] = useState<number | null>(null);
@@ -37,15 +38,24 @@ export const Schedule = () => {
 
   return (
     <section className='relative mx-5 mb-56 grid grid-cols-1 justify-center text-white transition-all md:mx-32 md:grid-cols-7'>
-      <div className='sticky top-0 z-40 self-start md:top-10 md:col-span-2'>
+      <div className='sticky top-0 z-40 self-start bg-black md:top-10 md:col-span-2 md:bg-neutral-950'>
         <motion.h1
           initial={{ y: 48, opacity: 0.7 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ ease: 'easeInOut', duration: 0.75 }}
-          className='mb-10 w-full bg-black text-4xl font-black uppercase text-zinc-50 md:mb-20 md:bg-neutral-950 md:text-5xl'
+          className='mb-3 w-full text-4xl font-black uppercase text-zinc-50 md:mb-20 md:text-5xl'
         >
           Schedule
         </motion.h1>
+
+        <div className='grid gap-2 text-slate-300'>
+          <Link className='transition-all hover:underline' href={'/register'}>
+            Registrations open
+          </Link>
+          <Link className='transition-all hover:underline' href={'/#'}>
+            Download Agenda
+          </Link>
+        </div>
       </div>
       <div className='w-full md:col-span-5'>
         <AnimatePresence>
@@ -54,12 +64,12 @@ export const Schedule = () => {
               <span>Day 1 Events</span>
               <span>
                 {expanded === 1 ? (
-                  <BsArrowsCollapse
+                  <IoIosArrowUp
                     onClick={() => setExpanded(null)}
                     className='cursor-pointer transition-all hover:scale-125'
                   />
                 ) : (
-                  <BsArrowsExpand
+                  <IoIosArrowDown
                     onClick={() => setExpanded(1)}
                     className='cursor-pointer transition-all hover:scale-125'
                   />
@@ -78,6 +88,7 @@ export const Schedule = () => {
                   <ScheduleItem
                     title={item.title}
                     date={item.date}
+                    time={item.time}
                     location={item.location}
                     organizers={item.organizers}
                     url={item.url}
@@ -94,12 +105,12 @@ export const Schedule = () => {
               <span>Day 2 Events</span>
               <span>
                 {expanded === 2 ? (
-                  <BsArrowsCollapse
+                  <IoIosArrowUp
                     onClick={() => setExpanded(null)}
                     className='cursor-pointer transition-all hover:scale-125'
                   />
                 ) : (
-                  <BsArrowsExpand
+                  <IoIosArrowDown
                     onClick={() => setExpanded(2)}
                     className='cursor-pointer transition-all hover:scale-125'
                   />
@@ -118,6 +129,7 @@ export const Schedule = () => {
                   <ScheduleItem
                     title={item.title}
                     date={item.date}
+                    time={item.time}
                     location={item.location}
                     organizers={item.organizers}
                     url={item.url}
@@ -134,12 +146,12 @@ export const Schedule = () => {
               <span>Day 3 Events</span>
               <span>
                 {expanded === 3 ? (
-                  <BsArrowsCollapse
+                  <IoIosArrowUp
                     onClick={() => setExpanded(null)}
                     className='cursor-pointer transition-all hover:scale-125'
                   />
                 ) : (
-                  <BsArrowsExpand
+                  <IoIosArrowDown
                     onClick={() => setExpanded(3)}
                     className='cursor-pointer transition-all hover:scale-125'
                   />
@@ -158,6 +170,7 @@ export const Schedule = () => {
                   <ScheduleItem
                     title={item.title}
                     date={item.date}
+                    time={item.time}
                     location={item.location}
                     organizers={item.organizers}
                     url={item.url}

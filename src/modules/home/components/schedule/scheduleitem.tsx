@@ -10,8 +10,10 @@ export const ScheduleItem = ({
   location,
   organizers,
   url,
+  time,
 }: {
   title: string;
+  time: string;
   url: string;
   date: string;
   location: string;
@@ -21,11 +23,11 @@ export const ScheduleItem = ({
     <div>
       <Link
         href={url}
-        className='mb-5 flex cursor-cell flex-col gap-3 border-b pb-2 pt-3 text-gray-400 transition-all hover:text-white md:mb-0 md:text-gray-600'
+        className='mb-5 flex cursor-cell flex-col gap-3 border-b pb-2 pt-3 text-gray-400 transition-all hover:text-white md:mb-0 md:border-none md:text-gray-600'
       >
         <span>
           <p className='mb-2 line-clamp-2 text-lg md:line-clamp-1 md:overflow-hidden md:truncate md:border-none md:text-xl'>
-            {title}
+            {title} <span className='hidden md:flex'>{time}</span>
           </p>
           <span className='flex items-start justify-between md:hidden'>
             <span className='flex flex-col gap-2 text-sm uppercase md:flex-row'>

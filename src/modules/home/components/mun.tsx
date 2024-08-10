@@ -6,38 +6,39 @@
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { useIsMobile } from '@/hooks/useismobile';
 
 export const MUN = () => {
   return (
     <section
       id='mun'
-      className='grid min-h-screen w-screen grid-cols-1 items-center gap-8 px-10 py-12 text-white md:grid-cols-2 md:px-20'
+      className='grid min-h-screen w-screen grid-cols-1 items-center gap-8 px-6 py-8 text-white sm:px-10 sm:py-12 md:grid-cols-2 md:px-20'
     >
       <div>
-        <span className='mb-4 block text-lg font-medium text-[#26a7ff] md:text-xl'>
+        <span className='mb-3 block text-base font-medium text-[#26a7ff] sm:mb-4 sm:text-lg md:text-xl'>
           Glimpses from last year
         </span>
-        <h3 className='text-4xl font-semibold md:text-9xl'>
+        <h3 className='text-3xl font-semibold sm:text-4xl md:text-5xl lg:text-7xl xl:text-9xl'>
           IOIT MUN&lsquo;23
         </h3>
-        <p className='my-4 text-base text-slate-300 md:my-6 md:text-lg'>
+        <p className='my-3 text-sm text-slate-300 sm:my-4 sm:text-base md:my-6 md:text-lg'>
           Reflecting on the highlights from IOIT MUN 2023, the two-day
           conference commemorating AISSMS IOIT Silver Jubilee featured
           distinguished speakers such as Mr. Abhay Vaidya and Dr. Arjun Deore.
           Read further on the IOIT MUN website
         </p>
-        <div className='flex gap-5'>
+        <div className='flex flex-col gap-4 sm:flex-row sm:gap-5'>
           <Link
             href={'https://www.ioitmun.com/'}
             target='_blank'
-            className='rounded bg-[#26a7ff] px-4 py-2 font-medium text-white transition-all hover:bg-indigo-600 active:scale-95'
+            className='rounded bg-[#26a7ff] px-3 py-2 text-sm font-medium text-white transition-all hover:bg-indigo-600 active:scale-95 sm:px-4 sm:text-base'
           >
             Visit site
           </Link>
           <Link
             href={'/events/mun'}
             target='_blank'
-            className='rounded bg-[#26a7ff] px-4 py-2 font-medium text-white transition-all hover:bg-indigo-600 active:scale-95'
+            className='rounded bg-[#26a7ff] px-3 py-2 text-sm font-medium text-white transition-all hover:bg-indigo-600 active:scale-95 sm:px-4 sm:text-base'
           >
             Register for MUN&lsquo;24
           </Link>
@@ -129,8 +130,9 @@ const squareData: SquareData[] = [
   },
 ];
 
-const generateSquares = () => {
-  return shuffleArray(squareData).map((sq) => (
+const generateSquares = (ismobile: boolean) => {
+  const data = ismobile ? squareData.slice(0, 9) : squareData;
+  return shuffleArray(data).map((sq) => (
     <motion.div
       key={sq.id}
       layout
@@ -146,7 +148,8 @@ const generateSquares = () => {
 
 const ShuffleGrid = () => {
   const timeoutRef = useRef<any>(null);
-  const [squares, setSquares] = useState(generateSquares());
+  const ismobile = useIsMobile();
+  const [squares, setSquares] = useState(generateSquares(ismobile));
 
   useEffect(() => {
     shuffleSquares();
@@ -155,14 +158,14 @@ const ShuffleGrid = () => {
   }, []);
 
   const shuffleSquares = () => {
-    setSquares(generateSquares());
+    setSquares(generateSquares(ismobile));
 
     timeoutRef.current = setTimeout(shuffleSquares, 3000);
   };
 
   return (
-    <div className='grid h-[450px] grid-cols-4 grid-rows-4 gap-3'>
-      {squares.map((sq) => sq)}
+    <div className='grid h-full grid-cols-2 grid-rows-2 gap-2 sm:grid-cols-3 sm:grid-rows-3 sm:gap-3 md:h-[450px] md:grid-cols-4 md:grid-rows-4'>
+      {ismobile ? squares.slice(0, 9) : squares}
     </div>
   );
 };

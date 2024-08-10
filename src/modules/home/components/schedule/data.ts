@@ -9,6 +9,7 @@ export const day1scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-04T09:00:00'),
     url: '/events/event',
     imp: true,
+    time: '8:30 AM',
     organizers: [
       { name: 'Shreya Mirge', phone: '+919876543210' },
       { name: 'Vivaan Kukreja', phone: '+919876543211' },
@@ -22,6 +23,7 @@ export const day1scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-04T09:00:00'),
     url: '/events/event',
     imp: true,
+    time: '8:30 AM',
     organizers: [
       { name: 'Madiha Shaikh', phone: '+919876543212' },
       { name: 'Pranav Vetkar', phone: '+919876543213' },
@@ -35,6 +37,7 @@ export const day1scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-04T09:00:00'),
     url: '/events/event',
     imp: true,
+    time: '8:30 AM',
     organizers: [
       { name: 'Anish Patange', phone: '+919876543214' },
       { name: 'Gauri Amale', phone: '+919876543215' },
@@ -48,6 +51,7 @@ export const day1scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-04T09:00:00'),
     url: '/events/event',
     imp: true,
+    time: '8:30 AM',
     organizers: [
       { name: 'Gauri Amale', phone: '+919876543216' },
       { name: 'Swaraj Chavan', phone: '+919876543217' },
@@ -61,6 +65,7 @@ export const day1scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-04T10:30:00'),
     url: '/events/event',
     imp: true,
+    time: '8:30 AM',
     organizers: [
       { name: 'Mihir Palatkar', phone: '+919876543218' },
       { name: 'Sejal Karad', phone: '+919876543219' },
@@ -74,6 +79,7 @@ export const day1scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-04T10:30:00'),
     url: '/events/event',
     imp: true,
+    time: '8:30 AM',
     organizers: [
       { name: 'Aayush Dhotre', phone: '+919876543220' },
       { name: 'Sakshi Kadam', phone: '+919876543221' },
@@ -87,6 +93,7 @@ export const day1scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-04T13:00:00'),
     url: '/events/event',
     imp: true,
+    time: '8:30 AM',
     organizers: [
       { name: 'Kamlesh Wattamwar', phone: '+919876543222' },
       { name: 'Sanskruti Wattamwar', phone: '+919876543223' },
@@ -100,6 +107,7 @@ export const day1scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-04T13:00:00'),
     url: '/events/event',
     imp: true,
+    time: '8:30 AM',
     organizers: [
       { name: 'Atharva Satpute', phone: '+919876543224' },
       { name: 'Sejal Karad', phone: '+919876543225' },
@@ -113,6 +121,7 @@ export const day1scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-04T16:45:00'),
     url: '/events/event',
     imp: true,
+    time: '8:30 AM',
     organizers: [
       { name: 'Pritam Rangari', phone: '+919876543226' },
       { name: 'Aayush Musale', phone: '+919876543227' },
@@ -129,6 +138,7 @@ export const day2scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-05T08:00:00'),
     url: '/events/event',
     imp: false,
+    time: '8:30 AM',
     organizers: [
       { name: 'Vivaan Kukreja', phone: '+919876543244' },
       { name: 'Swarali Modak', phone: '+919876543245' },
@@ -142,6 +152,7 @@ export const day2scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-05T10:00:00'),
     url: '/events/event',
     imp: true,
+    time: '8:30 AM',
     organizers: [
       { name: 'Sanjana Nagle', phone: '+919876543228' },
       { name: 'Tanvi Sonune', phone: '+919876543229' },
@@ -155,6 +166,7 @@ export const day2scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-05T19:00:00'),
     url: '/events/event',
     imp: true,
+    time: '8:30 AM',
     organizers: [
       { name: 'Vaishnav Shinde', phone: '+919876543242' },
       { name: 'Niharika Koul', phone: '+919876543243' },
@@ -169,6 +181,7 @@ export const day2scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-05T18:00:00'),
     url: '/events/event',
     imp: true,
+    time: '8:30 AM',
     organizers: [
       { name: 'Swaraj Chavan', phone: '+919876543240' },
       { name: 'Srishti Mahamuni', phone: '+919876543241' },
@@ -182,6 +195,7 @@ export const day2scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-05T09:00:00'),
     url: '/events/event',
     imp: false,
+    time: '8:30 AM',
     organizers: [
       { name: 'Chinmay Nakwa', phone: '+919876543246' },
       { name: 'Rutuja Salve', phone: '+919876543247' },
@@ -195,6 +209,7 @@ export const day2scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-05T13:15:00'),
     url: '/events/event',
     imp: false,
+    time: '8:30 AM',
     organizers: [
       { name: 'Madhuri Sinha', phone: '+919876543234' },
       { name: 'Ketan Agrawal', phone: '+919876543235' },
@@ -211,6 +226,7 @@ export const day3scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-06T11:00:00'),
     url: '/events/event',
     imp: true,
+    time: '8:30 AM',
     organizers: [
       { name: 'Madiha Shaikh', phone: '+919876543248' },
       { name: 'Neelam Gupta', phone: '+919876543249' },
@@ -224,6 +240,7 @@ export const day3scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-06T12:30:00'),
     url: '/events/event',
     imp: true,
+    time: '8:30 AM',
     organizers: [
       { name: 'Sanskruti Wattamwar', phone: '+919876543252' },
       { name: 'Swaraj Chavan', phone: '+919876543253' },
@@ -237,6 +254,7 @@ export const day3scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-06T14:00:00'),
     url: '/events/event',
     imp: true,
+    time: '8:30 AM',
     organizers: [
       { name: 'Aayush Musale', phone: '+919876543256' },
       { name: 'Rutuja Salve', phone: '+919876543257' },
@@ -250,6 +268,7 @@ export const day3scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-06T15:00:00'),
     url: '/events/event',
     imp: true,
+    time: '8:30 AM',
     organizers: [
       { name: 'Vikram Sharma', phone: '+919876543260' },
       { name: 'Sejal Karad', phone: '+919876543261' },
@@ -263,6 +282,7 @@ export const day3scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-06T10:00:00'),
     url: '/events/event',
     imp: true,
+    time: '8:30 AM',
     organizers: [
       { name: 'Atharva Pednekar', phone: '+919876543266' },
       { name: 'Devika Mule', phone: '+919876543267' },
@@ -276,6 +296,7 @@ export const day3scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-06T10:00:00'),
     url: '/events/event',
     imp: true,
+    time: '8:30 AM',
     organizers: [
       { name: 'Amit Patel', phone: '+919876543268' },
       { name: 'Snehal Deshmukh', phone: '+919876543269' },
@@ -289,6 +310,7 @@ export const day3scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-06T10:00:00'),
     url: '/events/event',
     imp: true,
+    time: '8:30 AM',
     organizers: [
       { name: 'Kamlesh Wattamwar', phone: '+919876543270' },
       { name: 'Aarti Sinha', phone: '+919876543271' },
@@ -302,6 +324,7 @@ export const day3scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-06T09:00:00'),
     url: '/events/event',
     imp: false,
+    time: '8:30 AM',
     organizers: [
       { name: 'Madhuri Sinha', phone: '+919876543272' },
       { name: 'Ketan Agrawal', phone: '+919876543273' },
@@ -315,6 +338,7 @@ export const day3scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-06T16:00:00'),
     url: '/events/event',
     imp: false,
+    time: '8:30 AM',
     organizers: [
       { name: 'Madiha Shaikh', phone: '+919876543278' },
       { name: 'Gauri Amale', phone: '+919876543279' },
