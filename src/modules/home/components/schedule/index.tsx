@@ -12,24 +12,45 @@ export const Schedule = () => {
   const [expanded, setExpanded] = useState<number | null>(null);
 
   const d1 = useMemo(() => {
+    const importantItems = day1scheduleData.filter((item) => item.imp);
     if (expanded === 1) {
       return day1scheduleData;
     }
-    return day1scheduleData.slice(0, 4);
+    return importantItems
+      .slice(0, 4)
+      .concat(
+        day1scheduleData
+          .filter((item) => !item.imp)
+          .slice(0, 4 - importantItems.length),
+      );
   }, [expanded]);
 
   const d2 = useMemo(() => {
+    const importantItems = day2scheduleData.filter((item) => item.imp);
     if (expanded === 2) {
       return day2scheduleData;
     }
-    return day2scheduleData.slice(0, 4);
+    return importantItems
+      .slice(0, 4)
+      .concat(
+        day2scheduleData
+          .filter((item) => !item.imp)
+          .slice(0, 4 - importantItems.length),
+      );
   }, [expanded]);
 
   const d3 = useMemo(() => {
+    const importantItems = day3scheduleData.filter((item) => item.imp);
     if (expanded === 3) {
       return day3scheduleData;
     }
-    return day3scheduleData.slice(0, 4);
+    return importantItems
+      .slice(0, 4)
+      .concat(
+        day3scheduleData
+          .filter((item) => !item.imp)
+          .slice(0, 4 - importantItems.length),
+      );
   }, [expanded]);
 
   return (

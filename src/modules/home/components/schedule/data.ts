@@ -122,6 +122,19 @@ export const day1scheduleData: ScheduleItemType[] = [
 
 export const day2scheduleData: ScheduleItemType[] = [
   {
+    title: 'Breakfast and Reporting',
+    color: 'bg-teal-700',
+    date: 'Oct 5th, 2024',
+    location: 'Dining Hall',
+    start: new Date('2024-10-05T08:00:00'),
+    url: '/events/event',
+    imp: false,
+    organizers: [
+      { name: 'Vivaan Kukreja', phone: '+919876543244' },
+      { name: 'Swarali Modak', phone: '+919876543245' },
+    ],
+  },
+  {
     title: 'Speaker sessions',
     color: 'bg-red-700',
     date: 'Oct 5th, 2024',
@@ -147,19 +160,7 @@ export const day2scheduleData: ScheduleItemType[] = [
       { name: 'Niharika Koul', phone: '+919876543243' },
     ],
   },
-  {
-    title: 'Breakfast and Reporting',
-    color: 'bg-teal-700',
-    date: 'Oct 5th, 2024',
-    location: 'Dining Hall',
-    start: new Date('2024-10-05T08:00:00'),
-    url: '/events/event',
-    imp: false,
-    organizers: [
-      { name: 'Vivaan Kukreja', phone: '+919876543244' },
-      { name: 'Swarali Modak', phone: '+919876543245' },
-    ],
-  },
+
   {
     title: 'Pitching Competition Finals',
     color: 'bg-pink-700',
