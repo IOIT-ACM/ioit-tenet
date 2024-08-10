@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-floating-promises */
 'use client';
 
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 import { ScheduleItem } from './scheduleitem';
 import { scheduleData } from './data';
@@ -14,8 +14,6 @@ const FollowCursor = ({
   content: React.ReactNode;
 }) => {
   const [isHovering, setIsHovering] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const controls = useAnimation();
   const containerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -23,12 +21,10 @@ const FollowCursor = ({
     const handleMouseMove = (e: MouseEvent) => {
       if (containerRef.current && contentRef.current) {
         const rect = containerRef.current.getBoundingClientRect();
-        setMousePosition({
-          x: e.clientX - rect.left,
-          y: e.clientY - rect.top,
-        });
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
 
-        contentRef.current.style.transform = `translate(${e.clientX - rect.left}px, ${e.clientY - rect.top}px)`;
+        contentRef.current.style.transform = `translate(${x}px, ${y}px)`;
       }
     };
 
@@ -45,15 +41,11 @@ const FollowCursor = ({
   }, [isHovering]);
 
   useEffect(() => {
-    if (isHovering) {
-      controls.start({
-        opacity: 0.75,
-        display: 'block',
-      });
-    } else {
-      controls.start({ opacity: 0, display: 'none' });
+    if (contentRef.current) {
+      contentRef.current.style.opacity = isHovering ? '0.75' : '0';
+      contentRef.current.style.display = isHovering ? 'block' : 'none';
     }
-  }, [isHovering, controls]);
+  }, [isHovering]);
 
   return (
     <div
@@ -63,17 +55,15 @@ const FollowCursor = ({
       className='relative'
     >
       {children}
-      <motion.div
+      <div
         ref={contentRef}
-        initial={{ display: 'none' }}
-        animate={controls}
         className='pointer-events-none absolute z-50'
-        style={{ left: 0, top: 0 }}
+        style={{ left: 0, top: 0, opacity: 0, display: 'none' }}
       >
         <div className='w-64 rounded-md bg-zinc-800 p-4 text-zinc-100 shadow-lg'>
           {content}
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };
@@ -83,8 +73,8 @@ export const Schedule = () => {
     <section className='relative mx-auto grid max-w-7xl grid-cols-1 justify-center text-white transition-all md:grid-cols-6'>
       <div className='sticky top-10 self-start md:col-span-2'>
         <motion.h1
-          // initial={{ y: 48, opacity: 0 }}
-          // whileInView={{ y: 0, opacity: 1 }}
+          initial={{ y: 48, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
           transition={{ ease: 'easeInOut', duration: 0.75 }}
           className='mb-20 w-full text-4xl font-black uppercase text-zinc-50 md:text-5xl'
         >
