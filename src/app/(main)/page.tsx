@@ -21,8 +21,8 @@ export default async function HomePage() {
       <TenetHero />
       <Intro />
       <EventCountdown />
-      <TenetSpeakers />
       <Schedule />
+      <TenetSpeakers />
       <SearchEvents />
       <MUN />
       <Gallery />

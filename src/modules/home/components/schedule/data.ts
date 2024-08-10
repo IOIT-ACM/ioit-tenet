@@ -3,6 +3,7 @@ import type { ScheduleItemType } from '@/types';
 export const scheduleData: ScheduleItemType[] = [
   {
     title: 'Techfiesta',
+    color: 'bg-red-700',
     date: 'Oct 4th',
     location: '4th floor 405',
     organizers: [
@@ -12,12 +13,14 @@ export const scheduleData: ScheduleItemType[] = [
   },
   {
     title: 'MUN',
+    color: 'bg-blue-700',
     date: 'Oct 4th',
     location: '6th Floor 609',
     organizers: [{ name: 'Alice Johnson', phone: '+1122334455' }],
   },
   {
     title: 'E-Summit',
+    color: 'bg-green-700',
     date: 'Oct 4th',
     location: '4th floor 405',
     organizers: [
@@ -28,6 +31,7 @@ export const scheduleData: ScheduleItemType[] = [
   },
   {
     title: 'Techfiesta',
+    color: 'bg-gray-500',
     date: 'Oct 4th',
     location: '4th floor 405',
     organizers: [
@@ -37,12 +41,14 @@ export const scheduleData: ScheduleItemType[] = [
   },
   {
     title: 'MUN',
+    color: 'bg-orange-700',
     date: 'Oct 4th',
     location: '6th Floor 609',
     organizers: [{ name: 'Alice Johnson', phone: '+1122334455' }],
   },
   {
     title: 'E-Summit',
+    color: 'bg-yellow-700',
     date: 'Oct 4th',
     location: '4th floor 405',
     organizers: [
@@ -53,6 +59,7 @@ export const scheduleData: ScheduleItemType[] = [
   },
   {
     title: 'Techfiesta',
+    color: 'bg-pink-700',
     date: 'Oct 4th',
     location: '4th floor 405',
     organizers: [
@@ -62,12 +69,14 @@ export const scheduleData: ScheduleItemType[] = [
   },
   {
     title: 'MUN',
+    color: 'bg-slate-500',
     date: 'Oct 4th',
     location: '6th Floor 609',
     organizers: [{ name: 'Alice Johnson', phone: '+1122334455' }],
   },
   {
     title: 'E-Summit',
+    color: 'bg-red-700',
     date: 'Oct 4th',
     location: '4th floor 405',
     organizers: [

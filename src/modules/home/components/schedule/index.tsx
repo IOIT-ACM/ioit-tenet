@@ -7,7 +7,7 @@ import { FollowCursor } from './cursor';
 
 export const Schedule = () => {
   return (
-    <section className='relative mx-auto grid max-w-7xl grid-cols-1 justify-center text-white transition-all md:grid-cols-6'>
+    <section className='relative mx-auto mb-56 grid max-w-7xl grid-cols-1 justify-center text-white transition-all md:grid-cols-6'>
       <div className='sticky top-10 self-start md:col-span-2'>
         <motion.h1
           initial={{ y: 48, opacity: 0 }}
@@ -21,14 +21,12 @@ export const Schedule = () => {
       <div className='w-full md:col-span-4'>
         {scheduleData.map((item, index) => (
           <FollowCursor key={index} data={item}>
-            <div className='border-b'>
-              <ScheduleItem
-                title={item.title}
-                date={item.date}
-                location={item.location}
-                organizers={item.organizers}
-              />
-            </div>
+            <ScheduleItem
+              title={item.title}
+              date={item.date}
+              location={item.location}
+              organizers={item.organizers}
+            />
           </FollowCursor>
         ))}
       </div>

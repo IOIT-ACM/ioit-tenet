@@ -1,8 +1,9 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-
+import { motion, AnimatePresence } from 'framer-motion';
 import type { ScheduleItemType } from '@/types';
+import { Separator } from '@/components/ui/separator';
 
 export const FollowCursor = ({
   data,
@@ -42,7 +43,7 @@ export const FollowCursor = ({
 
   useEffect(() => {
     if (contentRef.current) {
-      contentRef.current.style.opacity = isHovering ? '0.75' : '0';
+      contentRef.current.style.opacity = isHovering ? '0.85' : '0';
       contentRef.current.style.display = isHovering ? 'block' : 'none';
     }
   }, [isHovering]);
@@ -68,10 +69,23 @@ export const FollowCursor = ({
 
 const HoverCard = ({ data }: { data: ScheduleItemType }) => {
   return (
-    <div className='bg-red-200'>
-      <h3 className='font-bold'>{data.title}</h3>
-      <p>{data.date}</p>
-      <p>{data.location}</p>
-    </div>
+    <AnimatePresence>
+      <motion.div className={`w-[222px] rounded-lg ${data.color} p-4`}>
+        <p className='text-2xl'>{data.title}</p>
+        <h3 className='font-bold'>{data.date}</h3>
+        <Separator className='mb-3 mt-20' />
+        <p>{data.location}</p>
+        <div>
+          {data.organizers.slice(0, 2).map((organizer, index) => (
+            <div
+              key={index}
+              className='flex items-center gap-1.5 text-sm uppercase text-zinc-200'
+            >
+              <p>{organizer.name}</p>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+    </AnimatePresence>
   );
 };
