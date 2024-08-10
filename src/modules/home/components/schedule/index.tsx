@@ -52,6 +52,9 @@ export const Schedule = () => {
           <Link className='transition-all hover:underline' href={'/register'}>
             Registrations open
           </Link>
+          <Link className='transition-all hover:underline' href={'/agenda'}>
+            View full Agenda
+          </Link>
           <Link className='transition-all hover:underline' href={'/#'}>
             Download Agenda
           </Link>
@@ -85,14 +88,7 @@ export const Schedule = () => {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                 >
-                  <ScheduleItem
-                    title={item.title}
-                    date={item.date}
-                    time={item.time}
-                    location={item.location}
-                    organizers={item.organizers}
-                    url={item.url}
-                  />
+                  <ScheduleItem data={item} />
                 </motion.div>
               </FollowCursor>
             ))}
@@ -126,14 +122,7 @@ export const Schedule = () => {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                 >
-                  <ScheduleItem
-                    title={item.title}
-                    date={item.date}
-                    time={item.time}
-                    location={item.location}
-                    organizers={item.organizers}
-                    url={item.url}
-                  />
+                  <ScheduleItem data={item} />
                 </motion.div>
               </FollowCursor>
             ))}
@@ -167,14 +156,7 @@ export const Schedule = () => {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                 >
-                  <ScheduleItem
-                    title={item.title}
-                    date={item.date}
-                    time={item.time}
-                    location={item.location}
-                    organizers={item.organizers}
-                    url={item.url}
-                  />
+                  <ScheduleItem data={item} />
                 </motion.div>
               </FollowCursor>
             ))}

@@ -2,43 +2,29 @@
 
 import { FiMapPin, FiPhone } from 'react-icons/fi';
 import Link from 'next/link';
-import type { Organizer } from '@/types';
+import type { ScheduleItemType } from '@/types';
 
-export const ScheduleItem = ({
-  title,
-  date,
-  location,
-  organizers,
-  url,
-  time,
-}: {
-  title: string;
-  time: string;
-  url: string;
-  date: string;
-  location: string;
-  organizers: Organizer[];
-}) => {
+export const ScheduleItem = ({ data }: { data: ScheduleItemType }) => {
   return (
     <div>
       <Link
-        href={url}
+        href={`/events/${data.id}`}
         className='mb-5 flex cursor-cell flex-col gap-3 border-b pb-2 pt-3 text-gray-400 transition-all hover:text-white md:mb-0 md:border-none md:text-gray-600'
       >
         <span>
           <p className='mb-2 line-clamp-2 text-lg md:line-clamp-1 md:overflow-hidden md:truncate md:border-none md:text-xl'>
-            {title} <span className='hidden md:flex'>{time}</span>
+            {data.title} <span className='hidden md:flex'>{data.time}</span>
           </p>
           <span className='flex items-start justify-between md:hidden'>
             <span className='flex flex-col gap-2 text-sm uppercase md:flex-row'>
               <span className='flex items-center gap-1.5'>
                 <FiMapPin />
-                <p>{location}</p>
+                <p>{data.location}</p>
               </span>
-              <p className='hidden md:block'>{date}</p>
+              <p className='hidden md:block'>{data.date}</p>
             </span>
             <span className='flex flex-col items-end gap-2 md:flex-row'>
-              {organizers.slice(0, 1).map((organizer, index) => (
+              {data.organizers.slice(0, 1).map((organizer, index) => (
                 <span
                   key={index}
                   className='flex items-center gap-1.5 text-sm uppercase'
