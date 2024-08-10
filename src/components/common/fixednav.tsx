@@ -27,7 +27,7 @@ const routes = [
 
 export default function FixedNavBar({ className }: { className?: string }) {
   const videoPlayed = useStore((state) => state.videoPlayed);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [hovering, setHovering] = useState<null | string>(null);
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up');
@@ -55,7 +55,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
     <motion.div
       initial={{ y: -100, opacity: 0 }}
       animate={{
-        y: scrollDirection === 'down' && !isVisible && videoPlayed ? -100 : 0,
+        y: scrollDirection === 'down' && isVisible && videoPlayed ? -100 : 0,
         opacity: !videoPlayed ? 0 : 1,
       }}
       transition={{ duration: 0.3 }}
