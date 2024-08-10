@@ -24,6 +24,8 @@ export type Organizer = {
 
 export type ScheduleItemType = {
   title: string;
+  url: string;
+  imp: boolean;
   date: string;
   location: string;
   organizers: Organizer[];

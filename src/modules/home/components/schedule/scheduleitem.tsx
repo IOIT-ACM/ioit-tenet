@@ -10,24 +10,27 @@ export const ScheduleItem = ({
   date,
   location,
   organizers,
+  url,
 }: {
   title: string;
+  url: string;
   date: string;
   location: string;
   organizers: Organizer[];
 }) => {
   return (
-    <motion.div
+    <motion.a
+      href={url}
       // initial={{ y: 48, opacity: 0 }}
       // whileInView={{ y: 0, opacity: 1 }}
       // transition={{ ease: 'easeInOut', duration: 0.75 }}
       layoutId='schedule-card'
-      className='flex flex-col gap-3 pb-10 pt-3 text-gray-600 transition-all hover:text-white'
+      className='flex cursor-cell flex-col gap-3 pb-10 pt-3 text-gray-600 transition-all hover:text-white'
     >
       <p className='mb-2 overflow-hidden truncate text-xl md:text-3xl'>
         {title}
       </p>
-      <div className='flex items-start justify-between'>
+      <div className='flex items-start justify-between md:hidden'>
         <div className='flex flex-col gap-2 text-sm uppercase md:flex-row'>
           <div className='flex items-center gap-1.5'>
             <FiMapPin />
@@ -47,6 +50,6 @@ export const ScheduleItem = ({
           ))}
         </div>
       </div>
-    </motion.div>
+    </motion.a>
   );
 };

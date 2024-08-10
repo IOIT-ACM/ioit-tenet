@@ -46,7 +46,7 @@ export const FollowCursor = ({
 
   useEffect(() => {
     if (contentRef.current && !ismobile) {
-      contentRef.current.style.opacity = isHovering ? '0.85' : '0';
+      contentRef.current.style.opacity = isHovering ? '0.95' : '0';
       contentRef.current.style.display = isHovering ? 'block' : 'none';
     }
   }, [isHovering, ismobile]);

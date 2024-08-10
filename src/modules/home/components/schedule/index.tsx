@@ -32,6 +32,7 @@ export const Schedule = () => {
                 date={item.date}
                 location={item.location}
                 organizers={item.organizers}
+                url={item.url}
               />
             </FollowCursor>
           ))}
@@ -48,6 +49,7 @@ export const Schedule = () => {
                 date={item.date}
                 location={item.location}
                 organizers={item.organizers}
+                url={item.url}
               />
             </FollowCursor>
           ))}
@@ -64,6 +66,7 @@ export const Schedule = () => {
                 date={item.date}
                 location={item.location}
                 organizers={item.organizers}
+                url={item.url}
               />
             </FollowCursor>
           ))}
