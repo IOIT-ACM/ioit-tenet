@@ -16,3 +16,15 @@ export type Experiment = {
     company: string;
   }>;
 };
+
+export type Organizer = {
+  name: string;
+  phone: string;
+};
+
+export type ScheduleItemType = {
+  title: string;
+  date: string;
+  location: string;
+  organizers: Organizer[];
+};

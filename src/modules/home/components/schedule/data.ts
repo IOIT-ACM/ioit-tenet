@@ -1,14 +1,4 @@
-type Organizer = {
-  name: string;
-  phone: string;
-};
-
-type ScheduleItemType = {
-  title: string;
-  date: string;
-  location: string;
-  organizers: Organizer[];
-};
+import type { ScheduleItemType } from '@/types';
 
 export const scheduleData: ScheduleItemType[] = [
   {

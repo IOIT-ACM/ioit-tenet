@@ -3,11 +3,7 @@
 import { motion } from 'framer-motion';
 import { FiMapPin, FiPhone } from 'react-icons/fi';
 import Link from 'next/link';
-
-type Organizer = {
-  name: string;
-  phone: string;
-};
+import type { Organizer } from '@/types';
 
 export const ScheduleItem = ({
   title,
