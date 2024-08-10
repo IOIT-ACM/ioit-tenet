@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import { FiMapPin, FiPhone } from 'react-icons/fi';
 import Link from 'next/link';
-import { Separator } from '@/components/ui/separator';
 
 type Organizer = {
   name: string;
@@ -26,7 +25,7 @@ export const ScheduleItem = ({
       initial={{ y: 48, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       transition={{ ease: 'easeInOut', duration: 0.75 }}
-      className='flex cursor-cell flex-wrap items-center justify-between border-zinc-800 px-3'
+      className='flex cursor-cell flex-wrap items-center justify-between border-zinc-800 px-3 py-5'
     >
       <div className='mb-4 w-full sm:mb-0 sm:w-auto'>
         <p className='mb-1.5 text-xl text-zinc-50 md:text-2xl'>{title}</p>
@@ -54,7 +53,6 @@ export const ScheduleItem = ({
           ))}
         </div>
       </div>
-      <Separator className='my-8 bg-gray-400' />
     </motion.div>
   );
 };
