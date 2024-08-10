@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ScheduleItem } from './scheduleitem';
 import { day1scheduleData, day2scheduleData, day3scheduleData } from './data';
 import { Separator } from '@/components/ui/separator';
@@ -66,98 +66,125 @@ export const Schedule = () => {
         </motion.h1>
       </div>
       <div className='w-full md:col-span-5'>
-        <div className='mb-8'>
-          <div className='mb-4 flex w-full justify-between text-4xl font-bold text-gray-300'>
-            <span>Day 1 Events</span>
-            <span>
-              {expanded === 1 ? (
-                <BsArrowsCollapse
-                  onClick={() => setExpanded(null)}
-                  className='cursor-pointer transition-all hover:scale-105'
-                />
-              ) : (
-                <BsArrowsExpand
-                  onClick={() => setExpanded(1)}
-                  className='cursor-pointer transition-all hover:scale-105'
-                />
-              )}
-            </span>
+        <AnimatePresence>
+          <div className='mb-8'>
+            <div className='mb-4 flex w-full justify-between text-4xl font-bold text-gray-300'>
+              <span>Day 1 Events</span>
+              <span>
+                {expanded === 1 ? (
+                  <BsArrowsCollapse
+                    onClick={() => setExpanded(null)}
+                    className='cursor-pointer transition-all hover:scale-105'
+                  />
+                ) : (
+                  <BsArrowsExpand
+                    onClick={() => setExpanded(1)}
+                    className='cursor-pointer transition-all hover:scale-105'
+                  />
+                )}
+              </span>
+            </div>
+            <Separator className='my-4 max-w-full bg-slate-300 md:max-w-14' />
+            {d1.map((item, index) => (
+              <FollowCursor key={index} data={item}>
+                <motion.div
+                  layoutId={`day1-item-${index}`}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                >
+                  <ScheduleItem
+                    title={item.title}
+                    date={item.date}
+                    location={item.location}
+                    organizers={item.organizers}
+                    url={item.url}
+                  />
+                </motion.div>
+              </FollowCursor>
+            ))}
           </div>
-          <Separator className='my-4 max-w-full bg-slate-300 md:max-w-14' />
-          {d1.map((item, index) => (
-            <FollowCursor key={index} data={item}>
-              <ScheduleItem
-                title={item.title}
-                date={item.date}
-                location={item.location}
-                organizers={item.organizers}
-                url={item.url}
-              />
-            </FollowCursor>
-          ))}
-        </div>
+        </AnimatePresence>
 
-        <div className='mb-8'>
-          <div className='mb-4 flex w-full justify-between text-4xl font-bold text-gray-300'>
-            <span>Day 2 Events</span>
-            <span>
-              {expanded === 2 ? (
-                <BsArrowsCollapse
-                  onClick={() => setExpanded(null)}
-                  className='cursor-pointer transition-all hover:scale-105'
-                />
-              ) : (
-                <BsArrowsExpand
-                  onClick={() => setExpanded(2)}
-                  className='cursor-pointer transition-all hover:scale-105'
-                />
-              )}
-            </span>
+        <AnimatePresence>
+          <div className='mb-8'>
+            <div className='mb-4 flex w-full justify-between text-4xl font-bold text-gray-300'>
+              <span>Day 2 Events</span>
+              <span>
+                {expanded === 2 ? (
+                  <BsArrowsCollapse
+                    onClick={() => setExpanded(null)}
+                    className='cursor-pointer transition-all hover:scale-105'
+                  />
+                ) : (
+                  <BsArrowsExpand
+                    onClick={() => setExpanded(2)}
+                    className='cursor-pointer transition-all hover:scale-105'
+                  />
+                )}
+              </span>
+            </div>
+            <Separator className='my-4 max-w-full bg-slate-300 md:max-w-14' />
+            {d2.map((item, index) => (
+              <FollowCursor key={index} data={item}>
+                <motion.div
+                  layoutId={`day2-item-${index}`}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                >
+                  <ScheduleItem
+                    title={item.title}
+                    date={item.date}
+                    location={item.location}
+                    organizers={item.organizers}
+                    url={item.url}
+                  />
+                </motion.div>
+              </FollowCursor>
+            ))}
           </div>
-          <Separator className='my-4 max-w-full bg-slate-300 md:max-w-14' />
-          {d2.map((item, index) => (
-            <FollowCursor key={index} data={item}>
-              <ScheduleItem
-                title={item.title}
-                date={item.date}
-                location={item.location}
-                organizers={item.organizers}
-                url={item.url}
-              />
-            </FollowCursor>
-          ))}
-        </div>
+        </AnimatePresence>
 
-        <div>
-          <div className='mb-4 flex w-full justify-between text-4xl font-bold text-gray-300'>
-            <span>Day 3 Events</span>
-            <span>
-              {expanded === 3 ? (
-                <BsArrowsCollapse
-                  onClick={() => setExpanded(null)}
-                  className='cursor-pointer transition-all hover:scale-105'
-                />
-              ) : (
-                <BsArrowsExpand
-                  onClick={() => setExpanded(3)}
-                  className='cursor-pointer transition-all hover:scale-105'
-                />
-              )}
-            </span>
+        <AnimatePresence>
+          <div>
+            <div className='mb-4 flex w-full justify-between text-4xl font-bold text-gray-300'>
+              <span>Day 3 Events</span>
+              <span>
+                {expanded === 3 ? (
+                  <BsArrowsCollapse
+                    onClick={() => setExpanded(null)}
+                    className='cursor-pointer transition-all hover:scale-105'
+                  />
+                ) : (
+                  <BsArrowsExpand
+                    onClick={() => setExpanded(3)}
+                    className='cursor-pointer transition-all hover:scale-105'
+                  />
+                )}
+              </span>
+            </div>
+            <Separator className='my-4 max-w-full bg-slate-300 md:max-w-14' />
+            {d3.map((item, index) => (
+              <FollowCursor key={index} data={item}>
+                <motion.div
+                  layoutId={`day3-item-${index}`}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                >
+                  <ScheduleItem
+                    title={item.title}
+                    date={item.date}
+                    location={item.location}
+                    organizers={item.organizers}
+                    url={item.url}
+                  />
+                </motion.div>
+              </FollowCursor>
+            ))}
           </div>
-          <Separator className='my-4 max-w-full bg-slate-300 md:max-w-14' />
-          {d3.map((item, index) => (
-            <FollowCursor key={index} data={item}>
-              <ScheduleItem
-                title={item.title}
-                date={item.date}
-                location={item.location}
-                organizers={item.organizers}
-                url={item.url}
-              />
-            </FollowCursor>
-          ))}
-        </div>
+        </AnimatePresence>
       </div>
     </section>
   );
