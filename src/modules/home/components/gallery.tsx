@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { useInView } from 'framer-motion';
 import { useIsMobile } from '@/hooks/useismobile';
 import GalleryCard from './ui/gallerycard';
 
@@ -13,15 +13,15 @@ export const Gallery = () => {
     >
       <div className='sticky top-0 flex h-screen items-center overflow-hidden'>
         <div>
-          <motion.h2
-            initial={{ opacity: 0, scale: 0.2 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 6, type: 'spring', stiffness: 50 }}
+          <h2
+            // initial={{ opacity: 0, scale: 0.2 }}
+            // whileInView={{ opacity: 1, scale: 1 }}
+            // transition={{ duration: 6, type: 'spring', stiffness: 50 }}
             className='z-0 text-[20vw] font-black text-neutral-800 md:text-[200px]'
           >
             GALLERY
             <span className='text-indigo-500'>.</span>
-          </motion.h2>
+          </h2>
           <Cards />
         </div>
       </div>

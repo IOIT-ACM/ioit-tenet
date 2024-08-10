@@ -5,10 +5,35 @@ import { ScheduleItem } from './scheduleitem';
 import { day1scheduleData, day2scheduleData, day3scheduleData } from './data';
 import { Separator } from '@/components/ui/separator';
 import { FollowCursor } from './cursor';
+import { useMemo, useState } from 'react';
+import { BsArrowsExpand, BsArrowsCollapse } from 'react-icons/bs';
 
 export const Schedule = () => {
+  const [expanded, setExpanded] = useState<number | null>(null);
+
+  const d1 = useMemo(() => {
+    if (expanded === 1) {
+      return day1scheduleData;
+    }
+    return day1scheduleData.slice(0, 4);
+  }, [expanded]);
+
+  const d2 = useMemo(() => {
+    if (expanded === 2) {
+      return day2scheduleData;
+    }
+    return day2scheduleData.slice(0, 4);
+  }, [expanded]);
+
+  const d3 = useMemo(() => {
+    if (expanded === 3) {
+      return day3scheduleData;
+    }
+    return day3scheduleData.slice(0, 4);
+  }, [expanded]);
+
   return (
-    <section className='relative mx-auto mb-56 grid max-w-7xl grid-cols-1 justify-center text-white transition-all md:grid-cols-6'>
+    <section className='relative mx-10 mb-56 grid grid-cols-1 justify-center text-white transition-all md:mx-32 md:grid-cols-7'>
       <div className='sticky top-10 self-start md:col-span-2'>
         <motion.h1
           initial={{ y: 48, opacity: 0 }}
@@ -19,13 +44,26 @@ export const Schedule = () => {
           Schedule
         </motion.h1>
       </div>
-      <div className='w-full md:col-span-4'>
+      <div className='w-full md:col-span-5'>
         <div className='mb-8'>
-          <span className='mb-4 block text-4xl font-bold text-gray-300'>
-            Day 1 Events
-          </span>
+          <div className='mb-4 flex w-full justify-between text-4xl font-bold text-gray-300'>
+            <span>Day 1 Events</span>
+            <span>
+              {expanded === 1 ? (
+                <BsArrowsCollapse
+                  onClick={() => setExpanded(null)}
+                  className='cursor-pointer transition-all hover:scale-105'
+                />
+              ) : (
+                <BsArrowsExpand
+                  onClick={() => setExpanded(1)}
+                  className='cursor-pointer transition-all hover:scale-105'
+                />
+              )}
+            </span>
+          </div>
           <Separator className='my-4 max-w-full bg-slate-300 md:max-w-14' />
-          {day1scheduleData.slice(0, 4).map((item, index) => (
+          {d1.map((item, index) => (
             <FollowCursor key={index} data={item}>
               <ScheduleItem
                 title={item.title}
@@ -37,12 +75,26 @@ export const Schedule = () => {
             </FollowCursor>
           ))}
         </div>
+
         <div className='mb-8'>
-          <span className='mb-4 block text-4xl font-bold text-gray-300'>
-            Day 2 Events
-          </span>
+          <div className='mb-4 flex w-full justify-between text-4xl font-bold text-gray-300'>
+            <span>Day 2 Events</span>
+            <span>
+              {expanded === 2 ? (
+                <BsArrowsCollapse
+                  onClick={() => setExpanded(null)}
+                  className='cursor-pointer transition-all hover:scale-105'
+                />
+              ) : (
+                <BsArrowsExpand
+                  onClick={() => setExpanded(2)}
+                  className='cursor-pointer transition-all hover:scale-105'
+                />
+              )}
+            </span>
+          </div>
           <Separator className='my-4 max-w-full bg-slate-300 md:max-w-14' />
-          {day2scheduleData.slice(0, 4).map((item, index) => (
+          {d2.map((item, index) => (
             <FollowCursor key={index} data={item}>
               <ScheduleItem
                 title={item.title}
@@ -54,12 +106,26 @@ export const Schedule = () => {
             </FollowCursor>
           ))}
         </div>
+
         <div>
-          <span className='mb-4 block text-4xl font-bold text-gray-300'>
-            Day 3 Events
-          </span>
+          <div className='mb-4 flex w-full justify-between text-4xl font-bold text-gray-300'>
+            <span>Day 3 Events</span>
+            <span>
+              {expanded === 3 ? (
+                <BsArrowsCollapse
+                  onClick={() => setExpanded(null)}
+                  className='cursor-pointer transition-all hover:scale-105'
+                />
+              ) : (
+                <BsArrowsExpand
+                  onClick={() => setExpanded(3)}
+                  className='cursor-pointer transition-all hover:scale-105'
+                />
+              )}
+            </span>
+          </div>
           <Separator className='my-4 max-w-full bg-slate-300 md:max-w-14' />
-          {day3scheduleData.slice(0, 4).map((item, index) => (
+          {d3.map((item, index) => (
             <FollowCursor key={index} data={item}>
               <ScheduleItem
                 title={item.title}

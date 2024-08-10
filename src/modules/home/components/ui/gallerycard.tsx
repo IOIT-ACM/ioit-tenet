@@ -23,8 +23,8 @@ const GalleryCard: React.FC<Props> = ({
   left,
   rotate,
   className,
-  index,
-  isInView,
+  // index,
+  // isInView,
 }) => {
   const [zIndex, setZIndex] = useState(0);
 
@@ -40,9 +40,9 @@ const GalleryCard: React.FC<Props> = ({
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={isInView ? { opacity: 1, scale: 1 } : {}}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      // initial={{ opacity: 0, scale: 0.8 }}
+      // animate={isInView ? { opacity: 1, scale: 1 } : {}}
+      // transition={{ duration: 0.5, delay: index * 0.1 }}
       style={{
         top,
         left,

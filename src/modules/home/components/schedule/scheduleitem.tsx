@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { FiMapPin, FiPhone } from 'react-icons/fi';
 import Link from 'next/link';
 import type { Organizer } from '@/types';
@@ -19,37 +18,37 @@ export const ScheduleItem = ({
   organizers: Organizer[];
 }) => {
   return (
-    <motion.a
-      href={url}
-      // initial={{ y: 48, opacity: 0 }}
-      // whileInView={{ y: 0, opacity: 1 }}
-      // transition={{ ease: 'easeInOut', duration: 0.75 }}
-      layoutId='schedule-card'
-      className='flex cursor-cell flex-col gap-3 pb-10 pt-3 text-gray-600 transition-all hover:text-white'
-    >
-      <p className='mb-2 overflow-hidden truncate text-xl md:text-3xl'>
-        {title}
-      </p>
-      <div className='flex items-start justify-between md:hidden'>
-        <div className='flex flex-col gap-2 text-sm uppercase md:flex-row'>
-          <div className='flex items-center gap-1.5'>
-            <FiMapPin />
-            <p>{location}</p>
-          </div>
-          <p>{date}</p>
-        </div>
-        <div className='flex flex-col items-end gap-2 md:flex-row'>
-          {organizers.slice(0, 1).map((organizer, index) => (
-            <div
-              key={index}
-              className='flex items-center gap-1.5 text-sm uppercase'
-            >
-              <FiPhone />
-              <Link href={`tel:${organizer.phone}`}>{organizer.name}</Link>
-            </div>
-          ))}
-        </div>
-      </div>
-    </motion.a>
+    <div>
+      <Link
+        href={url}
+        className='flex cursor-cell flex-col gap-3 pb-10 pt-3 text-gray-600 transition-all hover:text-white'
+      >
+        <span>
+          <p className='mb-2 overflow-hidden truncate text-xl md:text-3xl'>
+            {title}
+          </p>
+          <span className='flex items-start justify-between md:hidden'>
+            <span className='flex flex-col gap-2 text-sm uppercase md:flex-row'>
+              <span className='flex items-center gap-1.5'>
+                <FiMapPin />
+                <p>{location}</p>
+              </span>
+              <p>{date}</p>
+            </span>
+            <span className='flex flex-col items-end gap-2 md:flex-row'>
+              {organizers.slice(0, 1).map((organizer, index) => (
+                <span
+                  key={index}
+                  className='flex items-center gap-1.5 text-sm uppercase'
+                >
+                  <FiPhone />
+                  <span>{organizer.name}</span>
+                </span>
+              ))}
+            </span>
+          </span>
+        </span>
+      </Link>
+    </div>
   );
 };

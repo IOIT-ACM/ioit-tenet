@@ -120,4 +120,22 @@ const cards: CardType[] = [
     title: 'Creators Conclave',
     id: 6,
   },
+  {
+    url: '/imgs/events/4.jpeg',
+    link: '/events/techfiesta/games',
+    title: 'E-Summit',
+    id: 7,
+  },
+  {
+    url: '/imgs/events/5.jpeg',
+    link: '/events/techfiesta/games',
+    title: 'Stand UP',
+    id: 8,
+  },
+  {
+    url: '/imgs/events/6.jpeg',
+    link: '/events/techfiesta/games',
+    title: 'Creators Conclave',
+    id: 9,
+  },
 ];
