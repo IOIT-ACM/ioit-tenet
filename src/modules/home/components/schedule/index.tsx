@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-floating-promises */
 'use client';
 
 import { motion } from 'framer-motion';
@@ -21,8 +20,10 @@ const FollowCursor = ({
     const handleMouseMove = (e: MouseEvent) => {
       if (containerRef.current && contentRef.current) {
         const rect = containerRef.current.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+        const cardWidth = contentRef.current.offsetWidth;
+        const cardHeight = contentRef.current.offsetHeight;
+        const x = e.clientX - rect.left - cardWidth / 2;
+        const y = e.clientY - rect.top - cardHeight / 2;
 
         contentRef.current.style.transform = `translate(${x}px, ${y}px)`;
       }
