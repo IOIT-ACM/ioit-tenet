@@ -2,7 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { ScheduleItem } from './scheduleitem';
-import { scheduleData } from './data';
+import { day1scheduleData, day2scheduleData, day3scheduleData } from './data';
+import { Separator } from '@/components/ui/separator';
 import { FollowCursor } from './cursor';
 
 export const Schedule = () => {
@@ -13,22 +14,60 @@ export const Schedule = () => {
           initial={{ y: 48, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ ease: 'easeInOut', duration: 0.75 }}
-          className='mb-20 w-full text-4xl font-black uppercase text-zinc-50 md:text-5xl'
+          className='mb-10 w-full text-4xl font-black uppercase text-zinc-50 md:mb-20 md:text-5xl'
         >
           Schedule
         </motion.h1>
       </div>
       <div className='w-full md:col-span-4'>
-        {scheduleData.map((item, index) => (
-          <FollowCursor key={index} data={item}>
-            <ScheduleItem
-              title={item.title}
-              date={item.date}
-              location={item.location}
-              organizers={item.organizers}
-            />
-          </FollowCursor>
-        ))}
+        <div className='mb-8'>
+          <span className='mb-4 block text-4xl font-bold text-gray-300'>
+            Day 1 Events
+          </span>
+          <Separator className='my-4 max-w-full bg-slate-300 md:max-w-14' />
+          {day1scheduleData.slice(0, 4).map((item, index) => (
+            <FollowCursor key={index} data={item}>
+              <ScheduleItem
+                title={item.title}
+                date={item.date}
+                location={item.location}
+                organizers={item.organizers}
+              />
+            </FollowCursor>
+          ))}
+        </div>
+        <div className='mb-8'>
+          <span className='mb-4 block text-4xl font-bold text-gray-300'>
+            Day 2 Events
+          </span>
+          <Separator className='my-4 max-w-full bg-slate-300 md:max-w-14' />
+          {day2scheduleData.slice(0, 4).map((item, index) => (
+            <FollowCursor key={index} data={item}>
+              <ScheduleItem
+                title={item.title}
+                date={item.date}
+                location={item.location}
+                organizers={item.organizers}
+              />
+            </FollowCursor>
+          ))}
+        </div>
+        <div>
+          <span className='mb-4 block text-4xl font-bold text-gray-300'>
+            Day 3 Events
+          </span>
+          <Separator className='my-4 max-w-full bg-slate-300 md:max-w-14' />
+          {day3scheduleData.slice(0, 4).map((item, index) => (
+            <FollowCursor key={index} data={item}>
+              <ScheduleItem
+                title={item.title}
+                date={item.date}
+                location={item.location}
+                organizers={item.organizers}
+              />
+            </FollowCursor>
+          ))}
+        </div>
       </div>
     </section>
   );

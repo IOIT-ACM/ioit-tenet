@@ -4,6 +4,8 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { ScheduleItemType } from '@/types';
 import { Separator } from '@/components/ui/separator';
+import { getEventStatus } from '@/utils';
+import { useIsMobile } from '@/hooks/useismobile';
 
 export const FollowCursor = ({
   data,
@@ -15,6 +17,7 @@ export const FollowCursor = ({
   const [isHovering, setIsHovering] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const ismobile = useIsMobile();
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -42,11 +45,11 @@ export const FollowCursor = ({
   }, [isHovering]);
 
   useEffect(() => {
-    if (contentRef.current) {
+    if (contentRef.current && !ismobile) {
       contentRef.current.style.opacity = isHovering ? '0.85' : '0';
       contentRef.current.style.display = isHovering ? 'block' : 'none';
     }
-  }, [isHovering]);
+  }, [isHovering, ismobile]);
 
   return (
     <div
@@ -70,12 +73,18 @@ export const FollowCursor = ({
 const HoverCard = ({ data }: { data: ScheduleItemType }) => {
   return (
     <AnimatePresence>
-      <motion.div className={`w-[222px] rounded-lg ${data.color} p-4`}>
+      <motion.div
+        className={`min-w-[282px] max-w-[300px] rounded-lg ${data.color} p-4`}
+      >
         <p className='text-2xl'>{data.title}</p>
-        <h3 className='font-bold'>{data.date}</h3>
-        <Separator className='mb-3 mt-20' />
-        <p>{data.location}</p>
-        <div>
+        <h3 className='font-bold'>{getEventStatus(data.start)}</h3>
+        <div className='mt-20 flex justify-between gap-5'>
+          <p>{data.date}</p>
+          <p>{data.location}</p>
+        </div>
+        <Separator className='my-2' />
+
+        <div className='flex justify-between gap-5'>
           {data.organizers.slice(0, 2).map((organizer, index) => (
             <div
               key={index}
