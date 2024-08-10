@@ -21,10 +21,10 @@ export const ScheduleItem = ({
     <div>
       <Link
         href={url}
-        className='flex cursor-cell flex-col gap-3 pb-10 pt-3 text-gray-600 transition-all hover:text-white'
+        className='mb-5 flex cursor-cell flex-col gap-3 border-b pb-2 pt-3 text-gray-400 transition-all hover:text-white md:mb-0 md:text-gray-600'
       >
         <span>
-          <p className='mb-2 overflow-hidden truncate text-xl md:text-3xl'>
+          <p className='mb-2 line-clamp-2 text-lg md:line-clamp-1 md:overflow-hidden md:truncate md:border-none md:text-xl'>
             {title}
           </p>
           <span className='flex items-start justify-between md:hidden'>
@@ -33,7 +33,7 @@ export const ScheduleItem = ({
                 <FiMapPin />
                 <p>{location}</p>
               </span>
-              <p>{date}</p>
+              <p className='hidden md:block'>{date}</p>
             </span>
             <span className='flex flex-col items-end gap-2 md:flex-row'>
               {organizers.slice(0, 1).map((organizer, index) => (

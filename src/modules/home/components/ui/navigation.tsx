@@ -24,7 +24,7 @@ export const Navigation = () => {
       onMouseLeave={() => {
         setIsOpen(false);
       }}
-      className='fixed right-0 top-0 z-50 flex h-screen min-w-10'
+      className='fixed right-0 top-0 z-50 flex h-screen w-0 md:min-w-10'
     >
       <AnimatePresence>
         {isOpen && (

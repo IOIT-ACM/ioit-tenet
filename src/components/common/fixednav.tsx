@@ -59,7 +59,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
         opacity: !videoPlayed ? 0 : 1,
       }}
       transition={{ duration: 0.3 }}
-      className='fixed top-5 z-30 flex w-screen select-none items-center justify-between px-3 md:px-20'
+      className='fixed top-5 z-50 flex w-screen select-none items-center justify-between px-3 md:px-20'
     >
       {/* Logo link */}
       <motion.div

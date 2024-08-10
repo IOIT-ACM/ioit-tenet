@@ -74,7 +74,7 @@ const HoverCard = ({ data }: { data: ScheduleItemType }) => {
   return (
     <AnimatePresence>
       <motion.div
-        className={`min-w-[282px] max-w-[300px] rounded-lg ${data.color} p-4`}
+        className={`min-w-[282px] max-w-[300px] rounded-lg ${data.color} z-50 p-4`}
       >
         <p className='text-2xl'>{data.title}</p>
         <h3 className='font-bold'>{getEventStatus(data.start)}</h3>
