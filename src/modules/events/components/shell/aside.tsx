@@ -2,22 +2,23 @@
 
 import { day1, day2, day3 } from '@/config/events';
 import { FollowCursor } from '@/modules/home/components/schedule/cursor';
-import { FiMapPin, FiPhone } from 'react-icons/fi';
 import Link from 'next/link';
+import { useRef } from 'react';
 import type { ScheduleItemType } from '@/types';
 
 export const SidePanel = () => {
+  const boundaryRef = useRef(null);
   const days = [day1, day2, day3];
 
   return (
-    <div className='z-50 bg-gray-900 p-4 shadow-xl'>
+    <div className='z-50 bg-gray-900 p-4 pb-36 pt-20 shadow-xl'>
       {days.map((day, dayIndex) => (
-        <div key={dayIndex} className='mb-6 last:mb-0'>
+        <div ref={boundaryRef} key={dayIndex} className='mb-16 last:mb-0'>
           <h2 className='mb-4 text-xl font-semibold text-white'>
             Day {dayIndex + 1}
           </h2>
           {day.map((item, index) => (
-            <FollowCursor key={index} data={item}>
+            <FollowCursor key={index} data={item} boundaryRef={boundaryRef}>
               <ScheduleItem data={item} />
             </FollowCursor>
           ))}
@@ -38,26 +39,6 @@ export const ScheduleItem = ({ data }: { data: ScheduleItemType }) => {
           <p className='mb-2 line-clamp-2 text-lg'>
             {data.title} <span className='hidden md:flex'>{data.time}</span>
           </p>
-          <span className='flex items-start justify-between md:hidden'>
-            <span className='flex flex-col gap-2 text-sm uppercase md:flex-row'>
-              <span className='flex items-center gap-1.5'>
-                <FiMapPin />
-                <p>{data.location}</p>
-              </span>
-              <p className='hidden md:block'>{data.date}</p>
-            </span>
-            <span className='flex flex-col items-end gap-2 md:flex-row'>
-              {data.organizers?.slice(0, 1).map((organizer, index) => (
-                <span
-                  key={index}
-                  className='flex items-center gap-1.5 text-sm uppercase'
-                >
-                  <FiPhone />
-                  <span>{organizer.name}</span>
-                </span>
-              ))}
-            </span>
-          </span>
         </span>
       </Link>
     </div>
