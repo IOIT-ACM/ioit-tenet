@@ -5,12 +5,13 @@ import { ScheduleItem } from './scheduleitem';
 import { day1, day2, day3 } from '@/config/events';
 import { Separator } from '@/components/ui/separator';
 import { FollowCursor } from './cursor';
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useRef } from 'react';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import Link from 'next/link';
 
 export const Schedule = () => {
   const [expanded, setExpanded] = useState<number | null>(null);
+  const boundaryRef = useRef(null);
 
   const d1 = useMemo(() => {
     const importantItems = day1.filter((item) => item.imp);
@@ -60,7 +61,7 @@ export const Schedule = () => {
           </Link>
         </div>
       </div>
-      <div className='w-full md:col-span-5'>
+      <div ref={boundaryRef} className='w-full md:col-span-5'>
         <AnimatePresence>
           <div id='day1events' className='mb-8'>
             <div className='mb-4 flex w-full items-center justify-between text-3xl font-bold text-gray-300'>

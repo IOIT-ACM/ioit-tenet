@@ -10,9 +10,11 @@ import { useIsMobile } from '@/hooks/useismobile';
 export const FollowCursor = ({
   data,
   children,
+  classname,
 }: {
   children: React.ReactNode;
   data: ScheduleItemType;
+  classname?: string;
 }) => {
   const [isHovering, setIsHovering] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -64,17 +66,23 @@ export const FollowCursor = ({
         className='pointer-events-none absolute z-50'
         style={{ left: 0, top: 0, opacity: 0, display: 'none' }}
       >
-        <HoverCard data={data} />
+        <HoverCard data={data} classname={classname} />
       </div>
     </div>
   );
 };
 
-const HoverCard = ({ data }: { data: ScheduleItemType }) => {
+const HoverCard = ({
+  data,
+  classname,
+}: {
+  data: ScheduleItemType;
+  classname: string | undefined;
+}) => {
   return (
     <AnimatePresence>
       <motion.div
-        className={`min-w-[282px] max-w-[300px] rounded-lg ${data.color} z-[99999] p-4`}
+        className={`min-w-[282px] max-w-[300px] rounded-lg ${data.color} z-[99999] p-4 ${classname}`}
       >
         <p className='text-2xl'>{data.title}</p>
         <h3 className='font-bold'>{getEventStatus(data.start)}</h3>
