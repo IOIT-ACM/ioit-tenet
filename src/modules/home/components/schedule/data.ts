@@ -22,11 +22,13 @@ export const day1scheduleData: ScheduleItemType[] = [
         name: 'Tushar',
         url: 'https://www.linkedin.com/in/tushar-narokar-29988b25a/',
         image: '/imgs/events/speakers/1.png',
+        bio: 'Media Team Head',
       },
       {
         name: 'Tushar',
         url: 'https://www.linkedin.com/in/tushar-narokar-29988b25a/',
         image: '/imgs/events/speakers/1.png',
+        bio: 'Media Team Head',
       },
     ],
   },
