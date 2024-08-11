@@ -2,17 +2,19 @@
 
 import type { ScheduleItemType } from '@/types';
 import Image from 'next/image';
+import Link from 'next/link';
 import {
   HiCalendar,
   HiClock,
   HiLocationMarker,
   HiUser,
   HiPhone,
+  HiExternalLink,
 } from 'react-icons/hi';
 
 export const Details = ({ event }: { event: ScheduleItemType }) => {
   return (
-    <div className='flex min-h-screen w-screen items-center justify-center bg-gradient-to-br from-slate-900 to-zinc-500 px-4 py-12 sm:px-6 lg:px-8'>
+    <div className='flex min-h-screen w-screen flex-col items-center justify-center gap-5 bg-gradient-to-br from-slate-900 to-zinc-500 px-4 py-12 sm:px-6 lg:px-8'>
       <div className='w-full overflow-hidden rounded-xl border bg-white bg-opacity-10 shadow-2xl backdrop-blur-lg backdrop-filter'>
         <div className='md:flex'>
           <div className='relative h-64 w-full overflow-hidden md:h-auto md:w-1/2 md:flex-shrink-0'>
@@ -42,28 +44,52 @@ export const Details = ({ event }: { event: ScheduleItemType }) => {
                 {event.location}
               </p>
             </div>
-            <p className='text-lg leading-relaxed text-gray-300'>
-              {event.description}
-            </p>
-            <div>
-              <h2 className='mb-4 text-xl font-semibold text-white'>
-                Organizers
-              </h2>
-              <ul className='space-y-2'>
-                {event.organizers.map((organizer, index) => (
-                  <li key={index} className='flex items-center text-gray-300'>
-                    <HiUser className='mr-2 h-5 w-5' />
-                    <span>{organizer.name}</span>
-                    <span className='mx-2'>•</span>
-                    <HiPhone className='mr-1 h-4 w-4' />
-                    <span>{organizer.phone}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {event.description && (
+              <p className='text-lg leading-relaxed text-gray-300'>
+                {event.description}
+              </p>
+            )}
+            {event.organizers && event.organizers.length > 0 && (
+              <div>
+                <h2 className='mb-4 text-xl font-semibold text-white'>
+                  Organizers
+                </h2>
+                <ul className='space-y-2'>
+                  {event.organizers.map((organizer, index) => (
+                    <li key={index} className='flex items-center text-gray-300'>
+                      <HiUser className='mr-2 h-5 w-5' />
+                      <span>{organizer.name}</span>
+                      {organizer.phone && (
+                        <>
+                          <span className='mx-2'>•</span>
+                          <HiPhone className='mr-1 h-4 w-4' />
+                          <span>{organizer.phone}</span>
+                        </>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {event.registration && (
+              <div className='mt-6'>
+                <Link
+                  href={event.registration}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='inline-flex items-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none'
+                >
+                  Register for Event
+                  <HiExternalLink className='ml-2 h-5 w-5' />
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>
+      <Link className='w-full text-white' href={'/agenda'}>
+        View fill agenda
+      </Link>
     </div>
   );
 };

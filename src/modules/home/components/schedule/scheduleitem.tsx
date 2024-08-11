@@ -24,7 +24,7 @@ export const ScheduleItem = ({ data }: { data: ScheduleItemType }) => {
               <p className='hidden md:block'>{data.date}</p>
             </span>
             <span className='flex flex-col items-end gap-2 md:flex-row'>
-              {data.organizers.slice(0, 1).map((organizer, index) => (
+              {data.organizers?.slice(0, 1).map((organizer, index) => (
                 <span
                   key={index}
                   className='flex items-center gap-1.5 text-sm uppercase'

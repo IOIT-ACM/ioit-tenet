@@ -51,6 +51,7 @@ export const day1scheduleData: ScheduleItemType[] = [
       { name: 'Anish Patange', phone: '+919876543214' },
       { name: 'Gauri Amale', phone: '+919876543215' },
     ],
+    registration: '/#',
   },
   {
     title: 'Fun games (AR/VR, coding games)',
@@ -169,10 +170,6 @@ export const day2scheduleData: ScheduleItemType[] = [
     description:
       "A casual breakfast meeting to kickstart the day, providing an opportunity for networking and discussions on the day's agenda.",
     image: '/imgs/events/schedule/1.jpg',
-    organizers: [
-      { name: 'Vivaan Kukreja', phone: '+919876543244' },
-      { name: 'Swarali Modak', phone: '+919876543245' },
-    ],
   },
   {
     title: 'Opening Ceremony',
@@ -254,10 +251,6 @@ export const day2scheduleData: ScheduleItemType[] = [
     description:
       'A mid-day break with a catered lunch, allowing attendees to relax and network.',
     image: '/imgs/events/schedule/1.jpg',
-    organizers: [
-      { name: 'Mihir Palatkar', phone: '+919876543232' },
-      { name: 'Sejal Karad', phone: '+919876543233' },
-    ],
   },
   {
     title: 'Tier 2 Speaker Sessions x 2',
@@ -500,10 +493,6 @@ export const day3scheduleData: ScheduleItemType[] = [
     description:
       'A morning session to discuss the agenda for the day, accompanied by a light breakfast.',
     image: '/imgs/events/schedule/1.jpg',
-    organizers: [
-      { name: 'Madhuri Sinha', phone: '+919876543272' },
-      { name: 'Ketan Agrawal', phone: '+919876543273' },
-    ],
   },
   {
     title: 'Committee Session 3',
@@ -534,10 +523,6 @@ export const day3scheduleData: ScheduleItemType[] = [
     description:
       'A break for lunch, offering time to recharge before the afternoon sessions.',
     image: '/imgs/events/schedule/1.jpg',
-    organizers: [
-      { name: 'Snehal Deshmukh', phone: '+919876543269' },
-      { name: 'Amit Patel', phone: '+919876543268' },
-    ],
   },
   {
     title: 'Committee Session 4',

@@ -30,8 +30,9 @@ export type ScheduleItemType = {
   imp: boolean;
   date: string;
   location: string;
-  organizers: Organizer[];
+  organizers?: Organizer[];
   color: string;
   start: Date;
   time: string;
+  registration?: string;
 };
