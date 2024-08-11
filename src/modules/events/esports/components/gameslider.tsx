@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
+import Image from 'next/image';
 import GameRegisterBtn from '@/modules/events/esports/components/GameRegisterBtn';
 
 interface GameSlide {
@@ -53,38 +54,42 @@ export const GameSlider = () => {
   }, [handleNext]);
 
   return (
-    <div className='relative h-screen overflow-hidden'>
-      <div
-        className='flex transition-transform duration-700 ease-in-out'
-        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-      >
-        {gameSlides.map((slide) => (
-          <div
-            key={slide.id}
-            className='relative h-screen min-w-full flex-shrink-0'
-            style={{
-              backgroundImage: `url(${slide.image})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-          ></div>
-        ))}
-      </div>
-      <div className='absolute left-0 top-0 flex h-full w-full items-center justify-between px-4'>
-        <button
-          onClick={handlePrev}
-          className='rounded-full bg-gray-800 p-2 text-white hover:bg-gray-700'
+    <div className="relative h-screen overflow-hidden">
+    <div
+      className="flex transition-transform duration-700 ease-in-out"
+      style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+    >
+      {gameSlides.map((slide) => (
+        <div
+          key={slide.id}
+          className="relative h-screen min-w-full flex-shrink-0"
         >
-          ❮
-        </button>
-        <button
-          onClick={handleNext}
-          className='rounded-full bg-gray-800 p-2 text-white hover:bg-gray-700'
-        >
-          ❯
-        </button>
-        <GameRegisterBtn link={gameSlides[currentIndex]?.link ?? ''} />
-      </div>
+          <Image
+            src={slide.image}
+            alt={`Slide ${slide.id}`}
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center"
+            priority
+          />
+        </div>
+      ))}
     </div>
+    <div className="absolute left-0 top-0 flex h-full w-full items-center justify-between px-4">
+      <button
+        onClick={handlePrev}
+        className="rounded-full bg-gray-800 p-2 text-white hover:bg-gray-700"
+      >
+        ❮
+      </button>
+      <button
+        onClick={handleNext}
+        className="rounded-full bg-gray-800 p-2 text-white hover:bg-gray-700"
+      >
+        ❯
+      </button>
+      <GameRegisterBtn link={gameSlides[currentIndex]?.link ?? ''} />
+    </div>
+  </div>
   );
 };
