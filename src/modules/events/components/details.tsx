@@ -96,9 +96,9 @@ export const Details = ({ event }: { event: ScheduleItemType }) => {
           </div>
         </div>
       </div>
-      <Link className='w-full text-white' href={'/events'}>
+      {/* <Link className='w-full text-white' href={'/events'}>
         View full agenda
-      </Link>
+      </Link> */}
     </div>
   );
 };

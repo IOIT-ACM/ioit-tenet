@@ -5,6 +5,7 @@ import {
   day2scheduleData,
   day3scheduleData,
 } from '@/modules/home/components/schedule/data';
+import { Shell } from '@/modules/events';
 import { Details } from '@/modules/events';
 
 export async function generateMetadata({
@@ -68,8 +69,8 @@ export default function Page({ params }: { params: { id: string } }) {
   }
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-slate-900 to-zinc-500 px-10'>
+    <Shell>
       <Details event={event} />;
-    </div>
+    </Shell>
   );
 }
