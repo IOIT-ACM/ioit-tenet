@@ -3,13 +3,12 @@
 import { day1, day2, day3 } from '@/config/events';
 import { FollowCursor } from '@/modules/home/components/schedule/cursor';
 import Link from 'next/link';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Switch } from '@/components/ui/switch';
 import type { ScheduleItemType } from '@/types';
 import { usePathname } from 'next/navigation';
 
 export const SidePanel = () => {
-  const boundaryRef = useRef(null);
   const days = [day1, day2, day3];
   const [cards, setCards] = useState(false);
 
@@ -18,7 +17,7 @@ export const SidePanel = () => {
   );
 
   return (
-    <div ref={boundaryRef} className='z-50 p-4 pb-36 shadow-xl'>
+    <div className='z-50 p-4 pb-36 shadow-xl'>
       <div className='mb-14 flex items-center space-x-2'>
         <Switch id='toggle-cards' checked={cards} onCheckedChange={setCards} />
         <label htmlFor='toggle-cards' className='text-white'>
@@ -55,9 +54,16 @@ export const SidePanel = () => {
 export const ScheduleItem = ({ data }: { data: ScheduleItemType }) => {
   const pathname = usePathname();
   const isActive = pathname.split('/').pop() === data.id;
+  const itemRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (isActive && itemRef.current) {
+      itemRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, [isActive]);
 
   return (
-    <div>
+    <div ref={itemRef}>
       <Link
         href={`/events/${data.id}`}
         className={`mb-5 flex cursor-cell flex-col gap-3 border-b pb-2 pt-3 transition-all hover:text-white md:mb-0 md:border-none ${
