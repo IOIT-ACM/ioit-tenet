@@ -7,6 +7,7 @@ import * as React from 'react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import Image from 'next/image';
+import MonileFooter from './mobile-footer';
 
 interface ShellProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
@@ -30,7 +31,7 @@ export function Shell({ children }: ShellProps) {
             <Link href={'/'}>
               <Image
                 className='h-10 w-10 cursor-pointer transition-all hover:scale-105'
-                src={'/tenet-fill.png'}
+                src={'/acm.png'}
                 alt='Tenet Logo'
                 height={70}
                 width={70}
@@ -60,10 +61,14 @@ export function Shell({ children }: ShellProps) {
           <SidePanel />
         </aside>
 
-        <main className='flex-1 overflow-y-auto px-10 pt-0'>{children}</main>
+        <main className='flex-1 overflow-y-auto px-10 pb-20 pt-0 md:pb-10'>
+          {children}
+        </main>
       </div>
 
-      <footer className='sticky bottom-0 block bg-pink-200 p-4 sm:hidden'></footer>
+      <footer className='sticky bottom-0 block rounded-t-xl bg-slate-200 p-2 sm:hidden'>
+        <MonileFooter />
+      </footer>
     </div>
   );
 }

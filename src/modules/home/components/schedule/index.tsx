@@ -14,25 +14,34 @@ export const Schedule = () => {
   const boundaryRef = useRef(null);
 
   const d1 = useMemo(() => {
-    const importantItems = day1.filter((item) => item.imp);
+    const sortedDay1 = day1.sort(
+      (a, b) => a.start.getTime() - b.start.getTime(),
+    );
+    const importantItems = sortedDay1.filter((item) => item.imp);
     if (expanded === 1) {
-      return day1;
+      return sortedDay1;
     }
     return importantItems.slice(0, 4);
   }, [expanded]);
 
   const d2 = useMemo(() => {
-    const importantItems = day2.filter((item) => item.imp);
+    const sortedDay2 = day2.sort(
+      (a, b) => a.start.getTime() - b.start.getTime(),
+    );
+    const importantItems = sortedDay2.filter((item) => item.imp);
     if (expanded === 2) {
-      return day2;
+      return sortedDay2;
     }
     return importantItems.slice(0, 4);
   }, [expanded]);
 
   const d3 = useMemo(() => {
-    const importantItems = day3.filter((item) => item.imp);
+    const sortedDay3 = day3.sort(
+      (a, b) => a.start.getTime() - b.start.getTime(),
+    );
+    const importantItems = sortedDay3.filter((item) => item.imp);
     if (expanded === 3) {
-      return day3;
+      return sortedDay3;
     }
     return importantItems.slice(0, 4);
   }, [expanded]);
