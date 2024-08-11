@@ -1,19 +1,8 @@
 /* Scrollbar */
 body::-webkit-scrollbar {
-    width: 10px;
-    background-color: #131322;
+    width: 0px;
 }
 
-/* Thumb */
-body::-webkit-scrollbar-thumb {
-    background-color: #50505b;
-    border-radius: 9px;
-}
-
-/* Track */
-body::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px #131322;
-}
 
 /* In your styles.css or a separate CSS module */
 .scrollbar-custom::-webkit-scrollbar {

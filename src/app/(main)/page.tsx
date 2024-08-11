@@ -1,5 +1,4 @@
 import {
-  Hero,
   SearchEvents,
   Gallery,
   TenetSpeakers,
@@ -17,7 +16,6 @@ export default async function HomePage() {
   return (
     <main className=''>
       <Navigation />
-      <Hero />
       <TenetHero />
       <Intro />
       <EventCountdown />
