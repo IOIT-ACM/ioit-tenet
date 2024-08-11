@@ -10,6 +10,9 @@ export const day1scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-04T09:00:00'),
     imp: true,
     time: '9:00 AM',
+    description:
+      'An insightful conference focusing on the latest trends and challenges in product management and consulting. Attendees will gain valuable knowledge from industry experts.',
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Shreya Mirge', phone: '+919876543210' },
       { name: 'Vivaan Kukreja', phone: '+919876543211' },
@@ -24,6 +27,9 @@ export const day1scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-04T09:00:00'),
     imp: true,
     time: '9:00 AM',
+    description:
+      'A comprehensive session exploring the pivotal role of data in driving business intelligence. Ideal for professionals looking to enhance their data-driven decision-making skills.',
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Madiha Shaikh', phone: '+919876543212' },
       { name: 'Pranav Vetkar', phone: '+919876543213' },
@@ -38,6 +44,9 @@ export const day1scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-04T09:00:00'),
     imp: true,
     time: '9:00 AM',
+    description:
+      'A thrilling cybersecurity challenge where participants test their hacking skills in a controlled environment. A must-attend for those interested in cybersecurity.',
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Anish Patange', phone: '+919876543214' },
       { name: 'Gauri Amale', phone: '+919876543215' },
@@ -52,6 +61,9 @@ export const day1scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-04T09:00:00'),
     imp: true,
     time: '9:00 AM',
+    description:
+      'Engage in interactive and innovative games featuring AR/VR technology and coding challenges. Perfect for tech enthusiasts looking to have fun while learning.',
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Gauri Amale', phone: '+919876543216' },
       { name: 'Swaraj Chavan', phone: '+919876543217' },
@@ -66,6 +78,9 @@ export const day1scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-04T10:30:00'),
     imp: true,
     time: '10:30 AM',
+    description:
+      'Dive into the future of the internet with this session on Web 3.0, exploring decentralized technologies and their impact on various industries.',
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Mihir Palatkar', phone: '+919876543218' },
       { name: 'Sejal Karad', phone: '+919876543219' },
@@ -80,6 +95,9 @@ export const day1scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-04T10:30:00'),
     imp: true,
     time: '10:30 AM',
+    description:
+      'Explore the practical applications of large language models (LLMs) in different industries. A key session for those interested in AI and machine learning.',
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Aayush Dhotre', phone: '+919876543220' },
       { name: 'Sakshi Kadam', phone: '+919876543221' },
@@ -94,6 +112,9 @@ export const day1scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-04T13:00:00'),
     imp: true,
     time: '1:00 PM',
+    description:
+      'Hands-on workshop on the latest advancements in drone and robotics technology. Participants will learn to build and operate these cutting-edge machines.',
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Kamlesh Wattamwar', phone: '+919876543222' },
       { name: 'Sanskruti Wattamwar', phone: '+919876543223' },
@@ -108,6 +129,9 @@ export const day1scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-04T13:00:00'),
     imp: true,
     time: '1:00 PM',
+    description:
+      'A deep dive into the development of generative AI and large language models. Essential for developers and AI enthusiasts looking to expand their knowledge.',
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Atharva Satpute', phone: '+919876543224' },
       { name: 'Sejal Karad', phone: '+919876543225' },
@@ -122,6 +146,9 @@ export const day1scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-04T16:45:00'),
     imp: true,
     time: '4:45 PM',
+    description:
+      'A live demonstration showcasing the capabilities of modern drones and robotics. Witness the future of automation and aerial technology in action.',
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Pritam Rangari', phone: '+919876543226' },
       { name: 'Aayush Musale', phone: '+919876543227' },
@@ -139,6 +166,9 @@ export const day2scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-05T08:00:00'),
     imp: false,
     time: '8:00 AM',
+    description:
+      "A casual breakfast meeting to kickstart the day, providing an opportunity for networking and discussions on the day's agenda.",
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Vivaan Kukreja', phone: '+919876543244' },
       { name: 'Swarali Modak', phone: '+919876543245' },
@@ -153,6 +183,9 @@ export const day2scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-05T09:00:00'),
     imp: false,
     time: '9:00 AM',
+    description:
+      'The official start of the event, featuring keynote speeches and an overview of the activities planned for the summit.',
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Chinmay Nakwa', phone: '+919876543246' },
       { name: 'Rutuja Salve', phone: '+919876543247' },
@@ -167,6 +200,9 @@ export const day2scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-05T10:00:00'),
     imp: true,
     time: '10:00 AM',
+    description:
+      'A series of insightful talks by industry professionals, covering various topics related to entrepreneurship and innovation.',
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Sanjana Nagle', phone: '+919876543228' },
       { name: 'Tanvi Sonune', phone: '+919876543229' },
@@ -181,6 +217,9 @@ export const day2scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-05T11:15:00'),
     imp: true,
     time: '11:15 AM',
+    description:
+      "A focused session with a prominent speaker discussing advanced topics relevant to the summit's theme.",
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Vaishnav Shinde', phone: '+919876543242' },
       { name: 'Niharika Koul', phone: '+919876543243' },
@@ -195,6 +234,9 @@ export const day2scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-05T12:30:00'),
     imp: true,
     time: '12:30 PM',
+    description:
+      'Continued discussions from industry experts on crucial topics in business and technology.',
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Aayush Dhotre', phone: '+919876543230' },
       { name: 'Sakshi Kadam', phone: '+919876543231' },
@@ -209,6 +251,9 @@ export const day2scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-05T13:30:00'),
     imp: false,
     time: '1:30 PM',
+    description:
+      'A mid-day break with a catered lunch, allowing attendees to relax and network.',
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Mihir Palatkar', phone: '+919876543232' },
       { name: 'Sejal Karad', phone: '+919876543233' },
@@ -223,6 +268,9 @@ export const day2scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-05T14:15:00'),
     imp: true,
     time: '2:15 PM',
+    description:
+      'Additional speaker sessions diving into advanced subjects, providing deeper insights into emerging trends.',
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Kamlesh Wattamwar', phone: '+919876543234' },
       { name: 'Sanskruti Wattamwar', phone: '+919876543235' },
@@ -237,6 +285,9 @@ export const day2scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-05T15:30:00'),
     imp: true,
     time: '3:30 PM',
+    description:
+      'A key session where startups and entrepreneurs meet potential investors. A vital opportunity for networking and funding discussions.',
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Atharva Satpute', phone: '+919876543236' },
       { name: 'Sejal Karad', phone: '+919876543237' },
@@ -251,6 +302,9 @@ export const day2scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-05T17:45:00'),
     imp: false,
     time: '5:45 PM',
+    description:
+      "The final event of the day, celebrating the summit's success with an official closing ceremony and a gala dinner.",
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Gauri Amale', phone: '+919876543238' },
       { name: 'Anish Patange', phone: '+919876543239' },
@@ -269,6 +323,9 @@ export const day3scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-06T11:00:00'),
     imp: true,
     time: '11:00 AM',
+    description:
+      'An open platform for creators and artists to showcase their talent. A diverse range of performances and presentations.',
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Madiha Shaikh', phone: '+919876543248' },
       { name: 'Neelam Gupta', phone: '+919876543249' },
@@ -283,6 +340,9 @@ export const day3scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-06T12:30:00'),
     imp: true,
     time: '12:30 PM',
+    description:
+      'A session dedicated to stand-up comedy, featuring local comedians delivering their best routines.',
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Sanskruti Wattamwar', phone: '+919876543252' },
       { name: 'Swaraj Chavan', phone: '+919876543253' },
@@ -297,6 +357,9 @@ export const day3scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-06T14:00:00'),
     imp: true,
     time: '2:00 PM',
+    description:
+      'A live theater performance, bringing drama and storytelling to the stage. An engaging cultural experience for all attendees.',
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Aayush Musale', phone: '+919876543256' },
       { name: 'Rutuja Salve', phone: '+919876543257' },
@@ -311,6 +374,9 @@ export const day3scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-06T14:30:00'),
     imp: true,
     time: '2:30 PM',
+    description:
+      'A continuation of the open mic event, offering more creators the chance to perform and share their work.',
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Madiha Shaikh', phone: '+919876543248' },
       { name: 'Neelam Gupta', phone: '+919876543249' },
@@ -325,6 +391,9 @@ export const day3scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-06T15:00:00'),
     imp: true,
     time: '3:00 PM',
+    description:
+      'A competitive comedy event where comedians battle it out for the top spot, guaranteed to be full of laughs and entertainment.',
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Vikram Sharma', phone: '+919876543260' },
       { name: 'Sejal Karad', phone: '+919876543261' },
@@ -339,6 +408,9 @@ export const day3scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-06T15:45:00'),
     imp: true,
     time: '3:45 PM',
+    description:
+      'The official prize-giving ceremony, recognizing the best performances and contributions across the event.',
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Sakshi Kadam', phone: '+919876543261' },
       { name: 'Madiha Shaikh', phone: '+919876543278' },
@@ -353,6 +425,9 @@ export const day3scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-06T17:00:00'),
     imp: true,
     time: '5:00 PM',
+    description:
+      'A grand finale event on the main stage, bringing together the highlights of the conclave for a spectacular closing.',
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Madiha Shaikh', phone: '+919876543278' },
       { name: 'Gauri Amale', phone: '+919876543279' },
@@ -369,6 +444,9 @@ export const day3scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-06T10:00:00'),
     imp: true,
     time: '10:00 AM',
+    description:
+      'Competitive gaming tournaments, featuring popular LAN games. A must-attend for eSports enthusiasts.',
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Atharva Pednekar', phone: '+919876543266' },
       { name: 'Devika Mule', phone: '+919876543267' },
@@ -383,6 +461,9 @@ export const day3scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-06T10:00:00'),
     imp: true,
     time: '10:00 AM',
+    description:
+      'Various gaming competitions where participants can showcase their skills and compete for prizes.',
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Amit Patel', phone: '+919876543268' },
       { name: 'Snehal Deshmukh', phone: '+919876543269' },
@@ -397,6 +478,9 @@ export const day3scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-06T10:00:00'),
     imp: true,
     time: '10:00 AM',
+    description:
+      'Interactive experience zones offering attendees a chance to try out the latest gaming technology and experiences.',
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Kamlesh Wattamwar', phone: '+919876543270' },
       { name: 'Aarti Sinha', phone: '+919876543271' },
@@ -413,6 +497,9 @@ export const day3scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-06T09:00:00'),
     imp: false,
     time: '9:00 AM',
+    description:
+      'A morning session to discuss the agenda for the day, accompanied by a light breakfast.',
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Madhuri Sinha', phone: '+919876543272' },
       { name: 'Ketan Agrawal', phone: '+919876543273' },
@@ -427,6 +514,9 @@ export const day3scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-06T10:00:00'),
     imp: true,
     time: '10:00 AM',
+    description:
+      'Continuing discussions and debates within various committees, focusing on global and local issues.',
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Aayush Musale', phone: '+919876543256' },
       { name: 'Rutuja Salve', phone: '+919876543257' },
@@ -441,6 +531,9 @@ export const day3scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-06T13:00:00'),
     imp: false,
     time: '1:00 PM',
+    description:
+      'A break for lunch, offering time to recharge before the afternoon sessions.',
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Snehal Deshmukh', phone: '+919876543269' },
       { name: 'Amit Patel', phone: '+919876543268' },
@@ -455,6 +548,9 @@ export const day3scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-06T14:00:00'),
     imp: true,
     time: '2:00 PM',
+    description:
+      "The final round of committee sessions, concluding the day's discussions and resolutions.",
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Madiha Shaikh', phone: '+919876543278' },
       { name: 'Neelam Gupta', phone: '+919876543249' },
@@ -469,6 +565,9 @@ export const day3scheduleData: ScheduleItemType[] = [
     start: new Date('2024-10-06T16:00:00'),
     imp: false,
     time: '4:00 PM',
+    description:
+      'A relaxed session with high tea, followed by the official closing ceremony of the MUN event.',
+    image: '/imgs/events/schedule/1.jpg',
     organizers: [
       { name: 'Madiha Shaikh', phone: '+919876543278' },
       { name: 'Gauri Amale', phone: '+919876543279' },

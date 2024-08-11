@@ -5,6 +5,7 @@ import {
   day2scheduleData,
   day3scheduleData,
 } from '@/modules/home/components/schedule/data';
+import { Details } from '@/modules/events';
 
 export async function generateMetadata({
   params,
@@ -46,20 +47,5 @@ export default function Page({ params }: { params: { id: string } }) {
     return <div>Event not found</div>;
   }
 
-  return (
-    <div>
-      <h1>{event.title}</h1>
-      <p>Date: {event.date}</p>
-      <p>Time: {event.time}</p>
-      <p>Location: {event.location}</p>
-      <h2>Organizers:</h2>
-      <ul>
-        {event.organizers.map((organizer, index) => (
-          <li key={index}>
-            {organizer.name} - {organizer.phone}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+  return <Details event={event} />;
 }

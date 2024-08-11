@@ -25,6 +25,8 @@ export type Organizer = {
 export type ScheduleItemType = {
   title: string;
   id: string;
+  description?: string;
+  image: string;
   imp: boolean;
   date: string;
   location: string;
