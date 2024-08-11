@@ -8,7 +8,7 @@ import {
   HiClock,
   HiLocationMarker,
   HiUser,
-  HiPhone,
+  //   HiPhone,
   HiExternalLink,
 } from 'react-icons/hi';
 
@@ -49,6 +49,7 @@ export const Details = ({ event }: { event: ScheduleItemType }) => {
                 {event.description}
               </p>
             )}
+
             {event.organizers && event.organizers.length > 0 && (
               <div>
                 <h2 className='mb-4 text-xl font-semibold text-white'>
@@ -58,19 +59,15 @@ export const Details = ({ event }: { event: ScheduleItemType }) => {
                   {event.organizers.map((organizer, index) => (
                     <li key={index} className='flex items-center text-gray-300'>
                       <HiUser className='mr-2 h-5 w-5' />
-                      <span>{organizer.name}</span>
-                      {organizer.phone && (
-                        <>
-                          <span className='mx-2'>•</span>
-                          <HiPhone className='mr-1 h-4 w-4' />
-                          <span>{organizer.phone}</span>
-                        </>
-                      )}
+                      <Link href={`tel:${organizer.phone}`}>
+                        {organizer.name}
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </div>
             )}
+
             {event.registration && (
               <div className='mt-6'>
                 <Link
