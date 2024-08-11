@@ -12,7 +12,7 @@ export const day1: ScheduleItemType[] = [
     time: '9:00 AM',
     description:
       'An insightful conference focusing on the latest trends and challenges in product management and consulting. Attendees will gain valuable knowledge from industry experts.',
-    image: '/imgs/events/schedule/1.jpg',
+    image: 'https://plus.unsplash.com/premium_photo-1661593062495-08c945c2e077?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     organizers: [
       { name: 'Shreya Mirge', phone: '+919876543210' },
       { name: 'Vivaan Kukreja', phone: '+919876543211' },
@@ -43,7 +43,7 @@ export const day1: ScheduleItemType[] = [
     time: '9:00 AM',
     description:
       'A comprehensive session exploring the pivotal role of data in driving business intelligence. Ideal for professionals looking to enhance their data-driven decision-making skills.',
-    image: '/imgs/events/schedule/1.jpg',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     organizers: [
       { name: 'Madiha Shaikh', phone: '+919876543212' },
       { name: 'Pranav Vetkar', phone: '+919876543213' },
@@ -60,7 +60,7 @@ export const day1: ScheduleItemType[] = [
     time: '9:00 AM',
     description:
       'A thrilling cybersecurity challenge where participants test their hacking skills in a controlled environment. A must-attend for those interested in cybersecurity.',
-    image: '/imgs/events/schedule/1.jpg',
+    image: 'https://images.unsplash.com/photo-1629904869392-ae2a682d4d01?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     organizers: [
       { name: 'Anish Patange', phone: '+919876543214' },
       { name: 'Gauri Amale', phone: '+919876543215' },
@@ -78,7 +78,7 @@ export const day1: ScheduleItemType[] = [
     time: '9:00 AM',
     description:
       'Engage in interactive and innovative games featuring AR/VR technology and coding challenges. Perfect for tech enthusiasts looking to have fun while learning.',
-    image: '/imgs/events/schedule/1.jpg',
+    image: 'https://images.unsplash.com/photo-1576633587382-13ddf37b1fc1?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     organizers: [
       { name: 'Gauri Amale', phone: '+919876543216' },
       { name: 'Swaraj Chavan', phone: '+919876543217' },
@@ -95,7 +95,7 @@ export const day1: ScheduleItemType[] = [
     time: '10:30 AM',
     description:
       'Dive into the future of the internet with this session on Web 3.0, exploring decentralized technologies and their impact on various industries.',
-    image: '/imgs/events/schedule/1.jpg',
+    image: 'https://images.unsplash.com/photo-1667422380246-3bed910ffae1?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     organizers: [
       { name: 'Mihir Palatkar', phone: '+919876543218' },
       { name: 'Sejal Karad', phone: '+919876543219' },
@@ -112,7 +112,7 @@ export const day1: ScheduleItemType[] = [
     time: '10:30 AM',
     description:
       'Explore the practical applications of large language models (LLMs) in different industries. A key session for those interested in AI and machine learning.',
-    image: '/imgs/events/schedule/1.jpg',
+    image: 'https://images.unsplash.com/photo-1712002641088-9d76f9080889?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     organizers: [
       { name: 'Aayush Dhotre', phone: '+919876543220' },
       { name: 'Sakshi Kadam', phone: '+919876543221' },
@@ -129,7 +129,7 @@ export const day1: ScheduleItemType[] = [
     time: '1:00 PM',
     description:
       'Hands-on workshop on the latest advancements in drone and robotics technology. Participants will learn to build and operate these cutting-edge machines.',
-    image: '/imgs/events/schedule/1.jpg',
+    image: 'https://plus.unsplash.com/premium_photo-1661727577908-1221ff42dcf8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     organizers: [
       { name: 'Kamlesh Wattamwar', phone: '+919876543222' },
       { name: 'Sanskruti Wattamwar', phone: '+919876543223' },
@@ -146,7 +146,7 @@ export const day1: ScheduleItemType[] = [
     time: '1:00 PM',
     description:
       'A deep dive into the development of generative AI and large language models. Essential for developers and AI enthusiasts looking to expand their knowledge.',
-    image: '/imgs/events/schedule/1.jpg',
+    image: 'https://images.unsplash.com/photo-1675557570482-df9926f61d86?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     organizers: [
       { name: 'Atharva Satpute', phone: '+919876543224' },
       { name: 'Sejal Karad', phone: '+919876543225' },
@@ -163,7 +163,7 @@ export const day1: ScheduleItemType[] = [
     time: '4:45 PM',
     description:
       'A live demonstration showcasing the capabilities of modern drones and robotics. Witness the future of automation and aerial technology in action.',
-    image: '/imgs/events/schedule/1.jpg',
+    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     organizers: [
       { name: 'Pritam Rangari', phone: '+919876543226' },
       { name: 'Aayush Musale', phone: '+919876543227' },

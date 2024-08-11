@@ -1,0 +1,1 @@
+export { TracingBeamDemo } from './components/tracingbeam';

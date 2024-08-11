@@ -14,6 +14,10 @@ const config = {
       },
       {
         protocol: 'https',
+        hostname: 'plus.unsplash.com',
+      },
+      {
+        protocol: 'https',
         hostname: 'lab.basement.studio',
       },
       {
@@ -31,6 +35,14 @@ const config = {
       {
         protocol: 'https',
         hostname: 'raw.githubusercontent.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn1.epicgames.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'wallpaper.forfun.com',
       },
     ],
   },
