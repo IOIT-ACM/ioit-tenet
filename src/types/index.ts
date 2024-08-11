@@ -22,6 +22,12 @@ export type Organizer = {
   phone: string;
 };
 
+export type Speaker = {
+  name: string;
+  url: string;
+  image: string;
+};
+
 export type ScheduleItemType = {
   title: string;
   id: string;
@@ -31,6 +37,7 @@ export type ScheduleItemType = {
   date: string;
   location: string;
   organizers?: Organizer[];
+  speakers?: Speaker[];
   color: string;
   start: Date;
   time: string;

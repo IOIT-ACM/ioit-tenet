@@ -1,6 +1,6 @@
 'use client';
 
-import type { ScheduleItemType } from '@/types';
+import type { ScheduleItemType, Speaker } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -8,14 +8,13 @@ import {
   HiClock,
   HiLocationMarker,
   HiUser,
-  //   HiPhone,
   HiExternalLink,
 } from 'react-icons/hi';
 
 export const Details = ({ event }: { event: ScheduleItemType }) => {
   return (
-    <div className='flex min-h-screen w-screen flex-col items-center justify-center gap-5 bg-gradient-to-br from-slate-900 to-zinc-500 px-4 py-12 sm:px-6 lg:px-8'>
-      <div className='w-full overflow-hidden rounded-xl border bg-white bg-opacity-10 shadow-2xl backdrop-blur-lg backdrop-filter'>
+    <div className='flex w-full flex-col items-center justify-start gap-5'>
+      <div className='w-full overflow-hidden rounded-xl border bg-white bg-opacity-10 shadow-2xl backdrop-blur-lg'>
         <div className='md:flex'>
           <div className='relative h-64 w-full overflow-hidden md:h-auto md:w-1/2 md:flex-shrink-0'>
             <Image
@@ -48,6 +47,19 @@ export const Details = ({ event }: { event: ScheduleItemType }) => {
               <p className='text-lg leading-relaxed text-gray-300'>
                 {event.description}
               </p>
+            )}
+
+            {event.speakers && event.speakers.length > 0 && (
+              <div>
+                <h2 className='mb-4 text-xl font-semibold text-white'>
+                  Speakers
+                </h2>
+                <div className='flex flex-wrap gap-4'>
+                  {event.speakers.map((speaker, index) => (
+                    <SpeakerCard key={index} speaker={speaker} />
+                  ))}
+                </div>
+              </div>
             )}
 
             {event.organizers && event.organizers.length > 0 && (
@@ -84,9 +96,29 @@ export const Details = ({ event }: { event: ScheduleItemType }) => {
           </div>
         </div>
       </div>
-      <Link className='w-full text-white' href={'/agenda'}>
-        View fill agenda
+      <Link className='w-full text-white' href={'/events'}>
+        View full agenda
       </Link>
     </div>
+  );
+};
+
+const SpeakerCard = ({ speaker }: { speaker: Speaker }) => {
+  return (
+    <Link
+      href={speaker.url}
+      target='_blank'
+      rel='noopener noreferrer'
+      className='flex items-center space-x-3 rounded-lg bg-white bg-opacity-20 p-3 transition-all hover:bg-opacity-30'
+    >
+      <Image
+        src={speaker.image}
+        alt={speaker.name}
+        width={50}
+        height={50}
+        className='rounded-full'
+      />
+      <span className='text-white'>{speaker.name}</span>
+    </Link>
   );
 };

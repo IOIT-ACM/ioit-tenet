@@ -67,5 +67,9 @@ export default function Page({ params }: { params: { id: string } }) {
     return <div>Event not found</div>;
   }
 
-  return <Details event={event} />;
+  return (
+    <div className='min-h-screen bg-gradient-to-br from-slate-900 to-zinc-500 px-10'>
+      <Details event={event} />;
+    </div>
+  );
 }

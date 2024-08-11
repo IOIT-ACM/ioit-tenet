@@ -52,7 +52,7 @@ export const Schedule = () => {
           <Link className='transition-all hover:underline' href={'/register'}>
             Registrations open
           </Link>
-          <Link className='transition-all hover:underline' href={'/agenda'}>
+          <Link className='transition-all hover:underline' href={'/events'}>
             View full Agenda
           </Link>
           <Link className='transition-all hover:underline' href={'/#'}>

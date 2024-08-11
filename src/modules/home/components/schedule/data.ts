@@ -17,6 +17,18 @@ export const day1scheduleData: ScheduleItemType[] = [
       { name: 'Shreya Mirge', phone: '+919876543210' },
       { name: 'Vivaan Kukreja', phone: '+919876543211' },
     ],
+    speakers: [
+      {
+        name: 'Tushar',
+        url: 'https://www.linkedin.com/in/tushar-narokar-29988b25a/',
+        image: '/imgs/events/speakers/1.png',
+      },
+      {
+        name: 'Tushar',
+        url: 'https://www.linkedin.com/in/tushar-narokar-29988b25a/',
+        image: '/imgs/events/speakers/1.png',
+      },
+    ],
   },
   {
     title: 'How Data is used in Business Intelligence Conference',
