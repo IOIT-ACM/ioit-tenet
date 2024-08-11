@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import GameRegisterBtn from '@/components/ui/GameRegisterBtn';
+import FixedNavBar from '@/components/common/fixednav';
 
 interface GameSlide {
   id: number;
@@ -53,6 +54,8 @@ const GameSlider: React.FC = () => {
   }, [handleNext]);
 
   return (
+    <>
+    <FixedNavBar/>
     <div className='relative h-screen overflow-hidden'>
       <div
         className='flex transition-transform duration-700 ease-in-out'
@@ -86,6 +89,7 @@ const GameSlider: React.FC = () => {
         <GameRegisterBtn link={gameSlides[currentIndex]?.link ?? ''} />
       </div>
     </div>
+    </>
   );
 };
 
