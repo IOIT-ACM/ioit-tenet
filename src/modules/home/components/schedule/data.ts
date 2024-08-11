@@ -8,7 +8,6 @@ export const day1scheduleData: ScheduleItemType[] = [
     date: 'Oct 4th, 2024',
     location: 'Room 404',
     start: new Date('2024-10-04T09:00:00'),
-    url: '/events/event',
     imp: true,
     time: '9:00 AM',
     organizers: [
@@ -23,7 +22,6 @@ export const day1scheduleData: ScheduleItemType[] = [
     date: 'Oct 4th, 2024',
     location: 'Room 405',
     start: new Date('2024-10-04T09:00:00'),
-    url: '/events/event',
     imp: true,
     time: '9:00 AM',
     organizers: [
@@ -38,7 +36,6 @@ export const day1scheduleData: ScheduleItemType[] = [
     date: 'Oct 4th, 2024',
     location: 'Room 406',
     start: new Date('2024-10-04T09:00:00'),
-    url: '/events/event',
     imp: true,
     time: '9:00 AM',
     organizers: [
@@ -53,7 +50,6 @@ export const day1scheduleData: ScheduleItemType[] = [
     date: 'Oct 4th, 2024',
     location: 'Room 407',
     start: new Date('2024-10-04T09:00:00'),
-    url: '/events/event',
     imp: true,
     time: '9:00 AM',
     organizers: [
@@ -68,7 +64,6 @@ export const day1scheduleData: ScheduleItemType[] = [
     date: 'Oct 4th, 2024',
     location: 'Room 404',
     start: new Date('2024-10-04T10:30:00'),
-    url: '/events/event',
     imp: true,
     time: '10:30 AM',
     organizers: [
@@ -83,7 +78,6 @@ export const day1scheduleData: ScheduleItemType[] = [
     date: 'Oct 4th, 2024',
     location: 'Room 405',
     start: new Date('2024-10-04T10:30:00'),
-    url: '/events/event',
     imp: true,
     time: '10:30 AM',
     organizers: [
@@ -98,7 +92,6 @@ export const day1scheduleData: ScheduleItemType[] = [
     date: 'Oct 4th, 2024',
     location: 'Room 406',
     start: new Date('2024-10-04T13:00:00'),
-    url: '/events/event',
     imp: true,
     time: '1:00 PM',
     organizers: [
@@ -113,7 +106,6 @@ export const day1scheduleData: ScheduleItemType[] = [
     date: 'Oct 4th, 2024',
     location: 'Room 407',
     start: new Date('2024-10-04T13:00:00'),
-    url: '/events/event',
     imp: true,
     time: '1:00 PM',
     organizers: [
@@ -128,7 +120,6 @@ export const day1scheduleData: ScheduleItemType[] = [
     date: 'Oct 4th, 2024',
     location: 'Open Ground',
     start: new Date('2024-10-04T16:45:00'),
-    url: '/events/event',
     imp: true,
     time: '4:45 PM',
     organizers: [
@@ -146,7 +137,6 @@ export const day2scheduleData: ScheduleItemType[] = [
     date: 'Oct 5th, 2024',
     location: 'Dining Hall',
     start: new Date('2024-10-05T08:00:00'),
-    url: '/events/event',
     imp: false,
     time: '8:00 AM',
     organizers: [
@@ -161,7 +151,6 @@ export const day2scheduleData: ScheduleItemType[] = [
     date: 'Oct 5th, 2024',
     location: 'Main Stage',
     start: new Date('2024-10-05T09:00:00'),
-    url: '/events/event',
     imp: false,
     time: '9:00 AM',
     organizers: [
@@ -176,7 +165,6 @@ export const day2scheduleData: ScheduleItemType[] = [
     date: 'Oct 5th, 2024',
     location: 'Room 404',
     start: new Date('2024-10-05T10:00:00'),
-    url: '/events/event',
     imp: true,
     time: '10:00 AM',
     organizers: [
@@ -191,7 +179,6 @@ export const day2scheduleData: ScheduleItemType[] = [
     date: 'Oct 5th, 2024',
     location: 'Room 407',
     start: new Date('2024-10-05T11:15:00'),
-    url: '/events/event',
     imp: true,
     time: '11:15 AM',
     organizers: [
@@ -206,7 +193,6 @@ export const day2scheduleData: ScheduleItemType[] = [
     date: 'Oct 5th, 2024',
     location: 'Room 405',
     start: new Date('2024-10-05T12:30:00'),
-    url: '/events/event',
     imp: true,
     time: '12:30 PM',
     organizers: [
@@ -221,7 +207,6 @@ export const day2scheduleData: ScheduleItemType[] = [
     date: 'Oct 5th, 2024',
     location: 'Dining Hall',
     start: new Date('2024-10-05T13:30:00'),
-    url: '/events/event',
     imp: false,
     time: '1:30 PM',
     organizers: [
@@ -236,7 +221,6 @@ export const day2scheduleData: ScheduleItemType[] = [
     date: 'Oct 5th, 2024',
     location: 'Room 406',
     start: new Date('2024-10-05T14:15:00'),
-    url: '/events/event',
     imp: true,
     time: '2:15 PM',
     organizers: [
@@ -251,7 +235,6 @@ export const day2scheduleData: ScheduleItemType[] = [
     date: 'Oct 5th, 2024',
     location: 'Room 407',
     start: new Date('2024-10-05T15:30:00'),
-    url: '/events/event',
     imp: true,
     time: '3:30 PM',
     organizers: [
@@ -266,7 +249,6 @@ export const day2scheduleData: ScheduleItemType[] = [
     date: 'Oct 5th, 2024',
     location: 'Main Stage',
     start: new Date('2024-10-05T17:45:00'),
-    url: '/events/event',
     imp: false,
     time: '5:45 PM',
     organizers: [
@@ -285,7 +267,6 @@ export const day3scheduleData: ScheduleItemType[] = [
     date: 'Oct 6th, 2024',
     location: 'Main Stage',
     start: new Date('2024-10-06T11:00:00'),
-    url: '/events/event',
     imp: true,
     time: '11:00 AM',
     organizers: [
@@ -300,7 +281,6 @@ export const day3scheduleData: ScheduleItemType[] = [
     date: 'Oct 6th, 2024',
     location: 'Main Stage',
     start: new Date('2024-10-06T12:30:00'),
-    url: '/events/event',
     imp: true,
     time: '12:30 PM',
     organizers: [
@@ -315,7 +295,6 @@ export const day3scheduleData: ScheduleItemType[] = [
     date: 'Oct 6th, 2024',
     location: 'Main Stage',
     start: new Date('2024-10-06T14:00:00'),
-    url: '/events/event',
     imp: true,
     time: '2:00 PM',
     organizers: [
@@ -330,7 +309,6 @@ export const day3scheduleData: ScheduleItemType[] = [
     date: 'Oct 6th, 2024',
     location: 'Main Stage',
     start: new Date('2024-10-06T14:30:00'),
-    url: '/events/event',
     imp: true,
     time: '2:30 PM',
     organizers: [
@@ -345,7 +323,6 @@ export const day3scheduleData: ScheduleItemType[] = [
     date: 'Oct 6th, 2024',
     location: 'Main Stage',
     start: new Date('2024-10-06T15:00:00'),
-    url: '/events/event',
     imp: true,
     time: '3:00 PM',
     organizers: [
@@ -360,7 +337,6 @@ export const day3scheduleData: ScheduleItemType[] = [
     date: 'Oct 6th, 2024',
     location: 'Main Stage',
     start: new Date('2024-10-06T15:45:00'),
-    url: '/events/event',
     imp: true,
     time: '3:45 PM',
     organizers: [
@@ -375,7 +351,6 @@ export const day3scheduleData: ScheduleItemType[] = [
     date: 'Oct 6th, 2024',
     location: 'Main Stage',
     start: new Date('2024-10-06T17:00:00'),
-    url: '/events/event',
     imp: true,
     time: '5:00 PM',
     organizers: [
@@ -392,7 +367,6 @@ export const day3scheduleData: ScheduleItemType[] = [
     date: 'Oct 6th, 2024',
     location: 'Gaming Arena',
     start: new Date('2024-10-06T10:00:00'),
-    url: '/events/event',
     imp: true,
     time: '10:00 AM',
     organizers: [
@@ -407,7 +381,6 @@ export const day3scheduleData: ScheduleItemType[] = [
     date: 'Oct 6th, 2024',
     location: 'Gaming Arena',
     start: new Date('2024-10-06T10:00:00'),
-    url: '/events/event',
     imp: true,
     time: '10:00 AM',
     organizers: [
@@ -422,7 +395,6 @@ export const day3scheduleData: ScheduleItemType[] = [
     date: 'Oct 6th, 2024',
     location: 'Experience Hall',
     start: new Date('2024-10-06T10:00:00'),
-    url: '/events/event',
     imp: true,
     time: '10:00 AM',
     organizers: [
@@ -439,7 +411,6 @@ export const day3scheduleData: ScheduleItemType[] = [
     date: 'Oct 6th, 2024',
     location: 'Dining Hall',
     start: new Date('2024-10-06T09:00:00'),
-    url: '/events/event',
     imp: false,
     time: '9:00 AM',
     organizers: [
@@ -454,7 +425,6 @@ export const day3scheduleData: ScheduleItemType[] = [
     date: 'Oct 6th, 2024',
     location: 'Various Rooms',
     start: new Date('2024-10-06T10:00:00'),
-    url: '/events/event',
     imp: true,
     time: '10:00 AM',
     organizers: [
@@ -469,7 +439,6 @@ export const day3scheduleData: ScheduleItemType[] = [
     date: 'Oct 6th, 2024',
     location: 'Dining Hall',
     start: new Date('2024-10-06T13:00:00'),
-    url: '/events/event',
     imp: false,
     time: '1:00 PM',
     organizers: [
@@ -484,7 +453,6 @@ export const day3scheduleData: ScheduleItemType[] = [
     date: 'Oct 6th, 2024',
     location: 'Various Rooms',
     start: new Date('2024-10-06T14:00:00'),
-    url: '/events/event',
     imp: true,
     time: '2:00 PM',
     organizers: [
@@ -499,7 +467,6 @@ export const day3scheduleData: ScheduleItemType[] = [
     date: 'Oct 6th, 2024',
     location: 'Lobby Area',
     start: new Date('2024-10-06T16:00:00'),
-    url: '/events/event',
     imp: false,
     time: '4:00 PM',
     organizers: [
