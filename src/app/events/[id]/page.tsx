@@ -25,6 +25,16 @@ export async function generateMetadata({
       title: 'Explore events at IOIT TENET 2024',
       description:
         'Browse through a collection of more than 20+ events at AISSMS IOIT TENET',
+      openGraph: {
+        images: [
+          {
+            url: '/imgs/events/schedule/default.jpg',
+            width: 800,
+            height: 600,
+            alt: `Event Image`,
+          },
+        ],
+      },
     };
   }
 
@@ -32,6 +42,16 @@ export async function generateMetadata({
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
     title: `${foundEvent.title}`,
     description: `Learn more about ${foundEvent.title} at AISSMS IOIT TENET 2024`,
+    openGraph: {
+      images: [
+        {
+          url: foundEvent.image,
+          width: 800,
+          height: 600,
+          alt: `${foundEvent.title} Image`,
+        },
+      ],
+    },
   };
 }
 
