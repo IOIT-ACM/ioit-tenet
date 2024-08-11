@@ -1,3 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+'use client';
+
+import { SidePanel } from './aside';
 import * as React from 'react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
@@ -15,7 +19,7 @@ export function Shell({ children }: ShellProps) {
           <div className='flex space-x-2'>
             <Link href={'/'}>
               <Image
-                className='h-5 w-5 cursor-pointer transition-all hover:scale-105 md:h-10 md:w-10'
+                className='h-10 w-10 cursor-pointer transition-all hover:scale-105'
                 src={'/tenet-fill.png'}
                 alt='Tenet Logo'
                 height={70}
@@ -24,7 +28,7 @@ export function Shell({ children }: ShellProps) {
             </Link>
             <Link href={'/'}>
               <Image
-                className='h-5 w-5 cursor-pointer transition-all hover:scale-105 md:h-10 md:w-10'
+                className='h-10 w-10 cursor-pointer transition-all hover:scale-105'
                 src={'/tenet-fill.png'}
                 alt='Tenet Logo'
                 height={70}
@@ -49,7 +53,9 @@ export function Shell({ children }: ShellProps) {
       </header>
 
       <div className='flex flex-1 overflow-hidden'>
-        <aside className='sticky top-0 hidden h-[calc(100vh-72px)] w-1/4 bg-slate-700 sm:block'></aside>
+        <aside className='sticky top-0 z-50 hidden h-[calc(100vh-72px)] w-1/4 overflow-y-auto overflow-x-hidden bg-slate-700 sm:block'>
+          <SidePanel />
+        </aside>
 
         <main className='flex-1 overflow-y-auto px-10 pt-0'>{children}</main>
       </div>

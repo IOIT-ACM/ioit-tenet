@@ -1,11 +1,6 @@
 import type { Metadata } from 'next';
 import { env } from '@/env';
-import {
-  day1scheduleData,
-  day2scheduleData,
-  day3scheduleData,
-} from '@/modules/home/components/schedule/data';
-import { Shell } from '@/modules/events';
+import { day1, day2, day3 } from '@/config/events';
 import { Details } from '@/modules/events';
 
 export async function generateMetadata({
@@ -13,11 +8,7 @@ export async function generateMetadata({
 }: {
   params: { id: string };
 }): Promise<Metadata> {
-  const allEvents = [
-    ...day1scheduleData,
-    ...day2scheduleData,
-    ...day3scheduleData,
-  ];
+  const allEvents = [...day1, ...day2, ...day3];
   const foundEvent = allEvents.find((event) => event.id === params.id);
 
   if (foundEvent === undefined) {
@@ -57,20 +48,12 @@ export async function generateMetadata({
 }
 
 export default function Page({ params }: { params: { id: string } }) {
-  const allEvents = [
-    ...day1scheduleData,
-    ...day2scheduleData,
-    ...day3scheduleData,
-  ];
+  const allEvents = [...day1, ...day2, ...day3];
   const event = allEvents.find((event) => event.id === params.id);
 
   if (!event) {
     return <div>Event not found</div>;
   }
 
-  return (
-    <Shell>
-      <Details event={event} />;
-    </Shell>
-  );
+  return <Details event={event} />;
 }

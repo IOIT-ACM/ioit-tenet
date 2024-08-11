@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { ScheduleItem } from './scheduleitem';
-import { day1scheduleData, day2scheduleData, day3scheduleData } from './data';
+import { day1, day2, day3 } from '@/config/events';
 import { Separator } from '@/components/ui/separator';
 import { FollowCursor } from './cursor';
 import { useMemo, useState } from 'react';
@@ -13,25 +13,25 @@ export const Schedule = () => {
   const [expanded, setExpanded] = useState<number | null>(null);
 
   const d1 = useMemo(() => {
-    const importantItems = day1scheduleData.filter((item) => item.imp);
+    const importantItems = day1.filter((item) => item.imp);
     if (expanded === 1) {
-      return day1scheduleData;
+      return day1;
     }
     return importantItems.slice(0, 4);
   }, [expanded]);
 
   const d2 = useMemo(() => {
-    const importantItems = day2scheduleData.filter((item) => item.imp);
+    const importantItems = day2.filter((item) => item.imp);
     if (expanded === 2) {
-      return day2scheduleData;
+      return day2;
     }
     return importantItems.slice(0, 4);
   }, [expanded]);
 
   const d3 = useMemo(() => {
-    const importantItems = day3scheduleData.filter((item) => item.imp);
+    const importantItems = day3.filter((item) => item.imp);
     if (expanded === 3) {
-      return day3scheduleData;
+      return day3;
     }
     return importantItems.slice(0, 4);
   }, [expanded]);

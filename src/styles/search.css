@@ -4,6 +4,11 @@
     mask-image: linear-gradient(to bottom, transparent, white 20%, white 80%, transparent);
 }
 
+.scroller-aside {
+    position: relative;
+    overflow: hidden;
+}
+
 .scroller ul {
     display: flex;
     flex-direction: column;
@@ -26,5 +31,9 @@
 
 .animate-scroll {
     animation: scroll var(--scroll-duration, 10s) linear infinite;
+}
+
+.animate-scroll-aside {
+    animation: scroll var(--scroll-duration, 40s) linear infinite;
 }
 

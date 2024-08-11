@@ -25,7 +25,7 @@ export const Details = ({ event }: { event: ScheduleItemType }) => {
               className='h-full w-full object-center transition-all duration-1000 hover:scale-110'
             />
           </div>
-          <div className='space-y-6 p-8 pt-0 md:w-1/2'>
+          <div className='space-y-6 pt-3 md:w-1/2 md:p-8 md:pt-0'>
             <h1 className='text-3xl font-bold md:text-4xl'>{event.title}</h1>
             <div className='flex flex-col space-y-4'>
               <p className='flex items-center'>
@@ -41,10 +41,6 @@ export const Details = ({ event }: { event: ScheduleItemType }) => {
                 {event.location}
               </p>
             </div>
-            <p className='text-lg text-gray-400'>{event.description}</p>
-            <p className='text-lg text-gray-400'>{event.description}</p>
-            <p className='text-lg text-gray-400'>{event.description}</p>
-            <p className='text-lg text-gray-400'>{event.description}</p>
             <p className='text-lg text-gray-400'>{event.description}</p>
 
             {event.speakers && event.speakers.length > 0 && (
