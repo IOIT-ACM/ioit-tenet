@@ -10,11 +10,11 @@ import { useIsMobile } from '@/hooks/useismobile';
 export const FollowCursor = ({
   data,
   children,
-  boundaryRef,
+  classname,
 }: {
   children: React.ReactNode;
   data: ScheduleItemType;
-  boundaryRef: React.RefObject<HTMLElement>;
+  classname?: string;
 }) => {
   const [isHovering, setIsHovering] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -23,34 +23,14 @@ export const FollowCursor = ({
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      if (containerRef.current && contentRef.current && boundaryRef.current) {
+      if (containerRef.current && contentRef.current) {
         const rect = containerRef.current.getBoundingClientRect();
-        const boundaryRect = boundaryRef.current.getBoundingClientRect();
         const cardWidth = contentRef.current.offsetWidth;
         const cardHeight = contentRef.current.offsetHeight;
-
-        let x = e.clientX - rect.left - cardWidth / 2;
-        let y = e.clientY - rect.top - cardHeight / 2;
-
-        const minX = 0;
-        const minY = 0;
-        const maxX = boundaryRect.width - cardWidth;
-        const maxY = boundaryRect.height - cardHeight;
-
-        x = Math.max(minX, Math.min(x, maxX));
-        y = Math.max(minY, Math.min(y, maxY));
-
-        const offsetX = x - (e.clientX - rect.left - cardWidth / 2);
-        const offsetY = y - (e.clientY - rect.top - cardHeight / 2);
+        const x = e.clientX - rect.left - cardWidth / 2;
+        const y = e.clientY - rect.top - cardHeight / 2;
 
         contentRef.current.style.transform = `translate(${x}px, ${y}px)`;
-        contentRef.current.style.transition = 'transform 0.1s ease-out';
-
-        const innerContent = contentRef.current
-          .firstElementChild as HTMLElement;
-        if (innerContent) {
-          innerContent.style.transform = `translate(${-offsetX}px, ${-offsetY}px)`;
-        }
       }
     };
 
@@ -64,7 +44,7 @@ export const FollowCursor = ({
         container.removeEventListener('mousemove', handleMouseMove);
       }
     };
-  }, [isHovering, boundaryRef]);
+  }, [isHovering]);
 
   useEffect(() => {
     if (contentRef.current && !ismobile) {
@@ -86,17 +66,23 @@ export const FollowCursor = ({
         className='pointer-events-none absolute z-50'
         style={{ left: 0, top: 0, opacity: 0, display: 'none' }}
       >
-        <HoverCard data={data} />
+        <HoverCard data={data} classname={classname} />
       </div>
     </div>
   );
 };
 
-const HoverCard = ({ data }: { data: ScheduleItemType }) => {
+const HoverCard = ({
+  data,
+  classname,
+}: {
+  data: ScheduleItemType;
+  classname: string | undefined;
+}) => {
   return (
     <AnimatePresence>
       <motion.div
-        className={`min-w-[282px] max-w-[300px] rounded-lg ${data.color} z-[99999] p-4`}
+        className={`min-w-[282px] max-w-[300px] rounded-lg ${data.color} z-[99999] p-4 ${classname}`}
       >
         <p className='text-2xl'>{data.title}</p>
         <h3 className='font-bold'>{getEventStatus(data.start)}</h3>

@@ -11,14 +11,14 @@ export const SidePanel = () => {
   const days = [day1, day2, day3];
 
   return (
-    <div className='z-50 bg-gray-900 p-4 pb-36 pt-20 shadow-xl'>
+    <div ref={boundaryRef} className='z-50 p-4 pb-36 shadow-xl'>
       {days.map((day, dayIndex) => (
-        <div ref={boundaryRef} key={dayIndex} className='mb-16 last:mb-0'>
+        <div key={dayIndex} className='mb-16 last:mb-0'>
           <h2 className='mb-4 text-xl font-semibold text-white'>
             Day {dayIndex + 1}
           </h2>
           {day.map((item, index) => (
-            <FollowCursor key={index} data={item} boundaryRef={boundaryRef}>
+            <FollowCursor key={index} data={item} classname='scale-90'>
               <ScheduleItem data={item} />
             </FollowCursor>
           ))}

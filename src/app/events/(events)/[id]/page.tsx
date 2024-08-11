@@ -52,7 +52,21 @@ export default function Page({ params }: { params: { id: string } }) {
   const event = allEvents.find((event) => event.id === params.id);
 
   if (!event) {
-    return <div>Event not found</div>;
+    return (
+      <div className='flex h-screen items-center justify-center'>
+        <div className='text-center'>
+          <h1 className='text-6xl font-extrabold text-white'>
+            Event Not Found
+          </h1>
+          <p className='mt-4 text-xl text-gray-300'>
+            Sorry, the event you are looking for does not exist.
+          </p>
+          <p className='mt-2 text-lg text-gray-400'>
+            Please check the event ID or browse through our event listings.
+          </p>
+        </div>
+      </div>
+    );
   }
 
   return <Details event={event} />;

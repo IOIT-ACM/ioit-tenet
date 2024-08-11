@@ -61,7 +61,10 @@ export const Details = ({ event }: { event: ScheduleItemType }) => {
                   {event.organizers.map((organizer, index) => (
                     <li key={index} className='flex items-center text-gray-400'>
                       <HiUser className='mr-2 h-5 w-5' />
-                      <Link href={`tel:${organizer.phone}`}>
+                      <Link
+                        href={`tel:${organizer.phone}`}
+                        className='hover:underline'
+                      >
                         {organizer.name}
                       </Link>
                     </li>
@@ -92,7 +95,10 @@ export const Details = ({ event }: { event: ScheduleItemType }) => {
 
 const SpeakerCard = ({ speaker }: { speaker: Speaker }) => {
   return (
-    <Link href={speaker.url} className='flex w-fit items-center space-x-3 p-3'>
+    <Link
+      href={speaker.url}
+      className='flex w-fit items-center space-x-3 p-3 transition-all duration-150 hover:rounded-xl hover:bg-slate-500'
+    >
       <div className='relative h-20 w-20'>
         <Image
           src={speaker.image}

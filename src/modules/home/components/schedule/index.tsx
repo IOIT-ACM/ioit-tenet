@@ -82,7 +82,7 @@ export const Schedule = () => {
             </div>
             <Separator className='my-4 max-w-full bg-slate-300 md:max-w-36' />
             {d1.map((item, index) => (
-              <FollowCursor key={index} data={item} boundaryRef={boundaryRef}>
+              <FollowCursor key={index} data={item}>
                 <motion.div
                   layoutId={`day1-item-${index}`}
                   initial={{ opacity: 0.7 }}
@@ -116,7 +116,7 @@ export const Schedule = () => {
             </div>
             <Separator className='my-4 max-w-full bg-slate-300 md:max-w-36' />
             {d2.map((item, index) => (
-              <FollowCursor key={index} data={item} boundaryRef={boundaryRef}>
+              <FollowCursor key={index} data={item}>
                 <motion.div
                   layoutId={`day2-item-${index}`}
                   initial={{ opacity: 0.7 }}
@@ -150,7 +150,7 @@ export const Schedule = () => {
             </div>
             <Separator className='my-4 max-w-full bg-slate-300 md:max-w-36' />
             {d3.map((item, index) => (
-              <FollowCursor key={index} data={item} boundaryRef={boundaryRef}>
+              <FollowCursor key={index} data={item}>
                 <motion.div
                   layoutId={`day3-item-${index}`}
                   initial={{ opacity: 0.7 }}
