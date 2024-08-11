@@ -74,7 +74,7 @@ const HoverCard = ({ data }: { data: ScheduleItemType }) => {
   return (
     <AnimatePresence>
       <motion.div
-        className={`min-w-[282px] max-w-[300px] rounded-lg ${data.color} z-50 p-4`}
+        className={`min-w-[282px] max-w-[300px] rounded-lg ${data.color} z-[99999] p-4`}
       >
         <p className='text-2xl'>{data.title}</p>
         <h3 className='font-bold'>{getEventStatus(data.start)}</h3>
@@ -82,18 +82,21 @@ const HoverCard = ({ data }: { data: ScheduleItemType }) => {
           <p>{data.date}</p>
           <p>{data.location}</p>
         </div>
-        <Separator className='my-2' />
-
-        <div className='flex justify-between gap-5'>
-          {data.organizers.slice(0, 2).map((organizer, index) => (
-            <div
-              key={index}
-              className='flex items-center gap-1.5 text-sm uppercase text-zinc-200'
-            >
-              <p>{organizer.name}</p>
+        {data.organizers && (
+          <>
+            <Separator className='my-2' />
+            <div className='flex justify-between gap-5'>
+              {data.organizers.slice(0, 2).map((organizer, index) => (
+                <div
+                  key={index}
+                  className='flex items-center gap-1.5 text-sm uppercase text-zinc-200'
+                >
+                  <p>{organizer.name}</p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </>
+        )}
       </motion.div>
     </AnimatePresence>
   );

@@ -1,6 +1,6 @@
 import type { ScheduleItemType } from '@/types';
 
-export const day1scheduleData: ScheduleItemType[] = [
+export const day1: ScheduleItemType[] = [
   {
     title: 'Product Management/Consulting Conference',
     id: 'techfiesta-pmconference',
@@ -22,11 +22,13 @@ export const day1scheduleData: ScheduleItemType[] = [
         name: 'Tushar',
         url: 'https://www.linkedin.com/in/tushar-narokar-29988b25a/',
         image: '/imgs/events/speakers/1.png',
+        bio: 'Media Team Head',
       },
       {
         name: 'Tushar',
         url: 'https://www.linkedin.com/in/tushar-narokar-29988b25a/',
         image: '/imgs/events/speakers/1.png',
+        bio: 'Media Team Head',
       },
     ],
   },
@@ -169,7 +171,7 @@ export const day1scheduleData: ScheduleItemType[] = [
   },
 ];
 
-export const day2scheduleData: ScheduleItemType[] = [
+export const day2: ScheduleItemType[] = [
   {
     title: 'Breakfast and Reporting',
     id: 'esummit-breakfast',
@@ -317,7 +319,7 @@ export const day2scheduleData: ScheduleItemType[] = [
   },
 ];
 
-export const day3scheduleData: ScheduleItemType[] = [
+export const day3: ScheduleItemType[] = [
   // Creator's Conclave
   {
     title: 'PUNE OPEN MIC (Session 1)',

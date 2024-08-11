@@ -26,6 +26,7 @@ export type Speaker = {
   name: string;
   url: string;
   image: string;
+  bio: string;
 };
 
 export type ScheduleItemType = {
