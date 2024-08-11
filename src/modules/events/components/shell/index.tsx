@@ -53,7 +53,7 @@ export function Shell({ children }: ShellProps) {
       </header>
 
       <div className='flex flex-1 overflow-hidden'>
-        <aside className='sticky top-0 z-50 hidden h-[calc(100vh-72px)] w-1/4 overflow-y-auto overflow-x-hidden bg-slate-700 sm:block'>
+        <aside className='scrollbar-custom sticky top-0 z-50 hidden h-[calc(100vh-72px)] w-1/4 overflow-y-auto overflow-x-hidden bg-slate-700 sm:block'>
           <SidePanel />
         </aside>
 

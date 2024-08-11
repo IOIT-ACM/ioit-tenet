@@ -7,29 +7,22 @@ import Link from 'next/link';
 import type { ScheduleItemType } from '@/types';
 
 export const SidePanel = () => {
+  const days = [day1, day2, day3];
+
   return (
-    <div className='z-50 p-2'>
-      <div>
-        {day1.map((item, index) => (
-          <FollowCursor key={index} data={item}>
-            <ScheduleItem data={item} />
-          </FollowCursor>
-        ))}
-      </div>
-      <div>
-        {day2.map((item, index) => (
-          <FollowCursor key={index} data={item}>
-            <ScheduleItem data={item} />
-          </FollowCursor>
-        ))}
-      </div>
-      <div>
-        {day3.map((item, index) => (
-          <FollowCursor key={index} data={item}>
-            <ScheduleItem data={item} />
-          </FollowCursor>
-        ))}
-      </div>
+    <div className='z-50 bg-gray-900 p-4 shadow-xl'>
+      {days.map((day, dayIndex) => (
+        <div key={dayIndex} className='mb-6 last:mb-0'>
+          <h2 className='mb-4 text-xl font-semibold text-white'>
+            Day {dayIndex + 1}
+          </h2>
+          {day.map((item, index) => (
+            <FollowCursor key={index} data={item}>
+              <ScheduleItem data={item} />
+            </FollowCursor>
+          ))}
+        </div>
+      ))}
     </div>
   );
 };
