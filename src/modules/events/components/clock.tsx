@@ -12,7 +12,7 @@ export const Clock: React.FC = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const hours = time.getHours() * 30;
+  const hours = ((time.getHours() % 12) + time.getMinutes() / 60) * 30;
   const minutes = time.getMinutes() * 6;
   const seconds = time.getSeconds() * 6;
 
