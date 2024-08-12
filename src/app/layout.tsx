@@ -1,4 +1,4 @@
-import '@/styles/globals.css';
+import '@/styles/global.scss';
 import '@/styles/scrollbar.css';
 
 import { GeistSans } from 'geist/font/sans';
