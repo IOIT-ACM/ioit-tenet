@@ -1,12 +1,14 @@
 'use client';
 
 import { motion, useTransform, useScroll } from 'framer-motion';
-import Link from 'next/link';
+import Link from 'next/Link';
 import { useRef } from 'react';
+import type { Speaker } from '@/types';
+import { speakers } from '@/config/speakers';
 
 export const TenetSpeakers = () => {
   return (
-    <div className='bbg-neutral-950'>
+    <div className='bg-neutral-950'>
       <h1 className='text-center text-4xl text-white md:text-8xl'>Speakers</h1>
       <TenetSpeakersCarousel />
     </div>
@@ -19,18 +21,18 @@ const TenetSpeakersCarousel = () => {
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ['2%', '-69%']);
+  const x = useTransform(scrollYProgress, [0, 1], ['2%', '-80%']);
 
   return (
     <section ref={targetRef} className='relative h-[300vh]'>
       <div className='sticky top-0 flex h-screen items-center overflow-hidden'>
         <motion.div style={{ x }} className='flex gap-14'>
-          {cards.map((card) => {
-            return <Card card={card} key={card.id} />;
+          {speakers.map((speaker) => {
+            return <SpeakerCard speaker={speaker} key={speaker.name} />;
           })}
 
           <Link
-            href={'/events'}
+            href={'/speakers'}
             className='group relative h-[450px] w-[250px] cursor-pointer overflow-hidden rounded-full border-2 border-white bg-neutral-200 md:w-[450px]'
           >
             <div
@@ -43,7 +45,7 @@ const TenetSpeakersCarousel = () => {
             ></div>
             <div className='absolute inset-0 z-10 grid place-content-center overflow-hidden rounded-full'>
               <p className='rounded-full border-2 border-black bg-gradient-to-br from-white/20 to-white/0 p-8 text-3xl uppercase text-white ring-1 ring-white backdrop-blur-xl'>
-                View All Events
+                View All Speakers
               </p>
             </div>
           </Link>
@@ -53,89 +55,28 @@ const TenetSpeakersCarousel = () => {
   );
 };
 
-const Card = ({ card }: { card: CardType }) => {
+const SpeakerCard = ({ speaker }: { speaker: Speaker }) => {
   return (
     <div
-      key={card.id}
+      key={speaker.name}
       className='group relative h-[450px] w-[450px] cursor-pointer overflow-hidden rounded-xl border-2 border-white bg-neutral-200'
     >
       <div
         style={{
-          backgroundImage: `url(${card.url})`,
+          backgroundImage: `url(${speaker.image})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
         className='absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110'
       ></div>
-      <div className='absolute inset-0 z-10 grid place-content-center overflow-hidden rounded-full'>
-        <p className='rounded-full bg-gradient-to-br from-white/20 to-white/0 p-8 text-3xl uppercase text-white backdrop-blur-xl'>
-          {card.title}
-        </p>
+      <div className='absolute inset-0 z-10 flex flex-col justify-end bg-gradient-to-t from-black/80 to-transparent p-6'>
+        <h2 className='mb-2 text-3xl font-bold text-white'>{speaker.name}</h2>
+        <p className='mb-4 text-lg text-white'>{speaker.title}</p>
+        <p className='mb-4 line-clamp-3 text-sm text-white'>{speaker.bio}</p>
+        <Link href={speaker.url} className='text-blue-400 hover:underline'>
+          Learn More
+        </Link>
       </div>
     </div>
   );
 };
-
-type CardType = {
-  url: string;
-  title: string;
-  link: string;
-  id: number;
-};
-
-const cards: CardType[] = [
-  {
-    url: '/imgs/events/1.jpeg',
-    link: '/events/techfiesta/games',
-    title: 'Tech-Fiesta',
-    id: 1,
-  },
-  {
-    url: '/imgs/events/2.jpeg',
-    link: '/events/techfiesta/games',
-    title: 'WEB 3',
-    id: 2,
-  },
-  {
-    url: '/imgs/events/3.jpeg',
-    link: '/events/techfiesta/games',
-    title: 'Drone/Robotics',
-    id: 3,
-  },
-  {
-    url: '/imgs/events/4.jpeg',
-    link: '/events/techfiesta/games',
-    title: 'E-Summit',
-    id: 4,
-  },
-  {
-    url: '/imgs/events/5.jpeg',
-    link: '/events/techfiesta/games',
-    title: 'Stand UP',
-    id: 5,
-  },
-  {
-    url: '/imgs/events/6.jpeg',
-    link: '/events/techfiesta/games',
-    title: 'Creators Conclave',
-    id: 6,
-  },
-  {
-    url: '/imgs/events/4.jpeg',
-    link: '/events/techfiesta/games',
-    title: 'E-Summit',
-    id: 7,
-  },
-  {
-    url: '/imgs/events/5.jpeg',
-    link: '/events/techfiesta/games',
-    title: 'Stand UP',
-    id: 8,
-  },
-  {
-    url: '/imgs/events/6.jpeg',
-    link: '/events/techfiesta/games',
-    title: 'Creators Conclave',
-    id: 9,
-  },
-];
