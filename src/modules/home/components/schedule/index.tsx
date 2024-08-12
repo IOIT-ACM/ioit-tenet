@@ -59,13 +59,19 @@ export const Schedule = () => {
         </motion.h1>
 
         <div className='grid gap-2 text-slate-300'>
-          <Link className='transition-all hover:underline' href={'/register'}>
+          <Link
+            className='w-fit transition-all hover:underline'
+            href={'/register'}
+          >
             Registrations open
           </Link>
-          <Link className='transition-all hover:underline' href={'/events'}>
+          <Link
+            className='w-fit transition-all hover:underline'
+            href={'/events'}
+          >
             View full Agenda
           </Link>
-          <Link className='transition-all hover:underline' href={'/#'}>
+          <Link className='w-fit transition-all hover:underline' href={'/#'}>
             Download Agenda
           </Link>
         </div>

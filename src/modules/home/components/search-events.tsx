@@ -5,49 +5,154 @@ import '@/styles/search.css';
 import React, { useEffect, useRef, useState } from 'react';
 import {
   FaCalendar,
-  FaMapMarkerAlt,
   FaRobot,
   FaCamera,
   FaStar,
   FaVideo,
+  FaTheaterMasks,
   FaMicrophone,
 } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface Item {
-  id: number;
+  id: string;
   name: string;
   icon: React.ReactNode;
 }
 
 const items: Item[] = [
-  { id: 1, name: 'Tech-Fiesta', icon: <FaCalendar /> },
-  { id: 2, name: 'Product Management Conference', icon: <FaCalendar /> },
-  { id: 3, name: 'Business Intelligence Conference', icon: <FaCalendar /> },
-  { id: 4, name: 'Capture the Flag', icon: <FaStar /> },
-  { id: 5, name: 'Fun games (AR/VR, coding games)', icon: <FaCamera /> },
-  { id: 6, name: 'Web - 3 Conference', icon: <FaCalendar /> },
-  { id: 7, name: "LLM's Industrial Applications", icon: <FaRobot /> },
-  { id: 8, name: 'Drone/Robotics Workshop', icon: <FaRobot /> },
-  { id: 9, name: 'Gen Ai Workshop', icon: <FaCalendar /> },
-  { id: 10, name: 'Drone/Robotics Display', icon: <FaRobot /> },
-  { id: 11, name: 'E-Summit', icon: <FaCalendar /> },
-  { id: 17, name: 'Pitching Competition Finals', icon: <FaMicrophone /> },
-  { id: 19, name: 'MUN', icon: <FaMapMarkerAlt /> },
-  { id: 21, name: 'Opening Ceremony', icon: <FaVideo /> },
-  { id: 22, name: 'Committee session', icon: <FaCalendar /> },
-  { id: 25, name: 'High tea', icon: <FaCalendar /> },
-  { id: 26, name: "Creator's Conclave", icon: <FaStar /> },
-  { id: 29, name: 'Stand UP', icon: <FaMicrophone /> },
-  { id: 31, name: 'Theater act', icon: <FaVideo /> },
-  { id: 32, name: 'PUNE OPEN MIC', icon: <FaMicrophone /> },
-  { id: 33, name: 'Battle of comedians', icon: <FaStar /> },
-  { id: 35, name: 'Main Stage Event', icon: <FaCalendar /> },
-  { id: 36, name: 'E-Sports', icon: <FaCamera /> },
-  { id: 37, name: 'LAN Tournaments', icon: <FaCamera /> },
-  { id: 39, name: 'Experience Arenas', icon: <FaCalendar /> },
+  {
+    id: 'techfiesta-pmconference',
+    name: 'Product Management/Consulting Conference',
+    icon: <FaCalendar />,
+  },
+  {
+    id: 'techfiesta-dataconference',
+    name: 'How Data is used in Business Intelligence Conference',
+    icon: <FaCalendar />,
+  },
+  { id: 'techfiesta-ctf', name: 'Capture the Flag', icon: <FaStar /> },
+  {
+    id: 'techfiesta-fungames',
+    name: 'Fun games (AR/VR, coding games)',
+    icon: <FaCamera />,
+  },
+  { id: 'techfiesta-web3', name: 'Web - 3 Conference', icon: <FaCalendar /> },
+  {
+    id: 'techfiesta-llmconference',
+    name: "LLM's Application in Industry Conference",
+    icon: <FaRobot />,
+  },
+  {
+    id: 'techfiesta-droneworkshop',
+    name: 'Drone & Robotics Workshop',
+    icon: <FaRobot />,
+  },
+  {
+    id: 'techfiesta-genaiworkshop',
+    name: 'Gen AI (LLM) Development Workshop',
+    icon: <FaCalendar />,
+  },
+  {
+    id: 'techfiesta-dronedisplay',
+    name: 'Drone & Robotics Display',
+    icon: <FaRobot />,
+  },
+  {
+    id: 'esummit-breakfast',
+    name: 'Breakfast and Reporting',
+    icon: <FaCalendar />,
+  },
+  { id: 'mun-opening', name: 'Opening Ceremony', icon: <FaVideo /> },
+  {
+    id: 'esummit-speaker1',
+    name: 'Tier 3 Speaker Sessions x 3',
+    icon: <FaMicrophone />,
+  },
+  {
+    id: 'esummit-speaker2',
+    name: 'Tier 2 Speaker Session',
+    icon: <FaMicrophone />,
+  },
+  {
+    id: 'esummit-speaker3',
+    name: 'Tier 3 Speaker Sessions x 2',
+    icon: <FaMicrophone />,
+  },
+  { id: 'esummit-lunch', name: 'Lunch Break', icon: <FaCalendar /> },
+  {
+    id: 'esummit-speaker4',
+    name: 'Tier 2 Speaker Sessions x 2',
+    icon: <FaMicrophone />,
+  },
+  { id: 'esummit-investors', name: 'Investors Meeting', icon: <FaCalendar /> },
+  {
+    id: 'esummit-closing',
+    name: 'Closing Ceremony and Dinner',
+    icon: <FaVideo />,
+  },
+  {
+    id: 'creatorsconclave-openmic1',
+    name: 'PUNE OPEN MIC (Session 1)',
+    icon: <FaMicrophone />,
+  },
+  {
+    id: 'creatorsconclave-standup1',
+    name: 'Stand UP 1',
+    icon: <FaMicrophone />,
+  },
+  {
+    id: 'creatorsconclave-theater',
+    name: 'Theater Act',
+    icon: <FaTheaterMasks />,
+  },
+  {
+    id: 'creatorsconclave-openmic2',
+    name: 'PUNE OPEN MIC (Session 2)',
+    icon: <FaMicrophone />,
+  },
+  {
+    id: 'creatorsconclave-comedians',
+    name: 'Battle of Comedians',
+    icon: <FaStar />,
+  },
+  {
+    id: 'creatorsconclave-prize',
+    name: 'Prize Distribution',
+    icon: <FaStar />,
+  },
+  {
+    id: 'creatorsconclave-mainstage',
+    name: 'Main Stage Event',
+    icon: <FaCalendar />,
+  },
+  { id: 'esports-lantournaments', name: 'LAN Tournaments', icon: <FaCamera /> },
+  { id: 'esports-competitions', name: 'Competitions', icon: <FaStar /> },
+  { id: 'esports-experience', name: 'Experience Arenas', icon: <FaCalendar /> },
+  {
+    id: 'mun-breakfast',
+    name: 'Breakfast and Reporting',
+    icon: <FaCalendar />,
+  },
+  {
+    id: 'mun-committeesession3',
+    name: 'Committee Session 3',
+    icon: <FaCalendar />,
+  },
+  { id: 'mun-lunch', name: 'Lunch', icon: <FaCalendar /> },
+  {
+    id: 'mun-committeesession4',
+    name: 'Committee Session 4',
+    icon: <FaCalendar />,
+  },
+  {
+    id: 'mun-closing',
+    name: 'High Tea and Closing Ceremony',
+    icon: <FaCalendar />,
+  },
 ];
 
 export const SearchEvents: React.FC = () => {
@@ -216,7 +321,7 @@ export const SearchEvents: React.FC = () => {
           <div className='relative w-full'>
             <input
               type='text'
-              className='text-md mb-2 h-[50px] w-full rounded-full border-2 p-3 px-5 text-gray-700 md:h-[60px] md:px-8 md:text-xl'
+              className='text-md mb-2 h-[50px] w-full rounded-full border-2 p-3 px-5 text-gray-200 md:h-[60px] md:px-8 md:text-xl'
               placeholder='Search events'
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -262,16 +367,17 @@ export const SearchEvents: React.FC = () => {
             style={{ height: `${scrollHeight}px` }}
           >
             {items.map((item) => (
-              <div
+              <Link
                 key={item.id}
-                className='scroll-item flex cursor-pointer items-center p-2 text-lg sm:text-2xl md:p-4 md:text-3xl'
+                href={`/events/${item.id}`}
+                className='scroll-item z-[9999999] flex cursor-pointer items-center p-2 text-lg sm:text-2xl md:p-4 md:text-3xl'
                 onClick={() => setSearchTerm(item.name)}
               >
                 <div className='text-md mr-4 rounded-full border-2 bg-white p-3 text-black'>
                   {item.icon}
                 </div>
                 {item.name}
-              </div>
+              </Link>
             ))}
           </ul>
         </div>

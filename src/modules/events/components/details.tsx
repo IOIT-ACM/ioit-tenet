@@ -22,7 +22,7 @@ export const Details = ({ event }: { event: ScheduleItemType }) => {
               alt={event.title}
               layout='fill'
               objectFit='cover'
-              className='h-full w-full object-center transition-all duration-1000 hover:scale-110'
+              className='h-full w-full object-center transition-all duration-1000 hover:scale-105'
             />
           </div>
           <div className='space-y-6 pt-3 md:w-1/2 md:p-8 md:pt-0'>
