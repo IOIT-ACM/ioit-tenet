@@ -16,12 +16,18 @@ import { useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
+import { speakers } from '@/config/speakers';
+import type { Speaker } from '@/types';
+import Image from 'next/image';
 
 interface Item {
   id: string;
   name: string;
   icon: React.ReactNode;
+  type?: string;
 }
+
+type SearchItem = Item | Speaker;
 
 const items: Item[] = [
   {
@@ -155,6 +161,11 @@ const items: Item[] = [
   },
 ];
 
+const allItems: SearchItem[] = [
+  ...speakers.map((speaker) => ({ ...speaker, type: 'speaker' as const })),
+  ...items.map((event) => ({ ...event, type: 'event' as const })),
+];
+
 export const SearchEvents: React.FC = () => {
   const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
@@ -177,7 +188,7 @@ export const SearchEvents: React.FC = () => {
       );
       clonedItems.forEach((item) => scrollerRef.current?.appendChild(item));
     }
-  }, [items]);
+  }, []);
 
   useEffect(() => {
     if (containerRef.current && scrollHeight > 0) {
@@ -206,13 +217,13 @@ export const SearchEvents: React.FC = () => {
 
   useEffect(() => {
     if (searchTerm) {
-      const matchedItem = items.find(
+      const matchedItem = allItems.find(
         (item) => item.name.toLowerCase() === searchTerm.toLowerCase(),
       );
       if (matchedItem && scrollerRef.current) {
         setIsScrolling(false);
         const matchedElement = scrollerRef.current.children[
-          items.indexOf(matchedItem)
+          allItems.indexOf(matchedItem)
         ] as HTMLElement;
         if (matchedElement && containerRef.current) {
           const containerHeight = containerRef.current.clientHeight;
@@ -236,7 +247,7 @@ export const SearchEvents: React.FC = () => {
   const getSuggestions = (searchTerm: string) => {
     if (!searchTerm) return [];
     const term = searchTerm.toLowerCase();
-    return items
+    return allItems
       .filter((item) => item.name.toLowerCase().includes(term))
       .sort(
         (a, b) =>
@@ -304,20 +315,32 @@ export const SearchEvents: React.FC = () => {
     <div id='search' className='h-[100vh] bg-neutral-950'>
       <div className='sticky top-0 grid h-screen grid-cols-1 items-center justify-center gap-3 overflow-hidden bg-neutral-950 px-10 text-gray-300 md:grid-cols-2 md:px-20'>
         <div className='grid gap-5 md:-translate-y-[20%] md:px-10'>
-          <div className='text-4xl font-bold md:text-6xl'>
-            Search through the events
+          <div className='text-center text-4xl font-bold md:text-6xl'>
+            Search TENET
           </div>
 
-          <button
-            onClick={() =>
-              setTimeout(() => {
-                router.push('/events');
-              }, 500)
-            }
-            className='rounded-2xl border-2 border-dashed border-black bg-gray-200 py-2 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_gray] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none md:px-6 md:py-3'
-          >
-            <span>View all events</span>
-          </button>
+          <div className='grid grid-cols-2 gap-3'>
+            <button
+              onClick={() =>
+                setTimeout(() => {
+                  router.push('/events');
+                }, 500)
+              }
+              className='rounded-2xl border-2 border-dashed border-black bg-gray-200 py-2 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_gray] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none md:px-6 md:py-3'
+            >
+              <span>View all events</span>
+            </button>
+            <button
+              onClick={() =>
+                setTimeout(() => {
+                  router.push('/events');
+                }, 500)
+              }
+              className='rounded-2xl border-2 border-dashed border-black bg-gray-200 py-2 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_gray] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none md:px-6 md:py-3'
+            >
+              <span>View Speakers</span>
+            </button>
+          </div>
           <div className='relative w-full'>
             <input
               type='text'
@@ -366,16 +389,30 @@ export const SearchEvents: React.FC = () => {
             )}
             style={{ height: `${scrollHeight}px` }}
           >
-            {items.map((item) => (
+            {allItems.map((item) => (
               <Link
                 key={item.id}
-                href={`/events/${item.id}`}
+                href={
+                  item.type === 'speaker'
+                    ? `/speakers/${item.id}`
+                    : `/events/${item.id}`
+                }
                 className='scroll-item z-[9999999] flex cursor-pointer items-center p-2 text-lg sm:text-2xl md:p-4 md:text-3xl'
                 onClick={() => setSearchTerm(item.name)}
               >
-                <div className='text-md mr-4 rounded-full border-2 bg-white p-3 text-black'>
-                  {item.icon}
-                </div>
+                {item.type === 'speaker' ? (
+                  <Image
+                    src={(item as Speaker).image}
+                    alt={item.name}
+                    width={48}
+                    height={48}
+                    className='mr-4 h-[65px] w-[65px] rounded-full object-cover'
+                  />
+                ) : (
+                  <div className='text-md mr-4 flex h-[65px] w-[65px] items-center justify-center rounded-full border-2 bg-white text-black'>
+                    {(item as Item).icon}
+                  </div>
+                )}
                 {item.name}
               </Link>
             ))}

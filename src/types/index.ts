@@ -23,6 +23,8 @@ export type Organizer = {
 };
 
 export type Speaker = {
+  type?: string;
+  id: string;
   name: string;
   url: string;
   image: string;
