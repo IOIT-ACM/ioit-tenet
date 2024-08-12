@@ -70,7 +70,7 @@ export const FallingCaps = () => {
               overlap={0}
               tween={{
                 start: 0,
-                end: 95,
+                end: 85,
                 fromTo: [
                   {
                     opacity: 0.2,

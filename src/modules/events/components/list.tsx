@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export const EventsList = () => {
   return (
-    <div className='bg-white p-0'>
+    <div className='min-h-screen bg-white p-0'>
       {data.map((item, index) => (
         <TextParallaxContent
           key={index}

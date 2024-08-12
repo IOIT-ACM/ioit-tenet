@@ -7,10 +7,11 @@ import { useEffect, useRef, useState } from 'react';
 import { Switch } from '@/components/ui/switch';
 import type { ScheduleItemType } from '@/types';
 import { usePathname } from 'next/navigation';
+import { Clock } from '../clock';
 
 export const SidePanel = () => {
   const days = [day1, day2, day3];
-  const [cards, setCards] = useState(false);
+  const [cards, setCards] = useState(true);
 
   const sortedDays = days.map((day) =>
     day.sort((a, b) => a.start.getTime() - b.start.getTime()),
@@ -24,7 +25,6 @@ export const SidePanel = () => {
           Show preview
         </label>
       </div>
-
       {sortedDays.map((day, dayIndex) => (
         <div key={dayIndex} className='mb-16 last:mb-0'>
           <h2 className='mb-4 text-xl font-semibold text-white'>
@@ -47,6 +47,7 @@ export const SidePanel = () => {
           ))}
         </div>
       ))}
+      <Clock />
     </div>
   );
 };
@@ -66,13 +67,14 @@ export const ScheduleItem = ({ data }: { data: ScheduleItemType }) => {
     <div ref={itemRef}>
       <Link
         href={`/events/${data.id}`}
-        className={`mb-5 flex cursor-cell flex-col gap-3 border-b pb-2 pt-3 transition-all hover:text-white md:mb-0 md:border-none ${
+        className={`mb-5 flex cursor-cell flex-col gap-3 border-b pb-2 pt-3 transition-all hover:text-gray-300 md:mb-0 md:border-none ${
           isActive ? 'text-white' : 'text-gray-500'
         }`}
       >
         <span>
-          <p className='mb-2 line-clamp-2 text-lg'>
-            {data.title} <span className='hidden md:flex'>{data.time}</span>
+          <p className='mb-2 text-lg'>
+            <span className='line-clamp-2'>{data.title}</span>
+            <span className='hidden md:flex'>{data.time}</span>
           </p>
         </span>
       </Link>

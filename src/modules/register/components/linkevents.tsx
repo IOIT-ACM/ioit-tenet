@@ -121,7 +121,7 @@ const CustomLink: React.FC<LinkProps> = ({
               }}
               transition={{ type: 'spring' }}
               className='inline-block'
-              key={i}
+              key={`Registerheading ${l} - ${i}`}
             >
               {l}
             </motion.span>

@@ -39,10 +39,18 @@ export function Shell({ children }: ShellProps) {
             </Link>
           </div>
           <nav className='hidden space-x-4 sm:flex'>
-            <Link href='/'>Home</Link>
-            <Link href='/agenda'>Agenda</Link>
-            <Link href='/team'>Team</Link>
-            <Link href='/register'>Registrations</Link>
+            <Link className='transition-all hover:underline' href='/'>
+              Home
+            </Link>
+            <Link className='transition-all hover:underline' href='/agenda'>
+              Agenda
+            </Link>
+            <Link className='transition-all hover:underline' href='/team'>
+              Team
+            </Link>
+            <Link className='transition-all hover:underline' href='/register'>
+              Registrations
+            </Link>
           </nav>
         </div>
         <div className='sm:hidden'>
