@@ -9,7 +9,7 @@ import type { ScheduleItemType } from '@/types';
 import { usePathname } from 'next/navigation';
 import { Clock } from '../clock';
 
-export const SidePanel = () => {
+export const EventsSidePannel = () => {
   const days = [day1, day2, day3];
   const [cards, setCards] = useState(true);
 

@@ -27,7 +27,7 @@ const TenetSpeakersCarousel = () => {
     <section ref={targetRef} className='relative h-[300vh]'>
       <div className='sticky top-0 flex h-screen items-center overflow-hidden'>
         <motion.div style={{ x }} className='flex gap-14'>
-          {speakers.map((speaker) => {
+          {speakers.slice(0, 6).map((speaker) => {
             return <SpeakerCard speaker={speaker} key={speaker.name} />;
           })}
 
@@ -57,26 +57,20 @@ const TenetSpeakersCarousel = () => {
 
 const SpeakerCard = ({ speaker }: { speaker: Speaker }) => {
   return (
-    <div
+    <Link
       key={speaker.name}
-      className='group relative h-[450px] w-[450px] cursor-pointer overflow-hidden rounded-xl border-2 border-white bg-neutral-200'
+      href={speaker.url}
+      className='group relative h-auto w-[75vw] cursor-pointer overflow-hidden rounded-2xl border border-white bg-neutral-200 md:h-[450px] md:w-[420px]'
+      style={{
+        backgroundImage: `url(${speaker.image})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
     >
-      <div
-        style={{
-          backgroundImage: `url(${speaker.image})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-        className='absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110'
-      ></div>
       <div className='absolute inset-0 z-10 flex flex-col justify-end bg-gradient-to-t from-black/80 to-transparent p-6'>
         <h2 className='mb-2 text-3xl font-bold text-white'>{speaker.name}</h2>
         <p className='mb-4 text-lg text-white'>{speaker.title}</p>
-        <p className='mb-4 line-clamp-3 text-sm text-white'>{speaker.bio}</p>
-        <Link href={speaker.url} className='text-blue-400 hover:underline'>
-          Learn More
-        </Link>
       </div>
-    </div>
+    </Link>
   );
 };

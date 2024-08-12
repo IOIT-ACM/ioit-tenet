@@ -1,19 +1,25 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 
-import { SidePanel } from './aside';
+import { EventsSidePannel } from './aside-events';
+import { SpeakersSidePanel } from './aside-speakers';
 import { Separator } from '@/components/ui/separator';
 import * as React from 'react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import Image from 'next/image';
 import MonileFooter from './mobile-footer';
+import { usePathname } from 'next/navigation';
 
 interface ShellProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
 }
 
 export function Shell({ children }: ShellProps) {
+  const pathname = usePathname();
+
+  const isEventsPath = pathname.startsWith('/events');
+
   return (
     <div className={cn('flex h-screen flex-col')}>
       <header className='sticky top-0 z-10 flex items-center justify-between bg-slate-800 p-4 text-white'>
@@ -42,8 +48,11 @@ export function Shell({ children }: ShellProps) {
             <Link className='transition-all hover:underline' href='/'>
               Home
             </Link>
-            <Link className='transition-all hover:underline' href='/agenda'>
+            <Link className='transition-all hover:underline' href='/events'>
               Agenda
+            </Link>
+            <Link className='transition-all hover:underline' href='/speakers'>
+              Speakers
             </Link>
             <Link className='transition-all hover:underline' href='/team'>
               Team
@@ -63,13 +72,25 @@ export function Shell({ children }: ShellProps) {
       </header>
 
       <div className='flex flex-1 overflow-hidden'>
-        <aside className='scrollbar-custom sticky top-0 z-50 hidden h-[calc(100vh-72px)] w-1/4 overflow-y-auto overflow-x-hidden bg-gray-900 sm:block'>
-          <h2 className='p-4 text-3xl font-bold text-white'>Agenda Outline</h2>
-          <Separator className='mb-5 mt-2 bg-slate-400' />
-          <SidePanel />
+        <aside className='scrollbar-custom sticky top-0 z-50 hidden w-1/4 overflow-y-auto overflow-x-hidden bg-gray-900 sm:block'>
+          {isEventsPath ? (
+            <>
+              <h2 className='p-4 text-3xl font-bold text-white'>
+                Agenda Outline
+              </h2>
+              <Separator className='mb-5 mt-2 bg-slate-400' />
+              <EventsSidePannel />
+            </>
+          ) : (
+            <>
+              <h2 className='p-4 text-3xl font-bold text-white'>Speakers</h2>
+              <Separator className='mb-5 mt-2 bg-slate-400' />
+              <SpeakersSidePanel />
+            </>
+          )}
         </aside>
 
-        <main className='flex-1 overflow-y-auto px-10 pb-20 pt-0 md:pb-10'>
+        <main className='scrollbar-custom flex-1 overflow-y-auto px-10 pb-20 pt-0 md:pb-10'>
           {children}
         </main>
       </div>

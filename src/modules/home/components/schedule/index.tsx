@@ -71,6 +71,12 @@ export const Schedule = () => {
           >
             View full Agenda
           </Link>
+          <Link
+            className='w-fit transition-all hover:underline'
+            href={'/speakers'}
+          >
+            View Speakers Lineup
+          </Link>
           <Link className='w-fit transition-all hover:underline' href={'/#'}>
             Download Agenda
           </Link>
