@@ -21,7 +21,7 @@ const TenetSpeakersCarousel = () => {
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ['2%', '-80%']);
+  const x = useTransform(scrollYProgress, [0, 1], ['2%', '-70%']);
 
   return (
     <section ref={targetRef} className='relative h-[300vh]'>
@@ -33,7 +33,7 @@ const TenetSpeakersCarousel = () => {
 
           <Link
             href={'/speakers'}
-            className='group relative h-[450px] w-[250px] cursor-pointer overflow-hidden rounded-full border-2 border-white bg-neutral-200 md:w-[450px]'
+            className='group relative h-[450px] max-h-[450px] w-[250px] cursor-pointer overflow-hidden rounded-full border-2 border-white bg-neutral-200 md:w-[450px]'
           >
             <div
               style={{
@@ -60,7 +60,7 @@ const SpeakerCard = ({ speaker }: { speaker: Speaker }) => {
     <Link
       key={speaker.name}
       href={`/speakers/${speaker.id}`}
-      className='group relative h-auto w-[75vw] cursor-pointer overflow-hidden rounded-2xl border border-white bg-neutral-200 md:h-[450px] md:w-[420px]'
+      className='group relative h-auto max-h-[450px] w-[75vw] cursor-pointer overflow-hidden rounded-2xl border border-white bg-neutral-200 md:h-[450px] md:w-[420px]'
       style={{
         backgroundImage: `url(${speaker.image})`,
         backgroundSize: 'cover',

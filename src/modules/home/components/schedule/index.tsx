@@ -8,11 +8,14 @@ import { FollowCursor } from './cursor';
 import { useMemo, useState, useRef } from 'react';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import Link from 'next/link';
+import { Switch } from '@/components/ui/switch';
+import { useStore } from '@/store';
 
 export const Schedule = () => {
   const [expanded, setExpanded] = useState<number | null>(null);
   const boundaryRef = useRef(null);
-
+  const showPreview = useStore((state) => state.showPreview);
+  const setShowPreview = useStore((state) => state.setShowPreview);
   const d1 = useMemo(() => {
     const sortedDay1 = day1.sort(
       (a, b) => a.start.getTime() - b.start.getTime(),
@@ -57,6 +60,17 @@ export const Schedule = () => {
         >
           Schedule
         </motion.h1>
+
+        <div className='mb-8 hidden items-center space-x-2 md:flex'>
+          <Switch
+            id='toggle-cards'
+            checked={showPreview}
+            onCheckedChange={setShowPreview}
+          />
+          <label htmlFor='toggle-cards' className='text-white'>
+            Show preview
+          </label>
+        </div>
 
         <div className='grid gap-2 text-slate-300'>
           <Link
@@ -103,16 +117,19 @@ export const Schedule = () => {
             </div>
             <Separator className='my-4 max-w-full bg-slate-300 md:max-w-36' />
             {d1.map((item, index) => (
-              <FollowCursor key={index} data={item}>
-                <motion.div
-                  layoutId={`day1-item-${index}`}
-                  initial={{ opacity: 0.7 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                >
-                  <ScheduleItem data={item} />
-                </motion.div>
-              </FollowCursor>
+              <>
+                {showPreview ? (
+                  <FollowCursor
+                    key={`Day ${index} - ${index}`}
+                    data={item}
+                    classname='scale-90'
+                  >
+                    <ScheduleItem data={item} />
+                  </FollowCursor>
+                ) : (
+                  <ScheduleItem key={`Day ${index} - ${index}`} data={item} />
+                )}
+              </>
             ))}
           </div>
         </AnimatePresence>
@@ -137,16 +154,19 @@ export const Schedule = () => {
             </div>
             <Separator className='my-4 max-w-full bg-slate-300 md:max-w-36' />
             {d2.map((item, index) => (
-              <FollowCursor key={index} data={item}>
-                <motion.div
-                  layoutId={`day2-item-${index}`}
-                  initial={{ opacity: 0.7 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                >
-                  <ScheduleItem data={item} />
-                </motion.div>
-              </FollowCursor>
+              <>
+                {showPreview ? (
+                  <FollowCursor
+                    key={`Day ${index} - ${index}`}
+                    data={item}
+                    classname='scale-90'
+                  >
+                    <ScheduleItem data={item} />
+                  </FollowCursor>
+                ) : (
+                  <ScheduleItem key={`Day ${index} - ${index}`} data={item} />
+                )}
+              </>
             ))}
           </div>
         </AnimatePresence>
@@ -171,16 +191,19 @@ export const Schedule = () => {
             </div>
             <Separator className='my-4 max-w-full bg-slate-300 md:max-w-36' />
             {d3.map((item, index) => (
-              <FollowCursor key={index} data={item}>
-                <motion.div
-                  layoutId={`day3-item-${index}`}
-                  initial={{ opacity: 0.7 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                >
-                  <ScheduleItem data={item} />
-                </motion.div>
-              </FollowCursor>
+              <>
+                {showPreview ? (
+                  <FollowCursor
+                    key={`Day ${index} - ${index}`}
+                    data={item}
+                    classname='scale-90'
+                  >
+                    <ScheduleItem data={item} />
+                  </FollowCursor>
+                ) : (
+                  <ScheduleItem key={`Day ${index} - ${index}`} data={item} />
+                )}
+              </>
             ))}
           </div>
         </AnimatePresence>

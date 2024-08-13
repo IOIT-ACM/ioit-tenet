@@ -211,7 +211,7 @@ export const SearchEvents: React.FC = () => {
                     className='mr-4 h-[65px] w-[65px] rounded-full object-cover'
                   />
                 ) : (
-                  <div className='text-md mr-4 flex h-[65px] w-[65px] items-center justify-center rounded-full border-2 bg-white text-black'>
+                  <div className='mr-4 flex h-[65px] w-[65px] items-center justify-center rounded-full border-2 bg-white text-3xl text-black'>
                     {renderIcon((item as Event).icon)}
                   </div>
                 )}

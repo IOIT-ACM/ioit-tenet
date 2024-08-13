@@ -3,9 +3,7 @@
 import React, { type ReactNode, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
-import { LinkBox } from './eventlinks';
-import { day1, day2, day3 } from '@/config/events';
-import type { ScheduleItemType } from '@/types';
+import { EventLinksStructure } from './eventlinks';
 
 export const EventsList = () => {
   return (
@@ -23,55 +21,6 @@ export const EventsList = () => {
       ))}
     </div>
   );
-};
-
-const EventLinksStructure: React.FC<{ day: number }> = ({ day }) => {
-  const events = getEventsForDay(day);
-
-  return (
-    <div className='divide-y divide-neutral-900 border border-neutral-900'>
-      <div className='grid grid-cols-2 divide-x divide-neutral-900'>
-        {events.slice(0, 2).map((event) => (
-          <LinkBox
-            key={event.id}
-            text={event.title}
-            href={`/events/${event.id}`}
-          />
-        ))}
-      </div>
-      <div className='grid grid-cols-3 divide-x divide-neutral-900'>
-        {events.slice(2, 5).map((event) => (
-          <LinkBox
-            key={event.id}
-            text={event.title}
-            href={`/events/${event.id}`}
-          />
-        ))}
-      </div>
-      <div className='grid grid-cols-4 divide-x divide-neutral-900'>
-        {events.slice(5, 9).map((event) => (
-          <LinkBox
-            key={event.id}
-            text={event.title}
-            href={`/events/${event.id}`}
-          />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const getEventsForDay = (day: number): ScheduleItemType[] => {
-  switch (day) {
-    case 1:
-      return day1.filter((item) => item.imp);
-    case 2:
-      return day2.filter((item) => item.imp);
-    case 3:
-      return day3.filter((item) => item.imp);
-    default:
-      return [];
-  }
 };
 
 const IMG_PADDING = 12;
