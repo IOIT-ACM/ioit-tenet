@@ -22,7 +22,7 @@ export function Shell({ children }: ShellProps) {
 
   return (
     <div className={cn('flex h-screen flex-col')}>
-      <header className='sticky top-0 z-10 flex items-center justify-between bg-slate-800 p-4 text-white'>
+      <header className='sticky top-0 z-10 flex select-none items-center justify-between bg-slate-800 p-4 text-white'>
         <div className='flex w-full items-center justify-between space-x-4'>
           <div className='flex space-x-2'>
             <Link href={'/'}>
@@ -72,7 +72,7 @@ export function Shell({ children }: ShellProps) {
       </header>
 
       <div className='flex flex-1 overflow-hidden'>
-        <aside className='scrollbar-custom sticky top-0 z-50 hidden w-1/4 overflow-y-auto overflow-x-hidden bg-gray-900 sm:block'>
+        <aside className='scrollbar-custom sticky top-0 z-50 hidden w-1/4 select-none overflow-y-auto overflow-x-hidden bg-gray-900 sm:block'>
           {isEventsPath ? (
             <>
               <h2 className='p-4 text-3xl font-bold text-white'>

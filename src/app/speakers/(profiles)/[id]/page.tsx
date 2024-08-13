@@ -8,9 +8,7 @@ export async function generateMetadata({
 }: {
   params: { id: string };
 }): Promise<Metadata> {
-  const foundSpeaker = speakers.find(
-    (speaker) => speaker.url === `/speakers/${params.id}`,
-  );
+  const foundSpeaker = speakers.find((speaker) => speaker.id === params.id);
 
   if (foundSpeaker === undefined) {
     return {
@@ -48,9 +46,7 @@ export async function generateMetadata({
 }
 
 export default function Page({ params }: { params: { id: string } }) {
-  const speaker = speakers.find(
-    (speaker) => speaker.url === `/speakers/${params.id}`,
-  );
+  const speaker = speakers.find((speaker) => speaker.id === params.id);
 
   if (!speaker) {
     return (

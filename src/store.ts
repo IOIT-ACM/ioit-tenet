@@ -7,18 +7,22 @@ import { persist } from 'zustand/middleware';
 
 export interface State {
   videoPlayed: boolean;
+  showPreview: boolean;
 }
 
 interface Action {
   setVideoPlayed: (autoSync: boolean) => void;
+  setShowPreview: (autoSync: boolean) => void;
 }
 
 export const useStateStore = create<State & Action>()(
   persist(
     (set) => ({
       videoPlayed: true,
+      showPreview: true,
 
       setVideoPlayed: (videoPlayed) => set(() => ({ videoPlayed })),
+      setShowPreview: (showPreview) => set(() => ({ showPreview })),
     }),
     {
       name: 'ioit-tenet-storage',

@@ -15,7 +15,7 @@ export default function Page() {
       {speakers.map((speaker) => (
         <Link
           key={speaker.name}
-          href={`${speaker.url}`}
+          href={`/speakers/${speaker.id}`}
           className='group relative h-[400px] cursor-pointer overflow-hidden rounded-2xl border border-white bg-neutral-200'
           style={{
             backgroundImage: `url(${speaker.image})`,

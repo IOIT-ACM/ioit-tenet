@@ -59,7 +59,7 @@ const SpeakerCard = ({ speaker }: { speaker: Speaker }) => {
   return (
     <Link
       key={speaker.name}
-      href={speaker.url}
+      href={`/speakers/${speaker.id}`}
       className='group relative h-auto w-[75vw] cursor-pointer overflow-hidden rounded-2xl border border-white bg-neutral-200 md:h-[450px] md:w-[420px]'
       style={{
         backgroundImage: `url(${speaker.image})`,

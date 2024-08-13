@@ -9,7 +9,7 @@ import Image from 'next/image';
 
 export const SpeakersSidePanel = () => {
   return (
-    <div className='z-50 h-fit p-4'>
+    <div className='z-50 h-fit p-2'>
       {speakers.map((speaker, index) => (
         <SpeakerItem key={index} data={speaker} />
       ))}
@@ -19,7 +19,7 @@ export const SpeakersSidePanel = () => {
 
 export const SpeakerItem = ({ data }: { data: Speaker }) => {
   const pathname = usePathname();
-  const isActive = pathname === data.url;
+  const isActive = pathname.split('/').pop() === data.id;
   const itemRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -31,9 +31,11 @@ export const SpeakerItem = ({ data }: { data: Speaker }) => {
   return (
     <div ref={itemRef}>
       <Link
-        href={data.url}
-        className={`mb-5 flex cursor-pointer items-center gap-3 border-b pb-2 pt-3 transition-all hover:text-gray-300 md:mb-0 md:border-none ${
-          isActive ? 'text-white' : 'text-gray-500'
+        href={`/speakers/${data.id}`}
+        className={`mb-5 flex cursor-pointer items-center gap-3 border-b p-4 transition-all hover:text-gray-300 md:mb-0 md:border-none ${
+          isActive
+            ? 'rounded-xl border-opacity-25 bg-white/10 text-white'
+            : 'text-gray-500'
         }`}
       >
         <Image
