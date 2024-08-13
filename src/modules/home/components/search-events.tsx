@@ -33,7 +33,7 @@ export const SearchEvents: React.FC = () => {
     number | null
   >(null);
   const [scrollHeight, setScrollHeight] = useState(0);
-  const { allItems, isLoading } = useSearch();
+  const { allItems } = useSearch();
 
   useEffect(() => {
     if (scrollerRef.current) {
@@ -112,8 +112,6 @@ export const SearchEvents: React.FC = () => {
       setActiveSuggestionIndex(0);
     }
   }, [suggestions]);
-
-  if (isLoading) return <div>Loading...</div>;
 
   return (
     <div id='search' className='h-[100vh] bg-neutral-950'>
