@@ -130,7 +130,7 @@ export const SearchEvents: React.FC = () => {
               }
               className='rounded-2xl border-2 border-dashed border-black bg-gray-200 py-2 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_gray] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none md:px-6 md:py-3'
             >
-              <span>View all events</span>
+              <span>All Events</span>
             </button>
             <button
               onClick={() =>
@@ -140,7 +140,7 @@ export const SearchEvents: React.FC = () => {
               }
               className='rounded-2xl border-2 border-dashed border-black bg-gray-200 py-2 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_gray] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none md:px-6 md:py-3'
             >
-              <span>View Speakers</span>
+              <span>Speakers</span>
             </button>
           </div>
           <div className='relative w-full'>

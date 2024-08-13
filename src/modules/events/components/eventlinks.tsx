@@ -1,5 +1,6 @@
 import React, { type MouseEvent } from 'react';
 import { useAnimate } from 'framer-motion';
+import { day1, day2, day3 } from '@/config/events';
 
 export const EventLinks = () => {
   return (
@@ -33,6 +34,48 @@ const ClipPathLinks = () => {
   );
 };
 
+export const EventLink1 = () => {
+  return (
+    <div className='grid grid-cols-2 divide-x divide-neutral-900'>
+      {day1.slice(0, 2).map((event) => (
+        <LinkBox
+          key={event.id}
+          text={event.title}
+          href={`/events/${event.id}`}
+        />
+      ))}
+    </div>
+  );
+};
+
+export const EventLink2 = () => {
+  return (
+    <div className='grid grid-cols-3 divide-x divide-neutral-900'>
+      {day2.slice(0, 3).map((event) => (
+        <LinkBox
+          key={event.id}
+          text={event.title}
+          href={`/events/${event.id}`}
+        />
+      ))}
+    </div>
+  );
+};
+
+export const EventLink3 = () => {
+  return (
+    <div className='grid grid-cols-4 divide-x divide-neutral-900'>
+      {day3.slice(0, 4).map((event) => (
+        <LinkBox
+          key={event.id}
+          text={event.title}
+          href={`/events/${event.id}`}
+        />
+      ))}
+    </div>
+  );
+};
+
 const NO_CLIP = 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)';
 const BOTTOM_RIGHT_CLIP = 'polygon(0 0, 100% 0, 0 0, 0% 100%)';
 const TOP_RIGHT_CLIP = 'polygon(0 0, 0 100%, 100% 100%, 0% 100%)';
@@ -58,7 +101,7 @@ const EXIT_KEYFRAMES: KeyframeMap = {
   right: [NO_CLIP, BOTTOM_LEFT_CLIP],
 };
 
-const LinkBox = ({ text, href }: { text: string; href: string }) => {
+export const LinkBox = ({ text, href }: { text: string; href: string }) => {
   const [scope, animate] = useAnimate();
 
   const getNearestSide = (e: MouseEvent) => {
@@ -122,7 +165,7 @@ const LinkBox = ({ text, href }: { text: string; href: string }) => {
       }}
       className='relative grid h-20 w-full place-content-center sm:h-28 md:h-36'
     >
-      <div className='text-xl sm:text-3xl lg:text-4xl'>{text}</div>
+      <div className='text-center text-xl sm:text-3xl lg:text-4xl'>{text}</div>
 
       <div
         ref={scope}
@@ -131,7 +174,9 @@ const LinkBox = ({ text, href }: { text: string; href: string }) => {
         }}
         className='absolute inset-0 grid place-content-center bg-neutral-900 text-white'
       >
-        <div className='text-xl sm:text-3xl md:text-4xl'>{text}</div>
+        <div className='text-center text-xl sm:text-3xl md:text-4xl'>
+          {text}
+        </div>
       </div>
     </a>
   );
