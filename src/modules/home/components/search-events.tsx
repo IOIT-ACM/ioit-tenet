@@ -145,7 +145,7 @@ export const SearchEvents: React.FC = () => {
             <input
               type='text'
               className='text-md mb-2 h-[50px] w-full rounded-full border-2 p-3 px-5 text-gray-200 md:h-[60px] md:px-8 md:text-xl'
-              placeholder='Search events'
+              placeholder='Search events and speakers'
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />

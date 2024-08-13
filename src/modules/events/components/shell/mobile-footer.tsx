@@ -24,8 +24,8 @@ const MobileFooter = () => {
 
   return (
     <Drawer>
-      <DrawerTrigger className='w-full'>View Agenda</DrawerTrigger>
-      <DrawerContent>
+      <DrawerTrigger className='w-full text-black'>View Agenda</DrawerTrigger>
+      <DrawerContent className='text-black'>
         <DrawerHeader>
           <DrawerTitle>View Agenda</DrawerTitle>
         </DrawerHeader>

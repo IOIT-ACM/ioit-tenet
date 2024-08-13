@@ -8,11 +8,13 @@ import { persist } from 'zustand/middleware';
 export interface State {
   videoPlayed: boolean;
   showPreview: boolean;
+  characters: string[];
 }
 
 interface Action {
-  setVideoPlayed: (autoSync: boolean) => void;
-  setShowPreview: (autoSync: boolean) => void;
+  setVideoPlayed: (videoPlayed: boolean) => void;
+  setShowPreview: (showPreview: boolean) => void;
+  setCharacters: (characters: string[]) => void;
 }
 
 export const useStateStore = create<State & Action>()(
@@ -20,14 +22,18 @@ export const useStateStore = create<State & Action>()(
     (set) => ({
       videoPlayed: true,
       showPreview: true,
+      characters: [],
 
       setVideoPlayed: (videoPlayed) => set(() => ({ videoPlayed })),
       setShowPreview: (showPreview) => set(() => ({ showPreview })),
+      setCharacters: (characters) => set(() => ({ characters })),
     }),
     {
       name: 'ioit-tenet-storage',
-      partialize: () => ({
-        autoSync: false,
+      partialize: (state) => ({
+        characters: state.characters,
+        videoPlayed: state.videoPlayed,
+        showPreview: state.showPreview,
       }),
     },
   ),

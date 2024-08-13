@@ -24,10 +24,10 @@ export const Footer = () => {
   const isDesktopSm = useMedia('(min-width: 1024px)');
 
   return (
-    <div className='pb-20'>
+    <div className='md:pb-20'>
       <Socials />
       <Scrollytelling.Root start='top 80%'>
-        <footer className={cn(s.footer, 'pb-20')}>
+        <footer className={cn(s.footer, 'md:pb-20')}>
           <PreFooter />
           <div className={s['imgs-container']}>
             <Image className={s['team-img']} src={teamImage} alt='Tenet Team' />
