@@ -3,168 +3,25 @@
 
 import '@/styles/search.css';
 import React, { useEffect, useRef, useState } from 'react';
-import {
-  FaCalendar,
-  FaRobot,
-  FaCamera,
-  FaStar,
-  FaVideo,
-  FaTheaterMasks,
-  FaMicrophone,
-} from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { speakers } from '@/config/speakers';
-import type { Speaker } from '@/types';
 import Image from 'next/image';
+import { useSearch, type Event } from '@/hooks/use-search';
+import * as FaIcons from 'react-icons/fa';
 
-interface Item {
-  id: string;
-  name: string;
-  icon: React.ReactNode;
-  type?: string;
-}
+type IconMap = Record<string, React.ElementType>;
 
-type SearchItem = Item | Speaker;
-
-const items: Item[] = [
-  {
-    id: 'techfiesta-pmconference',
-    name: 'Product Management/Consulting Conference',
-    icon: <FaCalendar />,
-  },
-  {
-    id: 'techfiesta-dataconference',
-    name: 'How Data is used in Business Intelligence Conference',
-    icon: <FaCalendar />,
-  },
-  { id: 'techfiesta-ctf', name: 'Capture the Flag', icon: <FaStar /> },
-  {
-    id: 'techfiesta-fungames',
-    name: 'Fun games (AR/VR, coding games)',
-    icon: <FaCamera />,
-  },
-  { id: 'techfiesta-web3', name: 'Web - 3 Conference', icon: <FaCalendar /> },
-  {
-    id: 'techfiesta-llmconference',
-    name: "LLM's Application in Industry Conference",
-    icon: <FaRobot />,
-  },
-  {
-    id: 'techfiesta-droneworkshop',
-    name: 'Drone & Robotics Workshop',
-    icon: <FaRobot />,
-  },
-  {
-    id: 'techfiesta-genaiworkshop',
-    name: 'Gen AI (LLM) Development Workshop',
-    icon: <FaCalendar />,
-  },
-  {
-    id: 'techfiesta-dronedisplay',
-    name: 'Drone & Robotics Display',
-    icon: <FaRobot />,
-  },
-  {
-    id: 'esummit-breakfast',
-    name: 'Breakfast and Reporting',
-    icon: <FaCalendar />,
-  },
-  { id: 'mun-opening', name: 'Opening Ceremony', icon: <FaVideo /> },
-  {
-    id: 'esummit-speaker1',
-    name: 'Tier 3 Speaker Sessions x 3',
-    icon: <FaMicrophone />,
-  },
-  {
-    id: 'esummit-speaker2',
-    name: 'Tier 2 Speaker Session',
-    icon: <FaMicrophone />,
-  },
-  {
-    id: 'esummit-speaker3',
-    name: 'Tier 3 Speaker Sessions x 2',
-    icon: <FaMicrophone />,
-  },
-  { id: 'esummit-lunch', name: 'Lunch Break', icon: <FaCalendar /> },
-  {
-    id: 'esummit-speaker4',
-    name: 'Tier 2 Speaker Sessions x 2',
-    icon: <FaMicrophone />,
-  },
-  { id: 'esummit-investors', name: 'Investors Meeting', icon: <FaCalendar /> },
-  {
-    id: 'esummit-closing',
-    name: 'Closing Ceremony and Dinner',
-    icon: <FaVideo />,
-  },
-  {
-    id: 'creatorsconclave-openmic1',
-    name: 'PUNE OPEN MIC (Session 1)',
-    icon: <FaMicrophone />,
-  },
-  {
-    id: 'creatorsconclave-standup1',
-    name: 'Stand UP 1',
-    icon: <FaMicrophone />,
-  },
-  {
-    id: 'creatorsconclave-theater',
-    name: 'Theater Act',
-    icon: <FaTheaterMasks />,
-  },
-  {
-    id: 'creatorsconclave-openmic2',
-    name: 'PUNE OPEN MIC (Session 2)',
-    icon: <FaMicrophone />,
-  },
-  {
-    id: 'creatorsconclave-comedians',
-    name: 'Battle of Comedians',
-    icon: <FaStar />,
-  },
-  {
-    id: 'creatorsconclave-prize',
-    name: 'Prize Distribution',
-    icon: <FaStar />,
-  },
-  {
-    id: 'creatorsconclave-mainstage',
-    name: 'Main Stage Event',
-    icon: <FaCalendar />,
-  },
-  { id: 'esports-lantournaments', name: 'LAN Tournaments', icon: <FaCamera /> },
-  { id: 'esports-competitions', name: 'Competitions', icon: <FaStar /> },
-  { id: 'esports-experience', name: 'Experience Arenas', icon: <FaCalendar /> },
-  {
-    id: 'mun-breakfast',
-    name: 'Breakfast and Reporting',
-    icon: <FaCalendar />,
-  },
-  {
-    id: 'mun-committeesession3',
-    name: 'Committee Session 3',
-    icon: <FaCalendar />,
-  },
-  { id: 'mun-lunch', name: 'Lunch', icon: <FaCalendar /> },
-  {
-    id: 'mun-committeesession4',
-    name: 'Committee Session 4',
-    icon: <FaCalendar />,
-  },
-  {
-    id: 'mun-closing',
-    name: 'High Tea and Closing Ceremony',
-    icon: <FaCalendar />,
-  },
-];
-
-const allItems: SearchItem[] = [
-  ...speakers.map((speaker) => ({ ...speaker, type: 'speaker' as const })),
-  ...items.map((event) => ({ ...event, type: 'event' as const })),
-];
+const iconMap: IconMap = {
+  FaCalendar: FaIcons.FaCalendar,
+  FaRobot: FaIcons.FaRobot,
+  FaCamera: FaIcons.FaCamera,
+  FaStar: FaIcons.FaStar,
+  FaVideo: FaIcons.FaVideo,
+  FaTheaterMasks: FaIcons.FaTheaterMasks,
+  FaMicrophone: FaIcons.FaMicrophone,
+};
 
 export const SearchEvents: React.FC = () => {
   const router = useRouter();
@@ -177,6 +34,7 @@ export const SearchEvents: React.FC = () => {
     number | null
   >(null);
   const [scrollHeight, setScrollHeight] = useState(0);
+  const { allItems, isLoading } = useSearch();
 
   useEffect(() => {
     if (scrollerRef.current) {
@@ -311,13 +169,13 @@ export const SearchEvents: React.FC = () => {
     }
   }, [suggestions, searchTerm]);
 
+  if (isLoading) return <div>Loading...</div>;
+
   return (
     <div id='search' className='h-[100vh] bg-neutral-950'>
       <div className='sticky top-0 grid h-screen grid-cols-1 items-center justify-center gap-3 overflow-hidden bg-neutral-950 px-10 text-gray-300 md:grid-cols-2 md:px-20'>
         <div className='grid gap-5 md:-translate-y-[20%] md:px-10'>
-          <div className='text-center text-4xl font-bold md:text-6xl'>
-            Search TENET
-          </div>
+          <div className='text-4xl font-bold md:text-6xl'>Search TENET</div>
 
           <div className='grid grid-cols-2 gap-3'>
             <button
@@ -333,7 +191,7 @@ export const SearchEvents: React.FC = () => {
             <button
               onClick={() =>
                 setTimeout(() => {
-                  router.push('/events');
+                  router.push('/speakers');
                 }, 500)
               }
               className='rounded-2xl border-2 border-dashed border-black bg-gray-200 py-2 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_gray] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none md:px-6 md:py-3'
@@ -402,7 +260,7 @@ export const SearchEvents: React.FC = () => {
               >
                 {item.type === 'speaker' ? (
                   <Image
-                    src={(item as Speaker).image}
+                    src={item.image}
                     alt={item.name}
                     width={48}
                     height={48}
@@ -410,7 +268,7 @@ export const SearchEvents: React.FC = () => {
                   />
                 ) : (
                   <div className='text-md mr-4 flex h-[65px] w-[65px] items-center justify-center rounded-full border-2 bg-white text-black'>
-                    {(item as Item).icon}
+                    {renderIcon((item as Event).icon)}
                   </div>
                 )}
                 {item.name}
@@ -422,3 +280,8 @@ export const SearchEvents: React.FC = () => {
     </div>
   );
 };
+
+function renderIcon(iconName: string) {
+  const IconComponent = iconMap[iconName];
+  return IconComponent ? <IconComponent /> : null;
+}
