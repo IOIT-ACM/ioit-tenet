@@ -27,7 +27,6 @@ export const SearchEvents: React.FC = () => {
   const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollerRef = useRef<HTMLUListElement>(null);
-  const [lastScrollTop, setLastScrollTop] = useState(0);
   const [searchTerm, setSearchTerm] = useState('');
   const [isScrolling, setIsScrolling] = useState(true);
   const [activeSuggestionIndex, setActiveSuggestionIndex] = useState<
@@ -40,38 +39,8 @@ export const SearchEvents: React.FC = () => {
     if (scrollerRef.current) {
       const height = scrollerRef.current.scrollHeight;
       setScrollHeight(height);
-
-      const clonedItems = Array.from(scrollerRef.current.children).map(
-        (child) => child.cloneNode(true),
-      );
-      clonedItems.forEach((item) => scrollerRef.current?.appendChild(item));
     }
-  }, []);
-
-  useEffect(() => {
-    if (containerRef.current && scrollHeight > 0) {
-      containerRef.current.style.setProperty(
-        '--scroll-duration',
-        `${scrollHeight / 100}s`,
-      );
-    }
-  }, [scrollHeight]);
-
-  useEffect(() => {
-    addAnimation();
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollTop =
-        window.scrollY || document.documentElement.scrollTop;
-
-      setLastScrollTop(currentScrollTop);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollTop]);
+  }, [allItems]);
 
   useEffect(() => {
     if (searchTerm) {
@@ -138,36 +107,11 @@ export const SearchEvents: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [suggestions, activeSuggestionIndex]);
 
-  function addAnimation() {
-    if (containerRef.current && scrollerRef.current) {
-      const scrollerContent = Array.from(scrollerRef.current.children);
-
-      scrollerContent.forEach((item) => {
-        const duplicatedItem = item.cloneNode(true);
-        if (scrollerRef.current) {
-          scrollerRef.current.appendChild(duplicatedItem);
-        }
-      });
-
-      getSpeed();
-    }
-  }
-
-  const getSpeed = () => {
-    if (containerRef.current) {
-      containerRef.current.style.setProperty('--animation-duration', '150s');
-    }
-  };
-
   useEffect(() => {
-    if (suggestions.length > 0) {
-      if (!activeSuggestionIndex) {
-        setActiveSuggestionIndex(0);
-      }
-    } else {
+    if (suggestions.length > 0 && activeSuggestionIndex === null) {
       setActiveSuggestionIndex(0);
     }
-  }, [suggestions, searchTerm]);
+  }, [suggestions]);
 
   if (isLoading) return <div>Loading...</div>;
 
