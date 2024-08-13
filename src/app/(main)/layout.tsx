@@ -1,7 +1,7 @@
 // import Footer from '@/components/common/footer';
 import FixedNavBar from '@/components/common/fixednav';
 import { Providers } from '@/modules/providers';
-
+import WelcomeScreen from '@/components/loading';
 import { Footer } from '@/components/footer';
 
 interface SiteLayoutProps {
@@ -16,6 +16,7 @@ export default async function SiteLayout({ children }: SiteLayoutProps) {
         <Providers>{children}</Providers>
       </main>
       <Footer />
+      <WelcomeScreen />
     </div>
   );
 }

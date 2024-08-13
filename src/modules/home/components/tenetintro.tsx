@@ -6,7 +6,7 @@ import {
   useScroll,
   useTransform,
 } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { Video } from '@/components/ui/Video';
 
 const SECTION_HEIGHT = 1500;
@@ -27,6 +27,12 @@ export const TenetHero = () => {
 };
 
 const CenterImage = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+
   const { scrollY } = useScroll();
 
   const clip1 = useTransform(scrollY, [0, 1500], [25, 0]);
@@ -41,13 +47,15 @@ const CenterImage = () => {
         clipPath,
       }}
     >
-      <Video
-        src='hero-logo.webm'
-        autoPlay
-        preload='auto'
-        muted
-        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-      />
+      {!loading && (
+        <Video
+          src='hero-logo.webm'
+          autoPlay
+          preload='auto'
+          muted
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+        />
+      )}
     </motion.div>
   );
 };
