@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-floating-promises */
 'use client';
 
@@ -67,23 +68,36 @@ interface ActiveWord {
 
 export const ConveyorBelt: React.FC = () => {
   const [activeWords, setActiveWords] = useState<ActiveWord[]>([]);
-  // const characters = useStore.use.characters();
+  const characters = useStore.use.characters();
   const setCharacters = useStore.use.setCharacters();
+  const [score, setScore] = useState(0);
+  const [timeLeft, setTimeLeft] = useState(30);
+  const [isGameOver, setIsGameOver] = useState(false);
 
   const nextIdRef = useRef(0);
   const [showText, setShowText] = useState(false);
   let timeoutId: string | number | NodeJS.Timeout | undefined;
 
-  const handleMouseLeave = () => {
-    setShowText(true);
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => setShowText(false), 2000);
-  };
+  useEffect(() => {
+    if (!isGameOver) {
+      const timer = setInterval(() => {
+        setTimeLeft((prevTime) => {
+          if (prevTime <= 1) {
+            clearInterval(timer);
+            setIsGameOver(true);
+            return 0;
+          }
+          return prevTime - 1;
+        });
+      }, 1000);
+
+      return () => clearInterval(timer);
+    }
+  }, [isGameOver]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key.toLowerCase() === 'r' && event.shiftKey) {
-        setCharacters([]);
         restart();
       }
     };
@@ -93,27 +107,50 @@ export const ConveyorBelt: React.FC = () => {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [setCharacters]);
+  }, []);
+
+  useEffect(() => {
+    const joined = characters.join('');
+    setActiveWords((prevWords) => {
+      const newWords = prevWords.filter((word) => {
+        if (joined.includes(word.word.toLowerCase())) {
+          setScore((prevScore) => prevScore + word.word.length);
+          setCharacters([]);
+          return false;
+        }
+        return true;
+      });
+      return newWords;
+    });
+  }, [characters, setCharacters]);
+
+  const handleMouseLeave = () => {
+    setShowText(true);
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => setShowText(false), 2000);
+  };
 
   const handleMouseOut = () => {
     clearTimeout(timeoutId);
   };
 
   const addNewWord = () => {
-    const newWord = getRandomWord();
-    const topPos = `${Math.random() * 80}%`;
-    const id = nextIdRef.current++;
-    setActiveWords((prevWords) => [
-      ...prevWords,
-      { id, word: newWord, topPos },
-    ]);
+    if (!isGameOver) {
+      const newWord = getRandomWord();
+      const topPos = `${Math.random() * 80}%`;
+      const id = nextIdRef.current++;
+      setActiveWords((prevWords) => [
+        ...prevWords,
+        { id, word: newWord, topPos },
+      ]);
+    }
   };
 
   useEffect(() => {
     const intervalId = setInterval(addNewWord, 2790);
 
     return () => clearInterval(intervalId);
-  }, []);
+  }, [isGameOver]);
 
   const handleWordComplete = (id: number) => {
     setActiveWords((prevWords) => prevWords.filter((word) => word.id !== id));
@@ -121,6 +158,10 @@ export const ConveyorBelt: React.FC = () => {
 
   const restart = () => {
     setActiveWords([]);
+    setScore(0);
+    setTimeLeft(30);
+    setIsGameOver(false);
+    setCharacters([]);
   };
 
   return (
@@ -134,6 +175,21 @@ export const ConveyorBelt: React.FC = () => {
           topPos={topPos}
         />
       ))}
+      <div className='fixed left-5 top-5 text-xl text-white'>
+        Score: {score}
+      </div>
+      <div className='fixed right-5 top-5 text-xl text-white'>
+        Time: {timeLeft}s
+      </div>
+      {isGameOver && (
+        <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
+          <div className='rounded-lg bg-white p-8 text-center'>
+            <h2 className='mb-4 text-2xl font-bold'>Game Over!</h2>
+            <p className='mb-4 text-xl'>Your score: {score}</p>
+            <p className='text-lg'>Press Shift + R to play again</p>
+          </div>
+        </div>
+      )}
       <div
         onClick={() => restart()}
         onMouseEnter={() => setShowText(true)}
@@ -147,7 +203,7 @@ export const ConveyorBelt: React.FC = () => {
         >
           <VscDebugRestart className='text-lg' />
         </motion.div>
-        {showText && <p className='text-xs'>tab + enter</p>}
+        {showText && <p className='text-xs'>shift + r</p>}
       </div>
     </div>
   );
