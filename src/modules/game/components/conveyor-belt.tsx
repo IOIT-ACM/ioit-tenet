@@ -4,10 +4,12 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { gameWords } from '@/config/gamewords';
+import { VscDebugRestart } from 'react-icons/vsc';
+import { useStore } from '@/store';
 
 const getRandomWord = (): string => {
   if (gameWords.length === 0) {
-    return 'Default Word';
+    return 'TENET';
   }
   const randomIndex = Math.floor(Math.random() * gameWords.length);
   return gameWords[randomIndex]!;
@@ -47,8 +49,8 @@ const Word: React.FC<WordProps> = ({ word, delay, onComplete, topPos }) => {
   return (
     <motion.div
       ref={wordRef}
-      className='absolute whitespace-nowrap text-xl font-bold text-white'
-      style={{ top: topPos }}
+      className='absolute whitespace-nowrap text-2xl font-bold text-white'
+      style={{ top: topPos, fontFamily: 'comfortaa' }}
       initial={{ x: '100vw' }}
       animate={controls}
     >
@@ -65,7 +67,37 @@ interface ActiveWord {
 
 export const ConveyorBelt: React.FC = () => {
   const [activeWords, setActiveWords] = useState<ActiveWord[]>([]);
+  // const characters = useStore.use.characters();
+  const setCharacters = useStore.use.setCharacters();
+
   const nextIdRef = useRef(0);
+  const [showText, setShowText] = useState(false);
+  let timeoutId: string | number | NodeJS.Timeout | undefined;
+
+  const handleMouseLeave = () => {
+    setShowText(true);
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => setShowText(false), 2000);
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key.toLowerCase() === 'r' && event.shiftKey) {
+        setCharacters([]);
+        restart();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [setCharacters]);
+
+  const handleMouseOut = () => {
+    clearTimeout(timeoutId);
+  };
 
   const addNewWord = () => {
     const newWord = getRandomWord();
@@ -78,7 +110,7 @@ export const ConveyorBelt: React.FC = () => {
   };
 
   useEffect(() => {
-    const intervalId = setInterval(addNewWord, 1000);
+    const intervalId = setInterval(addNewWord, 2790);
 
     return () => clearInterval(intervalId);
   }, []);
@@ -87,21 +119,36 @@ export const ConveyorBelt: React.FC = () => {
     setActiveWords((prevWords) => prevWords.filter((word) => word.id !== id));
   };
 
+  const restart = () => {
+    setActiveWords([]);
+  };
+
   return (
-    <div className='fixed h-screen w-screen select-none overflow-hidden'>
+    <div className='fixed h-screen w-screen overflow-hidden'>
       {activeWords.map(({ id, word, topPos }) => (
         <Word
           key={id}
           word={word}
-          delay={0} // No delay, start moving immediately
+          delay={0}
           onComplete={() => handleWordComplete(id)}
           topPos={topPos}
         />
       ))}
-
-      <p className='fixed bottom-0 text-white'>
-        Active words: {activeWords.length}
-      </p>
+      <div
+        onClick={() => restart()}
+        onMouseEnter={() => setShowText(true)}
+        onMouseLeave={handleMouseLeave}
+        onMouseOut={handleMouseOut}
+        className='fixed bottom-10 right-10 flex h-10 w-20 cursor-pointer select-none flex-col items-center justify-center gap-2 text-center text-white transition-all'
+      >
+        <motion.div
+          whileHover={{ scale: 1.1 }}
+          transition={{ type: 'spring', stiffness: 300 }}
+        >
+          <VscDebugRestart className='text-lg' />
+        </motion.div>
+        {showText && <p className='text-xs'>tab + enter</p>}
+      </div>
     </div>
   );
 };

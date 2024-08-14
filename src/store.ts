@@ -31,7 +31,7 @@ export const useStateStore = create<State & Action>()(
     {
       name: 'ioit-tenet-storage',
       partialize: (state) => ({
-        characters: state.characters,
+        // characters: state.characters,
         videoPlayed: state.videoPlayed,
         showPreview: state.showPreview,
       }),

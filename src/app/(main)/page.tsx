@@ -12,6 +12,8 @@ import {
   Schedule,
 } from '@/modules/home';
 
+import { GameLink } from '@/modules/game';
+
 export default async function HomePage() {
   return (
     <main className=''>
@@ -26,6 +28,7 @@ export default async function HomePage() {
       <Gallery />
       <FallingCaps />
       <ThatsAllFolks />
+      <GameLink />
     </main>
   );
 }

@@ -32,8 +32,13 @@ export const InputWords: FC = () => {
   }, [characters, setCharacters]);
 
   return (
-    <div className='fixed bottom-0 w-full select-none p-4 text-center text-2xl text-white'>
-      {characters.join('')}
-    </div>
+    <>
+      <div className='fixed bottom-10 w-screen select-none p-4 text-center text-2xl text-white'>
+        {characters.length === 0 && (
+          <p className='text-sm text-gray-600'>Start typing...</p>
+        )}
+        {characters.join('')}
+      </div>
+    </>
   );
 };
