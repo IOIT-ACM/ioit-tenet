@@ -7,6 +7,7 @@ import { motion, useAnimation } from 'framer-motion';
 import { gameWords } from '@/config/gamewords';
 import { VscDebugRestart } from 'react-icons/vsc';
 import { useStore } from '@/store';
+import { cookies } from 'next/headers';
 
 const getRandomWord = (): string => {
   if (gameWords.length === 0) {
@@ -50,7 +51,7 @@ const Word: React.FC<WordProps> = ({ word, delay, onComplete, topPos }) => {
   return (
     <motion.div
       ref={wordRef}
-      className='absolute whitespace-nowrap text-2xl font-bold text-white'
+      className='absolute whitespace-nowrap text-2xl font-extrabold text-gray-300'
       style={{ top: topPos, fontFamily: 'comfortaa' }}
       initial={{ x: '100vw' }}
       animate={controls}
@@ -137,7 +138,7 @@ export const ConveyorBelt: React.FC = () => {
   const addNewWord = () => {
     if (!isGameOver) {
       const newWord = getRandomWord();
-      const topPos = `${Math.random() * 80}%`;
+      const topPos = `${20 + Math.random() * 60}%`;
       const id = nextIdRef.current++;
       setActiveWords((prevWords) => [
         ...prevWords,
