@@ -40,7 +40,7 @@ export const Keyboard: FC = () => {
 
     setTimeout(() => {
       globalKeyboard.stopAnimation();
-    }, 5000);
+    }, 3000);
   }, []);
 
   return (
