@@ -9,6 +9,7 @@ import { getRandomWord } from './word';
 import { Word } from './word';
 import { FaPlay, FaStop } from 'react-icons/fa';
 import { VanishInput } from '@/components/ui/vanish-input';
+import { IoClose } from 'react-icons/io5';
 import Link from 'next/link';
 
 interface ActiveWord {
@@ -31,6 +32,7 @@ export const ConveyorBelt: React.FC = () => {
   const setCharacters = useStore.use.setCharacters();
   const [score, setScore] = useState(0);
   const [showrule, setShowRules] = useState(false);
+  const [showLeaderboard, setShowLeaderboard] = useState(false);
   const [timeLeft, setTimeLeft] = useState(60);
   const [isGameOver, setIsGameOver] = useState(false);
   const [nickname, setNickname] = useState<string>(() => {
@@ -197,13 +199,134 @@ export const ConveyorBelt: React.FC = () => {
 
   if (showrule) {
     return (
-      <div className='fixed inset-x-0 top-20 flex h-fit items-start justify-center bg-black bg-opacity-50'>
-        <div className='grid w-fit max-w-[600px] rounded-3xl bg-white p-8 text-center'>
-          <h2 className='mb-4 text-2xl font-bold'>
+      <div
+        onClick={() => setShowRules(false)}
+        className='fixed inset-x-0 top-20 flex h-screen items-start justify-center bg-black bg-opacity-50'
+      >
+        <div className='no-scroll-bar relative grid w-fit rounded-3xl bg-white p-8 text-center'>
+          <h2 className='mb-6 text-3xl font-bold text-blue-600'>
             Rules (and tips for the game)
           </h2>
-          <p className='mb-5'>Rules</p>
-          <div onClick={() => setShowRules(false)}>Close</div>
+          <button
+            className='absolute right-4 top-4 text-2xl text-gray-500 hover:text-gray-700'
+            onClick={() => setShowRules(false)}
+          >
+            <IoClose />
+          </button>
+          <div className='no-scroll-bar max-h-[60vh] max-w-[900px] overflow-hidden overflow-y-auto'>
+            <div className='space-y-6 text-left text-lg'>
+              <section>
+                <h3 className='mb-2 text-xl font-semibold'>Objective</h3>
+                <p>
+                  Words will slide from the right side of the screen towards the
+                  left. Your goal is to type each word as fast as possible
+                  before it reaches the left edge. The faster and more
+                  accurately you type, the higher your score.
+                </p>
+              </section>
+
+              <section>
+                <h3 className='mb-2 text-xl font-semibold'>Typing</h3>
+                <ul className='list-inside list-disc space-y-2'>
+                  <li>
+                    As you type, the characters will appear at the bottom of the
+                    screen.
+                  </li>
+                  <li>
+                    If you make a mistake or wish to clear your current input,
+                    press <code> &quot;Enter&quot;</code> to reset the
+                    characters.
+                  </li>
+                  <li>
+                    Only complete words typed correctly will be counted towards
+                    your score.
+                  </li>
+                </ul>
+              </section>
+
+              <section>
+                <h3 className='mb-2 text-xl font-semibold'>Shortcuts</h3>
+                <ul className='list-inside list-disc space-y-2'>
+                  <li>
+                    <code> Shift + R </code> to restart the game at any time.
+                  </li>
+                  <li>
+                    <code> Shift + S </code> to toggle sound effects.
+                  </li>
+                  <li>
+                    <code> Enter </code> to reset the typed characters
+                  </li>
+                </ul>
+              </section>
+
+              <section>
+                <h3 className='mb-2 text-xl font-semibold'>Game Duration</h3>
+                <ul className='list-inside list-disc space-y-2'>
+                  <li>
+                    You have 60 seconds to type as many words as you can. Make
+                    each second count!
+                  </li>
+                  <li>
+                    The game automatically ends when the 60 seconds run out, so
+                    keep an eye on the clock.
+                  </li>
+                  <li>
+                    Your final score will be the sum of all characters typed
+                    correctly during the game.
+                  </li>
+                </ul>
+              </section>
+
+              <section>
+                <h3 className='mb-2 text-xl font-semibold'>Scoreboard</h3>
+                <ul className='list-inside list-disc space-y-2'>
+                  <li>
+                    Your current score, high score, and username are displayed
+                    in the top left corner of the screen.
+                  </li>
+                  <li>
+                    The high score reflects your best performance across all
+                    sessions.
+                  </li>
+                  <li>
+                    Strive to beat your own high score and set new records!
+                  </li>
+                </ul>
+              </section>
+
+              <section>
+                <h3 className='mb-2 text-xl font-semibold'>Public Dashboard</h3>
+                <ul className='list-inside list-disc space-y-2'>
+                  <li>
+                    Your username and high score will be published on a public
+                    leaderboard.
+                  </li>
+                </ul>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (showLeaderboard) {
+    return (
+      <div
+        onClick={() => setShowLeaderboard(false)}
+        className='fixed inset-x-0 top-20 flex h-screen items-start justify-center bg-black bg-opacity-50'
+      >
+        <div className='no-scroll-bar relative grid w-fit rounded-3xl bg-white p-8 text-center'>
+          <h2 className='mb-6 text-3xl font-bold text-blue-600'>Leaderboard</h2>
+          <button
+            className='absolute right-4 top-4 text-2xl text-gray-500 hover:text-gray-700'
+            onClick={() => setShowRules(false)}
+          >
+            <IoClose />
+          </button>
+          <div className='max-h-[60vh] max-w-[900px] overflow-hidden overflow-y-auto'>
+            <div className='space-y-6 text-left text-lg'></div>
+          </div>
         </div>
       </div>
     );
@@ -286,9 +409,17 @@ export const ConveyorBelt: React.FC = () => {
       </div>
 
       {playing === 'pause' && (
-        <div className='fixed bottom-10 left-10 flex h-10 w-20 select-none items-center justify-center gap-2 text-center text-lg text-white transition-all'>
+        <div className='fixed bottom-10 left-10 flex h-10 w-20 select-none gap-5 text-center text-lg text-white transition-all'>
           <Link href={'/'}>Home</Link>
-          <div onClick={() => setShowRules(true)}>Rules</div>
+          <div
+            className='cursor-pointer'
+            onClick={() => setShowLeaderboard(true)}
+          >
+            Leaderboard
+          </div>
+          <div className='cursor-pointer' onClick={() => setShowRules(true)}>
+            Rules
+          </div>
         </div>
       )}
     </div>

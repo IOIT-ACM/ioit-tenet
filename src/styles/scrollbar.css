@@ -3,6 +3,9 @@ body::-webkit-scrollbar {
     width: 0px;
 }
 
+.no-scroll-bar::-webkit-scrollbar {
+    width: 0px;
+}
 
 /* In your styles.css or a separate CSS module */
 .scrollbar-custom::-webkit-scrollbar {
