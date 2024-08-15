@@ -58,7 +58,7 @@ export const Word: React.FC<WordProps> = ({
       initial={{ x: '100vw' }}
       animate={controls}
     >
-      {word}
+      {word.toLowerCase()}
     </motion.div>
   );
 };

@@ -271,7 +271,7 @@ export function VanishInput({
                 duration: 0.3,
                 ease: 'linear',
               }}
-              className='w-[calc(100%-2rem)] truncate pl-4 text-left text-sm font-normal text-neutral-500 dark:text-zinc-500 sm:pl-12 sm:text-base'
+              className='truncate text-left text-base font-normal text-neutral-500 sm:pl-11'
             >
               {placeholders[currentPlaceholder]}
             </motion.p>

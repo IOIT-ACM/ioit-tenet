@@ -9,6 +9,7 @@ import { getRandomWord } from './word';
 import { Word } from './word';
 import { FaPlay, FaStop } from 'react-icons/fa';
 import { VanishInput } from '@/components/ui/vanish-input';
+import Link from 'next/link';
 
 interface ActiveWord {
   id: number;
@@ -29,6 +30,7 @@ export const ConveyorBelt: React.FC = () => {
   const characters = useStore.use.characters();
   const setCharacters = useStore.use.setCharacters();
   const [score, setScore] = useState(0);
+  const [showrule, setShowRules] = useState(false);
   const [timeLeft, setTimeLeft] = useState(60);
   const [isGameOver, setIsGameOver] = useState(false);
   const [nickname, setNickname] = useState<string>(() => {
@@ -109,7 +111,9 @@ export const ConveyorBelt: React.FC = () => {
     setActiveWords((prevWords) => {
       const newWords = prevWords.filter((word) => {
         if (joined.includes(word.word.toLowerCase())) {
-          setScore((prevScore) => prevScore + word.word.length);
+          if (playing === 'playing') {
+            setScore((prevScore) => prevScore + word.word.length);
+          }
           setCharacters([]);
           return false;
         }
@@ -139,7 +143,7 @@ export const ConveyorBelt: React.FC = () => {
   };
 
   useEffect(() => {
-    if (playing === 'playing' && !isGameOver) {
+    if ((playing === 'playing' || playing === 'zen') && !isGameOver) {
       const intervalId = setInterval(addNewWord, 2790);
 
       return () => clearInterval(intervalId);
@@ -167,21 +171,39 @@ export const ConveyorBelt: React.FC = () => {
   if (!hasNicknameSet && !loading) {
     return (
       <div className='fixed inset-x-0 top-20 flex h-fit items-start justify-center bg-black bg-opacity-50'>
-        <div className='grid w-fit rounded-lg bg-white p-8 text-center'>
+        <div className='grid w-fit max-w-[600px] rounded-3xl bg-white p-8 text-center'>
+          <h2 className='mb-4 text-2xl font-bold'>
+            Welcome to TENET typing game
+          </h2>
+          <p className='mb-5'>
+            Showcase your keyboard skills, climb the leaderboard, and become the
+            Fastest Writer at TENET 2024. Start with your nickname, how should
+            people address you?
+          </p>
           <VanishInput
             placeholders={nicknames}
             onChange={(e) => setNickname(e.target.value)}
             onSubmit={(e) => {
               e.preventDefault();
-              setNickName(nickname);
+              setTimeout(() => {
+                setNickName(nickname);
+              }, 2500);
             }}
           />
-          <button
-            onClick={() => setNickName(nickname)}
-            className='mx-10 mt-4 rounded-full bg-blue-700 px-4 py-2 text-white hover:bg-blue-600'
-          >
-            Continue
-          </button>
+        </div>
+      </div>
+    );
+  }
+
+  if (showrule) {
+    return (
+      <div className='fixed inset-x-0 top-20 flex h-fit items-start justify-center bg-black bg-opacity-50'>
+        <div className='grid w-fit max-w-[600px] rounded-3xl bg-white p-8 text-center'>
+          <h2 className='mb-4 text-2xl font-bold'>
+            Rules (and tips for the game)
+          </h2>
+          <p className='mb-5'>Rules</p>
+          <div onClick={() => setShowRules(false)}>Close</div>
         </div>
       </div>
     );
@@ -198,20 +220,24 @@ export const ConveyorBelt: React.FC = () => {
           topPos={topPos}
         />
       ))}
-      <div className='fixed left-5 top-5 text-xl text-white'>
-        {!loading ? (
-          <div>
-            <div>Score: {score}</div>
-            <div>Hign Score: {highscore}</div>
-            <div>{nickname}</div>
+      {playing !== 'zen' && (
+        <>
+          <div className='fixed left-5 top-5 text-xl text-white'>
+            {!loading ? (
+              <div>
+                <div>Score: {score}</div>
+                <div>Hign Score: {highscore}</div>
+                <div>{nickname}</div>
+              </div>
+            ) : (
+              <p>Loading...</p>
+            )}
           </div>
-        ) : (
-          <p>Loading...</p>
-        )}
-      </div>
-      <div className='fixed right-5 top-5 text-xl text-white'>
-        Time: {timeLeft}s
-      </div>
+          <div className='fixed right-5 top-5 text-xl text-white'>
+            Time: {timeLeft}s
+          </div>
+        </>
+      )}
       {isGameOver && (
         <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
           <div className='rounded-lg bg-white p-8 text-center'>
@@ -241,15 +267,30 @@ export const ConveyorBelt: React.FC = () => {
           />
         )}
         {playing === 'pause' && (
-          <FaPlay
-            onClick={() => {
-              setPlaying('playing');
-              restart();
-            }}
-            className='cursor-pointer'
-          />
+          <div className='flex w-fit items-center gap-4'>
+            <FaPlay
+              onClick={() => {
+                setPlaying('playing');
+                restart();
+              }}
+              className='cursor-pointer'
+            />
+            <div
+              className='cursor-pointer truncate'
+              onClick={() => setPlaying('zen')}
+            >
+              Zen mode
+            </div>
+          </div>
         )}
       </div>
+
+      {playing === 'pause' && (
+        <div className='fixed bottom-10 left-10 flex h-10 w-20 select-none items-center justify-center gap-2 text-center text-lg text-white transition-all'>
+          <Link href={'/'}>Home</Link>
+          <div onClick={() => setShowRules(true)}>Rules</div>
+        </div>
+      )}
     </div>
   );
 };
