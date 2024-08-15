@@ -3,63 +3,11 @@
 'use client';
 
 import React, { useEffect, useState, useRef } from 'react';
-import { motion, useAnimation } from 'framer-motion';
-import { gameWords } from '@/config/gamewords';
+import { motion } from 'framer-motion';
 import { VscDebugRestart } from 'react-icons/vsc';
 import { useStore } from '@/store';
-import { cookies } from 'next/headers';
-
-const getRandomWord = (): string => {
-  if (gameWords.length === 0) {
-    return 'TENET';
-  }
-  const randomIndex = Math.floor(Math.random() * gameWords.length);
-  return gameWords[randomIndex]!;
-};
-
-interface WordProps {
-  word: string;
-  delay: number;
-  onComplete: () => void;
-  topPos: string;
-}
-
-const Word: React.FC<WordProps> = ({ word, delay, onComplete, topPos }) => {
-  const controls = useAnimation();
-  const wordRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    controls.start({
-      x: '-100vw',
-      transition: { duration: 15, delay, ease: 'linear' },
-    });
-
-    const checkPosition = () => {
-      if (wordRef.current) {
-        const rect = wordRef.current.getBoundingClientRect();
-        if (rect.right <= 0) {
-          onComplete();
-        } else {
-          requestAnimationFrame(checkPosition);
-        }
-      }
-    };
-
-    requestAnimationFrame(checkPosition);
-  }, [controls, delay, onComplete]);
-
-  return (
-    <motion.div
-      ref={wordRef}
-      className='absolute whitespace-nowrap text-2xl font-extrabold text-gray-300'
-      style={{ top: topPos, fontFamily: 'comfortaa' }}
-      initial={{ x: '100vw' }}
-      animate={controls}
-    >
-      {word}
-    </motion.div>
-  );
-};
+import { getRandomWord } from './word';
+import { Word } from './word';
 
 interface ActiveWord {
   id: number;
@@ -72,8 +20,16 @@ export const ConveyorBelt: React.FC = () => {
   const characters = useStore.use.characters();
   const setCharacters = useStore.use.setCharacters();
   const [score, setScore] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(30);
+  const [timeLeft, setTimeLeft] = useState(60);
   const [isGameOver, setIsGameOver] = useState(false);
+  const [nickname, setNickname] = useState('');
+  const [hasNicknameSet, setHasNicknameSet] = useState<boolean>(() => {
+    try {
+      return !!window.localStorage.getItem('nickname');
+    } catch {
+      return false;
+    }
+  });
 
   const nextIdRef = useRef(0);
   const [showText, setShowText] = useState(false);
@@ -160,9 +116,14 @@ export const ConveyorBelt: React.FC = () => {
   const restart = () => {
     setActiveWords([]);
     setScore(0);
-    setTimeLeft(30);
+    setTimeLeft(60);
     setIsGameOver(false);
     setCharacters([]);
+  };
+
+  const setNickName = (nickname: string) => {
+    window.localStorage.setItem('nickname', nickname);
+    setHasNicknameSet(true);
   };
 
   return (
@@ -177,7 +138,23 @@ export const ConveyorBelt: React.FC = () => {
         />
       ))}
       <div className='fixed left-5 top-5 text-xl text-white'>
-        Score: {score}
+        <div>Score: {score}</div>
+        {hasNicknameSet ? (
+          <div>
+            nickname: {window.localStorage.getItem('nickname') ?? 'Anonymous'}
+          </div>
+        ) : (
+          <div>
+            <input
+              type='text'
+              value={nickname}
+              onChange={(e) => setNickname(e.target.value)}
+              placeholder='Enter nickname'
+              className='rounded px-2 py-1 text-black'
+            />
+            <button onClick={() => setNickName(nickname)}>Save</button>
+          </div>
+        )}
       </div>
       <div className='fixed right-5 top-5 text-xl text-white'>
         Time: {timeLeft}s
