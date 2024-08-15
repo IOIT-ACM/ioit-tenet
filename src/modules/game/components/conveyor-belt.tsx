@@ -3,11 +3,11 @@
 'use client';
 
 import React, { useEffect, useState, useRef } from 'react';
-import { motion } from 'framer-motion';
 import { VscDebugRestart } from 'react-icons/vsc';
 import { useStore } from '@/store';
 import { getRandomWord } from './word';
 import { Word } from './word';
+import { FaPlay, FaStop } from 'react-icons/fa';
 
 interface ActiveWord {
   id: number;
@@ -32,11 +32,10 @@ export const ConveyorBelt: React.FC = () => {
   });
 
   const nextIdRef = useRef(0);
-  const [showText, setShowText] = useState(false);
-  let timeoutId: string | number | NodeJS.Timeout | undefined;
+  const [playing, setPlaying] = useState<'playing' | 'pause' | 'zen'>('pause');
 
   useEffect(() => {
-    if (!isGameOver) {
+    if (playing === 'playing' && !isGameOver) {
       const timer = setInterval(() => {
         setTimeLeft((prevTime) => {
           if (prevTime <= 1) {
@@ -50,7 +49,14 @@ export const ConveyorBelt: React.FC = () => {
 
       return () => clearInterval(timer);
     }
-  }, [isGameOver]);
+    if (playing === 'pause') {
+      setTimeLeft(60);
+      setActiveWords([]);
+    }
+    if (isGameOver) {
+      setPlaying('pause');
+    }
+  }, [isGameOver, playing]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -81,16 +87,6 @@ export const ConveyorBelt: React.FC = () => {
     });
   }, [characters, setCharacters]);
 
-  const handleMouseLeave = () => {
-    setShowText(true);
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => setShowText(false), 2000);
-  };
-
-  const handleMouseOut = () => {
-    clearTimeout(timeoutId);
-  };
-
   const addNewWord = () => {
     if (!isGameOver) {
       const newWord = getRandomWord();
@@ -104,16 +100,19 @@ export const ConveyorBelt: React.FC = () => {
   };
 
   useEffect(() => {
-    const intervalId = setInterval(addNewWord, 2790);
+    if (playing === 'playing' && !isGameOver) {
+      const intervalId = setInterval(addNewWord, 2790);
 
-    return () => clearInterval(intervalId);
-  }, [isGameOver]);
+      return () => clearInterval(intervalId);
+    }
+  }, [isGameOver, playing]);
 
   const handleWordComplete = (id: number) => {
     setActiveWords((prevWords) => prevWords.filter((word) => word.id !== id));
   };
 
   const restart = () => {
+    setPlaying('playing');
     setActiveWords([]);
     setScore(0);
     setTimeLeft(60);
@@ -168,20 +167,34 @@ export const ConveyorBelt: React.FC = () => {
           </div>
         </div>
       )}
-      <div
-        onClick={() => restart()}
-        onMouseEnter={() => setShowText(true)}
-        onMouseLeave={handleMouseLeave}
-        onMouseOut={handleMouseOut}
-        className='fixed bottom-10 right-10 flex h-10 w-20 cursor-pointer select-none flex-col items-center justify-center gap-2 text-center text-white transition-all'
-      >
-        <motion.div
-          whileHover={{ scale: 1.1 }}
-          transition={{ type: 'spring', stiffness: 300 }}
-        >
-          <VscDebugRestart className='text-lg' />
-        </motion.div>
-        {showText && <p className='text-xs'>shift + r</p>}
+      <div className='fixed bottom-10 right-10 flex h-10 w-20 select-none flex-col items-center justify-center gap-2 text-center text-lg text-white transition-all'>
+        {playing === 'playing' && (
+          <div className='flex gap-3'>
+            <VscDebugRestart
+              onClick={() => restart()}
+              className='cursor-pointer'
+            />
+            <FaStop
+              onClick={() => setPlaying('pause')}
+              className='cursor-pointer'
+            />
+          </div>
+        )}
+        {playing === 'zen' && (
+          <FaStop
+            onClick={() => setPlaying('pause')}
+            className='cursor-pointer'
+          />
+        )}
+        {playing === 'pause' && (
+          <FaPlay
+            onClick={() => {
+              setPlaying('playing');
+              restart();
+            }}
+            className='cursor-pointer'
+          />
+        )}
       </div>
     </div>
   );
