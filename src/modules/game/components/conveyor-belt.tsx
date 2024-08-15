@@ -8,12 +8,21 @@ import { useStore } from '@/store';
 import { getRandomWord } from './word';
 import { Word } from './word';
 import { FaPlay, FaStop } from 'react-icons/fa';
+import { VanishInput } from '@/components/ui/vanish-input';
 
 interface ActiveWord {
   id: number;
   word: string;
   topPos: string;
 }
+
+const nicknames = [
+  'Tyler Durden',
+  'Perry the platypus',
+  'Hanumankind',
+  'Candace',
+  'Doraemon',
+];
 
 export const ConveyorBelt: React.FC = () => {
   const [activeWords, setActiveWords] = useState<ActiveWord[]>([]);
@@ -22,7 +31,15 @@ export const ConveyorBelt: React.FC = () => {
   const [score, setScore] = useState(0);
   const [timeLeft, setTimeLeft] = useState(60);
   const [isGameOver, setIsGameOver] = useState(false);
-  const [nickname, setNickname] = useState('');
+  const [nickname, setNickname] = useState<string>(() => {
+    try {
+      const nickname = window.localStorage.getItem('nickname') ?? 'Anonymous';
+      return nickname;
+    } catch {
+      return 'Anonymous';
+    }
+  });
+
   const [hasNicknameSet, setHasNicknameSet] = useState<boolean>(() => {
     try {
       return !!window.localStorage.getItem('nickname');
@@ -30,6 +47,20 @@ export const ConveyorBelt: React.FC = () => {
       return false;
     }
   });
+
+  const [highscore, setHighscore] = useState<number>(() => {
+    try {
+      const storedScore = window.localStorage.getItem('tenet-game-highscore');
+      return storedScore ? parseInt(storedScore, 10) : 0;
+    } catch {
+      return 0;
+    }
+  });
+  const [loading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setIsLoading(false);
+  }, []);
 
   const nextIdRef = useRef(0);
   const [playing, setPlaying] = useState<'playing' | 'pause' | 'zen'>('pause');
@@ -41,6 +72,7 @@ export const ConveyorBelt: React.FC = () => {
           if (prevTime <= 1) {
             clearInterval(timer);
             setIsGameOver(true);
+            updateHighscore(score);
             return 0;
           }
           return prevTime - 1;
@@ -56,7 +88,7 @@ export const ConveyorBelt: React.FC = () => {
     if (isGameOver) {
       setPlaying('pause');
     }
-  }, [isGameOver, playing]);
+  }, [isGameOver, playing, score]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -86,6 +118,13 @@ export const ConveyorBelt: React.FC = () => {
       return newWords;
     });
   }, [characters, setCharacters]);
+
+  const updateHighscore = (newScore: number) => {
+    if (newScore > highscore) {
+      setHighscore(newScore);
+      window.localStorage.setItem('tenet-game-highscore', newScore.toString());
+    }
+  };
 
   const addNewWord = () => {
     if (!isGameOver) {
@@ -125,6 +164,29 @@ export const ConveyorBelt: React.FC = () => {
     setHasNicknameSet(true);
   };
 
+  if (!hasNicknameSet && !loading) {
+    return (
+      <div className='fixed inset-x-0 top-20 flex h-fit items-start justify-center bg-black bg-opacity-50'>
+        <div className='grid w-fit rounded-lg bg-white p-8 text-center'>
+          <VanishInput
+            placeholders={nicknames}
+            onChange={(e) => setNickname(e.target.value)}
+            onSubmit={(e) => {
+              e.preventDefault();
+              setNickName(nickname);
+            }}
+          />
+          <button
+            onClick={() => setNickName(nickname)}
+            className='mx-10 mt-4 rounded-full bg-blue-700 px-4 py-2 text-white hover:bg-blue-600'
+          >
+            Continue
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className='fixed h-screen w-screen overflow-hidden'>
       {activeWords.map(({ id, word, topPos }) => (
@@ -137,22 +199,14 @@ export const ConveyorBelt: React.FC = () => {
         />
       ))}
       <div className='fixed left-5 top-5 text-xl text-white'>
-        <div>Score: {score}</div>
-        {hasNicknameSet ? (
+        {!loading ? (
           <div>
-            nickname: {window.localStorage.getItem('nickname') ?? 'Anonymous'}
+            <div>Score: {score}</div>
+            <div>Hign Score: {highscore}</div>
+            <div>{nickname}</div>
           </div>
         ) : (
-          <div>
-            <input
-              type='text'
-              value={nickname}
-              onChange={(e) => setNickname(e.target.value)}
-              placeholder='Enter nickname'
-              className='rounded px-2 py-1 text-black'
-            />
-            <button onClick={() => setNickName(nickname)}>Save</button>
-          </div>
+          <p>Loading...</p>
         )}
       </div>
       <div className='fixed right-5 top-5 text-xl text-white'>
