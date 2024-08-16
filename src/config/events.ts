@@ -4,6 +4,7 @@ export const day1: ScheduleItemType[] = [
   {
     title: 'Product Management/Consulting Conference',
     id: 'techfiesta-pmconference',
+    domain: 'techfiesta',
     color: 'bg-red-700',
     date: 'Oct 4th, 2024',
     location: 'Room 404',
@@ -38,6 +39,7 @@ export const day1: ScheduleItemType[] = [
   {
     title: 'How Data is used in Business Intelligence Conference',
     id: 'techfiesta-dataconference',
+    domain: 'techfiesta',
     color: 'bg-blue-700',
     date: 'Oct 4th, 2024',
     location: 'Room 405',
@@ -56,6 +58,7 @@ export const day1: ScheduleItemType[] = [
   {
     title: 'Capture the Flag',
     id: 'techfiesta-ctf',
+    domain: 'techfiesta',
     color: 'bg-green-700',
     date: 'Oct 4th, 2024',
     location: 'Room 406',
@@ -75,6 +78,7 @@ export const day1: ScheduleItemType[] = [
   {
     title: 'Fun games (AR/VR, coding games)',
     id: 'techfiesta-fungames',
+    domain: 'techfiesta',
     color: 'bg-gray-500',
     date: 'Oct 4th, 2024',
     location: 'Room 407',
@@ -93,6 +97,7 @@ export const day1: ScheduleItemType[] = [
   {
     title: 'Web - 3 Conference',
     id: 'techfiesta-web3',
+    domain: 'techfiesta',
     color: 'bg-orange-700',
     date: 'Oct 4th, 2024',
     location: 'Room 404',
@@ -111,6 +116,7 @@ export const day1: ScheduleItemType[] = [
   {
     title: "LLM's Application in Industry Conference",
     id: 'techfiesta-llmconference',
+    domain: 'techfiesta',
     color: 'bg-yellow-700',
     date: 'Oct 4th, 2024',
     location: 'Room 405',
@@ -129,6 +135,7 @@ export const day1: ScheduleItemType[] = [
   {
     title: 'Drone & Robotics Workshop',
     id: 'techfiesta-droneworkshop',
+    domain: 'techfiesta',
     color: 'bg-pink-700',
     date: 'Oct 4th, 2024',
     location: 'Room 406',
@@ -147,6 +154,7 @@ export const day1: ScheduleItemType[] = [
   {
     title: 'Gen AI (LLM) Development Workshop',
     id: 'techfiesta-genaiworkshop',
+    domain: 'techfiesta',
     color: 'bg-purple-700',
     date: 'Oct 4th, 2024',
     location: 'Room 407',
@@ -165,6 +173,7 @@ export const day1: ScheduleItemType[] = [
   {
     title: 'Drone & Robotics Display',
     id: 'techfiesta-dronedisplay',
+    domain: 'techfiesta',
     color: 'bg-teal-700',
     date: 'Oct 4th, 2024',
     location: 'Open Ground',
@@ -186,6 +195,7 @@ export const day2: ScheduleItemType[] = [
   {
     title: 'Breakfast and Reporting',
     id: 'esummit-breakfast',
+    domain: 'esummit',
     color: 'bg-teal-700',
     date: 'Oct 5th, 2024',
     location: 'Dining Hall',
@@ -199,6 +209,7 @@ export const day2: ScheduleItemType[] = [
   {
     title: 'Opening Ceremony',
     id: 'mun-opening',
+    domain: 'mun',
     color: 'bg-red-500',
     date: 'Oct 5th, 2024',
     location: 'Main Stage',
@@ -216,6 +227,7 @@ export const day2: ScheduleItemType[] = [
   {
     title: 'Tier 3 Speaker Sessions x 3',
     id: 'esummit-speaker1',
+    domain: 'esummit',
     color: 'bg-red-700',
     date: 'Oct 5th, 2024',
     location: 'Room 404',
@@ -233,6 +245,7 @@ export const day2: ScheduleItemType[] = [
   {
     title: 'Tier 2 Speaker Session',
     id: 'esummit-speaker2',
+    domain: 'esummit',
     color: 'bg-purple-700',
     date: 'Oct 5th, 2024',
     location: 'Room 407',
@@ -250,6 +263,7 @@ export const day2: ScheduleItemType[] = [
   {
     title: 'Tier 3 Speaker Sessions x 2',
     id: 'esummit-speaker3',
+    domain: 'esummit',
     color: 'bg-blue-700',
     date: 'Oct 5th, 2024',
     location: 'Room 405',
@@ -268,6 +282,7 @@ export const day2: ScheduleItemType[] = [
     title: 'Lunch Break',
     id: 'esummit-lunch',
     color: 'bg-green-700',
+    domain: 'esummit',
     date: 'Oct 5th, 2024',
     location: 'Dining Hall',
     start: new Date('2024-10-05T13:30:00'),
@@ -280,6 +295,7 @@ export const day2: ScheduleItemType[] = [
   {
     title: 'Tier 2 Speaker Sessions x 2',
     id: 'esummit-speaker4',
+    domain: 'esummit',
     color: 'bg-yellow-700',
     date: 'Oct 5th, 2024',
     location: 'Room 406',
@@ -297,6 +313,7 @@ export const day2: ScheduleItemType[] = [
   {
     title: 'Investors Meeting',
     id: 'esummit-investors',
+    domain: 'esummit',
     color: 'bg-teal-700',
     date: 'Oct 5th, 2024',
     location: 'Room 407',
@@ -315,6 +332,7 @@ export const day2: ScheduleItemType[] = [
     title: 'Closing Ceremony and Dinner',
     id: 'esummit-closing',
     color: 'bg-orange-700',
+    domain: 'esummit',
     date: 'Oct 5th, 2024',
     location: 'Main Stage',
     start: new Date('2024-10-05T17:45:00'),
@@ -335,6 +353,7 @@ export const day3: ScheduleItemType[] = [
   {
     title: 'PUNE OPEN MIC (Session 1)',
     id: 'creatorsconclave-openmic1',
+    domain: 'creators',
     color: 'bg-red-700',
     date: 'Oct 6th, 2024',
     location: 'Main Stage',
@@ -352,6 +371,7 @@ export const day3: ScheduleItemType[] = [
   {
     title: 'Stand UP 1',
     id: 'creatorsconclave-standup1',
+    domain: 'creators',
     color: 'bg-green-700',
     date: 'Oct 6th, 2024',
     location: 'Main Stage',
@@ -369,6 +389,7 @@ export const day3: ScheduleItemType[] = [
   {
     title: 'Theater Act',
     id: 'creatorsconclave-theater',
+    domain: 'creators',
     color: 'bg-orange-700',
     date: 'Oct 6th, 2024',
     location: 'Main Stage',
@@ -386,6 +407,7 @@ export const day3: ScheduleItemType[] = [
   {
     title: 'PUNE OPEN MIC (Session 2)',
     id: 'creatorsconclave-openmic2',
+    domain: 'creators',
     color: 'bg-red-700',
     date: 'Oct 6th, 2024',
     location: 'Main Stage',
@@ -403,6 +425,7 @@ export const day3: ScheduleItemType[] = [
   {
     title: 'Battle of Comedians',
     id: 'creatorsconclave-comedians',
+    domain: 'creators',
     color: 'bg-pink-700',
     date: 'Oct 6th, 2024',
     location: 'Main Stage',
@@ -420,6 +443,7 @@ export const day3: ScheduleItemType[] = [
   {
     title: 'Prize Distribution',
     id: 'creatorsconclave-prize',
+    domain: 'creators',
     color: 'bg-yellow-500',
     date: 'Oct 6th, 2024',
     location: 'Main Stage',
@@ -437,6 +461,7 @@ export const day3: ScheduleItemType[] = [
   {
     title: 'Main Stage Event',
     id: 'creatorsconclave-mainstage',
+    domain: 'creators',
     color: 'bg-teal-700',
     date: 'Oct 6th, 2024',
     location: 'Main Stage',
@@ -456,6 +481,7 @@ export const day3: ScheduleItemType[] = [
   {
     title: 'LAN Tournaments',
     id: 'esports-lantournaments',
+    domain: 'esports',
     color: 'bg-red-500',
     date: 'Oct 6th, 2024',
     location: 'Gaming Arena',
@@ -474,6 +500,7 @@ export const day3: ScheduleItemType[] = [
     title: 'Competitions',
     id: 'esports-competitions',
     color: 'bg-blue-500',
+    domain: 'esports',
     date: 'Oct 6th, 2024',
     location: 'Gaming Arena',
     start: new Date('2024-10-06T10:00:00'),
@@ -490,6 +517,7 @@ export const day3: ScheduleItemType[] = [
   {
     title: 'Experience Arenas',
     id: 'esports-experience',
+    domain: 'esports',
     color: 'bg-green-500',
     date: 'Oct 6th, 2024',
     location: 'Experience Hall',
@@ -509,6 +537,7 @@ export const day3: ScheduleItemType[] = [
   {
     title: 'Breakfast and Reporting',
     id: 'mun-breakfast',
+    domain: 'mun',
     color: 'bg-gray-400',
     date: 'Oct 6th, 2024',
     location: 'Dining Hall',
@@ -522,6 +551,7 @@ export const day3: ScheduleItemType[] = [
   {
     title: 'Committee Session 3',
     id: 'mun-committeesession3',
+    domain: 'mun',
     color: 'bg-blue-500',
     date: 'Oct 6th, 2024',
     location: 'Various Rooms',
@@ -539,6 +569,7 @@ export const day3: ScheduleItemType[] = [
   {
     title: 'Lunch',
     id: 'mun-lunch',
+    domain: 'mun',
     color: 'bg-gray-300',
     date: 'Oct 6th, 2024',
     location: 'Dining Hall',
@@ -552,6 +583,7 @@ export const day3: ScheduleItemType[] = [
   {
     title: 'Committee Session 4',
     id: 'mun-committeesession4',
+    domain: 'mun',
     color: 'bg-blue-500',
     date: 'Oct 6th, 2024',
     location: 'Various Rooms',
@@ -569,6 +601,7 @@ export const day3: ScheduleItemType[] = [
   {
     title: 'High Tea and Closing Ceremony',
     id: 'mun-closing',
+    domain: 'mun',
     color: 'bg-green-600',
     date: 'Oct 6th, 2024',
     location: 'Lobby Area',
