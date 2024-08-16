@@ -10,7 +10,7 @@ export const TracingBeamDemo = () => {
     <TracingBeam className="px-6 py-36  text-neutral-50">
       <div className="max-w-2xl mx-auto antialiased pt-4 relative">
         {day1.map((item, index) => (
-          <div key={`content-${index}`} className="mb-10">
+          <div key={`content-${index}`} className="mb-10 cursor-pointer">
             <Link href={`/events/${item.id}`}>
             <p className="text-xl mb-4 ">
               {item.title}
