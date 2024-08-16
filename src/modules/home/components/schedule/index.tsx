@@ -5,7 +5,7 @@ import { ScheduleItem } from './scheduleitem';
 import { day1, day2, day3 } from '@/config/events';
 import { Separator } from '@/components/ui/separator';
 import { FollowCursor } from './cursor';
-import { useMemo, useState, useRef } from 'react';
+import React, { useMemo, useState, useRef } from 'react';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import Link from 'next/link';
 import { Switch } from '@/components/ui/switch';
@@ -117,19 +117,15 @@ export const Schedule = () => {
             </div>
             <Separator className='my-4 max-w-full bg-slate-300 md:max-w-36' />
             {d1.map((item, index) => (
-              <>
+              <React.Fragment key={`Day1-${index}`}>
                 {showPreview ? (
-                  <FollowCursor
-                    key={`Day ${index} - ${index}`}
-                    data={item}
-                    classname='scale-90'
-                  >
+                  <FollowCursor data={item} classname='scale-90'>
                     <ScheduleItem data={item} />
                   </FollowCursor>
                 ) : (
-                  <ScheduleItem key={`Day ${index} - ${index}`} data={item} />
+                  <ScheduleItem data={item} />
                 )}
-              </>
+              </React.Fragment>
             ))}
           </div>
         </AnimatePresence>
@@ -154,19 +150,15 @@ export const Schedule = () => {
             </div>
             <Separator className='my-4 max-w-full bg-slate-300 md:max-w-36' />
             {d2.map((item, index) => (
-              <>
+              <React.Fragment key={`Day2-${index}`}>
                 {showPreview ? (
-                  <FollowCursor
-                    key={`Day ${index} - ${index}`}
-                    data={item}
-                    classname='scale-90'
-                  >
+                  <FollowCursor data={item} classname='scale-90'>
                     <ScheduleItem data={item} />
                   </FollowCursor>
                 ) : (
-                  <ScheduleItem key={`Day ${index} - ${index}`} data={item} />
+                  <ScheduleItem data={item} />
                 )}
-              </>
+              </React.Fragment>
             ))}
           </div>
         </AnimatePresence>
@@ -191,19 +183,15 @@ export const Schedule = () => {
             </div>
             <Separator className='my-4 max-w-full bg-slate-300 md:max-w-36' />
             {d3.map((item, index) => (
-              <>
+              <React.Fragment key={`Day3-${index}`}>
                 {showPreview ? (
-                  <FollowCursor
-                    key={`Day ${index} - ${index}`}
-                    data={item}
-                    classname='scale-90'
-                  >
+                  <FollowCursor data={item} classname='scale-90'>
                     <ScheduleItem data={item} />
                   </FollowCursor>
                 ) : (
-                  <ScheduleItem key={`Day ${index} - ${index}`} data={item} />
+                  <ScheduleItem data={item} />
                 )}
-              </>
+              </React.Fragment>
             ))}
           </div>
         </AnimatePresence>
