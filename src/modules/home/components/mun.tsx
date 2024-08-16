@@ -9,6 +9,12 @@ import Link from 'next/link';
 import { useIsMobile } from '@/hooks/useismobile';
 
 export const MUN = () => {
+  const [loading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setIsLoading(false);
+  }, []);
+
   return (
     <section
       id='mun'
@@ -44,7 +50,7 @@ export const MUN = () => {
           </Link>
         </div>
       </div>
-      <ShuffleGrid />
+      {!loading && <ShuffleGrid />}
     </section>
   );
 };
@@ -59,73 +65,56 @@ function shuffleArray<T>(array: T[]): T[] {
 }
 
 interface SquareData {
-  id: number;
   src: string;
 }
 
 const squareData: SquareData[] = [
   {
-    id: 1,
     src: '/imgs/mun/1.png',
   },
   {
-    id: 2,
     src: '/imgs/mun/2.png',
   },
   {
-    id: 3,
     src: '/imgs/mun/3.png',
   },
   {
-    id: 4,
     src: '/imgs/mun/4.png',
   },
   {
-    id: 5,
     src: '/imgs/mun/5.png',
   },
   {
-    id: 6,
     src: '/imgs/mun/6.png',
   },
   {
-    id: 7,
     src: '/imgs/mun/7.png',
   },
   {
-    id: 8,
     src: '/imgs/mun/8.png',
   },
   {
-    id: 9,
     src: '/imgs/mun/9.png',
   },
   {
-    id: 10,
     src: '/imgs/mun/10.png',
   },
   {
-    id: 11,
     src: '/imgs/mun/11.png',
   },
   {
-    id: 12,
     src: '/imgs/mun/12.png',
   },
   {
-    id: 13,
     src: '/imgs/mun/13.png',
   },
   {
-    id: 14,
     src: '/imgs/mun/14.png',
   },
   {
-    id: 15,
     src: '/imgs/mun/15.png',
   },
   {
-    id: 16,
     src: '/imgs/mun/16.png',
   },
 ];
@@ -134,7 +123,7 @@ const generateSquares = (ismobile: boolean) => {
   const data = ismobile ? squareData.slice(0, 9) : squareData;
   return shuffleArray(data).map((sq) => (
     <motion.div
-      key={sq.id}
+      key={sq.src}
       layout
       transition={{ duration: 1.5, type: 'spring' }}
       className='h-full w-full'
