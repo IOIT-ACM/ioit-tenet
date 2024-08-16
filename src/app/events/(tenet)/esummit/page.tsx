@@ -1,7 +1,9 @@
-import CommingSoon from '@/components/commingsoon';
+import Timeline from "@/modules/events/esummit/components/timeline";
 
-const Page = () => {
-  return <CommingSoon />;
-};
-
-export default Page;
+export default async function Page() {
+  return (
+    <main className=''>
+      <Timeline />
+    </main>
+  );
+}

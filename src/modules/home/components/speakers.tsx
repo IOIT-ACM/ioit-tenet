@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useTransform, useScroll } from 'framer-motion';
-import Link from 'next/Link';
+import Link from 'next/link';
 import { useRef } from 'react';
 import type { Speaker } from '@/types';
 import { speakers } from '@/config/speakers';
