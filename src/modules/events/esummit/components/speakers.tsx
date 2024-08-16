@@ -1,9 +1,6 @@
-"use client";
-import React from 'react';
 import Image from 'next/image';
 import type { Speaker } from '@/types'
 import { speakers } from '@/config/speakers';
-
 export const Speakers = () => {
   return (
     <section className="py-12 bg-black">
@@ -19,8 +16,8 @@ export const Speakers = () => {
                     <Image
                       src={speaker.image}
                       alt={speaker.name}
-                      layout="fill"
-                      objectFit="cover"
+                      fill
+                      style={{ objectFit: 'cover' }}
                       className="rounded-full"
                     />
                   </div>

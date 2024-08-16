@@ -1,8 +1,6 @@
-"use client";
-import React from 'react';
 import Image from 'next/image';
+import { type Sponsor } from '@/types';
 import { sponsor } from '@/config/sponsors';
-
 
 export const Sponsors = () => {
   return (
@@ -10,7 +8,7 @@ export const Sponsors = () => {
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center text-white mb-8">Our Sponsors</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
-          {sponsor.map((sponsor, index) => (
+          {sponsor.map((sponsor: Sponsor, index) => (
             <a
               key={index}
               href={sponsor.websiteUrl}
@@ -24,7 +22,7 @@ export const Sponsors = () => {
                   alt={sponsor.name}
                   width={128}
                   height={128}
-                  objectFit="contain"
+                  style={{ objectFit: 'cover' }}
                   className="rounded-full"
                 />
               </div>
