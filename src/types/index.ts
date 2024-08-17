@@ -48,3 +48,9 @@ export type ScheduleItemType = {
   time: string;
   registration?: string;
 };
+
+export interface Sponsor {
+  name: string;
+  logoUrl: string;
+  websiteUrl: string;
+}

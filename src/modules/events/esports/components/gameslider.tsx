@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import GameRegisterBtn from '@/modules/events/esports/components/GameRegisterBtn';
 
@@ -67,9 +67,9 @@ export const GameSlider = () => {
           <Image
             src={slide.image}
             alt={`Slide ${slide.id}`}
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center"
+            fill
+            style={{ objectFit: 'cover', objectPosition:'center'}}
+            
             priority
           />
         </div>
