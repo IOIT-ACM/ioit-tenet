@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import styles from './WelcomeScreen.module.scss';
 
 /**
  * WelcomeScreen Component
@@ -18,21 +19,23 @@ const WelcomeScreen = () => {
   const [loading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(false);
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
   }, []);
 
-  if (loading) {
-    return (
-      <div className='fixed inset-0 z-[9999999999] flex items-center justify-center bg-slate-900'>
-        <div className='animate-pulse text-center'>
-          <h1 className='text-6xl font-bold text-white'>TENET 2024</h1>
-          <p className='mt-4 text-2xl text-gray-300'>Loading, please wait...</p>
-        </div>
+  return (
+    <div
+      className={`${styles.welcomeScreen} ${loading ? '' : styles.slideDown}`}
+    >
+      <div className={styles.content}>
+        <h1 className={styles.title}>TENET 2024</h1>
+        <p className={styles.subtitle}>Loading, please wait...</p>
       </div>
-    );
-  }
-
-  return null;
+    </div>
+  );
 };
 
 export default WelcomeScreen;
