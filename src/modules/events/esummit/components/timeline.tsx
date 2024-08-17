@@ -25,30 +25,20 @@ export const Timeline = () => {
         const scrollPercentage = Math.max(0, Math.min(1, (viewportHeight - containerTop) / (viewportHeight + containerHeight)));
         const newHeight = scrollPercentage * maxBeamHeight;
 
-        console.log('scrollPercentage:', scrollPercentage);
-        console.log('newHeight:', newHeight);
-
         await beamControls.start({
           height: `${newHeight}px`,
           transition: { duration: 0 }
         });
 
         const itemElements = containerRef.current.querySelectorAll<HTMLDivElement>('.timeline-item');
-        const updatedVisibility = new Array(esummit_events.length).fill(0);
         let newActiveIndex: number = activeEventIndex;
 
         itemElements.forEach((item, index) => {
-          const { top: itemTop, bottom: itemBottom } = item.getBoundingClientRect();
-          const isVisible = itemTop < viewportHeight && itemBottom > 0;
-          updatedVisibility[index] = isVisible ? 1 : 0;
 
           const timeElement = item.querySelector<HTMLDivElement>('.event-time');
           if (timeElement) {
             const { top: timeTop } = timeElement.getBoundingClientRect();
             const beamTop = containerTop + newHeight;
-
-            console.log('timeTop:', timeTop);
-            console.log('beamTop:', beamTop);
 
             if (beamTop >= timeTop) {
               newActiveIndex = index;
