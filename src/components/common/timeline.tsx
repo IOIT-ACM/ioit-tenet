@@ -7,7 +7,7 @@ import { day1, day2, day3 } from '@/config/events';
 import { type ScheduleItemType } from "@/types";
 const allEvents: ScheduleItemType[] = [...day1, ...day2, ...day3];
 
-export const Timeline: React.FC<ScheduleItemType> = ({domain}) => {
+export const Timeline: React.FC<{ domain: string }> = ({ domain }) => {
 
 const esummit_events: ScheduleItemType[] = allEvents.filter((event) => event.domain === domain);
   const containerRef = useRef<HTMLDivElement>(null);
