@@ -1,6 +1,6 @@
 import {
 HeroImage,
-TracingBeamDemo
+Timeline
 } from '@/modules/events/techfiesta';
 
 export default async function Page() {
@@ -13,7 +13,7 @@ export default async function Page() {
         ctaText="Learn More"
         ctaLink="#tracingbeam"
       />
-      <TracingBeamDemo/>
+      <Timeline domain='techfiesta'/>
     </main>
   );
 }

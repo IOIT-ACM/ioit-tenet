@@ -16,7 +16,7 @@ export default function Page() {
         ctaText="Learn More"
         ctaLink="#timeline"
       />
-      <Timeline />
+      <Timeline domain='esummit' />
       <Speakers/>
       <Sponsors/>
     </main>

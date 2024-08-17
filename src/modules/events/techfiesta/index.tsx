@@ -1,2 +1,2 @@
-export { TracingBeamDemo } from './components/tracingbeam';
-export { HeroImage } from './components/heroimage';
+export { HeroImage } from '@/components/common/heroimage';
+export { Timeline } from '@/components/common/timeline';
