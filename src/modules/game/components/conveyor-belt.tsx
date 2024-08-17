@@ -11,6 +11,7 @@ import { FaPlay, FaStop } from 'react-icons/fa';
 import { VanishInput } from '@/components/ui/vanish-input';
 import { IoClose } from 'react-icons/io5';
 import Link from 'next/link';
+import { useAudio } from '@/hooks/use-audio';
 
 interface ActiveWord {
   id: number;
@@ -62,6 +63,10 @@ export const ConveyorBelt: React.FC = () => {
   });
   const [loading, setIsLoading] = useState(true);
 
+  const correctWordSound = useAudio('/music/correct-word.mp3');
+  const gameStartSound = useAudio('/music/game-start.mp3');
+  const gameOverSound = useAudio('/music/game-over.mp3');
+
   useEffect(() => {
     setIsLoading(false);
   }, []);
@@ -77,6 +82,7 @@ export const ConveyorBelt: React.FC = () => {
             clearInterval(timer);
             setIsGameOver(true);
             updateHighscore(score);
+            gameOverSound.play();
             return 0;
           }
           return prevTime - 1;
@@ -115,6 +121,7 @@ export const ConveyorBelt: React.FC = () => {
         if (joined.includes(word.word.toLowerCase())) {
           if (playing === 'playing') {
             setScore((prevScore) => prevScore + word.word.length);
+            correctWordSound.play();
           }
           setCharacters([]);
           return false;
@@ -123,6 +130,13 @@ export const ConveyorBelt: React.FC = () => {
       });
       return newWords;
     });
+
+    if (playing === 'pause' && characters.join('') === 'play') {
+      setActiveWords([]);
+      setScore(0);
+      restart();
+      gameStartSound.play();
+    }
   }, [characters, setCharacters]);
 
   const updateHighscore = (newScore: number) => {
@@ -343,6 +357,11 @@ export const ConveyorBelt: React.FC = () => {
           topPos={topPos}
         />
       ))}
+      {playing === 'pause' && (
+        <div className='fixed top-14 w-screen select-none p-4 text-center text-xl text-white'>
+          Type &apos;play&apos; to begin game
+        </div>
+      )}
       {playing !== 'zen' && (
         <>
           <div className='fixed left-5 top-5 text-xl text-white'>

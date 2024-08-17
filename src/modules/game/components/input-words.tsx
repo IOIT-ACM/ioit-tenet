@@ -1,19 +1,16 @@
 'use client';
 
-import { useEffect, useRef, useState, type FC } from 'react';
+import { useEffect, useState, type FC } from 'react';
 import { HiMiniSpeakerWave, HiMiniSpeakerXMark } from 'react-icons/hi2';
+import { useAudio } from '@/hooks/use-audio';
 
 import { useStore } from '@/store';
 
 export const InputWords: FC = () => {
   const characters = useStore.use.characters();
   const setCharacters = useStore.use.setCharacters();
-  const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isMuted, setIsMuted] = useState(false);
-
-  useEffect(() => {
-    audioRef.current = new Audio('/music/key-press.mp3');
-  }, []);
+  const keySound = useAudio('/music/key-press.mp3');
 
   const toggleMute = () => {
     setIsMuted((prev) => !prev);
@@ -29,12 +26,7 @@ export const InputWords: FC = () => {
         return;
       }
 
-      if (audioRef.current && !isMuted) {
-        audioRef.current.currentTime = 0;
-        void audioRef.current.play().catch((error) => {
-          console.error('Error playing audio:', error);
-        });
-      }
+      keySound.play();
 
       if (key === 'backspace') {
         setCharacters(characters.slice(0, -1));
@@ -54,7 +46,7 @@ export const InputWords: FC = () => {
     return () => {
       window.removeEventListener('keydown', handleKeyPress);
     };
-  }, [characters, setCharacters, isMuted]);
+  }, [characters, setCharacters, isMuted, keySound]);
 
   return (
     <>

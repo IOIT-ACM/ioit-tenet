@@ -10,7 +10,7 @@ import { FlipLink } from './fliplink';
 
 const images = [
   '/imgs/socials/instagram.png',
-  '/imgs/socials/facebook.png',
+  '/imgs/socials/keyboard.png',
   '/imgs/socials/linkedin.png',
   '/imgs/socials/x.png',
   '/imgs/socials/twitter.png',
@@ -118,11 +118,11 @@ export const Socials = () => {
       className='relative grid h-[100vh] place-content-center gap-2 overflow-hidden px-8 py-24 text-gray-400'
       onMouseMove={handleMouseMove}
     >
-      <div ref={linkContainerRef}>
+      <div ref={linkContainerRef} className='grid gap-2'>
         <FlipLink href='#'>Twitter</FlipLink>
         <FlipLink href='#'>Linkedin</FlipLink>
-        <FlipLink href='#'>Facebook</FlipLink>
         <FlipLink href='#'>Instagram</FlipLink>
+        <FlipLink href='/game'>TENET game</FlipLink>
       </div>
 
       {images.map((img, index) => (
