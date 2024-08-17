@@ -91,22 +91,22 @@ export const Timeline: React.FC<{ domain: string }> = ({ domain }) => {
       id='timeline'
       className='flex min-h-screen flex-col items-center bg-black p-4 text-white'
     >
-      <h1 className='my-24 bg-gradient-to-r from-green-300 to-green-600 bg-clip-text text-6xl font-bold text-transparent'>
+      <h1 className='my-12 bg-gradient-to-r from-green-300 to-green-600 bg-clip-text text-center text-4xl font-bold text-transparent md:my-24 md:text-6xl'>
         Events Timeline
       </h1>
       <div
         ref={containerRef}
-        className='relative flex w-full max-w-6xl flex-col items-center'
+        className='relative flex w-full max-w-6xl flex-col items-start md:items-center'
       >
-        <div className='absolute left-1/2 h-full w-0.5 -translate-x-1/2 transform bg-gray-700' />
+        <div className='absolute left-4 h-full w-0.5 transform bg-gray-700 md:left-1/2 md:-translate-x-1/2' />
 
         <motion.div
           id='tracing-beam'
-          className='absolute left-1/2 h-0 w-1 -translate-x-1/2 transform bg-gradient-to-b from-green-300 via-green-500 to-green-700'
+          className='absolute left-4 h-0 w-1 transform bg-gradient-to-b from-green-300 via-green-500 to-green-700 md:left-1/2 md:-translate-x-1/2'
           animate={beamControls}
         />
 
-        <div className='flex w-full flex-col'>
+        <div className='flex w-full flex-col pl-8 md:pl-0'>
           {esummit_events.map((event: ScheduleItemType, index: number) => (
             <TimelineItem
               key={event.id}
@@ -132,9 +132,7 @@ const TimelineItem: React.FC<{
 
   return (
     <motion.div
-      className={`timeline-item relative mb-24 flex items-start ${
-        index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-      } ${isLast ? 'mb-0' : ''}`}
+      className={`timeline-item relative mb-16 flex flex-col items-start md:mb-24 md:flex-row ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} ${isLast ? 'mb-0' : ''}`}
       initial={{ opacity: 0, y: 50, scale: 0.8 }}
       animate={{
         opacity: isActive ? 1 : 0.2,
@@ -158,9 +156,9 @@ const TimeMarker: React.FC<{ time: string; isActive: boolean }> = ({
   isActive,
 }) => (
   <div
-    className={`event-time absolute left-1/2 z-10 -translate-x-1/2 transform rounded-full border-2 bg-black p-2 ${isActive ? 'border-green-500 text-green-500' : 'border-gray-400 text-gray-400'}`}
+    className={`event-time absolute left-0 z-10 hidden -translate-x-full transform rounded-full border-2 bg-black p-2 md:left-1/2 md:block md:-translate-x-1/2 ${isActive ? 'border-green-500 text-green-500' : 'border-gray-400 text-gray-400'}`}
   >
-    <p>{time}</p>
+    <p className='text-sm md:text-base'>{time}</p>
   </div>
 );
 
@@ -170,17 +168,19 @@ const EventContent: React.FC<{
   isActive: boolean;
 }> = ({ event, index }) => (
   <div
-    className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:ml-auto md:pl-12 md:text-right'}`}
+    className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-6 lg:pr-12' : 'md:ml-auto md:pl-6 md:text-right lg:pl-12'}`}
   >
     <Link href={`/events/${event.id}`} passHref>
-      <div className='group rounded-lg p-6 transition-all duration-300 ease-in-out hover:bg-gray-800'>
-        <h3 className='text-md mb-2 text-green-500'>{event.date}</h3>
-        <h2 className='mb-4 text-4xl font-bold transition-colors duration-300 group-hover:text-green-400'>
+      <div className='group rounded-lg p-4 transition-all duration-300 ease-in-out hover:bg-gray-800 md:p-6'>
+        <h3 className='md:text-md mb-2 text-sm text-green-500'>{event.date}</h3>
+        <h2 className='mb-3 text-2xl font-bold transition-colors duration-300 group-hover:text-green-400 md:mb-4 md:text-4xl'>
           {event.title}
         </h2>
-        <p className='mb-6 text-gray-400'>{event.description}</p>
+        <p className='mb-4 text-sm text-gray-400 md:mb-6 md:text-base'>
+          {event.description}
+        </p>
 
-        <div className='relative mb-6 h-64 w-full overflow-hidden rounded-lg transition-all duration-300 group-hover:shadow-lg group-hover:shadow-green-500/20'>
+        <div className='relative mb-4 h-48 w-full overflow-hidden rounded-lg transition-all duration-300 group-hover:shadow-lg group-hover:shadow-green-500/20 md:mb-6 md:h-64'>
           <Image
             src={event.image}
             alt={event.title}
@@ -190,8 +190,10 @@ const EventContent: React.FC<{
           />
         </div>
 
-        <div className='text mb-6'>
-          <p className='text-green-500'>Location: {event.location}</p>
+        <div className='text mb-2 md:mb-6'>
+          <p className='text-sm text-green-500 md:text-base'>
+            Location: {event.location}
+          </p>
         </div>
       </div>
     </Link>
