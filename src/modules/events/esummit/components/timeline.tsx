@@ -1,6 +1,6 @@
 "use client";
 import { motion, useAnimation } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from 'next/image';
 import Link from 'next/link';
 import { day1, day2, day3 } from '@/config/events';
@@ -11,91 +11,111 @@ const esummit_events: ScheduleItemType[] = allEvents.filter((event) => event.dom
 
 export const Timeline = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const controls = useAnimation();
+  const beamControls = useAnimation();
+  const [activeEventIndex, setActiveEventIndex] = useState<number>(0);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = async () => {
       if (containerRef.current) {
-        const { top, bottom } = containerRef.current.getBoundingClientRect();
+        const containerRect = containerRef.current.getBoundingClientRect();
+        const { top: containerTop, height: containerHeight } = containerRect;
         const viewportHeight = window.innerHeight;
 
-        // Check if container is in viewport
-        if (top < viewportHeight && bottom > 0) {
-          void controls.start("visible");
-        } else {
-          void controls.start("hidden");
-        }
+        const maxBeamHeight = containerHeight;
+        const scrollPercentage = Math.max(0, Math.min(1, (viewportHeight - containerTop) / (viewportHeight + containerHeight)));
+        const newHeight = scrollPercentage * maxBeamHeight;
+
+        console.log('scrollPercentage:', scrollPercentage);
+        console.log('newHeight:', newHeight);
+
+        await beamControls.start({
+          height: `${newHeight}px`,
+          transition: { duration: 0 }
+        });
+
+        const itemElements = containerRef.current.querySelectorAll<HTMLDivElement>('.timeline-item');
+        const updatedVisibility = new Array(esummit_events.length).fill(0);
+        let newActiveIndex: number = activeEventIndex;
+
+        itemElements.forEach((item, index) => {
+          const { top: itemTop, bottom: itemBottom } = item.getBoundingClientRect();
+          const isVisible = itemTop < viewportHeight && itemBottom > 0;
+          updatedVisibility[index] = isVisible ? 1 : 0;
+
+          const timeElement = item.querySelector<HTMLDivElement>('.event-time');
+          if (timeElement) {
+            const { top: timeTop } = timeElement.getBoundingClientRect();
+            const beamTop = containerTop + newHeight;
+
+            console.log('timeTop:', timeTop);
+            console.log('beamTop:', beamTop);
+
+            if (beamTop >= timeTop) {
+              newActiveIndex = index;
+            }
+          }
+        });
+
+        setActiveEventIndex(newActiveIndex);
       }
     };
 
-    handleScroll(); // Check initial visibility
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleScroll);
+    const handleScrollWrapper = () => {
+      handleScroll().catch(error => {
+        console.error('Error in handleScroll:', error);
+      });
+    };
+
+    handleScrollWrapper();
+    window.addEventListener('scroll', handleScrollWrapper);
+    window.addEventListener('resize', handleScrollWrapper);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleScroll);
+      window.removeEventListener('scroll', handleScrollWrapper);
+      window.removeEventListener('resize', handleScrollWrapper);
     };
-  }, [controls]);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-        when: "beforeChildren"
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 100 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8
-      }
-    }
-  };
+  }, [beamControls, activeEventIndex]);
 
   return (
     <main id="timeline" className="flex flex-col items-center bg-black text-white min-h-screen p-4">
       <h1 className="text-5xl font-bold my-24">Events</h1>
-      <motion.div 
+      <div 
         ref={containerRef}
         className="relative flex flex-col items-center w-full max-w-6xl"
-        variants={containerVariants}
-        initial="hidden"
-        animate={controls}
       >
-        {/* Vertical Line */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 bg-green-500 w-0.5 h-full"></div>
+        <div className="absolute left-1/2 transform -translate-x-1/2 bg-gray-700 w-0.5 h-full" />
 
-        {/* Timeline Events */}
+        <motion.div
+          id="tracing-beam"
+          className="absolute left-1/2 transform -translate-x-1/2 bg-gradient-to-b from-green-300 via-green-500 to-green-700 w-0.5 h-0"
+          animate={beamControls}
+        />
+
         <div className="flex flex-col w-full">
           {esummit_events.map((event: ScheduleItemType, index: number) => (
             <motion.div
-              key={event.id} 
-              className={`flex items-start mb-24 relative transition-transform duration-300 ease-in-out ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
-              variants={itemVariants}
-              initial="hidden"
-              animate={controls}
+              key={event.id}
+              className={`timeline-item flex items-start mb-24 relative ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} ${activeEventIndex >= index ? 'opacity-100' : 'opacity-20'}`}
+              initial={{ opacity: 0, y: 50, scale: 0.8 }}
+              animate={{ opacity: (activeEventIndex >= index ? 1: 0), y: 0, scale: 1.05 }}
+              transition={{
+                opacity: { duration: 0.4 },
+                scale: { duration: 0.4, ease: "easeOut" },
+                y: { duration: 0.4, ease: "easeOut" },
+              }}
             >
-              {/* Pathway Number */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 bg-black border-2 border-green-500 rounded-full p-2 z-10">
-                <p className="text-green-500">Time: {event.time}</p>
+              <div
+                className={`absolute left-1/2 transform -translate-x-1/2 bg-black border-2 rounded-full p-2 z-10 event-time ${(activeEventIndex >= index) ? 'text-green-500 border-green-500' : 'text-gray-400 border-gray-400'}`}
+              >
+                <p>Time: {event.time}</p>
               </div>
 
-              {/* Event Content */}
               <div className={`w-full md:w-1/2 ${index % 2 === 0 ? "md:pr-12" : "md:pl-12 md:ml-auto md:text-right"}`}>
                 <Link href={`/events/${event.id}`} passHref>
                   <h3 className="text-green-500 text-md mb-2">{event.date}</h3>
                   <h2 className="text-4xl font-bold mb-4">{event.title}</h2>
                   <p className="text-gray-400 mb-6">{event.description}</p>
                   
-                  {/* Image */}
                   <div className="mb-6 w-full h-64 relative overflow-hidden rounded-lg">
                     <Image 
                       src={event.image} 
@@ -106,7 +126,6 @@ export const Timeline = () => {
                     />
                   </div>
                  
-                  {/* Location and Time */}
                   <div className="text mb-6">
                     <p className="text-green-500">Location: {event.location}</p>
                   </div>
@@ -115,7 +134,7 @@ export const Timeline = () => {
             </motion.div>
           ))}
         </div>
-      </motion.div>
+      </div>
     </main>
   );
 };
