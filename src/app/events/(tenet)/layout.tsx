@@ -1,5 +1,6 @@
 import FixedNavBar from '@/components/common/fixednav';
 import { Providers } from '@/modules/providers';
+import { Footer } from '@/modules/events';
 
 interface SiteLayoutProps {
   children: React.ReactNode;
@@ -7,11 +8,10 @@ interface SiteLayoutProps {
 
 export default async function SiteLayout({ children }: SiteLayoutProps) {
   return (
-    <div className='flex min-h-screen flex-col'>
+    <div className='min-h-screen w-screen'>
       <FixedNavBar />
-      <main className='flex-1'>
-        <Providers>{children}</Providers>
-      </main>
+      <Providers>{children}</Providers>
+      <Footer />
     </div>
   );
 }
