@@ -5,11 +5,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { day1, day2, day3 } from '@/config/events';
 import { type ScheduleItemType } from "@/types";
-
 const allEvents: ScheduleItemType[] = [...day1, ...day2, ...day3];
-const esummit_events: ScheduleItemType[] = allEvents.filter((event) => event.domain === 'esummit');
 
-export const Timeline = () => {
+export const Timeline: React.FC<ScheduleItemType> = ({domain}) => {
+
+const esummit_events: ScheduleItemType[] = allEvents.filter((event) => event.domain === domain);
   const containerRef = useRef<HTMLDivElement>(null);
   const beamControls = useAnimation();
   const [activeEventIndex, setActiveEventIndex] = useState<number>(0);
