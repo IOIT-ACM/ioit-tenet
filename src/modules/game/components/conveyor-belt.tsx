@@ -347,7 +347,7 @@ export const ConveyorBelt: React.FC = () => {
   }
 
   return (
-    <div className='fixed h-screen w-screen overflow-hidden'>
+    <div className='fixed hidden h-screen w-screen overflow-hidden md:block'>
       {activeWords.map(({ id, word, topPos }) => (
         <Word
           key={id}
@@ -419,7 +419,12 @@ export const ConveyorBelt: React.FC = () => {
             />
             <div
               className='cursor-pointer truncate'
-              onClick={() => setPlaying('zen')}
+              onClick={() => {
+                setPlaying('zen');
+                setIsGameOver(false);
+                setActiveWords([]);
+                setCharacters([]);
+              }}
             >
               Zen mode
             </div>

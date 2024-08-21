@@ -11,6 +11,15 @@ import Image from 'next/image';
 import MonileFooter from './mobile-footer';
 import { usePathname } from 'next/navigation';
 
+import { CiMenuFries } from 'react-icons/ci';
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet';
+
 interface ShellProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
 }
@@ -63,11 +72,65 @@ export function Shell({ children }: ShellProps) {
           </nav>
         </div>
         <div className='sm:hidden'>
-          <button className='flex items-center rounded border border-white px-3 py-2 text-white'>
-            <svg className='h-3 w-3' viewBox='0 0 20 20' fill='currentColor'>
-              <path d='M3 6h14M3 10h14M3 14h14' />
-            </svg>
-          </button>
+          <Sheet>
+            <SheetTrigger>
+              <CiMenuFries size={29} />
+            </SheetTrigger>
+            <SheetContent className='text-left'>
+              <SheetHeader>
+                <SheetTitle className='text-left'>
+                  {/* <div className='flex space-x-2'>
+                    <Link href={'/'}>
+                      <Image
+                        className='h-10 w-10 cursor-pointer transition-all hover:scale-105'
+                        src={'/tenet-fill.png'}
+                        alt='Tenet Logo'
+                        height={70}
+                        width={70}
+                      />
+                    </Link>
+                    <Link href={'/'}>
+                      <Image
+                        className='h-10 w-10 cursor-pointer transition-all hover:scale-105'
+                        src={'/acm.png'}
+                        alt='Tenet Logo'
+                        height={70}
+                        width={70}
+                      />
+                    </Link>
+                  </div> */}
+                  <h1>Menu</h1>
+                </SheetTitle>
+
+                <nav className='flex flex-col gap-5 pt-10 text-left text-black'>
+                  <Link className='transition-all hover:underline' href='/'>
+                    Home
+                  </Link>
+                  <Link
+                    className='transition-all hover:underline'
+                    href='/events'
+                  >
+                    Agenda
+                  </Link>
+                  <Link
+                    className='transition-all hover:underline'
+                    href='/speakers'
+                  >
+                    Speakers
+                  </Link>
+                  <Link className='transition-all hover:underline' href='/team'>
+                    Team
+                  </Link>
+                  <Link
+                    className='transition-all hover:underline'
+                    href='/register'
+                  >
+                    Registrations
+                  </Link>
+                </nav>
+              </SheetHeader>
+            </SheetContent>
+          </Sheet>
         </div>
       </header>
 

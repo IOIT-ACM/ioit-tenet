@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRef } from 'react';
 import type { Speaker } from '@/types';
 import { speakers } from '@/config/speakers';
+import { useIsMobile } from '@/hooks/useismobile';
 
 export const TenetSpeakers = () => {
   return (
@@ -21,7 +22,9 @@ const TenetSpeakersCarousel = () => {
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ['2%', '-70%']);
+  const ismobile = useIsMobile();
+  const scrollEnd = ismobile ? '-90%' : '-70%';
+  const x = useTransform(scrollYProgress, [0, 1], ['2%', scrollEnd]);
 
   return (
     <section ref={targetRef} className='relative h-[300vh]'>

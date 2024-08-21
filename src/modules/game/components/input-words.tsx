@@ -50,7 +50,7 @@ export const InputWords: FC = () => {
 
   return (
     <>
-      <div className='fixed bottom-14 w-screen select-none p-4 text-center text-2xl text-white'>
+      <div className='fixed bottom-14 hidden w-screen select-none p-4 text-center text-2xl text-white md:block'>
         {characters.length === 0 && (
           <p className='text-sm text-gray-600'>Start typing...</p>
         )}
@@ -58,7 +58,7 @@ export const InputWords: FC = () => {
       </div>
       <div
         onClick={toggleMute}
-        className='fixed bottom-4 z-50 rounded-full bg-gray-800 p-2 text-white'
+        className='fixed bottom-4 z-50 hidden rounded-full bg-gray-800 p-2 text-white md:block'
       >
         {isMuted ? (
           <HiMiniSpeakerXMark size={20} />

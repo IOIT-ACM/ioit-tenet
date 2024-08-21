@@ -1,6 +1,7 @@
 import { Keyboard } from './Keyboard';
 import { InputWords } from './input-words';
 import { ConveyorBelt } from './conveyor-belt';
+import { Mobile } from './mobile';
 
 export const GameScreen = () => {
   return (
@@ -10,6 +11,7 @@ export const GameScreen = () => {
       </div>
       <InputWords />
       <ConveyorBelt />
+      <Mobile />
     </div>
   );
 };

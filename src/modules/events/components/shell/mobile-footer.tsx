@@ -1,8 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {
   Drawer,
-  DrawerClose,
   DrawerContent,
-  DrawerFooter,
+  // DrawerFooter,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
@@ -11,16 +11,39 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  type CarouselApi,
 } from '@/components/ui/carousel';
+import { useState, useEffect } from 'react';
 import { day1, day2, day3 } from '@/config/events';
+import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const MobileFooter = () => {
-  const days = [day1, day2, day3];
+  const allEvents = [...day1, ...day2, ...day3];
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+  const pathname = usePathname();
 
-  const sortedDays = days.map((day) =>
-    day.sort((a, b) => a.start.getTime() - b.start.getTime()),
-  );
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    const currentEventIndex = allEvents.findIndex(
+      (event) => `/events/${event.id}` === pathname,
+    );
+
+    api.scrollTo(currentEventIndex);
+
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap() + 1);
+
+    api.on('select', () => {
+      setCurrent(api.selectedScrollSnap() + 1);
+    });
+  }, [api]);
 
   return (
     <Drawer>
@@ -29,34 +52,51 @@ const MobileFooter = () => {
         <DrawerHeader>
           <DrawerTitle>View Agenda</DrawerTitle>
         </DrawerHeader>
-        <div>
-          <Carousel>
-            <CarouselContent>
-              {sortedDays.map((day, dayIndex) => (
-                <CarouselItem key={dayIndex}>
-                  <h2 className='mb-4 text-center text-xl font-semibold'>
-                    Day {dayIndex + 1}
-                  </h2>
-                  <div className='flex h-[50vh] w-full flex-col gap-2 overflow-y-auto p-4'>
-                    {day.map((item, index) => (
-                      <Link
-                        href={`/events/${item.id}`}
-                        key={index}
-                        className='mb-3'
-                      >
-                        <p className='text-lg'>{item.title}</p>
-                        <p className='text-sm text-gray-500'>{item.time}</p>
-                      </Link>
-                    ))}
+        <Carousel setApi={setApi}>
+          <CarouselContent>
+            {allEvents.map((event, index) => (
+              <CarouselItem key={index}>
+                <Link href={`/events/${event.id}`}>
+                  <div className='flex h-full select-none flex-col items-center justify-between px-4 py-10 text-center'>
+                    <Image
+                      src={event.image}
+                      alt={event.title}
+                      className='rounded-full border border-black'
+                      height={200}
+                      width={200}
+                    />
+                    <h2 className='mb-2 text-xl font-semibold'>
+                      {event.title}
+                    </h2>
+                    <div>
+                      <p className='mb-2 text-gray-500'>
+                        {event.date} - {event.time}
+                      </p>
+                      <p className='mb-2'>{event.location}</p>
+                      {event.domain && (
+                        <span className='rounded-full bg-gray-200 px-3 py-1 text-xs text-gray-600'>
+                          {event.domain}
+                        </span>
+                      )}
+                    </div>
                   </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
-        </div>
-        <DrawerFooter>
-          <DrawerClose>Close</DrawerClose>
-        </DrawerFooter>
+                </Link>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <div className='py-2 text-center text-sm'>
+            <p className='text-muted-foreground'>
+              {current} of {count}
+            </p>
+          </div>
+        </Carousel>
+        {/* <DrawerFooter>
+          <div className='flex w-full items-center justify-center gap-2'>
+            <div onClick={() => api?.scrollTo(1)}>Day 1</div>
+            <div onClick={() => api?.scrollTo(10)}>Day 2</div>
+            <div onClick={() => api?.scrollTo(19)}>Day 3</div>
+          </div>
+        </DrawerFooter> */}
       </DrawerContent>
     </Drawer>
   );
