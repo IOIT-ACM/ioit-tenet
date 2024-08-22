@@ -1,6 +1,5 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
 import { ScheduleItem } from './scheduleitem';
 import { day1, day2, day3 } from '@/config/events';
 import { Separator } from '@/components/ui/separator';
@@ -52,14 +51,9 @@ export const Schedule = () => {
   return (
     <section className='relative mx-5 mb-56 grid grid-cols-1 justify-center text-white transition-all md:mx-32 md:grid-cols-7'>
       <div className='sticky top-0 z-40 self-start bg-black md:top-10 md:col-span-2 md:bg-neutral-950'>
-        <motion.h1
-          initial={{ y: 48, opacity: 0.7 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ ease: 'easeInOut', duration: 0.75 }}
-          className='mb-3 w-full text-4xl font-black uppercase text-zinc-50 md:mb-20 md:text-5xl'
-        >
+        <h1 className='mb-3 mt-5 w-full text-4xl font-black uppercase text-zinc-50 md:mb-20 md:mt-0 md:text-5xl'>
           Schedule
-        </motion.h1>
+        </h1>
 
         <div className='mb-8 hidden items-center space-x-2 md:flex'>
           <Switch
@@ -72,7 +66,7 @@ export const Schedule = () => {
           </label>
         </div>
 
-        <div className='gap- grid pb-2 text-slate-300'>
+        <div className='gap- hidden pb-2 text-slate-300 md:grid'>
           <Link
             className='w-fit transition-all hover:underline'
             href={'/register'}
@@ -94,104 +88,98 @@ export const Schedule = () => {
         </div>
       </div>
       <div ref={boundaryRef} className='w-full md:col-span-5'>
-        <AnimatePresence>
-          <div id='day1events' className='mb-8'>
-            <div className='mb-4 flex w-full items-center justify-between text-3xl font-bold text-gray-300'>
-              <span>Day 1 Events</span>
-              <span>
-                {expanded === 1 ? (
-                  <IoIosArrowUp
-                    onClick={() => setExpanded(null)}
-                    className='cursor-pointer transition-all hover:scale-125'
-                  />
-                ) : (
-                  <IoIosArrowDown
-                    onClick={() => setExpanded(1)}
-                    className='cursor-pointer transition-all hover:scale-125'
-                  />
-                )}
-              </span>
-            </div>
-            <Separator className='my-4 max-w-full bg-slate-300 md:max-w-36' />
-            {d1.map((item, index) => (
-              <React.Fragment key={`Day1-${index}`}>
-                {showPreview ? (
-                  <FollowCursor data={item} classname='scale-90'>
-                    <ScheduleItem data={item} />
-                  </FollowCursor>
-                ) : (
-                  <ScheduleItem data={item} />
-                )}
-              </React.Fragment>
-            ))}
+        <div id='day1events' className='mb-8 mt-20 md:mt-0'>
+          <div className='mb-4 flex w-full items-center justify-between text-3xl font-bold text-gray-300'>
+            <span>Day 1 Events</span>
+            <span>
+              {expanded === 1 ? (
+                <IoIosArrowUp
+                  onClick={() => setExpanded(null)}
+                  className='cursor-pointer transition-all hover:scale-125'
+                />
+              ) : (
+                <IoIosArrowDown
+                  onClick={() => setExpanded(1)}
+                  className='cursor-pointer transition-all hover:scale-125'
+                />
+              )}
+            </span>
           </div>
-        </AnimatePresence>
+          <Separator className='my-4 max-w-full bg-slate-300 md:max-w-36' />
+          {d1.map((item, index) => (
+            <React.Fragment key={`Day1-${index}`}>
+              {showPreview ? (
+                <FollowCursor data={item} classname='scale-90'>
+                  <ScheduleItem data={item} />
+                </FollowCursor>
+              ) : (
+                <ScheduleItem data={item} />
+              )}
+            </React.Fragment>
+          ))}
+        </div>
 
-        <AnimatePresence>
-          <div id='day2events' className='mb-8'>
-            <div className='mb-4 flex w-full items-center justify-between text-3xl font-bold text-gray-300'>
-              <span>Day 2 Events</span>
-              <span>
-                {expanded === 2 ? (
-                  <IoIosArrowUp
-                    onClick={() => setExpanded(null)}
-                    className='cursor-pointer transition-all hover:scale-125'
-                  />
-                ) : (
-                  <IoIosArrowDown
-                    onClick={() => setExpanded(2)}
-                    className='cursor-pointer transition-all hover:scale-125'
-                  />
-                )}
-              </span>
-            </div>
-            <Separator className='my-4 max-w-full bg-slate-300 md:max-w-36' />
-            {d2.map((item, index) => (
-              <React.Fragment key={`Day2-${index}`}>
-                {showPreview ? (
-                  <FollowCursor data={item} classname='scale-90'>
-                    <ScheduleItem data={item} />
-                  </FollowCursor>
-                ) : (
-                  <ScheduleItem data={item} />
-                )}
-              </React.Fragment>
-            ))}
+        <div id='day2events' className='mb-8'>
+          <div className='mb-4 flex w-full items-center justify-between text-3xl font-bold text-gray-300'>
+            <span>Day 2 Events</span>
+            <span>
+              {expanded === 2 ? (
+                <IoIosArrowUp
+                  onClick={() => setExpanded(null)}
+                  className='cursor-pointer transition-all hover:scale-125'
+                />
+              ) : (
+                <IoIosArrowDown
+                  onClick={() => setExpanded(2)}
+                  className='cursor-pointer transition-all hover:scale-125'
+                />
+              )}
+            </span>
           </div>
-        </AnimatePresence>
+          <Separator className='my-4 max-w-full bg-slate-300 md:max-w-36' />
+          {d2.map((item, index) => (
+            <React.Fragment key={`Day2-${index}`}>
+              {showPreview ? (
+                <FollowCursor data={item} classname='scale-90'>
+                  <ScheduleItem data={item} />
+                </FollowCursor>
+              ) : (
+                <ScheduleItem data={item} />
+              )}
+            </React.Fragment>
+          ))}
+        </div>
 
-        <AnimatePresence>
-          <div id='day3events'>
-            <div className='mb-4 flex w-full items-center justify-between text-3xl font-bold text-gray-300'>
-              <span>Day 3 Events</span>
-              <span>
-                {expanded === 3 ? (
-                  <IoIosArrowUp
-                    onClick={() => setExpanded(null)}
-                    className='cursor-pointer transition-all hover:scale-125'
-                  />
-                ) : (
-                  <IoIosArrowDown
-                    onClick={() => setExpanded(3)}
-                    className='cursor-pointer transition-all hover:scale-125'
-                  />
-                )}
-              </span>
-            </div>
-            <Separator className='my-4 max-w-full bg-slate-300 md:max-w-36' />
-            {d3.map((item, index) => (
-              <React.Fragment key={`Day3-${index}`}>
-                {showPreview ? (
-                  <FollowCursor data={item} classname='scale-90'>
-                    <ScheduleItem data={item} />
-                  </FollowCursor>
-                ) : (
-                  <ScheduleItem data={item} />
-                )}
-              </React.Fragment>
-            ))}
+        <div id='day3events'>
+          <div className='mb-4 flex w-full items-center justify-between text-3xl font-bold text-gray-300'>
+            <span>Day 3 Events</span>
+            <span>
+              {expanded === 3 ? (
+                <IoIosArrowUp
+                  onClick={() => setExpanded(null)}
+                  className='cursor-pointer transition-all hover:scale-125'
+                />
+              ) : (
+                <IoIosArrowDown
+                  onClick={() => setExpanded(3)}
+                  className='cursor-pointer transition-all hover:scale-125'
+                />
+              )}
+            </span>
           </div>
-        </AnimatePresence>
+          <Separator className='my-4 max-w-full bg-slate-300 md:max-w-36' />
+          {d3.map((item, index) => (
+            <React.Fragment key={`Day3-${index}`}>
+              {showPreview ? (
+                <FollowCursor data={item} classname='scale-90'>
+                  <ScheduleItem data={item} />
+                </FollowCursor>
+              ) : (
+                <ScheduleItem data={item} />
+              )}
+            </React.Fragment>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -4,8 +4,11 @@ import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { useStore } from '@/store';
 import { RegisterButton } from '../ui/registerbtn';
+import { TfiMenu } from 'react-icons/tfi';
+import { usePathname } from 'next/navigation';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { useIsMobile } from '@/hooks/useismobile';
 
 const transition = {
   type: 'spring',
@@ -25,11 +28,12 @@ const routes = [
 ];
 
 export default function FixedNavBar({ className }: { className?: string }) {
-  const videoPlayed = useStore((state) => state.videoPlayed);
   const [isVisible, setIsVisible] = useState(true);
   const [hovering, setHovering] = useState<null | string>(null);
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up');
+  const pathname = usePathname();
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,8 +58,8 @@ export default function FixedNavBar({ className }: { className?: string }) {
     <motion.div
       initial={{ y: -100, opacity: 0 }}
       animate={{
-        y: scrollDirection === 'down' && !isVisible && videoPlayed ? -100 : 0,
-        opacity: !videoPlayed ? 0 : 1,
+        y: isMobile ? 0 : scrollDirection === 'down' && !isVisible ? -100 : 0,
+        opacity: 1,
       }}
       transition={{ duration: 0.3 }}
       className='fixed top-5 z-50 flex w-screen select-none items-center justify-between px-3 md:px-20'
@@ -67,7 +71,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
         transition={{ duration: 0.8 }}
       >
         <a
-          className='h-10 w-10 cursor-pointer transition-all hover:scale-105 md:h-20 md:w-20'
+          className='h-16 w-16 cursor-pointer transition-all hover:scale-105 md:h-20 md:w-20'
           href={'/'}
         >
           <Image
@@ -131,6 +135,57 @@ export default function FixedNavBar({ className }: { className?: string }) {
         transition={{ duration: 0.8 }}
       >
         <RegisterButton />
+
+        <div className='sm:hidden'>
+          <Sheet>
+            <SheetTrigger>
+              <TfiMenu
+                className={` ${pathname === '/' ? 'text-black' : 'text-white'}`}
+                size={32}
+              />
+            </SheetTrigger>
+            <SheetContent className='flex h-full w-screen items-center justify-center border-none bg-black/75'>
+              <div className='relative flex h-full w-full items-center justify-center'>
+                <motion.svg
+                  width='189'
+                  height='227'
+                  viewBox='0 0 189 227'
+                  fill='none'
+                  xmlns='http://www.w3.org/2000/svg'
+                  className='absolute inset-0 h-full w-full opacity-20'
+                >
+                  <motion.path
+                    d='M167.5 55H124L81.5 188H19L3 225.5H176.5L186 188H125.5L167.5 55Z'
+                    stroke='#D3D3D3'
+                    strokeWidth='3'
+                    initial={{ pathLength: 0 }}
+                    animate={{ pathLength: 1 }}
+                    transition={{ duration: 2.5 }}
+                  />
+                  <motion.path
+                    d='M3.5 39.5L13.5 2H186.5L169.5 39.5H107.5L64.5 172.5H21.5L64.5 39.5H3.5Z'
+                    stroke='#D3D3D3'
+                    strokeWidth='3'
+                    initial={{ pathLength: 0 }}
+                    animate={{ pathLength: 1 }}
+                    transition={{ duration: 2.5 }}
+                  />
+                </motion.svg>
+                <nav className='relative z-10 flex flex-col items-center gap-12 text-center text-2xl text-white'>
+                  {routes.map((route) => (
+                    <a
+                      key={route.path}
+                      className='transform font-semibold transition-transform duration-200'
+                      href={route.path}
+                    >
+                      {route.name}
+                    </a>
+                  ))}
+                </nav>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
       </motion.div>
     </motion.div>
   );

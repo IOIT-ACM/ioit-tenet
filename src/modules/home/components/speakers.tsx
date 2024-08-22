@@ -7,11 +7,21 @@ import type { Speaker } from '@/types';
 import { speakers } from '@/config/speakers';
 import { useIsMobile } from '@/hooks/useismobile';
 
+import dynamic from 'next/dynamic';
+
+const ScrollIcon = dynamic(() => import('@/components/common/scrollicon'), {
+  ssr: false,
+});
+
 export const TenetSpeakers = () => {
   return (
     <div className='bg-neutral-950'>
       <h1 className='text-center text-4xl text-white md:text-8xl'>Speakers</h1>
+      <h3 className='text-center text-lg text-gray-400 md:text-xl'>
+        Scroll down to scroll right
+      </h3>
       <TenetSpeakersCarousel />
+      <ScrollIcon />
     </div>
   );
 };

@@ -10,7 +10,7 @@ export const ShiftingCountdown = () => {
         <p className='text-center text-4xl font-extrabold text-white md:text-9xl'>
           TENET BEGINS IN
         </p>
-        <div className='z-50 p-4 py-14'>
+        <div className='z-50 p-4 py-8 md:py-14'>
           <div className='mx-auto flex w-full max-w-5xl flex-col items-center gap-4 bg-none md:flex-row'>
             <CountdownItem unit='Day' text='days' />
             <CountdownItem unit='Hour' text='hours' />

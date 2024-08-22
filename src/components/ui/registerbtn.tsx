@@ -59,7 +59,7 @@ export const RegisterButton = () => {
       onMouseEnter={scramble}
       onMouseLeave={stopScramble}
       onClick={() => router.push('/register')}
-      className='group relative overflow-hidden rounded-full border-[1px] border-neutral-500 bg-neutral-700 px-4 py-2 font-mono font-medium uppercase text-neutral-300 transition-colors hover:text-indigo-300'
+      className='group relative hidden overflow-hidden rounded-full border-[1px] border-neutral-500 bg-neutral-700 px-4 py-2 font-mono font-medium uppercase text-neutral-300 transition-colors hover:text-indigo-300 md:block'
     >
       <div className='relative z-10 flex items-center gap-2 text-xl'>
         <span>{text}</span>

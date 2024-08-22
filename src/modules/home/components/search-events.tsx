@@ -115,7 +115,7 @@ export const SearchEvents: React.FC = () => {
 
   return (
     <div id='search' className='h-[100vh] bg-neutral-950'>
-      <div className='sticky top-0 grid h-screen grid-cols-1 items-center justify-center gap-3 overflow-hidden bg-neutral-950 px-10 text-gray-300 md:grid-cols-2 md:px-20'>
+      <div className='sticky top-0 grid h-screen grid-cols-1 justify-center gap-3 overflow-hidden bg-neutral-950 px-10 text-gray-300 md:grid-cols-2 md:items-center md:px-20'>
         <div className='grid gap-5 md:-translate-y-[20%] md:px-10'>
           <div className='text-4xl font-bold md:text-6xl'>Search TENET</div>
 
@@ -158,13 +158,13 @@ export const SearchEvents: React.FC = () => {
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className='absolute z-50 mt-1 w-full overflow-y-auto rounded-3xl border border-gray-400 bg-white text-gray-400 md:max-h-[250px]'
+                    className='absolute z-50 mt-1 w-full overflow-y-auto rounded-xl border border-gray-400 bg-white text-gray-400 md:max-h-[250px] md:rounded-3xl'
                   >
-                    {suggestions.map((item, index) => (
+                    {suggestions.slice(0, 7).map((item, index) => (
                       <div
                         key={item.id}
                         className={cn(
-                          'grid cursor-pointer items-center px-5 py-3 text-xl hover:text-gray-700 md:px-8',
+                          'grid cursor-pointer items-center px-5 py-2 text-sm hover:text-gray-700 md:px-8 md:py-3 md:text-xl',
                           activeSuggestionIndex === index && 'bg-gray-200',
                         )}
                         onClick={() => setSearchTerm(item.name)}
@@ -179,7 +179,7 @@ export const SearchEvents: React.FC = () => {
         </div>
         <div
           ref={containerRef}
-          className='scroller z-20 mt-8 h-5/6 w-full overflow-hidden md:h-2/3'
+          className='scroller z-20 mt-8 h-4/6 w-full overflow-hidden md:h-2/3'
         >
           <ul
             ref={scrollerRef}
@@ -206,10 +206,10 @@ export const SearchEvents: React.FC = () => {
                     alt={item.name}
                     width={48}
                     height={48}
-                    className='mr-4 h-[65px] w-[65px] rounded-full object-cover'
+                    className='mr-4 h-[45px] w-[45px] rounded-full object-cover md:h-[65px] md:w-[65px]'
                   />
                 ) : (
-                  <div className='mr-4 flex h-[65px] w-[65px] items-center justify-center rounded-full border-2 bg-white text-3xl text-black'>
+                  <div className='mr-4 flex h-[45px] w-[45px] items-center justify-center rounded-full border-2 bg-white text-2xl text-black md:h-[65px] md:w-[65px] md:text-3xl'>
                     {renderIcon((item as Event).icon)}
                   </div>
                 )}

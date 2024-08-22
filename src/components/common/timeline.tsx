@@ -91,7 +91,7 @@ export const Timeline: React.FC<{ domain: string }> = ({ domain }) => {
       id='timeline'
       className='flex min-h-screen flex-col items-center bg-black p-4 text-white'
     >
-      <h1 className='my-12 bg-gradient-to-r from-green-300 to-green-600 bg-clip-text text-center text-4xl font-bold text-transparent md:my-24 md:text-6xl'>
+      <h1 className='my-12 bg-gradient-to-r from-indigo-300 to-indigo-600 bg-clip-text text-center text-4xl font-bold text-transparent md:my-24 md:text-6xl'>
         Events Timeline
       </h1>
       <div
@@ -102,7 +102,7 @@ export const Timeline: React.FC<{ domain: string }> = ({ domain }) => {
 
         <motion.div
           id='tracing-beam'
-          className='absolute left-4 h-0 w-1 transform bg-gradient-to-b from-green-300 via-green-500 to-green-700 md:left-1/2 md:-translate-x-1/2'
+          className='absolute left-4 h-0 w-1 transform bg-gradient-to-b from-indigo-300 via-indigo-500 to-indigo-700 md:left-1/2 md:-translate-x-1/2'
           animate={beamControls}
         />
 
@@ -156,7 +156,7 @@ const TimeMarker: React.FC<{ time: string; isActive: boolean }> = ({
   isActive,
 }) => (
   <div
-    className={`event-time absolute left-0 z-10 hidden -translate-x-full transform rounded-full border-2 bg-black p-2 md:left-1/2 md:block md:-translate-x-1/2 ${isActive ? 'border-green-500 text-green-500' : 'border-gray-400 text-gray-400'}`}
+    className={`event-time absolute left-0 z-10 hidden -translate-x-full transform rounded-full border-2 bg-black p-2 md:left-1/2 md:block md:-translate-x-1/2 ${isActive ? 'border-indigo-500 text-indigo-500' : 'border-gray-400 text-gray-400'}`}
   >
     <p className='text-sm md:text-base'>{time}</p>
   </div>
@@ -172,15 +172,17 @@ const EventContent: React.FC<{
   >
     <Link href={`/events/${event.id}`} passHref>
       <div className='group rounded-lg p-4 transition-all duration-300 ease-in-out hover:bg-gray-800 md:p-6'>
-        <h3 className='md:text-md mb-2 text-sm text-green-500'>{event.date}</h3>
-        <h2 className='mb-3 text-2xl font-bold transition-colors duration-300 group-hover:text-green-400 md:mb-4 md:text-4xl'>
+        <h3 className='md:text-md mb-2 text-sm text-indigo-500'>
+          {event.date}
+        </h3>
+        <h2 className='mb-3 text-2xl font-bold transition-colors duration-300 group-hover:text-indigo-400 md:mb-4 md:text-4xl'>
           {event.title}
         </h2>
         <p className='mb-4 text-sm text-gray-400 md:mb-6 md:text-base'>
           {event.description}
         </p>
 
-        <div className='relative mb-4 h-48 w-full overflow-hidden rounded-lg transition-all duration-300 group-hover:shadow-lg group-hover:shadow-green-500/20 md:mb-6 md:h-64'>
+        <div className='relative mb-4 h-48 w-full overflow-hidden rounded-lg transition-all duration-300 group-hover:shadow-lg group-hover:shadow-indigo-500/20 md:mb-6 md:h-64'>
           <Image
             src={event.image}
             alt={event.title}
@@ -191,7 +193,7 @@ const EventContent: React.FC<{
         </div>
 
         <div className='text mb-2 md:mb-6'>
-          <p className='text-sm text-green-500 md:text-base'>
+          <p className='text-sm text-indigo-500 md:text-base'>
             Location: {event.location}
           </p>
         </div>
