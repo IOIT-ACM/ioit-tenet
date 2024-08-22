@@ -122,7 +122,6 @@ export const Socials = () => {
         <FlipLink href='#'>Twitter</FlipLink>
         <FlipLink href='#'>Linkedin</FlipLink>
         <FlipLink href='#'>Instagram</FlipLink>
-        <FlipLink href='/game'>TENET game</FlipLink>
       </div>
 
       {images.map((img, index) => (

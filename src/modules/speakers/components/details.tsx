@@ -2,7 +2,6 @@
 
 import type { Speaker } from '@/types';
 import Image from 'next/image';
-import Link from 'next/link';
 import { HiUser, HiBriefcase } from 'react-icons/hi';
 
 export const SpeakerDetails = ({ speaker }: { speaker: Speaker }) => {
@@ -10,10 +9,7 @@ export const SpeakerDetails = ({ speaker }: { speaker: Speaker }) => {
     <div className='flex w-full flex-col items-center justify-start gap-10 pt-10 text-white'>
       <div className='w-full overflow-hidden'>
         <div className='w-full md:flex'>
-          <Link
-            href={speaker.url}
-            className='sticky top-0 h-64 w-full overflow-hidden rounded-lg border md:h-[500px] md:w-1/2'
-          >
+          <div className='sticky top-0 h-64 w-full overflow-hidden rounded-lg border md:h-[500px] md:w-1/2'>
             <Image
               src={speaker.image}
               alt={speaker.name}
@@ -21,7 +17,7 @@ export const SpeakerDetails = ({ speaker }: { speaker: Speaker }) => {
               objectFit='cover'
               className='h-full w-full object-center transition-all duration-1000 hover:scale-105'
             />
-          </Link>
+          </div>
           <div className='space-y-6 pt-3 md:w-1/2 md:p-8 md:pt-0'>
             <h1 className='text-3xl font-bold md:text-4xl'>{speaker.name}</h1>
             <div className='flex flex-col space-y-4'>

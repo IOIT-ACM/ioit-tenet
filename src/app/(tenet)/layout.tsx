@@ -8,7 +8,7 @@ interface SiteLayoutProps {
 
 export default async function SiteLayout({ children }: SiteLayoutProps) {
   return (
-    <div className='min-h-screen w-screen'>
+    <div className='min-h-screen w-screen flex-grow'>
       <FixedNavBar />
       <Providers>{children}</Providers>
       <Footer />

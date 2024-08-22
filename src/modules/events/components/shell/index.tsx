@@ -60,12 +60,18 @@ export function Shell({ children }: ShellProps) {
             <Link className='transition-all hover:underline' href='/events'>
               Agenda
             </Link>
-            <Link className='transition-all hover:underline' href='/speakers'>
-              Speakers
-            </Link>
-            <Link className='transition-all hover:underline' href='/team'>
+            {isEventsPath ? (
+              <Link className='transition-all hover:underline' href='/speakers'>
+                Speakers
+              </Link>
+            ) : (
+              <Link className='transition-all hover:underline' href='/events'>
+                Events
+              </Link>
+            )}
+            {/* <Link className='transition-all hover:underline' href='/team'>
               Team
-            </Link>
+            </Link> */}
             <Link className='transition-all hover:underline' href='/register'>
               Registrations
             </Link>
@@ -79,26 +85,6 @@ export function Shell({ children }: ShellProps) {
             <SheetContent className='text-left'>
               <SheetHeader>
                 <SheetTitle className='text-left'>
-                  {/* <div className='flex space-x-2'>
-                    <Link href={'/'}>
-                      <Image
-                        className='h-10 w-10 cursor-pointer transition-all hover:scale-105'
-                        src={'/tenet-fill.png'}
-                        alt='Tenet Logo'
-                        height={70}
-                        width={70}
-                      />
-                    </Link>
-                    <Link href={'/'}>
-                      <Image
-                        className='h-10 w-10 cursor-pointer transition-all hover:scale-105'
-                        src={'/acm.png'}
-                        alt='Tenet Logo'
-                        height={70}
-                        width={70}
-                      />
-                    </Link>
-                  </div> */}
                   <h1>Menu</h1>
                 </SheetTitle>
 
@@ -112,15 +98,24 @@ export function Shell({ children }: ShellProps) {
                   >
                     Agenda
                   </Link>
-                  <Link
-                    className='transition-all hover:underline'
-                    href='/speakers'
-                  >
-                    Speakers
-                  </Link>
-                  <Link className='transition-all hover:underline' href='/team'>
+                  {isEventsPath ? (
+                    <Link
+                      className='transition-all hover:underline'
+                      href='/speakers'
+                    >
+                      Speakers
+                    </Link>
+                  ) : (
+                    <Link
+                      className='transition-all hover:underline'
+                      href='/events'
+                    >
+                      Events
+                    </Link>
+                  )}
+                  {/* <Link className='transition-all hover:underline' href='/team'>
                     Team
-                  </Link>
+                  </Link> */}
                   <Link
                     className='transition-all hover:underline'
                     href='/register'

@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useStore } from '@/store';
 import { RegisterButton } from '../ui/registerbtn';
 
@@ -18,11 +17,11 @@ const transition = {
 };
 
 const routes = [
-  { path: '/events/techfiesta', name: 'Techfiesta' },
-  { path: '/events/esports', name: 'E-Sports' },
-  { path: '/events/mun', name: 'MUN' },
-  { path: '/events/esummit', name: 'E-Summit' },
-  { path: '/events/creators', name: 'Creators Conclave' },
+  { path: '/techfiesta', name: 'Techfiesta' },
+  { path: '/esports', name: 'E-Sports' },
+  { path: '/mun', name: 'MUN' },
+  { path: '/esummit', name: 'E-Summit' },
+  { path: '/creators', name: 'Creators Conclave' },
 ];
 
 export default function FixedNavBar({ className }: { className?: string }) {
@@ -67,7 +66,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
         animate={{ y: isVisible ? 0 : -100, opacity: isVisible ? 1 : 0 }}
         transition={{ duration: 0.8 }}
       >
-        <Link
+        <a
           className='h-10 w-10 cursor-pointer transition-all hover:scale-105 md:h-20 md:w-20'
           href={'/'}
         >
@@ -78,7 +77,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
             height={70}
             width={70}
           />
-        </Link>
+        </a>
       </motion.div>
 
       {/* Menu */}
@@ -101,7 +100,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
               }}
               transition={transition}
             >
-              <Link href={route.path}>
+              <a href={route.path}>
                 {route.path === hovering && (
                   <motion.div
                     initial={{ scale: 0.7 }}
@@ -119,7 +118,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
                 <span className={`relative block text-black`}>
                   {route.name}
                 </span>
-              </Link>
+              </a>
             </motion.div>
           ))}
         </div>

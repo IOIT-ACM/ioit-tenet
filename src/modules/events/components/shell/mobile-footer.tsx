@@ -2,7 +2,6 @@
 import {
   Drawer,
   DrawerContent,
-  // DrawerFooter,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
@@ -18,6 +17,7 @@ import { day1, day2, day3 } from '@/config/events';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { speakers } from '@/config/speakers';
 
 const MobileFooter = () => {
   const allEvents = [...day1, ...day2, ...day3];
@@ -25,17 +25,28 @@ const MobileFooter = () => {
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
   const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const isEventsPath = pathname.startsWith('/events');
 
   useEffect(() => {
     if (!api) {
       return;
     }
 
-    const currentEventIndex = allEvents.findIndex(
-      (event) => `/events/${event.id}` === pathname,
-    );
+    let currentIndex = 0;
 
-    api.scrollTo(currentEventIndex);
+    if (isEventsPath) {
+      currentIndex = allEvents.findIndex(
+        (event) => `/events/${event.id}` === pathname,
+      );
+    } else {
+      currentIndex = allEvents.findIndex(
+        (speaker) => `/speakers/${speaker.id}` === pathname,
+      );
+    }
+
+    api.scrollTo(currentIndex);
 
     setCount(api.scrollSnapList().length);
     setCurrent(api.selectedScrollSnap() + 1);
@@ -45,58 +56,91 @@ const MobileFooter = () => {
     });
   }, [api]);
 
+  const handleItemClick = () => {
+    setIsOpen(false); // Close the drawer
+  };
+
   return (
-    <Drawer>
-      <DrawerTrigger className='w-full text-black'>View Agenda</DrawerTrigger>
+    <Drawer open={isOpen} onOpenChange={setIsOpen}>
+      <DrawerTrigger className='w-full text-black'>
+        {isEventsPath ? 'View Agenda' : 'View speakers'}
+      </DrawerTrigger>
       <DrawerContent className='text-black'>
         <DrawerHeader>
-          <DrawerTitle>View Agenda</DrawerTitle>
+          <DrawerTitle>
+            {isEventsPath ? 'View Agenda' : 'View speakers'}
+          </DrawerTitle>
         </DrawerHeader>
         <Carousel setApi={setApi}>
-          <CarouselContent>
-            {allEvents.map((event, index) => (
-              <CarouselItem key={index}>
-                <Link href={`/events/${event.id}`}>
-                  <div className='flex h-full select-none flex-col items-center justify-between px-4 py-10 text-center'>
-                    <Image
-                      src={event.image}
-                      alt={event.title}
-                      className='rounded-full border border-black'
-                      height={200}
-                      width={200}
-                    />
-                    <h2 className='mb-2 text-xl font-semibold'>
-                      {event.title}
-                    </h2>
-                    <div>
-                      <p className='mb-2 text-gray-500'>
-                        {event.date} - {event.time}
-                      </p>
-                      <p className='mb-2'>{event.location}</p>
-                      {event.domain && (
-                        <span className='rounded-full bg-gray-200 px-3 py-1 text-xs text-gray-600'>
-                          {event.domain}
-                        </span>
-                      )}
+          {isEventsPath ? (
+            <CarouselContent>
+              {allEvents.map((event, index) => (
+                <CarouselItem key={index}>
+                  <Link href={`/events/${event.id}`} onClick={handleItemClick}>
+                    <div className='flex h-full select-none flex-col items-center justify-between px-4 py-10 text-center'>
+                      <Image
+                        src={event.image}
+                        alt={event.title}
+                        className='rounded-full border border-black'
+                        height={200}
+                        width={200}
+                      />
+                      <h2 className='mb-2 text-xl font-semibold'>
+                        {event.title}
+                      </h2>
+                      <div>
+                        <p className='mb-2 text-gray-500'>
+                          {event.date} - {event.time}
+                        </p>
+                        <p className='mb-2'>{event.location}</p>
+                        {event.domain && (
+                          <span className='rounded-full bg-gray-200 px-3 py-1 text-xs text-gray-600'>
+                            {event.domain}
+                          </span>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
+                  </Link>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          ) : (
+            <CarouselContent>
+              {speakers.map((speaker, index) => (
+                <CarouselItem key={index}>
+                  <Link
+                    href={`/speakers/${speaker.id}`}
+                    onClick={handleItemClick}
+                  >
+                    <div className='flex h-full select-none flex-col items-center justify-between px-4 py-10 text-center'>
+                      <Image
+                        src={speaker.image}
+                        alt={speaker.name}
+                        className='rounded-full border border-black'
+                        height={200}
+                        width={200}
+                      />
+                      <h2>
+                        <p className='mb-2 text-xl font-semibold'>
+                          {speaker.name}
+                        </p>
+                        <p className='mb-2 text-gray-500'>{speaker.title}</p>
+                      </h2>
+                      <div>
+                        <p className='mb-2 text-gray-500'>{speaker.bio}</p>
+                      </div>
+                    </div>
+                  </Link>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          )}
           <div className='py-2 text-center text-sm'>
             <p className='text-muted-foreground'>
               {current} of {count}
             </p>
           </div>
         </Carousel>
-        {/* <DrawerFooter>
-          <div className='flex w-full items-center justify-center gap-2'>
-            <div onClick={() => api?.scrollTo(1)}>Day 1</div>
-            <div onClick={() => api?.scrollTo(10)}>Day 2</div>
-            <div onClick={() => api?.scrollTo(19)}>Day 3</div>
-          </div>
-        </DrawerFooter> */}
       </DrawerContent>
     </Drawer>
   );

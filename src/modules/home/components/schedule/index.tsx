@@ -72,7 +72,7 @@ export const Schedule = () => {
           </label>
         </div>
 
-        <div className='grid gap-2 text-slate-300'>
+        <div className='gap- grid pb-2 text-slate-300'>
           <Link
             className='w-fit transition-all hover:underline'
             href={'/register'}
@@ -90,9 +90,6 @@ export const Schedule = () => {
             href={'/speakers'}
           >
             View Speakers Lineup
-          </Link>
-          <Link className='w-fit transition-all hover:underline' href={'/#'}>
-            Download Agenda
           </Link>
         </div>
       </div>
