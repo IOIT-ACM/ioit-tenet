@@ -1,4 +1,3 @@
-export { Hero } from './components/hero';
 export { Events } from './components/events';
 export { SearchEvents } from './components/search-events';
 export { Gallery } from './components/gallery';

@@ -6,7 +6,6 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { RegisterButton } from '../ui/registerbtn';
 import { TfiMenu } from 'react-icons/tfi';
-import { usePathname } from 'next/navigation';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useIsMobile } from '@/hooks/useismobile';
 
@@ -32,7 +31,6 @@ export default function FixedNavBar({ className }: { className?: string }) {
   const [hovering, setHovering] = useState<null | string>(null);
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up');
-  const pathname = usePathname();
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -139,12 +137,9 @@ export default function FixedNavBar({ className }: { className?: string }) {
         <div className='sm:hidden'>
           <Sheet>
             <SheetTrigger>
-              <TfiMenu
-                className={` ${pathname === '/' ? 'text-black' : 'text-white'}`}
-                size={32}
-              />
+              <TfiMenu color='white' size={32} />
             </SheetTrigger>
-            <SheetContent className='flex h-full w-screen items-center justify-center border-none bg-black/75'>
+            <SheetContent className='z-[999999999999999] flex h-full w-screen items-center justify-center border-none bg-black/75'>
               <div className='relative flex h-full w-full items-center justify-center'>
                 <motion.svg
                   width='189'

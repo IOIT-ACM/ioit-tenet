@@ -115,7 +115,7 @@ export const SearchEvents: React.FC = () => {
 
   return (
     <div id='search' className='h-[100vh] bg-neutral-950'>
-      <div className='sticky top-0 grid h-screen grid-cols-1 justify-center gap-3 overflow-hidden bg-neutral-950 px-10 text-gray-300 md:grid-cols-2 md:items-center md:px-20'>
+      <div className='sticky top-0 grid h-[90vh] grid-cols-1 justify-center gap-3 overflow-hidden bg-neutral-950 px-10 text-gray-300 md:h-screen md:grid-cols-2 md:items-center md:px-20'>
         <div className='grid gap-5 md:-translate-y-[20%] md:px-10'>
           <div className='text-4xl font-bold md:text-6xl'>Search TENET</div>
 
@@ -179,7 +179,7 @@ export const SearchEvents: React.FC = () => {
         </div>
         <div
           ref={containerRef}
-          className='scroller z-20 mt-8 h-4/6 w-full overflow-hidden md:h-2/3'
+          className='scroller z-20 mt-8 h-5/6 w-full overflow-hidden md:h-2/3'
         >
           <ul
             ref={scrollerRef}

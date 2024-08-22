@@ -14,20 +14,19 @@ const SECTION_HEIGHT = 1500;
 export const TenetHero = () => {
   return (
     <div
-      style={{ height: `calc(${SECTION_HEIGHT}px + 100vh)` }}
-      className='relative w-full bg-white'
+      style={{ height: `calc(${SECTION_HEIGHT}px + 130vh)` }}
+      className='relative w-full bg-black'
     >
       <CenterImage />
 
       <ParallaxImages />
-
-      <div className='absolute bottom-0 left-0 right-0 h-96 bg-gradient-to-b from-zinc-950/0 to-zinc-950' />
     </div>
   );
 };
 
 const CenterImage = () => {
   const [loading, setLoading] = useState(true);
+  const ref = useRef(null);
 
   useEffect(() => {
     setLoading(false);
@@ -35,27 +34,33 @@ const CenterImage = () => {
 
   const { scrollY } = useScroll();
 
-  const clip1 = useTransform(scrollY, [0, 1500], [25, 0]);
-  const clip2 = useTransform(scrollY, [0, 1500], [75, 100]);
+  const scale = useTransform(scrollY, [0, 1500], [1, 1.4]);
 
-  const clipPath = useMotionTemplate`polygon(${clip1}% ${clip1}%, ${clip2}% ${clip1}%, ${clip2}% ${clip2}%, ${clip1}% ${clip2}%)`;
+  const opacity = useTransform(
+    scrollY,
+    [SECTION_HEIGHT, SECTION_HEIGHT + 500],
+    [1, 0],
+  );
 
   return (
     <motion.div
-      className='sticky top-0 h-screen w-full'
-      style={{
-        clipPath,
-      }}
+      ref={ref}
+      className='sticky top-0 h-screen w-screen overflow-hidden'
     >
-      {!loading && (
-        <Video
-          src='hero-logo.webm'
-          autoPlay
-          preload='auto'
-          muted
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-        />
-      )}
+      <div className='relative'>
+        <div className='absolute bottom-0 left-0 right-0 h-96 overflow-hidden bg-gradient-to-b from-zinc-950/0 to-zinc-950' />
+
+        {!loading && (
+          <motion.div
+            style={{
+              scale,
+              opacity,
+            }}
+          >
+            <Video src='hero-logo.webm' autoPlay preload='auto' muted />
+          </motion.div>
+        )}
+      </div>
     </motion.div>
   );
 };
