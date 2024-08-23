@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export const ShiftingCountdown = () => {
   return (
-    <section id='schedule' className='flex items-center justify-center'>
+    <section id='timeline' className='flex items-center justify-center'>
       <div>
         <p className='text-center text-4xl font-extrabold text-white md:text-9xl'>
           TENET BEGINS IN

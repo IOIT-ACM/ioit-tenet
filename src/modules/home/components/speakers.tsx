@@ -15,7 +15,7 @@ const ScrollIcon = dynamic(() => import('@/components/common/scrollicon'), {
 
 export const TenetSpeakers = () => {
   return (
-    <div className='bg-neutral-950'>
+    <div id='speakers' className='bg-neutral-950'>
       <h1 className='text-center text-4xl text-white md:text-8xl'>Speakers</h1>
       <h3 className='text-center text-lg text-gray-400 md:text-xl'>
         Scroll down to scroll right
