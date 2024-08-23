@@ -1,89 +1,115 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import Link from 'next/link';
-import {
-  FaHome,
-  FaInfoCircle,
-  FaCalendarAlt,
-  FaMicrophone,
-  FaSearch,
-  FaGlobe,
-  FaImages,
-} from 'react-icons/fa';
-
-const links = [
-  { name: 'Home', href: '/#home', icon: FaHome },
-  { name: 'Intro', href: '/#intro', icon: FaInfoCircle },
-  { name: 'Timeline', href: '/#timeline', icon: FaCalendarAlt },
-  { name: 'Schedule', href: '/#schedule', icon: FaCalendarAlt },
-  { name: 'Speakers', href: '/#speakers', icon: FaMicrophone },
-  { name: 'Search', href: '/#search', icon: FaSearch },
-  { name: 'MUN', href: '/#mun', icon: FaGlobe },
-  { name: 'Gallery', href: '/#gallery', icon: FaImages },
-];
 
 export const Navigation = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const componentRef = useRef<HTMLDivElement>(null);
+  const scrollAnimationRef = useRef<number | null>(null);
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (e.clientX > window.innerWidth - 40) {
-        setIsOpen(true);
-      }
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (!componentRef.current) return;
+
+    const rect = componentRef.current.getBoundingClientRect();
+    const y = event.clientY - rect.top;
+    const index = Math.floor((y / rect.height) * 49);
+    setHoveredIndex(index);
+
+    const normalizedY = y / rect.height;
+    const scrollSpeed = (0.5 - normalizedY) * 60;
+
+    if (scrollAnimationRef.current) {
+      cancelAnimationFrame(scrollAnimationRef.current);
+    }
+
+    const smoothScroll = () => {
+      window.scrollBy(0, scrollSpeed);
+      scrollAnimationRef.current = requestAnimationFrame(smoothScroll);
     };
 
-    document.addEventListener('mousemove', handleMouseMove);
+    scrollAnimationRef.current = requestAnimationFrame(smoothScroll);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredIndex(null);
+    if (scrollAnimationRef.current) {
+      cancelAnimationFrame(scrollAnimationRef.current);
+    }
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollTop =
+        window.scrollY || document.documentElement.scrollTop;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+
+      const isWithinTopBoundary = currentScrollTop > 1000;
+      const isWithinBottomBoundary =
+        currentScrollTop < documentHeight - windowHeight - 1000;
+
+      setIsVisible(isWithinTopBoundary && isWithinBottomBoundary);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
 
     return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollAnimationRef.current) {
+        cancelAnimationFrame(scrollAnimationRef.current);
+      }
     };
   }, []);
 
   return (
-    <motion.div
-      onMouseLeave={() => setIsOpen(false)}
-      className='fixed right-0 top-0 z-50 flex h-screen'
-    >
-      <motion.div
-        className='flex h-full items-center'
-        initial={{ width: '0px' }}
-        animate={{ width: isOpen ? '280px' : '0px' }}
-        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-      >
+    <>
+      <motion.div className='fixed right-0 top-0 z-50 hidden h-screen md:flex'>
         <AnimatePresence>
-          {isOpen && (
-            <motion.nav
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 50 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className='h-full w-full bg-gradient-to-l from-gray-900 to-gray-800 px-6 py-12 shadow-2xl'
-            >
-              <ul className='flex h-full flex-col justify-center space-y-8'>
-                {links.map((link) => (
-                  <motion.li
-                    key={link.name}
-                    whileHover={{ x: 5, scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Link href={link.href}>
-                      <div className='group flex items-center space-x-4 text-gray-300 transition-all duration-200 hover:text-white'>
-                        <span className='text-2xl transition-colors duration-200 group-hover:text-blue-400'>
-                          {<link.icon />}
-                        </span>
-                        <span className='text-lg font-medium'>{link.name}</span>
-                      </div>
-                    </Link>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.nav>
-          )}
+          <motion.div
+            ref={componentRef}
+            className='fixed right-0 top-0 z-[9999999999] hidden h-screen w-28 flex-col items-end justify-center py-4 md:flex'
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            initial={{ width: '0px' }}
+            animate={{ width: isVisible ? '128px' : '0px' }}
+            exit={{ width: '0px' }}
+            transition={{
+              type: 'spring',
+              stiffness: 300,
+              damping: 30,
+              duration: 1.5,
+            }}
+          >
+            <div className='flex h-full w-1/3 flex-col items-end justify-between'>
+              {[...Array(49)].map((_, index) => {
+                const distance =
+                  hoveredIndex !== null
+                    ? Math.abs(index - hoveredIndex)
+                    : Infinity;
+                const isAffected = distance <= 5;
+                const widthScale = isAffected ? 2 - distance * 0.2 : 1;
+
+                return (
+                  <motion.div
+                    key={index}
+                    className={`h-0.5 bg-gray-400 ${index % 8 === 0 ? 'w-full' : 'ml-auto w-1/2'}`}
+                    animate={{
+                      scaleX: widthScale,
+                      backgroundColor: isAffected ? '#3B82F6' : '#9CA3AF',
+                    }}
+                    transition={{ duration: 0.3 }}
+                    style={{ originX: 1 }}
+                  />
+                );
+              })}
+            </div>
+          </motion.div>
         </AnimatePresence>
       </motion.div>
-      <div className='h-full w-1 bg-gradient-to-l from-blue-500 to-transparent' />
-    </motion.div>
+    </>
   );
 };
