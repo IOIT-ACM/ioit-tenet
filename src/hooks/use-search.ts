@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import useSWR from 'swr';
-import type { Speaker } from '@/types';
 
 export interface Event {
   id: string;

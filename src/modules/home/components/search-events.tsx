@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils';
 // import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { useSearch, type Event } from '@/hooks/use-search';
+import { useSearch } from '@/hooks/use-search';
 import * as FaIcons from 'react-icons/fa';
 
 type IconMap = Record<string, React.ElementType>;
@@ -210,7 +210,7 @@ export const SearchEvents: React.FC = () => {
                   />
                 ) : (
                   <div className='mr-4 flex h-[45px] w-[45px] items-center justify-center rounded-full border-2 bg-white text-2xl text-black md:h-[65px] md:w-[65px] md:text-3xl'>
-                    {renderIcon((item as Event).icon)}
+                    {renderIcon(item.icon)}
                   </div>
                 )}
                 {item.name}
