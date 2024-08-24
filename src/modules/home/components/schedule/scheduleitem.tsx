@@ -12,35 +12,33 @@ export const ScheduleItem = ({ data }: { data: ScheduleItemType }) => {
     <div>
       <Link
         href={`/events/${data.id}`}
-        className='mb-5 flex cursor-cell flex-col gap-3 pb-2 pt-3 text-slate-400 text-slate-600 transition-all hover:text-white md:mb-0'
+        className='group mb-5 flex cursor-cell flex-col gap-3 pb-2 pt-3 text-slate-600 transition-all hover:text-white md:mb-0'
       >
-        <span>
-          <p className='mb-2 line-clamp-2 text-lg text-slate-600 md:line-clamp-1 md:overflow-hidden md:truncate md:text-xl'>
-            {data.title} <span className='hidden md:flex'>{data.time}</span>
-          </p>
-          <span className='flex items-start justify-between md:hidden'>
-            <span className='flex flex-col gap-2 text-sm uppercase md:flex-row'>
-              <span className='flex items-center gap-1.5'>
-                <FiMapPin />
-                <p>{data.location}</p>
-              </span>
-              <p className='hidden md:block'>{data.date}</p>
-            </span>
-            {!isMobile && (
-              <span className='flex flex-col items-end gap-2 md:flex-row'>
-                {data.organizers?.slice(0, 1).map((organizer, index) => (
-                  <span
-                    key={index}
-                    className='flex items-center gap-1.5 text-sm uppercase'
-                  >
-                    <FiPhone />
-                    <span>{organizer.name}</span>
-                  </span>
-                ))}
-              </span>
-            )}
-          </span>
-        </span>
+        <div className='mb-2 line-clamp-2 text-lg group-hover:text-white md:line-clamp-1 md:overflow-hidden md:truncate md:text-xl'>
+          {data.title} <span className='hidden md:flex'>{data.time}</span>
+        </div>
+        <div className='flex items-start justify-between md:hidden'>
+          <div className='flex flex-col gap-2 text-sm uppercase group-hover:text-white md:flex-row'>
+            <div className='flex items-center gap-1.5'>
+              <FiMapPin />
+              <span>{data.location}</span>
+            </div>
+            <span className='hidden md:block'>{data.date}</span>
+          </div>
+          {!isMobile && (
+            <div className='flex flex-col items-end gap-2 group-hover:text-white md:flex-row'>
+              {data.organizers?.slice(0, 1).map((organizer, index) => (
+                <div
+                  key={index}
+                  className='flex items-center gap-1.5 text-sm uppercase'
+                >
+                  <FiPhone />
+                  <span>{organizer.name}</span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </Link>
     </div>
   );
