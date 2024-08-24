@@ -7,6 +7,9 @@ interface HeroImageProps {
   subtitle?: string;
   ctaText?: string;
   ctaLink?: string;
+  overlayImage?: string; // Add overlay image prop
+  overlayImageAlt?: string; // Alt text for overlay image
+  overlayPosition?: string; // Add position for overlay image
 }
 
 export const HeroImage: React.FC<HeroImageProps> = ({
@@ -15,6 +18,9 @@ export const HeroImage: React.FC<HeroImageProps> = ({
   subtitle,
   ctaText,
   ctaLink,
+  overlayImage,
+  overlayImageAlt = 'Overlay Image',
+  overlayPosition = 'top-48 right-50', // Default position
 }) => {
   return (
     <div className='hero relative flex h-screen flex-col items-center justify-center'>
@@ -38,6 +44,19 @@ export const HeroImage: React.FC<HeroImageProps> = ({
           </Link>
         )}
       </div>
+
+      {/* Overlay image */}
+      {overlayImage && (
+        <div className={`absolute ${overlayPosition} z-20`}>
+          <Image
+            src={overlayImage}
+            alt={overlayImageAlt}
+            width={200}
+            height={200} // Adjust size as needed
+            className='rounded-full'
+          />
+        </div>
+      )}
 
       <div className='absolute bottom-0 left-0 right-0 h-96 bg-gradient-to-b from-zinc-950/0 to-black' />
     </div>
