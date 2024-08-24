@@ -6,7 +6,7 @@ import Link from 'next/link';
 export const Sponsors = () => {
   return (
     <section className='bg-black py-12'>
-      <div className='container mx-auto px-4'>
+      <div className='mx-auto px-4'>
         <h2 className='mb-8 text-center text-4xl font-bold text-white'>
           Our Sponsors
         </h2>
