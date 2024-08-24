@@ -6,16 +6,16 @@ export interface Event {
   id: string;
   name: string;
   icon: string;
-  type: 'event';
+  type: 'event' | 'speaker';
 }
 
-export type SearchItem = Speaker | Event;
+export type SearchItem = Event;
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export function useSearch() {
   const { data, error, isLoading } = useSWR<SearchItem[]>(
-    '/api/events',
+    '/api/search',
     fetcher,
   );
 

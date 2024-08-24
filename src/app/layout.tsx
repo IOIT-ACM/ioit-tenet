@@ -6,6 +6,7 @@ import { type Metadata } from 'next';
 import { Toaster } from 'sonner';
 import { siteConfig } from '@/config';
 import { MusicPlayer } from '@/components/common/musicplayer';
+import { TenetCommandDialog } from '@/components/command';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -60,6 +61,7 @@ export default function RootLayout({
       <body style={{ fontFamily: 'exo2' }} className='bg-neutral-950'>
         {children}
         <MusicPlayer />
+        <TenetCommandDialog />
       </body>
       <Toaster richColors />
     </html>

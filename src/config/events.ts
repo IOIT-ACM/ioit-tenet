@@ -3,6 +3,7 @@ import type { ScheduleItemType } from '@/types';
 export const day1: ScheduleItemType[] = [
   {
     title: 'Product Management/Consulting Conference',
+    icon: 'FaCalendar',
     id: 'techfiesta-pmconference',
     domain: 'techfiesta',
     color: 'bg-red-700',
@@ -38,6 +39,7 @@ export const day1: ScheduleItemType[] = [
   },
   {
     title: 'How Data is used in Business Intelligence Conference',
+    icon: 'FaCalendar',
     id: 'techfiesta-dataconference',
     domain: 'techfiesta',
     color: 'bg-blue-700',
@@ -57,6 +59,7 @@ export const day1: ScheduleItemType[] = [
   },
   {
     title: 'Capture the Flag',
+    icon: 'FaCalendar',
     id: 'techfiesta-ctf',
     domain: 'techfiesta',
     color: 'bg-green-700',
@@ -77,6 +80,7 @@ export const day1: ScheduleItemType[] = [
   },
   {
     title: 'Fun games (AR/VR, coding games)',
+    icon: 'FaCalendar',
     id: 'techfiesta-fungames',
     domain: 'techfiesta',
     color: 'bg-slate-500',
@@ -96,6 +100,7 @@ export const day1: ScheduleItemType[] = [
   },
   {
     title: 'Web - 3 Conference',
+    icon: 'FaCalendar',
     id: 'techfiesta-web3',
     domain: 'techfiesta',
     color: 'bg-orange-700',
@@ -115,6 +120,7 @@ export const day1: ScheduleItemType[] = [
   },
   {
     title: "LLM's Application in Industry Conference",
+    icon: 'FaCalendar',
     id: 'techfiesta-llmconference',
     domain: 'techfiesta',
     color: 'bg-yellow-700',
@@ -134,6 +140,7 @@ export const day1: ScheduleItemType[] = [
   },
   {
     title: 'Drone & Robotics Workshop',
+    icon: 'FaCalendar',
     id: 'techfiesta-droneworkshop',
     domain: 'techfiesta',
     color: 'bg-pink-700',
@@ -153,6 +160,7 @@ export const day1: ScheduleItemType[] = [
   },
   {
     title: 'Gen AI (LLM) Development Workshop',
+    icon: 'FaCalendar',
     id: 'techfiesta-genaiworkshop',
     domain: 'techfiesta',
     color: 'bg-purple-700',
@@ -172,6 +180,7 @@ export const day1: ScheduleItemType[] = [
   },
   {
     title: 'Drone & Robotics Display',
+    icon: 'FaCalendar',
     id: 'techfiesta-dronedisplay',
     domain: 'techfiesta',
     color: 'bg-teal-700',
@@ -193,6 +202,7 @@ export const day1: ScheduleItemType[] = [
 
 export const day2: ScheduleItemType[] = [
   {
+    icon: 'FaCalendar',
     title: 'Breakfast and Reporting',
     id: 'esummit-breakfast',
     domain: 'esummit',
@@ -207,6 +217,7 @@ export const day2: ScheduleItemType[] = [
     image: '/imgs/events/schedule/1.jpg',
   },
   {
+    icon: 'FaCalendar',
     title: 'Opening Ceremony',
     id: 'mun-opening',
     domain: 'mun',
@@ -226,6 +237,7 @@ export const day2: ScheduleItemType[] = [
   },
   {
     title: 'Tier 3 Speaker Sessions x 3',
+    icon: 'FaCalendar',
     id: 'esummit-speaker1',
     domain: 'esummit',
     color: 'bg-red-700',
@@ -244,6 +256,7 @@ export const day2: ScheduleItemType[] = [
   },
   {
     title: 'Tier 2 Speaker Session',
+    icon: 'FaCalendar',
     id: 'esummit-speaker2',
     domain: 'esummit',
     color: 'bg-purple-700',
@@ -262,6 +275,7 @@ export const day2: ScheduleItemType[] = [
   },
   {
     title: 'Tier 3 Speaker Sessions x 2',
+    icon: 'FaCalendar',
     id: 'esummit-speaker3',
     domain: 'esummit',
     color: 'bg-blue-700',
@@ -279,6 +293,7 @@ export const day2: ScheduleItemType[] = [
     ],
   },
   {
+    icon: 'FaCalendar',
     title: 'Lunch Break',
     id: 'esummit-lunch',
     color: 'bg-green-700',
@@ -294,6 +309,7 @@ export const day2: ScheduleItemType[] = [
   },
   {
     title: 'Tier 2 Speaker Sessions x 2',
+    icon: 'FaCalendar',
     id: 'esummit-speaker4',
     domain: 'esummit',
     color: 'bg-yellow-700',
@@ -312,6 +328,7 @@ export const day2: ScheduleItemType[] = [
   },
   {
     title: 'Investors Meeting',
+    icon: 'FaCalendar',
     id: 'esummit-investors',
     domain: 'esummit',
     color: 'bg-teal-700',
@@ -329,6 +346,7 @@ export const day2: ScheduleItemType[] = [
     ],
   },
   {
+    icon: 'FaCalendar',
     title: 'Closing Ceremony and Dinner',
     id: 'esummit-closing',
     color: 'bg-orange-700',
@@ -352,6 +370,7 @@ export const day3: ScheduleItemType[] = [
   // Creator's Conclave
   {
     title: 'PUNE OPEN MIC (Session 1)',
+    icon: 'FaCalendar',
     id: 'creatorsconclave-openmic1',
     domain: 'creators',
     color: 'bg-red-700',
@@ -370,6 +389,7 @@ export const day3: ScheduleItemType[] = [
   },
   {
     title: 'Stand UP 1',
+    icon: 'FaCalendar',
     id: 'creatorsconclave-standup1',
     domain: 'creators',
     color: 'bg-green-700',
@@ -388,6 +408,7 @@ export const day3: ScheduleItemType[] = [
   },
   {
     title: 'Theater Act',
+    icon: 'FaCalendar',
     id: 'creatorsconclave-theater',
     domain: 'creators',
     color: 'bg-orange-700',
@@ -406,6 +427,7 @@ export const day3: ScheduleItemType[] = [
   },
   {
     title: 'PUNE OPEN MIC (Session 2)',
+    icon: 'FaCalendar',
     id: 'creatorsconclave-openmic2',
     domain: 'creators',
     color: 'bg-red-700',
@@ -424,6 +446,7 @@ export const day3: ScheduleItemType[] = [
   },
   {
     title: 'Battle of Comedians',
+    icon: 'FaCalendar',
     id: 'creatorsconclave-comedians',
     domain: 'creators',
     color: 'bg-pink-700',
@@ -442,6 +465,7 @@ export const day3: ScheduleItemType[] = [
   },
   {
     title: 'Prize Distribution',
+    icon: 'FaCalendar',
     id: 'creatorsconclave-prize',
     domain: 'creators',
     color: 'bg-yellow-500',
@@ -460,6 +484,7 @@ export const day3: ScheduleItemType[] = [
   },
   {
     title: 'Main Stage Event',
+    icon: 'FaCalendar',
     id: 'creatorsconclave-mainstage',
     domain: 'creators',
     color: 'bg-teal-700',
@@ -480,6 +505,7 @@ export const day3: ScheduleItemType[] = [
   // E-Sports
   {
     title: 'LAN Tournaments',
+    icon: 'FaCalendar',
     id: 'esports-lantournaments',
     domain: 'esports',
     color: 'bg-red-500',
@@ -498,6 +524,7 @@ export const day3: ScheduleItemType[] = [
   },
   {
     title: 'Competitions',
+    icon: 'FaCalendar',
     id: 'esports-competitions',
     color: 'bg-blue-500',
     domain: 'esports',
@@ -516,6 +543,7 @@ export const day3: ScheduleItemType[] = [
   },
   {
     title: 'Experience Arenas',
+    icon: 'FaCalendar',
     id: 'esports-experience',
     domain: 'esports',
     color: 'bg-green-500',
@@ -535,6 +563,7 @@ export const day3: ScheduleItemType[] = [
 
   // MUN (Day 2)
   {
+    icon: 'FaCalendar',
     title: 'Breakfast and Reporting',
     id: 'mun-breakfast',
     domain: 'mun',
@@ -550,6 +579,7 @@ export const day3: ScheduleItemType[] = [
   },
   {
     title: 'Committee Session 3',
+    icon: 'FaCalendar',
     id: 'mun-committeesession3',
     domain: 'mun',
     color: 'bg-blue-500',
@@ -567,6 +597,7 @@ export const day3: ScheduleItemType[] = [
     ],
   },
   {
+    icon: 'FaCalendar',
     title: 'Lunch',
     id: 'mun-lunch',
     domain: 'mun',
@@ -582,6 +613,7 @@ export const day3: ScheduleItemType[] = [
   },
   {
     title: 'Committee Session 4',
+    icon: 'FaCalendar',
     id: 'mun-committeesession4',
     domain: 'mun',
     color: 'bg-blue-500',
@@ -600,6 +632,7 @@ export const day3: ScheduleItemType[] = [
   },
   {
     title: 'High Tea and Closing Ceremony',
+    icon: 'FaCalendar',
     id: 'mun-closing',
     domain: 'mun',
     color: 'bg-green-600',

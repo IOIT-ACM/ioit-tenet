@@ -59,14 +59,6 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link
-                  href='/venue'
-                  className='text-slate-400 transition-colors hover:text-green-400'
-                >
-                  Venue Details
-                </Link>
-              </li>
-              <li>
-                <Link
                   href='mailto:aissms.ioit.acm@chatpter.acm.org'
                   className='text-slate-400 transition-colors hover:text-green-400'
                 >

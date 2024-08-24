@@ -202,7 +202,7 @@ export const SearchEvents: React.FC = () => {
               >
                 {item.type === 'speaker' ? (
                   <Image
-                    src={item.image}
+                    src={item.icon}
                     alt={`Profile image of ${item.name}`}
                     width={48}
                     height={48}
