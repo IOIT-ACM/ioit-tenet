@@ -8,7 +8,7 @@ export default async function Page() {
         title='Welcome to TechFiesta'
         subtitle='Join us for an exciting event'
         ctaText='Learn More'
-        ctaLink='#tracingbeam'
+        ctaLink='#timeline'
       />
       <Timeline domain='techfiesta' />
     </main>

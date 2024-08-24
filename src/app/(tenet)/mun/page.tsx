@@ -1,6 +1,6 @@
 import {
   HeroImage,
-} from '@/modules/events/esummit';
+} from '@/modules/events/mun';
 
 export default function Page() {
   return (
