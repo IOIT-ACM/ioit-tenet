@@ -9,11 +9,13 @@ export interface State {
   videoPlayed: boolean;
   showPreview: boolean;
   characters: string[];
+  music: boolean;
 }
 
 interface Action {
   setVideoPlayed: (videoPlayed: boolean) => void;
   setShowPreview: (showPreview: boolean) => void;
+  setMusic: (music: boolean) => void;
   setCharacters: (characters: string[]) => void;
 }
 
@@ -22,10 +24,12 @@ export const useStateStore = create<State & Action>()(
     (set) => ({
       videoPlayed: true,
       showPreview: true,
+      music: false,
       characters: [],
 
       setVideoPlayed: (videoPlayed) => set(() => ({ videoPlayed })),
       setShowPreview: (showPreview) => set(() => ({ showPreview })),
+      setMusic: (music) => set(() => ({ music })),
       setCharacters: (characters) => set(() => ({ characters })),
     }),
     {
@@ -34,6 +38,7 @@ export const useStateStore = create<State & Action>()(
         // characters: state.characters,
         videoPlayed: state.videoPlayed,
         showPreview: state.showPreview,
+        music: state.music,
       }),
     },
   ),

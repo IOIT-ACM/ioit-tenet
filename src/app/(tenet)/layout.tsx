@@ -1,6 +1,7 @@
 import FixedNavBar from '@/components/common/fixednav';
 import { Providers } from '@/modules/providers';
 import { Footer } from '@/modules/events';
+import { MusicBtn } from '@/components/common/musicplayer';
 
 interface SiteLayoutProps {
   children: React.ReactNode;
@@ -12,6 +13,7 @@ export default async function SiteLayout({ children }: SiteLayoutProps) {
       <FixedNavBar />
       <Providers>{children}</Providers>
       <Footer />
+      <MusicBtn className='fixed bottom-10 right-10 hidden md:block' nohide />
     </div>
   );
 }

@@ -30,7 +30,7 @@ export const GameLink = () => {
     return (
       <Link
         href={'/game'}
-        className='fixed bottom-7 left-10 z-50 hidden rounded-full bg-black p-2 text-[15px] text-white transition-all hover:scale-125 hover:animate-pulse md:block'
+        className='fixed bottom-7 left-10 z-[99999999] hidden rounded-full bg-black p-2 text-[15px] text-white transition-all hover:scale-125 hover:animate-pulse md:block'
       >
         <FaKeyboard />
       </Link>

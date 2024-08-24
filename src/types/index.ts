@@ -17,6 +17,11 @@ export type Experiment = {
   }>;
 };
 
+export interface MusicConfig {
+  route: string;
+  music: string[];
+}
+
 export type Organizer = {
   name: string;
   phone: string;

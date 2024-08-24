@@ -11,6 +11,7 @@ import {
   TenetHero,
   Schedule,
 } from '@/modules/home';
+import { MusicBtn } from '@/components/common/musicplayer';
 
 import { GameLink } from '@/modules/game';
 
@@ -29,6 +30,7 @@ export default async function HomePage() {
       <FallingCaps />
       <ThatsAllFolks />
       <GameLink />
+      <MusicBtn className='fixed bottom-7 left-20 hidden md:block' />
     </main>
   );
 }

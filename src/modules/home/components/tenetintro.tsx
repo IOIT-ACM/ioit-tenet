@@ -26,7 +26,7 @@ export const TenetHero = () => {
 
 const CenterImage = () => {
   const [loading, setLoading] = useState(true);
-  const ref = useRef(null);
+  const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
     setLoading(false);
@@ -43,10 +43,7 @@ const CenterImage = () => {
   );
 
   return (
-    <motion.div
-      ref={ref}
-      className='sticky top-0 h-screen w-screen overflow-hidden'
-    >
+    <motion.div className='sticky top-0 h-screen w-screen overflow-hidden'>
       <div className='relative'>
         <div className='absolute bottom-0 left-0 right-0 h-96 overflow-hidden bg-gradient-to-b from-zinc-950/0 to-zinc-950' />
 
@@ -56,8 +53,14 @@ const CenterImage = () => {
               scale,
               opacity,
             }}
+            onClick={() => setIsMuted(false)}
           >
-            <Video src='hero-logo.webm' autoPlay preload='auto' muted />
+            <Video
+              src='hero-logo.webm'
+              autoPlay
+              preload='auto'
+              muted={isMuted}
+            />
           </motion.div>
         )}
       </div>

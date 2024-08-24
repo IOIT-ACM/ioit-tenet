@@ -5,6 +5,7 @@ import { GeistSans } from 'geist/font/sans';
 import { type Metadata } from 'next';
 import { Toaster } from 'sonner';
 import { siteConfig } from '@/config';
+import { MusicPlayer } from '@/components/common/musicplayer';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -58,6 +59,7 @@ export default function RootLayout({
     <html lang='en' className={`${GeistSans.variable}`}>
       <body style={{ fontFamily: 'exo2' }} className='bg-neutral-950'>
         {children}
+        <MusicPlayer />
       </body>
       <Toaster richColors />
     </html>
