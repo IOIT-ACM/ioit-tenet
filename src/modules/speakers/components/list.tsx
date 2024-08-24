@@ -32,14 +32,14 @@ export const Speakers = () => {
               </p>
               <p className='mb-6 line-clamp-3 text-gray-400'>{speaker.bio}</p>
             </Link>
-            <a
+            <Link
               href={speaker.url}
               target='_blank'
               rel='noopener noreferrer'
               className='inline-flex items-center text-blue-400 hover:text-blue-300'
             >
               View LinkedIn Profile
-            </a>
+            </Link>
           </div>
         </div>
       ))}

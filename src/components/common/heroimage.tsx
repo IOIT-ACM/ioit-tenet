@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface HeroImageProps {
   backgroundImage: string;
@@ -29,12 +30,12 @@ export const HeroImage: React.FC<HeroImageProps> = ({
         <h1 className='mb-4 text-5xl font-bold text-white'>{title}</h1>
         {subtitle && <p className='mb-8 text-lg text-white'>{subtitle}</p>}
         {ctaText && ctaLink && (
-          <a
+          <Link
             href={ctaLink}
             className='rounded-md bg-blue-500 px-6 py-3 text-lg text-white transition-colors hover:bg-blue-600'
           >
             {ctaText}
-          </a>
+          </Link>
         )}
       </div>
 

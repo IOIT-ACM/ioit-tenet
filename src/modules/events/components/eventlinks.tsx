@@ -2,6 +2,7 @@ import React, { type MouseEvent } from 'react';
 import { day1, day2, day3 } from '@/config/events';
 import type { ScheduleItemType } from '@/types';
 import { useAnimate } from 'framer-motion';
+import Link from 'next/link';
 
 export const EventLinksStructure: React.FC<{ day: number }> = ({ day }) => {
   const events = getEventsForDay(day);
@@ -131,7 +132,7 @@ export const LinkBox = ({ text, href }: { text: string; href: string }) => {
   };
 
   return (
-    <a
+    <Link
       href={href}
       onMouseEnter={(e) => {
         void handleMouseEnter(e);
@@ -154,6 +155,6 @@ export const LinkBox = ({ text, href }: { text: string; href: string }) => {
           {text}
         </div>
       </div>
-    </a>
+    </Link>
   );
 };

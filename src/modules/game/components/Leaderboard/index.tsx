@@ -66,14 +66,14 @@ const Leaderboard: FC<LeaderboardProps> = ({ initialData }) => {
       <p className={'text-center text-sm text-gray-400'}>
         * Save your F5 key for emergencies; the leaderboard updates in real-time
         thanks to{' '}
-        <a
+        <Link
           href='https://supabase.io'
           target='_blank'
           rel='noopener noreferrer'
           className={'underline'}
         >
           Supabase Realtime
-        </a>
+        </Link>
         !
       </p>
     </div>

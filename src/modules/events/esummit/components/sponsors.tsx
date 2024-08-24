@@ -1,33 +1,36 @@
 import Image from 'next/image';
 import { type Sponsor } from '@/types';
 import { sponsor } from '@/config/sponsors';
+import Link from 'next/link';
 
 export const Sponsors = () => {
   return (
-    <section className="py-12 bg-black">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center text-white mb-8">Our Sponsors</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
+    <section className='bg-black py-12'>
+      <div className='container mx-auto px-4'>
+        <h2 className='mb-8 text-center text-4xl font-bold text-white'>
+          Our Sponsors
+        </h2>
+        <div className='grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5'>
           {sponsor.map((sponsor: Sponsor, index) => (
-            <a
+            <Link
               key={index}
               href={sponsor.websiteUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center p-4 rounded-lg hover:bg-gray-700 transition-colors"
+              target='_blank'
+              rel='noopener noreferrer'
+              className='flex flex-col items-center rounded-lg p-4 transition-colors hover:bg-gray-700'
             >
-              <div className="w-32 h-32 flex items-center justify-center rounded-full overflow-hidden bg-white p-2">
+              <div className='flex h-32 w-32 items-center justify-center overflow-hidden rounded-full bg-white p-2'>
                 <Image
                   src={sponsor.logoUrl}
                   alt={sponsor.name}
                   width={128}
                   height={128}
                   style={{ objectFit: 'cover' }}
-                  className="rounded-full"
+                  className='rounded-full'
                 />
               </div>
-              <p className="text-center text-white mt-4">{sponsor.name}</p>
-            </a>
+              <p className='mt-4 text-center text-white'>{sponsor.name}</p>
+            </Link>
           ))}
         </div>
       </div>

@@ -44,9 +44,9 @@ export const Footer = () => {
                   },
                 }}
               >
-                <a href={ghHref} target='_blank' rel='noreferrer'>
+                <Link href={ghHref} target='_blank' rel='noreferrer'>
                   <Image className={s.QR} src={QRImg} alt='QR' />
-                </a>
+                </Link>
               </Scrollytelling.Animation>
             </div>
           </div>
@@ -127,14 +127,14 @@ const PreFooter = () => {
         <p>
           IOIT ACM STUDENT CHAPTER WELCOMES YOU TO THE FIRST EDITION OF TENET
         </p>
-        <a
+        <Link
           className={s['mobile-qr-link']}
           href={ghHref}
           target='_blank'
           rel='noreferrer'
         >
           <Image className={s['QR-mobile']} src={QRImg} alt='QR' />
-        </a>
+        </Link>
       </div>
     </div>
   );

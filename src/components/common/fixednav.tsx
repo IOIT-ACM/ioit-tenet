@@ -8,6 +8,7 @@ import { RegisterButton } from '../ui/registerbtn';
 import { TfiMenu } from 'react-icons/tfi';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useIsMobile } from '@/hooks/useismobile';
+import Link from 'next/link';
 
 const transition = {
   type: 'spring',
@@ -68,7 +69,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
         animate={{ y: isVisible ? 0 : -100, opacity: isVisible ? 1 : 0 }}
         transition={{ duration: 0.8 }}
       >
-        <a
+        <Link
           className='h-16 w-16 cursor-pointer transition-all hover:scale-105 md:h-20 md:w-20'
           href={'/'}
         >
@@ -79,7 +80,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
             height={70}
             width={70}
           />
-        </a>
+        </Link>
       </motion.div>
 
       {/* Menu */}
@@ -102,7 +103,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
               }}
               transition={transition}
             >
-              <a href={route.path}>
+              <Link href={route.path}>
                 {route.path === hovering && (
                   <motion.div
                     initial={{ scale: 0.7 }}
@@ -120,7 +121,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
                 <span className={`relative block text-black`}>
                   {route.name}
                 </span>
-              </a>
+              </Link>
             </motion.div>
           ))}
         </div>
@@ -168,13 +169,13 @@ export default function FixedNavBar({ className }: { className?: string }) {
                 </motion.svg>
                 <nav className='relative z-10 flex flex-col items-center gap-12 text-center text-2xl text-white'>
                   {routes.map((route) => (
-                    <a
+                    <Link
                       key={route.path}
                       className='transform font-semibold transition-transform duration-200'
                       href={route.path}
                     >
                       {route.name}
-                    </a>
+                    </Link>
                   ))}
                 </nav>
               </div>
