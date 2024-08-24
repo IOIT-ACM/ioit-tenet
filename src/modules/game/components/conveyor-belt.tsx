@@ -222,7 +222,7 @@ export const ConveyorBelt: React.FC = () => {
             Rules (and tips for the game)
           </h2>
           <button
-            className='absolute right-4 top-4 text-2xl text-gray-500 hover:text-gray-700'
+            className='absolute right-4 top-4 text-2xl text-slate-500 hover:text-slate-700'
             onClick={() => setShowRules(false)}
           >
             <IoClose />
@@ -333,7 +333,7 @@ export const ConveyorBelt: React.FC = () => {
         <div className='no-scroll-bar relative grid w-fit rounded-3xl bg-white p-8 text-center'>
           <h2 className='mb-6 text-3xl font-bold text-blue-600'>Leaderboard</h2>
           <button
-            className='absolute right-4 top-4 text-2xl text-gray-500 hover:text-gray-700'
+            className='absolute right-4 top-4 text-2xl text-slate-500 hover:text-slate-700'
             onClick={() => setShowRules(false)}
           >
             <IoClose />

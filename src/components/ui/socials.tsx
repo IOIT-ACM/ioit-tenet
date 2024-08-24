@@ -115,7 +115,7 @@ export const Socials = () => {
     <div
       id='socials'
       ref={scope}
-      className='relative grid h-[100vh] place-content-center gap-2 overflow-hidden px-8 py-24 text-gray-400'
+      className='relative grid h-[100vh] place-content-center gap-2 overflow-hidden px-8 py-24 text-slate-400'
       onMouseMove={handleMouseMove}
     >
       <div ref={linkContainerRef} className='grid gap-2'>

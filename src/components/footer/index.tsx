@@ -65,11 +65,11 @@ export const Footer = () => {
             <div className='text-center'>
               <Link
                 className='link'
-                href='/about'
+                href='mailto:adimail2404@gmail.com'
                 target='_blank'
                 rel='noreferrer'
               >
-                ABOUT TENET
+                Contact developers
               </Link>
             </div>
             <div>

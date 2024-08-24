@@ -98,7 +98,7 @@ export const Timeline: React.FC<{ domain: string }> = ({ domain }) => {
         ref={containerRef}
         className='relative flex w-full max-w-6xl flex-col items-start md:items-center'
       >
-        <div className='absolute left-4 h-full w-0.5 transform bg-gray-700 md:left-1/2 md:-translate-x-1/2' />
+        <div className='absolute left-4 h-full w-0.5 transform bg-slate-700 md:left-1/2 md:-translate-x-1/2' />
 
         <motion.div
           id='tracing-beam'
@@ -156,7 +156,7 @@ const TimeMarker: React.FC<{ time: string; isActive: boolean }> = ({
   isActive,
 }) => (
   <div
-    className={`event-time absolute left-0 z-10 hidden -translate-x-full transform rounded-full border-2 bg-black p-2 md:left-1/2 md:block md:-translate-x-1/2 ${isActive ? 'border-indigo-500 text-indigo-500' : 'border-gray-400 text-gray-400'}`}
+    className={`event-time absolute left-0 z-10 hidden -translate-x-full transform rounded-full border-2 bg-black p-2 md:left-1/2 md:block md:-translate-x-1/2 ${isActive ? 'border-indigo-500 text-indigo-500' : 'border-slate-400 text-slate-400'}`}
   >
     <p className='text-sm md:text-base'>{time}</p>
   </div>
@@ -171,14 +171,14 @@ const EventContent: React.FC<{
     className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-6 lg:pr-12' : 'md:ml-auto md:pl-6 md:text-right lg:pl-12'}`}
   >
     <Link href={`/events/${event.id}`} passHref>
-      <div className='group rounded-lg p-4 transition-all duration-300 ease-in-out hover:bg-gray-800 md:p-6'>
+      <div className='group rounded-lg p-4 transition-all duration-300 ease-in-out hover:bg-slate-800 md:p-6'>
         <h3 className='md:text-md mb-2 text-sm text-indigo-500'>
           {event.date}
         </h3>
         <h2 className='mb-3 text-2xl font-bold transition-colors duration-300 group-hover:text-indigo-400 md:mb-4 md:text-4xl'>
           {event.title}
         </h2>
-        <p className='mb-4 text-sm text-gray-400 md:mb-6 md:text-base'>
+        <p className='mb-4 text-sm text-slate-400 md:mb-6 md:text-base'>
           {event.description}
         </p>
 

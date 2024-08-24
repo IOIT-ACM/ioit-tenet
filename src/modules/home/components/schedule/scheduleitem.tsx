@@ -12,7 +12,7 @@ export const ScheduleItem = ({ data }: { data: ScheduleItemType }) => {
     <div>
       <Link
         href={`/events/${data.id}`}
-        className='mb-5 flex cursor-cell flex-col gap-3 pb-2 pt-3 text-gray-400 transition-all hover:text-white md:mb-0 md:text-gray-600'
+        className='mb-5 flex cursor-cell flex-col gap-3 pb-2 pt-3 text-slate-400 transition-all hover:text-white md:mb-0 md:text-slate-600'
       >
         <span>
           <p className='mb-2 line-clamp-2 text-lg md:line-clamp-1 md:overflow-hidden md:truncate md:text-xl'>

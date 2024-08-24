@@ -13,7 +13,10 @@ export default async function SiteLayout({ children }: SiteLayoutProps) {
       <FixedNavBar />
       <Providers>{children}</Providers>
       <Footer />
-      <MusicBtn className='fixed bottom-10 right-10 hidden md:block' nohide />
+      <MusicBtn
+        className='fixed bottom-5 right-5 md:bottom-10 md:right-10'
+        nohide
+      />
     </div>
   );
 }

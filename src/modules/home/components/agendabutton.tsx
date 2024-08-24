@@ -61,7 +61,7 @@ export const Agenda = () => {
       <motion.div
         className={`fixed z-50 flex cursor-pointer items-center justify-center ${
           (!isScrolled || isHovered) && 'gap-4'
-        } overflow-hidden rounded-full bg-gradient-to-r from-gray-400 to-slate-500 px-8 py-4 text-xl font-bold text-white shadow-lg transition-all duration-500 hover:shadow-xl md:text-3xl`}
+        } overflow-hidden rounded-full bg-gradient-to-r from-slate-400 to-slate-500 px-8 py-4 text-xl font-bold text-white shadow-lg transition-all duration-500 hover:shadow-xl md:text-3xl`}
         initial={{ opacity: 0, bottom: 300 }}
         animate={{
           opacity: 1,

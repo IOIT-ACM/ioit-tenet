@@ -12,7 +12,7 @@ const CommingSoon = () => {
     >
       <div className='flex h-screen w-full flex-col items-center justify-between bg-black bg-opacity-70 py-8'>
         <div className='flex flex-1 flex-col items-center justify-center'>
-          <h1 className='mt-12 text-center font-serif text-6xl font-bold tracking-wider text-gray-200 lg:text-7xl xl:text-8xl'>
+          <h1 className='mt-12 text-center font-serif text-6xl font-bold tracking-wider text-slate-200 lg:text-7xl xl:text-8xl'>
             Coming Soon
           </h1>
         </div>

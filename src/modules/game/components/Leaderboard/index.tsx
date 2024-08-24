@@ -63,7 +63,7 @@ const Leaderboard: FC<LeaderboardProps> = ({ initialData }) => {
     <div id={'leaderboard'}>
       <Title>Leaderboard</Title>
       <LeaderboardTable data={data} newUser={newUser} />
-      <p className={'text-center text-sm text-gray-400'}>
+      <p className={'text-center text-sm text-slate-400'}>
         * Save your F5 key for emergencies; the leaderboard updates in real-time
         thanks to{' '}
         <Link

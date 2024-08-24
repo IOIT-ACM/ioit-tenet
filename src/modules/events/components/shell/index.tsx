@@ -3,7 +3,6 @@
 
 import { EventsSidePannel } from './aside-events';
 import { SpeakersSidePanel } from './aside-speakers';
-import { Separator } from '@/components/ui/separator';
 import * as React from 'react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
@@ -98,19 +97,12 @@ export function Shell({ children }: ShellProps) {
                   >
                     Agenda
                   </Link>
-                  {isEventsPath ? (
+                  {isEventsPath && (
                     <Link
                       className='transition-all hover:underline'
                       href='/speakers'
                     >
-                      Speakers
-                    </Link>
-                  ) : (
-                    <Link
-                      className='transition-all hover:underline'
-                      href='/events'
-                    >
-                      Events
+                      Speakers & guests
                     </Link>
                   )}
                   {/* <Link className='transition-all hover:underline' href='/team'>
@@ -130,25 +122,25 @@ export function Shell({ children }: ShellProps) {
       </header>
 
       <div className='flex flex-1 overflow-hidden'>
-        <aside className='scrollbar-custom sticky top-0 z-50 hidden w-1/4 select-none overflow-y-auto overflow-x-hidden bg-gray-900 sm:block'>
+        <aside className='scrollbar-custom relative sticky top-0 z-50 m-8 hidden w-1/4 select-none overflow-y-auto overflow-x-hidden rounded-lg bg-slate-800 sm:block'>
           {isEventsPath ? (
             <>
-              <h2 className='p-4 text-3xl font-bold text-white'>
-                Agenda Outline
+              <h2 className='sticky top-0 z-50 border-b bg-slate-800 p-4 text-3xl font-bold text-white'>
+                <p>Agenda Outline</p>
               </h2>
-              <Separator className='mb-5 mt-2 bg-slate-400' />
               <EventsSidePannel />
             </>
           ) : (
             <>
-              <h2 className='p-4 text-3xl font-bold text-white'>Speakers</h2>
-              <Separator className='mb-5 mt-2 bg-slate-400' />
+              <h2 className='sticky top-0 z-50 border-b bg-slate-800 p-4 text-3xl font-bold text-white'>
+                Speakers
+              </h2>
               <SpeakersSidePanel />
             </>
           )}
         </aside>
 
-        <main className='scrollbar-custom flex-1 overflow-y-auto px-10 pb-20 pt-0 md:pb-10'>
+        <main className='scrollbar-custom flex-1 overflow-y-auto px-5 pb-20 pt-0 md:px-0 md:pb-10'>
           {children}
         </main>
       </div>

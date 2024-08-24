@@ -32,10 +32,10 @@ export const SpeakerItem = ({ data }: { data: Speaker }) => {
     <div ref={itemRef}>
       <Link
         href={`/speakers/${data.id}`}
-        className={`mb-5 flex cursor-pointer items-center gap-3 border-b p-4 transition-all hover:text-gray-300 md:mb-0 md:border-none ${
+        className={`mb-5 flex cursor-pointer items-center gap-3 border-b p-4 transition-all hover:text-slate-300 md:mb-0 md:border-none ${
           isActive
             ? 'rounded-xl border-opacity-25 bg-white/10 text-white'
-            : 'text-gray-500'
+            : 'text-slate-500'
         }`}
       >
         <Image

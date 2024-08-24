@@ -212,7 +212,7 @@ export const Events: React.FC = () => {
                         scale: 0.7,
                       }}
                       transition={{ duration: 0.5 }}
-                      className='absolute inset-0 overflow-hidden rounded-lg bg-gray-200 p-6 shadow-lg'
+                      className='absolute inset-0 overflow-hidden rounded-lg bg-slate-200 p-6 shadow-lg'
                     >
                       <h2 className='text-2xl font-bold md:text-3xl'>
                         {item.title}
@@ -238,7 +238,7 @@ export const Events: React.FC = () => {
                   scale: 0.7,
                 }}
                 transition={{ duration: 0.5 }}
-                className='absolute inset-0 flex items-center justify-center overflow-hidden rounded-lg bg-gray-200 p-6 shadow-lg'
+                className='absolute inset-0 flex items-center justify-center overflow-hidden rounded-lg bg-slate-200 p-6 shadow-lg'
               >
                 <Link
                   href={'/events'}

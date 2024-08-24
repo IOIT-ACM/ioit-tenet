@@ -47,7 +47,7 @@ const CountdownItem: React.FC<{ unit: Unit; text: string }> = ({
           animate={{ y: '0%', opacity: 1 }}
           exit={{ y: '-50%', opacity: 0 }}
           transition={{ duration: 0.35 }}
-          className='block text-2xl font-medium text-black md:text-4xl lg:text-6xl xl:text-7xl'
+          className='block text-3xl font-medium text-black md:text-4xl lg:text-6xl xl:text-7xl'
         >
           {time}
         </motion.span>

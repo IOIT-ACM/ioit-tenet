@@ -185,7 +185,7 @@ export function VanishInput({
     <form
       className={cn(
         'relative mx-auto h-12 w-full max-w-xl overflow-hidden rounded-full bg-white shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),_0px_1px_0px_0px_rgba(25,28,33,0.02),_0px_0px_0px_1px_rgba(25,28,33,0.08)] transition duration-200 dark:bg-zinc-800',
-        value && 'bg-gray-50',
+        value && 'bg-slate-50',
       )}
       onSubmit={handleSubmit}
     >
@@ -216,7 +216,7 @@ export function VanishInput({
       <button
         disabled={!value}
         type='submit'
-        className='absolute right-2 top-1/2 z-50 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-black transition duration-200 disabled:bg-gray-100 dark:bg-zinc-900 dark:disabled:bg-zinc-800'
+        className='absolute right-2 top-1/2 z-50 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-black transition duration-200 disabled:bg-slate-100 dark:bg-zinc-900 dark:disabled:bg-zinc-800'
       >
         <motion.svg
           xmlns='http://www.w3.org/2000/svg'
@@ -228,7 +228,7 @@ export function VanishInput({
           strokeWidth='2'
           strokeLinecap='round'
           strokeLinejoin='round'
-          className='h-4 w-4 text-gray-300'
+          className='h-4 w-4 text-slate-300'
         >
           <path stroke='none' d='M0 0h24v24H0z' fill='none' />
           <motion.path

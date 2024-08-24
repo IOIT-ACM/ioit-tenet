@@ -6,9 +6,15 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { RegisterButton } from '../ui/registerbtn';
 import { TfiMenu } from 'react-icons/tfi';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+} from '@/components/ui/sheet';
 import { useIsMobile } from '@/hooks/useismobile';
 import Link from 'next/link';
+import { MusicBtn } from './musicplayer';
 
 const transition = {
   type: 'spring',
@@ -90,7 +96,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
           className,
         )}
       >
-        <div className='relative flex gap-0 rounded-full border-2 border-gray-600 bg-gray-300 px-4 py-2 text-black'>
+        <div className='relative flex gap-0 rounded-full border-2 border-slate-600 bg-slate-300 px-4 py-2 text-black'>
           {routes.map((route) => (
             <motion.div
               key={route.path}
@@ -115,7 +121,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
                       scale: 0.1,
                     }}
                     transition={{ type: 'spring', bounce: 0.3, duration: 0.6 }}
-                    className='absolute inset-0 rounded-full bg-gray-100'
+                    className='absolute inset-0 rounded-full bg-slate-100'
                   />
                 )}
                 <span className={`relative block text-black`}>
@@ -130,7 +136,10 @@ export default function FixedNavBar({ className }: { className?: string }) {
       {/* Register button */}
       <motion.div
         initial={{ y: -100, opacity: 0 }}
-        animate={{ y: isVisible ? 0 : -100, opacity: isVisible ? 1 : 0 }}
+        animate={{
+          y: isMobile ? 0 : scrollDirection === 'down' && !isVisible ? -100 : 0,
+          opacity: isMobile ? 1 : isVisible ? 1 : 0,
+        }}
         transition={{ duration: 0.8 }}
       >
         <RegisterButton />
@@ -138,7 +147,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
         <div className='sm:hidden'>
           <Sheet>
             <SheetTrigger>
-              <TfiMenu color='white' size={32} />
+              <TfiMenu color='gray' size={32} />
             </SheetTrigger>
             <SheetContent className='z-[999999999999999] flex h-full w-screen items-center justify-center border-none bg-black/75'>
               <div className='relative flex h-full w-full items-center justify-center'>
@@ -156,7 +165,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
                     strokeWidth='3'
                     initial={{ pathLength: 0 }}
                     animate={{ pathLength: 1 }}
-                    transition={{ duration: 2.5 }}
+                    transition={{ duration: 3.3 }}
                   />
                   <motion.path
                     d='M3.5 39.5L13.5 2H186.5L169.5 39.5H107.5L64.5 172.5H21.5L64.5 39.5H3.5Z'
@@ -164,20 +173,38 @@ export default function FixedNavBar({ className }: { className?: string }) {
                     strokeWidth='3'
                     initial={{ pathLength: 0 }}
                     animate={{ pathLength: 1 }}
-                    transition={{ duration: 2.5 }}
+                    transition={{ duration: 3.3 }}
                   />
                 </motion.svg>
                 <nav className='relative z-10 flex flex-col items-center gap-12 text-center text-2xl text-white'>
                   {routes.map((route) => (
-                    <Link
-                      key={route.path}
-                      className='transform font-semibold transition-transform duration-200'
-                      href={route.path}
-                    >
-                      {route.name}
-                    </Link>
+                    <SheetClose key={route.path} asChild>
+                      <Link
+                        className='transform font-semibold transition-transform duration-200'
+                        href={route.path}
+                      >
+                        {route.name}
+                      </Link>
+                    </SheetClose>
                   ))}
                 </nav>
+                <div className='absolute bottom-0 flex flex-col items-center justify-center gap-5 text-white'>
+                  <div className='flex flex-col gap-2 text-center'>
+                    <Link
+                      className='transform font-semibold transition-transform duration-200'
+                      href='/register'
+                    >
+                      Register
+                    </Link>
+                    <Link
+                      className='transform font-semibold transition-transform duration-200'
+                      href='/speakers'
+                    >
+                      Speakers & Guests
+                    </Link>
+                  </div>
+                </div>
+                <MusicBtn className='absolute bottom-0 right-0' />
               </div>
             </SheetContent>
           </Sheet>

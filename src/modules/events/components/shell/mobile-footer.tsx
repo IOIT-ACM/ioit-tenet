@@ -89,12 +89,12 @@ const MobileFooter = () => {
                         {event.title}
                       </h2>
                       <div>
-                        <p className='mb-2 text-gray-500'>
+                        <p className='mb-2 text-slate-500'>
                           {event.date} - {event.time}
                         </p>
                         <p className='mb-2'>{event.location}</p>
                         {event.domain && (
-                          <span className='rounded-full bg-gray-200 px-3 py-1 text-xs text-gray-600'>
+                          <span className='rounded-full bg-slate-200 px-3 py-1 text-xs text-slate-600'>
                             {event.domain}
                           </span>
                         )}
@@ -124,10 +124,10 @@ const MobileFooter = () => {
                         <p className='mb-2 text-xl font-semibold'>
                           {speaker.name}
                         </p>
-                        <p className='mb-2 text-gray-500'>{speaker.title}</p>
+                        <p className='mb-2 text-slate-500'>{speaker.title}</p>
                       </h2>
                       <div>
-                        <p className='mb-2 text-gray-500'>{speaker.bio}</p>
+                        <p className='mb-2 text-slate-500'>{speaker.bio}</p>
                       </div>
                     </div>
                   </Link>

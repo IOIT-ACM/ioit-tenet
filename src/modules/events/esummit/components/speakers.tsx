@@ -16,7 +16,7 @@ export const Speakers = () => {
             <div key={speaker.id} className='perspective group'>
               <div className='preserve-3d group-hover:rotate-y-180 relative h-64 w-full duration-700'>
                 {/* Front Side */}
-                <div className='backface-hidden absolute flex h-full w-full flex-col items-center justify-center rounded-lg bg-gray-900 p-4 text-center shadow-lg'>
+                <div className='backface-hidden absolute flex h-full w-full flex-col items-center justify-center rounded-lg bg-slate-900 p-4 text-center shadow-lg'>
                   <div className='relative mb-4 h-24 w-24'>
                     <Image
                       src={speaker.image}
@@ -29,14 +29,14 @@ export const Speakers = () => {
                   <h3 className='text-lg font-semibold text-white'>
                     {speaker.name}
                   </h3>
-                  <p className='text-sm text-gray-400'>{speaker.title}</p>
+                  <p className='text-sm text-slate-400'>{speaker.title}</p>
                 </div>
                 {/* Back Side */}
-                <div className='rotate-y-180 backface-hidden absolute flex h-full w-full flex-col items-center justify-center rounded-lg bg-gray-900 p-4 text-center shadow-lg'>
+                <div className='rotate-y-180 backface-hidden absolute flex h-full w-full flex-col items-center justify-center rounded-lg bg-slate-900 p-4 text-center shadow-lg'>
                   <h3 className='mb-4 text-lg font-semibold text-white'>
                     {speaker.name}
                   </h3>
-                  <p className='mb-4 text-sm text-gray-400'>{speaker.bio}</p>
+                  <p className='mb-4 text-sm text-slate-400'>{speaker.bio}</p>
                   <Link
                     href={speaker.url}
                     target='_blank'

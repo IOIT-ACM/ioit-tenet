@@ -24,13 +24,13 @@ export const Speakers = () => {
           </Link>
           <div className='w-full p-6 sm:w-2/3 sm:p-8'>
             <Link className='h-full' href={`/speakers/${speaker.id}`}>
-              <h2 className='mb-2 text-3xl font-bold text-gray-400 group-hover:text-white'>
+              <h2 className='mb-2 text-3xl font-bold text-slate-400 group-hover:text-white'>
                 {speaker.name}
               </h2>
               <p className='mb-4 text-xl font-medium text-indigo-400'>
                 {speaker.title}
               </p>
-              <p className='mb-6 line-clamp-3 text-gray-400'>{speaker.bio}</p>
+              <p className='mb-6 line-clamp-3 text-slate-400'>{speaker.bio}</p>
             </Link>
             <Link
               href={speaker.url}

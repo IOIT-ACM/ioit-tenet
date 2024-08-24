@@ -21,7 +21,7 @@ export const EventsSidePannel = () => {
 
   return (
     <div className='z-50 p-2 pb-36 shadow-xl'>
-      <div className='mb-14 flex items-center space-x-2'>
+      <div className='mb-14 mt-8 flex items-center space-x-2'>
         <Switch
           id='toggle-cards'
           checked={showPreview}
@@ -73,10 +73,10 @@ export const ScheduleItem = ({ data }: { data: ScheduleItemType }) => {
     <div ref={itemRef}>
       <Link
         href={`/events/${data.id}`}
-        className={`mb-5 flex flex-col p-4 transition-all hover:text-gray-300 md:mb-0 md:border-none ${
+        className={`mb-5 flex flex-col p-4 transition-all hover:text-slate-300 md:mb-0 md:border-none ${
           isActive
             ? 'rounded-xl border-opacity-25 bg-white/10 text-white'
-            : 'text-gray-500'
+            : 'text-slate-500'
         }`}
       >
         <div className='mb-2 text-lg'>

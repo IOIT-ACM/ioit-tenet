@@ -17,7 +17,7 @@ export const TenetSpeakers = () => {
   return (
     <div id='speakers' className='bg-neutral-950'>
       <h1 className='text-center text-4xl text-white md:text-8xl'>Speakers</h1>
-      <h3 className='text-center text-lg text-gray-400 md:text-xl'>
+      <h3 className='text-center text-lg text-slate-400 md:text-xl'>
         Scroll down to scroll right
       </h3>
       <TenetSpeakersCarousel />

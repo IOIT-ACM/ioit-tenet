@@ -17,7 +17,7 @@ export const Sponsors = () => {
               href={sponsor.websiteUrl}
               target='_blank'
               rel='noopener noreferrer'
-              className='flex flex-col items-center rounded-lg p-4 transition-colors hover:bg-gray-700'
+              className='flex flex-col items-center rounded-lg p-4 transition-colors hover:bg-slate-700'
             >
               <div className='flex h-32 w-32 items-center justify-center overflow-hidden rounded-full bg-white p-2'>
                 <Image

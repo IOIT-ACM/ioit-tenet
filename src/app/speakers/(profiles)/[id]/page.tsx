@@ -55,10 +55,10 @@ export default function Page({ params }: { params: { id: string } }) {
           <h1 className='text-6xl font-extrabold text-white'>
             Speaker Not Found
           </h1>
-          <p className='mt-4 text-xl text-gray-300'>
+          <p className='mt-4 text-xl text-slate-300'>
             Sorry, the speaker you are looking for does not exist.
           </p>
-          <p className='mt-2 text-lg text-gray-400'>
+          <p className='mt-2 text-lg text-slate-400'>
             Please check the speaker ID or browse through our speaker listings.
           </p>
         </div>

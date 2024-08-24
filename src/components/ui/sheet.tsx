@@ -68,7 +68,7 @@ const SheetContent = React.forwardRef<
       <SheetPrimitive.Close className='absolute right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 disabled:pointer-events-none data-[state=open]:bg-secondary'>
         <motion.svg
           xmlns='http://www.w3.org/2000/svg'
-          className='h-8 w-8 text-white'
+          className='h-8 w-8 text-slate-500'
           viewBox='0 0 24 24'
           fill='none'
           stroke='currentColor'
@@ -80,13 +80,13 @@ const SheetContent = React.forwardRef<
             d='M18 6L6 18'
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}
-            transition={{ duration: 2.5 }}
+            transition={{ duration: 1 }}
           />
           <motion.path
             d='M6 6L18 18'
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}
-            transition={{ duration: 2.5 }}
+            transition={{ duration: 1 }}
           />
         </motion.svg>
         <span className='sr-only'>Close</span>

@@ -53,7 +53,7 @@ export const Schedule = () => {
       id='schedule'
       className='relative mx-5 mb-56 grid grid-cols-1 justify-center text-white transition-all md:mx-32 md:grid-cols-7'
     >
-      <div className='sticky top-0 z-40 self-start bg-black md:top-10 md:col-span-2 md:bg-neutral-950'>
+      <div className='sticky top-0 z-40 self-start bg-black bg-neutral-950 md:top-10 md:col-span-2'>
         <h1 className='mb-3 mt-5 w-full text-4xl font-black uppercase text-zinc-50 md:mb-20 md:mt-0 md:text-5xl'>
           Schedule
         </h1>
@@ -92,7 +92,7 @@ export const Schedule = () => {
       </div>
       <div ref={boundaryRef} className='w-full md:col-span-5'>
         <div id='day1events' className='mb-8 mt-20 md:mt-0'>
-          <div className='mb-4 flex w-full items-center justify-between text-3xl font-bold text-gray-300'>
+          <div className='mb-4 flex w-full items-center justify-between text-3xl font-bold text-slate-300'>
             <span>Day 1 Events</span>
             <span>
               {expanded === 1 ? (
@@ -123,7 +123,7 @@ export const Schedule = () => {
         </div>
 
         <div id='day2events' className='mb-8'>
-          <div className='mb-4 flex w-full items-center justify-between text-3xl font-bold text-gray-300'>
+          <div className='mb-4 flex w-full items-center justify-between text-3xl font-bold text-slate-300'>
             <span>Day 2 Events</span>
             <span>
               {expanded === 2 ? (
@@ -154,7 +154,7 @@ export const Schedule = () => {
         </div>
 
         <div id='day3events'>
-          <div className='mb-4 flex w-full items-center justify-between text-3xl font-bold text-gray-300'>
+          <div className='mb-4 flex w-full items-center justify-between text-3xl font-bold text-slate-300'>
             <span>Day 3 Events</span>
             <span>
               {expanded === 3 ? (

@@ -10,6 +10,14 @@ import { useStore } from '@/store';
 import { HiMiniSpeakerWave, HiMiniSpeakerXMark } from 'react-icons/hi2';
 import { cn } from '@/lib/utils';
 
+/**
+ * Manages background music playback based on the current route.
+ * Selects a random track from the music configuration when the route changes.
+ * Sounds are stored in public/music/tracks directory
+ * the config file for the routes is in /config dir
+ * Continues playing the current track if the new route is not in the music configuration.
+ */
+
 export const MusicPlayer: React.FC = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const pathname = usePathname();
@@ -19,23 +27,28 @@ export const MusicPlayer: React.FC = () => {
   const music = useStore((state) => state.music);
 
   useEffect(() => {
-    const currentConfig = musicConfig.find(
-      (config) => config.route === pathname,
-    );
+    // Check if the current pathname exists in musicConfig
+    const pathExists = musicConfig.some((config) => config.route === pathname);
 
-    if (currentConfig) {
-      const randomTrack =
-        currentConfig.music[
-          Math.floor(Math.random() * currentConfig.music.length)
-        ];
+    // Only proceed if the path exists in musicConfig
+    if (pathExists) {
+      const currentConfig = musicConfig.find(
+        (config) => config.route === pathname,
+      );
 
-      if (randomTrack !== currentTrack) {
-        setCurrentTrack(randomTrack);
+      if (currentConfig) {
+        const randomTrack =
+          currentConfig.music[
+            Math.floor(Math.random() * currentConfig.music.length)
+          ];
+
+        if (randomTrack !== currentTrack) {
+          setCurrentTrack(randomTrack);
+        }
       }
-    } else {
-      setCurrentTrack(null);
     }
-  }, [pathname]);
+    // If the path doesn't exist in musicConfig, do nothing
+  }, [pathname, currentTrack]);
 
   useEffect(() => {
     if (currentTrack && audioRef.current && music) {

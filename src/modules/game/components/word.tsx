@@ -53,7 +53,7 @@ export const Word: React.FC<WordProps> = ({
   return (
     <motion.div
       ref={wordRef}
-      className='absolute whitespace-nowrap text-2xl font-extrabold text-gray-300'
+      className='absolute whitespace-nowrap text-2xl font-extrabold text-slate-300'
       style={{ top: topPos, fontFamily: 'comfortaa' }}
       initial={{ x: '100vw' }}
       animate={controls}

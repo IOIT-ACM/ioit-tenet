@@ -115,7 +115,7 @@ export const SearchEvents: React.FC = () => {
 
   return (
     <div id='search' className='h-[100vh] bg-neutral-950'>
-      <div className='sticky top-0 grid h-[90vh] grid-cols-1 justify-center gap-3 overflow-hidden bg-neutral-950 px-10 text-gray-300 md:h-screen md:grid-cols-2 md:items-center md:px-20'>
+      <div className='sticky top-0 grid h-[90vh] grid-cols-1 justify-center gap-3 overflow-hidden bg-neutral-950 px-10 text-slate-300 md:h-screen md:grid-cols-2 md:items-center md:px-20'>
         <div className='grid gap-5 md:-translate-y-[20%] md:px-10'>
           <div className='text-4xl font-bold md:text-6xl'>Search TENET</div>
 
@@ -126,7 +126,7 @@ export const SearchEvents: React.FC = () => {
                   router.push('/events');
                 }, 500)
               }
-              className='rounded-2xl border-2 border-dashed border-black bg-gray-200 py-2 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_gray] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none md:px-6 md:py-3'
+              className='rounded-2xl border-2 border-dashed border-black bg-slate-200 py-2 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_slate] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none md:px-6 md:py-3'
             >
               <span>All Events</span>
             </button>
@@ -136,7 +136,7 @@ export const SearchEvents: React.FC = () => {
                   router.push('/speakers');
                 }, 500)
               }
-              className='rounded-2xl border-2 border-dashed border-black bg-gray-200 py-2 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_gray] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none md:px-6 md:py-3'
+              className='rounded-2xl border-2 border-dashed border-black bg-slate-200 py-2 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_slate] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none md:px-6 md:py-3'
             >
               <span>Speakers</span>
             </button>
@@ -144,7 +144,7 @@ export const SearchEvents: React.FC = () => {
           <div className='relative w-full'>
             <input
               type='text'
-              className='text-md mb-2 h-[50px] w-full rounded-full border-2 p-3 px-5 text-gray-200 md:h-[60px] md:px-8 md:text-xl'
+              className='text-md mb-2 h-[50px] w-full rounded-full border-2 p-3 px-5 text-slate-200 md:h-[60px] md:px-8 md:text-xl'
               placeholder='Search events and speakers'
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -158,14 +158,14 @@ export const SearchEvents: React.FC = () => {
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className='absolute z-50 mt-1 w-full overflow-y-auto rounded-xl border border-gray-400 bg-white text-gray-400 md:max-h-[250px] md:rounded-3xl'
+                    className='absolute z-50 mt-1 w-full overflow-y-auto rounded-xl border border-slate-400 bg-white text-slate-400 md:max-h-[250px] md:rounded-3xl'
                   >
                     {suggestions.slice(0, 7).map((item, index) => (
                       <div
                         key={item.id}
                         className={cn(
-                          'grid cursor-pointer items-center px-5 py-2 text-sm hover:text-gray-700 md:px-8 md:py-3 md:text-xl',
-                          activeSuggestionIndex === index && 'bg-gray-200',
+                          'grid cursor-pointer items-center px-5 py-2 text-sm hover:text-slate-700 md:px-8 md:py-3 md:text-xl',
+                          activeSuggestionIndex === index && 'bg-slate-200',
                         )}
                         onClick={() => setSearchTerm(item.name)}
                       >

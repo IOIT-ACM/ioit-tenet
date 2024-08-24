@@ -13,7 +13,7 @@ import {
 
 export const Details = ({ event }: { event: ScheduleItemType }) => {
   return (
-    <div className='flex w-full flex-col items-center justify-start gap-10 pt-10 text-white'>
+    <div className='flex w-full flex-col items-center justify-start gap-10 pt-5 text-white md:pt-10'>
       <div className='w-full overflow-hidden'>
         <div className='w-full md:flex'>
           <div className='sticky top-0 h-64 w-full overflow-hidden rounded-lg border md:h-[500px] md:w-1/2'>
@@ -41,7 +41,7 @@ export const Details = ({ event }: { event: ScheduleItemType }) => {
                 {event.location}
               </p>
             </div>
-            <p className='text-lg text-gray-400'>{event.description}</p>
+            <p className='text-lg text-slate-400'>{event.description}</p>
 
             {event.speakers && event.speakers.length > 0 && (
               <div>
@@ -59,7 +59,10 @@ export const Details = ({ event }: { event: ScheduleItemType }) => {
                 <h2 className='mb-4 text-xl font-semibold'>Organizers</h2>
                 <ul className='space-y-2'>
                   {event.organizers.map((organizer, index) => (
-                    <li key={index} className='flex items-center text-gray-400'>
+                    <li
+                      key={index}
+                      className='flex items-center text-slate-400'
+                    >
                       <HiUser className='mr-2 h-5 w-5' />
                       <Link
                         href={`tel:${organizer.phone}`}

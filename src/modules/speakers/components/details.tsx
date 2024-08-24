@@ -6,7 +6,7 @@ import { HiUser, HiBriefcase } from 'react-icons/hi';
 
 export const SpeakerDetails = ({ speaker }: { speaker: Speaker }) => {
   return (
-    <div className='flex w-full flex-col items-center justify-start gap-10 pt-10 text-white'>
+    <div className='flex w-full flex-col items-center justify-start gap-10 pt-5 text-white md:pt-10'>
       <div className='w-full overflow-hidden'>
         <div className='w-full md:flex'>
           <div className='sticky top-0 h-64 w-full overflow-hidden rounded-lg border md:h-[500px] md:w-1/2'>
@@ -33,7 +33,7 @@ export const SpeakerDetails = ({ speaker }: { speaker: Speaker }) => {
             {speaker.bio && (
               <div>
                 <h2 className='mb-4 text-xl font-semibold'>Biography</h2>
-                <p className='text-lg text-gray-400'>{speaker.bio}</p>
+                <p className='text-lg text-slate-400'>{speaker.bio}</p>
               </div>
             )}
           </div>

@@ -38,7 +38,6 @@ export const useStateStore = create<State & Action>()(
         // characters: state.characters,
         videoPlayed: state.videoPlayed,
         showPreview: state.showPreview,
-        music: state.music,
       }),
     },
   ),
