@@ -1,6 +1,4 @@
-import {
-  HeroImage,
-} from '@/modules/events/mun';
+import { HeroImage } from '@/components/common/heroimage';
 
 export default function Page() {
   return (

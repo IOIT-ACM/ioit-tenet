@@ -1,8 +1,6 @@
-import {
-  HeroImage,
-  Timeline,
-  Sponsors,
-} from '@/modules/events/creators';
+import { HeroImage } from '@/components/common/heroimage';
+import { Timeline } from '@/components/common/timeline';
+import { Sponsors } from '@/components/common/sponsors';
 
 export default function Page() {
   return (

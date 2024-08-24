@@ -1,4 +1,5 @@
-import { HeroImage, Timeline } from '@/modules/events/techfiesta';
+import { HeroImage } from '@/components/common/heroimage';
+import { Timeline } from '@/components/common/timeline';
 
 export default async function Page() {
   return (
