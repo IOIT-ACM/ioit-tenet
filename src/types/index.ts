@@ -52,6 +52,7 @@ export type ScheduleItemType = {
   start: Date;
   time: string;
   registration?: string;
+  icon?: string;
 };
 
 export interface Sponsor {

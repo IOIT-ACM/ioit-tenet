@@ -4,45 +4,62 @@ import Link from 'next/link';
 
 export const Speakers = () => {
   return (
-    <div className='mx-auto max-w-5xl space-y-12 px-4 sm:px-6 lg:px-8'>
-      {speakers.map((speaker) => (
-        <div
-          key={speaker.id}
-          className='group flex flex-col items-center overflow-hidden rounded-lg text-white transition-all sm:flex-row'
-        >
-          <Link
-            href={`/speakers/${speaker.id}`}
-            className='relative h-64 w-full overflow-hidden sm:h-72 sm:w-1/3'
+    <div className='mx-auto px-4 pb-8 pt-5'>
+      <h1 className='mb-12 text-center text-4xl font-bold text-white'>
+        Our Speakers
+      </h1>
+      <div className='grid grid-cols-1 gap-8 lg:grid-cols-2 xl:grid-cols-3'>
+        {speakers.map((speaker) => (
+          <div
+            key={speaker.id}
+            className='overflow-hidden rounded-lg bg-gray-800 shadow-lg transition-all duration-300 hover:shadow-xl sm:flex sm:h-64'
           >
-            <Image
-              src={speaker.image}
-              alt={speaker.name}
-              layout='fill'
-              objectFit='cover'
-              className='rounded-t-lg transition-transform duration-300 group-hover:scale-105 sm:rounded-l-lg sm:rounded-tr-none'
-            />
-          </Link>
-          <div className='w-full p-6 sm:w-2/3 sm:p-8'>
-            <Link className='h-full' href={`/speakers/${speaker.id}`}>
-              <h2 className='mb-2 text-3xl font-bold text-slate-400 group-hover:text-white'>
-                {speaker.name}
-              </h2>
-              <p className='mb-4 text-xl font-medium text-indigo-400'>
-                {speaker.title}
-              </p>
-              <p className='mb-6 line-clamp-3 text-slate-400'>{speaker.bio}</p>
-            </Link>
             <Link
-              href={speaker.url}
-              target='_blank'
-              rel='noopener noreferrer'
-              className='inline-flex items-center text-blue-400 hover:text-blue-300'
+              href={`/speakers/${speaker.id}`}
+              className='relative block h-64 overflow-hidden sm:h-full sm:w-2/3'
             >
-              View LinkedIn Profile
+              <Image
+                src={speaker.image}
+                alt={speaker.name}
+                layout='fill'
+                objectFit='cover'
+                className='transition-transform duration-300 hover:scale-110'
+              />
             </Link>
+            <div className='flex flex-col justify-between p-6 sm:w-2/3'>
+              <div>
+                <Link href={`/speakers/${speaker.id}`}>
+                  <h2 className='mb-2 text-xl font-bold text-white transition-colors hover:text-indigo-400'>
+                    {speaker.name}
+                  </h2>
+                </Link>
+                <p className='mb-2 text-base font-medium text-indigo-400'>
+                  {speaker.title}
+                </p>
+                <p className='mb-4 line-clamp-3 text-sm text-slate-300'>
+                  {speaker.bio}
+                </p>
+              </div>
+              <div className='flex items-center justify-between'>
+                <Link
+                  href={`/speakers/${speaker.id}`}
+                  className='text-sm text-blue-400 transition-colors hover:text-blue-300 sm:text-base'
+                >
+                  Learn More
+                </Link>
+                <Link
+                  href={speaker.url}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='rounded-full bg-indigo-600 px-3 py-1 text-sm text-white transition-colors hover:bg-indigo-700 sm:px-4 sm:py-2 sm:text-base'
+                >
+                  LinkedIn
+                </Link>
+              </div>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

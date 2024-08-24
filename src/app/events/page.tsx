@@ -1,6 +1,9 @@
 import { EventsList } from '@/modules/events';
 import { type Metadata } from 'next';
 import { env } from '@/env';
+import FixedNavBar from '@/components/common/fixednav';
+
+import { Footer } from '@/modules/events';
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -10,8 +13,10 @@ export const metadata: Metadata = {
 
 const Register = () => {
   return (
-    <div>
+    <div className='bg-white'>
       <EventsList />
+      <FixedNavBar />
+      <Footer />
     </div>
   );
 };

@@ -14,7 +14,7 @@ export default async function SiteLayout({ children }: SiteLayoutProps) {
       <Providers>{children}</Providers>
       <Footer />
       <MusicBtn
-        className='fixed bottom-5 right-5 md:bottom-10 md:right-10'
+        className='fixed bottom-5 right-5 w-fit md:bottom-10 md:left-10'
         nohide
       />
     </div>
