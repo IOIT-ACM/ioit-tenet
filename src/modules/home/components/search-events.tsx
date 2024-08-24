@@ -5,7 +5,7 @@ import '@/styles/search.css';
 import React, { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
-import Link from 'next/link';
+// import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { useSearch, type Event } from '@/hooks/use-search';
@@ -190,20 +190,20 @@ export const SearchEvents: React.FC = () => {
             style={{ height: `${scrollHeight}px` }}
           >
             {allItems.map((item) => (
-              <Link
+              <li
                 key={item.id}
-                href={
-                  item.type === 'speaker'
-                    ? `/speakers/${item.id}`
-                    : `/events/${item.id}`
-                }
+                // href={
+                //   item.type === 'speaker'
+                //     ? `/speakers/${item.id}`
+                //     : `/events/${item.id}`
+                // }
                 className='scroll-item z-[9999999] flex cursor-pointer items-center p-2 text-lg sm:text-2xl md:p-4 md:text-3xl'
                 onClick={() => setSearchTerm(item.name)}
               >
                 {item.type === 'speaker' ? (
                   <Image
                     src={item.image}
-                    alt={item.name}
+                    alt={`Profile image of ${item.name}`}
                     width={48}
                     height={48}
                     className='mr-4 h-[45px] w-[45px] rounded-full object-cover md:h-[65px] md:w-[65px]'
@@ -214,7 +214,7 @@ export const SearchEvents: React.FC = () => {
                   </div>
                 )}
                 {item.name}
-              </Link>
+              </li>
             ))}
           </ul>
         </div>

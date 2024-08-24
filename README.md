@@ -1,19 +1,5 @@
 # IOIT TENET web
 
-## TODO
-
-- [ ] Routes for individual event pages
-  - [ ] Techfiesta
-  - [ ] E-Sports
-  - [ ] MUN
-  - [ ] E-Summit
-  - [ ] Creators Conclave
-- [ ] Card designs for T-E-N-E-T scroll cards (`@/modules/home/events.tsx`)
-- [ ] Agenda content with tabs
-- [ ] Agenda page
-- [ ] MUN showcase component
-- [ ] Parallax effect for hero page (optional)
-
 ## Repository Structure
 
 - The code components are structured in a modular way. We have a `/modules` directory that contain code components for each module _(ie. Home page, search page, etc)_

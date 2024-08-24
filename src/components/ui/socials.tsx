@@ -130,6 +130,7 @@ export const Socials = () => {
           src={img}
           key={index}
           data-mouse-move-index={index}
+          alt={img}
         />
       ))}
     </div>

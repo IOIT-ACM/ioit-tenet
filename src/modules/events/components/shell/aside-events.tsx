@@ -26,11 +26,17 @@ export const EventsSidePannel = () => {
           id='toggle-cards'
           checked={showPreview}
           onCheckedChange={setShowPreview}
+          aria-labelledby='toggle-cards-label'
         />
-        <label htmlFor='toggle-cards' className='text-white'>
+        <label
+          id='toggle-cards-label'
+          htmlFor='toggle-cards'
+          className='text-white'
+        >
           Show preview
         </label>
       </div>
+
       {sortedDays.map((day, dayIndex) => (
         <div key={dayIndex} className='mb-16 last:mb-0'>
           <h2 className='mb-4 px-4 text-xl font-semibold text-white'>
