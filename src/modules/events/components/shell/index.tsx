@@ -9,15 +9,23 @@ import Link from 'next/link';
 import Image from 'next/image';
 import MonileFooter from './mobile-footer';
 import { usePathname } from 'next/navigation';
-
-import { CiMenuFries } from 'react-icons/ci';
+import { motion } from 'framer-motion';
 import {
   Sheet,
   SheetContent,
-  SheetHeader,
-  SheetTitle,
   SheetTrigger,
+  SheetClose,
 } from '@/components/ui/sheet';
+import { MusicBtn } from '@/components/common/musicplayer';
+
+const routes = [
+  { path: '/', name: 'Home' },
+  { path: '/events', name: 'Agenda' },
+  { path: '/speakers', name: 'Speakers & Guests' },
+  { path: '/register', name: 'Regestrations' },
+];
+
+import { CiMenuFries } from 'react-icons/ci';
 
 interface ShellProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
@@ -81,41 +89,47 @@ export function Shell({ children }: ShellProps) {
             <SheetTrigger>
               <CiMenuFries size={29} />
             </SheetTrigger>
-            <SheetContent className='text-left'>
-              <SheetHeader>
-                <SheetTitle className='text-left'>
-                  <h1>Menu</h1>
-                </SheetTitle>
-
-                <nav className='flex flex-col gap-5 pt-10 text-left text-black'>
-                  <Link className='transition-all hover:underline' href='/'>
-                    Home
-                  </Link>
-                  <Link
-                    className='transition-all hover:underline'
-                    href='/events'
-                  >
-                    Agenda
-                  </Link>
-                  {isEventsPath && (
-                    <Link
-                      className='transition-all hover:underline'
-                      href='/speakers'
-                    >
-                      Speakers & guests
-                    </Link>
-                  )}
-                  {/* <Link className='transition-all hover:underline' href='/team'>
-                    Team
-                  </Link> */}
-                  <Link
-                    className='transition-all hover:underline'
-                    href='/register'
-                  >
-                    Registrations
-                  </Link>
+            <SheetContent className='z-[999999999999999] flex h-full w-screen items-center justify-center border-none bg-black/75'>
+              <div className='relative flex h-full w-full items-center justify-center'>
+                <motion.svg
+                  width='189'
+                  height='227'
+                  viewBox='0 0 189 227'
+                  fill='none'
+                  xmlns='http://www.w3.org/2000/svg'
+                  className='absolute inset-0 h-full w-full opacity-20'
+                >
+                  <motion.path
+                    d='M167.5 55H124L81.5 188H19L3 225.5H176.5L186 188H125.5L167.5 55Z'
+                    stroke='#D3D3D3'
+                    strokeWidth='3'
+                    initial={{ pathLength: 0 }}
+                    animate={{ pathLength: 1 }}
+                    transition={{ duration: 3.3 }}
+                  />
+                  <motion.path
+                    d='M3.5 39.5L13.5 2H186.5L169.5 39.5H107.5L64.5 172.5H21.5L64.5 39.5H3.5Z'
+                    stroke='#D3D3D3'
+                    strokeWidth='3'
+                    initial={{ pathLength: 0 }}
+                    animate={{ pathLength: 1 }}
+                    transition={{ duration: 3.3 }}
+                  />
+                </motion.svg>
+                <nav className='relative z-10 flex flex-col items-center gap-12 text-center text-2xl text-white'>
+                  {routes.map((route) => (
+                    <SheetClose key={route.path} asChild>
+                      <Link
+                        className='transform font-semibold transition-transform duration-200'
+                        href={route.path}
+                      >
+                        {route.name}
+                      </Link>
+                    </SheetClose>
+                  ))}
                 </nav>
-              </SheetHeader>
+                <MusicBtn className='absolute bottom-0 right-0' />
+              </div>
             </SheetContent>
           </Sheet>
         </div>
