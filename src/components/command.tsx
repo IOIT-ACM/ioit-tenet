@@ -5,6 +5,7 @@
 import { FaWindows } from "react-icons/fa";
 import { ImCommand } from "react-icons/im";
 import { CiSearch } from "react-icons/ci"
+import { cn } from '@/lib/utils';
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
@@ -21,7 +22,8 @@ import {
 } from '@/components/ui/command';
 import { usePathname } from 'next/navigation';
 
-export function TenetCommandDialog() {
+
+export function TenetCommandDialog({ className }: { className?: string }){
   const router = useRouter();
   const pathname = usePathname();
   const { allItems } = useSearch();
@@ -130,38 +132,39 @@ export function TenetCommandDialog() {
   const noTextRoutes = ['/game', '/denofcode'];
   const shouldShowText = !noTextRoutes.includes(pathname);
 
-  const win_key = () => {
-    const userAgent = window.navigator.userAgent;
+  const [WinKey, setWinKey] = useState(null);
   
-    if (userAgent.includes("Mac")) {
-      return (
-        <>
-          Press <ImCommand className="mx-1" /> + J
-        </>
-      );
-    } else if (userAgent.includes("Android")) {
-      return (
-        <>
-          <CiSearch className="mx-1" />
-        </>
-      );
-    } else {
-      return (
-        <>
-          Press <FaWindows className="mx-1" /> + J
-        </>
-      );
-    }
-  };
+    useEffect(() => {
+      const userAgent = navigator.userAgent;
   
+      if (userAgent.includes("Mac")) {
+        setwinKey(
+          <>
+            Press <ImCommand className="mx-1" /> + J
+          </>
+        );
+      } else if (userAgent.includes("Android")) {
+        setWinKey(
+          <>
+            <CiSearch className="mx-1" />
+          </>
+        );
+      } else {
+        setWinKey(
+          <>
+            Press <FaWindows className="mx-1" /> + J
+          </>
+        );
+      }
+    }, []);
+
   return (
     <>
 
-      {showText && shouldShowText && (
-<p className='fixed bottom-7 right-10 hidden text-xs text-dark md:flex bg-white p-[3px] rounded'>
-<kbd className="flex items-center mx-1">{win_key()}</kbd>
+{showText && shouldShowText && (
+<p className={cn('fixed text-xs text-dark md:flex bg-white p-[3px] rounded', className)}>
+<kbd className="flex items-center mx-1">{WinKey}</kbd>
 </p>
-
 )}
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput placeholder='Search...' />

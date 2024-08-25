@@ -15,6 +15,7 @@ import {
 import { useIsMobile } from '@/hooks/useismobile';
 import Link from 'next/link';
 import { MusicBtn } from './musicplayer';
+import { TenetCommandDialog } from '@/components/command';
 
 const transition = {
   type: 'spring',
@@ -205,6 +206,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
                   </div>
                 </div>
                 <MusicBtn className='absolute bottom-0 right-0' />
+                <TenetCommandDialog className="bottom-6 left-5 text-white bg-inherit text-[15px]"/>
               </div>
             </SheetContent>
           </Sheet>
