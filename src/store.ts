@@ -5,12 +5,17 @@ import { create } from 'zustand';
 import type { StoreApi, UseBoundStore } from 'zustand';
 import { persist } from 'zustand/middleware';
 
+import { initialCss } from './modules/denofcode/components/editor/init';
+import { initialHtml } from './modules/denofcode/components/editor/init';
+
 export interface State {
   videoPlayed: boolean;
   showPreview: boolean;
   characters: string[];
   music: boolean;
   playerState: PlayerState;
+  htmlcode: string;
+  csscode: string;
 }
 
 export type Game = 'webmasterwars' | 'catchthebug' | null;
@@ -26,11 +31,15 @@ interface Action {
   setMusic: (music: boolean) => void;
   setCharacters: (characters: string[]) => void;
   setPlayerState: (player: PlayerState) => void;
+  setHTML: (htmlcode: string) => void;
+  setCSS: (csscode: string) => void;
 }
 
 export const useStateStore = create<State & Action>()(
   persist(
     (set) => ({
+      htmlcode: initialHtml,
+      csscode: initialCss,
       videoPlayed: true,
       showPreview: true,
       music: false,
@@ -45,6 +54,8 @@ export const useStateStore = create<State & Action>()(
       setMusic: (music) => set(() => ({ music })),
       setCharacters: (characters) => set(() => ({ characters })),
       setPlayerState: (playerState) => set(() => ({ playerState })),
+      setHTML: (htmlcode) => set(() => ({ htmlcode })),
+      setCSS: (csscode) => set(() => ({ csscode })),
     }),
     {
       name: 'ioit-tenet-storage',
