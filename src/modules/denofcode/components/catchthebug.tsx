@@ -1,16 +1,17 @@
 'use client';
 
-import Editor from '@monaco-editor/react';
+import { BUGSEditor, Description, TestCases } from './editor/bugs';
 
 export const CatchTheBugScreen = () => {
   return (
-    <div>
-      <Editor
-        height='calc(100vh - 3rem)'
-        width='calc(100vw - 3rem)'
-        defaultLanguage='html'
-        theme='vs-dark'
-      />
+    <div className='flex h-screen w-screen gap-4 p-4'>
+      <div className='w-2/3'>
+        <BUGSEditor />
+      </div>
+      <div className='flex w-1/3 flex-grow flex-col gap-5'>
+        <Description />
+        <TestCases />
+      </div>
     </div>
   );
 };

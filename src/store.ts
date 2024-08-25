@@ -5,8 +5,11 @@ import { create } from 'zustand';
 import type { StoreApi, UseBoundStore } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-import { initialCss } from './modules/denofcode/components/editor/init';
-import { initialHtml } from './modules/denofcode/components/editor/init';
+import {
+  initialCss,
+  initialHtml,
+} from './modules/denofcode/components/editor/init';
+import type { Bug } from './modules/denofcode/components/editor/bugconfig';
 
 export interface State {
   videoPlayed: boolean;
@@ -19,10 +22,14 @@ export interface State {
 }
 
 export type Game = 'webmasterwars' | 'catchthebug' | null;
+export type Language = 'cpp' | 'python';
 
 export interface PlayerState {
   name: string;
   selectedGame: Game;
+  language?: string;
+  code?: string;
+  bug?: Bug;
 }
 
 interface Action {
