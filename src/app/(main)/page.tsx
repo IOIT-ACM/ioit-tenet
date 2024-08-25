@@ -10,6 +10,7 @@ import {
   FallingCaps,
   TenetHero,
   Schedule,
+  Tickets,
 } from '@/modules/home';
 import { MusicBtn } from '@/components/common/musicplayer';
 
@@ -21,6 +22,7 @@ export default async function HomePage() {
       <Navigation />
       <TenetHero />
       <Intro />
+      <Tickets />
       <EventCountdown />
       <Schedule />
       <TenetSpeakers />
