@@ -5,12 +5,17 @@ import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className='bg-slate-900 pb-8 pt-12 text-white'>
+    <footer className='border-t bg-slate-900 pb-8 pt-12 text-white'>
       <div className='mx-auto px-4'>
         <div className='grid grid-cols-1 gap-8 md:grid-cols-4'>
           <div className='mb-8 md:mb-0'>
-            <h3 className='mb-4 text-2xl font-bold'>TENET 2024</h3>
-            <p className='text-slate-400'>
+            <Link
+              href={'/'}
+              className='text-2xl font-bold transition-all hover:underline'
+            >
+              TENET 2024
+            </Link>
+            <p className='mt-4 text-slate-400'>
               Empowering innovators, connecting leaders, and shaping the future
               of technology.
             </p>
@@ -47,7 +52,7 @@ export const Footer: React.FC = () => {
           </div>
 
           <div>
-            <h4 className='mb-4 text-lg font-semibold'>Useful Info</h4>
+            <h4 className='mb-4 text-lg font-semibold'>More Info</h4>
             <ul className='space-y-2'>
               <li>
                 <Link
@@ -63,6 +68,14 @@ export const Footer: React.FC = () => {
                   className='text-slate-400 transition-colors hover:text-green-400'
                 >
                   Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href='mailto:adimail2404@gmail.com'
+                  className='text-slate-400 transition-colors hover:text-green-400'
+                >
+                  Developers
                 </Link>
               </li>
             </ul>
