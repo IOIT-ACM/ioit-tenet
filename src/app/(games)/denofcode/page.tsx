@@ -1,4 +1,5 @@
 import { GameScreen } from '@/modules/denofcode';
+import { Footer } from '@/modules/events';
 import type { Metadata } from 'next';
 import { env } from '@/env';
 
@@ -33,6 +34,7 @@ const Page = () => {
   return (
     <div>
       <GameScreen />
+      <Footer />
     </div>
   );
 };
