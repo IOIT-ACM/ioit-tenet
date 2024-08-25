@@ -13,9 +13,9 @@ export const metadata: Metadata = {
 export default async function Page() {
   return (
     <div className='m-0 p-0'>
-      <Nav />;
-      <Speakers />;
-      <Footer />;
+      <Nav />
+      <Speakers />
+      <Footer />
     </div>
   );
 }

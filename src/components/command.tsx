@@ -16,9 +16,11 @@ import {
   CommandList,
   CommandSeparator,
 } from '@/components/ui/command';
+import { usePathname } from 'next/navigation';
 
 export function TenetCommandDialog() {
   const router = useRouter();
+  const pathname = usePathname();
   const { allItems } = useSearch();
   const [open, setOpen] = useState(false);
   const [showText, setShowText] = useState(true);
@@ -65,8 +67,16 @@ export function TenetCommandDialog() {
       name: 'Home',
     },
     {
+      url: '/register',
+      name: 'Get Tickits',
+    },
+    {
       url: '/game',
       name: 'Typing Game',
+    },
+    {
+      url: '/denofcode',
+      name: 'Den of code',
     },
     {
       url: 'https://www.ioitmun.com/',
@@ -114,9 +124,12 @@ export function TenetCommandDialog() {
     setOpen(false);
   };
 
+  const noTextRoutes = ['/game', '/denofcode'];
+  const shouldShowText = !noTextRoutes.includes(pathname);
+
   return (
     <>
-      {showText && (
+      {showText && shouldShowText && (
         <p className='fixed bottom-7 right-10 hidden text-sm text-muted-foreground md:block'>
           Press{' '}
           <kbd className='pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100'>
@@ -127,6 +140,7 @@ export function TenetCommandDialog() {
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput placeholder='Search...' />
         <CommandList>
+          <CommandEmpty>No results found</CommandEmpty>
           <CommandGroup heading='Actions'>
             <CommandItem
               onSelect={() => {
@@ -193,10 +207,6 @@ export function TenetCommandDialog() {
               </CommandGroup>
               <CommandSeparator />
             </>
-          )}
-
-          {allItems.length === 0 && (
-            <CommandEmpty>No results found.</CommandEmpty>
           )}
         </CommandList>
       </CommandDialog>
