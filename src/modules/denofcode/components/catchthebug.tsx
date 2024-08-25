@@ -2,7 +2,7 @@
 
 import Editor from '@monaco-editor/react';
 
-export const EditorScreen = () => {
+export const CatchTheBugScreen = () => {
   return (
     <div>
       <Editor
