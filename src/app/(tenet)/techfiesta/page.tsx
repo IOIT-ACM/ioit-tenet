@@ -1,4 +1,5 @@
-import { HeroImage, Timeline } from '@/modules/events/techfiesta';
+import { HeroImage } from '@/components/common/heroimage';
+import { Timeline } from '@/components/common/timeline';
 
 export default async function Page() {
   return (
@@ -8,7 +9,7 @@ export default async function Page() {
         title='Welcome to TechFiesta'
         subtitle='Join us for an exciting event'
         ctaText='Learn More'
-        ctaLink='#tracingbeam'
+        ctaLink='#timeline'
       />
       <Timeline domain='techfiesta' />
     </main>
