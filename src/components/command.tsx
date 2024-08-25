@@ -132,13 +132,13 @@ export function TenetCommandDialog({ className }: { className?: string }){
   const noTextRoutes = ['/game', '/denofcode'];
   const shouldShowText = !noTextRoutes.includes(pathname);
 
-  const [WinKey, setWinKey] = useState(null);
+  const [WinKey, setWinKey] = useState(<></>);
   
     useEffect(() => {
       const userAgent = navigator.userAgent;
   
       if (userAgent.includes("Mac")) {
-        setwinKey(
+        setWinKey(
           <>
             Press <ImCommand className="mx-1" /> + J
           </>
