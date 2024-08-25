@@ -61,7 +61,7 @@ export default function RootLayout({
       <body style={{ fontFamily: 'exo2' }} className='bg-neutral-950'>
         {children}
         <MusicPlayer />
-        <TenetCommandDialog className="hidden bottom-7 right-10"/>
+        <TenetCommandDialog />
       </body>
       <Toaster richColors />
     </html>

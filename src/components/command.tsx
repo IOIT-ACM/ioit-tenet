@@ -2,10 +2,9 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
-import { FaWindows } from "react-icons/fa";
-import { ImCommand } from "react-icons/im";
-import { CiSearch } from "react-icons/ci"
-import { cn } from '@/lib/utils';
+import { FaWindows } from 'react-icons/fa';
+import { ImCommand } from 'react-icons/im';
+import { CiSearch } from 'react-icons/ci';
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
@@ -22,8 +21,7 @@ import {
 } from '@/components/ui/command';
 import { usePathname } from 'next/navigation';
 
-
-export function TenetCommandDialog({ className }: { className?: string }){
+export function TenetCommandDialog() {
   const router = useRouter();
   const pathname = usePathname();
   const { allItems } = useSearch();
@@ -133,39 +131,45 @@ export function TenetCommandDialog({ className }: { className?: string }){
   const shouldShowText = !noTextRoutes.includes(pathname);
 
   const [WinKey, setWinKey] = useState(<></>);
-  
-    useEffect(() => {
-      const userAgent = navigator.userAgent;
-  
-      if (userAgent.includes("Mac")) {
-        setWinKey(
-          <>
-            Press <ImCommand className="mx-1" /> + J
-          </>
-        );
-      } else if (userAgent.includes("Android")) {
-        setWinKey(
-          <>
-            <CiSearch className="mx-1" />
-          </>
-        );
-      } else {
-        setWinKey(
-          <>
-            Press <FaWindows className="mx-1" /> + J
-          </>
-        );
-      }
-    }, []);
+
+  useEffect(() => {
+    const userAgent = navigator.userAgent;
+
+    if (userAgent.includes('Mac')) {
+      setWinKey(
+        <>
+          <span>Press </span>
+          <ImCommand className='mx-2' />
+          <span>+ J </span>
+        </>,
+      );
+    } else if (userAgent.includes('Android')) {
+      setWinKey(
+        <>
+          <CiSearch className='mx-2' />
+        </>,
+      );
+    } else {
+      setWinKey(
+        <>
+          <span>Press </span>
+          <FaWindows className='mx-2' />
+          <span>+ J </span>
+        </>,
+      );
+    }
+  }, []);
 
   return (
     <>
-
-{showText && shouldShowText && (
-<p className={cn('fixed text-xs text-dark md:flex bg-white p-[3px] rounded', className)}>
-<kbd className="flex items-center mx-1">{WinKey}</kbd>
-</p>
-)}
+      {showText && shouldShowText && (
+        <p
+          className='fixed bottom-3 right-2 z-[99999999] flex cursor-pointer items-center rounded-lg p-4 text-[15px] text-white'
+          onClick={() => setOpen(true)}
+        >
+          <kbd className='flex items-center'>{WinKey}</kbd>
+        </p>
+      )}
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput placeholder='Search...' />
         <CommandList>

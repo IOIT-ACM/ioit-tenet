@@ -49,7 +49,7 @@ export const HeroImage: React.FC<HeroImageProps> = ({
 
       {/* Overlay image */}
       {overlayImage && (
-        <div className={`absolute top-48 max-sm:top-32 z-20`}>
+        <div className={`absolute top-48 z-20 max-sm:top-32`}>
           <Image
             src={overlayImage}
             alt={overlayImageAlt}
