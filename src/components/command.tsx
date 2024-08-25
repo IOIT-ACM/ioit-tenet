@@ -2,6 +2,9 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
+import { FaWindows } from "react-icons/fa";
+import { ImCommand } from "react-icons/im";
+import { CiSearch } from "react-icons/ci"
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
@@ -103,11 +106,11 @@ export function TenetCommandDialog() {
     { url: '/mun', name: 'MUN Events Page' },
     {
       url: 'mailto:aissms.ioit.acm@chatpter.acm.org',
-      name: 'Contach ACM student chapter',
+      name: 'Contact ACM student chapter',
     },
     {
       url: 'mailto:adimail2404@gmail.com',
-      name: 'Contach developer',
+      name: 'Contact developer',
     },
     { url: '/esummit', name: 'E-Summit Events Page' },
     { url: '/creators', name: 'Creators Conclave Events Page' },
@@ -127,16 +130,39 @@ export function TenetCommandDialog() {
   const noTextRoutes = ['/game', '/denofcode'];
   const shouldShowText = !noTextRoutes.includes(pathname);
 
+  const win_key = () => {
+    const userAgent = window.navigator.userAgent;
+  
+    if (userAgent.includes("Mac")) {
+      return (
+        <>
+          Press <ImCommand className="mx-1" /> + J
+        </>
+      );
+    } else if (userAgent.includes("Android")) {
+      return (
+        <>
+          <CiSearch className="mx-1" />
+        </>
+      );
+    } else {
+      return (
+        <>
+          Press <FaWindows className="mx-1" /> + J
+        </>
+      );
+    }
+  };
+  
   return (
     <>
+
       {showText && shouldShowText && (
-        <p className='fixed bottom-7 right-10 hidden text-sm text-muted-foreground md:block'>
-          Press{' '}
-          <kbd className='pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100'>
-            <span className='text-xs'>⌘</span>J
-          </kbd>
-        </p>
-      )}
+<p className='fixed bottom-7 right-10 hidden text-xs text-dark md:flex bg-white p-[3px] rounded'>
+<kbd className="flex items-center mx-1">{win_key()}</kbd>
+</p>
+
+)}
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput placeholder='Search...' />
         <CommandList>
