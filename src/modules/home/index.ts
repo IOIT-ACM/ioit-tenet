@@ -12,3 +12,4 @@ export { FallingCaps } from './components/falling-caps';
 export { TenetHero } from './components/tenetintro';
 export { Schedule } from './components/schedule';
 export { EventCountdown } from './components/countdown';
+export { Tickets } from './components/tickets';

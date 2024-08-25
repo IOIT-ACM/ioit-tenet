@@ -5,7 +5,7 @@ import '@/styles/search.css';
 import React, { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
-// import Link from 'next/link';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { useSearch } from '@/hooks/use-search';
@@ -149,6 +149,36 @@ export const SearchEvents: React.FC = () => {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
+            {searchTerm &&
+              allItems.find(
+                (item) => item.name.toLowerCase() === searchTerm.toLowerCase(),
+              ) && (
+                <Link
+                  className='absolute -bottom-5 left-0 text-blue-400'
+                  href={
+                    allItems.find(
+                      (item) =>
+                        item.name.toLowerCase() === searchTerm.toLowerCase(),
+                    )?.type === 'speaker'
+                      ? `/speakers/${
+                          allItems.find(
+                            (item) =>
+                              item.name.toLowerCase() ===
+                              searchTerm.toLowerCase(),
+                          )?.id
+                        }`
+                      : `/events/${
+                          allItems.find(
+                            (item) =>
+                              item.name.toLowerCase() ===
+                              searchTerm.toLowerCase(),
+                          )?.id
+                        }`
+                  }
+                >
+                  View details
+                </Link>
+              )}
             <AnimatePresence>
               {searchTerm.length > 0 &&
                 suggestions.length > 0 &&
