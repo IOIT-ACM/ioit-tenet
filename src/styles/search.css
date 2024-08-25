@@ -1,39 +1,44 @@
 .scroller {
-    position: relative;
-    overflow: hidden;
-    mask-image: linear-gradient(to bottom, transparent, white 20%, white 80%, transparent);
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    white 20%,
+    white 80%,
+    transparent
+  );
 }
 
 .scroller-aside {
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  overflow: hidden;
 }
 
 .scroller ul {
-    display: flex;
-    flex-direction: column;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .scroll-item {
-    flex-shrink: 0;
+  flex-shrink: 0;
 }
 
 @keyframes scroll {
-    0% {
-        transform: translateY(0);
-    }
+  0% {
+    transform: translateY(0);
+  }
 
-    100% {
-        transform: translateY(-50%);
-    }
+  100% {
+    transform: translateY(-50%);
+  }
 }
 
 .animate-scroll {
-    animation: scroll var(--scroll-duration, 40s) linear infinite;
+  animation: scroll var(--scroll-duration, 40s) linear infinite;
 }
 
 .animate-scroll-aside {
-    animation: scroll var(--scroll-duration, 40s) linear infinite;
+  animation: scroll var(--scroll-duration, 40s) linear infinite;
 }
-

@@ -1,4 +1,5 @@
 import DesktopOnly from '@/components/viewonmobile';
+import { Providers } from '@/modules/providers';
 
 interface SiteLayoutProps {
   children: React.ReactNode;
@@ -6,9 +7,9 @@ interface SiteLayoutProps {
 
 export default async function SiteLayout({ children }: SiteLayoutProps) {
   return (
-    <div>
+    <Providers>
       {children}
       <DesktopOnly />
-    </div>
+    </Providers>
   );
 }
