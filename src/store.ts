@@ -10,6 +10,14 @@ export interface State {
   showPreview: boolean;
   characters: string[];
   music: boolean;
+  playerState: PlayerState;
+}
+
+export type Game = 'webmasterwars' | 'catchthebug' | null;
+
+export interface PlayerState {
+  name: string;
+  selectedGame: Game;
 }
 
 interface Action {
@@ -17,6 +25,7 @@ interface Action {
   setShowPreview: (showPreview: boolean) => void;
   setMusic: (music: boolean) => void;
   setCharacters: (characters: string[]) => void;
+  setPlayerState: (player: PlayerState) => void;
 }
 
 export const useStateStore = create<State & Action>()(
@@ -26,11 +35,16 @@ export const useStateStore = create<State & Action>()(
       showPreview: true,
       music: false,
       characters: [],
+      playerState: {
+        name: '',
+        selectedGame: null,
+      },
 
       setVideoPlayed: (videoPlayed) => set(() => ({ videoPlayed })),
       setShowPreview: (showPreview) => set(() => ({ showPreview })),
       setMusic: (music) => set(() => ({ music })),
       setCharacters: (characters) => set(() => ({ characters })),
+      setPlayerState: (playerState) => set(() => ({ playerState })),
     }),
     {
       name: 'ioit-tenet-storage',

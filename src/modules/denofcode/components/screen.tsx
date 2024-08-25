@@ -5,13 +5,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { WebMasterScreen } from './webmaster';
 import { CatchTheBugScreen } from './catchthebug';
-
-type Game = 'webmasterwars' | 'catchthebug' | null;
-
-interface UserState {
-  name: string;
-  selectedGame: Game;
-}
+import { useStore, type Game } from '@/store';
 
 interface GameInfo {
   title: string;
@@ -37,21 +31,25 @@ const gameInfo: Record<Exclude<Game, null>, GameInfo> = {
 };
 
 export const GameScreen = () => {
-  const [userState, setUserState] = useState<UserState>({
-    name: '',
-    selectedGame: null,
-  });
+  const playerState = useStore.use.playerState();
+  const setPlayerState = useStore.use.setPlayerState();
   const [nameInput, setNameInput] = useState<string>('');
 
   const handleNameSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (nameInput.trim()) {
-      setUserState((prevState) => ({ ...prevState, name: nameInput.trim() }));
+      setPlayerState({
+        ...playerState,
+        name: nameInput.trim(),
+      });
     }
   };
 
   const handleGameSelection = (game: Game) => {
-    setUserState((prevState) => ({ ...prevState, selectedGame: game }));
+    setPlayerState({
+      ...playerState,
+      selectedGame: game,
+    });
   };
 
   const containerVariants = {
@@ -66,7 +64,7 @@ export const GameScreen = () => {
 
   return (
     <div className='flex min-h-screen flex-col items-center justify-center bg-gray-900 p-4 text-white'>
-      {!userState.name ? (
+      {!playerState.name ? (
         <motion.form
           initial='hidden'
           animate='visible'
@@ -91,7 +89,7 @@ export const GameScreen = () => {
             Continue
           </button>
         </motion.form>
-      ) : !userState.selectedGame ? (
+      ) : !playerState.selectedGame ? (
         <motion.div
           initial='hidden'
           animate='visible'
@@ -99,7 +97,7 @@ export const GameScreen = () => {
           className='flex flex-col items-center'
         >
           <h2 className='mb-6 text-2xl font-bold'>
-            Hello <span className='text-green-500'>{userState.name}</span>,
+            Hello <span className='text-green-500'>{playerState.name}</span>,
             choose your game:
           </h2>
           <div className='grid w-2/3 grid-cols-2 gap-4'>
@@ -142,8 +140,8 @@ export const GameScreen = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          {userState.selectedGame === 'webmasterwars' && <WebMasterScreen />}
-          {userState.selectedGame === 'catchthebug' && <CatchTheBugScreen />}
+          {playerState.selectedGame === 'webmasterwars' && <WebMasterScreen />}
+          {playerState.selectedGame === 'catchthebug' && <CatchTheBugScreen />}
         </motion.div>
       )}
     </div>
