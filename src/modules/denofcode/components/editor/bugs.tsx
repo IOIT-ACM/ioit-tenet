@@ -7,7 +7,18 @@ import { useEffect, useState } from 'react';
 import { useStore, type Language } from '@/store';
 import { bugs } from './bugconfig';
 import { Separator } from '@/components/ui/separator';
-import { evaluateCode } from './evaluation';
+import { usePython } from 'react-py';
+
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from '@/components/ui/alert-dialog';
 
 export const BUGSEditor = () => {
   const playerState = useStore.use.playerState();
@@ -62,12 +73,33 @@ export const BUGSEditor = () => {
         >
           Python
         </button>
-        <button
-          className={`rounded px-4 py-2 ${playerState.language === 'cpp' ? 'bg-blue-500 text-white' : 'bg-none'}`}
-          onClick={() => handleLanguageSelection('cpp')}
-        >
-          C++
-        </button>
+
+        <AlertDialog>
+          <AlertDialogTrigger asChild>
+            <button
+              className={`rounded px-4 py-2 ${playerState.language === 'cpp' ? 'bg-blue-500 text-white' : 'bg-none'}`}
+              onClick={() => handleLanguageSelection('cpp')}
+            >
+              C++
+            </button>
+          </AlertDialogTrigger>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>C++ not supported yet</AlertDialogTitle>
+              <AlertDialogDescription>
+                Current modules only support python code. Please change your
+                language to Python
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogAction
+                onClick={() => handleLanguageSelection('python')}
+              >
+                Switch to Python
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
       </div>
 
       <div className='mt-5 flex-grow'>
@@ -138,8 +170,8 @@ export const Description = () => {
               Time limit is over, but you can still continue solving the bug!
             </p>
             <p className='text-sm text-orange-700'>
-              In order to win the goodies, you must solve the bug in less than 3
-              minutes
+              In order to win the goodies, you must solve the bug in less than
+              150 seconds minutes
             </p>
           </>
         )}
@@ -157,21 +189,50 @@ export const Description = () => {
   );
 };
 
-export const TestCases = () => {
-  const playerState = useStore.use.playerState();
-  const [evaluationResult, setEvaluationResult] = useState<string | null>(null);
+interface TestCase {
+  inputs: string[];
+  outputs: string[];
+}
+
+interface Bug {
+  id: string;
+  title: string;
+  description: string;
+  pythonCode: string;
+  cppCode: string;
+  testCases: TestCase[];
+}
+
+interface TestResult {
+  status: string;
+  input: string;
+  output: string;
+  expected: string;
+}
+
+interface PlayerState {
+  bug: Bug | null;
+  language: string;
+}
+
+export const TestCases: React.FC = () => {
+  const playerState = useStore.use.playerState() as PlayerState;
+  const { runPython, stdout, stderr, isLoading, isRunning } = usePython();
+  const [testResults, setTestResults] = useState<TestResult[]>([]);
 
   const handleEvaluate = async () => {
-    setEvaluationResult('Evaluating...');
     try {
-      const result = await evaluateCode(
-        playerState.code!,
-        playerState.bug?.testCases,
-        playerState.language,
-      );
-      setEvaluationResult(result);
+      await runPython(playerState.bug?.pythonCode ?? '');
+      const results = stdout
+        .split('\n\n')
+        .filter(Boolean)
+        .map((testCase) => {
+          const [status, input, output, expected] = testCase.split('\n');
+          return { status, input, output, expected } as TestResult;
+        });
+      setTestResults(results);
     } catch (error) {
-      setEvaluationResult('Error compiling');
+      console.error(error);
     }
   };
 
@@ -190,20 +251,26 @@ export const TestCases = () => {
         <div>Loading</div>
       )}
       <Separator className='my-3' />
-      <button
-        className='rounded-lg bg-green-500 px-3 py-2'
-        onClick={handleEvaluate}
-      >
-        Evaluate
-      </button>
-
-      {evaluationResult && (
+      {!isLoading ? (
         <div>
-          <div className='mt-4 text-xl font-semibold'>
-            <p>Test cases passing status: </p>
-          </div>
-          <p>{evaluationResult}</p>
+          <button
+            className='rounded-lg bg-green-500 px-3 py-2'
+            onClick={handleEvaluate}
+          >
+            {isRunning ? 'Evaluating' : 'Evaluate'}
+          </button>
+          {testResults.map((result, index) => (
+            <div key={index} className='mt-2'>
+              <p>{result.status}</p>
+              <p>{result.input}</p>
+              <p>{result.output}</p>
+              <p>{result.expected}</p>
+            </div>
+          ))}
+          {stderr && <div className='text-red-500'>{stderr}</div>}
         </div>
+      ) : (
+        <div>Loading</div>
       )}
     </div>
   );
