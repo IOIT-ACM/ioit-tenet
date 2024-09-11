@@ -34,6 +34,14 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link
+                  href='/denofcode'
+                  className='text-slate-400 transition-colors hover:text-green-400'
+                >
+                  Den of code
+                </Link>
+              </li>
+              <li>
+                <Link
                   href='/speakers'
                   className='text-slate-400 transition-colors hover:text-green-400'
                 >

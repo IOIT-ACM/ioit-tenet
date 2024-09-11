@@ -25,8 +25,7 @@ const Register = () => {
         </Link>
         <Separator className='my-8 h-0.5 bg-gradient-to-r from-purple-400 to-pink-600' />
         <KonfHub />
-        <Separator className='my-8 h-0.5 bg-gradient-to-r from-purple-400 to-pink-600' />
-
+        <Separator className='my-16 h-0.5 bg-gradient-to-r from-slate-400 to-gray-600' />
         <RegisterLinks />
       </div>
     </section>

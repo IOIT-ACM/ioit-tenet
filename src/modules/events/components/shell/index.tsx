@@ -50,7 +50,7 @@ export function Shell({ children }: ShellProps) {
                 width={70}
               />
             </Link>
-            <Link href={'/'}>
+            <Link href={'https://ioit.acm.org'}>
               <Image
                 className='h-10 w-10 cursor-pointer transition-all hover:scale-105'
                 src={'/acm.png'}
@@ -67,18 +67,9 @@ export function Shell({ children }: ShellProps) {
             <Link className='transition-all hover:underline' href='/events'>
               Events
             </Link>
-            {isEventsPath ? (
-              <Link className='transition-all hover:underline' href='/speakers'>
-                Speakers
-              </Link>
-            ) : (
-              <Link className='transition-all hover:underline' href='/events'>
-                Events
-              </Link>
-            )}
-            {/* <Link className='transition-all hover:underline' href='/team'>
-              Team
-            </Link> */}
+            <Link className='transition-all hover:underline' href='/speakers'>
+              Speakers
+            </Link>
             <Link className='transition-all hover:underline' href='/register'>
               Registrations
             </Link>

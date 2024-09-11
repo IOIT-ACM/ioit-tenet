@@ -35,7 +35,7 @@ export const Nav = () => {
               width={70}
             />
           </Link>
-          <Link href={'/'}>
+          <Link href={'https://ioit.acm.org'}>
             <Image
               className='h-10 w-10 cursor-pointer transition-all hover:scale-105'
               src={'/acm.png'}

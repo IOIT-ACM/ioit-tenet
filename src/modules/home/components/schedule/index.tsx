@@ -74,7 +74,7 @@ export const Schedule = () => {
             className='w-fit transition-all hover:underline'
             href={'/register'}
           >
-            Registrations open
+            Registrations
           </Link>
           <Link
             className='w-fit transition-all hover:underline'

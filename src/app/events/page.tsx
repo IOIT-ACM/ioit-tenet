@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 const Register = () => {
   return (
-    <div className='bg-white'>
+    <div className='bg-slate-200'>
       <EventsList />
       <FixedNavBar />
       <Footer />

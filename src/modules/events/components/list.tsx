@@ -7,7 +7,7 @@ import { EventLinksStructure } from './eventlinks';
 
 export const EventsList = () => {
   return (
-    <div className='min-h-screen bg-white p-0'>
+    <div className='min-h-screen p-0'>
       {data.map((item, index) => (
         <TextParallaxContent
           key={index}

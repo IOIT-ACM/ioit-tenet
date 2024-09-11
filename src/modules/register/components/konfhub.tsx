@@ -25,10 +25,10 @@ export function KonfHub() {
 
         <div>
           <Link
-            href='/get-pass'
+            href='#'
             className='inline-block w-full rounded-full bg-gradient-to-r from-blue-500 to-purple-600 px-8 py-4 text-center text-lg font-semibold text-white transition duration-300 hover:from-blue-600 hover:to-purple-700 hover:shadow-lg md:w-fit'
           >
-            Get Your Pass Now
+            Get Full Day Pass
           </Link>
         </div>
       </div>

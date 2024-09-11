@@ -15,25 +15,26 @@ export const RegisterLinks: React.FC = () => {
   const eventLinks: EventLink[] = [
     {
       heading: 'CTF',
-      subheading: 'Capture the flag event in techfiesta on 5th september',
+      subheading:
+        'Exciting Capture the Flag event to test your hacking skills.',
       imgSrc: '/imgs/events/2.jpeg',
       href: '#',
     },
     {
       heading: 'LLM Workshop',
-      subheading: 'Capture the flag event in techfiesta on 5th september',
+      subheading: 'A hands-on workshop on Large Language Models in tech.',
       imgSrc: '/imgs/events/2.jpeg',
       href: '#',
     },
     {
       heading: 'Drone Workshop',
-      subheading: 'Capture the flag event in techfiesta on 5th september',
+      subheading: 'Learn the art of building and flying drones from experts.',
       imgSrc: '/imgs/events/2.jpeg',
       href: '#',
     },
     {
       heading: 'Investing Arena',
-      subheading: 'Capture the flag event in techfiesta on 5th september',
+      subheading: 'Master the stock market with our Investing Arena challenge.',
       imgSrc: '/imgs/events/2.jpeg',
       href: '#',
     },
@@ -42,19 +43,21 @@ export const RegisterLinks: React.FC = () => {
   const esportsLinks: EventLink[] = [
     {
       heading: 'Valorant',
-      subheading: 'Capture the flag event in techfiesta on 5th september',
+      subheading:
+        'Show off your tactical shooter skills in the Valorant tournament.',
       imgSrc: '/imgs/events/2.jpeg',
       href: 'https://docs.google.com/forms/d/e/1FAIpQLSdr4PZfpLjOrNdW5JFIcW09oYEjoDIPhvumvIWhOX78MeIaZQ/viewform',
     },
     {
       heading: 'BGMI',
-      subheading: 'Capture the flag event in techfiesta on 5th september',
+      subheading: 'Join the battle royale action in the BGMI tournament.',
       imgSrc: '/imgs/events/2.jpeg',
       href: 'https://docs.google.com/forms/d/e/1FAIpQLScsw5pMP3SjBaMcMrs1i1D96Cu7WttNDxu9vBYcPTS9Yr5oag/closedform',
     },
     {
       heading: 'FIFA',
-      subheading: 'Capture the flag event in techfiesta on 5th september',
+      subheading:
+        'Score big in the FIFA tournament and show your football skills.',
       imgSrc: '/imgs/events/2.jpeg',
       href: 'https://forms.gle/dqRBt7KwQF284b2z7',
     },
