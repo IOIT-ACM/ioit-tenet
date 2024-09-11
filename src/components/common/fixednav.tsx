@@ -15,6 +15,7 @@ import {
 import { useIsMobile } from '@/hooks/useismobile';
 import Link from 'next/link';
 import { MusicBtn } from './musicplayer';
+import { usePathname } from 'next/navigation';
 
 const transition = {
   type: 'spring',
@@ -39,6 +40,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up');
   const isMobile = useIsMobile();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -96,11 +98,11 @@ export default function FixedNavBar({ className }: { className?: string }) {
           className,
         )}
       >
-        <div className='relative flex gap-0 rounded-full border-2 border-slate-600 bg-slate-300 px-4 py-2 text-black'>
+        <div className='relative flex gap-0 rounded-full border-2 border-slate-600 bg-slate-300 p-2 text-black'>
           {routes.map((route) => (
             <motion.div
               key={route.path}
-              className='relative cursor-pointer rounded-xl px-4 py-2'
+              className='relative cursor-pointer rounded-xl'
               onMouseEnter={() => {
                 setHovering(route.path);
               }}
@@ -124,7 +126,21 @@ export default function FixedNavBar({ className }: { className?: string }) {
                     className='absolute inset-0 rounded-full bg-slate-100'
                   />
                 )}
-                <span className={`relative block text-black`}>
+                {pathname === route.path && (
+                  <motion.div
+                    initial={{ scale: 0.7 }}
+                    key='activepathname'
+                    layoutId='activepathname'
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{
+                      opacity: 0,
+                      scale: 0.1,
+                    }}
+                    transition={{ type: 'spring', bounce: 0.3, duration: 0.6 }}
+                    className='absolute inset-0 rounded-full bg-slate-100'
+                  />
+                )}
+                <span className={`relative block px-4 py-2 text-black`}>
                   {route.name}
                 </span>
               </Link>
