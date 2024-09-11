@@ -21,7 +21,7 @@ export const Sponsors = () => {
                   rel='noopener noreferrer'
                   className='flex flex-col items-center rounded-lg p-4 transition-colors hover:bg-slate-700'
                 >
-                  <div className='flex h-32 w-32 items-center justify-center overflow-hidden rounded-full bg-white p-2'>
+                  <div className='flex h-32 w-32 items-center justify-center overflow-hidden rounded-full bg-white p-1'>
                     <Image
                       src={sponsor.logoUrl}
                       alt={sponsor.name}

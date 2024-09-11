@@ -2,37 +2,45 @@ import type { Sponsor } from '@/types';
 export const sponsor: Sponsor[] = [
   {
     name: 'Startupnews.fyi',
-    logoUrl: '/tenet-fill.png',
+    logoUrl:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/sponcers/startupnews.jpeg',
     websiteUrl:
       'https://www.instagram.com/startupnews.fyi/profilecard/?igsh=eW54dXJkNXdrem91',
   },
   {
     name: 'Abhibus',
-    logoUrl: '/tenet.png',
+    logoUrl:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/sponcers/abhibus.png',
   },
   {
     name: 'Edwise',
-    logoUrl: '/tenet.png',
+    logoUrl:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/sponcers/edwise.jpeg',
   },
   {
     name: 'Yhills',
-    logoUrl: '/tenet.png',
+    logoUrl:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/sponcers/yhills.png',
   },
   {
     name: 'Realme',
-    logoUrl: '/tenet.png',
+    logoUrl:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/sponcers/realme.jpg',
   },
   {
     name: 'Colgate',
-    logoUrl: '/tenet.png',
+    logoUrl:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/sponcers/colgate.jpg',
   },
   {
     name: 'Tata Crucible',
-    logoUrl: '/tenet.png',
+    logoUrl:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/sponcers/tatacrucible.jpeg',
   },
   {
     name: 'Akizer',
-    logoUrl: '/tenet.png',
+    logoUrl:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/sponcers/akizar.jpg',
   },
   // Add more sponsors as needed
 ];

@@ -8,7 +8,7 @@ import Image from 'next/image';
 import * as Scrollytelling from '@/lib/scrollytelling-client';
 import QRImg from '../../../public/tenet/qr.jpeg';
 import confetti from 'canvas-confetti';
-import teamImage from '../../../public/tenet/team.png';
+import teamImage from '../../../public/tenet/team.jpeg';
 import s from './footer.module.scss';
 import Link from 'next/link';
 import { useMedia } from '@/hooks/use-media';

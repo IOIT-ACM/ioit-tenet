@@ -109,7 +109,7 @@ const TenetLive: React.FC = () => {
           </div>
           <div className='relative hidden md:block'>
             <img
-              src='/imgs/events/2.jpeg'
+              src='https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg'
               alt='TENET 2024 Event'
               className='h-[500px] w-full rounded-lg object-cover shadow-2xl'
             />

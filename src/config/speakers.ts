@@ -4,7 +4,8 @@ export const speakers: Speaker[] = [
   {
     id: 'phineas',
     name: 'Phineas Flynn',
-    image: '/imgs/speakers/phineas.webp',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/phineas.webp',
     title: 'Inventor and Optimist',
     url: 'https://www.linkedin.com/in/phineas',
     bio: "One of the show's titular characters. Alongside his step-brother, he strives to make every day of summer excellent.",
@@ -13,7 +14,8 @@ export const speakers: Speaker[] = [
   {
     id: 'ferb',
     name: 'Ferb Fletcher',
-    image: '/imgs/speakers/ferb.webp',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/ferb.webp',
     title: 'Master Engineer',
     url: 'https://www.linkedin.com/in/ferb',
     bio: 'The other titular character. He speaks very little but is a master of engineering. Alongside his step-brother, he strives to make every day of summer vacation an adventure.',
@@ -22,7 +24,8 @@ export const speakers: Speaker[] = [
   {
     id: 'candace',
     name: 'Candace Flynn',
-    image: '/imgs/speakers/candace.webp',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/candace.webp',
     title: 'Older Sister and Aspiring Bust-er',
     url: 'https://www.linkedin.com/in/cndace',
     bio: 'Older sister of the titular characters, her main role in the series consists of busting her brothers, though on several occasions she has instead focused on being a normal teenager or even helping her brothers in their Big Ideas. She is madly in love with Jeremy who recently became her boyfriend.',
@@ -31,7 +34,8 @@ export const speakers: Speaker[] = [
   {
     id: 'perry',
     name: 'Perry the Platypus',
-    image: '/imgs/speakers/perry.webp',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/perry.webp',
     title: 'Secret Agent (Agent P)',
     url: 'https://www.linkedin.com/in/perry',
     bio: 'Pet of the titular characters, he is a secret agent under the guise of a mindless animal that foils the schemes of Dr. Doofenshmirtz. Also known as Agent P.',
@@ -40,7 +44,8 @@ export const speakers: Speaker[] = [
   {
     id: 'doofenshmirtz',
     name: 'Dr. Heinz Doofenshmirtz',
-    image: '/imgs/speakers/HeinzDoofenshmirtz.webp',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/HeinzDoofenshmirtz.webp',
     title: 'Evil Scientist',
     url: 'https://www.linkedin.com/in/doofenshmirtz',
     bio: 'Nemesis of Perry the Platypus, he often has plans to take over the Tri-State Area although they all fail in the end.',
@@ -49,7 +54,8 @@ export const speakers: Speaker[] = [
   {
     id: 'monogram',
     name: 'Major Francis Monogram',
-    image: '/imgs/speakers/Major.webp',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/Major.webp',
     title: 'O.W.C.A. Leader',
     url: 'https://www.linkedin.com/in/monogram',
     bio: "Agent P's boss. Along with Carl, Wanda Acronym, and Carla, runs the animal agency called the Organization Without a Cool Acronym, O.W.C.A. for short.",

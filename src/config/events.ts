@@ -24,14 +24,16 @@ export const day1: ScheduleItemType[] = [
       {
         name: 'Tushar',
         url: 'https://www.linkedin.com/in/tushar-narokar-29988b25a/',
-        image: '/imgs/events/speakers/1.png',
+        image:
+          'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/ferb.webp',
         title: 'Media Team Head',
         id: 'tushar',
       },
       {
         name: 'Tushar',
         url: 'https://www.linkedin.com/in/tushar-narokar-29988b25a/',
-        image: '/imgs/events/speakers/1.png',
+        image:
+          'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/ferb.webp',
         title: 'Media Team Head',
         id: 'tushar',
       },
@@ -214,7 +216,8 @@ export const day2: ScheduleItemType[] = [
     time: '8:00 AM',
     description:
       "A casual breakfast meeting to kickstart the day, providing an opportunity for networking and discussions on the day's agenda.",
-    image: '/imgs/events/schedule/1.jpg',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
   },
   {
     icon: 'FaCalendar',
@@ -229,7 +232,8 @@ export const day2: ScheduleItemType[] = [
     time: '9:00 AM',
     description:
       'The official start of the event, featuring keynote speeches and an overview of the activities planned for the summit.',
-    image: '/imgs/events/schedule/1.jpg',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
     organizers: [
       { name: 'Chinmay Nakwa', phone: '+919876543246' },
       { name: 'Rutuja Salve', phone: '+919876543247' },
@@ -248,7 +252,8 @@ export const day2: ScheduleItemType[] = [
     time: '10:00 AM',
     description:
       'A series of insightful talks by industry professionals, covering various topics related to entrepreneurship and innovation.',
-    image: '/imgs/events/schedule/1.jpg',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
     organizers: [
       { name: 'Sanjana Nagle', phone: '+919876543228' },
       { name: 'Tanvi Sonune', phone: '+919876543229' },
@@ -267,7 +272,8 @@ export const day2: ScheduleItemType[] = [
     time: '11:15 AM',
     description:
       "A focused session with a prominent speaker discussing advanced topics relevant to the summit's theme.",
-    image: '/imgs/events/schedule/1.jpg',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
     organizers: [
       { name: 'Vaishnav Shinde', phone: '+919876543242' },
       { name: 'Niharika Koul', phone: '+919876543243' },
@@ -286,7 +292,8 @@ export const day2: ScheduleItemType[] = [
     time: '12:30 PM',
     description:
       'Continued discussions from industry experts on crucial topics in business and technology.',
-    image: '/imgs/events/schedule/1.jpg',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
     organizers: [
       { name: 'Aayush Dhotre', phone: '+919876543230' },
       { name: 'Sakshi Kadam', phone: '+919876543231' },
@@ -305,7 +312,8 @@ export const day2: ScheduleItemType[] = [
     time: '1:30 PM',
     description:
       'A mid-day break with a catered lunch, allowing attendees to relax and network.',
-    image: '/imgs/events/schedule/1.jpg',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
   },
   {
     title: 'Tier 2 Speaker Sessions x 2',
@@ -320,7 +328,8 @@ export const day2: ScheduleItemType[] = [
     time: '2:15 PM',
     description:
       'Additional speaker sessions diving into advanced subjects, providing deeper insights into emerging trends.',
-    image: '/imgs/events/schedule/1.jpg',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
     organizers: [
       { name: 'Kamlesh Wattamwar', phone: '+919876543234' },
       { name: 'Sanskruti Wattamwar', phone: '+919876543235' },
@@ -339,7 +348,8 @@ export const day2: ScheduleItemType[] = [
     time: '3:30 PM',
     description:
       'A key session where startups and entrepreneurs meet potential investors. A vital opportunity for networking and funding discussions.',
-    image: '/imgs/events/schedule/1.jpg',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
     organizers: [
       { name: 'Atharva Satpute', phone: '+919876543236' },
       { name: 'Sejal Karad', phone: '+919876543237' },
@@ -358,7 +368,8 @@ export const day2: ScheduleItemType[] = [
     time: '5:45 PM',
     description:
       "The final event of the day, celebrating the summit's success with an official closing ceremony and a gala dinner.",
-    image: '/imgs/events/schedule/1.jpg',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
     organizers: [
       { name: 'Gauri Amale', phone: '+919876543238' },
       { name: 'Anish Patange', phone: '+919876543239' },
