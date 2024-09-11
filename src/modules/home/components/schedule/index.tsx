@@ -51,9 +51,9 @@ export const Schedule = () => {
   return (
     <section
       id='schedule'
-      className='relative mx-5 mb-56 grid grid-cols-1 justify-center text-white transition-all md:mx-32 md:grid-cols-7'
+      className='relative mx-5 mb-56 mt-0 grid grid-cols-1 justify-center text-white transition-all md:mx-32 md:grid-cols-7'
     >
-      <div className='sticky top-0 z-40 self-start bg-black bg-neutral-950 md:top-10 md:col-span-2'>
+      <div className='sticky top-0 z-40 self-start bg-neutral-950 md:top-10 md:col-span-2'>
         <h1 className='mb-3 mt-5 w-full text-4xl font-black uppercase text-zinc-50 md:mb-20 md:mt-0 md:text-5xl'>
           Schedule
         </h1>

@@ -3,57 +3,54 @@
 import { useMotionValue, motion, useSpring, useTransform } from 'framer-motion';
 import React, { useRef } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
-import { Separator } from '@/components/ui/separator';
-import Link from 'next/link';
+
+interface EventLink {
+  heading: string;
+  subheading: string;
+  imgSrc: string;
+  href: string;
+}
 
 export const RegisterLinks: React.FC = () => {
+  const eventLinks: EventLink[] = [
+    {
+      heading: 'CTF',
+      subheading: 'Capture the flag event in techfiesta on 5th september',
+      imgSrc: '/imgs/events/2.jpeg',
+      href: '#',
+    },
+    {
+      heading: 'LLM Workshop',
+      subheading: 'Capture the flag event in techfiesta on 5th september',
+      imgSrc: '/imgs/events/2.jpeg',
+      href: '#',
+    },
+    {
+      heading: 'Drone Workshop',
+      subheading: 'Capture the flag event in techfiesta on 5th september',
+      imgSrc: '/imgs/events/2.jpeg',
+      href: '#',
+    },
+    {
+      heading: 'Investing Arena',
+      subheading: 'Capture the flag event in techfiesta on 5th september',
+      imgSrc: '/imgs/events/2.jpeg',
+      href: '#',
+    },
+  ];
+
   return (
-    <section className='min-h-screen bg-gradient-to-br from-neutral-950 to-neutral-900 p-6 md:p-12'>
-      <div className='mx-auto max-w-6xl'>
-        <h1 className='mb-4 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-5xl font-bold text-transparent md:text-7xl'>
-          Registration for TENET 2024
-        </h1>
-        <Link
-          href='/'
-          className='inline-block text-neutral-400 transition-colors duration-300 hover:text-white'
-        >
-          Home
-        </Link>
-        <Separator className='my-8 h-0.5 bg-gradient-to-r from-purple-400 to-pink-600' />
-        <div className='mt-16 space-y-8'>
-          <CustomLink
-            heading='Tech Fiesta'
-            subheading='Register for Technical Events at TENET24'
-            imgSrc='/imgs/events/2.jpeg'
-            href='#'
-          />
-          <CustomLink
-            heading='E-Sports'
-            subheading='Competetive gaming and LAN tournments to showcase your skills'
-            imgSrc='/imgs/events/2.jpeg'
-            href='#'
-          />
-          <CustomLink
-            heading='MUN'
-            subheading='Simulation of the United Nations where students step into the roles of UN delegates'
-            imgSrc='/imgs/events/2.jpeg'
-            href='#'
-          />
-          <CustomLink
-            heading='E-Summit'
-            subheading='Buisness events, pitching competetitions and speaker sessions'
-            imgSrc='/imgs/events/2.jpeg'
-            href='#'
-          />
-          <CustomLink
-            heading='Creators Conclave'
-            subheading='Unleash your inner performer with open mic, stand-up comedy battles, and a theatre showcase'
-            imgSrc='/imgs/events/2.jpeg'
-            href='#'
-          />
-        </div>
-      </div>
-    </section>
+    <div className='mt-16 space-y-8'>
+      {eventLinks.map((event, index) => (
+        <CustomLink
+          key={index}
+          heading={event.heading}
+          subheading={event.subheading}
+          imgSrc={event.imgSrc}
+          href={event.href}
+        />
+      ))}
+    </div>
   );
 };
 
