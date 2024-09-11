@@ -42,6 +42,10 @@ const config = {
       },
       {
         protocol: 'https',
+        hostname: 'hosteze-little-boy.s3.ap-south-1.amazonaws.com',
+      },
+      {
+        protocol: 'https',
         hostname: 'wallpaper.forfun.com',
       },
     ],

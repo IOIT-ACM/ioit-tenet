@@ -383,8 +383,9 @@ export const day3: ScheduleItemType[] = [
     time: '9:00 AM',
     description:
       'Join the exciting BGMI LAN tournament as top teams battle it out in a competitive setting.',
-    image: '/imgs/events/schedule/1.jpg',
-    organizers: [{ name: 'xyz' }],
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/esports/esports/bgmi.avif',
+    organizers: [{ name: 'Ayush Sangole' }, { name: 'Avdhoot Chavan' }],
   },
   {
     title: 'FIFA (FC 24) PS5 Console Event',
@@ -399,8 +400,9 @@ export const day3: ScheduleItemType[] = [
     time: '9:00 AM',
     description:
       'Experience the thrill of FIFA FC 24 on the PS5. Compete with other players for the top spot!',
-    image: '/imgs/events/schedule/1.jpg',
-    organizers: [{ name: 'xyz' }],
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/esports/esports/fifa.webp',
+    organizers: [{ name: 'Ayush Sangole' }, { name: 'Avdhoot Chavan' }],
   },
   {
     title: 'Valorant Online Event',
@@ -415,8 +417,9 @@ export const day3: ScheduleItemType[] = [
     time: '9:00 AM',
     description:
       'Gear up for a competitive Valorant showdown as players from across the globe participate in this online tournament.',
-    image: '/imgs/events/schedule/1.jpg',
-    organizers: [{ name: 'xyz' }],
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/esports/esports/valo.webp',
+    organizers: [{ name: 'Ayush Sangole' }, { name: 'Avdhoot Chavan' }],
   },
 
   // MUN (Day 2)
@@ -433,8 +436,9 @@ export const day3: ScheduleItemType[] = [
     time: '10:00 AM',
     description:
       'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
-    image: '/imgs/events/schedule/1.jpg',
-    organizers: [{ name: 'xyz' }],
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unsc.webp',
+    organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
   },
   {
     title: 'UNHRC Committee Session',
@@ -449,8 +453,9 @@ export const day3: ScheduleItemType[] = [
     time: '10:00 AM',
     description:
       'The UNHRC promotes and protects human rights globally through dialogue and cooperation. Agenda: Discussing the role of state and non-state actors in the Venezuelan crisis, with emphasis on the humanitarian emergency following the presidential elections.',
-    image: '/imgs/events/schedule/1.jpg',
-    organizers: [{ name: 'xyz' }],
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unhcr.webp',
+    organizers: [{ name: 'Chinmay Nakwa' }, { name: 'Shriya Naphade' }],
   },
   {
     title: 'AIPPM Committee Session',
@@ -465,8 +470,9 @@ export const day3: ScheduleItemType[] = [
     time: '10:00 AM',
     description:
       'AIPPM brings together diverse political factions to discuss national policies and reforms. Agenda: Deliberating on the introduction of the Aparajita Bill and the demand for a Central Protection Act.',
-    image: '/imgs/events/schedule/1.jpg',
-    organizers: [{ name: 'xyz' }],
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/aippm.jpg',
+    organizers: [{ name: 'Tanisha Londhe' }, { name: 'Atharva Pednekar' }],
   },
   {
     title: 'UNCSW Committee Session',
@@ -481,8 +487,9 @@ export const day3: ScheduleItemType[] = [
     time: '10:00 AM',
     description:
       'UNCSW is dedicated to promoting gender equality and women’s empowerment globally. Agenda: Implications of human rights violations on women, with emphasis on religion-driven nations.',
-    image: '/imgs/events/schedule/1.jpg',
-    organizers: [{ name: 'xyz' }],
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/uncsw.webp',
+    organizers: [{ name: 'Sajal Gulati' }, { name: 'Devang Gandhi' }],
   },
   {
     title: 'UNODC Committee Session',
@@ -497,7 +504,8 @@ export const day3: ScheduleItemType[] = [
     time: '10:00 AM',
     description:
       'UNODC combats global drug trafficking and organized crime while promoting justice and integrity. Agenda: Addressing the challenges of money and drug laundering in Special Economic Zones, with special emphasis on the Golden Triangle SEZ.',
-    image: '/imgs/events/schedule/1.jpg',
-    organizers: [{ name: 'xyz' }],
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unodc.jpg',
+    organizers: [{ name: 'Aditya Sarade' }, { name: 'Tanisha Londhe' }],
   },
 ];
