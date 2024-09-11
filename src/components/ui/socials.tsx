@@ -119,9 +119,15 @@ export const Socials = () => {
       onMouseMove={handleMouseMove}
     >
       <div ref={linkContainerRef} className='grid gap-2'>
-        <FlipLink href='#'>Twitter</FlipLink>
-        <FlipLink href='#'>Linkedin</FlipLink>
-        <FlipLink href='#'>Instagram</FlipLink>
+        <FlipLink href='https://chat.whatsapp.com/HUYXxh75M618GNCExQ3NPZ'>
+          WhatsApp
+        </FlipLink>
+        <FlipLink href='https://www.linkedin.com/company/ioit-tenet/'>
+          Linkedin
+        </FlipLink>
+        <FlipLink href='https://www.instagram.com/ioit_tenet/'>
+          Instagram
+        </FlipLink>
       </div>
 
       {images.map((img, index) => (

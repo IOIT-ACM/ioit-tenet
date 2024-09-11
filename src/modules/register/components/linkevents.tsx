@@ -18,25 +18,25 @@ export const RegisterLinks: React.FC = () => {
       subheading:
         'Exciting Capture the Flag event to test your hacking skills.',
       imgSrc: '/imgs/events/2.jpeg',
-      href: '#',
+      href: 'https://forms.gle/H2p78SKhRZv6YLCZ9',
     },
     {
       heading: 'LLM Workshop',
       subheading: 'A hands-on workshop on Large Language Models in tech.',
       imgSrc: '/imgs/events/2.jpeg',
-      href: '#',
+      href: 'https://docs.google.com/forms/d/e/1FAIpQLSdVT-YhdD8isBrYVMpp0KXtfOdQItB23_DaZwVp4yte47pYYA/viewform',
     },
     {
       heading: 'Drone Workshop',
       subheading: 'Learn the art of building and flying drones from experts.',
       imgSrc: '/imgs/events/2.jpeg',
-      href: '#',
+      href: 'https://forms.gle/PRoAR779QCL4LqyL9',
     },
     {
       heading: 'Investing Arena',
       subheading: 'Master the stock market with our Investing Arena challenge.',
       imgSrc: '/imgs/events/2.jpeg',
-      href: '#',
+      href: 'https://docs.google.com/forms/d/e/1FAIpQLSdz4AXaeYZAy7jFUagt3g-zvJJV38If5njMlMiZ-49fMpXWjw/viewform',
     },
   ];
 

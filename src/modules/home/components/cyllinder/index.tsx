@@ -79,7 +79,9 @@ export const Cyllinder: React.FC<CyllinderProps> = ({ experiments }) => {
                   <div className={s.info}>
                     <Link
                       className={s.link}
-                      href={'https://adimail.github.io'}
+                      href={
+                        'https://linktr.ee/ioit_tenet?fbclid=PAZXh0bgNhZW0CMTEAAaYTwbDjYaJUIpdPW69XNeeyDL8DjZVpC4DnHxYS1UGAffm56V04ht6fzto_aem_kZ-b2DXCkD60RdKHInZcIQ'
+                      }
                       target='_blank'
                       rel='noopener'
                     >

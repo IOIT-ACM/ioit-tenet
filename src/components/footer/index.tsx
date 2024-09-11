@@ -18,7 +18,8 @@ import { Socials } from '../ui/socials';
 
 import React, { useRef, useCallback } from 'react';
 
-const ghHref = 'https://adimail.github.io';
+const ghHref =
+  'https://linktr.ee/ioit_tenet?fbclid=PAZXh0bgNhZW0CMTEAAaYTwbDjYaJUIpdPW69XNeeyDL8DjZVpC4DnHxYS1UGAffm56V04ht6fzto_aem_kZ-b2DXCkD60RdKHInZcIQ';
 
 export const Footer = () => {
   const isDesktopSm = useMedia('(min-width: 1024px)');

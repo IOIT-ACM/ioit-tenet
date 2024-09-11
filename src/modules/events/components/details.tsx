@@ -64,12 +64,7 @@ export const Details = ({ event }: { event: ScheduleItemType }) => {
                       className='flex items-center text-slate-400'
                     >
                       <HiUser className='mr-2 h-5 w-5' />
-                      <Link
-                        href={`tel:${organizer.phone}`}
-                        className='hover:underline'
-                      >
-                        {organizer.name}
-                      </Link>
+                      <div className='hover:underline'>{organizer.name}</div>
                     </li>
                   ))}
                 </ul>

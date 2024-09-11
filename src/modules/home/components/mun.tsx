@@ -18,7 +18,7 @@ export const MUN = () => {
   return (
     <section
       id='mun'
-      className='grid min-h-screen w-screen grid-cols-1 items-center gap-8 px-6 py-8 text-white sm:px-10 sm:py-12 md:grid-cols-2 md:px-20'
+      className='grid min-h-screen w-screen grid-cols-1 items-center gap-8 bg-neutral-950 px-6 py-8 text-white sm:px-10 sm:py-12 md:grid-cols-2 md:px-20'
     >
       <div>
         <span className='mb-3 block text-base font-medium text-[#26a7ff] sm:mb-4 sm:text-lg md:text-xl'>

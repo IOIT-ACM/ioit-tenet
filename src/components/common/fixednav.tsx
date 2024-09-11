@@ -136,7 +136,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
                       opacity: 0,
                       scale: 0.1,
                     }}
-                    transition={{ type: 'spring', bounce: 0.3, duration: 0.6 }}
+                    transition={{ type: 'spring', bounce: 0.2, duration: 1 }}
                     className='absolute inset-0 rounded-full bg-slate-100'
                   />
                 )}

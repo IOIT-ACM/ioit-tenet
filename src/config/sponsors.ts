@@ -1,29 +1,38 @@
 import type { Sponsor } from '@/types';
 export const sponsor: Sponsor[] = [
   {
-    name: 'TechCorp',
+    name: 'Startupnews.fyi',
     logoUrl: '/tenet-fill.png',
-    websiteUrl: 'https://techcorp.com',
+    websiteUrl:
+      'https://www.instagram.com/startupnews.fyi/profilecard/?igsh=eW54dXJkNXdrem91',
   },
   {
-    name: 'InnovateX',
+    name: 'Abhibus',
     logoUrl: '/tenet.png',
-    websiteUrl: 'https://innovatex.com',
   },
   {
-    name: 'NextGen',
+    name: 'Edwise',
     logoUrl: '/tenet.png',
-    websiteUrl: 'https://nextgen.com',
   },
   {
-    name: 'DevWorld',
+    name: 'Yhills',
     logoUrl: '/tenet.png',
-    websiteUrl: 'https://devworld.com',
   },
   {
-    name: 'Medium',
+    name: 'Realme',
     logoUrl: '/tenet.png',
-    websiteUrl: 'https://medium.com',
+  },
+  {
+    name: 'Colgate',
+    logoUrl: '/tenet.png',
+  },
+  {
+    name: 'Tata Crucible',
+    logoUrl: '/tenet.png',
+  },
+  {
+    name: 'Akizer',
+    logoUrl: '/tenet.png',
   },
   // Add more sponsors as needed
 ];
