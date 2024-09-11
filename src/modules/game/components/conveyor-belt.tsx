@@ -435,12 +435,12 @@ export const ConveyorBelt: React.FC = () => {
       {playing === 'pause' && (
         <div className='fixed bottom-10 left-10 flex h-10 w-20 select-none gap-5 text-center text-lg text-white transition-all'>
           <Link href={'/'}>Home</Link>
-          <div
+          {/* <div
             className='cursor-pointer'
             onClick={() => setShowLeaderboard(true)}
           >
             Leaderboard
-          </div>
+          </div> */}
           <div className='cursor-pointer' onClick={() => setShowRules(true)}>
             Rules
           </div>

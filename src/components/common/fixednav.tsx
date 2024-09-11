@@ -204,7 +204,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
                     </Link>
                   </div>
                 </div>
-                <MusicBtn className='absolute bottom-0 right-0' />
+                <MusicBtn className='absolute bottom-0 left-0' />
               </div>
             </SheetContent>
           </Sheet>

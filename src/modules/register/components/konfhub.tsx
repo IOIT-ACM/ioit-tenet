@@ -18,9 +18,6 @@ export function KonfHub() {
       </div>
 
       <div className='flex w-full flex-col justify-center md:w-1/2 md:pl-8'>
-        <h2 className='mb-4 text-4xl font-extrabold text-gray-800'>
-          Get Your Day Pass
-        </h2>
         <p className='mb-6 text-xl text-gray-600'>
           Unlock full access to all events and activities with our exclusive day
           pass. Don&lsquo;t miss out on this incredible opportunity!
@@ -29,7 +26,7 @@ export function KonfHub() {
         <div>
           <Link
             href='/get-pass'
-            className='inline-block rounded-full bg-gradient-to-r from-blue-500 to-purple-600 px-8 py-4 text-lg font-semibold text-white transition duration-300 hover:from-blue-600 hover:to-purple-700 hover:shadow-lg'
+            className='inline-block w-full rounded-full bg-gradient-to-r from-blue-500 to-purple-600 px-8 py-4 text-center text-lg font-semibold text-white transition duration-300 hover:from-blue-600 hover:to-purple-700 hover:shadow-lg md:w-fit'
           >
             Get Your Pass Now
           </Link>

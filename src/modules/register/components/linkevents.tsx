@@ -39,17 +39,58 @@ export const RegisterLinks: React.FC = () => {
     },
   ];
 
+  const esportsLinks: EventLink[] = [
+    {
+      heading: 'Valorant',
+      subheading: 'Capture the flag event in techfiesta on 5th september',
+      imgSrc: '/imgs/events/2.jpeg',
+      href: 'https://docs.google.com/forms/d/e/1FAIpQLSdr4PZfpLjOrNdW5JFIcW09oYEjoDIPhvumvIWhOX78MeIaZQ/viewform',
+    },
+    {
+      heading: 'BGMI',
+      subheading: 'Capture the flag event in techfiesta on 5th september',
+      imgSrc: '/imgs/events/2.jpeg',
+      href: 'https://docs.google.com/forms/d/e/1FAIpQLScsw5pMP3SjBaMcMrs1i1D96Cu7WttNDxu9vBYcPTS9Yr5oag/closedform',
+    },
+    {
+      heading: 'FIFA',
+      subheading: 'Capture the flag event in techfiesta on 5th september',
+      imgSrc: '/imgs/events/2.jpeg',
+      href: 'https://forms.gle/dqRBt7KwQF284b2z7',
+    },
+  ];
+
   return (
-    <div className='mt-16 space-y-8'>
-      {eventLinks.map((event, index) => (
-        <CustomLink
-          key={index}
-          heading={event.heading}
-          subheading={event.subheading}
-          imgSrc={event.imgSrc}
-          href={event.href}
-        />
-      ))}
+    <div>
+      <div className='text-white'>
+        <h1 className='text-2xl italic text-white'>
+          *Note: The following mentioned events are not covered under the day
+          pass. please find the regestration links below:
+        </h1>
+      </div>
+      <div className='mt-16 space-y-8'>
+        {eventLinks.map((event, index) => (
+          <CustomLink
+            key={index}
+            heading={event.heading}
+            subheading={event.subheading}
+            imgSrc={event.imgSrc}
+            href={event.href}
+          />
+        ))}
+        <h1 className='text-2xl italic text-white'>
+          eSports regestration links
+        </h1>
+        {esportsLinks.map((event, index) => (
+          <CustomLink
+            key={index}
+            heading={event.heading}
+            subheading={event.subheading}
+            imgSrc={event.imgSrc}
+            href={event.href}
+          />
+        ))}
+      </div>
     </div>
   );
 };
@@ -108,7 +149,7 @@ const CustomLink: React.FC<LinkProps> = ({
             staggerChildren: 0.075,
             delayChildren: 0.25,
           }}
-          className='relative block text-3xl font-bold text-neutral-100 transition-colors duration-500 group-hover:text-purple-400 md:text-6xl'
+          className='relative block text-2xl font-bold text-neutral-100 transition-colors duration-500 group-hover:text-purple-400 md:text-4xl'
         >
           {heading.split('').map((l, i) => (
             <motion.span

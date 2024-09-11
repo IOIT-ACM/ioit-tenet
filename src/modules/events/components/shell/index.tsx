@@ -20,7 +20,7 @@ import { MusicBtn } from '@/components/common/musicplayer';
 
 const routes = [
   { path: '/', name: 'Home' },
-  { path: '/events', name: 'Agenda' },
+  { path: '/events', name: 'Events' },
   { path: '/speakers', name: 'Speakers & Guests' },
   { path: '/register', name: 'Regestrations' },
 ];
@@ -65,7 +65,7 @@ export function Shell({ children }: ShellProps) {
               Home
             </Link>
             <Link className='transition-all hover:underline' href='/events'>
-              Agenda
+              Events
             </Link>
             {isEventsPath ? (
               <Link className='transition-all hover:underline' href='/speakers'>
@@ -136,7 +136,7 @@ export function Shell({ children }: ShellProps) {
       </header>
 
       <div className='flex flex-1 overflow-hidden'>
-        <aside className='scrollbar-custom relative sticky top-0 z-50 m-8 hidden w-1/4 select-none overflow-y-auto overflow-x-hidden rounded-lg bg-slate-800 sm:block'>
+        <aside className='scrollbar-custom relative top-0 z-50 m-8 hidden w-1/4 select-none overflow-y-auto overflow-x-hidden rounded-lg bg-slate-800 sm:block'>
           {isEventsPath ? (
             <>
               <h2 className='sticky top-0 z-50 border-b bg-slate-800 p-4 text-3xl font-bold text-white'>

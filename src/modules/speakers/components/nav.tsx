@@ -49,18 +49,12 @@ export const Nav = () => {
           <Link className='transition-all hover:underline' href='/'>
             Home
           </Link>
-          <Link className='transition-all hover:underline' href='/events'>
-            Agenda
-          </Link>
           <Link className='transition-all hover:underline' href='/speakers'>
             Speakers
           </Link>
           <Link className='transition-all hover:underline' href='/events'>
             Events
           </Link>
-          {/* <Link className='transition-all hover:underline' href='/team'>
-              Team
-            </Link> */}
           <Link className='transition-all hover:underline' href='/register'>
             Registrations
           </Link>

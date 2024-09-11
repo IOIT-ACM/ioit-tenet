@@ -26,7 +26,7 @@ export function Tickets() {
   }, [isHovered]);
 
   return (
-    <div className='flex w-full flex-col items-center justify-between bg-gradient-to-r from-blue-800 to-black p-6 px-10 sm:flex-row'>
+    <div className='flex w-full flex-col items-center justify-between bg-gradient-to-b from-blue-800 to-neutral-950 p-6 px-10 pb-10 sm:flex-row md:bg-gradient-to-r md:pb-6'>
       <div className='text-center sm:text-left'>
         <h1 className='text-4xl font-bold text-indigo-400 sm:text-6xl'>
           Grab your tickets now!
