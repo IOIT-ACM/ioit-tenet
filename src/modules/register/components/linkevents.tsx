@@ -3,6 +3,7 @@
 import { useMotionValue, motion, useSpring, useTransform } from 'framer-motion';
 import React, { useRef } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
+import { MUNLINK } from '@/config';
 
 interface EventLink {
   heading: string;
@@ -14,6 +15,13 @@ interface EventLink {
 export const RegisterLinks: React.FC = () => {
   const eventLinks: EventLink[] = [
     {
+      heading: 'IOIT-MUN-2024',
+      subheading: 'Join us for the IOIT MUN 2024 happening at TENET 2024',
+      imgSrc:
+        'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
+      href: MUNLINK,
+    },
+    {
       heading: 'CTF',
       subheading:
         'Exciting Capture the Flag event to test your hacking skills.',
@@ -22,21 +30,21 @@ export const RegisterLinks: React.FC = () => {
       href: 'https://forms.gle/H2p78SKhRZv6YLCZ9',
     },
     {
-      heading: 'LLM Workshop',
+      heading: 'LLM-Workshop',
       subheading: 'A hands-on workshop on Large Language Models in tech.',
       imgSrc:
         'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
       href: 'https://docs.google.com/forms/d/e/1FAIpQLSdVT-YhdD8isBrYVMpp0KXtfOdQItB23_DaZwVp4yte47pYYA/viewform',
     },
     {
-      heading: 'Drone Workshop',
+      heading: 'Drone-Workshop',
       subheading: 'Learn the art of building and flying drones from experts.',
       imgSrc:
         'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
       href: 'https://forms.gle/PRoAR779QCL4LqyL9',
     },
     {
-      heading: 'Investing Arena',
+      heading: 'Investing-Arena',
       subheading: 'Master the stock market with our Investing Arena challenge.',
       imgSrc:
         'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
