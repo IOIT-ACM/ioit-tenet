@@ -190,7 +190,9 @@ export const day1: ScheduleItemType[] = [
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
     organizers: [{ name: 'Shrey Kulkarni' }],
   },
+];
 
+export const day2: ScheduleItemType[] = [
   // Esummit
   {
     title: 'IOIT MPH SESSION (2 INDIVIDUALLY OR FIRECHAT)',
@@ -200,14 +202,14 @@ export const day1: ScheduleItemType[] = [
     color: 'bg-red-700',
     date: 'Sept 12th, 2024',
     location: 'Main Hall',
-    start: new Date('2024-09-12T10:00:00'),
+    start: new Date('2024-10-12T10:00:00'),
     imp: true,
     time: '10:00 AM',
     description:
       'IOIT MPH session with options for individual presentations or firechat.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
-    organizers: [{ name: 'Shrey Kulkarni' }],
+    organizers: [{ name: 'Laukik Patil' }],
   },
   {
     title: 'MBA MPH',
@@ -217,14 +219,14 @@ export const day1: ScheduleItemType[] = [
     color: 'bg-green-700',
     date: 'Sept 12th, 2024',
     location: 'MBA Hall',
-    start: new Date('2024-09-12T11:15:00'),
+    start: new Date('2024-10-12T11:15:00'),
     imp: true,
     time: '11:15 AM',
     description:
       'MBA MPH session focusing on management perspectives in healthcare.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
-    organizers: [{ name: 'Shrey Kulkarni' }],
+    organizers: [{ name: 'Laukik Patil' }],
   },
   {
     title: 'Lunch Break',
@@ -234,13 +236,13 @@ export const day1: ScheduleItemType[] = [
     color: 'bg-yellow-500',
     date: 'Sept 12th, 2024',
     location: 'Cafeteria',
-    start: new Date('2024-09-12T12:15:00'),
+    start: new Date('2024-10-12T12:15:00'),
     imp: true,
     time: '12:15 PM',
     description: 'Lunch break for all participants.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
-    organizers: [{ name: 'Shrey Kulkarni' }],
+    organizers: [{ name: 'Laukik Patil' }],
   },
   {
     title: 'COE MPH',
@@ -250,14 +252,14 @@ export const day1: ScheduleItemType[] = [
     color: 'bg-red-500',
     date: 'Sept 12th, 2024',
     location: 'COE Hall',
-    start: new Date('2024-09-12T13:15:00'),
+    start: new Date('2024-10-12T13:15:00'),
     imp: true,
     time: '1:15 PM',
     description:
       'COE MPH session focusing on engineering aspects in healthcare.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
-    organizers: [{ name: 'Shrey Kulkarni' }],
+    organizers: [{ name: 'Laukik Patil' }],
   },
   {
     title: 'MBA CLG MPH SESSION',
@@ -267,13 +269,13 @@ export const day1: ScheduleItemType[] = [
     color: 'bg-green-500',
     date: 'Sept 12th, 2024',
     location: 'MBA College Hall',
-    start: new Date('2024-09-12T13:15:00'),
+    start: new Date('2024-10-12T13:15:00'),
     imp: true,
     time: '1:15 PM',
     description: 'MBA College MPH session for management students.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
-    organizers: [{ name: 'Shrey Kulkarni' }],
+    organizers: [{ name: 'Laukik Patil' }],
   },
   {
     title: 'Investing Arena',
@@ -283,13 +285,13 @@ export const day1: ScheduleItemType[] = [
     color: 'bg-blue-700',
     date: 'Sept 12th, 2024',
     location: 'Auditorium',
-    start: new Date('2024-09-12T15:30:00'),
+    start: new Date('2024-10-12T15:30:00'),
     imp: true,
     time: '3:30 PM',
     description: 'Pitching competition for startups and innovative ideas.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
-    organizers: [{ name: 'Shrey Kulkarni' }],
+    organizers: [{ name: 'Laukik Patil' }],
     registration:
       'https://docs.google.com/forms/d/e/1FAIpQLSdz4AXaeYZAy7jFUagt3g-zvJJV38If5njMlMiZ-49fMpXWjw/viewform',
   },
@@ -301,14 +303,14 @@ export const day1: ScheduleItemType[] = [
     color: 'bg-purple-700',
     date: 'Sept 12th, 2024',
     location: 'Podcast Studio',
-    start: new Date('2024-09-12T17:30:00'),
+    start: new Date('2024-10-12T17:30:00'),
     imp: true,
     time: '5:30 PM',
     description:
       'Concluding session with either a podcast recording or an engaging fire chat.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
-    organizers: [{ name: 'Shrey Kulkarni' }],
+    organizers: [{ name: 'Laukik Patil' }],
   },
   {
     title: '2 PANELS',
@@ -318,17 +320,16 @@ export const day1: ScheduleItemType[] = [
     color: 'bg-gray-500',
     date: 'Sept 12th, 2024',
     location: 'Conference Rooms A & B',
-    start: new Date('2024-09-12T17:30:00'),
+    start: new Date('2024-10-12T17:30:00'),
     imp: true,
     time: '5:30 PM',
     description: 'Two parallel panel discussions on relevant topics.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
-    organizers: [{ name: 'Shrey Kulkarni' }],
+    organizers: [{ name: 'Laukik Patil' }],
   },
-];
 
-export const day2: ScheduleItemType[] = [
+  // MUN
   {
     title: 'UNSC Committee Session',
     icon: 'FaCalendar',

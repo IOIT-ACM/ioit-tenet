@@ -127,7 +127,7 @@ const generateSquares = (ismobile: boolean) => {
       key={sq.src}
       layout
       transition={{ duration: 1.5, type: 'spring' }}
-      className='h-full w-full'
+      className='h-full w-full bg-gray-300'
       style={{
         backgroundImage: `url(${sq.src})`,
         backgroundSize: 'cover',

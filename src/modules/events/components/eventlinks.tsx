@@ -18,7 +18,7 @@ export const EventLinksStructure: React.FC<{ day: number }> = ({ day }) => {
                 alt={event.title}
                 layout='fill'
                 objectFit='cover'
-                className='transition-transform duration-300 group-hover:scale-110'
+                className='bg-gray-500 transition-transform duration-300 group-hover:scale-110'
               />
             </div>
             <div className='p-2 md:p-5'>
