@@ -110,7 +110,7 @@ ${event.title} at AISSMS IOIT TENET 2024
 const SpeakerCard = ({ speaker }: { speaker: Speaker }) => {
   return (
     <Link
-      href={speaker.url}
+      href={`/speakers/${speaker.id}`}
       className='flex w-fit items-center space-x-3 p-3 transition-all duration-150 hover:rounded-xl hover:bg-slate-500'
     >
       <div className='relative h-20 w-20'>

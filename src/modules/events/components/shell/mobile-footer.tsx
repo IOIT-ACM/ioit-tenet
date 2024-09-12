@@ -41,7 +41,7 @@ const MobileFooter = () => {
         (event) => `/events/${event.id}` === pathname,
       );
     } else {
-      currentIndex = allEvents.findIndex(
+      currentIndex = speakers.findIndex(
         (speaker) => `/speakers/${speaker.id}` === pathname,
       );
     }
@@ -127,7 +127,9 @@ const MobileFooter = () => {
                         <p className='mb-2 text-slate-500'>{speaker.title}</p>
                       </h2>
                       <div>
-                        <p className='mb-2 text-slate-500'>{speaker.bio}</p>
+                        <p className='mb-2 line-clamp-3 text-slate-500'>
+                          {speaker.bio}
+                        </p>
                       </div>
                     </div>
                   </Link>

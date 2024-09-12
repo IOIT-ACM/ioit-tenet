@@ -31,7 +31,7 @@ export async function generateMetadata({
   return {
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
     title: `${foundSpeaker.name} is comming at AISSMS IOIT TENET`,
-    description: `Learn more about ${foundSpeaker.name}, ${foundSpeaker.title} at AISSMS IOIT TENET 2024`,
+    description: `${foundSpeaker.name}, ${foundSpeaker.title} is comming at AISSMS IOIT TENET 2024`,
     openGraph: {
       images: [
         {
