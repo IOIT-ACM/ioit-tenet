@@ -11,8 +11,15 @@ import {
   HiUser,
   HiExternalLink,
 } from 'react-icons/hi';
+import { handleShare } from '@/utils/share';
 
 export const Details = ({ event }: { event: ScheduleItemType }) => {
+  const msg = `
+  
+${event.title} at AISSMS IOIT TENET 2024
+  
+`;
+
   return (
     <div className='flex w-full flex-col items-center justify-start gap-10 pt-5 text-white md:pt-10'>
       <div className='w-full overflow-hidden'>
@@ -72,8 +79,8 @@ export const Details = ({ event }: { event: ScheduleItemType }) => {
               </div>
             )}
 
-            {event.registration && (
-              <div className='mt-6'>
+            <div className='flex gap-3'>
+              {event.registration && (
                 <Link
                   href={event.registration}
                   target='_blank'
@@ -83,8 +90,16 @@ export const Details = ({ event }: { event: ScheduleItemType }) => {
                   Register for Event
                   <HiExternalLink className='ml-2 h-5 w-5' />
                 </Link>
-              </div>
-            )}
+              )}
+
+              <button
+                type='button'
+                onClick={() => handleShare({ msg, url: `/events/${event.id}` })}
+                className='inline-flex items-center bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none'
+              >
+                Share
+              </button>
+            </div>
           </div>
         </div>
       </div>

@@ -37,20 +37,6 @@ export const metadata: Metadata = {
     },
   ],
   creator: 'IOIT ACM',
-  openGraph: {
-    type: 'website',
-    locale: 'en_IN',
-    url: siteConfig.url,
-    title: siteConfig.name,
-    description: siteConfig.description,
-    siteName: siteConfig.name,
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: siteConfig.name,
-    description: siteConfig.description,
-    images: [`${siteConfig.url}/opengraph-image.png`],
-  },
 };
 
 export default function RootLayout({
