@@ -153,6 +153,7 @@ const CustomLink: React.FC<LinkProps> = ({
       ref={ref}
       onMouseMove={handleMouseMove}
       initial='initial'
+      target='_blank'
       whileHover='whileHover'
       className='group relative flex items-center justify-between rounded-lg border-b-2 border-neutral-700 bg-neutral-800 px-6 py-6 transition-all duration-500 hover:border-purple-500 hover:bg-neutral-700'
     >

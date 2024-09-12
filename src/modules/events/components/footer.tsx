@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 
 export const Footer: React.FC = () => {
   return (
@@ -64,7 +64,7 @@ export const Footer: React.FC = () => {
             <ul className='space-y-2'>
               <li>
                 <Link
-                  href='/regestrations'
+                  href='/register'
                   className='text-slate-400 transition-colors hover:text-green-400'
                 >
                   Regestrations
@@ -93,23 +93,15 @@ export const Footer: React.FC = () => {
             <h4 className='mb-4 text-lg font-semibold'>Stay Connected</h4>
             <div className='flex space-x-4'>
               <Link
-                href='https://facebook.com'
+                href='https://chat.whatsapp.com/HUYXxh75M618GNCExQ3NPZ'
                 target='_blank'
                 rel='noopener noreferrer'
                 className='text-slate-400 transition-colors hover:text-blue-500'
               >
-                <FaFacebook size={24} />
+                <FaWhatsapp size={24} />
               </Link>
               <Link
-                href='https://twitter.com'
-                target='_blank'
-                rel='noopener noreferrer'
-                className='text-slate-400 transition-colors hover:text-blue-400'
-              >
-                <FaTwitter size={24} />
-              </Link>
-              <Link
-                href='https://instagram.com'
+                href='https://www.instagram.com/ioit_tenet/'
                 target='_blank'
                 rel='noopener noreferrer'
                 className='text-slate-400 transition-colors hover:text-pink-500'
@@ -117,7 +109,7 @@ export const Footer: React.FC = () => {
                 <FaInstagram size={24} />
               </Link>
               <Link
-                href='https://linkedin.com'
+                href='https://www.linkedin.com/company/ioit-tenet/'
                 target='_blank'
                 rel='noopener noreferrer'
                 className='text-slate-400 transition-colors hover:text-blue-700'
