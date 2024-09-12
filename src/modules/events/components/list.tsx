@@ -130,21 +130,21 @@ const OverlayCopy = ({
 const data = [
   {
     imgUrl:
-      'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2671&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/events/tech.jpeg',
     subheading: 'Day 1',
     heading: 'Tech Fiesta',
     url: '/techfiesta',
   },
   {
     imgUrl:
-      'https://images.unsplash.com/photo-1530893609608-32a9af3aa95c?q=80&w=2564&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/events/building.jpeg',
     subheading: 'Day 2',
     heading: 'E-Summit & MUN',
     url: '/esummit',
   },
   {
     imgUrl:
-      'https://images.unsplash.com/photo-1504610926078-a1611febcad3?q=80&w=2416&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/events/mun.jpeg',
     subheading: 'Day 3',
     heading: 'Creators Conclave, E-Sports, MUN Day-2',
     url: '/mun',

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: 'Explore the events happening at IOIT TENET 2024',
 };
 
-const Register = () => {
+const Page = () => {
   return (
     <div className='bg-slate-200'>
       <EventsList />
@@ -21,4 +21,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Page;

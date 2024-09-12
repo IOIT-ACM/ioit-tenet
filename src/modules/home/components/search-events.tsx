@@ -10,6 +10,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { useSearch } from '@/hooks/use-search';
 import * as FaIcons from 'react-icons/fa';
+import * as IoIcons from 'react-icons/io5';
+import * as BsIcons from 'react-icons/bs';
+import * as GiIcons from 'react-icons/gi';
+import * as Fcicon from 'react-icons/fc';
+import { GiGameConsole } from 'react-icons/gi';
 
 type IconMap = Record<string, React.ElementType>;
 
@@ -21,6 +26,12 @@ const iconMap: IconMap = {
   FaVideo: FaIcons.FaVideo,
   FaTheaterMasks: FaIcons.FaTheaterMasks,
   FaMicrophone: FaIcons.FaMicrophone,
+  IoRocket: IoIcons.IoRocketSharp,
+  IoMusicalNotes: IoIcons.IoMusicalNotesSharp,
+  BsShieldLock: BsIcons.BsShieldLock,
+  GiArtificialIntelligence: GiIcons.GiArtificialIntelligence,
+  FcGlobe: Fcicon.FcGlobe,
+  IoGameController: GiGameConsole,
 };
 
 export const SearchEvents: React.FC = () => {

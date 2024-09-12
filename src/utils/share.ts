@@ -12,6 +12,7 @@ export const handleShare = async ({
   if (navigator.share) {
     try {
       await navigator.share({
+        title: 'Share with your friends on Social Media | TENET 2024',
         text: msg,
         url: absoluteUrl,
       });

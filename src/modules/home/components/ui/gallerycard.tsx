@@ -69,7 +69,7 @@ const GalleryCard: React.FC<Props> = ({
         />
         <div className='absolute inset-0 bg-gradient-to-t from-black/60 to-transparent' />
         <div className='absolute bottom-0 left-0 p-3 text-white'>
-          <h3 className='text-lg font-semibold'>{alt}</h3>
+          {/* <h3 className='text-lg font-semibold'>{alt}</h3> */}
         </div>
       </div>
     </motion.div>

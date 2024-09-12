@@ -11,7 +11,7 @@ export const day1: ScheduleItemType[] = [
     date: 'Sept 12th, 2024',
     location: 'Main Hall',
     start: new Date('2024-09-12T09:00:00'),
-    imp: true,
+    imp: false,
     time: '9:00 AM',
     description: 'The official opening ceremony for Tenet event.',
     image:
@@ -32,12 +32,12 @@ export const day1: ScheduleItemType[] = [
     description:
       'A session focused on product management strategies and best practices.',
     image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/pm.jpg',
     organizers: [{ name: 'Shrey Kulkarni' }],
   },
   {
     title: 'AI summit panel',
-    icon: 'FaCalendar',
+    icon: 'GiArtificialIntelligence',
     id: 'ai-summit-panel',
     domain: 'techfiesta',
     color: 'bg-purple-700',
@@ -49,12 +49,12 @@ export const day1: ScheduleItemType[] = [
     description:
       'A panel discussion on the latest trends and developments in AI.',
     image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/ai.jpg',
     organizers: [{ name: 'Shrey Kulkarni' }],
   },
   {
     title: 'Web - 3 panel',
-    icon: 'FaCalendar',
+    icon: 'FaRobot',
     id: 'web3-panel',
     domain: 'techfiesta',
     color: 'bg-yellow-700',
@@ -66,7 +66,7 @@ export const day1: ScheduleItemType[] = [
     description:
       'A discussion on Web 3.0 technologies and their impact on the future of the internet.',
     image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/web3.jpg',
     organizers: [{ name: 'Shrey Kulkarni' }],
   },
   {
@@ -83,7 +83,7 @@ export const day1: ScheduleItemType[] = [
     description:
       'An introductory session for those new to software development.',
     image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/development.jpeg',
     organizers: [{ name: 'Shrey Kulkarni' }],
   },
   {
@@ -100,7 +100,7 @@ export const day1: ScheduleItemType[] = [
     description:
       'A cybersecurity challenge where participants compete to find and exploit vulnerabilities.',
     image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/ctf.jpg',
     organizers: [{ name: 'Shrey Kulkarni' }],
     registration: 'https://forms.gle/H2p78SKhRZv6YLCZ9',
   },
@@ -117,7 +117,7 @@ export const day1: ScheduleItemType[] = [
     time: '1:45 PM',
     description: 'Hands-on workshop on drone technology and piloting.',
     image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/drone.jpg',
     organizers: [{ name: 'Shrey Kulkarni' }],
     registration: 'https://forms.gle/PRoAR779QCL4LqyL9',
   },
@@ -135,7 +135,7 @@ export const day1: ScheduleItemType[] = [
     description:
       'An in-depth workshop on Generative AI and Large Language Models.',
     image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/genai.jpeg',
     organizers: [{ name: 'Shrey Kulkarni' }],
     registration: 'https://forms.gle/sNcVRhN458bfKP786',
   },
@@ -170,7 +170,7 @@ export const day1: ScheduleItemType[] = [
     description:
       'Guidance session on career paths and opportunities in web development.',
     image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/development.jpeg',
     organizers: [{ name: 'Shrey Kulkarni' }],
   },
   {
@@ -187,7 +187,7 @@ export const day1: ScheduleItemType[] = [
     description:
       'A spectacular drone showcase demonstrating various applications and capabilities.',
     image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/dronedisplay.jpg',
     organizers: [{ name: 'Shrey Kulkarni' }],
   },
 ];
@@ -196,7 +196,7 @@ export const day2: ScheduleItemType[] = [
   // Esummit
   {
     title: 'IOIT MPH SESSION (2 INDIVIDUALLY OR FIRECHAT)',
-    icon: 'FaCalendar',
+    icon: 'IoRocket',
     id: 'ioit-mph-session',
     domain: 'esummit',
     color: 'bg-red-700',
@@ -213,7 +213,7 @@ export const day2: ScheduleItemType[] = [
   },
   {
     title: 'MBA MPH',
-    icon: 'FaCalendar',
+    icon: 'IoRocket',
     id: 'mba-mph',
     domain: 'esummit',
     color: 'bg-green-700',
@@ -230,7 +230,7 @@ export const day2: ScheduleItemType[] = [
   },
   {
     title: 'Lunch Break',
-    icon: 'FaUtensils',
+    icon: 'IoRocket',
     id: 'lunch-break',
     domain: 'esummit',
     color: 'bg-yellow-500',
@@ -246,7 +246,7 @@ export const day2: ScheduleItemType[] = [
   },
   {
     title: 'COE MPH',
-    icon: 'FaCalendar',
+    icon: 'IoRocket',
     id: 'coe-mph',
     domain: 'esummit',
     color: 'bg-red-500',
@@ -263,7 +263,7 @@ export const day2: ScheduleItemType[] = [
   },
   {
     title: 'MBA CLG MPH SESSION',
-    icon: 'FaCalendar',
+    icon: 'IoRocket',
     id: 'mba-clg-mph-session',
     domain: 'esummit',
     color: 'bg-green-500',
@@ -279,7 +279,7 @@ export const day2: ScheduleItemType[] = [
   },
   {
     title: 'Investing Arena',
-    icon: 'FaMicrophone',
+    icon: 'IoRocket',
     id: 'investing-arena',
     domain: 'esummit',
     color: 'bg-blue-700',
@@ -297,7 +297,7 @@ export const day2: ScheduleItemType[] = [
   },
   {
     title: 'FINAL PODCAST OR FIRE CHAT',
-    icon: 'FaPodcast',
+    icon: 'IoRocket',
     id: 'final-podcast-firechat',
     domain: 'esummit',
     color: 'bg-purple-700',
@@ -314,7 +314,7 @@ export const day2: ScheduleItemType[] = [
   },
   {
     title: '2 PANELS',
-    icon: 'FaUsers',
+    icon: 'IoRocket',
     id: 'two-panels',
     domain: 'esummit',
     color: 'bg-gray-500',
@@ -332,7 +332,7 @@ export const day2: ScheduleItemType[] = [
   // MUN
   {
     title: 'UNSC Committee Session',
-    icon: 'FaCalendar',
+    icon: 'FcGlobe',
     id: 'unsc-session-day2',
     domain: 'mun',
     registration: MUNLINK,
@@ -350,7 +350,7 @@ export const day2: ScheduleItemType[] = [
   },
   {
     title: 'UNHRC Committee Session',
-    icon: 'FaCalendar',
+    icon: 'FcGlobe',
     id: 'unhrc-session-day2',
     domain: 'mun',
     registration: MUNLINK,
@@ -368,7 +368,7 @@ export const day2: ScheduleItemType[] = [
   },
   {
     title: 'AIPPM Committee Session',
-    icon: 'FaCalendar',
+    icon: 'FcGlobe',
     id: 'aippm-session-day2',
     domain: 'mun',
     registration: MUNLINK,
@@ -386,7 +386,7 @@ export const day2: ScheduleItemType[] = [
   },
   {
     title: 'UNCSW Committee Session',
-    icon: 'FaCalendar',
+    icon: 'FcGlobe',
     id: 'uncsw-session-day2',
     domain: 'mun',
     registration: MUNLINK,
@@ -404,7 +404,7 @@ export const day2: ScheduleItemType[] = [
   },
   {
     title: 'UNODC Committee Session',
-    icon: 'FaCalendar',
+    icon: 'FcGlobe',
     id: 'unodc-session-day2',
     domain: 'mun',
     registration: MUNLINK,
@@ -464,7 +464,7 @@ export const day3: ScheduleItemType[] = [
     registration: 'https://forms.gle/dqRBt7KwQF284b2z7',
   },
   {
-    title: 'Valorant Online Event',
+    title: 'Valorant',
     icon: 'FaCalendar',
     id: 'valorant-online',
     domain: 'esports',
@@ -486,7 +486,7 @@ export const day3: ScheduleItemType[] = [
   // MUN (Day 2)
   {
     title: 'UNSC Committee Session',
-    icon: 'FaCalendar',
+    icon: 'FcGlobe',
     id: 'unsc-session',
     domain: 'mun',
     registration: MUNLINK,
@@ -504,7 +504,7 @@ export const day3: ScheduleItemType[] = [
   },
   {
     title: 'UNHRC Committee Session',
-    icon: 'FaCalendar',
+    icon: 'FcGlobe',
     id: 'unhrc-session',
     domain: 'mun',
     registration: MUNLINK,
@@ -522,7 +522,7 @@ export const day3: ScheduleItemType[] = [
   },
   {
     title: 'AIPPM Committee Session',
-    icon: 'FaCalendar',
+    icon: 'FcGlobe',
     id: 'aippm-session',
     domain: 'mun',
     registration: MUNLINK,
@@ -540,7 +540,7 @@ export const day3: ScheduleItemType[] = [
   },
   {
     title: 'UNCSW Committee Session',
-    icon: 'FaCalendar',
+    icon: 'FcGlobe',
     id: 'uncsw-session',
     domain: 'mun',
     registration: MUNLINK,
@@ -558,7 +558,7 @@ export const day3: ScheduleItemType[] = [
   },
   {
     title: 'UNODC Committee Session',
-    icon: 'FaCalendar',
+    icon: 'FcGlobe',
     id: 'unodc-session',
     domain: 'mun',
     registration: MUNLINK,
