@@ -56,11 +56,11 @@ export const Footer = () => {
               <span>get in touch</span>
               <Link
                 className='link'
-                href='mailto:aissms.ioit.acm@chatpter.acm.org'
+                href='mailto:ioit.tenet@aissmsioit.org'
                 target='_blank'
                 rel='noreferrer'
               >
-                aissms.ioit.acm@chatpter.acm.org
+                ioit.tenet@aissmsioit.org
               </Link>
             </div>
             <div className='text-center'>

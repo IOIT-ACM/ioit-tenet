@@ -105,7 +105,7 @@ export function TenetCommandDialog() {
     { url: '/esports', name: 'E-Sports Events Page' },
     { url: '/mun', name: 'MUN Events Page' },
     {
-      url: 'mailto:aissms.ioit.acm@chatpter.acm.org',
+      url: 'mailto:ioit.tenet@aissmsioit.org',
       name: 'Contact ACM student chapter',
     },
     {
