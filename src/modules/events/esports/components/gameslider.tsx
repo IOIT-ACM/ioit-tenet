@@ -14,20 +14,22 @@ interface GameSlide {
 const gameSlides: GameSlide[] = [
   {
     id: 1,
-    image: '/imgs/esports/peakpx.jpg',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/bgmi.jpeg',
     title: 'BGMI',
     link: 'https://forms.gle/kaE3hKPiuJ7M44qw9',
   },
   {
     id: 2,
     image:
-      'https://wallpaper.forfun.com/fetch/34/34fcf4edbca5e75d4d31967a6b49373e.jpeg',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/valo.jpeg',
     title: 'Valorant',
     link: 'https://forms.gle/UgM7pZ5yCEys9aq69',
   },
   {
     id: 3,
-    image: '/imgs/esports/fifa.jpg',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/fifa.jpeg',
     title: 'FIFA',
     link: 'https://forms.gle/dqRBt7KwQF284b2z7',
   },

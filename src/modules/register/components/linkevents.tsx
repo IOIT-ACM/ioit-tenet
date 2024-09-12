@@ -18,7 +18,7 @@ export const RegisterLinks: React.FC = () => {
       heading: 'IOIT-MUN-2024',
       subheading: 'Join us for the IOIT MUN 2024 happening at TENET 2024',
       imgSrc:
-        'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
+        'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun.jpeg',
       href: MUNLINK,
     },
     {
@@ -26,21 +26,21 @@ export const RegisterLinks: React.FC = () => {
       subheading:
         'Exciting Capture the Flag event to test your hacking skills.',
       imgSrc:
-        'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
+        'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/ctf.jpg',
       href: 'https://forms.gle/H2p78SKhRZv6YLCZ9',
     },
     {
       heading: 'LLM-Workshop',
       subheading: 'A hands-on workshop on Large Language Models in tech.',
       imgSrc:
-        'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
+        'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/ai.jpg',
       href: 'https://docs.google.com/forms/d/e/1FAIpQLSdVT-YhdD8isBrYVMpp0KXtfOdQItB23_DaZwVp4yte47pYYA/viewform',
     },
     {
       heading: 'Drone-Workshop',
       subheading: 'Learn the art of building and flying drones from experts.',
       imgSrc:
-        'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
+        'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/drone.jpg',
       href: 'https://forms.gle/PRoAR779QCL4LqyL9',
     },
     {
@@ -58,14 +58,14 @@ export const RegisterLinks: React.FC = () => {
       subheading:
         'Show off your tactical shooter skills in the Valorant tournament.',
       imgSrc:
-        'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
+        'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/valo.jpeg',
       href: 'https://docs.google.com/forms/d/e/1FAIpQLSdr4PZfpLjOrNdW5JFIcW09oYEjoDIPhvumvIWhOX78MeIaZQ/viewform',
     },
     {
       heading: 'BGMI',
       subheading: 'Join the battle royale action in the BGMI tournament.',
       imgSrc:
-        'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
+        'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/bgmi.jpeg',
       href: 'https://docs.google.com/forms/d/e/1FAIpQLScsw5pMP3SjBaMcMrs1i1D96Cu7WttNDxu9vBYcPTS9Yr5oag/closedform',
     },
     {
@@ -73,7 +73,7 @@ export const RegisterLinks: React.FC = () => {
       subheading:
         'Score big in the FIFA tournament and show your football skills.',
       imgSrc:
-        'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
+        'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/fifa.jpeg',
       href: 'https://forms.gle/dqRBt7KwQF284b2z7',
     },
   ];

@@ -16,6 +16,7 @@ import { useIsMobile } from '@/hooks/useismobile';
 import Link from 'next/link';
 import { MusicBtn } from './musicplayer';
 import { usePathname } from 'next/navigation';
+import { useStore } from '@/store';
 
 const transition = {
   type: 'spring',
@@ -41,6 +42,8 @@ export default function FixedNavBar({ className }: { className?: string }) {
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up');
   const isMobile = useIsMobile();
   const pathname = usePathname();
+
+  const setMusic = useStore((state) => state.setMusic);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -110,6 +113,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
                 setHovering(null);
               }}
               transition={transition}
+              onClick={() => setTimeout(() => setMusic(true), 1000)}
             >
               <Link href={route.path}>
                 {route.path === hovering && (
@@ -198,6 +202,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
                       <Link
                         className='transform font-semibold transition-transform duration-200'
                         href={route.path}
+                        onClick={() => setTimeout(() => setMusic(true), 1000)}
                       >
                         {route.name}
                       </Link>
