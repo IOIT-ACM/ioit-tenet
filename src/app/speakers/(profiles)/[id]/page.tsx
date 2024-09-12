@@ -15,16 +15,6 @@ export async function generateMetadata({
       metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
       title: 'Explore speakers at IOIT TENET 2024',
       description: 'Browse through our lineup of speakers at AISSMS IOIT TENET',
-      openGraph: {
-        images: [
-          {
-            url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/phineas.webp',
-            width: 800,
-            height: 600,
-            alt: `Speaker Image`,
-          },
-        ],
-      },
     };
   }
 

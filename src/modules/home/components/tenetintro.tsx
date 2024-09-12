@@ -56,7 +56,7 @@ const CenterImage = () => {
             onClick={() => setIsMuted(false)}
           >
             <Video
-              src='hero-logo.webm'
+              src='https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/hero-logo.mp4'
               autoPlay
               preload='auto'
               muted={isMuted}

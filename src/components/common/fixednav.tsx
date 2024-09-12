@@ -205,19 +205,27 @@ export default function FixedNavBar({ className }: { className?: string }) {
                   ))}
                 </nav>
                 <div className='absolute bottom-0 flex flex-col items-center justify-center gap-5 text-white'>
-                  <div className='flex flex-col gap-2 text-center'>
+                  <div className='flex flex-col gap-5 text-center'>
                     <Link
                       className='transform font-semibold transition-transform duration-200'
                       href='/register'
                     >
                       Register
                     </Link>
-                    <Link
-                      className='transform font-semibold transition-transform duration-200'
-                      href='/speakers'
-                    >
-                      Speakers & Guests
-                    </Link>
+                    <div className='flex gap-5'>
+                      <Link
+                        className='transform font-semibold transition-transform duration-200'
+                        href='/events'
+                      >
+                        Events
+                      </Link>
+                      <Link
+                        className='transform font-semibold transition-transform duration-200'
+                        href='/speakers'
+                      >
+                        Speakers
+                      </Link>
+                    </div>
                   </div>
                 </div>
                 <MusicBtn className='absolute bottom-0 left-0' />
