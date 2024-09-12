@@ -34,12 +34,11 @@ export function KonfHub() {
           {passes.map((pass, index) => (
             <div key={index} className='flex flex-col items-center'>
               <h3 className='mb-2 text-lg font-semibold'>{pass.name}</h3>
-              <p className='mb-4 text-gray-600'>{pass.price}</p>
               <Link
                 href='#'
                 className='inline-block rounded-full bg-gradient-to-r from-blue-500 to-purple-600 px-6 py-2 text-center text-sm font-semibold text-white transition duration-300 hover:from-blue-600 hover:to-purple-700 hover:shadow-lg'
               >
-                Get Pass
+                Comming soon
               </Link>
             </div>
           ))}

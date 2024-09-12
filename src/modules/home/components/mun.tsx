@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useIsMobile } from '@/hooks/useismobile';
+import { MUNLINK } from '@/config';
 
 export const MUN = () => {
   const [loading, setIsLoading] = useState(true);
@@ -42,7 +43,7 @@ export const MUN = () => {
             Visit site
           </Link>
           <Link
-            href={'/events/mun'}
+            href={MUNLINK}
             target='_blank'
             className='rounded bg-[#26a7ff] px-3 py-2 text-sm font-medium text-white transition-all hover:bg-indigo-600 active:scale-95 sm:px-4 sm:text-base'
           >
