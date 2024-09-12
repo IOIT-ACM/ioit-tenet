@@ -7,6 +7,7 @@ import { Toaster } from 'sonner';
 import { siteConfig } from '@/config';
 import { MusicPlayer } from '@/components/common/musicplayer';
 import { TenetCommandDialog } from '@/components/command';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -44,6 +45,20 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang='en' className={`${GeistSans.variable}`}>
+      <Script
+        strategy='afterInteractive'
+        async
+        src='https://www.googletagmanager.com/gtag/js?id=G-0V093EZ0CW'
+      />
+      <Script id='google-analytics' strategy='afterInteractive'>
+        {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-0V093EZ0CW');
+          `}
+      </Script>
       <body style={{ fontFamily: 'exo2' }} className='bg-neutral-950'>
         {children}
         <MusicPlayer />
