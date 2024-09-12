@@ -137,7 +137,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
                       scale: 0.1,
                     }}
                     transition={{ type: 'spring', bounce: 0.2, duration: 1 }}
-                    className='absolute inset-0 rounded-full bg-slate-100'
+                    className='animate-gradient-x absolute inset-0 rounded-full bg-gradient-to-r from-purple-400 via-blue-400 to-indigo-400'
                   />
                 )}
                 <span className={`relative block px-4 py-2 text-black`}>

@@ -1,4 +1,22 @@
 import { HeroImage } from '@/components/common/heroimage';
+import type { Metadata } from 'next';
+import { env } from '@/env';
+
+export const metadata: Metadata = {
+  metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
+  title: 'Model United Nations at AISSMS IOIT TENET 2024',
+  description: 'Explore the events happening at MUN in IOIT TENET 2024',
+  openGraph: {
+    images: [
+      {
+        url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun.jpeg',
+        width: 800,
+        height: 600,
+        alt: `Event Image`,
+      },
+    ],
+  },
+};
 
 export default function Page() {
   return (
