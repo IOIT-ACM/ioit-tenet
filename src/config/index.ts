@@ -3,3 +3,5 @@ export const siteConfig = {
   description: 'Techfiesta, Entrepreneurship, Negotiations, E-Sports, Trending',
   url: 'https://www.ioittenet.org/',
 };
+
+export const MUNLINK = 'https://forms.gle/W11goEvziKFYYXqz5';

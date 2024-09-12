@@ -1,4 +1,4 @@
-import { HeroImage, Timeline, Sponsors, Speakers } from '@/components/common';
+import { HeroImage, Timeline, Sponsors } from '@/components/common';
 
 export default function Page() {
   return (
@@ -11,7 +11,7 @@ export default function Page() {
         ctaLink='#timeline'
       />
       <Timeline domain='esummit' />
-      <Speakers />
+      {/* <Speakers /> */}
       <Sponsors />
     </main>
   );

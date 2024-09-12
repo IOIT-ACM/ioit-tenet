@@ -17,25 +17,29 @@ export const RegisterLinks: React.FC = () => {
       heading: 'CTF',
       subheading:
         'Exciting Capture the Flag event to test your hacking skills.',
-      imgSrc: '/imgs/events/2.jpeg',
+      imgSrc:
+        'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
       href: 'https://forms.gle/H2p78SKhRZv6YLCZ9',
     },
     {
       heading: 'LLM Workshop',
       subheading: 'A hands-on workshop on Large Language Models in tech.',
-      imgSrc: '/imgs/events/2.jpeg',
+      imgSrc:
+        'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
       href: 'https://docs.google.com/forms/d/e/1FAIpQLSdVT-YhdD8isBrYVMpp0KXtfOdQItB23_DaZwVp4yte47pYYA/viewform',
     },
     {
       heading: 'Drone Workshop',
       subheading: 'Learn the art of building and flying drones from experts.',
-      imgSrc: '/imgs/events/2.jpeg',
+      imgSrc:
+        'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
       href: 'https://forms.gle/PRoAR779QCL4LqyL9',
     },
     {
       heading: 'Investing Arena',
       subheading: 'Master the stock market with our Investing Arena challenge.',
-      imgSrc: '/imgs/events/2.jpeg',
+      imgSrc:
+        'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
       href: 'https://docs.google.com/forms/d/e/1FAIpQLSdz4AXaeYZAy7jFUagt3g-zvJJV38If5njMlMiZ-49fMpXWjw/viewform',
     },
   ];
@@ -45,20 +49,23 @@ export const RegisterLinks: React.FC = () => {
       heading: 'Valorant',
       subheading:
         'Show off your tactical shooter skills in the Valorant tournament.',
-      imgSrc: '/imgs/events/2.jpeg',
+      imgSrc:
+        'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
       href: 'https://docs.google.com/forms/d/e/1FAIpQLSdr4PZfpLjOrNdW5JFIcW09oYEjoDIPhvumvIWhOX78MeIaZQ/viewform',
     },
     {
       heading: 'BGMI',
       subheading: 'Join the battle royale action in the BGMI tournament.',
-      imgSrc: '/imgs/events/2.jpeg',
+      imgSrc:
+        'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
       href: 'https://docs.google.com/forms/d/e/1FAIpQLScsw5pMP3SjBaMcMrs1i1D96Cu7WttNDxu9vBYcPTS9Yr5oag/closedform',
     },
     {
       heading: 'FIFA',
       subheading:
         'Score big in the FIFA tournament and show your football skills.',
-      imgSrc: '/imgs/events/2.jpeg',
+      imgSrc:
+        'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
       href: 'https://forms.gle/dqRBt7KwQF284b2z7',
     },
   ];

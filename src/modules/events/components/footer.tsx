@@ -72,7 +72,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link
-                  href='mailto:aissms.ioit.acm@chatpter.acm.org'
+                  href='mailto:ioit.tenet@aissmsioit.org'
                   className='text-slate-400 transition-colors hover:text-green-400'
                 >
                   Contact Us

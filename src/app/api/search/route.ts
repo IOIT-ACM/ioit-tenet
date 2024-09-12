@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { speakers } from '@/config/speakers';
+// import { speakers } from '@/config/speakers';
 import type { Speaker } from '@/types';
 import { day1, day2, day3 } from '@/config/events';
 
@@ -13,12 +13,12 @@ interface Item {
 type SearchItem = Item | Speaker;
 
 const allItems: SearchItem[] = [
-  ...speakers.map((speaker) => ({
-    id: speaker.id,
-    name: speaker.name,
-    icon: speaker.image,
-    type: 'speaker' as const,
-  })),
+  // ...speakers.map((speaker) => ({
+  //   id: speaker.id,
+  //   name: speaker.name,
+  //   icon: speaker.image,
+  //   type: 'speaker' as const,
+  // })),
   ...day1.map((event) => ({
     id: event.id,
     name: event.title,

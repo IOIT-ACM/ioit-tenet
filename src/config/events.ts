@@ -1,4 +1,5 @@
 import type { ScheduleItemType } from '@/types';
+import { MUNLINK } from '@/config';
 
 export const day1: ScheduleItemType[] = [
   {
@@ -101,6 +102,7 @@ export const day1: ScheduleItemType[] = [
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
     organizers: [{ name: 'Shrey Kulkarni' }],
+    registration: 'https://forms.gle/H2p78SKhRZv6YLCZ9',
   },
   {
     title: 'Drone Workshop',
@@ -117,6 +119,7 @@ export const day1: ScheduleItemType[] = [
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
     organizers: [{ name: 'Shrey Kulkarni' }],
+    registration: 'https://forms.gle/PRoAR779QCL4LqyL9',
   },
   {
     title: 'Gen AI (LLM) workshop',
@@ -134,6 +137,7 @@ export const day1: ScheduleItemType[] = [
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
     organizers: [{ name: 'Shrey Kulkarni' }],
+    registration: 'https://forms.gle/sNcVRhN458bfKP786',
   },
   {
     title: 'ARVR',
@@ -272,9 +276,9 @@ export const day1: ScheduleItemType[] = [
     organizers: [{ name: 'Shrey Kulkarni' }],
   },
   {
-    title: 'PITCHING ARENA',
+    title: 'Investing Arena',
     icon: 'FaMicrophone',
-    id: 'pitching-arena',
+    id: 'investing-arena',
     domain: 'esummit',
     color: 'bg-blue-700',
     date: 'Sept 12th, 2024',
@@ -286,6 +290,8 @@ export const day1: ScheduleItemType[] = [
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
     organizers: [{ name: 'Shrey Kulkarni' }],
+    registration:
+      'https://docs.google.com/forms/d/e/1FAIpQLSdz4AXaeYZAy7jFUagt3g-zvJJV38If5njMlMiZ-49fMpXWjw/viewform',
   },
   {
     title: 'FINAL PODCAST OR FIRE CHAT',
@@ -328,6 +334,7 @@ export const day2: ScheduleItemType[] = [
     icon: 'FaCalendar',
     id: 'unsc-session-day2',
     domain: 'mun',
+    registration: MUNLINK,
     color: 'bg-blue-500',
     date: 'Oct 5th, 2024',
     location: 'Room 25',
@@ -345,6 +352,7 @@ export const day2: ScheduleItemType[] = [
     icon: 'FaCalendar',
     id: 'unhrc-session-day2',
     domain: 'mun',
+    registration: MUNLINK,
     color: 'bg-red-500',
     date: 'Oct 5th, 2024',
     location: 'Room 305',
@@ -362,6 +370,7 @@ export const day2: ScheduleItemType[] = [
     icon: 'FaCalendar',
     id: 'aippm-session-day2',
     domain: 'mun',
+    registration: MUNLINK,
     color: 'bg-yellow-500',
     date: 'Oct 5th, 2024',
     location: 'Room 206',
@@ -379,6 +388,7 @@ export const day2: ScheduleItemType[] = [
     icon: 'FaCalendar',
     id: 'uncsw-session-day2',
     domain: 'mun',
+    registration: MUNLINK,
     color: 'bg-pink-500',
     date: 'Oct 5th, 2024',
     location: 'Room 405',
@@ -396,6 +406,7 @@ export const day2: ScheduleItemType[] = [
     icon: 'FaCalendar',
     id: 'unodc-session-day2',
     domain: 'mun',
+    registration: MUNLINK,
     color: 'bg-gray-500',
     date: 'Oct 5th, 2024',
     location: 'Room 409',
@@ -430,6 +441,8 @@ export const day3: ScheduleItemType[] = [
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/esports/esports/bgmi.avif',
     organizers: [{ name: 'Ayush Sangole' }, { name: 'Avdhoot Chavan' }],
+    registration:
+      'https://docs.google.com/forms/d/e/1FAIpQLScsw5pMP3SjBaMcMrs1i1D96Cu7WttNDxu9vBYcPTS9Yr5oag/closedform',
   },
   {
     title: 'FIFA (FC 24) PS5 Console Event',
@@ -447,6 +460,7 @@ export const day3: ScheduleItemType[] = [
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/esports/esports/fifa.webp',
     organizers: [{ name: 'Ayush Sangole' }, { name: 'Avdhoot Chavan' }],
+    registration: 'https://forms.gle/dqRBt7KwQF284b2z7',
   },
   {
     title: 'Valorant Online Event',
@@ -464,6 +478,8 @@ export const day3: ScheduleItemType[] = [
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/esports/esports/valo.webp',
     organizers: [{ name: 'Ayush Sangole' }, { name: 'Avdhoot Chavan' }],
+    registration:
+      'https://docs.google.com/forms/d/e/1FAIpQLSdr4PZfpLjOrNdW5JFIcW09oYEjoDIPhvumvIWhOX78MeIaZQ/viewform',
   },
 
   // MUN (Day 2)
@@ -472,6 +488,7 @@ export const day3: ScheduleItemType[] = [
     icon: 'FaCalendar',
     id: 'unsc-session',
     domain: 'mun',
+    registration: MUNLINK,
     color: 'bg-blue-500',
     date: 'Oct 6th, 2024',
     location: 'Room 002',
@@ -489,6 +506,7 @@ export const day3: ScheduleItemType[] = [
     icon: 'FaCalendar',
     id: 'unhrc-session',
     domain: 'mun',
+    registration: MUNLINK,
     color: 'bg-red-500',
     date: 'Oct 6th, 2024',
     location: 'Room 305',
@@ -506,6 +524,7 @@ export const day3: ScheduleItemType[] = [
     icon: 'FaCalendar',
     id: 'aippm-session',
     domain: 'mun',
+    registration: MUNLINK,
     color: 'bg-yellow-500',
     date: 'Oct 6th, 2024',
     location: 'Room 206',
@@ -523,6 +542,7 @@ export const day3: ScheduleItemType[] = [
     icon: 'FaCalendar',
     id: 'uncsw-session',
     domain: 'mun',
+    registration: MUNLINK,
     color: 'bg-pink-500',
     date: 'Oct 6th, 2024',
     location: 'Room 405',
@@ -540,6 +560,7 @@ export const day3: ScheduleItemType[] = [
     icon: 'FaCalendar',
     id: 'unodc-session',
     domain: 'mun',
+    registration: MUNLINK,
     color: 'bg-gray-500',
     date: 'Oct 6th, 2024',
     location: 'Room 409',
