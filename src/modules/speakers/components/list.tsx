@@ -4,62 +4,38 @@ import Link from 'next/link';
 
 export const Speakers = () => {
   return (
-    <div className='mx-auto px-4 pb-8 pt-5'>
-      <h1 className='mb-12 text-center text-4xl font-bold text-white'>
-        Our Speakers
+    <div className='mx-auto my-16 px-4 pb-8 pt-5 md:my-24'>
+      <h1 className='mb-20 text-center text-4xl font-bold text-white'>
+        Speakers at TENET&apos;24
       </h1>
-      <div className='grid grid-cols-1 gap-8 lg:grid-cols-2 xl:grid-cols-3'>
+      <div className='grid grid-cols-2 gap-14 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
         {speakers.map((speaker) => (
-          <div
+          <Link
+            href={`/speakers/${speaker.id}`}
             key={speaker.id}
-            className='overflow-hidden rounded-lg bg-gray-800 shadow-lg transition-all duration-300 hover:shadow-xl sm:flex sm:h-64'
+            className='flex flex-col items-center'
           >
-            <Link
-              href={`/speakers/${speaker.id}`}
-              className='relative block h-64 overflow-hidden sm:h-full sm:w-2/3'
-            >
+            <div className='mb-4 h-32 w-32 overflow-hidden rounded-full bg-gray-200 md:h-48 md:w-48'>
               <Image
                 src={speaker.image}
                 alt={speaker.name}
-                layout='fill'
-                objectFit='cover'
-                className='transition-transform duration-300 hover:scale-110'
+                width={192}
+                height={192}
+                className='h-full w-full rounded-full border border-white bg-gray-300 object-cover transition-all hover:scale-105'
               />
-            </Link>
-            <div className='flex flex-col justify-between p-6 sm:w-2/3'>
-              <div>
-                <Link href={`/speakers/${speaker.id}`}>
-                  <h2 className='mb-2 text-xl font-bold text-white transition-colors hover:text-indigo-400'>
-                    {speaker.name}
-                  </h2>
-                </Link>
-                <p className='mb-2 text-base font-medium text-indigo-400'>
-                  {speaker.title}
-                </p>
-                <p className='mb-4 line-clamp-3 text-sm text-slate-300'>
-                  {speaker.bio}
-                </p>
-              </div>
-              <div className='flex items-center justify-between'>
-                <Link
-                  href={`/speakers/${speaker.id}`}
-                  className='text-sm text-blue-400 transition-colors hover:text-blue-300 sm:text-base'
-                >
-                  Learn More
-                </Link>
-                <Link
-                  href={speaker.url}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='rounded-full bg-indigo-600 px-3 py-1 text-sm text-white transition-colors hover:bg-indigo-700 sm:px-4 sm:py-2 sm:text-base'
-                >
-                  LinkedIn
-                </Link>
-              </div>
             </div>
-          </div>
+            <h2 className='text-center text-base font-bold text-white md:text-xl'>
+              {speaker.name}
+            </h2>
+            <p className='text-center text-xs text-indigo-400 md:text-base'>
+              {speaker.title}
+            </p>
+          </Link>
         ))}
       </div>
+      <h1 className='mt-36 text-center text-4xl font-bold text-white'>
+        More speakers revealing soon...
+      </h1>
     </div>
   );
 };

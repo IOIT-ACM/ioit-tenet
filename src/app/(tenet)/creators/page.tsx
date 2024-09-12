@@ -1,6 +1,4 @@
-import { HeroImage } from '@/components/common/heroimage';
-import { Timeline } from '@/components/common/timeline';
-import { Sponsors } from '@/components/common/sponsors';
+import { HeroImage, Sponsors } from '@/components/common';
 
 export default function Page() {
   return (
@@ -12,7 +10,6 @@ export default function Page() {
         ctaText='Learn More'
         ctaLink='#timeline'
       />
-      <Timeline domain='creators' />
       <Sponsors />
     </main>
   );

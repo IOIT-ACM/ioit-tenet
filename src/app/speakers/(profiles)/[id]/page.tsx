@@ -18,7 +18,7 @@ export async function generateMetadata({
       openGraph: {
         images: [
           {
-            url: '/imgs/speakers/default.jpg',
+            url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/phineas.webp',
             width: 800,
             height: 600,
             alt: `Speaker Image`,

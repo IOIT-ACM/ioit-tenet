@@ -14,24 +14,22 @@ interface GameSlide {
 const gameSlides: GameSlide[] = [
   {
     id: 1,
-    image:
-      'https://cdn1.epicgames.com/spt-assets/53ec4985296b4facbe3a8d8d019afba9/pubg-battlegrounds-1e9a7.jpg',
-    title: 'PUBG',
-    link: 'pubg',
+    image: '/imgs/esports/peakpx.jpg',
+    title: 'BGMI',
+    link: 'https://forms.gle/kaE3hKPiuJ7M44qw9',
   },
   {
     id: 2,
     image:
       'https://wallpaper.forfun.com/fetch/34/34fcf4edbca5e75d4d31967a6b49373e.jpeg',
     title: 'Valorant',
-    link: 'valorant',
+    link: 'https://forms.gle/UgM7pZ5yCEys9aq69',
   },
   {
     id: 3,
-    image:
-      'https://wallpaper.forfun.com/fetch/9d/9d1691af8963874c7639242e720ada05.jpeg',
-    title: 'Apex Legends',
-    link: 'apexlegends',
+    image: '/imgs/esports/fifa.jpg',
+    title: 'FIFA',
+    link: 'https://forms.gle/dqRBt7KwQF284b2z7',
   },
 ];
 

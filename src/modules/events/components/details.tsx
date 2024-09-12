@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import type { ScheduleItemType, Speaker } from '@/types';
@@ -16,13 +17,13 @@ export const Details = ({ event }: { event: ScheduleItemType }) => {
     <div className='flex w-full flex-col items-center justify-start gap-10 pt-5 text-white md:pt-10'>
       <div className='w-full overflow-hidden'>
         <div className='w-full md:flex'>
-          <div className='sticky top-0 h-64 w-full overflow-hidden rounded-lg border md:h-[500px] md:w-1/2'>
-            <Image
+          <div className='sticky top-0 h-64 w-full overflow-hidden rounded-lg border bg-gray-200 md:h-[500px] md:w-1/2'>
+            <img
               src={event.image}
               alt={event.title}
-              layout='fill'
-              objectFit='cover'
-              className='h-full w-full object-center transition-all duration-1000 hover:scale-105'
+              // layout='fill'
+              // objectFit='cover'
+              className='h-full w-full object-cover object-center transition-all duration-1000 hover:scale-105'
             />
           </div>
           <div className='space-y-6 pt-3 md:w-1/2 md:p-8 md:pt-0'>
@@ -56,7 +57,7 @@ export const Details = ({ event }: { event: ScheduleItemType }) => {
 
             {event.organizers && event.organizers.length > 0 && (
               <div>
-                <h2 className='mb-4 text-xl font-semibold'>Organizers</h2>
+                <h2 className='mb-4 text-xl font-semibold'>Event head</h2>
                 <ul className='space-y-2'>
                   {event.organizers.map((organizer, index) => (
                     <li
@@ -64,12 +65,7 @@ export const Details = ({ event }: { event: ScheduleItemType }) => {
                       className='flex items-center text-slate-400'
                     >
                       <HiUser className='mr-2 h-5 w-5' />
-                      <Link
-                        href={`tel:${organizer.phone}`}
-                        className='hover:underline'
-                      >
-                        {organizer.name}
-                      </Link>
+                      <div className='hover:underline'>{organizer.name}</div>
                     </li>
                   ))}
                 </ul>
@@ -113,7 +109,7 @@ const SpeakerCard = ({ speaker }: { speaker: Speaker }) => {
       </div>
       <div>
         <p className='text-lg'>{speaker.name}</p>
-        <p className='text-xs'>{speaker.bio}</p>
+        <p className='text-xs'>{speaker.title}</p>
       </div>
     </Link>
   );

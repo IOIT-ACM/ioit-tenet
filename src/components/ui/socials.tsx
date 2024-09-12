@@ -9,11 +9,11 @@ import React, { type MouseEventHandler, useRef } from 'react';
 import { FlipLink } from './fliplink';
 
 const images = [
-  '/imgs/socials/instagram.png',
-  '/imgs/socials/keyboard.png',
-  '/imgs/socials/linkedin.png',
-  '/imgs/socials/x.png',
-  '/imgs/socials/twitter.png',
+  'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/socials/instagram.png',
+  'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/socials/keyboard.png',
+  'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/socials/linkedin.png',
+  'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/socials/x.png',
+  'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/socials/twitter.png',
 ];
 
 export const Socials = () => {
@@ -119,9 +119,15 @@ export const Socials = () => {
       onMouseMove={handleMouseMove}
     >
       <div ref={linkContainerRef} className='grid gap-2'>
-        <FlipLink href='#'>Twitter</FlipLink>
-        <FlipLink href='#'>Linkedin</FlipLink>
-        <FlipLink href='#'>Instagram</FlipLink>
+        <FlipLink href='https://chat.whatsapp.com/HUYXxh75M618GNCExQ3NPZ'>
+          WhatsApp
+        </FlipLink>
+        <FlipLink href='https://www.linkedin.com/company/ioit-tenet/'>
+          Linkedin
+        </FlipLink>
+        <FlipLink href='https://www.instagram.com/ioit_tenet/'>
+          Instagram
+        </FlipLink>
       </div>
 
       {images.map((img, index) => (

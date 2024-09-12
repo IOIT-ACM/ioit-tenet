@@ -31,7 +31,7 @@ export const Gallery = () => {
 
 const cardData = [
   {
-    src: 'https://images.unsplash.com/photo-1635373670332-43ea883bb081?q=80&w=2781&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/homegallery/1.png',
     alt: 'Event image',
     rotate: '6deg',
     top: '25%',
@@ -39,7 +39,7 @@ const cardData = [
     className: 'w-36 cursor-grab md:w-56',
   },
   {
-    src: 'https://images.unsplash.com/photo-1576174464184-fb78fe882bfd?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/homegallery/2.png',
     alt: 'Event image',
     rotate: '12deg',
     top: '55%',
@@ -47,7 +47,7 @@ const cardData = [
     className: 'w-24 cursor-grab md:w-48',
   },
   {
-    src: 'https://images.unsplash.com/photo-1503751071777-d2918b21bbd9?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/homegallery/3.png',
     alt: 'Event image',
     rotate: '-6deg',
     top: '10%',
@@ -55,7 +55,7 @@ const cardData = [
     className: 'w-52 cursor-grab md:w-80',
   },
   {
-    src: 'https://images.unsplash.com/photo-1620428268482-cf1851a36764?q=80&w=2609&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/homegallery/4.png',
     alt: 'Event image',
     rotate: '8deg',
     top: '80%',
@@ -63,7 +63,7 @@ const cardData = [
     className: 'w-48 cursor-grab md:w-72',
   },
   {
-    src: 'https://images.unsplash.com/photo-1602212096437-d0af1ce0553e?q=80&w=2671&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/homegallery/5.png',
     alt: 'Event image',
     rotate: '18deg',
     top: '70%',
@@ -71,7 +71,7 @@ const cardData = [
     className: 'w-40 cursor-grab md:w-64',
   },
   {
-    src: 'https://images.unsplash.com/photo-1622313762347-3c09fe5f2719?q=80&w=2640&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/homegallery/6.png',
     alt: 'Event image',
     rotate: '-3deg',
     top: '25%',
@@ -79,59 +79,11 @@ const cardData = [
     className: 'w-24 cursor-grab md:w-48',
   },
   {
-    src: 'https://images.unsplash.com/photo-1635373670332-43ea883bb081?q=80&w=2781&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/homegallery/7.png',
     alt: 'Event image',
     rotate: '6deg',
     top: '20%',
     left: '25%',
-    className: 'w-36 cursor-grab md:w-56',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1576174464184-fb78fe882bfd?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    alt: 'Event image',
-    rotate: '12deg',
-    top: '45%',
-    left: '90%',
-    className: 'w-24 cursor-grab md:w-48',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1503751071777-d2918b21bbd9?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    alt: 'Event image',
-    rotate: '-6deg',
-    top: '20%',
-    left: '20%',
-    className: 'w-52 cursor-grab md:w-80',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1620428268482-cf1851a36764?q=80&w=2609&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    alt: 'Event image',
-    rotate: '8deg',
-    top: '80%',
-    left: '40%',
-    className: 'w-48 cursor-grab md:w-72',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1602212096437-d0af1ce0553e?q=80&w=2671&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    alt: 'Event image',
-    rotate: '18deg',
-    top: '20%',
-    left: '65%',
-    className: 'w-40 cursor-grab md:w-64',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1622313762347-3c09fe5f2719?q=80&w=2640&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    alt: 'Event image',
-    rotate: '-3deg',
-    top: '35%',
-    left: '85%',
-    className: 'w-24 cursor-grab md:w-48',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1635373670332-43ea883bb081?q=80&w=2781&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    alt: 'Event image',
-    rotate: '6deg',
-    top: '10%',
-    left: '15%',
     className: 'w-36 cursor-grab md:w-56',
   },
 ];

@@ -18,27 +18,7 @@ const config = {
       },
       {
         protocol: 'https',
-        hostname: 'lab.basement.studio',
-      },
-      {
-        protocol: 'https',
-        hostname: 'assets.aceternity.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'aceternity.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'lh3.googleusercontent.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'raw.githubusercontent.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'cdn1.epicgames.com',
+        hostname: 'hosteze-little-boy.s3.ap-south-1.amazonaws.com',
       },
       {
         protocol: 'https',

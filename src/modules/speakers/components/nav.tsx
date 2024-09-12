@@ -35,7 +35,7 @@ export const Nav = () => {
               width={70}
             />
           </Link>
-          <Link href={'/'}>
+          <Link href={'https://ioit.acm.org'}>
             <Image
               className='h-10 w-10 cursor-pointer transition-all hover:scale-105'
               src={'/acm.png'}
@@ -49,18 +49,12 @@ export const Nav = () => {
           <Link className='transition-all hover:underline' href='/'>
             Home
           </Link>
-          <Link className='transition-all hover:underline' href='/events'>
-            Agenda
-          </Link>
           <Link className='transition-all hover:underline' href='/speakers'>
             Speakers
           </Link>
           <Link className='transition-all hover:underline' href='/events'>
             Events
           </Link>
-          {/* <Link className='transition-all hover:underline' href='/team'>
-              Team
-            </Link> */}
           <Link className='transition-all hover:underline' href='/register'>
             Registrations
           </Link>

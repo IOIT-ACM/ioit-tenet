@@ -1,7 +1,4 @@
-import { HeroImage } from '@/components/common/heroimage';
-import { Timeline } from '@/components/common/timeline';
-import { Sponsors } from '@/components/common/sponsors';
-import { Speakers } from '@/modules/events/esummit';
+import { HeroImage, Timeline, Sponsors, Speakers } from '@/components/common';
 
 export default function Page() {
   return (

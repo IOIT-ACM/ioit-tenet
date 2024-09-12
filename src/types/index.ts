@@ -24,7 +24,7 @@ export interface MusicConfig {
 
 export type Organizer = {
   name: string;
-  phone: string;
+  phone?: string;
 };
 
 export type Speaker = {
@@ -35,6 +35,7 @@ export type Speaker = {
   image: string;
   title: string;
   bio?: string;
+  domain?: string;
 };
 
 export type ScheduleItemType = {
@@ -58,5 +59,5 @@ export type ScheduleItemType = {
 export interface Sponsor {
   name: string;
   logoUrl: string;
-  websiteUrl: string;
+  websiteUrl?: string;
 }

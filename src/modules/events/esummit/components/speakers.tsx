@@ -1,10 +1,19 @@
+'use client';
+
 import Image from 'next/image';
 import type { Speaker } from '@/types';
 import { speakers } from '@/config/speakers';
 import '@/styles/speakers.css';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export const Speakers = () => {
+  const pathname = usePathname();
+
+  const filteredSpeakers = speakers.filter(
+    (speaker) => speaker.domain === pathname.replace('/', ''),
+  );
+
   return (
     <section className='bg-black py-12'>
       <div className='mx-auto px-4'>
@@ -12,7 +21,7 @@ export const Speakers = () => {
           Meet Our Speakers
         </h2>
         <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
-          {speakers.map((speaker: Speaker) => (
+          {filteredSpeakers.map((speaker: Speaker) => (
             <div key={speaker.id} className='perspective group'>
               <div className='preserve-3d group-hover:rotate-y-180 relative h-64 w-full duration-700'>
                 {/* Front Side */}

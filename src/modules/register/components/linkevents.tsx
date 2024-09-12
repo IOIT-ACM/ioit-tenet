@@ -3,57 +3,98 @@
 import { useMotionValue, motion, useSpring, useTransform } from 'framer-motion';
 import React, { useRef } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
-import { Separator } from '@/components/ui/separator';
-import Link from 'next/link';
+
+interface EventLink {
+  heading: string;
+  subheading: string;
+  imgSrc: string;
+  href: string;
+}
 
 export const RegisterLinks: React.FC = () => {
+  const eventLinks: EventLink[] = [
+    {
+      heading: 'CTF',
+      subheading:
+        'Exciting Capture the Flag event to test your hacking skills.',
+      imgSrc: '/imgs/events/2.jpeg',
+      href: 'https://forms.gle/H2p78SKhRZv6YLCZ9',
+    },
+    {
+      heading: 'LLM Workshop',
+      subheading: 'A hands-on workshop on Large Language Models in tech.',
+      imgSrc: '/imgs/events/2.jpeg',
+      href: 'https://docs.google.com/forms/d/e/1FAIpQLSdVT-YhdD8isBrYVMpp0KXtfOdQItB23_DaZwVp4yte47pYYA/viewform',
+    },
+    {
+      heading: 'Drone Workshop',
+      subheading: 'Learn the art of building and flying drones from experts.',
+      imgSrc: '/imgs/events/2.jpeg',
+      href: 'https://forms.gle/PRoAR779QCL4LqyL9',
+    },
+    {
+      heading: 'Investing Arena',
+      subheading: 'Master the stock market with our Investing Arena challenge.',
+      imgSrc: '/imgs/events/2.jpeg',
+      href: 'https://docs.google.com/forms/d/e/1FAIpQLSdz4AXaeYZAy7jFUagt3g-zvJJV38If5njMlMiZ-49fMpXWjw/viewform',
+    },
+  ];
+
+  const esportsLinks: EventLink[] = [
+    {
+      heading: 'Valorant',
+      subheading:
+        'Show off your tactical shooter skills in the Valorant tournament.',
+      imgSrc: '/imgs/events/2.jpeg',
+      href: 'https://docs.google.com/forms/d/e/1FAIpQLSdr4PZfpLjOrNdW5JFIcW09oYEjoDIPhvumvIWhOX78MeIaZQ/viewform',
+    },
+    {
+      heading: 'BGMI',
+      subheading: 'Join the battle royale action in the BGMI tournament.',
+      imgSrc: '/imgs/events/2.jpeg',
+      href: 'https://docs.google.com/forms/d/e/1FAIpQLScsw5pMP3SjBaMcMrs1i1D96Cu7WttNDxu9vBYcPTS9Yr5oag/closedform',
+    },
+    {
+      heading: 'FIFA',
+      subheading:
+        'Score big in the FIFA tournament and show your football skills.',
+      imgSrc: '/imgs/events/2.jpeg',
+      href: 'https://forms.gle/dqRBt7KwQF284b2z7',
+    },
+  ];
+
   return (
-    <section className='min-h-screen bg-gradient-to-br from-neutral-950 to-neutral-900 p-6 md:p-12'>
-      <div className='mx-auto max-w-6xl'>
-        <h1 className='mb-4 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-5xl font-bold text-transparent md:text-7xl'>
-          Registration for TENET 2024
+    <div>
+      <div className='text-white'>
+        <h1 className='text-2xl italic text-white'>
+          *Note: The following mentioned events are not covered under the day
+          pass. please find the regestration links below:
         </h1>
-        <Link
-          href='/'
-          className='inline-block text-neutral-400 transition-colors duration-300 hover:text-white'
-        >
-          Home
-        </Link>
-        <Separator className='my-8 h-0.5 bg-gradient-to-r from-purple-400 to-pink-600' />
-        <div className='mt-16 space-y-8'>
-          <CustomLink
-            heading='Tech Fiesta'
-            subheading='Register for Technical Events at TENET24'
-            imgSrc='/imgs/events/2.jpeg'
-            href='#'
-          />
-          <CustomLink
-            heading='E-Sports'
-            subheading='Competetive gaming and LAN tournments to showcase your skills'
-            imgSrc='/imgs/events/2.jpeg'
-            href='#'
-          />
-          <CustomLink
-            heading='MUN'
-            subheading='Simulation of the United Nations where students step into the roles of UN delegates'
-            imgSrc='/imgs/events/2.jpeg'
-            href='#'
-          />
-          <CustomLink
-            heading='E-Summit'
-            subheading='Buisness events, pitching competetitions and speaker sessions'
-            imgSrc='/imgs/events/2.jpeg'
-            href='#'
-          />
-          <CustomLink
-            heading='Creators Conclave'
-            subheading='Unleash your inner performer with open mic, stand-up comedy battles, and a theatre showcase'
-            imgSrc='/imgs/events/2.jpeg'
-            href='#'
-          />
-        </div>
       </div>
-    </section>
+      <div className='mt-16 space-y-8'>
+        {eventLinks.map((event, index) => (
+          <CustomLink
+            key={index}
+            heading={event.heading}
+            subheading={event.subheading}
+            imgSrc={event.imgSrc}
+            href={event.href}
+          />
+        ))}
+        <h1 className='text-2xl italic text-white'>
+          eSports regestration links
+        </h1>
+        {esportsLinks.map((event, index) => (
+          <CustomLink
+            key={index}
+            heading={event.heading}
+            subheading={event.subheading}
+            imgSrc={event.imgSrc}
+            href={event.href}
+          />
+        ))}
+      </div>
+    </div>
   );
 };
 
@@ -111,7 +152,7 @@ const CustomLink: React.FC<LinkProps> = ({
             staggerChildren: 0.075,
             delayChildren: 0.25,
           }}
-          className='relative block text-3xl font-bold text-neutral-100 transition-colors duration-500 group-hover:text-purple-400 md:text-6xl'
+          className='relative block text-2xl font-bold text-neutral-100 transition-colors duration-500 group-hover:text-purple-400 md:text-4xl'
         >
           {heading.split('').map((l, i) => (
             <motion.span

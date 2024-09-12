@@ -1,5 +1,4 @@
-import { HeroImage } from '@/components/common/heroimage';
-import { Timeline } from '@/components/common/timeline';
+import { HeroImage, Timeline, Sponsors, Speakers } from '@/components/common';
 
 export default async function Page() {
   return (
@@ -12,6 +11,8 @@ export default async function Page() {
         ctaLink='#timeline'
       />
       <Timeline domain='techfiesta' />
+      <Speakers />
+      <Sponsors />
     </main>
   );
 }

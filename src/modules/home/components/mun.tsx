@@ -18,7 +18,7 @@ export const MUN = () => {
   return (
     <section
       id='mun'
-      className='grid min-h-screen w-screen grid-cols-1 items-center gap-8 px-6 py-8 text-white sm:px-10 sm:py-12 md:grid-cols-2 md:px-20'
+      className='grid min-h-screen w-screen grid-cols-1 items-center gap-8 bg-neutral-950 px-6 py-8 text-white sm:px-10 sm:py-12 md:grid-cols-2 md:px-20'
     >
       <div>
         <span className='mb-3 block text-base font-medium text-[#26a7ff] sm:mb-4 sm:text-lg md:text-xl'>
@@ -70,52 +70,52 @@ interface SquareData {
 
 const squareData: SquareData[] = [
   {
-    src: '/imgs/mun/1.png',
+    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/1.png',
   },
   {
-    src: '/imgs/mun/2.png',
+    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/2.png',
   },
   {
-    src: '/imgs/mun/3.png',
+    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/3.png',
   },
   {
-    src: '/imgs/mun/4.png',
+    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/4.png',
   },
   {
-    src: '/imgs/mun/5.png',
+    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/5.png',
   },
   {
-    src: '/imgs/mun/6.png',
+    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/6.png',
   },
   {
-    src: '/imgs/mun/7.png',
+    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/7.png',
   },
   {
-    src: '/imgs/mun/8.png',
+    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/8.png',
   },
   {
-    src: '/imgs/mun/9.png',
+    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/9.png',
   },
   {
-    src: '/imgs/mun/10.png',
+    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/10.png',
   },
   {
-    src: '/imgs/mun/11.png',
+    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/11.png',
   },
   {
-    src: '/imgs/mun/12.png',
+    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/12.png',
   },
   {
-    src: '/imgs/mun/13.png',
+    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/13.png',
   },
   {
-    src: '/imgs/mun/14.png',
+    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/14.png',
   },
   {
-    src: '/imgs/mun/15.png',
+    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/15.png',
   },
   {
-    src: '/imgs/mun/16.png',
+    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/16.png',
   },
 ];
 

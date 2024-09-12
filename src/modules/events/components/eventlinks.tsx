@@ -3,38 +3,62 @@ import { day1, day2, day3 } from '@/config/events';
 import type { ScheduleItemType } from '@/types';
 import { useAnimate } from 'framer-motion';
 import Link from 'next/link';
+import { useIsMobile } from '@/hooks/useismobile';
 
 export const EventLinksStructure: React.FC<{ day: number }> = ({ day }) => {
   const events = getEventsForDay(day);
+  const isMobile = useIsMobile();
+
+  const renderEventRows = () => {
+    if (isMobile) {
+      // For mobile, render all events in a single column
+      return events.map((event) => (
+        <div key={event.id} className='grid grid-cols-1'>
+          <LinkBox text={event.title} href={`/events/${event.id}`} />
+        </div>
+      ));
+    }
+
+    // For desktop, maintain the 3-2-3-2 pattern
+    const rows = [];
+    let currentIndex = 0;
+
+    while (currentIndex < events.length) {
+      const isEvenRow = rows.length % 2 === 0;
+      let itemsInRow = isEvenRow ? 3 : 2;
+
+      // Check if there's only one item left and the current row should have 2 columns
+      if (events.length - currentIndex === 1 && itemsInRow === 2) {
+        itemsInRow = 1;
+      }
+
+      const rowEvents = events.slice(currentIndex, currentIndex + itemsInRow);
+
+      rows.push(
+        <div
+          key={currentIndex}
+          className={`grid grid-cols-${itemsInRow} divide-x divide-neutral-900`}
+        >
+          {rowEvents.map((event) => (
+            <LinkBox
+              key={event.id}
+              text={event.title}
+              href={`/events/${event.id}`}
+            />
+          ))}
+        </div>,
+      );
+
+      currentIndex += itemsInRow;
+    }
+
+    return rows;
+  };
 
   return (
-    <div className='divide-y divide-neutral-900 border border-neutral-900'>
-      <div className='grid grid-cols-2 divide-x divide-neutral-900'>
-        {events.slice(0, 2).map((event) => (
-          <LinkBox
-            key={event.id}
-            text={event.title}
-            href={`/events/${event.id}`}
-          />
-        ))}
-      </div>
-      <div className='grid grid-cols-3 divide-x divide-neutral-900'>
-        {events.slice(2, 5).map((event) => (
-          <LinkBox
-            key={event.id}
-            text={event.title}
-            href={`/events/${event.id}`}
-          />
-        ))}
-      </div>
-      <div className='grid grid-cols-4 divide-x divide-neutral-900'>
-        {events.slice(5, 9).map((event) => (
-          <LinkBox
-            key={event.id}
-            text={event.title}
-            href={`/events/${event.id}`}
-          />
-        ))}
+    <div className='mb-8 flex min-h-screen items-center justify-center'>
+      <div className='w-screen divide-y divide-neutral-900 border border-neutral-900'>
+        {renderEventRows()}
       </div>
     </div>
   );
