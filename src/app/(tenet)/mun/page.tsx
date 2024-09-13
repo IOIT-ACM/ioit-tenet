@@ -1,6 +1,11 @@
 import { HeroImage } from '@/components/common/heroimage';
 import type { Metadata } from 'next';
 import { env } from '@/env';
+import { Cyllinder } from '@/components/common';
+import { day1, day2, day3 } from '@/config/events';
+import type { ScheduleItemType } from '@/types';
+
+const allEvents: ScheduleItemType[] = [...day1, ...day2, ...day3];
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -29,6 +34,7 @@ export default function Page() {
         ctaLink='https://www.ioitmun.com/'
         overlayImage='/mun_logo.png'
       />
+      <Cyllinder events={allEvents.filter((event) => event.domain === 'mun')} />
     </main>
   );
 }
