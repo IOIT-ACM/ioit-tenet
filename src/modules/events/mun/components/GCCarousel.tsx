@@ -1,0 +1,133 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+'use client';
+
+import React, { useLayoutEffect, useRef, useState } from 'react';
+import { gsap } from 'gsap';
+import { Observer } from 'gsap/Observer';
+import 'tailwindcss/tailwind.css';
+
+gsap.registerPlugin(Observer);
+
+// Define the type for each image object in the array
+interface ImageData {
+  title: string;
+  url: string;
+  id: string;
+}
+
+// Image data array with type applied
+const imageData: ImageData[] = [
+  {
+    title: 'UNSC',
+    id: 'UNSC',
+    url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unsc.webp',
+  },
+  {
+    title: 'UNHRC',
+    id: 'UNHRC',
+    url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unhcr.webp',
+  },
+  {
+    title: 'AIPPM',
+    id: 'AIPPM',
+    url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/aippm.jpg',
+  },
+  {
+    title: 'UNCSW',
+    id: 'UNCSW',
+    url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/uncsw.webp',
+  },
+  {
+    title: 'UNODC',
+    id: 'UNODC',
+    url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unodc.jpg',
+  },
+  // {
+  //   title: 'IP',
+  //   id: 'IP',
+  //   url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/ip.jpg',
+  // },
+];
+
+interface Progress {
+  value: number;
+}
+
+export const GCCarousel: React.FC = () => {
+  const carouselRef = useRef<HTMLDivElement | null>(null);
+  const [progress, setProgress] = useState<Progress>({ value: 0 });
+  const radius = 342;
+
+  useLayoutEffect(() => {
+    const images = document.querySelectorAll<HTMLDivElement>('.carousel-image');
+
+    const handleChange = (self: any) => {
+      gsap.killTweensOf(progress);
+      const delta =
+        self.event.type === 'wheel'
+          ? self.deltaY * -0.0005
+          : self.deltaX * 0.05;
+
+      gsap.to(progress, {
+        duration: 2,
+        ease: 'power4.out',
+        value: `+=${delta}`,
+      });
+    };
+
+    // Observer setup with type assertion
+    Observer.create({
+      target: carouselRef.current!,
+      type: 'wheel,pointer',
+      onPress: () => (carouselRef.current!.style.cursor = 'grabbing'),
+      onRelease: () => (carouselRef.current!.style.cursor = 'grab'),
+      onChange: handleChange,
+    });
+
+    const animate = () => {
+      images.forEach((image, index) => {
+        const theta = index / images.length - progress.value;
+        const x = -Math.sin(theta * Math.PI * 2) * radius;
+        const y = Math.cos(theta * Math.PI * 2) * radius;
+
+        image.style.transform = `translate3d(${x}px, 0px, ${y}px) rotateY(${360 * -theta}deg)`;
+      });
+    };
+
+    gsap.ticker.add(animate);
+
+    return () => {
+      gsap.ticker.remove(animate);
+    };
+  }, [progress]);
+
+  return (
+    <div
+      ref={carouselRef}
+      className='carousel flex h-screen w-full cursor-grab select-none items-center justify-center'
+      style={{
+        transform: 'rotateX(-20deg) translateY(-70px)',
+        transformStyle: 'preserve-3d',
+        perspective: '800px',
+      }}
+    >
+      {imageData.map((image, index) => (
+        <div
+          key={index}
+          className='carousel-image absolute flex h-[200px] w-[200px] items-center justify-center text-white'
+          style={{
+            backgroundImage: `url(${image.url})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            transform: 'translate3d(0, 0, -300px)',
+            margin: '0',
+          }}
+        >
+          <div className='text-xl font-bold'>{image.title}</div>
+        </div>
+      ))}
+    </div>
+  );
+};

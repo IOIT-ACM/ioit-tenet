@@ -1,13 +1,10 @@
 import type { Metadata } from 'next';
 import { env } from '@/env';
-import { Cyllinder } from '@/components/common';
-import { day1, day2, day3 } from '@/config/events';
-import type { ScheduleItemType } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { MUNLINK } from '@/config';
 
-const allEvents: ScheduleItemType[] = [...day1, ...day2, ...day3];
+import { GCCarousel } from '@/modules/events/mun';
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -64,7 +61,7 @@ export default function Page() {
 
         <div className='absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-zinc-950/0 to-black sm:h-96' />
       </div>
-      <Cyllinder events={allEvents.filter((event) => event.domain === 'mun')} />
+      <GCCarousel />
     </main>
   );
 }
