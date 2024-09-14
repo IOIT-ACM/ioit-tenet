@@ -18,7 +18,7 @@ const routes = [
   { path: '/', name: 'Home' },
   { path: '/events', name: 'Agenda' },
   { path: '/speakers', name: 'Speakers & Guests' },
-  { path: '/register', name: 'Regestrations' },
+  { path: '/register', name: 'Registrations' },
 ];
 
 export const Nav = () => {

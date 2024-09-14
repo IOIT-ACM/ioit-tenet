@@ -22,7 +22,7 @@ const routes = [
   { path: '/', name: 'Home' },
   { path: '/events', name: 'Events' },
   { path: '/speakers', name: 'Speakers & Guests' },
-  { path: '/register', name: 'Regestrations' },
+  { path: '/register', name: 'Registrations' },
 ];
 
 import { CiMenuFries } from 'react-icons/ci';

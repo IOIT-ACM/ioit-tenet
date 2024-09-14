@@ -67,7 +67,7 @@ export const Footer: React.FC = () => {
                   href='/register'
                   className='text-slate-400 transition-colors hover:text-green-400'
                 >
-                  Regestrations
+                  Registrations
                 </Link>
               </li>
               <li>

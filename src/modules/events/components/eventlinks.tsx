@@ -16,19 +16,20 @@ export const EventLinksStructure: React.FC<{ day: number }> = ({ day }) => {
 
   useEffect(() => {
     if (eventRefs.current.length > 0) {
+      // Use GSAP toArray for smoother control
       gsap.fromTo(
         eventRefs.current,
-        { opacity: 0, y: 50 },
+        { opacity: 0, rotateX: 15 },
         {
           opacity: 1,
-          y: 0,
-          stagger: 0.2,
-          ease: 'power2.out',
-          duration: 1,
+          rotateX: 0,
+          stagger: 0.3,
+          ease: 'elastic.out(1, 0.75)',
+          duration: 1.5,
           scrollTrigger: {
             trigger: eventRefs.current,
             start: 'top 80%',
-            toggleActions: 'play none none none',
+            toggleActions: 'play none none reverse',
           },
         },
       );
@@ -43,7 +44,7 @@ export const EventLinksStructure: React.FC<{ day: number }> = ({ day }) => {
             ref={(el) => {
               if (el) eventRefs.current[index] = el;
             }}
-            className='h-full overflow-hidden rounded-xl border border-gray-500 bg-white shadow-md transition-all duration-300 hover:shadow-xl'
+            className='h-full overflow-hidden rounded-xl border border-gray-500 bg-white shadow-md transition-all duration-300'
           >
             <div className='relative h-32 w-full overflow-hidden md:h-56'>
               <Image
@@ -51,7 +52,7 @@ export const EventLinksStructure: React.FC<{ day: number }> = ({ day }) => {
                 alt={event.title}
                 layout='fill'
                 objectFit='cover'
-                className='bg-gray-500 transition-transform duration-300 group-hover:scale-110'
+                className='bg-gray-500 transition-transform duration-500 group-hover:rotate-1 group-hover:scale-110'
               />
             </div>
             <div className='p-2 md:p-5'>

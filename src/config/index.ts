@@ -5,3 +5,4 @@ export const siteConfig = {
 };
 
 export const MUNLINK = 'https://forms.gle/W11goEvziKFYYXqz5';
+export const KONFHUB_PAGE = 'https://konfhub.com/tenet2024';

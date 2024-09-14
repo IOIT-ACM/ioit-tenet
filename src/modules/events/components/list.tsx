@@ -4,6 +4,8 @@ import React, { type ReactNode, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
 import { EventLinksStructure } from './eventlinks';
+import { KONFHUB_PAGE } from '@/config';
+import { HiExternalLink } from 'react-icons/hi';
 
 export const EventsList = () => {
   return (
@@ -123,6 +125,14 @@ const OverlayCopy = ({
       >
         {heading}
       </Link>
+      <div id='tenet-button-animation' className='mt-8'>
+        <h4>
+          <Link href={KONFHUB_PAGE} className='flex items-center'>
+            Get tickits
+            <HiExternalLink className='ml-2 h-5 w-5' />
+          </Link>
+        </h4>
+      </div>
     </motion.div>
   );
 };
