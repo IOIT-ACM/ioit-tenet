@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
@@ -5,7 +6,8 @@
 import React, { useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { Observer } from 'gsap/Observer';
-import 'tailwindcss/tailwind.css';
+import Link from 'next/link';
+import { useIsMobile } from '@/hooks/useismobile';
 
 gsap.registerPlugin(Observer);
 
@@ -20,27 +22,27 @@ interface ImageData {
 const imageData: ImageData[] = [
   {
     title: 'UNSC',
-    id: 'UNSC',
+    id: 'unsc',
     url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unsc.webp',
   },
   {
     title: 'UNHRC',
-    id: 'UNHRC',
+    id: 'unhrc',
     url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unhcr.webp',
   },
   {
     title: 'AIPPM',
-    id: 'AIPPM',
+    id: 'aippm',
     url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/aippm.jpg',
   },
   {
     title: 'UNCSW',
-    id: 'UNCSW',
+    id: 'uncsw',
     url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/uncsw.webp',
   },
   {
     title: 'UNODC',
-    id: 'UNODC',
+    id: 'unodc',
     url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unodc.jpg',
   },
   // {
@@ -50,16 +52,27 @@ const imageData: ImageData[] = [
   // },
 ];
 
-interface Progress {
-  value: number;
-}
-
 export const GCCarousel: React.FC = () => {
   const carouselRef = useRef<HTMLDivElement | null>(null);
-  const [progress, setProgress] = useState<Progress>({ value: 0 });
-  const radius = 342;
+  // const [progress, setProgress] = useState<Progress>({ value: 0 });
+  const progress = { value: 0 };
+  const [radius, setRadius] = useState(window.innerWidth);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
+    null,
+  );
+  const mobile = useIsMobile();
 
   useLayoutEffect(() => {
+    const handleResize = () => {
+      setRadius(window.innerWidth / (mobile ? 3 : 4));
+    };
+
+    // Set initial radius
+    setRadius(window.innerWidth / (mobile ? 3 : 4));
+
+    // Add resize event listener
+    window.addEventListener('resize', handleResize);
+
     const images = document.querySelectorAll<HTMLDivElement>('.carousel-image');
 
     const handleChange = (self: any) => {
@@ -99,13 +112,24 @@ export const GCCarousel: React.FC = () => {
 
     return () => {
       gsap.ticker.remove(animate);
+      window.removeEventListener('resize', handleResize);
     };
-  }, [progress]);
+  }, [progress, radius]);
+
+  const handleImageClick = (index: number) => {
+    const newValue = index / imageData.length;
+    gsap.to(progress, {
+      duration: 1,
+      ease: 'power4.out',
+      value: newValue,
+    });
+    setSelectedImageIndex(index);
+  };
 
   return (
     <div
       ref={carouselRef}
-      className='carousel flex h-screen w-full cursor-grab select-none items-center justify-center'
+      className='carousel flex min-h-screen w-full cursor-grab select-none items-center justify-center'
       style={{
         transform: 'rotateX(-20deg) translateY(-70px)',
         transformStyle: 'preserve-3d',
@@ -115,7 +139,9 @@ export const GCCarousel: React.FC = () => {
       {imageData.map((image, index) => (
         <div
           key={index}
-          className='carousel-image absolute flex h-[200px] w-[200px] items-center justify-center text-white'
+          className={`carousel-image absolute flex h-[100px] w-[100px] items-center justify-center text-white md:h-[200px] md:w-[300px] ${
+            index === selectedImageIndex ? 'z-10' : ''
+          }`}
           style={{
             backgroundImage: `url(${image.url})`,
             backgroundSize: 'cover',
@@ -124,8 +150,14 @@ export const GCCarousel: React.FC = () => {
             transform: 'translate3d(0, 0, -300px)',
             margin: '0',
           }}
+          onClick={() => handleImageClick(index)}
         >
-          <div className='text-xl font-bold'>{image.title}</div>
+          <Link
+            href={'https://www.ioitmun.com/' + image.id}
+            className='text-xl font-bold text-gray-300 drop-shadow-md'
+          >
+            {image.title}
+          </Link>
         </div>
       ))}
     </div>
