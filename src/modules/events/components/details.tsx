@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @next/next/no-img-element */
 'use client';
 
+import React, { useEffect, useRef } from 'react';
 import type { ScheduleItemType, Speaker } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -12,8 +14,101 @@ import {
   HiExternalLink,
 } from 'react-icons/hi';
 import { handleShare } from '@/utils/share';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export const Details = ({ event }: { event: ScheduleItemType }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const detailsRef = useRef<HTMLDivElement>(null);
+  const descriptionRef = useRef<HTMLParagraphElement>(null);
+  const speakersRef = useRef<HTMLDivElement>(null);
+  const organizersRef = useRef<HTMLDivElement>(null);
+  const buttonsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: container,
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none none',
+      },
+    });
+
+    if (imageRef.current) {
+      tl.fromTo(
+        imageRef.current,
+        { opacity: 0, x: -50 },
+        { opacity: 1, x: 0, duration: 0.3, ease: 'power3.out' },
+      );
+    }
+
+    if (titleRef.current) {
+      tl.fromTo(
+        titleRef.current,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' },
+        '-=0.4',
+      );
+    }
+
+    if (detailsRef.current) {
+      tl.fromTo(
+        detailsRef.current.children,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, stagger: 0.2, ease: 'power2.out' },
+        '-=0.2',
+      );
+    }
+
+    if (descriptionRef.current) {
+      tl.fromTo(
+        descriptionRef.current,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' },
+        '-=0.2',
+      );
+    }
+
+    if (speakersRef.current) {
+      tl.fromTo(
+        speakersRef.current,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' },
+        '-=0.2',
+      );
+    }
+
+    if (organizersRef.current) {
+      tl.fromTo(
+        organizersRef.current,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' },
+        '-=0.2',
+      );
+    }
+
+    if (buttonsRef.current) {
+      tl.fromTo(
+        buttonsRef.current.children,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, stagger: 0.2, ease: 'power2.out' },
+        '-=0.2',
+      );
+    }
+
+    return () => {
+      tl.kill();
+    };
+  }, []);
+
   const msg = `
   
 ${event.title} at AISSMS IOIT TENET 2024
@@ -21,21 +116,27 @@ ${event.title} at AISSMS IOIT TENET 2024
 `;
 
   return (
-    <div className='flex w-full flex-col items-center justify-start gap-10 pt-5 text-white md:pt-10'>
+    <div
+      ref={containerRef}
+      className='flex w-full flex-col items-center justify-start gap-10 pt-5 text-white md:pt-10'
+    >
       <div className='w-full overflow-hidden'>
         <div className='w-full md:flex'>
-          <div className='sticky top-0 h-64 w-full overflow-hidden rounded-lg border bg-gray-200 md:h-[500px] md:w-1/2'>
+          <div
+            ref={imageRef}
+            className='sticky top-0 h-64 w-full overflow-hidden rounded-lg border bg-gray-200 md:h-[500px] md:w-1/2'
+          >
             <img
               src={event.image}
               alt={event.title}
-              // layout='fill'
-              // objectFit='cover'
               className='h-full w-full object-cover object-center transition-all duration-1000 hover:scale-105'
             />
           </div>
           <div className='space-y-6 pt-3 md:w-1/2 md:p-8 md:pt-0'>
-            <h1 className='text-3xl font-bold md:text-4xl'>{event.title}</h1>
-            <div className='flex flex-col space-y-4'>
+            <h1 ref={titleRef} className='text-3xl font-bold md:text-4xl'>
+              {event.title}
+            </h1>
+            <div ref={detailsRef} className='flex flex-col space-y-4'>
               <p className='flex items-center'>
                 <HiCalendar className='mr-2 h-5 w-5' />
                 {event.date}
@@ -49,10 +150,12 @@ ${event.title} at AISSMS IOIT TENET 2024
                 {event.location}
               </p>
             </div>
-            <p className='text-lg text-slate-400'>{event.description}</p>
+            <p ref={descriptionRef} className='text-lg text-slate-400'>
+              {event.description}
+            </p>
 
             {event.speakers && event.speakers.length > 0 && (
-              <div>
+              <div ref={speakersRef}>
                 <h2 className='mb-4 text-xl font-semibold'>Speakers</h2>
                 <div className='space-y-4'>
                   {event.speakers.map((speaker, index) => (
@@ -63,7 +166,7 @@ ${event.title} at AISSMS IOIT TENET 2024
             )}
 
             {event.organizers && event.organizers.length > 0 && (
-              <div>
+              <div ref={organizersRef}>
                 <h2 className='mb-4 text-xl font-semibold'>Event head</h2>
                 <ul className='space-y-2'>
                   {event.organizers.map((organizer, index) => (
@@ -79,7 +182,11 @@ ${event.title} at AISSMS IOIT TENET 2024
               </div>
             )}
 
-            <div className='flex gap-3'>
+            <div
+              id='tenet-button-animation'
+              ref={buttonsRef}
+              className='flex gap-3'
+            >
               {event.registration && (
                 <Link
                   href={event.registration}
@@ -91,7 +198,6 @@ ${event.title} at AISSMS IOIT TENET 2024
                   <HiExternalLink className='ml-2 h-5 w-5' />
                 </Link>
               )}
-
               <button
                 type='button'
                 onClick={() => handleShare({ msg, url: `/events/${event.id}` })}
@@ -108,8 +214,29 @@ ${event.title} at AISSMS IOIT TENET 2024
 };
 
 const SpeakerCard = ({ speaker }: { speaker: Speaker }) => {
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    gsap.fromTo(
+      cardRef.current,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.3,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: cardRef.current,
+          start: 'top 90%',
+          toggleActions: 'play none none none',
+        },
+      },
+    );
+  }, []);
+
   return (
     <Link
+      ref={cardRef}
       href={`/speakers/${speaker.id}`}
       className='flex w-fit items-center space-x-3 p-3 transition-all duration-150 hover:rounded-xl hover:bg-slate-500'
     >

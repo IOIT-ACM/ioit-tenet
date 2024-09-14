@@ -33,9 +33,14 @@ export const Timeline: React.FC<{ domain: string }> = ({ domain }) => {
           trigger: containerRef.current,
           start: 'top top',
           end: 'bottom bottom',
-          scrub: 1,
+          scrub: true,
+          onUpdate: (self) => {
+            const progress = self.progress;
+            const totalHeight = containerRef.current?.offsetHeight ?? 0;
+            const beamHeight = progress * totalHeight;
+            gsap.set('#tracing-beam', { height: `${beamHeight}px` });
+          },
         },
-        height: '100%',
       });
 
       timelineItems.forEach((item, index) => {
