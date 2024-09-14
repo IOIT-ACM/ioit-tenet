@@ -11,6 +11,7 @@ import {
   TenetHero,
   Schedule,
   Tickets,
+  Sponsors,
 } from '@/modules/home';
 import { MusicBtn } from '@/components/common/musicplayer';
 
@@ -27,6 +28,7 @@ export default async function HomePage() {
       <Schedule />
       <TenetSpeakers />
       <SearchEvents />
+      <Sponsors />
       <MUN />
       <Gallery />
       <FallingCaps />
