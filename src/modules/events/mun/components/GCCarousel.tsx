@@ -114,7 +114,7 @@ export const GCCarousel: React.FC = () => {
       gsap.ticker.remove(animate);
       window.removeEventListener('resize', handleResize);
     };
-  }, [progress, radius]);
+  }, [progress, radius, mobile]);
 
   const handleImageClick = (index: number) => {
     const newValue = index / imageData.length;
