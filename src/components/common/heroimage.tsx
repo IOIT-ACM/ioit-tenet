@@ -28,7 +28,7 @@ export const HeroImage: React.FC<HeroImageProps> = ({
         fill
         style={{ objectFit: 'cover' }}
         quality={100}
-        className='z-0 opacity-60'
+        className='z-0 select-none opacity-60'
       />
       <div className='relative z-10 rounded-lg bg-opacity-50 p-6 text-center sm:p-8'>
         <h1 className='mb-4 text-4xl font-bold text-white sm:text-5xl'>

@@ -1,7 +1,7 @@
 import {
   SearchEvents,
   Gallery,
-  // TenetSpeakers,
+  TenetSpeakers,
   MUN,
   EventCountdown,
   Navigation,
@@ -25,7 +25,7 @@ export default async function HomePage() {
       <Tickets />
       <EventCountdown />
       <Schedule />
-      {/* <TenetSpeakers /> */}
+      <TenetSpeakers />
       <SearchEvents />
       <MUN />
       <Gallery />

@@ -16,7 +16,7 @@ export const day1: ScheduleItemType[] = [
     description: 'The official opening ceremony for Tenet event.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
-    organizers: [{ name: 'Shrey Kulkarni' }],
+    organizers: [{ name: 'shreya Kulkarni' }],
   },
   {
     title: 'Product Management',
@@ -33,7 +33,7 @@ export const day1: ScheduleItemType[] = [
       'A session focused on product management strategies and best practices.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/pm.jpg',
-    organizers: [{ name: 'Shrey Kulkarni' }],
+    organizers: [{ name: 'shreya Kulkarni' }],
   },
   {
     title: 'AI summit panel',
@@ -50,7 +50,7 @@ export const day1: ScheduleItemType[] = [
       'A panel discussion on the latest trends and developments in AI.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/ai.jpg',
-    organizers: [{ name: 'Shrey Kulkarni' }],
+    organizers: [{ name: 'shreya Kulkarni' }],
     speakers: [
       {
         id: 'pwalimbe',
@@ -99,7 +99,7 @@ export const day1: ScheduleItemType[] = [
       'A discussion on Web 3.0 technologies and their impact on the future of the internet.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/web3.jpg',
-    organizers: [{ name: 'Shrey Kulkarni' }],
+    organizers: [{ name: 'shreya Kulkarni' }],
   },
   {
     title: "First Steps into Development: A Beginner's Guide",
@@ -116,7 +116,7 @@ export const day1: ScheduleItemType[] = [
       'An introductory session for those new to software development.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/development.jpeg',
-    organizers: [{ name: 'Shrey Kulkarni' }],
+    organizers: [{ name: 'shreya Kulkarni' }],
   },
   {
     title: 'Capture the Flag',
@@ -133,7 +133,7 @@ export const day1: ScheduleItemType[] = [
       'A cybersecurity challenge where participants compete to find and exploit vulnerabilities.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/ctf.jpg',
-    organizers: [{ name: 'Shrey Kulkarni' }],
+    organizers: [{ name: 'shreya Kulkarni' }],
     registration: 'https://forms.gle/H2p78SKhRZv6YLCZ9',
   },
   {
@@ -150,7 +150,7 @@ export const day1: ScheduleItemType[] = [
     description: 'Hands-on workshop on drone technology and piloting.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/drone.jpg',
-    organizers: [{ name: 'Shrey Kulkarni' }],
+    organizers: [{ name: 'shreya Kulkarni' }],
     registration: 'https://forms.gle/PRoAR779QCL4LqyL9',
   },
   {
@@ -168,7 +168,7 @@ export const day1: ScheduleItemType[] = [
       'An in-depth workshop on Generative AI and Large Language Models.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/genai.jpeg',
-    organizers: [{ name: 'Shrey Kulkarni' }],
+    organizers: [{ name: 'shreya Kulkarni' }],
     registration: 'https://forms.gle/sNcVRhN458bfKP786',
   },
   {
@@ -186,7 +186,7 @@ export const day1: ScheduleItemType[] = [
       'Exploration of Augmented and Virtual Reality technologies and applications.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
-    organizers: [{ name: 'Shrey Kulkarni' }],
+    organizers: [{ name: 'shreya Kulkarni' }],
   },
   {
     title: 'What to do in webdev?',
@@ -203,7 +203,7 @@ export const day1: ScheduleItemType[] = [
       'Guidance session on career paths and opportunities in web development.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/development.jpeg',
-    organizers: [{ name: 'Shrey Kulkarni' }],
+    organizers: [{ name: 'shreya Kulkarni' }],
   },
   {
     title: 'Drone open space display',
@@ -220,7 +220,7 @@ export const day1: ScheduleItemType[] = [
       'A spectacular drone showcase demonstrating various applications and capabilities.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/dronedisplay.jpg',
-    organizers: [{ name: 'Shrey Kulkarni' }],
+    organizers: [{ name: 'shreya Kulkarni' }],
   },
 ];
 
