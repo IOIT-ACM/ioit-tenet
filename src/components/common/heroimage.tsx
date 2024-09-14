@@ -6,9 +6,9 @@ interface HeroImageProps {
   title: string;
   subtitle?: string;
   ctaText?: string;
+  ctaText2?: string;
   ctaLink?: string;
-  overlayImage?: string;
-  overlayImageAlt?: string;
+  ctaLink2?: string;
 }
 
 export const HeroImage: React.FC<HeroImageProps> = ({
@@ -16,11 +16,47 @@ export const HeroImage: React.FC<HeroImageProps> = ({
   title,
   subtitle,
   ctaText,
+  ctaText2,
   ctaLink,
-  overlayImage,
-  overlayImageAlt = 'Overlay Image',
+  ctaLink2,
 }) => {
   return (
+    // <div className='hero relative flex h-screen flex-col items-center justify-center px-4 sm:px-6 lg:px-8'>
+    //     <Image
+    //       src='https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun.jpeg'
+    //       alt='MUN banner'
+    //       fill
+    //       style={{ objectFit: 'cover' }}
+    //       quality={100}
+    //       className='z-0 select-none opacity-60'
+    //     />
+    //     <div className='relative z-10 rounded-lg bg-opacity-50 p-6 text-center sm:p-8'>
+    //       <h1 className='mb-4 text-4xl font-bold text-white sm:text-5xl'>
+    //         IOIT MUN 2024
+    //       </h1>
+    //       <p className='mb-8 text-base text-white sm:text-lg'>
+    //         Unity through diplomacy
+    //       </p>
+    //       <div className='flex flex-col gap-3 md:flex-row md:gap-5'>
+    //         <Link
+    //           href='https://www.ioitmun.com/'
+    //           target='_blank'
+    //           className='rounded-md bg-blue-500 px-4 py-2 text-sm text-white transition-colors hover:bg-blue-600 sm:px-6 sm:py-3 sm:text-lg'
+    //         >
+    //           Visit Website
+    //         </Link>
+    //         <Link
+    //           href={MUNLINK}
+    //           target='_blank'
+    //           className='rounded-md bg-blue-500 px-4 py-2 text-sm text-white transition-colors hover:bg-blue-600 sm:px-6 sm:py-3 sm:text-lg'
+    //         >
+    //           Register now
+    //         </Link>
+    //       </div>
+    //     </div>
+
+    //     <div className='absolute bottom-0 left-0 right-0 h-52 bg-gradient-to-b from-zinc-950/0 to-neutral-950 sm:h-96' />
+    //   </div>
     <div className='hero relative flex h-screen flex-col items-center justify-center px-4 sm:px-6 lg:px-8'>
       <Image
         src={backgroundImage}
@@ -37,29 +73,25 @@ export const HeroImage: React.FC<HeroImageProps> = ({
         {subtitle && (
           <p className='mb-8 text-base text-white sm:text-lg'>{subtitle}</p>
         )}
-        {ctaText && ctaLink && (
-          <Link
-            href={ctaLink}
-            className='rounded-md bg-blue-500 px-5 py-2 text-sm text-white transition-colors hover:bg-blue-600 sm:px-6 sm:py-3 sm:text-lg'
-          >
-            {ctaText}
-          </Link>
-        )}
-      </div>
-
-      {/* Overlay image */}
-      {overlayImage && (
-        <div className={`absolute top-48 z-20 max-sm:top-32`}>
-          <Image
-            src={overlayImage}
-            alt={overlayImageAlt}
-            width={200}
-            height={200}
-            className='rounded-full'
-          />
+        <div className='flex w-full flex-col items-center justify-center gap-3 md:flex-row md:gap-5'>
+          {ctaText && ctaLink && (
+            <Link
+              href={ctaLink}
+              className='rounded-md bg-blue-500 px-5 py-2 text-sm text-white transition-colors hover:bg-blue-600 sm:px-6 sm:py-3 sm:text-lg'
+            >
+              {ctaText}
+            </Link>
+          )}
+          {ctaText2 && ctaLink2 && (
+            <Link
+              href={ctaLink2}
+              className='rounded-md bg-blue-500 px-5 py-2 text-sm text-white transition-colors hover:bg-blue-600 sm:px-6 sm:py-3 sm:text-lg'
+            >
+              {ctaText2}
+            </Link>
+          )}
         </div>
-      )}
-
+      </div>
       <div className='absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-zinc-950/0 to-black sm:h-96' />
     </div>
   );

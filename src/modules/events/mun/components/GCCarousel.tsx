@@ -43,11 +43,6 @@ const imageData: ImageData[] = [
     id: 'unodc',
     url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unodc.jpg',
   },
-  // {
-  //   title: 'IP',
-  //   id: 'IP',
-  //   url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/ip.jpg',
-  // },
 ];
 
 export const GCCarousel: React.FC = () => {
@@ -66,7 +61,7 @@ export const GCCarousel: React.FC = () => {
       setRadius(window.innerWidth / (mobile ? 3 : 4));
     };
 
-    setRadius(window.innerWidth / (mobile ? 3 : 4));
+    handleResize(); // Initial radius setup
 
     window.addEventListener('resize', handleResize);
 
@@ -76,7 +71,7 @@ export const GCCarousel: React.FC = () => {
   }, [mobile]);
 
   useLayoutEffect(() => {
-    if (radius === null) return;
+    if (radius === null || !carouselRef.current) return;
 
     const images = document.querySelectorAll<HTMLDivElement>('.carousel-image');
 
@@ -94,11 +89,21 @@ export const GCCarousel: React.FC = () => {
       });
     };
 
+    const carouselElement = carouselRef.current;
+
     Observer.create({
-      target: carouselRef.current!,
+      target: carouselElement,
       type: 'wheel,pointer',
-      onPress: () => (carouselRef.current!.style.cursor = 'grabbing'),
-      onRelease: () => (carouselRef.current!.style.cursor = 'grab'),
+      onPress: () => {
+        if (carouselElement) {
+          carouselElement.style.cursor = 'grabbing';
+        }
+      },
+      onRelease: () => {
+        if (carouselElement) {
+          carouselElement.style.cursor = 'grab';
+        }
+      },
       onChange: handleChange,
     });
 
@@ -131,6 +136,7 @@ export const GCCarousel: React.FC = () => {
 
   return (
     <div
+      id='timeline'
       ref={carouselRef}
       className='carousel flex min-h-screen w-full cursor-grab select-none items-center justify-center'
       style={{
