@@ -1,9 +1,39 @@
+'use client';
+
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
+import Link from 'next/link';
 import { type Sponsor } from '@/types';
 import { sponsor } from '@/config/sponsors';
-import Link from 'next/link';
 
-export const Sponsors = () => {
+gsap.registerPlugin(ScrollTrigger);
+
+export const Sponsors: React.FC = () => {
+  const sponsorRefs = useRef<HTMLDivElement[]>([]);
+
+  useEffect(() => {
+    if (sponsorRefs.current.length > 0) {
+      gsap.fromTo(
+        sponsorRefs.current,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.2,
+          ease: 'power2.out',
+          duration: 1,
+          scrollTrigger: {
+            trigger: sponsorRefs.current,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+          },
+        },
+      );
+    }
+  }, []);
+
   return (
     <section className='bg-black py-12'>
       <div className='mx-auto px-4'>
@@ -12,14 +42,19 @@ export const Sponsors = () => {
         </h2>
         <div className='grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5'>
           {sponsor.map((sponsor: Sponsor, index) => (
-            <>
+            <div
+              key={index}
+              ref={(el) => {
+                if (el) sponsorRefs.current[index] = el;
+              }}
+              className='flex flex-col items-center rounded-lg p-4 transition-colors hover:bg-slate-700'
+            >
               {sponsor.websiteUrl ? (
                 <Link
-                  key={index}
                   href={sponsor.websiteUrl}
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='flex flex-col items-center rounded-lg p-4 transition-colors hover:bg-slate-700'
+                  className='flex flex-col items-center'
                 >
                   <div className='flex h-32 w-32 items-center justify-center overflow-hidden rounded-full bg-white p-1'>
                     <Image
@@ -34,10 +69,7 @@ export const Sponsors = () => {
                   <p className='mt-4 text-center text-white'>{sponsor.name}</p>
                 </Link>
               ) : (
-                <div
-                  key={index}
-                  className='flex flex-col items-center rounded-lg p-4 transition-colors hover:bg-slate-700'
-                >
+                <>
                   <div className='flex h-32 w-32 items-center justify-center overflow-hidden rounded-full bg-white p-2'>
                     <Image
                       src={sponsor.logoUrl}
@@ -49,9 +81,9 @@ export const Sponsors = () => {
                     />
                   </div>
                   <p className='mt-4 text-center text-white'>{sponsor.name}</p>
-                </div>
+                </>
               )}
-            </>
+            </div>
           ))}
         </div>
       </div>
