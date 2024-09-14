@@ -35,15 +35,19 @@ export function Tickets() {
           IOIT ACM STUDENT CHAPTERS FIRST EDITION OF TENET
         </p>
       </div>
-      <Link
-        className='mt-6 flex items-center gap-2 rounded-lg bg-white/40 p-3 font-bold text-white sm:mt-0'
-        href='register'
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        ref={buttonRef}
-      >
-        GET TICKETS <FaArrowRightLong className='ml-2 h-4 w-4' />
-      </Link>
+      <div id='tenet-button-animation' className='mt-5 md:mt-0'>
+        <h4>
+          <Link
+            className='flex items-center gap-2 font-bold'
+            href='register'
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            ref={buttonRef}
+          >
+            GET TICKETS <FaArrowRightLong className='ml-2 h-4 w-4' />
+          </Link>
+        </h4>
+      </div>
     </div>
   );
 }

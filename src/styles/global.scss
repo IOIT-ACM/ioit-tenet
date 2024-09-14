@@ -210,13 +210,13 @@ html.fonts-loaded body {
   border-radius: 0;
 }
 
-#tenet-button-animation h4 a {
+#tenet-button-animation h4 a,button {
   color: #000000bb;
   text-decoration: none;
   position: relative;
   z-index: 9;
 }
 
-#tenet-button-animation h4:hover a {
+#tenet-button-animation h4:hover a,button {
   color: #fff;
 }

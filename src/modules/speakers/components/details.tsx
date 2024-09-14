@@ -127,14 +127,13 @@ export const SpeakerDetails = ({ speaker }: { speaker: Speaker }) => {
                 <p className='text-lg text-slate-400'>{speaker.bio}</p>
               </div>
             )}
-            <Link
-              ref={linkRef}
-              href={speaker.url}
-              target='_blank'
-              className='mt-5 inline-flex items-center bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none'
-            >
-              View LinkedIn
-            </Link>
+            <div id='tenet-button-animation' className='mt-5'>
+              <h4>
+                <Link ref={linkRef} href={speaker.url} target='_blank'>
+                  View LinkedIn
+                </Link>
+              </h4>
+            </div>
           </div>
         </div>
       </div>

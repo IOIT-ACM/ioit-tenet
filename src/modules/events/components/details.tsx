@@ -188,23 +188,29 @@ ${event.title} at AISSMS IOIT TENET 2024
               className='flex gap-3'
             >
               {event.registration && (
-                <Link
-                  href={event.registration}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='inline-flex items-center bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none'
-                >
-                  Register for Event
-                  <HiExternalLink className='ml-2 h-5 w-5' />
-                </Link>
+                <h4>
+                  <Link
+                    href={event.registration}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='flex items-center'
+                  >
+                    Register for Event
+                    <HiExternalLink className='ml-2 h-5 w-5' />
+                  </Link>
+                </h4>
               )}
-              <button
-                type='button'
-                onClick={() => handleShare({ msg, url: `/events/${event.id}` })}
-                className='inline-flex items-center bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none'
-              >
-                Share
-              </button>
+              <h4>
+                <button
+                  type='button'
+                  className='text-black hover:text-white'
+                  onClick={() =>
+                    handleShare({ msg, url: `/events/${event.id}` })
+                  }
+                >
+                  Share
+                </button>
+              </h4>
             </div>
           </div>
         </div>
