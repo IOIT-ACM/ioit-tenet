@@ -59,7 +59,7 @@ export default function Page() {
           </div>
         </div>
 
-        <div className='absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-zinc-950/0 to-black sm:h-96' />
+        <div className='absolute bottom-0 left-0 right-0 h-52 bg-gradient-to-b from-zinc-950/0 to-neutral-950 sm:h-96' />
       </div>
       <GCCarousel />
     </main>

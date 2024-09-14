@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
-import React, { useLayoutEffect, useRef, useState } from 'react';
+import React, { useLayoutEffect, useRef, useState, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { Observer } from 'gsap/Observer';
 import Link from 'next/link';
@@ -11,14 +11,12 @@ import { useIsMobile } from '@/hooks/useismobile';
 
 gsap.registerPlugin(Observer);
 
-// Define the type for each image object in the array
 interface ImageData {
   title: string;
   url: string;
   id: string;
 }
 
-// Image data array with type applied
 const imageData: ImageData[] = [
   {
     title: 'UNSC',
@@ -54,24 +52,31 @@ const imageData: ImageData[] = [
 
 export const GCCarousel: React.FC = () => {
   const carouselRef = useRef<HTMLDivElement | null>(null);
-  // const [progress, setProgress] = useState<Progress>({ value: 0 });
-  const progress = { value: 0 };
-  const [radius, setRadius] = useState(window.innerWidth);
+  const [radius, setRadius] = useState<number | null>(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
     null,
   );
   const mobile = useIsMobile();
+  const progress = { value: 0 };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
     const handleResize = () => {
       setRadius(window.innerWidth / (mobile ? 3 : 4));
     };
 
-    // Set initial radius
     setRadius(window.innerWidth / (mobile ? 3 : 4));
 
-    // Add resize event listener
     window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [mobile]);
+
+  useLayoutEffect(() => {
+    if (radius === null) return;
 
     const images = document.querySelectorAll<HTMLDivElement>('.carousel-image');
 
@@ -89,7 +94,6 @@ export const GCCarousel: React.FC = () => {
       });
     };
 
-    // Observer setup with type assertion
     Observer.create({
       target: carouselRef.current!,
       type: 'wheel,pointer',
@@ -112,9 +116,8 @@ export const GCCarousel: React.FC = () => {
 
     return () => {
       gsap.ticker.remove(animate);
-      window.removeEventListener('resize', handleResize);
     };
-  }, [progress, radius, mobile]);
+  }, [progress, radius]);
 
   const handleImageClick = (index: number) => {
     const newValue = index / imageData.length;
