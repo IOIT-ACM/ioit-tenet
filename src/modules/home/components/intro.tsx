@@ -58,13 +58,13 @@ export const Intro: React.FC = () => {
       <br />
       <br />
       <div className='reveal-type text-md md:text-[45px]'>
-        T.E.N.E.T goes beyond just an abbreviation of 5 niches. This event in
-        its inception is an amalgamation of ideas where professionalism meets
-        the academia. This is an event where students learn, connect, grow and
-        most importantly have an experience worth remembering. From E-summit to
-        eSports and from Techfiesta to IOIT MUN&apos;24 and Creator&apos;s
-        Conclave, TENET, an event organised by the IOIT ACM Student Chapter has
-        something for everyone.
+        TENET 2024 is organized by the IOIT ACM Student Chapter of AISSMS
+        Institute of Information Technology. Our team is focused on bringing
+        together innovation, creativity, and excellence to create an
+        unforgettable experience for all participants. TENET is a space where
+        people can learn, network, and celebrate, and it&apos;s driven by a
+        passion for technology, entrepreneurship, and culture. We can&apos;t
+        wait for you to join us on this amazing journey!
       </div>
     </div>
   );
