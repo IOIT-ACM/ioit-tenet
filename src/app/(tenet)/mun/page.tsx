@@ -32,6 +32,7 @@ export default function Page() {
         ctaLink='#timeline'
         ctaText2='Register now'
         ctaLink2={MUNLINK}
+        ctalink1color='#aab7b8'
       />
       <GCCarousel />
     </main>

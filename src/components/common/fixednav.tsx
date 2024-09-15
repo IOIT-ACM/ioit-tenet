@@ -83,7 +83,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
         >
           <Image
             className='h-10 w-10 cursor-pointer transition-all hover:scale-105 md:h-20 md:w-20'
-            src={'/tenet-fill.png'}
+            src={'/tenet-white-logo.png'}
             alt='Tenet Logo'
             height={70}
             width={70}

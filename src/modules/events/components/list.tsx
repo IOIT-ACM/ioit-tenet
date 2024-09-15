@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { EventLinksStructure } from './eventlinks';
 import { KONFHUB_PAGE } from '@/config';
 import { HiExternalLink } from 'react-icons/hi';
+import { Button } from '@/components/ui/RoundedButton';
 
 export const EventsList = () => {
   return (
@@ -125,14 +126,11 @@ const OverlayCopy = ({
       >
         {heading}
       </Link>
-      <div id='tenet-button-animation' className='mt-8'>
-        <h4>
-          <Link href={KONFHUB_PAGE} className='flex items-center'>
-            Get tickits
-            <HiExternalLink className='ml-2 h-5 w-5' />
-          </Link>
-        </h4>
-      </div>
+
+      <Button newpage link={KONFHUB_PAGE}>
+        Get tickits
+        <HiExternalLink className='ml-2 h-5 w-5' />
+      </Button>
     </motion.div>
   );
 };

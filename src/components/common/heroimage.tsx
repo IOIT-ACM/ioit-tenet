@@ -1,11 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Observer } from 'gsap/Observer';
+import { Button } from '@/components/ui/RoundedButton';
 
 gsap.registerPlugin(ScrollTrigger, Observer);
 
@@ -17,6 +17,8 @@ interface HeroImageProps {
   ctaText2?: string;
   ctaLink?: string;
   ctaLink2?: string;
+  ctalink1color?: string;
+  ctalink2color?: string;
 }
 
 export const HeroImage: React.FC<HeroImageProps> = ({
@@ -27,6 +29,8 @@ export const HeroImage: React.FC<HeroImageProps> = ({
   ctaText2,
   ctaLink,
   ctaLink2,
+  ctalink1color,
+  ctalink2color,
 }) => {
   const heroRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -76,22 +80,6 @@ export const HeroImage: React.FC<HeroImageProps> = ({
     return () => ctx.revert();
   }, []);
 
-  const handleHover = (e: React.MouseEvent) => {
-    gsap.to(e.currentTarget, {
-      scale: 1.1,
-      duration: 0.3,
-      ease: 'power2.out',
-    });
-  };
-
-  const handleHoverOut = (e: React.MouseEvent) => {
-    gsap.to(e.currentTarget, {
-      scale: 1,
-      duration: 0.3,
-      ease: 'power2.in',
-    });
-  };
-
   return (
     <div
       className='hero relative flex h-screen flex-col items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8'
@@ -121,30 +109,17 @@ export const HeroImage: React.FC<HeroImageProps> = ({
 
         <div
           ref={ctaButtonsRef}
-          id='tenet-button-animation'
           className='flex w-full flex-col items-center justify-center gap-3 md:flex-row md:gap-5'
         >
           {ctaText && ctaLink && (
-            <h4>
-              <Link
-                href={ctaLink}
-                onMouseEnter={handleHover}
-                onMouseLeave={handleHoverOut}
-              >
-                {ctaText}
-              </Link>
-            </h4>
+            <Button color={ctalink1color} link={ctaLink}>
+              {ctaText}
+            </Button>
           )}
           {ctaText2 && ctaLink2 && (
-            <h4>
-              <Link
-                href={ctaLink2}
-                onMouseEnter={handleHover}
-                onMouseLeave={handleHoverOut}
-              >
-                {ctaText2}
-              </Link>
-            </h4>
+            <Button color={ctalink2color} link={ctaLink2}>
+              {ctaText2}
+            </Button>
           )}
         </div>
       </div>
