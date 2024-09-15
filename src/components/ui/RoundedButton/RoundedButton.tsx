@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import Magnetic from '../Magnetic/Magnetic';
@@ -91,6 +93,7 @@ export function Button({
   newpage,
   link,
   color,
+  className,
 }: {
   children: React.ReactNode;
   className?: string;
@@ -99,7 +102,9 @@ export function Button({
   link?: string;
 }) {
   return (
-    <div className={cn(styles.main, 'flex items-center justify-center')}>
+    <div
+      className={cn(styles.main, 'flex items-center justify-center', className)}
+    >
       <div className={cn(styles.btnContainer)}>
         <RoundedButton newpage={newpage} link={link} color={color}>
           <span className='flex items-center px-4 py-3'>{children}</span>

@@ -225,6 +225,12 @@ export default function FixedNavBar({ className }: { className?: string }) {
                       >
                         Speakers
                       </Link>
+                      <Link
+                        className='transform font-semibold transition-transform duration-200'
+                        href='mailto:ioit.tenet@aissmsioit.org'
+                      >
+                        Contact
+                      </Link>
                     </div>
                   </div>
                 </div>

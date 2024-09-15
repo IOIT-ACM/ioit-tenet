@@ -127,8 +127,16 @@ export function TenetCommandDialog() {
     setOpen(false);
   };
 
-  const noTextRoutes = ['/game', '/denofcode'];
-  const shouldShowText = !noTextRoutes.includes(pathname);
+  const noTextRoutes = [
+    '/game',
+    '/denofcode',
+    '/events',
+    '/speakers',
+    '/register',
+  ];
+  const shouldShowText = !noTextRoutes.some((route) =>
+    pathname.startsWith(route),
+  );
 
   const [WinKey, setWinKey] = useState(<></>);
 

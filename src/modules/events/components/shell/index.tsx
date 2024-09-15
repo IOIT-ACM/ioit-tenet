@@ -17,6 +17,7 @@ import {
   SheetClose,
 } from '@/components/ui/sheet';
 import { MusicBtn } from '@/components/common/musicplayer';
+import { FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 
 const routes = [
   { path: '/', name: 'Home' },
@@ -119,6 +120,40 @@ export function Shell({ children }: ShellProps) {
                     </SheetClose>
                   ))}
                 </nav>
+                <div className='absolute bottom-0 flex flex-col items-center justify-center text-white'>
+                  <div className='flex space-x-8'>
+                    <Link
+                      href='https://chat.whatsapp.com/HUYXxh75M618GNCExQ3NPZ'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='text-slate-400 transition-colors hover:text-blue-500'
+                    >
+                      <FaWhatsapp size={24} />
+                    </Link>
+                    <Link
+                      href='https://www.instagram.com/ioit_tenet/'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='text-slate-400 transition-colors hover:text-pink-500'
+                    >
+                      <FaInstagram size={24} />
+                    </Link>
+                    <Link
+                      href='https://www.linkedin.com/company/ioit-tenet/'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='text-slate-400 transition-colors hover:text-blue-700'
+                    >
+                      <FaLinkedin size={24} />
+                    </Link>
+                  </div>
+                  <Link
+                    className='mt-5 transform font-semibold transition-transform duration-200'
+                    href='mailto:ioit.tenet@aissmsioit.org'
+                  >
+                    Contact
+                  </Link>
+                </div>
                 <MusicBtn className='absolute bottom-0 right-0' />
               </div>
             </SheetContent>

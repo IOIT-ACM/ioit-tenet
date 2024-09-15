@@ -15,7 +15,7 @@ export function Tickets() {
           IOIT ACM STUDENT CHAPTERS FIRST EDITION OF TENET
         </p>
       </div>
-      <Button link='register'>
+      <Button link='register' className='mt-10 md:mt-0'>
         Get tickits
         <FaArrowRightLong className='ml-2 h-4 w-4' />
       </Button>

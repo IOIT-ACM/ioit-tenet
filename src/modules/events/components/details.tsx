@@ -220,33 +220,12 @@ ${event.title} at AISSMS IOIT TENET 2024
 };
 
 const SpeakerCard = ({ speaker }: { speaker: Speaker }) => {
-  const cardRef = useRef(null);
-
-  useEffect(() => {
-    gsap.fromTo(
-      cardRef.current,
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.3,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: cardRef.current,
-          start: 'top 90%',
-          toggleActions: 'play none none none',
-        },
-      },
-    );
-  }, []);
-
   return (
     <Link
-      ref={cardRef}
       href={`/speakers/${speaker.id}`}
-      className='flex w-fit items-center space-x-3 p-3 transition-all duration-150 hover:rounded-xl hover:bg-slate-500'
+      className='flex w-full items-center space-x-3 p-3 transition-all duration-150 hover:rounded-xl hover:bg-slate-500 md:w-fit'
     >
-      <div className='relative h-20 w-20'>
+      <div className='relative h-16 w-16 md:h-20 md:w-20'>
         <Image
           src={speaker.image}
           alt={speaker.name}
@@ -255,9 +234,9 @@ const SpeakerCard = ({ speaker }: { speaker: Speaker }) => {
           className='rounded-full'
         />
       </div>
-      <div>
-        <p className='text-lg'>{speaker.name}</p>
-        <p className='text-xs'>{speaker.title}</p>
+      <div className='text-left'>
+        <p className='text-base md:text-lg'>{speaker.name}</p>
+        <p className='text-xs md:text-sm'>{speaker.title}</p>
       </div>
     </Link>
   );

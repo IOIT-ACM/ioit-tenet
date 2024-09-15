@@ -29,10 +29,10 @@ export default function Page() {
         title='IOIT MUN 2024'
         subtitle='Unity through diplomacy'
         ctaText='Learn More'
-        ctaLink='#timeline'
+        ctaLink='https://www.ioitmun.com/'
         ctaText2='Register now'
         ctaLink2={MUNLINK}
-        ctalink1color='#aab7b8'
+        ctalink1color='#192424'
       />
       <GCCarousel />
     </main>

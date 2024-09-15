@@ -1,6 +1,6 @@
 import {
   SearchEvents,
-  Gallery,
+  // Gallery,
   TenetSpeakers,
   MUN,
   EventCountdown,
@@ -30,7 +30,7 @@ export default async function HomePage() {
       <SearchEvents />
       <Sponsors />
       <MUN />
-      <Gallery />
+      {/* <Gallery /> */}
       <FallingCaps />
       <ThatsAllFolks />
       <GameLink />
