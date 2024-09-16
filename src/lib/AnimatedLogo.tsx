@@ -22,7 +22,7 @@ export const AnimatedLogo: React.FC = () => {
         { y: 3 },
         {
           y: 0,
-          duration: 1.5,
+          duration: 1.9,
           ease: 'power1.out',
         },
       );
@@ -33,7 +33,7 @@ export const AnimatedLogo: React.FC = () => {
           x: 1,
           y: 1,
           z: 1,
-          duration: 1.5,
+          duration: 1.9,
           ease: 'power1.out',
         },
       );
@@ -43,7 +43,7 @@ export const AnimatedLogo: React.FC = () => {
         scrollTrigger: {
           trigger: document.body,
           start: 'top top',
-          end: '+=500',
+          end: '+=800',
           scrub: true,
         },
       });

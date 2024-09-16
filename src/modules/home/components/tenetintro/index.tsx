@@ -3,7 +3,6 @@
 'use client';
 
 import { Canvas } from '@react-three/fiber';
-import React from 'react';
 import { OrbitControls } from '@react-three/drei';
 import { AnimatedLogo } from '@/lib/AnimatedLogo';
 
@@ -19,6 +18,19 @@ export const TenetHero: React.FC = () => {
         />
         <OrbitControls enableZoom={false} />
         <AnimatedLogo />
+        <spotLight
+          angle={0.5}
+          penumbra={0.5}
+          castShadow
+          intensity={10}
+          shadow-mapSize={1024}
+          shadow-bias={-0.001}
+        >
+          <orthographicCamera
+            attach='shadow-camera'
+            args={[-10, 10, -10, 10, 0.1, 50]}
+          />
+        </spotLight>
       </Canvas>
     </div>
   );
