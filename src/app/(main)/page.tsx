@@ -4,7 +4,6 @@ import {
   TenetSpeakers,
   MUN,
   EventCountdown,
-  Navigation,
   Intro,
   ThatsAllFolks,
   FallingCaps,
@@ -20,7 +19,6 @@ import { GameLink } from '@/modules/game';
 export default async function HomePage() {
   return (
     <main className=''>
-      <Navigation />
       <TenetHero />
       <Intro />
       <Tickets />
