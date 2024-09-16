@@ -71,6 +71,7 @@ export const Footer = () => {
               >
                 Contact developers
               </Link>
+              <Link href={'#'}>Go to top</Link>
             </div>
             <div>
               <span>&copy; {new Date().getFullYear()} ACM IOIT</span>
