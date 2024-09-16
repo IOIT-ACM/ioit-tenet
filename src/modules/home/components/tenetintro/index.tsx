@@ -5,6 +5,7 @@
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { AnimatedLogo } from '@/lib/AnimatedLogo';
+// import { MovingSpot } from '@/lib/spotlight';
 
 export const TenetHero: React.FC = () => {
   return (
@@ -31,6 +32,9 @@ export const TenetHero: React.FC = () => {
             args={[-10, 10, -10, 10, 0.1, 50]}
           />
         </spotLight>
+
+        {/* <MovingSpot color='#0c8cbf' position={[0, 3, 2]} />
+        <MovingSpot color='#b00c3f' position={[1, 3, 0]} /> */}
       </Canvas>
     </div>
   );
