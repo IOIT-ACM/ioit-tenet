@@ -1,1 +1,1 @@
-export { GameSlider } from './components/gameslider';
+export { GCCarousel } from './components/gameslider';

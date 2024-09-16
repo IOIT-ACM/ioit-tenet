@@ -15,9 +15,11 @@ export function KonfHub() {
               <span className='block'>Experience TENET 2024</span>
             </h3>
             <p className='mt-4 text-lg text-gray-600'>
-              Join us for an unforgettable journey of learning, creativity, and
-              tech exploration. Our passionate team has curated an exceptional
-              program to ignite your imagination and fuel your ambitions.
+              Grab your exclusive Early Bird tickets now and save big! Available
+              for a limited period, these tickets offer the best deal for early
+              planners who don&apos;t want to miss out on the excitement. Secure
+              your spot at TENET 2024 before prices go up. Hurry—once
+              they&apos;re gone, they&apos;re gone!
             </p>
           </div>
         </div>
@@ -30,9 +32,6 @@ export function KonfHub() {
             <Ticket className='mr-2 h-5 w-5' />
             Get Early Bird Pass Now
           </Button>
-          <p className='mt-4 text-lg text-gray-600'>
-            Limited passes available. Grab your early bird passes now
-          </p>
         </div>
       </div>
     </section>

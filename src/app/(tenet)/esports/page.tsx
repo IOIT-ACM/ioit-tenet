@@ -1,11 +1,7 @@
 import { HeroImage, Sponsors } from '@/components/common';
 import type { Metadata } from 'next';
 import { env } from '@/env';
-import { Cyllinder } from '@/components/common';
-import { day1, day2, day3 } from '@/config/events';
-import type { ScheduleItemType } from '@/types';
-
-const allEvents: ScheduleItemType[] = [...day1, ...day2, ...day3];
+import { GCCarousel } from '@/modules/events/esports';
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -33,9 +29,7 @@ export default async function Page() {
         ctaText='Learn More'
         ctaLink='#timeline'
       />
-      <Cyllinder
-        events={allEvents.filter((event) => event.domain === 'esports')}
-      />
+      <GCCarousel />
       <Sponsors />
     </main>
   );

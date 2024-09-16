@@ -231,15 +231,14 @@ export const SearchEvents: React.FC = () => {
             style={{ height: `${scrollHeight}px` }}
           >
             {allItems.map((item) => (
-              <li
+              <Link
                 key={item.id}
-                // href={
-                //   item.type === 'speaker'
-                //     ? `/speakers/${item.id}`
-                //     : `/events/${item.id}`
-                // }
+                href={
+                  item.type === 'speaker'
+                    ? `/speakers/${item.id}`
+                    : `/events/${item.id}`
+                }
                 className='scroll-item z-[9999999] flex cursor-pointer items-center p-2 text-lg sm:text-2xl md:p-4 md:text-3xl'
-                onClick={() => setSearchTerm(item.name)}
               >
                 {item.type === 'speaker' ? (
                   <Image
@@ -255,7 +254,7 @@ export const SearchEvents: React.FC = () => {
                   </div>
                 )}
                 {item.name}
-              </li>
+              </Link>
             ))}
           </ul>
         </div>

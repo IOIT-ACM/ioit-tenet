@@ -32,7 +32,7 @@ export default function Page() {
         ctaLink='https://www.ioitmun.com/'
         ctaText2='Register now'
         ctaLink2={MUNLINK}
-        ctalink1color='#192424'
+        ctalink1color='#739e9e'
       />
       <GCCarousel />
     </main>

@@ -3,8 +3,6 @@
 import * as Scrollytelling from '@bsmnt/scrollytelling';
 
 import s from './falling-caps.module.scss';
-// import { CapsModel } from './caps';
-// import { Canvas } from '@react-three/fiber';
 import { useMemo } from 'react';
 
 const splitText = (text: string, wordClass?: string) => {

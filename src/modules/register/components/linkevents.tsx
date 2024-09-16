@@ -30,7 +30,7 @@ export const RegisterLinks: React.FC = () => {
       href: 'https://forms.gle/H2p78SKhRZv6YLCZ9',
     },
     {
-      heading: 'Gen-AI LLM',
+      heading: 'LLM-Workshop',
       subheading: 'A hands-on workshop on Large Language Models in tech.',
       imgSrc:
         'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/ai.jpg',
