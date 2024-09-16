@@ -8,7 +8,7 @@ export const AnimatedLogo: React.FC = () => {
 
   useFrame((state, delta) => {
     if (TTref.current) {
-      TTref.current.rotation.x += delta;
+      TTref.current.rotation.y += delta;
     }
   });
 
