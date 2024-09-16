@@ -4,7 +4,7 @@ import type * as THREE from 'three';
 import { TTLogo } from '@/lib/ttlogo';
 
 export const AnimatedLogo: React.FC = () => {
-  const TTref = useRef<THREE.Mesh>(null);
+  const TTref = useRef<THREE.Group>(null);
 
   useFrame((state, delta) => {
     if (TTref.current) {
