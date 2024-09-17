@@ -20,7 +20,7 @@ const MachineGunText: React.FC<MachineGunTextProps> = ({ text, children }) => {
 
     const container = containerRef.current;
     const words = text.split(' ');
-    const tl = gsap.timeline({ delay: LOADTIME + 2 });
+    const tl = gsap.timeline({ delay: LOADTIME + 2.5 });
 
     let time = 0;
 
@@ -32,7 +32,7 @@ const MachineGunText: React.FC<MachineGunTextProps> = ({ text, children }) => {
         'absolute font-bold text-center invisible w-full left-0 p-0 m-0 text-2xl bottom-0';
       container.appendChild(element);
 
-      const duration = Math.max(0.9, word.length * 0.08);
+      const duration = Math.max(0.5, word.length * 0.1);
 
       gsap.set(element, { autoAlpha: 0, scale: 0, z: 0.05 });
 
