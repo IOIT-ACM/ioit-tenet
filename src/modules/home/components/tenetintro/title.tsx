@@ -13,7 +13,6 @@ export const TITLETEXT: React.FC = () => {
     const ctx = gsap.context(() => {
       const headline = new SplitType('h2.headline', { types: 'chars' });
       const date = new SplitType('h2.date', { types: 'chars' });
-      const links = gsap.utils.toArray('.link-item');
 
       // Animate the headline text
       gsap.fromTo(

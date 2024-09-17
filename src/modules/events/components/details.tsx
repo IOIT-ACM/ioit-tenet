@@ -167,7 +167,7 @@ ${event.title} at AISSMS IOIT TENET 2024
 
             {event.organizers && event.organizers.length > 0 && (
               <div ref={organizersRef}>
-                <h2 className='mb-4 text-xl font-semibold'>Event head</h2>
+                <h2 className='mb-4 text-xl font-semibold'>Organizers</h2>
                 <ul className='space-y-2'>
                   {event.organizers.map((organizer, index) => (
                     <li

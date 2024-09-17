@@ -31,4 +31,14 @@ export const speakers: Speaker[] = [
     bio: 'Nishant is a Senior Data Scientist with over 10 years of experience in data-driven analytics product development. He has more than 5 years of expertise in predictive analysis, specializing in Machine Learning, Deep Learning, Image Processing, Computer Vision, Python, Statistics, OpenCV, and Cloud technologies. Additionally, he has 5.5 years of experience in descriptive analysis, utilizing tools like PowerBI, SSRS Reports, SQL Server, and SSIS. Nishant has worked closely with customers to understand their requirements and deliver actionable insights through AI-powered, cloud-native software solutions. His deep understanding of both predictive and descriptive analytics allows him to provide data-driven strategies that meet complex business needs.',
     domain: 'techfiesta',
   },
+  {
+    id: 'akash-sangole',
+    name: 'Akash Sangole',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/akashsangole.jpeg',
+    title: 'CHRO at Panasonic',
+    url: 'https://www.linkedin.com/in/akash-sangole/',
+    bio: `Presently, as a CHRO responsible for Human Resources, General Administration and CSR for Panasonic Life Solutions India Pvt. Ltd. having 7 plants, 30 sales branches and more than 8000 employees. Qualified Master in Personnel Management from Pune University with Distinction, Over 20 years of Experience in Human Resources with versatile responsibilities like Corporate, Plant, Setting up Green Field Project, Managing IT Company etc. Good experience in working closely with Top Management on Strategic Initiatives, Leadership Development, Talent Acquisition, OD Intervention, Industrial Relations, Wage Settlement, Designing and implementation of Comp and Benefits, Designing and implementation of PMS, Policies, HR Business Partnering etc.`,
+    domain: 'esummit',
+  },
 ];
