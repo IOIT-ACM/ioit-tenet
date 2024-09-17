@@ -71,7 +71,7 @@ export function TenetCommandDialog() {
     },
     {
       url: '/register',
-      name: 'Get Tickits',
+      name: 'Get Tickets',
     },
     {
       url: '/game',

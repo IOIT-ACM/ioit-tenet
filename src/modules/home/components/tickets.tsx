@@ -16,7 +16,7 @@ export function Tickets() {
         </p>
       </div>
       <Button link='register' className='mt-10 md:mt-0'>
-        Get tickits
+        Get Tickets
         <FaArrowRightLong className='ml-2 h-4 w-4' />
       </Button>
     </div>

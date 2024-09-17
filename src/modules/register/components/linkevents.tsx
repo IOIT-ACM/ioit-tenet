@@ -83,7 +83,7 @@ export const RegisterLinks: React.FC = () => {
       <div className='text-white'>
         <h1 className='text-2xl italic text-white'>
           *Note: The following mentioned events are not covered under the day
-          pass. please find the regestration links below:
+          pass. please find the registration links below:
         </h1>
       </div>
       <div className='mt-16 space-y-8'>
@@ -97,7 +97,7 @@ export const RegisterLinks: React.FC = () => {
           />
         ))}
         <h1 className='text-2xl italic text-white'>
-          eSports regestration links
+          eSports registration links
         </h1>
         {esportsLinks.map((event, index) => (
           <CustomLink

@@ -128,7 +128,7 @@ const OverlayCopy = ({
       </Link>
 
       <Button newpage link={KONFHUB_PAGE} className='mt-10'>
-        Get tickits
+        Get Tickets
         <HiExternalLink className='ml-2 h-5 w-5' />
       </Button>
     </motion.div>
