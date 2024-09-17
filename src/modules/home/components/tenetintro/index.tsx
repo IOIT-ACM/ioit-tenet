@@ -12,7 +12,7 @@ import { Links } from './links';
 
 export const TenetHero: React.FC = () => {
   return (
-    <div className='relative mb-[10vh] h-[80vh] w-screen overflow-hidden md:mb-0 md:h-screen'>
+    <div className='relative mb-[10vh] h-[85vh] w-screen overflow-hidden md:mb-0 md:h-screen'>
       <Canvas>
         <ambientLight intensity={1} />
         <directionalLight

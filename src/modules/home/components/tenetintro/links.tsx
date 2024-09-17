@@ -27,18 +27,18 @@ export const Links: React.FC = () => {
   return (
     <div
       ref={linksRef}
-      className='absolute h-fit w-full transform md:right-10 md:top-1/2 md:-translate-y-1/2'
+      className='absolute bottom-0 h-fit w-fit md:right-10 md:top-1/2 md:-translate-y-1/2'
     >
-      <div className='flex w-full select-none items-center justify-center gap-10 text-center md:w-full md:flex-col md:text-2xl'>
-        <Magnets link='/events' className='link-item text-white md:mt-0'>
+      <div className='flex w-screen flex-row items-center justify-center gap-5 text-xl md:w-fit md:flex-col md:text-2xl'>
+        <Magnets link='/events' className='link-item text-white'>
           Events
         </Magnets>
-        <Magnets link='/speakers' className='link-item text-white md:mt-0'>
+        <Magnets link='/speakers' className='link-item text-white'>
           Speakers
         </Magnets>
         <Magnets
           link='mailto:ioit.tenet@aissmsioit.org'
-          className='link-item text-white md:mt-0'
+          className='link-item text-white'
         >
           Contact
         </Magnets>
