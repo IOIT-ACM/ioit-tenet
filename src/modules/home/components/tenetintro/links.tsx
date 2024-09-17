@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Magnets } from '@/components/ui/RoundedButton/magnets';
+import { LOADTIME } from '@/config';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,6 +19,7 @@ export const Links: React.FC = () => {
         duration: 1,
         stagger: 0.3,
         ease: 'power3.out',
+        delay: LOADTIME + 0.5,
       });
     }, linksRef);
 

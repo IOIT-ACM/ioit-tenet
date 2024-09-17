@@ -11,7 +11,7 @@ export default function Machinegun() {
           newpage
           className='w-full bg-none text-white md:mt-0'
         >
-          Early bird pass
+          Get Early bird pass
         </Button>
       </MachineGunText>
     </div>

@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { KONFHUB_PAGE } from '@/config';
 import { Button } from '@/components/ui/RoundedButton';
+import { LOADTIME } from '@/config'; // Assuming LOADTIME is a number, e.g., 2.5
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,6 +20,7 @@ export const TENET: React.FC = () => {
         duration: 1,
         stagger: 0.3,
         ease: 'power3.out',
+        delay: LOADTIME + 2,
       });
     }, linksRef);
 
@@ -36,7 +38,7 @@ export const TENET: React.FC = () => {
           newpage
           className='link-item bg-none text-white md:mt-0'
         >
-          Early bird pass
+          Get Early bird pass
         </Button>
       </div>
     </div>
