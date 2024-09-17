@@ -7,9 +7,11 @@ import { OrbitControls } from '@react-three/drei';
 import { AnimatedLogo } from '@/lib/AnimatedLogo';
 // import { MovingSpot } from '@/lib/spotlight';
 
+import { Links } from './links';
+
 export const TenetHero: React.FC = () => {
   return (
-    <div className='h-screen w-screen'>
+    <div className='relative h-[80vh] w-screen md:h-screen'>
       <Canvas>
         <ambientLight intensity={1} />
         <directionalLight
@@ -32,10 +34,10 @@ export const TenetHero: React.FC = () => {
             args={[-10, 10, -10, 10, 0.1, 50]}
           />
         </spotLight>
-
         {/* <MovingSpot color='#0c8cbf' position={[0, 3, 2]} />
         <MovingSpot color='#b00c3f' position={[1, 3, 0]} /> */}
       </Canvas>
+      <Links />
     </div>
   );
 };

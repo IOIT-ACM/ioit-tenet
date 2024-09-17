@@ -62,7 +62,7 @@ export const Footer = () => {
                 ioit.tenet@aissmsioit.org
               </Link>
             </div>
-            <div className='text-center'>
+            <div className='md:text-center'>
               <Link
                 className='link'
                 href='mailto:adimail2404@gmail.com'
