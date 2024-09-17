@@ -1,15 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 
 interface MachineGunTextProps {
   text: string;
+  children: React.ReactNode; // Children will be rendered after animation
 }
 
-const MachineGunText: React.FC<MachineGunTextProps> = ({ text }) => {
+const MachineGunText: React.FC<MachineGunTextProps> = ({ text, children }) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isComplete, setIsComplete] = useState(false);
   const _sentenceEndExp = /(\.|\?|!)$/g;
 
   useEffect(() => {
@@ -17,21 +19,21 @@ const MachineGunText: React.FC<MachineGunTextProps> = ({ text }) => {
 
     const container = containerRef.current;
     const words = text.split(' ');
-    const tl = gsap.timeline({ delay: 0.4 });
+    const tl = gsap.timeline({ delay: 1 });
 
     let time = 0;
 
-    words.forEach((word) => {
+    words.forEach((word, index) => {
       const isSentenceEnd = _sentenceEndExp.test(word);
       const element = document.createElement('h3');
       element.textContent = word;
       element.className =
-        'absolute font-bold w-full text-center invisible text-2xl top-16';
+        'absolute font-bold text-center invisible w-full left-0 p-0 m-0 text-2xl bottom-0';
       container.appendChild(element);
 
-      const duration = Math.max(0.5, word.length * 0.08);
+      const duration = Math.max(1.3, word.length * 0.08);
 
-      gsap.set(element, { autoAlpha: 0, scale: 0, z: 0.01 });
+      gsap.set(element, { autoAlpha: 0, scale: 0, z: 0.05 });
 
       // Animate in
       tl.to(
@@ -63,6 +65,10 @@ const MachineGunText: React.FC<MachineGunTextProps> = ({ text }) => {
       if (isSentenceEnd) {
         time += 0.6;
       }
+
+      if (index === words.length - 1) {
+        tl.call(() => setIsComplete(true));
+      }
     });
 
     return () => {
@@ -73,9 +79,11 @@ const MachineGunText: React.FC<MachineGunTextProps> = ({ text }) => {
 
   return (
     <div
-      className='relative mx-auto h-[300px] w-full text-lg text-white'
+      className='max-w-screen m-0 w-full overflow-hidden p-0 text-center text-white'
       ref={containerRef}
-    ></div>
+    >
+      {isComplete && <div>{children}</div>}
+    </div>
   );
 };
 

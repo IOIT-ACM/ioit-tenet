@@ -6,12 +6,13 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { AnimatedLogo } from '@/lib/AnimatedLogo';
 // import { MovingSpot } from '@/lib/spotlight';
-
+import { TENET } from './tenet';
+import Machinegun from './machinegun';
 import { Links } from './links';
 
 export const TenetHero: React.FC = () => {
   return (
-    <div className='relative h-[80vh] w-screen md:h-screen'>
+    <div className='relative mb-[10vh] h-[80vh] w-screen overflow-hidden md:mb-0 md:h-screen'>
       <Canvas>
         <ambientLight intensity={1} />
         <directionalLight
@@ -38,6 +39,8 @@ export const TenetHero: React.FC = () => {
         <MovingSpot color='#b00c3f' position={[1, 3, 0]} /> */}
       </Canvas>
       <Links />
+      <TENET />
+      <Machinegun />
     </div>
   );
 };
