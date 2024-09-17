@@ -162,17 +162,17 @@ export function Shell({ children }: ShellProps) {
       </header>
 
       <div className='flex flex-1 overflow-hidden'>
-        <aside className='scrollbar-custom relative top-0 z-50 m-8 hidden w-1/4 select-none overflow-y-auto overflow-x-hidden rounded-lg bg-slate-800 sm:block'>
+        <aside className='scrollbar-custom relative top-0 z-50 m-0 hidden w-1/4 select-none overflow-y-auto overflow-x-hidden bg-slate-800 sm:block'>
           {isEventsPath ? (
             <>
-              <h2 className='sticky top-0 z-50 border-b bg-slate-800 p-4 text-3xl font-bold text-white'>
+              <h2 className='sticky top-0 z-50 border-b bg-slate-700 p-4 text-2xl font-bold text-white'>
                 <p>Agenda Outline</p>
               </h2>
               <EventsSidePannel />
             </>
           ) : (
             <>
-              <h2 className='sticky top-0 z-50 border-b bg-slate-800 p-4 text-3xl font-bold text-white'>
+              <h2 className='sticky top-0 z-50 border-b bg-slate-700 p-4 text-2xl font-bold text-white'>
                 Speakers
               </h2>
               <SpeakersSidePanel />
@@ -180,7 +180,7 @@ export function Shell({ children }: ShellProps) {
           )}
         </aside>
 
-        <main className='scrollbar-custom flex-1 overflow-y-auto px-5 pb-20 pt-0 md:px-0 md:pb-10'>
+        <main className='scrollbar-custom flex-1 overflow-y-auto px-5 pb-20 pt-0 md:px-5 md:pb-10'>
           {children}
         </main>
       </div>

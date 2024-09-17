@@ -24,47 +24,51 @@ export const Timeline: React.FC<{ domain: string }> = ({ domain }) => {
   const [activeEventIndex, setActiveEventIndex] = useState<number>(0);
 
   useEffect(() => {
-    const timelineItems =
-      containerRef.current?.querySelectorAll('.timeline-item');
+    const ctx = gsap.context(() => {
+      const timelineItems =
+        containerRef.current?.querySelectorAll('.timeline-item');
 
-    if (timelineItems && timelineItems.length > 0) {
-      gsap.to('#tracing-beam', {
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top top',
-          end: 'bottom bottom',
-          scrub: true,
-          onUpdate: (self) => {
-            const progress = self.progress;
-            const totalHeight = containerRef.current?.offsetHeight ?? 0;
-            const beamHeight = progress * totalHeight;
-            gsap.set('#tracing-beam', { height: `${beamHeight}px` });
-          },
-        },
-      });
-
-      timelineItems.forEach((item, index) => {
-        gsap.fromTo(
-          item,
-          {
-            opacity: 0,
-            y: 50,
-          },
-          {
-            opacity: 1,
-            y: 0,
-            scrollTrigger: {
-              trigger: item,
-              start: 'top 70%',
-              end: 'bottom 15%',
-              toggleActions: 'play none none reverse',
-              onEnter: () => setActiveEventIndex(index),
-              onEnterBack: () => setActiveEventIndex(index),
+      if (timelineItems && timelineItems.length > 0) {
+        gsap.to('#tracing-beam', {
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: true,
+            onUpdate: (self) => {
+              const progress = self.progress;
+              const totalHeight = containerRef.current?.offsetHeight ?? 0;
+              const beamHeight = progress * totalHeight;
+              gsap.set('#tracing-beam', { height: `${beamHeight}px` });
             },
           },
-        );
-      });
-    }
+        });
+
+        timelineItems.forEach((item, index) => {
+          gsap.fromTo(
+            item,
+            {
+              opacity: 0,
+              y: 50,
+            },
+            {
+              opacity: 1,
+              y: 0,
+              scrollTrigger: {
+                trigger: item,
+                start: 'top 80%',
+                end: 'bottom 15%',
+                toggleActions: 'play none none reverse',
+                onEnter: () => setActiveEventIndex(index),
+                onEnterBack: () => setActiveEventIndex(index),
+              },
+            },
+          );
+        });
+      }
+    }, containerRef);
+
+    return () => ctx.revert();
   }, [esummit_events]);
 
   return (
@@ -151,18 +155,18 @@ const EventContent: React.FC<{
     }`}
   >
     <Link href={`/events/${event.id}`} passHref>
-      <div className='group rounded-lg p-4 transition-all duration-300 ease-in-out hover:bg-slate-800 md:p-6'>
+      <div className='group rounded-lg p-2 transition-all duration-300 ease-in-out hover:bg-slate-800 md:p-4'>
         <h3 className='md:text-md mb-2 text-sm text-indigo-500'>
           {event.date}
         </h3>
-        <h2 className='mb-3 text-2xl font-bold transition-colors duration-300 group-hover:text-indigo-400 md:mb-4 md:text-4xl'>
+        <h2 className='mb-3 text-xl font-bold transition-colors duration-300 group-hover:text-indigo-400 md:mb-4 md:text-2xl'>
           {event.title}
         </h2>
-        <p className='mb-4 text-sm text-slate-400 md:mb-6 md:text-base'>
+        <p className='mb-4 line-clamp-2 text-sm text-slate-400 md:mb-6 md:text-base'>
           {event.description}
         </p>
 
-        <div className='relative mb-4 h-48 w-full overflow-hidden rounded-lg transition-all duration-300 group-hover:shadow-lg group-hover:shadow-indigo-500/20 md:mb-6 md:h-64'>
+        <div className='relative mb-4 h-44 w-full overflow-hidden rounded-lg border transition-all duration-300 group-hover:shadow-lg group-hover:shadow-indigo-500/20 md:mb-6 md:h-52'>
           <Image
             src={event.image}
             alt={event.title}
