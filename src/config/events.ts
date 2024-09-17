@@ -8,15 +8,15 @@ export const day1: ScheduleItemType[] = [
     id: 'tenet-inauguration',
     domain: 'techfiesta',
     color: 'bg-green-700',
-    date: 'Sept 12th, 2024',
-    location: 'Main Hall',
+    date: 'Sept 4th, 2024',
+    location: 'Multipurpose Hall (MPH)',
     start: new Date('2024-09-12T09:00:00'),
     imp: false,
-    time: '9:00 AM',
-    description: 'The official opening ceremony for Tenet event.',
+    time: '8:30 AM',
+    description: 'The official opening ceremony for Tenet 2024.',
     image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
-    organizers: [{ name: 'shreya Kulkarni' }],
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/inaugration.jpeg',
+    organizers: [{ name: 'Niranjana Patil' }],
   },
   {
     title: 'Product Management',
@@ -24,7 +24,7 @@ export const day1: ScheduleItemType[] = [
     id: 'product-management',
     domain: 'techfiesta',
     color: 'bg-blue-700',
-    date: 'Sept 12th, 2024',
+    date: 'Sept 4th, 2024',
     location: 'Room A',
     start: new Date('2024-09-12T11:15:00'),
     imp: true,
@@ -33,7 +33,7 @@ export const day1: ScheduleItemType[] = [
       'A session focused on product management strategies and best practices.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/pm.jpg',
-    organizers: [{ name: 'shreya Kulkarni' }],
+    organizers: [{ name: 'Shreya Kulkarni' }],
   },
   {
     title: 'AI summit panel',
@@ -41,8 +41,8 @@ export const day1: ScheduleItemType[] = [
     id: 'ai-summit-panel',
     domain: 'techfiesta',
     color: 'bg-purple-700',
-    date: 'Sept 12th, 2024',
-    location: 'Room B',
+    date: 'Sept 4th, 2024',
+    location: 'Multipurpose hall (MPH)',
     start: new Date('2024-09-12T11:15:00'),
     imp: true,
     time: '11:15 AM',
@@ -50,7 +50,7 @@ export const day1: ScheduleItemType[] = [
       'A panel discussion on the latest trends and developments in AI.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/ai.jpg',
-    organizers: [{ name: 'shreya Kulkarni' }],
+    organizers: [{ name: 'Shreya Kulkarni' }],
     speakers: [
       {
         id: 'pwalimbe',
@@ -90,8 +90,8 @@ export const day1: ScheduleItemType[] = [
     id: 'web3-panel',
     domain: 'techfiesta',
     color: 'bg-yellow-700',
-    date: 'Sept 12th, 2024',
-    location: 'Room C',
+    date: 'Sept 4th, 2024',
+    location: 'Multipurpose Hall (MPH)',
     start: new Date('2024-09-12T12:30:00'),
     imp: true,
     time: '12:30 PM',
@@ -99,7 +99,7 @@ export const day1: ScheduleItemType[] = [
       'A discussion on Web 3.0 technologies and their impact on the future of the internet.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/web3.jpg',
-    organizers: [{ name: 'shreya Kulkarni' }],
+    organizers: [{ name: 'Shreya Kulkarni' }],
   },
   {
     title: "First Steps into Development: A Beginner's Guide",
@@ -107,8 +107,8 @@ export const day1: ScheduleItemType[] = [
     id: 'beginner-dev-guide',
     domain: 'techfiesta',
     color: 'bg-red-700',
-    date: 'Sept 12th, 2024',
-    location: 'Room D',
+    date: 'Sept 4th, 2024',
+    location: 'Multipurposr Hall (MPH)',
     start: new Date('2024-09-12T12:30:00'),
     imp: true,
     time: '12:30 PM',
@@ -116,7 +116,7 @@ export const day1: ScheduleItemType[] = [
       'An introductory session for those new to software development.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/development.jpeg',
-    organizers: [{ name: 'shreya Kulkarni' }],
+    organizers: [{ name: 'Shreya Kulkarni' }],
   },
   {
     title: 'Capture the Flag',
@@ -124,8 +124,8 @@ export const day1: ScheduleItemType[] = [
     id: 'capture-the-flag',
     domain: 'techfiesta',
     color: 'bg-green-700',
-    date: 'Sept 12th, 2024',
-    location: 'Security Lab',
+    date: 'Sept 4th, 2024',
+    location: '112, 4th floor lab',
     start: new Date('2024-09-12T13:45:00'),
     imp: true,
     time: '1:45 PM',
@@ -133,7 +133,7 @@ export const day1: ScheduleItemType[] = [
       'A cybersecurity challenge where participants compete to find and exploit vulnerabilities.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/ctf.jpg',
-    organizers: [{ name: 'shreya Kulkarni' }],
+    organizers: [{ name: 'Shreya Kulkarni' }],
     registration: 'https://forms.gle/H2p78SKhRZv6YLCZ9',
   },
   {
@@ -142,15 +142,15 @@ export const day1: ScheduleItemType[] = [
     id: 'drone-workshop',
     domain: 'techfiesta',
     color: 'bg-blue-700',
-    date: 'Sept 12th, 2024',
-    location: 'Outdoor Area',
+    date: 'Sept 4th, 2024',
+    location: 'Room 407',
     start: new Date('2024-09-12T13:45:00'),
     imp: true,
     time: '1:45 PM',
     description: 'Hands-on workshop on drone technology and piloting.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/drone.jpg',
-    organizers: [{ name: 'shreya Kulkarni' }],
+    organizers: [{ name: 'Shreya Kulkarni' }],
     registration: 'https://forms.gle/PRoAR779QCL4LqyL9',
   },
   {
@@ -159,8 +159,8 @@ export const day1: ScheduleItemType[] = [
     id: 'gen-ai-workshop',
     domain: 'techfiesta',
     color: 'bg-purple-700',
-    date: 'Sept 12th, 2024',
-    location: 'AI Lab',
+    date: 'Sept 4th, 2024',
+    location: 'Multipurpose Hall (MPH)',
     start: new Date('2024-09-12T14:00:00'),
     imp: true,
     time: '2:00 PM',
@@ -168,7 +168,7 @@ export const day1: ScheduleItemType[] = [
       'An in-depth workshop on Generative AI and Large Language Models.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/genai.jpeg',
-    organizers: [{ name: 'shreya Kulkarni' }],
+    organizers: [{ name: 'Shreya Kulkarni' }],
     registration: 'https://forms.gle/sNcVRhN458bfKP786',
   },
   {
@@ -177,8 +177,8 @@ export const day1: ScheduleItemType[] = [
     id: 'arvr-session',
     domain: 'techfiesta',
     color: 'bg-yellow-700',
-    date: 'Sept 12th, 2024',
-    location: 'VR Room',
+    date: 'Sept 4th, 2024',
+    location: 'Room 016',
     start: new Date('2024-09-12T14:00:00'),
     imp: true,
     time: '2:00 PM',
@@ -186,7 +186,7 @@ export const day1: ScheduleItemType[] = [
       'Exploration of Augmented and Virtual Reality technologies and applications.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/arvr.jpeg',
-    organizers: [{ name: 'shreya Kulkarni' }],
+    organizers: [{ name: 'Shreya Kulkarni' }],
   },
   {
     title: 'What to do in webdev?',
@@ -194,8 +194,8 @@ export const day1: ScheduleItemType[] = [
     id: 'webdev-guidance',
     domain: 'techfiesta',
     color: 'bg-red-700',
-    date: 'Sept 12th, 2024',
-    location: 'Web Dev Lab',
+    date: 'Sept 4th, 2024',
+    location: 'Room 407',
     start: new Date('2024-09-12T15:30:00'),
     imp: true,
     time: '3:30 PM',
@@ -203,7 +203,7 @@ export const day1: ScheduleItemType[] = [
       'Guidance session on career paths and opportunities in web development.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/development.jpeg',
-    organizers: [{ name: 'shreya Kulkarni' }],
+    organizers: [{ name: 'Shreya Kulkarni' }],
   },
   {
     title: 'Drone open space display',
@@ -211,8 +211,8 @@ export const day1: ScheduleItemType[] = [
     id: 'drone-display',
     domain: 'techfiesta',
     color: 'bg-green-700',
-    date: 'Sept 12th, 2024',
-    location: 'Open Field',
+    date: 'Sept 4th, 2024',
+    location: 'COE Grass Lawn',
     start: new Date('2024-09-12T17:00:00'),
     imp: true,
     time: '5:00 PM',
@@ -220,7 +220,7 @@ export const day1: ScheduleItemType[] = [
       'A spectacular drone showcase demonstrating various applications and capabilities.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/dronedisplay.jpg',
-    organizers: [{ name: 'shreya Kulkarni' }],
+    organizers: [{ name: 'Shreya Kulkarni' }],
   },
 ];
 
@@ -237,7 +237,7 @@ export const day2: ScheduleItemType[] = [
     time: '11:15 AM - 12:15 PM',
     domain: 'esummit',
     image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/hrsummit.jpeg ',
     organizers: [{ name: 'Laukik Patil' }],
     icon: 'IoRocket',
     description:
@@ -266,7 +266,7 @@ export const day2: ScheduleItemType[] = [
     domain: 'esummit',
     time: '1:15 PM - 2:15 PM',
     image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/d2d.jpeg ',
     organizers: [{ name: 'Laukik Patil' }],
     icon: 'IoRocket',
     description:
@@ -283,7 +283,7 @@ export const day2: ScheduleItemType[] = [
     domain: 'esummit',
     time: '2:15 PM - 3:15 PM',
     image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/vc.jpeg ',
     organizers: [{ name: 'Laukik Patil' }],
     icon: 'IoRocket',
     description:
@@ -300,7 +300,7 @@ export const day2: ScheduleItemType[] = [
     domain: 'esummit',
     time: '11:15 AM - 12:15 PM',
     image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/fintech.jpeg ',
     organizers: [{ name: 'Laukik Patil' }],
     icon: 'IoRocket',
     description:
@@ -317,29 +317,29 @@ export const day2: ScheduleItemType[] = [
     domain: 'esummit',
     time: '10:00 AM - 11:15 AM',
     image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/startupinclg.jpeg ',
     organizers: [{ name: 'Laukik Patil' }],
     icon: 'IoRocket',
     description: 'An exciting session for college students',
   },
 
-  {
-    title: 'Legacy Summit',
-    id: 'legacy-summit',
-    color: 'bg-orange-500',
-    date: 'Oct 6th, 2024',
-    location: 'STAGE',
-    start: new Date('2024-10-06T17:30:00'),
-    imp: true,
-    domain: 'esummit',
-    time: '5:30 PM - 7:30 PM',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
-    organizers: [{ name: 'Laukik Patil' }],
-    icon: 'IoRocket',
-    description:
-      'The Legacy Summit brings together pioneers and leaders from various industries to discuss the future of business and innovation. A must-attend for anyone seeking inspiration and strategic insights.',
-  },
+  // {
+  //   title: 'Legacy Summit',
+  //   id: 'legacy-summit',
+  //   color: 'bg-orange-500',
+  //   date: 'Oct 6th, 2024',
+  //   location: 'STAGE',
+  //   start: new Date('2024-10-06T17:30:00'),
+  //   imp: true,
+  //   domain: 'esummit',
+  //   time: '5:30 PM - 7:30 PM',
+  //   image:
+  //     'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/legacysystem.jpeg',
+  //   organizers: [{ name: 'Laukik Patil' }],
+  //   icon: 'IoRocket',
+  //   description:
+  //     'The Legacy Summit brings together pioneers and leaders from various industries to discuss the future of business and innovation. A must-attend for anyone seeking inspiration and strategic insights.',
+  // },
   {
     title: 'Advisory and Legal',
     id: 'advisory-and-legal',
@@ -351,9 +351,21 @@ export const day2: ScheduleItemType[] = [
     domain: 'esummit',
     time: '1:15 PM - 2:15 PM',
     image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/advisoryandlegal.jpeg',
     organizers: [{ name: 'Laukik Patil' }],
     icon: 'IoRocket',
+    speakers: [
+      {
+        id: 'sumit-jha',
+        name: 'Sumit Jha',
+        image:
+          'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/sumit+jha.jpeg',
+        title: 'CxO Advisor',
+        url: 'https://www.linkedin.com/in/sumitkjha/',
+        bio: `Sumit Jha is a forward-thinking leader with over 24 years of expertise in service management, particularly in the niche consulting space. Known for being customer-focused and outcome-oriented, they have successfully incubated service management practices at top firms like Wipro, TechM, and <<Confidential>>, while shaping IT strategies for various clients during major transformations. Their career reflects a strong track record in driving innovation, developing service offerings, and creating value through strategic leadership. With a deep understanding of Service Integration and Management (SIAM), they've consistently delivered impactful solutions that optimize processes, reduce costs, and enhance business outcomes across diverse industries.`,
+        domain: 'esummit',
+      },
+    ],
     description:
       'This session focuses on the vital aspects of advisory and legal support for startups and businesses. Learn from experts how to navigate legal frameworks and obtain the right advice to fuel your growth.',
   },
@@ -368,7 +380,7 @@ export const day2: ScheduleItemType[] = [
     domain: 'esummit',
     time: '2:15 PM - 3:15 PM',
     image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/incubation.jpeg',
     organizers: [{ name: 'Laukik Patil' }],
     icon: 'IoRocket',
     description:

@@ -41,4 +41,14 @@ export const speakers: Speaker[] = [
     bio: `Presently, as a CHRO responsible for Human Resources, General Administration and CSR for Panasonic Life Solutions India Pvt. Ltd. having 7 plants, 30 sales branches and more than 8000 employees. Qualified Master in Personnel Management from Pune University with Distinction, Over 20 years of Experience in Human Resources with versatile responsibilities like Corporate, Plant, Setting up Green Field Project, Managing IT Company etc. Good experience in working closely with Top Management on Strategic Initiatives, Leadership Development, Talent Acquisition, OD Intervention, Industrial Relations, Wage Settlement, Designing and implementation of Comp and Benefits, Designing and implementation of PMS, Policies, HR Business Partnering etc.`,
     domain: 'esummit',
   },
+  {
+    id: 'sumit-jha',
+    name: 'Sumit Jha',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/sumit+jha.jpeg',
+    title: 'CxO Advisor',
+    url: 'https://www.linkedin.com/in/sumitkjha/',
+    bio: `Sumit Jha is a forward-thinking leader with over 24 years of expertise in service management, particularly in the niche consulting space. Known for being customer-focused and outcome-oriented, they have successfully incubated service management practices at top firms like Wipro, TechM, and <<Confidential>>, while shaping IT strategies for various clients during major transformations. Their career reflects a strong track record in driving innovation, developing service offerings, and creating value through strategic leadership. With a deep understanding of Service Integration and Management (SIAM), they've consistently delivered impactful solutions that optimize processes, reduce costs, and enhance business outcomes across diverse industries.`,
+    domain: 'esummit',
+  },
 ];
