@@ -5,6 +5,7 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Observer } from 'gsap/Observer';
+import SplitType from 'split-type';
 import { Button } from '@/components/ui/RoundedButton';
 
 gsap.registerPlugin(ScrollTrigger, Observer);
@@ -39,20 +40,39 @@ export const HeroImage: React.FC<HeroImageProps> = ({
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Stagger animation for title and subtitle on load
-      gsap.from([titleRef.current, subtitleRef.current], {
-        opacity: 0,
-        y: 50,
-        duration: 1,
-        stagger: 0.2,
-        ease: 'power3.out',
-        delay: 0.5,
-      });
+      // SplitType animation for title only
+      if (titleRef.current) {
+        const splitTitle = new SplitType(titleRef.current, { types: 'chars' });
+
+        gsap.from(splitTitle.chars, {
+          opacity: 0,
+          y: 50,
+          duration: 1,
+          stagger: 0.05,
+          ease: 'power3.out',
+          delay: 0.5,
+        });
+      }
+
+      // "Pop out" animation for subtitle
+      if (subtitle && subtitleRef.current) {
+        gsap.fromTo(
+          subtitleRef.current,
+          { opacity: 0, scale: 0.8 },
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+            ease: 'back.out(1.7)',
+            delay: 1.0,
+          },
+        );
+      }
 
       // Stagger animation for buttons
-      if (ctaButtonsRef.current)
+      if (ctaButtonsRef.current) {
         gsap.fromTo(
-          ctaButtonsRef.current?.children,
+          ctaButtonsRef.current.children,
           { opacity: 0, scale: 0.8 },
           {
             opacity: 1,
@@ -63,22 +83,25 @@ export const HeroImage: React.FC<HeroImageProps> = ({
             delay: 1.5,
           },
         );
+      }
 
       // ScrollTrigger animation for background
-      gsap.to('.hero-bg', {
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: 'top top',
-          end: 'bottom center',
-          scrub: true,
-        },
-        scale: 1.1,
-        ease: 'power1.out',
-      });
+      if (heroRef.current) {
+        gsap.to('.hero-bg', {
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: 'top top',
+            end: 'bottom center',
+            scrub: true,
+          },
+          scale: 1.1,
+          ease: 'power1.out',
+        });
+      }
     }, heroRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [subtitle]);
 
   return (
     <div
