@@ -20,7 +20,7 @@ const MachineGunText: React.FC<MachineGunTextProps> = ({ text, children }) => {
 
     const container = containerRef.current;
     const words = text.split(' ');
-    const tl = gsap.timeline({ delay: LOADTIME + 2.5 });
+    const tl = gsap.timeline({ delay: LOADTIME + 3.5 });
 
     let time = 0;
 

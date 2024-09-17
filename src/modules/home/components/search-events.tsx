@@ -225,7 +225,7 @@ export const SearchEvents: React.FC = () => {
           <ul
             ref={scrollerRef}
             className={cn(
-              'flex w-max min-w-full shrink-0 flex-col flex-nowrap py-4 md:gap-3',
+              'flex w-max min-w-full shrink-0 flex-col flex-nowrap py-2 md:gap-2',
               isScrolling && 'animate-scroll',
             )}
             style={{ height: `${scrollHeight}px` }}
@@ -238,7 +238,7 @@ export const SearchEvents: React.FC = () => {
                     ? `/speakers/${item.id}`
                     : `/events/${item.id}`
                 }
-                className='scroll-item z-[9999999] flex cursor-pointer items-center p-2 text-lg sm:text-2xl md:p-4 md:text-3xl'
+                className='scroll-item z-[9999999] flex cursor-pointer items-center p-2 text-sm sm:text-lg md:p-4 md:text-xl'
               >
                 {item.type === 'speaker' ? (
                   <Image
@@ -246,10 +246,10 @@ export const SearchEvents: React.FC = () => {
                     alt={`Profile image of ${item.name}`}
                     width={48}
                     height={48}
-                    className='mr-4 h-[45px] w-[45px] rounded-full object-cover md:h-[65px] md:w-[65px]'
+                    className='mr-4 h-[35px] w-[35px] rounded-full object-cover md:h-[55px] md:w-[55px]'
                   />
                 ) : (
-                  <div className='mr-4 flex h-[45px] w-[45px] items-center justify-center rounded-full border-2 bg-white text-2xl text-black md:h-[65px] md:w-[65px] md:text-3xl'>
+                  <div className='mr-4 flex h-[35px] w-[35px] items-center justify-center rounded-full border-2 bg-white text-2xl text-black md:h-[55px] md:w-[55px] md:text-3xl'>
                     {renderIcon(item.icon)}
                   </div>
                 )}

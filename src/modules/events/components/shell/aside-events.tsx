@@ -53,7 +53,7 @@ export const ScheduleItem = ({ data }: { data: ScheduleItemType }) => {
         }`}
       >
         <div className='mb-2 text-lg'>
-          <span className={`line-clamp-2 ${isActive && 'mb-4 text-xl'}`}>
+          <span className={`line-clamp-2 ${isActive && 'mb-4 text-lg'}`}>
             {data.title}
           </span>
           <div className='flex w-full justify-between'>

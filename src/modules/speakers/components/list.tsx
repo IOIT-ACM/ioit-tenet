@@ -34,7 +34,7 @@ export const Speakers = () => {
   }, []);
 
   return (
-    <div className='mx-auto my-16 px-4 pb-8 pt-5 md:my-24'>
+    <div className='mx-auto my-8 px-4 pb-8 pt-5 md:my-20'>
       <h1 className='mb-20 text-center text-4xl font-bold text-white'>
         Speakers at TENET&apos;24
       </h1>
@@ -66,7 +66,7 @@ export const Speakers = () => {
           </Link>
         ))}
       </div>
-      <h1 className='flex min-h-screen items-center justify-center text-center text-4xl font-bold text-white'>
+      <h1 className='flex items-center justify-center py-40 text-center text-4xl font-bold text-white'>
         speakers revealing soon...
       </h1>
     </div>

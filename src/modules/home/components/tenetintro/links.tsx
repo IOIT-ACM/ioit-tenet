@@ -19,7 +19,7 @@ export const Links: React.FC = () => {
         duration: 1,
         stagger: 0.3,
         ease: 'power3.out',
-        delay: LOADTIME + 0.5,
+        delay: LOADTIME,
       });
     }, linksRef);
 
@@ -31,7 +31,7 @@ export const Links: React.FC = () => {
       ref={linksRef}
       className='absolute bottom-20 h-fit w-fit md:right-10 md:top-1/2 md:-translate-y-1/2'
     >
-      <div className='flex w-screen select-none flex-row items-center justify-center gap-5 text-xl md:w-fit md:flex-col md:text-2xl'>
+      <div className='flex w-screen flex-row items-center justify-center gap-5 text-xl md:w-fit md:flex-col md:text-2xl'>
         <Magnets link='/events' className='link-item text-white'>
           Events
         </Magnets>

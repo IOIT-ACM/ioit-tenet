@@ -11,20 +11,19 @@ export const TITLETEXT: React.FC = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const headline = new SplitType('h2.headline', { types: 'chars' });
-      const date = new SplitType('h2.date', { types: 'chars' });
+      const headline = new SplitType('h2.headline', { types: 'words' });
+      const date = new SplitType('h2.date', { types: 'words' });
 
-      // Animate the headline text
       gsap.fromTo(
-        headline.chars,
+        headline.words,
         { y: 100, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          stagger: 0.05,
+          stagger: 0.1,
           duration: 1.5,
           ease: 'power4.out',
-          delay: LOADTIME + 1.5,
+          delay: LOADTIME + 0.7,
           scrollTrigger: {
             trigger: '.headline',
             start: 'top 80%',
@@ -33,16 +32,15 @@ export const TITLETEXT: React.FC = () => {
         },
       );
 
-      // Animate the date text
       gsap.fromTo(
-        date.chars,
+        date.words,
         { y: 100, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          stagger: 0.03,
+          stagger: 0.08,
           duration: 1.2,
-          delay: LOADTIME + 2,
+          delay: LOADTIME + 1,
           ease: 'power4.out',
           scrollTrigger: {
             trigger: '.date',

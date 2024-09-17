@@ -62,7 +62,7 @@ export const TENET: React.FC = () => {
         duration: 1,
         stagger: 0.3,
         ease: 'power3.out',
-        delay: LOADTIME + 2.5,
+        delay: LOADTIME + 2,
         scrollTrigger: {
           trigger: '.link-item',
           start: 'top 90%',
