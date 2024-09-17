@@ -240,7 +240,8 @@ export const day2: ScheduleItemType[] = [
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
     organizers: [{ name: 'Laukik Patil' }],
     icon: 'IoRocket',
-    description: '',
+    description:
+      'Explore the latest trends in Human Resources with industry leaders. Discover the future of HR strategies, talent management, and organizational development.',
     speakers: [
       {
         id: 'akash-sangole',
@@ -252,43 +253,7 @@ export const day2: ScheduleItemType[] = [
         bio: `Presently, as a CHRO responsible for Human Resources, General Administration and CSR for Panasonic Life Solutions India Pvt. Ltd. having 7 plants, 30 sales branches and more than 8000 employees. Qualified Master in Personnel Management from Pune University with Distinction, Over 20 years of Experience in Human Resources with versatile responsibilities like Corporate, Plant, Setting up Green Field Project, Managing IT Company etc. Good experience in working closely with Top Management on Strategic Initiatives, Leadership Development, Talent Acquisition, OD Intervention, Industrial Relations, Wage Settlement, Designing and implementation of Comp and Benefits, Designing and implementation of PMS, Policies, HR Business Partnering etc.`,
         domain: 'esummit',
       },
-      // {
-      //   id: 'vivek-jade',
-      //   name: 'Vivek Jade',
-      //   image:
-      //     'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/Vivek+Jade.jpeg',
-      //   title: 'Co-Founder at MyNextHire',
-      //   url: 'https://www.linkedin.com/in/vivek-jade/',
-      //   bio: '',
-      //   domain: 'esummit',
-      // },
-      // {
-      //   id: 'debi-kar',
-      //   name: 'Debi Kar',
-      //   image:
-      //     'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/Debi+Kar.jpeg',
-      //   title: 'Co-Founder at HYRGPT',
-      //   url: 'https://www.linkedin.com/in/debi-kar/',
-      //   bio: '',
-      //   domain: 'esummit',
-      // },
     ],
-  },
-  {
-    title: 'D2C SUMMIT',
-    id: 'd2c-summit',
-    color: 'bg-blue-500',
-    date: 'Oct 6th, 2024',
-    location: 'MBA college',
-    start: new Date('2024-10-06T11:15:00'),
-    imp: true,
-    time: '13:15 to 14:15',
-    domain: 'esummit',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
-    organizers: [{ name: 'Laukik Patil' }],
-    icon: 'IoRocket',
-    description: '',
   },
   {
     title: 'D2C Summit',
@@ -304,6 +269,8 @@ export const day2: ScheduleItemType[] = [
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
     organizers: [{ name: 'Laukik Patil' }],
     icon: 'IoRocket',
+    description:
+      'Get insights from D2C pioneers and learn what it takes to build a successful direct-to-consumer brand in today’s competitive market.',
   },
   {
     title: 'Venture Summit',
@@ -319,6 +286,8 @@ export const day2: ScheduleItemType[] = [
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
     organizers: [{ name: 'Laukik Patil' }],
     icon: 'IoRocket',
+    description:
+      'Explore venture capital, startup ecosystems, and investment opportunities with top industry experts. A must-attend for aspiring entrepreneurs.',
   },
   {
     title: 'Fin-tech Summit',
@@ -334,6 +303,8 @@ export const day2: ScheduleItemType[] = [
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
     organizers: [{ name: 'Laukik Patil' }],
     icon: 'IoRocket',
+    description:
+      'Discover the future of financial technology with insights on digital payments, blockchain, and fintech innovations shaping the financial sector.',
   },
   {
     title: 'Starting up in college',
@@ -349,7 +320,9 @@ export const day2: ScheduleItemType[] = [
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
     organizers: [{ name: 'Laukik Patil' }],
     icon: 'IoRocket',
+    description: 'An exciting session for college students',
   },
+
   {
     title: 'Legacy Summit',
     id: 'legacy-summit',
@@ -364,6 +337,8 @@ export const day2: ScheduleItemType[] = [
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
     organizers: [{ name: 'Laukik Patil' }],
     icon: 'IoRocket',
+    description:
+      'The Legacy Summit brings together pioneers and leaders from various industries to discuss the future of business and innovation. A must-attend for anyone seeking inspiration and strategic insights.',
   },
   {
     title: 'Advisory and Legal',
@@ -379,6 +354,8 @@ export const day2: ScheduleItemType[] = [
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
     organizers: [{ name: 'Laukik Patil' }],
     icon: 'IoRocket',
+    description:
+      'This session focuses on the vital aspects of advisory and legal support for startups and businesses. Learn from experts how to navigate legal frameworks and obtain the right advice to fuel your growth.',
   },
   {
     title: 'Incubation and Grants',
@@ -394,6 +371,8 @@ export const day2: ScheduleItemType[] = [
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
     organizers: [{ name: 'Laukik Patil' }],
     icon: 'IoRocket',
+    description:
+      'Explore the opportunities of incubation and grants in this insightful session. Learn how to secure funding and resources to accelerate your startup’s growth from early-stage to success.',
   },
 
   // MUN
