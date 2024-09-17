@@ -10,6 +10,7 @@ import { TENET } from './tenet';
 import Machinegun from './machinegun';
 import { Links } from './links';
 import { useState, useEffect } from 'react';
+import { TITLETEXT } from './title';
 
 export const TenetHero: React.FC = () => {
   const [loading, setIsLoading] = useState(true);
@@ -52,6 +53,7 @@ export const TenetHero: React.FC = () => {
       <Links />
       <TENET />
       <Machinegun />
+      <TITLETEXT />
     </div>
   );
 };
