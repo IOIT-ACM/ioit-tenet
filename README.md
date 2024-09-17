@@ -1,4 +1,4 @@
-# IOIT TENET web
+# IOIT-TENET web
 
 ## Repository Structure
 
