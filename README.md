@@ -43,7 +43,7 @@ project/
     .
 ```
 
-## Developer Tools suggestions:
+## Developer Tools suggestions
 
 - Install [ES7+ React/Redux/React-Native snippets](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets)
   - This extension is a collection of super helpful snippets for common use cases among react developers. This reduces your keystrokes to only 4-5 instead of having to type out the entire component each time.
