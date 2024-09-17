@@ -9,10 +9,21 @@ import { AnimatedLogo } from '@/lib/AnimatedLogo';
 import { TENET } from './tenet';
 import Machinegun from './machinegun';
 import { Links } from './links';
+import { useState, useEffect } from 'react';
 
 export const TenetHero: React.FC = () => {
+  const [loading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className='relative mb-[10vh] h-[85vh] w-screen overflow-hidden md:mb-0 md:h-screen'>
+    <div className='relative h-screen w-screen overflow-hidden bg-neutral-950 pb-[20vh] md:pb-0'>
       <Canvas>
         <ambientLight intensity={1} />
         <directionalLight
@@ -21,7 +32,7 @@ export const TenetHero: React.FC = () => {
           intensity={0.9}
         />
         <OrbitControls enableZoom={false} />
-        <AnimatedLogo />
+        {!loading && <AnimatedLogo />}
         <spotLight
           angle={0.5}
           penumbra={0.5}

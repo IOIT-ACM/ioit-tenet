@@ -5,11 +5,13 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitType from 'split-type';
+import { useIsMobile } from '@/hooks/useismobile';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export const Intro: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const ismobile = useIsMobile();
 
   useEffect(() => {
     if (containerRef.current) {
@@ -54,9 +56,13 @@ export const Intro: React.FC = () => {
         What is TENET?
       </h1>
       <br />
-      <br />
-      <br />
-      <br />
+      {!ismobile && (
+        <>
+          <br />
+          <br />
+          <br />
+        </>
+      )}
       <div className='reveal-type text-md md:text-[45px]'>
         TENET 2024 is organized by the IOIT ACM Student Chapter of AISSMS
         Institute of Information Technology. Our team is focused on bringing

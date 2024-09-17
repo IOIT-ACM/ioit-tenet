@@ -5,6 +5,7 @@
   overflow: hidden;
   position: relative;
   z-index: 1;
+  color: white;
 
   @media screen and (max-width: 800px) {
     padding: tovw(24px, 'mobile') tovw(16px, 'mobile');
@@ -53,6 +54,7 @@
     margin-left: tovw(-8px);
     max-width: unset;
     margin-bottom: tovw(20px, 'desktop-large', 16px);
+    color: white;
 
     @media screen and (max-width: 800px) {
       margin-left: -0.35vw;

@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { KONFHUB_PAGE } from '@/config';
 import { Button } from '@/components/ui/RoundedButton';
-import { LOADTIME } from '@/config'; // Assuming LOADTIME is a number, e.g., 2.5
+import { LOADTIME } from '@/config';
 
 gsap.registerPlugin(ScrollTrigger);
 
