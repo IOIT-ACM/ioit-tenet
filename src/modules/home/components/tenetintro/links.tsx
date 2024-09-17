@@ -19,7 +19,7 @@ export const Links: React.FC = () => {
         duration: 1,
         stagger: 0.3,
         ease: 'power3.out',
-        delay: LOADTIME + 0.5,
+        delay: LOADTIME,
       });
     }, linksRef);
 
