@@ -14,20 +14,16 @@ import Link from 'next/link';
 import { useMedia } from '@/hooks/use-media';
 import { toVw } from '@/lib/utils';
 import { cn } from '@/lib/utils';
-import { Socials } from '../ui/socials';
 
 import React, { useRef, useCallback } from 'react';
-import { useIsMobile } from '@/hooks/useismobile';
 
 const ghHref = 'https://linktr.ee/ioit_tenet';
 
 export const Footer = () => {
   const isDesktopSm = useMedia('(min-width: 1024px)');
-  const ismobile = useIsMobile();
 
   return (
     <div className='md:pb-20'>
-      {!ismobile && <Socials />}
       <Scrollytelling.Root start='top 80%'>
         <footer className={cn(s.footer, 'md:pb-20')}>
           <PreFooter />
