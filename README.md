@@ -1,4 +1,4 @@
-# IOIT-TENET web
+# IOIT-TENET 2024 website
 
 ## Repository Structure
 
