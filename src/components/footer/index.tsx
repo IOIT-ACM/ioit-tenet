@@ -17,15 +17,17 @@ import { cn } from '@/lib/utils';
 import { Socials } from '../ui/socials';
 
 import React, { useRef, useCallback } from 'react';
+import { useIsMobile } from '@/hooks/useismobile';
 
 const ghHref = 'https://linktr.ee/ioit_tenet';
 
 export const Footer = () => {
   const isDesktopSm = useMedia('(min-width: 1024px)');
+  const ismobile = useIsMobile();
 
   return (
     <div className='md:pb-20'>
-      <Socials />
+      {!ismobile && <Socials />}
       <Scrollytelling.Root start='top 80%'>
         <footer className={cn(s.footer, 'md:pb-20')}>
           <PreFooter />
@@ -116,14 +118,6 @@ const PreFooter = () => {
     <div className={s['pre-footer']}>
       <canvas ref={canvasRef} className={s.confetti} />
       <Scrollytelling.Waypoint at={50} onCall={triggerConfetti} />
-      <Scrollytelling.Waypoint
-        at={75}
-        tween={{
-          target: ['body'],
-          to: { background: 'black', color: 'white' },
-          duration: 0.35,
-        }}
-      />
       <div className={s['left-content']}>
         <p>
           IOIT ACM STUDENT CHAPTER WELCOMES YOU TO THE FIRST EDITION OF TENET

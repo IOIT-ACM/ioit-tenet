@@ -13,14 +13,6 @@ export const ThatsAllFolks = () => {
       <section className={s.section}>
         <div className='wrapper'>
           <Scrollytelling.Waypoint
-            at={50}
-            tween={{
-              target: ['body'],
-              to: { background: 'white', color: 'black' },
-              duration: 0.35,
-            }}
-          />
-          <Scrollytelling.Waypoint
             at={75}
             tween={{
               target: ['#smile-image', '#pc-image'],

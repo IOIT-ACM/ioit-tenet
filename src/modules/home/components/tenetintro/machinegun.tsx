@@ -4,7 +4,7 @@ import { KONFHUB_PAGE } from '@/config';
 
 export default function Machinegun() {
   return (
-    <div className='absolute bottom-14 w-full md:hidden'>
+    <div className='absolute bottom-36 w-full md:hidden'>
       <MachineGunText text='GET READY FOR TENET 2024'>
         <Button
           link={KONFHUB_PAGE}

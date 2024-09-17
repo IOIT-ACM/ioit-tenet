@@ -43,15 +43,15 @@ export const AnimatedLogo: React.FC = () => {
         scrollTrigger: {
           trigger: document.body,
           start: 'top top',
-          end: '+=800',
+          end: '+=300',
           scrub: true,
         },
       });
 
       tl.to(TTref.current.scale, {
-        x: ismobile ? 1.4 : 1.6, // Scale up to 1.6x on scroll
-        y: ismobile ? 1.4 : 1.6,
-        z: ismobile ? 1.4 : 1.6,
+        x: ismobile ? 1.4 : 1.3, // Scale up to 1.3x on scroll
+        y: ismobile ? 1.4 : 1.3,
+        z: ismobile ? 1.4 : 1.3,
         duration: 1,
         ease: 'power1.out',
       });
