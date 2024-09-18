@@ -15,19 +15,82 @@ gsap.registerPlugin(ScrollTrigger);
 
 const allEvents: ScheduleItemType[] = [...day1, ...day2, ...day3];
 
+const munItem1: ScheduleItemType = {
+  title: 'MUN Committee Session 1',
+  id: 'unsc-session',
+  domain: 'home',
+  color: 'bg-blue-500',
+  date: 'Oct 5th, 2024',
+  location: 'AISSMS IOIT',
+  start: new Date('2024-10-05T11:00:00'),
+  imp: false,
+  time: '11:00 AM - 2:00 PM',
+  description:
+    'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
+  image:
+    'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unsc.webp',
+};
+
+const munItem2: ScheduleItemType = {
+  title: 'MUN Committee Session 2',
+  id: 'unsc-session',
+  domain: 'home',
+  color: 'bg-blue-500',
+  date: 'Oct 6th, 2024',
+  location: 'AISSMS IOIT',
+  start: new Date('2024-10-05T15:00:00'),
+  imp: false,
+  time: '3:00 PM - 5:00 PM',
+  description:
+    'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
+  image:
+    'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unsc.webp',
+};
+
+const munItem3: ScheduleItemType = {
+  title: 'MUN Committee Session 1',
+  id: 'unsc-session',
+  domain: 'home',
+  color: 'bg-blue-500',
+  date: 'Oct 5th, 2024',
+  location: 'AISSMS IOIT',
+  start: new Date('2024-10-06T11:00:00'),
+  imp: false,
+  time: '11:00 AM - 2:00 PM',
+  description:
+    'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
+  image:
+    'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unsc.webp',
+};
+
+const munItem4: ScheduleItemType = {
+  title: 'MUN Committee Session 2',
+  id: 'unsc-session-day2',
+  domain: 'home',
+  color: 'bg-blue-500',
+  date: 'Oct 6th, 2024',
+  location: 'AISSMS IOIT',
+  start: new Date('2024-10-06T15:00:00'),
+  imp: false,
+  time: '3:00 PM - 5:00 PM',
+  description:
+    'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
+  image:
+    'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unsc.webp',
+};
+
+const munEvents = [munItem1, munItem2, munItem3, munItem4];
+
 export const Timeline: React.FC<{ domain: string }> = ({ domain }) => {
-  const esummit_events = useMemo(
-    () =>
-      domain === 'mun'
-        ? allEvents
-            .filter((event) => event.domain === domain)
-            .filter((event) => !event.imp)
-            .sort((a, b) => a.start.getTime() - b.start.getTime())
-        : allEvents
-            .filter((event) => event.domain === domain)
-            .sort((a, b) => a.start.getTime() - b.start.getTime()),
-    [domain],
-  );
+  const esummit_events = useMemo(() => {
+    const filteredEvents = allEvents.filter((event) => event.domain === domain);
+
+    return domain === 'mun'
+      ? [...filteredEvents, ...munEvents]
+          .filter((event) => !event.imp)
+          .sort((a, b) => a.start.getTime() - b.start.getTime())
+      : filteredEvents.sort((a, b) => a.start.getTime() - b.start.getTime());
+  }, [domain]);
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeEventIndex, setActiveEventIndex] = useState<number>(0);
 
