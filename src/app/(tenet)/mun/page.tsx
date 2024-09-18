@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { HeroImage } from '@/components/common';
 import { env } from '@/env';
 import { MUNLINK } from '@/config';
+import { Timeline } from '@/components/common';
 
 import { GCCarousel } from '@/modules/events/mun';
 
@@ -35,6 +36,7 @@ export default function Page() {
         ctalink1color='#739e9e'
       />
       <GCCarousel />
+      <Timeline domain='mun' />
     </main>
   );
 }

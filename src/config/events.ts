@@ -388,6 +388,72 @@ export const day2: ScheduleItemType[] = [
   },
 
   // MUN
+
+  {
+    title: 'MUN Breakfast and Reporting',
+    icon: 'FcGlobe',
+    id: 'breakfast-reporting-day1',
+    domain: 'mun',
+    color: 'bg-blue-500',
+    date: 'Oct 5th, 2024',
+    location: 'Admin Office',
+    start: new Date('2024-10-05T08:00:00'),
+    imp: false,
+    time: '8:00 AM - 9:00 AM',
+    description: 'Start your day with breakfast and reporting.',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/breakfast.jpeg',
+    organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
+  },
+  {
+    title: 'IOIT MUN Opening Ceremony',
+    icon: 'FcGlobe',
+    id: 'opening-ceremony',
+    domain: 'mun',
+    color: 'bg-red-500',
+    date: 'Oct 5th, 2024',
+    location: 'MPH',
+    start: new Date('2024-10-05T09:00:00'),
+    imp: false,
+    time: '9:00 AM - 11:00 AM',
+    description: 'The official opening ceremony of IOIT MUN 2024.',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/inaugration.jpeg',
+    organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
+  },
+  {
+    title: 'MUN Lunch',
+    icon: 'FcGlobe',
+    id: 'lunch-day1',
+    domain: 'mun',
+    color: 'bg-green-500',
+    date: 'Oct 5th, 2024',
+    location: '3rd Floor Terrace',
+    start: new Date('2024-10-05T14:00:00'),
+    imp: false,
+    time: '2:00 PM - 3:00 PM',
+    description: 'Lunch break for all IOIT MUN 2024 participants.',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/munlunch.jpeg',
+    organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
+  },
+  {
+    title: 'MUN High tea',
+    icon: 'FcGlobe',
+    id: 'high-tea-day1',
+    domain: 'mun',
+    color: 'bg-orange-500',
+    date: 'Oct 5th, 2024',
+    location: 'In hand',
+    start: new Date('2024-10-05T17:00:00'),
+    imp: false,
+    time: '5:00 PM - 5:30 PM',
+    description: 'High tea session for all IOIT MUN 2024 attendees.',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/hightea.jpeg',
+    organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
+  },
+
   {
     title: 'UNSC Committee Session',
     icon: 'FcGlobe',
@@ -540,6 +606,56 @@ export const day3: ScheduleItemType[] = [
   },
 
   // MUN (Day 2)
+
+  {
+    title: 'MUN Breakfast and Reporting',
+    icon: 'FcGlobe',
+    id: 'breakfast-reporting-day2',
+    domain: 'mun',
+    color: 'bg-blue-500',
+    date: 'Oct 6th, 2024',
+    location: 'Admin Office, 3rd Floor',
+    start: new Date('2024-10-06T09:00:00'),
+    imp: false,
+    time: '9:00 AM - 10:00 AM',
+    description: 'Start your day with breakfast and reporting.',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/breakfast.jpeg',
+    organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
+  },
+  {
+    title: 'MUN Lunch',
+    icon: 'FcGlobe',
+    id: 'lunch-day2',
+    domain: 'mun',
+    color: 'bg-green-500',
+    date: 'Oct 6th, 2024',
+    location: '3rd Floor Terrace',
+    start: new Date('2024-10-06T13:00:00'),
+    imp: false,
+    time: '1:00 PM - 2:00 PM',
+    description: 'Lunch break for all IOIT MUN 2024 participants.',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/munlunch.jpeg',
+    organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
+  },
+  {
+    title: 'MUN High tea and Closing Ceremony',
+    icon: 'FcGlobe',
+    id: 'high-tea-closing-ceremony',
+    domain: 'mun',
+    color: 'bg-orange-500',
+    date: 'Oct 6th, 2024',
+    location: 'MPH',
+    start: new Date('2024-10-06T16:00:00'),
+    imp: false,
+    time: '4:00 PM - 5:00 PM',
+    description: 'High tea and closing ceremony to conclude IOIT MUN 2024.',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/inaugration.jpeg',
+    organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
+  },
+
   {
     title: 'UNSC Committee Session',
     icon: 'FcGlobe',

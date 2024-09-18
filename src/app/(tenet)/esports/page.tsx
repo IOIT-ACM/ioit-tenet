@@ -1,4 +1,4 @@
-import { HeroImage, Sponsors } from '@/components/common';
+import { HeroImage } from '@/components/common';
 import type { Metadata } from 'next';
 import { env } from '@/env';
 import { GCCarousel } from '@/modules/events/esports';
@@ -30,7 +30,6 @@ export default async function Page() {
         ctaLink='#timeline'
       />
       <GCCarousel />
-      <Sponsors />
     </main>
   );
 }

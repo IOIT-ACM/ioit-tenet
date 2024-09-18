@@ -1,4 +1,4 @@
-import { HeroImage, Timeline, Sponsors } from '@/components/common';
+import { HeroImage, Timeline } from '@/components/common';
 import type { Metadata } from 'next';
 import { env } from '@/env';
 
@@ -29,8 +29,6 @@ export default async function Page() {
         ctaLink='#timeline'
       />
       <Timeline domain='techfiesta' />
-      {/* <Speakers /> */}
-      <Sponsors />
     </main>
   );
 }

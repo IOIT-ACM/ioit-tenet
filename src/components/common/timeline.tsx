@@ -17,7 +17,15 @@ const allEvents: ScheduleItemType[] = [...day1, ...day2, ...day3];
 
 export const Timeline: React.FC<{ domain: string }> = ({ domain }) => {
   const esummit_events = useMemo(
-    () => allEvents.filter((event) => event.domain === domain),
+    () =>
+      domain === 'mun'
+        ? allEvents
+            .filter((event) => event.domain === domain)
+            .filter((event) => !event.imp)
+            .sort((a, b) => a.start.getTime() - b.start.getTime())
+        : allEvents
+            .filter((event) => event.domain === domain)
+            .sort((a, b) => a.start.getTime() - b.start.getTime()),
     [domain],
   );
   const containerRef = useRef<HTMLDivElement>(null);
@@ -74,10 +82,10 @@ export const Timeline: React.FC<{ domain: string }> = ({ domain }) => {
   return (
     <main
       id='timeline'
-      className='flex min-h-screen flex-col items-center bg-black p-4 text-white'
+      className='flex flex-col items-center overflow-hidden bg-neutral-950 p-4 text-white'
     >
       <h1 className='my-12 bg-gradient-to-r from-indigo-300 to-indigo-600 bg-clip-text text-center text-4xl font-bold text-transparent md:my-24 md:text-6xl'>
-        Events Timeline
+        {domain.toLocaleUpperCase()} Events Timeline
       </h1>
       <div
         ref={containerRef}
