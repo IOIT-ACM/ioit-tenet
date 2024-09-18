@@ -15,8 +15,10 @@ export const Schedule = () => {
   const boundaryRef = useRef(null);
   const showPreview = useStore((state) => state.showPreview);
   const setShowPreview = useStore((state) => state.setShowPreview);
+
   const d1 = useMemo(() => {
-    const sortedDay1 = day1.sort(
+    const filteredDay1 = day1.filter((item) => item.domain !== 'mun');
+    const sortedDay1 = filteredDay1.sort(
       (a, b) => a.start.getTime() - b.start.getTime(),
     );
     const importantItems = sortedDay1.filter((item) => item.imp);
@@ -27,7 +29,8 @@ export const Schedule = () => {
   }, [expanded]);
 
   const d2 = useMemo(() => {
-    const sortedDay2 = day2.sort(
+    const filteredDay2 = day2.filter((item) => item.domain !== 'mun');
+    const sortedDay2 = filteredDay2.sort(
       (a, b) => a.start.getTime() - b.start.getTime(),
     );
     const importantItems = sortedDay2.filter((item) => item.imp);
@@ -38,7 +41,8 @@ export const Schedule = () => {
   }, [expanded]);
 
   const d3 = useMemo(() => {
-    const sortedDay3 = day3.sort(
+    const filteredDay3 = day3.filter((item) => item.domain !== 'mun');
+    const sortedDay3 = filteredDay3.sort(
       (a, b) => a.start.getTime() - b.start.getTime(),
     );
     const importantItems = sortedDay3.filter((item) => item.imp);
