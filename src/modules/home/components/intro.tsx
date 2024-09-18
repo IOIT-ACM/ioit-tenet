@@ -50,7 +50,7 @@ export const Intro: React.FC = () => {
     <div
       id='intro'
       ref={containerRef}
-      className='overflow-hidden p-10 text-slate-100 transition-colors duration-1000 md:min-h-[100vh] md:p-20 md:pb-[200px]'
+      className='overflow-hidden p-10 text-slate-100 transition-colors duration-1000 md:min-h-[70vh] md:p-20 md:pb-[200px]'
     >
       <h1 className='reveal-type text-3xl font-extrabold md:text-[80px]'>
         What is TENET?

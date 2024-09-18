@@ -5,14 +5,9 @@ import React, { useRef, useEffect } from 'react';
 import type * as THREE from 'three';
 import { TTLogo } from '@/lib/ttlogo';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useIsMobile } from '@/hooks/useismobile';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export const AnimatedLogo: React.FC = () => {
   const TTref = useRef<THREE.Group>(null);
-  const ismobile = useIsMobile();
 
   useEffect(() => {
     if (TTref.current) {
@@ -37,30 +32,6 @@ export const AnimatedLogo: React.FC = () => {
           ease: 'power1.out',
         },
       );
-
-      // GSAP scroll-triggered animation
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: document.body,
-          start: 'top top',
-          end: '+=300',
-          scrub: true,
-        },
-      });
-
-      tl.to(TTref.current.scale, {
-        x: ismobile ? 1.4 : 1.4, // Scale up to 1.4x on scroll
-        y: ismobile ? 1.4 : 1.4,
-        z: ismobile ? 1.4 : 1.4,
-        duration: 1,
-        ease: 'power1.out',
-      });
-
-      tl.to(TTref.current.position, {
-        y: 1.6,
-        duration: 1,
-        ease: 'power1.out',
-      });
     }
   }, []);
 

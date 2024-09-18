@@ -19,6 +19,7 @@ export interface State {
   playerState: PlayerState;
   htmlcode: string;
   csscode: string;
+  showMenu: boolean;
 }
 
 export type Game = 'webmasterwars' | 'catchthebug' | null;
@@ -35,6 +36,7 @@ export interface PlayerState {
 interface Action {
   setVideoPlayed: (videoPlayed: boolean) => void;
   setShowPreview: (showPreview: boolean) => void;
+  setShowMenu: (showMenu: boolean) => void;
   setMusic: (music: boolean) => void;
   setCharacters: (characters: string[]) => void;
   setPlayerState: (player: PlayerState) => void;
@@ -51,6 +53,7 @@ export const useStateStore = create<State & Action>()(
       showPreview: true,
       music: false,
       characters: [],
+      showMenu: false,
       playerState: {
         name: '',
         selectedGame: null,
@@ -58,6 +61,7 @@ export const useStateStore = create<State & Action>()(
 
       setVideoPlayed: (videoPlayed) => set(() => ({ videoPlayed })),
       setShowPreview: (showPreview) => set(() => ({ showPreview })),
+      setShowMenu: (showMenu) => set(() => ({ showMenu })),
       setMusic: (music) => set(() => ({ music })),
       setCharacters: (characters) => set(() => ({ characters })),
       setPlayerState: (playerState) => set(() => ({ playerState })),
