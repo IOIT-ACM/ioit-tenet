@@ -391,7 +391,7 @@ export const day2: ScheduleItemType[] = [
   {
     title: 'UNSC Committee Session',
     icon: 'FcGlobe',
-    id: 'unsc-session-day2',
+    id: 'unsc-session',
     domain: 'mun',
     registration: MUNLINK,
     color: 'bg-blue-500',
@@ -409,7 +409,7 @@ export const day2: ScheduleItemType[] = [
   {
     title: 'UNHRC Committee Session',
     icon: 'FcGlobe',
-    id: 'unhrc-session-day2',
+    id: 'unhrc-session',
     domain: 'mun',
     registration: MUNLINK,
     color: 'bg-red-500',
@@ -427,7 +427,7 @@ export const day2: ScheduleItemType[] = [
   {
     title: 'AIPPM Committee Session',
     icon: 'FcGlobe',
-    id: 'aippm-session-day2',
+    id: 'aippm-session',
     domain: 'mun',
     registration: MUNLINK,
     color: 'bg-yellow-500',
@@ -445,7 +445,7 @@ export const day2: ScheduleItemType[] = [
   {
     title: 'UNCSW Committee Session',
     icon: 'FcGlobe',
-    id: 'uncsw-session-day2',
+    id: 'uncsw-session',
     domain: 'mun',
     registration: MUNLINK,
     color: 'bg-pink-500',
@@ -463,7 +463,7 @@ export const day2: ScheduleItemType[] = [
   {
     title: 'UNODC Committee Session',
     icon: 'FcGlobe',
-    id: 'unodc-session-day2',
+    id: 'unodc-session',
     domain: 'mun',
     registration: MUNLINK,
     color: 'bg-gray-500',
@@ -481,8 +481,6 @@ export const day2: ScheduleItemType[] = [
 ];
 
 export const day3: ScheduleItemType[] = [
-  // Creator's Conclave
-
   // E-Sports
   {
     icon: 'FaCalendar',
@@ -545,7 +543,7 @@ export const day3: ScheduleItemType[] = [
   {
     title: 'UNSC Committee Session',
     icon: 'FcGlobe',
-    id: 'unsc-session',
+    id: 'unsc-session-day2',
     domain: 'mun',
     registration: MUNLINK,
     color: 'bg-blue-500',
@@ -563,7 +561,7 @@ export const day3: ScheduleItemType[] = [
   {
     title: 'UNHRC Committee Session',
     icon: 'FcGlobe',
-    id: 'unhrc-session',
+    id: 'unhrc-session-day2',
     domain: 'mun',
     registration: MUNLINK,
     color: 'bg-red-500',
@@ -581,7 +579,7 @@ export const day3: ScheduleItemType[] = [
   {
     title: 'AIPPM Committee Session',
     icon: 'FcGlobe',
-    id: 'aippm-session',
+    id: 'aippm-session-day2',
     domain: 'mun',
     registration: MUNLINK,
     color: 'bg-yellow-500',
@@ -599,7 +597,7 @@ export const day3: ScheduleItemType[] = [
   {
     title: 'UNCSW Committee Session',
     icon: 'FcGlobe',
-    id: 'uncsw-session',
+    id: 'uncsw-session-day2',
     domain: 'mun',
     registration: MUNLINK,
     color: 'bg-pink-500',
@@ -617,7 +615,7 @@ export const day3: ScheduleItemType[] = [
   {
     title: 'UNODC Committee Session',
     icon: 'FcGlobe',
-    id: 'unodc-session',
+    id: 'unodc-session-day2',
     domain: 'mun',
     registration: MUNLINK,
     color: 'bg-gray-500',
