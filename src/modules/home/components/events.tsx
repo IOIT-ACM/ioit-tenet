@@ -56,7 +56,7 @@ const descriptionData = [
   {
     title: 'Trends',
     description:
-      'Creators Conclave is a full-day creativity explosion. Enjoy open mic, stand-up battles, and theatre showcases. Participate in workshops, network with other creatives, and immerse yourself in a funfair atmosphere. Showcase your talent and connect with the creative community.',
+      'Cultural Night is a full-day creativity explosion. Enjoy open mic, stand-up battles, and theatre showcases. Participate in workshops, network with other creatives, and immerse yourself in a funfair atmosphere. Showcase your talent and connect with the creative community.',
   },
 ];
 

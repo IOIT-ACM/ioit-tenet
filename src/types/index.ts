@@ -40,7 +40,7 @@ export type Speaker = {
 export type ScheduleItemType = {
   title: string;
   id: string;
-  domain: 'techfiesta' | 'esports' | 'mun' | 'esummit' | 'creators';
+  domain: 'techfiesta' | 'esports' | 'mun' | 'esummit' | 'creators' | 'home';
   description?: string;
   image: string;
   imp: boolean;
@@ -59,4 +59,5 @@ export interface Sponsor {
   name: string;
   logoUrl: string;
   websiteUrl?: string;
+  type?: string;
 }

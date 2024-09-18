@@ -31,7 +31,7 @@ const routes = [
   { path: '/esports', name: 'E-Sports' },
   { path: '/mun', name: 'MUN' },
   { path: '/esummit', name: 'E-Summit' },
-  { path: '/creators', name: 'Creators Conclave' },
+  { path: '/creators', name: 'Cultural Night' },
 ];
 
 export default function FixedNavBar({ className }: { className?: string }) {

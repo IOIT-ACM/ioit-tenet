@@ -8,7 +8,7 @@ export const day1: ScheduleItemType[] = [
     id: 'tenet-inauguration',
     domain: 'techfiesta',
     color: 'bg-green-700',
-    date: 'Sept 4th, 2024',
+    date: 'Oct 4th, 2024',
     location: 'Multipurpose Hall (MPH)',
     start: new Date('2024-09-12T09:00:00'),
     imp: false,
@@ -24,7 +24,7 @@ export const day1: ScheduleItemType[] = [
     id: 'product-management',
     domain: 'techfiesta',
     color: 'bg-blue-700',
-    date: 'Sept 4th, 2024',
+    date: 'Oct 4th, 2024',
     location: 'Room A',
     start: new Date('2024-09-12T11:15:00'),
     imp: true,
@@ -41,7 +41,7 @@ export const day1: ScheduleItemType[] = [
     id: 'ai-summit-panel',
     domain: 'techfiesta',
     color: 'bg-purple-700',
-    date: 'Sept 4th, 2024',
+    date: 'Oct 4th, 2024',
     location: 'Multipurpose hall (MPH)',
     start: new Date('2024-09-12T11:15:00'),
     imp: true,
@@ -90,7 +90,7 @@ export const day1: ScheduleItemType[] = [
     id: 'web3-panel',
     domain: 'techfiesta',
     color: 'bg-yellow-700',
-    date: 'Sept 4th, 2024',
+    date: 'Oct 4th, 2024',
     location: 'Multipurpose Hall (MPH)',
     start: new Date('2024-09-12T12:30:00'),
     imp: true,
@@ -107,7 +107,7 @@ export const day1: ScheduleItemType[] = [
     id: 'beginner-dev-guide',
     domain: 'techfiesta',
     color: 'bg-red-700',
-    date: 'Sept 4th, 2024',
+    date: 'Oct 4th, 2024',
     location: 'Multipurposr Hall (MPH)',
     start: new Date('2024-09-12T12:30:00'),
     imp: true,
@@ -124,7 +124,7 @@ export const day1: ScheduleItemType[] = [
     id: 'capture-the-flag',
     domain: 'techfiesta',
     color: 'bg-green-700',
-    date: 'Sept 4th, 2024',
+    date: 'Oct 4th, 2024',
     location: '112, 4th floor lab',
     start: new Date('2024-09-12T13:45:00'),
     imp: true,
@@ -142,7 +142,7 @@ export const day1: ScheduleItemType[] = [
     id: 'drone-workshop',
     domain: 'techfiesta',
     color: 'bg-blue-700',
-    date: 'Sept 4th, 2024',
+    date: 'Oct 4th, 2024',
     location: 'Room 407',
     start: new Date('2024-09-12T13:45:00'),
     imp: true,
@@ -159,7 +159,7 @@ export const day1: ScheduleItemType[] = [
     id: 'gen-ai-workshop',
     domain: 'techfiesta',
     color: 'bg-purple-700',
-    date: 'Sept 4th, 2024',
+    date: 'Oct 4th, 2024',
     location: 'Multipurpose Hall (MPH)',
     start: new Date('2024-09-12T14:00:00'),
     imp: true,
@@ -177,7 +177,7 @@ export const day1: ScheduleItemType[] = [
     id: 'arvr-session',
     domain: 'techfiesta',
     color: 'bg-yellow-700',
-    date: 'Sept 4th, 2024',
+    date: 'Oct 4th, 2024',
     location: 'Room 016',
     start: new Date('2024-09-12T14:00:00'),
     imp: true,
@@ -194,7 +194,7 @@ export const day1: ScheduleItemType[] = [
     id: 'webdev-guidance',
     domain: 'techfiesta',
     color: 'bg-red-700',
-    date: 'Sept 4th, 2024',
+    date: 'Oct 4th, 2024',
     location: 'Room 407',
     start: new Date('2024-09-12T15:30:00'),
     imp: true,
@@ -205,23 +205,23 @@ export const day1: ScheduleItemType[] = [
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/development.jpeg',
     organizers: [{ name: 'Shreya Kulkarni' }],
   },
-  {
-    title: 'Drone open space display',
-    icon: 'FaCalendar',
-    id: 'drone-display',
-    domain: 'techfiesta',
-    color: 'bg-green-700',
-    date: 'Sept 4th, 2024',
-    location: 'COE Grass Lawn',
-    start: new Date('2024-09-12T17:00:00'),
-    imp: true,
-    time: '5:00 PM',
-    description:
-      'A spectacular drone showcase demonstrating various applications and capabilities.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/dronedisplay.jpg',
-    organizers: [{ name: 'Shreya Kulkarni' }],
-  },
+  // {
+  //   title: 'Drone open space display',
+  //   icon: 'FaCalendar',
+  //   id: 'drone-display',
+  //   domain: 'techfiesta',
+  //   color: 'bg-green-700',
+  //   date: 'Oct 4th, 2024',
+  //   location: 'COE Grass Lawn',
+  //   start: new Date('2024-09-12T17:00:00'),
+  //   imp: true,
+  //   time: '5:00 PM',
+  //   description:
+  //     'A spectacular drone showcase demonstrating various applications and capabilities.',
+  //   image:
+  //     'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/dronedisplay.jpg',
+  //   organizers: [{ name: 'Shreya Kulkarni' }],
+  // },
 ];
 
 export const day2: ScheduleItemType[] = [
@@ -391,7 +391,7 @@ export const day2: ScheduleItemType[] = [
   {
     title: 'UNSC Committee Session',
     icon: 'FcGlobe',
-    id: 'unsc-session-day2',
+    id: 'unsc-session',
     domain: 'mun',
     registration: MUNLINK,
     color: 'bg-blue-500',
@@ -409,7 +409,7 @@ export const day2: ScheduleItemType[] = [
   {
     title: 'UNHRC Committee Session',
     icon: 'FcGlobe',
-    id: 'unhrc-session-day2',
+    id: 'unhrc-session',
     domain: 'mun',
     registration: MUNLINK,
     color: 'bg-red-500',
@@ -427,7 +427,7 @@ export const day2: ScheduleItemType[] = [
   {
     title: 'AIPPM Committee Session',
     icon: 'FcGlobe',
-    id: 'aippm-session-day2',
+    id: 'aippm-session',
     domain: 'mun',
     registration: MUNLINK,
     color: 'bg-yellow-500',
@@ -445,7 +445,7 @@ export const day2: ScheduleItemType[] = [
   {
     title: 'UNCSW Committee Session',
     icon: 'FcGlobe',
-    id: 'uncsw-session-day2',
+    id: 'uncsw-session',
     domain: 'mun',
     registration: MUNLINK,
     color: 'bg-pink-500',
@@ -463,7 +463,7 @@ export const day2: ScheduleItemType[] = [
   {
     title: 'UNODC Committee Session',
     icon: 'FcGlobe',
-    id: 'unodc-session-day2',
+    id: 'unodc-session',
     domain: 'mun',
     registration: MUNLINK,
     color: 'bg-gray-500',
@@ -481,8 +481,6 @@ export const day2: ScheduleItemType[] = [
 ];
 
 export const day3: ScheduleItemType[] = [
-  // Creator's Conclave
-
   // E-Sports
   {
     icon: 'FaCalendar',
@@ -545,7 +543,7 @@ export const day3: ScheduleItemType[] = [
   {
     title: 'UNSC Committee Session',
     icon: 'FcGlobe',
-    id: 'unsc-session',
+    id: 'unsc-session-day2',
     domain: 'mun',
     registration: MUNLINK,
     color: 'bg-blue-500',
@@ -563,7 +561,7 @@ export const day3: ScheduleItemType[] = [
   {
     title: 'UNHRC Committee Session',
     icon: 'FcGlobe',
-    id: 'unhrc-session',
+    id: 'unhrc-session-day2',
     domain: 'mun',
     registration: MUNLINK,
     color: 'bg-red-500',
@@ -581,7 +579,7 @@ export const day3: ScheduleItemType[] = [
   {
     title: 'AIPPM Committee Session',
     icon: 'FcGlobe',
-    id: 'aippm-session',
+    id: 'aippm-session-day2',
     domain: 'mun',
     registration: MUNLINK,
     color: 'bg-yellow-500',
@@ -599,7 +597,7 @@ export const day3: ScheduleItemType[] = [
   {
     title: 'UNCSW Committee Session',
     icon: 'FcGlobe',
-    id: 'uncsw-session',
+    id: 'uncsw-session-day2',
     domain: 'mun',
     registration: MUNLINK,
     color: 'bg-pink-500',
@@ -617,7 +615,7 @@ export const day3: ScheduleItemType[] = [
   {
     title: 'UNODC Committee Session',
     icon: 'FcGlobe',
-    id: 'unodc-session',
+    id: 'unodc-session-day2',
     domain: 'mun',
     registration: MUNLINK,
     color: 'bg-gray-500',

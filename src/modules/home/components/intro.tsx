@@ -52,7 +52,7 @@ export const Intro: React.FC = () => {
       ref={containerRef}
       className='overflow-hidden p-10 text-slate-100 transition-colors duration-1000 md:min-h-[100vh] md:p-20 md:pb-[200px]'
     >
-      <h1 className='reveal-type text-3xl font-extrabold md:text-[150px]'>
+      <h1 className='reveal-type text-3xl font-extrabold md:text-[80px]'>
         What is TENET?
       </h1>
       <br />
@@ -63,7 +63,7 @@ export const Intro: React.FC = () => {
           <br />
         </>
       )}
-      <div className='reveal-type text-md md:text-[45px]'>
+      <div className='reveal-type text-md md:text-[35px]'>
         TENET 2024 is organized by the IOIT ACM Student Chapter of AISSMS
         Institute of Information Technology. Our team is focused on bringing
         together innovation, creativity, and excellence to create an

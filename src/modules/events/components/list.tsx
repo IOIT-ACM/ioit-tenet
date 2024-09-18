@@ -154,7 +154,7 @@ const data = [
     imgUrl:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/events/mun.jpeg',
     subheading: 'Day 3',
-    heading: 'Creators Conclave, E-Sports, MUN Day-2',
+    heading: 'Cultural Night, E-Sports, MUN Day-2',
     url: '/mun',
   },
 ];

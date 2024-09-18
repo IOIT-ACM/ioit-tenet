@@ -9,14 +9,55 @@ import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import Link from 'next/link';
 import { Switch } from '@/components/ui/switch';
 import { useStore } from '@/store';
+import type { ScheduleItemType } from '@/types';
+
+const munItem1: ScheduleItemType = {
+  title: 'MUN Committee Session',
+  icon: 'FcGlobe',
+  id: 'unsc-session',
+  domain: 'home',
+  registration: 'MUNLINK',
+  color: 'bg-blue-500',
+  date: 'Oct 5th, 2024',
+  location: 'AISSMS IOIT',
+  start: new Date('2024-10-05T09:00:00'),
+  imp: true,
+  time: 'morning to evening',
+  description:
+    'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
+  image:
+    'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unsc.webp',
+  organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
+};
+
+const munItem2: ScheduleItemType = {
+  title: 'MUN Committee Session',
+  icon: 'FcGlobe',
+  id: 'unsc-session-day2',
+  domain: 'home',
+  registration: 'MUNLINK',
+  color: 'bg-blue-500',
+  date: 'Oct 6th, 2024',
+  location: 'AISSMS IOIT',
+  start: new Date('2024-10-06T09:00:00'),
+  imp: true,
+  time: 'morning to evening',
+  description:
+    'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
+  image:
+    'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unsc.webp',
+  organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
+};
 
 export const Schedule = () => {
   const [expanded, setExpanded] = useState<number | null>(null);
   const boundaryRef = useRef(null);
   const showPreview = useStore((state) => state.showPreview);
   const setShowPreview = useStore((state) => state.setShowPreview);
+
   const d1 = useMemo(() => {
-    const sortedDay1 = day1.sort(
+    const filteredDay1 = day1.filter((item) => item.domain !== 'mun');
+    const sortedDay1 = filteredDay1.sort(
       (a, b) => a.start.getTime() - b.start.getTime(),
     );
     const importantItems = sortedDay1.filter((item) => item.imp);
@@ -27,7 +68,10 @@ export const Schedule = () => {
   }, [expanded]);
 
   const d2 = useMemo(() => {
-    const sortedDay2 = day2.sort(
+    const filteredDay2 = [...day2, munItem1].filter(
+      (item) => item.domain !== 'mun',
+    );
+    const sortedDay2 = filteredDay2.sort(
       (a, b) => a.start.getTime() - b.start.getTime(),
     );
     const importantItems = sortedDay2.filter((item) => item.imp);
@@ -38,7 +82,10 @@ export const Schedule = () => {
   }, [expanded]);
 
   const d3 = useMemo(() => {
-    const sortedDay3 = day3.sort(
+    const filteredDay3 = [...day3, munItem2].filter(
+      (item) => item.domain !== 'mun',
+    );
+    const sortedDay3 = filteredDay3.sort(
       (a, b) => a.start.getTime() - b.start.getTime(),
     );
     const importantItems = sortedDay3.filter((item) => item.imp);

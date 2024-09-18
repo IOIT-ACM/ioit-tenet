@@ -113,7 +113,7 @@ export function TenetCommandDialog() {
       name: 'Contact developer',
     },
     { url: '/esummit', name: 'E-Summit Events Page' },
-    { url: '/creators', name: 'Creators Conclave Events Page' },
+    { url: '/creators', name: 'Cultural Night Events Page' },
   ];
 
   const handleSelect = (item: any) => {
