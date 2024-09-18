@@ -33,7 +33,7 @@ const ScrollIcon = () => {
   if (isVisible) {
     return (
       <div
-        className='fixed bottom-5 z-[9999999] hidden w-screen items-center justify-center md:bottom-10 md:flex'
+        className='fixed bottom-5 z-[9999999] flex w-screen items-center justify-center md:bottom-10'
         onClick={handleClick}
       >
         <Lottie

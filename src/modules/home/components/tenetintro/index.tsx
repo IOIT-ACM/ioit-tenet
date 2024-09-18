@@ -44,6 +44,7 @@ export const TenetHero: React.FC = () => {
       <TENET />
       <Machinegun />
       <TITLETEXT />
+      <div className='absolute bottom-0 left-0 right-0 z-0 h-56 bg-gradient-to-b from-zinc-950/0 to-neutral-950 sm:h-96' />
     </div>
   );
 };

@@ -31,7 +31,7 @@ export const Links: React.FC = () => {
   return (
     <div
       ref={linksRef}
-      className={`absolute h-fit w-fit md:right-10 md:top-1/2 md:-translate-y-1/2 ${ismobile && 'bottom-0 pb-32'}`}
+      className={`absolute z-50 h-fit w-fit md:right-10 md:top-1/2 md:-translate-y-1/2 ${ismobile && 'bottom-0 pb-32'}`}
     >
       <div className='flex w-screen flex-row items-center justify-center gap-5 text-xl drop-shadow-md md:w-fit md:flex-col md:text-2xl'>
         <Magnets link='/events' className='link-item text-white'>
