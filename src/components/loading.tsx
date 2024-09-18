@@ -21,7 +21,7 @@ const WelcomeScreen = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 100);
+    }, 600);
 
     return () => clearTimeout(timer);
   }, []);

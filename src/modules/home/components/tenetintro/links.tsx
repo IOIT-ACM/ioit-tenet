@@ -3,11 +3,13 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Magnets } from '@/components/ui/RoundedButton/magnets';
 import { LOADTIME } from '@/config';
+import { useIsMobile } from '@/hooks/useismobile';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export const Links: React.FC = () => {
   const linksRef = useRef<HTMLDivElement | null>(null);
+  const ismobile = useIsMobile();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -29,9 +31,9 @@ export const Links: React.FC = () => {
   return (
     <div
       ref={linksRef}
-      className='absolute bottom-20 h-fit w-fit md:right-10 md:top-1/2 md:-translate-y-1/2'
+      className={`absolute h-fit w-fit md:right-10 md:top-1/2 md:-translate-y-1/2 ${ismobile && 'bottom-0 pb-32'}`}
     >
-      <div className='flex w-screen flex-row items-center justify-center gap-5 text-xl md:w-fit md:flex-col md:text-2xl'>
+      <div className='flex w-screen flex-row items-center justify-center gap-5 text-xl drop-shadow-md md:w-fit md:flex-col md:text-2xl'>
         <Magnets link='/events' className='link-item text-white'>
           Events
         </Magnets>

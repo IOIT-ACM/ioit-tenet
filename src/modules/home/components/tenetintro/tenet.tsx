@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import SplitType from 'split-type'; // Import SplitType
+import SplitType from 'split-type';
 import { KONFHUB_PAGE } from '@/config';
-import { Button } from '@/components/ui/RoundedButton';
 import { LOADTIME } from '@/config';
+import { Separator } from '@/components/ui/separator';
+import Link from 'next/link';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -77,23 +78,25 @@ export const TENET: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className='absolute hidden h-fit transform md:left-10 md:top-1/2 md:block md:-translate-y-1/2'
+      className='absolute top-0 hidden h-fit transform flex-col justify-center md:left-10 md:flex md:h-full'
     >
-      <h2 className='headline hidden text-5xl text-white md:block'>
+      <h2 className='headline hidden text-5xl font-extrabold text-white md:block'>
         FIRST EDITION <br /> OF TENET <br /> 2024
       </h2>
-      <h2 className='date hidden text-xl text-gray-200 md:block'>
+      <h2 className='date hidden text-lg text-gray-200 md:block'>
         4th - 6th October 2024
       </h2>
-
-      <div className='flex w-screen select-none items-center justify-center gap-10 text-center md:mt-5 md:w-full md:flex-col md:text-2xl'>
-        <Button
-          link={KONFHUB_PAGE}
-          newpage
-          className='link-item bg-none text-white md:mt-0'
-        >
-          Get Early bird pass
-        </Button>
+      <div className='link-item flex w-screen items-center justify-center text-center md:mt-5 md:w-full md:flex-col md:items-start md:justify-start md:text-right md:text-2xl'>
+        <>
+          <Separator className='mb-4' />
+          <Link
+            href={KONFHUB_PAGE}
+            target='_blank'
+            className='date hidden text-2xl text-gray-200 md:block'
+          >
+            Get Early bird pass
+          </Link>
+        </>
       </div>
     </div>
   );

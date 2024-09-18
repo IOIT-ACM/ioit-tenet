@@ -3,29 +3,18 @@
 'use client';
 
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
+import { OrbitControls, Environment } from '@react-three/drei';
 import { AnimatedLogo } from '@/lib/AnimatedLogo';
 // import { MovingSpot } from '@/lib/spotlight';
 import { TENET } from './tenet';
 import Machinegun from './machinegun';
 import { Links } from './links';
-import { useState, useEffect } from 'react';
 import { TITLETEXT } from './title';
 
 export const TenetHero: React.FC = () => {
-  const [loading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 500);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <div className='relative h-screen w-screen overflow-hidden bg-neutral-950 pb-[20vh] md:pb-0'>
-      <Canvas>
+    <div className='relative h-screen w-screen overflow-hidden bg-neutral-950 drop-shadow-md'>
+      <Canvas eventPrefix='client'>
         <ambientLight intensity={1} />
         <directionalLight
           position={[1, 2, 5]}
@@ -33,7 +22,8 @@ export const TenetHero: React.FC = () => {
           intensity={0.9}
         />
         <OrbitControls enableZoom={false} />
-        {!loading && <AnimatedLogo />}
+        <Environment preset='studio' background blur={100} />
+        <AnimatedLogo />
         <spotLight
           angle={0.5}
           penumbra={0.5}
