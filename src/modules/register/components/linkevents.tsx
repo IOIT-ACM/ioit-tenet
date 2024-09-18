@@ -47,7 +47,7 @@ export const RegisterLinks: React.FC = () => {
       heading: 'Investing-Arena',
       subheading: 'Master the stock market with our Investing Arena challenge.',
       imgSrc:
-        'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
+        'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/investingarena.jpeg',
       href: 'https://docs.google.com/forms/d/e/1FAIpQLSdz4AXaeYZAy7jFUagt3g-zvJJV38If5njMlMiZ-49fMpXWjw/viewform',
     },
   ];
