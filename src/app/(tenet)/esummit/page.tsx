@@ -1,4 +1,4 @@
-import { HeroImage, Timeline, Sponsors } from '@/components/common';
+import { HeroImage, Timeline } from '@/components/common';
 import type { Metadata } from 'next';
 import { env } from '@/env';
 
@@ -30,7 +30,6 @@ export default function Page() {
       />
       <Timeline domain='esummit' />
       {/* <Speakers /> */}
-      <Sponsors />
     </main>
   );
 }

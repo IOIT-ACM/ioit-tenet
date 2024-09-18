@@ -1,4 +1,4 @@
-import { HeroImage, Sponsors } from '@/components/common';
+import { HeroImage } from '@/components/common';
 import type { Metadata } from 'next';
 import { env } from '@/env';
 
@@ -29,7 +29,6 @@ export default function Page() {
         // ctaText='Learn More'
         // ctaLink='#timeline'
       />
-      <Sponsors />
     </main>
   );
 }
