@@ -20,7 +20,7 @@ export async function generateMetadata({
       openGraph: {
         images: [
           {
-            url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/default.jpg',
+            url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/investingarena.jpeg',
             width: 800,
             height: 600,
             alt: `Event Image`,
