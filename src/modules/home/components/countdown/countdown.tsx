@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { gsap } from 'gsap';
 import TenetLive from './live';
 
 export const ShiftingCountdown = () => {
@@ -57,27 +57,38 @@ const DAY = HOUR * 24;
 
 type Unit = 'Day' | 'Hour' | 'Minute' | 'Second';
 
-const CountdownItem: React.FC<{
+interface CountdownItemProps {
   unit: Unit;
   text: string;
   setIsCountdownEnded: React.Dispatch<React.SetStateAction<boolean>>;
-}> = ({ unit, text, setIsCountdownEnded }) => {
+}
+
+const CountdownItem: React.FC<CountdownItemProps> = ({
+  unit,
+  text,
+  setIsCountdownEnded,
+}) => {
   const { time } = useTimer(unit, setIsCountdownEnded);
+  const timeRef = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    if (timeRef.current) {
+      gsap.fromTo(
+        timeRef.current,
+        { y: '50%', opacity: 0 },
+        { y: '0%', opacity: 1, duration: 0.35 },
+      );
+    }
+  }, [time]);
 
   return (
     <div className='flex h-24 w-1/4 min-w-28 flex-col items-center justify-center gap-1 rounded-xl bg-white font-mono md:h-36 md:gap-2'>
-      <AnimatePresence mode='popLayout'>
-        <motion.span
-          key={time}
-          initial={{ y: '50%', opacity: 0 }}
-          animate={{ y: '0%', opacity: 1 }}
-          exit={{ y: '-50%', opacity: 0 }}
-          transition={{ duration: 0.35 }}
-          className='block text-3xl font-medium text-black md:text-4xl lg:text-6xl xl:text-7xl'
-        >
-          {time}
-        </motion.span>
-      </AnimatePresence>
+      <span
+        ref={timeRef}
+        className='block text-3xl font-medium text-black md:text-4xl lg:text-6xl xl:text-7xl'
+      >
+        {time}
+      </span>
       <span className='text-xs font-light text-slate-500 md:text-lg lg:text-base'>
         {text}
       </span>
