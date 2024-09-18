@@ -45,7 +45,11 @@ export const Sponsors: React.FC = () => {
     return acc;
   }, {} as SponsorsByType);
 
-  const uniqueTypes = Object.keys(sponsorsByType);
+  // Separate 'Sponsor' type from others and sort the rest
+  const mainSponsors = sponsorsByType.Sponsor ?? [];
+  const otherTypes = Object.keys(sponsorsByType)
+    .filter((type) => type !== 'Sponsor')
+    .sort();
 
   const renderSponsor = (sponsor: Sponsor, index: number) => (
     <div
@@ -92,24 +96,26 @@ export const Sponsors: React.FC = () => {
     </div>
   );
 
+  const renderSponsorGroup = (type: string, sponsors: Sponsor[]) => (
+    <div key={type} className='mb-12'>
+      <h3
+        className={`mb-6 text-center font-semibold text-white md:pl-10 md:text-start ${type === 'Sponsor' ? 'text-4xl' : 'text-2xl'}`}
+      >
+        {type}
+      </h3>
+      <div className='grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5'>
+        {sponsors.map((sponsor, index) => renderSponsor(sponsor, index))}
+      </div>
+    </div>
+  );
+
   return (
     <section className='py-12'>
       <div className='mx-auto px-4'>
-        <h2 className='mb-8 text-center text-4xl font-bold text-white'>
-          Our Sponsors
-        </h2>
-        {uniqueTypes.map((type) => (
-          <div key={type} className='mb-12'>
-            <h3 className='mb-6 text-center text-2xl font-semibold text-white'>
-              {type}
-            </h3>
-            <div className='grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5'>
-              {sponsorsByType[type]?.map((sponsor, index) =>
-                renderSponsor(sponsor, index),
-              ) ?? []}
-            </div>
-          </div>
-        ))}
+        {mainSponsors.length > 0 && renderSponsorGroup('Sponsor', mainSponsors)}
+        {otherTypes.map((type) =>
+          renderSponsorGroup(type, sponsorsByType[type] ?? []),
+        )}
       </div>
     </section>
   );

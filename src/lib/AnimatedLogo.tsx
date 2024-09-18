@@ -30,9 +30,9 @@ export const AnimatedLogo: React.FC = () => {
         TTref.current.scale,
         { x: 0, y: 0, z: 0 },
         {
-          x: 1,
-          y: 1,
-          z: 1,
+          x: 1.2,
+          y: 1.2,
+          z: 1.2,
           duration: 1.9,
           ease: 'power1.out',
         },
@@ -49,9 +49,9 @@ export const AnimatedLogo: React.FC = () => {
       });
 
       tl.to(TTref.current.scale, {
-        x: ismobile ? 1.4 : 1.3, // Scale up to 1.3x on scroll
-        y: ismobile ? 1.4 : 1.3,
-        z: ismobile ? 1.4 : 1.3,
+        x: ismobile ? 1.4 : 1.4, // Scale up to 1.4x on scroll
+        y: ismobile ? 1.4 : 1.4,
+        z: ismobile ? 1.4 : 1.4,
         duration: 1,
         ease: 'power1.out',
       });
