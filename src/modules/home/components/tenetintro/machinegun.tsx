@@ -1,18 +1,18 @@
 import MachineGunText from '../../head/machinegun';
-import { Button } from '@/components/ui/RoundedButton';
+import Link from 'next/link';
 import { KONFHUB_PAGE } from '@/config';
 
 export default function Machinegun() {
   return (
-    <div className='absolute bottom-44 w-full md:hidden'>
+    <div className='absolute bottom-44 z-[9999] w-full md:hidden'>
       <MachineGunText text='GET READY FOR TENET 2024'>
-        <Button
-          link={KONFHUB_PAGE}
-          newpage
-          className='w-full bg-none text-white md:mt-0'
+        <Link
+          href={KONFHUB_PAGE}
+          target='_blank'
+          className='rounded-xl bg-gray-200 px-3 py-2 text-xl text-gray-800'
         >
-          Early bird pass
-        </Button>
+          Get Early bird pass
+        </Link>
       </MachineGunText>
     </div>
   );

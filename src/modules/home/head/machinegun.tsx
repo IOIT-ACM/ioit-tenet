@@ -80,7 +80,7 @@ const MachineGunText: React.FC<MachineGunTextProps> = ({ text, children }) => {
 
   return (
     <div
-      className='max-w-screen m-0 w-full overflow-hidden p-0 text-center text-white'
+      className='max-w-screen m-0 w-full p-0 text-center text-white'
       ref={containerRef}
     >
       {isComplete && <div>{children}</div>}
