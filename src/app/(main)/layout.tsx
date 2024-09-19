@@ -4,6 +4,11 @@ import { Providers } from '@/modules/providers';
 import WelcomeScreen from '@/components/loading';
 import { Footer } from '@/components/footer';
 
+import dynamic from 'next/dynamic';
+const ScrollIcon = dynamic(() => import('@/components/common/scrollicon'), {
+  ssr: false,
+});
+
 interface SiteLayoutProps {
   children: React.ReactNode;
 }
@@ -13,7 +18,9 @@ export default async function SiteLayout({ children }: SiteLayoutProps) {
     <div className='flex min-h-screen flex-col'>
       <FixedNavBar />
       <main className='flex-1'>
-        <Providers>{children}</Providers>
+        <Providers>
+          {children} <ScrollIcon />
+        </Providers>
       </main>
       <Footer />
       <WelcomeScreen />
