@@ -225,6 +225,229 @@ export const day1: ScheduleItemType[] = [
 ];
 
 export const day2: ScheduleItemType[] = [
+  // E-Sports
+  {
+    icon: 'FaCalendar',
+    title: 'BGMI LAN Event',
+    id: 'bgmi-lan-event',
+    domain: 'esports',
+    color: 'bg-red-500',
+    date: 'Oct 6th, 2024',
+    location: 'MPH',
+    start: new Date('2024-10-05T09:00:00'),
+    imp: true,
+    time: '9:00 AM',
+    description:
+      'Join the exciting BGMI LAN tournament as top teams battle it out in a competitive setting.',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/esports/esports/bgmi.avif',
+    organizers: [{ name: 'Ayush Sangole' }, { name: 'Avdhoot Chavan' }],
+    registration:
+      'https://docs.google.com/forms/d/e/1FAIpQLScsw5pMP3SjBaMcMrs1i1D96Cu7WttNDxu9vBYcPTS9Yr5oag/closedform',
+  },
+  {
+    title: 'FIFA (FC 24) PS5 Console Event',
+    icon: 'FaCalendar',
+    id: 'fifa-console-event',
+    domain: 'esports',
+    color: 'bg-green-500',
+    date: 'Oct 6th, 2024',
+    location: 'Room 105',
+    start: new Date('2024-10-05T09:00:00'),
+    imp: true,
+    time: '9:00 AM',
+    description:
+      'Experience the thrill of FIFA FC 24 on the PS5. Compete with other players for the top spot!',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/esports/esports/fifa.webp',
+    organizers: [{ name: 'Ayush Sangole' }, { name: 'Avdhoot Chavan' }],
+    registration: 'https://forms.gle/dqRBt7KwQF284b2z7',
+  },
+  {
+    title: 'Valorant',
+    icon: 'FaCalendar',
+    id: 'valorant-online',
+    domain: 'esports',
+    color: 'bg-purple-500',
+    date: 'Oct 6th, 2024',
+    location: 'Online',
+    start: new Date('2024-10-05T09:00:00'),
+    imp: true,
+    time: '9:00 AM',
+    description:
+      'Gear up for a competitive Valorant showdown as players from across the globe participate in this online tournament.',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/esports/esports/valo.webp',
+    organizers: [{ name: 'Ayush Sangole' }, { name: 'Avdhoot Chavan' }],
+    registration:
+      'https://docs.google.com/forms/d/e/1FAIpQLSdr4PZfpLjOrNdW5JFIcW09oYEjoDIPhvumvIWhOX78MeIaZQ/viewform',
+  },
+
+  // MUN
+
+  {
+    title: 'MUN Breakfast and Reporting',
+    icon: 'FcGlobe',
+    id: 'breakfast-reporting-day1',
+    domain: 'mun',
+    color: 'bg-blue-500',
+    date: 'Oct 5th, 2024',
+    location: 'Admin Office',
+    start: new Date('2024-10-05T08:00:00'),
+    imp: false,
+    time: '8:00 AM - 9:00 AM',
+    description: 'Start your day with breakfast and reporting.',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/breakfast.jpeg',
+    organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
+  },
+  {
+    title: 'IOIT MUN Opening Ceremony',
+    icon: 'FcGlobe',
+    id: 'opening-ceremony',
+    domain: 'mun',
+    color: 'bg-red-500',
+    date: 'Oct 5th, 2024',
+    location: 'MPH',
+    start: new Date('2024-10-05T09:00:00'),
+    imp: false,
+    time: '9:00 AM - 11:00 AM',
+    description: 'The official opening ceremony of IOIT MUN 2024.',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/inaugration.jpeg',
+    organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
+  },
+  {
+    title: 'MUN Lunch',
+    icon: 'FcGlobe',
+    id: 'lunch-day1',
+    domain: 'mun',
+    color: 'bg-green-500',
+    date: 'Oct 5th, 2024',
+    location: '3rd Floor Terrace',
+    start: new Date('2024-10-05T14:00:00'),
+    imp: false,
+    time: '2:00 PM - 3:00 PM',
+    description: 'Lunch break for all IOIT MUN 2024 participants.',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/munlunch.jpeg',
+    organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
+  },
+  {
+    title: 'MUN High tea',
+    icon: 'FcGlobe',
+    id: 'high-tea-day1',
+    domain: 'mun',
+    color: 'bg-orange-500',
+    date: 'Oct 5th, 2024',
+    location: 'In hand',
+    start: new Date('2024-10-05T17:00:00'),
+    imp: false,
+    time: '5:00 PM - 5:30 PM',
+    description: 'High tea session for all IOIT MUN 2024 attendees.',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/hightea.jpeg',
+    organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
+  },
+
+  {
+    title: 'UNSC Committee Session',
+    icon: 'FcGlobe',
+    id: 'unsc-session',
+    domain: 'mun',
+    registration: MUNLINK,
+    color: 'bg-blue-500',
+    date: 'Oct 5th, 2024',
+    location: 'Room 25',
+    start: new Date('2024-10-05T11:00:00'),
+    imp: true,
+    time: '11:00 AM',
+    description:
+      'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unsc.webp',
+    organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
+    munpage: 'https://www.ioitmun.com/unsc',
+  },
+  {
+    title: 'UNHRC Committee Session',
+    icon: 'FcGlobe',
+    id: 'unhrc-session',
+    domain: 'mun',
+    registration: MUNLINK,
+    color: 'bg-red-500',
+    date: 'Oct 5th, 2024',
+    location: 'Room 305',
+    start: new Date('2024-10-05T11:00:00'),
+    imp: true,
+    time: '11:00 AM',
+    description:
+      'The UNHRC promotes and protects human rights globally through dialogue and cooperation. Agenda: Discussing the role of state and non-state actors in the Venezuelan crisis, with emphasis on the humanitarian emergency following the presidential elections.',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unhcr.webp',
+    organizers: [{ name: 'Chinmay Nakwa' }, { name: 'Shriya Naphade' }],
+    munpage: 'https://www.ioitmun.com/unhrc',
+  },
+  {
+    title: 'AIPPM Committee Session',
+    icon: 'FcGlobe',
+    id: 'aippm-session',
+    domain: 'mun',
+    registration: MUNLINK,
+    color: 'bg-yellow-500',
+    date: 'Oct 5th, 2024',
+    location: 'Room 206',
+    start: new Date('2024-10-05T11:00:00'),
+    imp: true,
+    time: '11:00 AM',
+    description:
+      'AIPPM brings together diverse political factions to discuss national policies and reforms. Agenda: Deliberating on the introduction of the Aparajita Bill and the demand for a Central Protection Act.',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/aippm.jpg',
+    organizers: [{ name: 'Tanisha Londhe' }, { name: 'Atharva Pednekar' }],
+    munpage: 'https://www.ioitmun.com/aippm',
+  },
+  {
+    title: 'UNCSW Committee Session',
+    icon: 'FcGlobe',
+    id: 'uncsw-session',
+    domain: 'mun',
+    registration: MUNLINK,
+    color: 'bg-pink-500',
+    date: 'Oct 5th, 2024',
+    location: 'Room 405',
+    start: new Date('2024-10-05T11:00:00'),
+    imp: true,
+    time: '11:00 AM',
+    description:
+      "UNCSW is dedicated to promoting gender equality and women's empowerment globally. Agenda: Implications of human rights violations on women, with emphasis on religion-driven nations.",
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/uncsw.webp',
+    organizers: [{ name: 'Sajal Gulati' }, { name: 'Devang Gandhi' }],
+    munpage: 'https://www.ioitmun.com/uncsw',
+  },
+  {
+    title: 'UNODC Committee Session',
+    icon: 'FcGlobe',
+    id: 'unodc-session',
+    domain: 'mun',
+    registration: MUNLINK,
+    color: 'bg-gray-500',
+    date: 'Oct 5th, 2024',
+    location: 'Room 409',
+    start: new Date('2024-10-05T11:00:00'),
+    imp: true,
+    time: '11:00 AM',
+    description:
+      'UNODC combats global drug trafficking and organized crime while promoting justice and integrity. Agenda: Addressing the challenges of money and drug laundering in Special Economic Zones, with special emphasis on the Golden Triangle SEZ.',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unodc.jpg',
+    organizers: [{ name: 'Aditya Sarade' }, { name: 'Tanisha Londhe' }],
+    munpage: 'https://www.ioitmun.com/unodc',
+  },
+];
+
+export const day3: ScheduleItemType[] = [
   // Esummit
   {
     title: 'HR Summit',
@@ -387,224 +610,6 @@ export const day2: ScheduleItemType[] = [
       'Explore the opportunities of incubation and grants in this insightful session. Learn how to secure funding and resources to accelerate your startup’s growth from early-stage to success.',
   },
 
-  // MUN
-
-  {
-    title: 'MUN Breakfast and Reporting',
-    icon: 'FcGlobe',
-    id: 'breakfast-reporting-day1',
-    domain: 'mun',
-    color: 'bg-blue-500',
-    date: 'Oct 5th, 2024',
-    location: 'Admin Office',
-    start: new Date('2024-10-05T08:00:00'),
-    imp: false,
-    time: '8:00 AM - 9:00 AM',
-    description: 'Start your day with breakfast and reporting.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/breakfast.jpeg',
-    organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
-  },
-  {
-    title: 'IOIT MUN Opening Ceremony',
-    icon: 'FcGlobe',
-    id: 'opening-ceremony',
-    domain: 'mun',
-    color: 'bg-red-500',
-    date: 'Oct 5th, 2024',
-    location: 'MPH',
-    start: new Date('2024-10-05T09:00:00'),
-    imp: false,
-    time: '9:00 AM - 11:00 AM',
-    description: 'The official opening ceremony of IOIT MUN 2024.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/inaugration.jpeg',
-    organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
-  },
-  {
-    title: 'MUN Lunch',
-    icon: 'FcGlobe',
-    id: 'lunch-day1',
-    domain: 'mun',
-    color: 'bg-green-500',
-    date: 'Oct 5th, 2024',
-    location: '3rd Floor Terrace',
-    start: new Date('2024-10-05T14:00:00'),
-    imp: false,
-    time: '2:00 PM - 3:00 PM',
-    description: 'Lunch break for all IOIT MUN 2024 participants.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/munlunch.jpeg',
-    organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
-  },
-  {
-    title: 'MUN High tea',
-    icon: 'FcGlobe',
-    id: 'high-tea-day1',
-    domain: 'mun',
-    color: 'bg-orange-500',
-    date: 'Oct 5th, 2024',
-    location: 'In hand',
-    start: new Date('2024-10-05T17:00:00'),
-    imp: false,
-    time: '5:00 PM - 5:30 PM',
-    description: 'High tea session for all IOIT MUN 2024 attendees.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/hightea.jpeg',
-    organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
-  },
-
-  {
-    title: 'UNSC Committee Session',
-    icon: 'FcGlobe',
-    id: 'unsc-session',
-    domain: 'mun',
-    registration: MUNLINK,
-    color: 'bg-blue-500',
-    date: 'Oct 5th, 2024',
-    location: 'Room 25',
-    start: new Date('2024-10-05T11:00:00'),
-    imp: true,
-    time: '11:00 AM',
-    description:
-      'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unsc.webp',
-    organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
-  },
-  {
-    title: 'UNHRC Committee Session',
-    icon: 'FcGlobe',
-    id: 'unhrc-session',
-    domain: 'mun',
-    registration: MUNLINK,
-    color: 'bg-red-500',
-    date: 'Oct 5th, 2024',
-    location: 'Room 305',
-    start: new Date('2024-10-05T11:00:00'),
-    imp: true,
-    time: '11:00 AM',
-    description:
-      'The UNHRC promotes and protects human rights globally through dialogue and cooperation. Agenda: Discussing the role of state and non-state actors in the Venezuelan crisis, with emphasis on the humanitarian emergency following the presidential elections.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unhcr.webp',
-    organizers: [{ name: 'Chinmay Nakwa' }, { name: 'Shriya Naphade' }],
-  },
-  {
-    title: 'AIPPM Committee Session',
-    icon: 'FcGlobe',
-    id: 'aippm-session',
-    domain: 'mun',
-    registration: MUNLINK,
-    color: 'bg-yellow-500',
-    date: 'Oct 5th, 2024',
-    location: 'Room 206',
-    start: new Date('2024-10-05T11:00:00'),
-    imp: true,
-    time: '11:00 AM',
-    description:
-      'AIPPM brings together diverse political factions to discuss national policies and reforms. Agenda: Deliberating on the introduction of the Aparajita Bill and the demand for a Central Protection Act.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/aippm.jpg',
-    organizers: [{ name: 'Tanisha Londhe' }, { name: 'Atharva Pednekar' }],
-  },
-  {
-    title: 'UNCSW Committee Session',
-    icon: 'FcGlobe',
-    id: 'uncsw-session',
-    domain: 'mun',
-    registration: MUNLINK,
-    color: 'bg-pink-500',
-    date: 'Oct 5th, 2024',
-    location: 'Room 405',
-    start: new Date('2024-10-05T11:00:00'),
-    imp: true,
-    time: '11:00 AM',
-    description:
-      "UNCSW is dedicated to promoting gender equality and women's empowerment globally. Agenda: Implications of human rights violations on women, with emphasis on religion-driven nations.",
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/uncsw.webp',
-    organizers: [{ name: 'Sajal Gulati' }, { name: 'Devang Gandhi' }],
-  },
-  {
-    title: 'UNODC Committee Session',
-    icon: 'FcGlobe',
-    id: 'unodc-session',
-    domain: 'mun',
-    registration: MUNLINK,
-    color: 'bg-gray-500',
-    date: 'Oct 5th, 2024',
-    location: 'Room 409',
-    start: new Date('2024-10-05T11:00:00'),
-    imp: true,
-    time: '11:00 AM',
-    description:
-      'UNODC combats global drug trafficking and organized crime while promoting justice and integrity. Agenda: Addressing the challenges of money and drug laundering in Special Economic Zones, with special emphasis on the Golden Triangle SEZ.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unodc.jpg',
-    organizers: [{ name: 'Aditya Sarade' }, { name: 'Tanisha Londhe' }],
-  },
-];
-
-export const day3: ScheduleItemType[] = [
-  // E-Sports
-  {
-    icon: 'FaCalendar',
-    title: 'BGMI LAN Event',
-    id: 'bgmi-lan-event',
-    domain: 'esports',
-    color: 'bg-red-500',
-    date: 'Oct 6th, 2024',
-    location: 'MPH',
-    start: new Date('2024-10-06T09:00:00'),
-    imp: true,
-    time: '9:00 AM',
-    description:
-      'Join the exciting BGMI LAN tournament as top teams battle it out in a competitive setting.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/esports/esports/bgmi.avif',
-    organizers: [{ name: 'Ayush Sangole' }, { name: 'Avdhoot Chavan' }],
-    registration:
-      'https://docs.google.com/forms/d/e/1FAIpQLScsw5pMP3SjBaMcMrs1i1D96Cu7WttNDxu9vBYcPTS9Yr5oag/closedform',
-  },
-  {
-    title: 'FIFA (FC 24) PS5 Console Event',
-    icon: 'FaCalendar',
-    id: 'fifa-console-event',
-    domain: 'esports',
-    color: 'bg-green-500',
-    date: 'Oct 6th, 2024',
-    location: 'Room 105',
-    start: new Date('2024-10-06T09:00:00'),
-    imp: true,
-    time: '9:00 AM',
-    description:
-      'Experience the thrill of FIFA FC 24 on the PS5. Compete with other players for the top spot!',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/esports/esports/fifa.webp',
-    organizers: [{ name: 'Ayush Sangole' }, { name: 'Avdhoot Chavan' }],
-    registration: 'https://forms.gle/dqRBt7KwQF284b2z7',
-  },
-  {
-    title: 'Valorant',
-    icon: 'FaCalendar',
-    id: 'valorant-online',
-    domain: 'esports',
-    color: 'bg-purple-500',
-    date: 'Oct 6th, 2024',
-    location: 'Online',
-    start: new Date('2024-10-06T09:00:00'),
-    imp: true,
-    time: '9:00 AM',
-    description:
-      'Gear up for a competitive Valorant showdown as players from across the globe participate in this online tournament.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/esports/esports/valo.webp',
-    organizers: [{ name: 'Ayush Sangole' }, { name: 'Avdhoot Chavan' }],
-    registration:
-      'https://docs.google.com/forms/d/e/1FAIpQLSdr4PZfpLjOrNdW5JFIcW09oYEjoDIPhvumvIWhOX78MeIaZQ/viewform',
-  },
-
   // MUN (Day 2)
 
   {
@@ -661,6 +666,7 @@ export const day3: ScheduleItemType[] = [
     icon: 'FcGlobe',
     id: 'unsc-session-day2',
     domain: 'mun',
+    munpage: 'https://www.ioitmun.com/unsc',
     registration: MUNLINK,
     color: 'bg-blue-500',
     date: 'Oct 6th, 2024',
@@ -679,6 +685,7 @@ export const day3: ScheduleItemType[] = [
     icon: 'FcGlobe',
     id: 'unhrc-session-day2',
     domain: 'mun',
+    munpage: 'https://www.ioitmun.com/unhrc',
     registration: MUNLINK,
     color: 'bg-red-500',
     date: 'Oct 6th, 2024',
@@ -697,6 +704,7 @@ export const day3: ScheduleItemType[] = [
     icon: 'FcGlobe',
     id: 'aippm-session-day2',
     domain: 'mun',
+    munpage: 'https://www.ioitmun.com/aippm',
     registration: MUNLINK,
     color: 'bg-yellow-500',
     date: 'Oct 6th, 2024',
@@ -715,6 +723,7 @@ export const day3: ScheduleItemType[] = [
     icon: 'FcGlobe',
     id: 'uncsw-session-day2',
     domain: 'mun',
+    munpage: 'https://www.ioitmun.com/uncsw',
     registration: MUNLINK,
     color: 'bg-pink-500',
     date: 'Oct 6th, 2024',
@@ -733,6 +742,7 @@ export const day3: ScheduleItemType[] = [
     icon: 'FcGlobe',
     id: 'unodc-session-day2',
     domain: 'mun',
+    munpage: 'https://www.ioitmun.com/unodc',
     registration: MUNLINK,
     color: 'bg-gray-500',
     date: 'Oct 6th, 2024',

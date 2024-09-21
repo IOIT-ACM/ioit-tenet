@@ -25,7 +25,7 @@ export const EventLinksStructure: React.FC<{ day: number }> = ({ day }) => {
           rotateX: 0,
           stagger: 0.3,
           ease: 'elastic.out(1, 0.75)',
-          duration: 1.5,
+          duration: 0.6,
           scrollTrigger: {
             trigger: eventRefs.current,
             start: 'top 80%',
@@ -55,10 +55,18 @@ export const EventLinksStructure: React.FC<{ day: number }> = ({ day }) => {
                 className='bg-gray-500 transition-transform duration-500 group-hover:rotate-1 group-hover:scale-110'
               />
             </div>
-            <div className='p-2 md:p-5'>
-              <h3 className='mb-2 line-clamp-2 text-base font-bold text-gray-800 transition-colors duration-300 group-hover:text-blue-600 md:text-xl'>
+            <div className='relative flex items-center justify-between p-2 md:p-5'>
+              <h3 className='mb-2 line-clamp-2 text-sm font-bold text-gray-800 transition-colors duration-300 group-hover:text-blue-600 md:text-xl'>
                 {event.title}
               </h3>
+              {event.domain === 'mun' && (
+                <Image
+                  src='https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/mun3.png'
+                  alt='MUN image'
+                  height={30}
+                  width={30}
+                />
+              )}
             </div>
           </div>
         </Link>

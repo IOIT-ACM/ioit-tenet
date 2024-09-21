@@ -147,14 +147,14 @@ const data = [
     imgUrl:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/events/building.jpeg',
     subheading: 'Day 2',
-    heading: 'E-Summit & MUN',
+    heading: 'MUN eSports & Cultural Night',
     url: '/esummit',
   },
   {
     imgUrl:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/events/mun.jpeg',
     subheading: 'Day 3',
-    heading: 'Cultural Night, E-Sports, MUN Day-2',
-    url: '/mun',
+    heading: 'MUN Day-2 and E-Summit',
+    url: '/esummit',
   },
 ];

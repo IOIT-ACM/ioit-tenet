@@ -150,9 +150,20 @@ ${event.title} at AISSMS IOIT TENET 2024
                 {event.location}
               </p>
             </div>
-            <p ref={descriptionRef} className='text-lg text-slate-400'>
+            <p ref={descriptionRef} className='pb-3 text-lg text-slate-400'>
               {event.description}
             </p>
+
+            {event.munpage && (
+              <Link
+                href={event.munpage}
+                target='_blank'
+                className='flex items-center text-lg font-semibold underline'
+              >
+                View more details
+                <HiExternalLink className='ml-2 h-5 w-5' />
+              </Link>
+            )}
 
             {event.speakers && event.speakers.length > 0 && (
               <div ref={speakersRef}>
