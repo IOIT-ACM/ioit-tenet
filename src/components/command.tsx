@@ -99,7 +99,7 @@ export function TenetCommandDialog() {
     },
     {
       url: '/events',
-      name: 'View agenda for TENET 2024',
+      name: 'View TENET Agenda for TENET 2024',
     },
     { url: '/techfiesta', name: 'Techfiesta Events Page' },
     { url: '/esports', name: 'E-Sports Events Page' },

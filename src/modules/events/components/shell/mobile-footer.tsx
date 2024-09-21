@@ -63,12 +63,12 @@ const MobileFooter = () => {
   return (
     <Drawer open={isOpen} onOpenChange={setIsOpen}>
       <DrawerTrigger className='w-full text-black'>
-        {isEventsPath ? 'View Agenda' : 'View speakers'}
+        {isEventsPath ? 'View TENET Agenda' : 'View speakers'}
       </DrawerTrigger>
       <DrawerContent className='text-black'>
         <DrawerHeader>
           <DrawerTitle>
-            {isEventsPath ? 'View Agenda' : 'View speakers'}
+            {isEventsPath ? 'View TENET Agenda' : 'View speakers'}
           </DrawerTitle>
         </DrawerHeader>
         <Carousel setApi={setApi}>
@@ -77,7 +77,7 @@ const MobileFooter = () => {
               {allEvents.map((event, index) => (
                 <CarouselItem key={index}>
                   <Link href={`/events/${event.id}`} onClick={handleItemClick}>
-                    <div className='flex h-full select-none flex-col items-center justify-between px-4 py-10 text-center'>
+                    <div className='relative flex h-full select-none flex-col items-center justify-between px-4 py-10 text-center'>
                       <Image
                         src={event.image}
                         alt={event.title}
@@ -85,6 +85,15 @@ const MobileFooter = () => {
                         height={200}
                         width={200}
                       />
+                      {event.domain === 'mun' && (
+                        <Image
+                          src='https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/mun3.png'
+                          alt='MUN image'
+                          height={35}
+                          width={35}
+                          className='absolute right-3 top-3'
+                        />
+                      )}
                       <h2 className='mb-2 text-xl font-semibold'>
                         {event.title}
                       </h2>
