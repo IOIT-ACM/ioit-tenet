@@ -1,7 +1,14 @@
+/* eslint-disable @typescript-eslint/unbound-method */
+/* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 'use client';
 
+import React, { useRef, useState, type ChangeEvent } from 'react';
+import Image from 'next/image';
+import { FiDownload } from 'react-icons/fi';
+import { FaUpload } from 'react-icons/fa';
+import { IoMdCloudDone } from 'react-icons/io';
 import {
   Form,
   FormControl,
@@ -10,6 +17,17 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogClose,
+  DialogFooter,
+} from '@/components/ui/dialog';
+import CongratulationsModal from './modal';
 import { useForm } from 'react-hook-form';
 import type { z } from 'zod';
 import { toast } from 'sonner';
@@ -19,21 +37,21 @@ import { Textarea } from '@/components/ui/textarea';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { registerSchema, initialFormData } from '@/validators/ctf';
 import { Checkbox } from '@/components/ui/checkbox';
-import React from 'react';
-import Image from 'next/image';
-import { FiDownload } from 'react-icons/fi';
-import { Separator } from '@/components/ui/separator';
 import { type CTFUser } from '@/types/forms';
+import { Plus, User } from 'lucide-react';
 
 type FormInput = z.infer<typeof registerSchema>;
+type AcceptedFileType = 'image/jpeg' | 'image/png' | 'image/gif';
 
 export default function RegisterForm() {
   const form = useForm<FormInput>({
     resolver: zodResolver(registerSchema),
     defaultValues: initialFormData,
+    mode: 'onChange',
   });
 
   async function onSubmit(values: CTFUser) {
+    setSubmitting(true);
     const timestamp = new Date().toLocaleString('en-GB', {
       day: '2-digit',
       month: 'long',
@@ -41,50 +59,178 @@ export default function RegisterForm() {
       hour: '2-digit',
       minute: '2-digit',
     });
-    const toastId = toast.loading('Recording your preference...');
+    const toastId = toast.loading('Recording your submission...');
 
-    try {
-      const response = await fetch('/api/register/ctf', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ ...values, timestamp }),
+    if (!form.formState.isValid) {
+      setSubmitting(false);
+      toast.warning('Please fill all data and check terms and conditions', {
+        id: toastId,
       });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        toast.success('Your response has been successfully recorded.', {
-          id: toastId,
-        });
-      } else {
-        switch (response.status) {
-          case 400:
-            toast.error(`Validation error: ${data.message}`, {
-              id: toastId,
-              description: data,
-            });
-            break;
-          case 500:
-            toast.error(`Server error: ${data.message}`, {
-              id: toastId,
-            });
-            break;
-          default:
-            toast.error(`An unexpected error occurred: ${data.message}`, {
-              id: toastId,
-            });
-        }
+      form.trigger();
+      return;
+    } else {
+      if (!uploadedImage) {
+        setSubmitting(false);
+        toast.warning('Please upload the payment screenshot', { id: toastId });
+        form.trigger();
+        return;
       }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      toast.error(
-        'A network error occurred while submitting your response. Please check your internet connection and try again.',
-        { id: toastId },
-      );
+      try {
+        const response = await fetch('/api/register/ctf', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ ...values, timestamp }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          setSubmitting(false);
+          toast.success('Your response has been successfully recorded.', {
+            id: toastId,
+          });
+          setShowWhatsAppLink(true);
+        } else {
+          switch (response.status) {
+            case 400:
+              setSubmitting(false);
+              toast.error(`Validation error: ${data.message}`, {
+                id: toastId,
+              });
+              break;
+            case 500:
+              setSubmitting(false);
+              toast.error(`Server error: ${data.message}`, {
+                id: toastId,
+              });
+              break;
+            default:
+              setSubmitting(false);
+              toast.error(`An unexpected error occurred: ${data.message}`, {
+                id: toastId,
+              });
+          }
+        }
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        setSubmitting(false);
+        toast.error(
+          'A network error occurred while submitting your response. Please check your internet connection and try again.',
+          { id: toastId },
+        );
+      }
     }
   }
+
+  const user1 = {
+    dirty:
+      !form.getFieldState('year1').isDirty ||
+      !form.getFieldState('name1').isDirty ||
+      !form.getFieldState('whatsApp1').isDirty ||
+      !form.getFieldState('college1').isDirty ||
+      !form.getFieldState('branch1').isDirty,
+    exists:
+      form.watch('name1') &&
+      form.watch('whatsApp1') &&
+      form.watch('year1') &&
+      form.watch('college1') &&
+      form.watch('branch1'),
+    name: form.watch('name1'),
+    whatsApp: form.watch('whatsApp1'),
+    year: form.watch('year1'),
+    college: form.watch('college1'),
+    branch: form.watch('branch1'),
+  };
+
+  const user2 = {
+    dirty:
+      !form.getFieldState('year2').isDirty ||
+      !form.getFieldState('name2').isDirty ||
+      !form.getFieldState('whatsApp2').isDirty ||
+      !form.getFieldState('college2').isDirty ||
+      !form.getFieldState('branch2').isDirty,
+    exists:
+      form.watch('name2') &&
+      form.watch('whatsApp2') &&
+      form.watch('year2') &&
+      form.watch('college2') &&
+      form.watch('branch2'),
+    name: form.watch('name2'),
+    whatsApp: form.watch('whatsApp2'),
+    year: form.watch('year2'),
+    college: form.watch('college2'),
+    branch: form.watch('branch2'),
+  };
+
+  const user3 = {
+    dirty:
+      !form.getFieldState('year3').isDirty ||
+      !form.getFieldState('name3').isDirty ||
+      !form.getFieldState('whatsApp3').isDirty ||
+      !form.getFieldState('college3').isDirty ||
+      !form.getFieldState('branch3').isDirty,
+    exists:
+      form.watch('name3') &&
+      form.watch('whatsApp3') &&
+      form.watch('year3') &&
+      form.watch('college3') &&
+      form.watch('branch3'),
+    name: form.watch('name3'),
+    whatsApp: form.watch('whatsApp3'),
+    year: form.watch('year3'),
+    college: form.watch('college3'),
+    branch: form.watch('branch3'),
+  };
+
+  const reset = (member: number) => {
+    switch (member) {
+      case 1: {
+        form.setValue('name1', '');
+        form.setValue('college1', '');
+        form.setValue('year1', '');
+        form.setValue('branch1', '');
+        form.setValue('whatsApp1', '');
+      }
+      case 2: {
+        form.setValue('name2', '');
+        form.setValue('college2', '');
+        form.setValue('year2', '');
+        form.setValue('branch2', '');
+        form.setValue('whatsApp2', '');
+      }
+      case 31: {
+        form.setValue('name3', undefined);
+        form.setValue('college3', undefined);
+        form.setValue('year3', undefined);
+        form.setValue('branch3', undefined);
+        form.setValue('whatsApp3', undefined);
+      }
+    }
+  };
+
+  // Image upload
+  const [showWhatsAppLink, setShowWhatsAppLink] = useState<boolean>(false);
+  const [submitting, setSubmitting] = useState<boolean>(false);
+  const [uploadedImage, setUploadedImage] = useState<File | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const acceptedFileTypes: AcceptedFileType[] = [
+    'image/jpeg',
+    'image/png',
+    'image/gif',
+  ];
+
+  const handleBoxClick = (): void => {
+    fileInputRef.current?.click();
+  };
+
+  const handleFileChange = (event: ChangeEvent<HTMLInputElement>): void => {
+    const file = event.target.files?.[0];
+    if (file && acceptedFileTypes.includes(file.type as AcceptedFileType)) {
+      setUploadedImage(file);
+    }
+  };
 
   return (
     <div className='flex items-center justify-center'>
@@ -106,211 +252,372 @@ export default function RegisterForm() {
               </FormItem>
             )}
           />
-          <div className='space-y-4'>
-            <h3 className='text-xl'>Team Member 1</h3>
-            <FormField
-              control={form.control}
-              name='name1'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Name</FormLabel>
-                  <FormControl>
-                    <Input placeholder='Full Name' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='college1'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>College</FormLabel>
-                  <FormControl>
-                    <Input placeholder='College Name' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='year1'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Year</FormLabel>
-                  <FormControl>
-                    <Input placeholder='Year of Study' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='branch1'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Branch</FormLabel>
-                  <FormControl>
-                    <Input placeholder='Branch of Study' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='whatsApp1'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>WhatsApp Number</FormLabel>
-                  <FormControl>
-                    <Input placeholder='10-digit WhatsApp number' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+
+          <div className='py-4'>
+            <div className='grid grid-cols-1 gap-4 md:grid-cols-3'>
+              <Dialog>
+                <DialogTrigger asChild>
+                  {user1.exists ? (
+                    <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-500 p-4'>
+                      <User className='mb-2 h-8 w-8' />
+                      <span className='text-center text-sm'>{user1.name}</span>
+                    </div>
+                  ) : (
+                    <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-600 p-4'>
+                      <Plus className='mb-2 h-8 w-8' />
+                      <span className='text-center text-sm'>Add member 1</span>
+                    </div>
+                  )}
+                </DialogTrigger>
+                <DialogContent className='bg-gray-100 sm:max-w-[425px]'>
+                  <DialogHeader>
+                    <DialogTitle>Team Member 1</DialogTitle>
+                    <DialogDescription>
+                      Please enter the details for team member.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className='max-h-[60vh] space-y-4 overflow-y-auto'>
+                    <FormField
+                      control={form.control}
+                      name='name1'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Name</FormLabel>
+                          <FormControl>
+                            <Input placeholder='Full Name' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='college1'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>College</FormLabel>
+                          <FormControl>
+                            <Input placeholder='College Name' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='year1'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Year</FormLabel>
+                          <FormControl>
+                            <Input placeholder='Year of Study' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='branch1'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Branch</FormLabel>
+                          <FormControl>
+                            <Input placeholder='Branch of Study' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='whatsApp1'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>WhatsApp Number</FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder='10-digit WhatsApp number'
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                  <DialogFooter className='flex w-full flex-row gap-5'>
+                    <Button
+                      onClick={() => {
+                        if (user1.dirty) {
+                          toast.warning('Invalid form data');
+                          form.trigger([
+                            'year1',
+                            'name1',
+                            'branch1',
+                            'college1',
+                            'whatsApp1',
+                          ]);
+                        } else {
+                          toast.success('Member 1 info saved');
+                        }
+                      }}
+                      className='bg-blue-500'
+                    >
+                      Save Member
+                    </Button>
+                    <DialogClose className='rounded-lg bg-gray-500 px-4 py-2 text-gray-50'>
+                      Close
+                    </DialogClose>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
+
+              <Dialog>
+                <DialogTrigger asChild>
+                  {user2.exists ? (
+                    <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-500 p-4'>
+                      <User className='mb-2 h-8 w-8' />
+                      <span className='text-center text-sm'>{user2.name}</span>
+                    </div>
+                  ) : (
+                    <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-600 p-4'>
+                      <Plus className='mb-2 h-8 w-8' />
+                      <span className='text-center text-sm'>
+                        Add Second Meber
+                      </span>
+                    </div>
+                  )}
+                </DialogTrigger>
+                <DialogContent className='bg-gray-100 sm:max-w-[425px]'>
+                  <DialogHeader>
+                    <DialogTitle>Team Member 2</DialogTitle>
+                    <DialogDescription>
+                      Please enter the details for team member.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className='max-h-[60vh] space-y-4 overflow-y-auto'>
+                    <FormField
+                      control={form.control}
+                      name='name2'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Name</FormLabel>
+                          <FormControl>
+                            <Input placeholder='Full Name' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='college2'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>College</FormLabel>
+                          <FormControl>
+                            <Input placeholder='College Name' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='year2'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Year</FormLabel>
+                          <FormControl>
+                            <Input placeholder='Year of Study' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='branch2'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Branch</FormLabel>
+                          <FormControl>
+                            <Input placeholder='Branch of Study' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='whatsApp2'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>WhatsApp Number</FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder='10-digit WhatsApp number'
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                  <DialogFooter className='flex w-full flex-row gap-5'>
+                    <Button
+                      onClick={() => {
+                        if (user2.dirty) {
+                          toast.warning('Invalid form data');
+                          form.trigger([
+                            'year2',
+                            'name2',
+                            'branch2',
+                            'college2',
+                            'whatsApp2',
+                          ]);
+                        } else {
+                          toast.success('Member 2 info saved');
+                        }
+                      }}
+                      className='bg-blue-500'
+                    >
+                      Save Member
+                    </Button>
+                    <DialogClose className='rounded-lg bg-gray-500 px-4 py-2 text-gray-50'>
+                      Close
+                    </DialogClose>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
+
+              <Dialog>
+                <DialogTrigger asChild>
+                  {user3.exists ? (
+                    <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-500 p-4'>
+                      <User className='mb-2 h-8 w-8' />
+                      <span className='text-center text-sm'>{user3.name}</span>
+                    </div>
+                  ) : (
+                    <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-600 p-4'>
+                      <Plus className='mb-2 h-8 w-8' />
+                      <span className='text-center text-sm'>
+                        Add Third Member (optionsl)
+                      </span>
+                    </div>
+                  )}
+                </DialogTrigger>
+                <DialogContent className='bg-gray-100 sm:max-w-[425px]'>
+                  <DialogHeader>
+                    <DialogTitle>Team Member 3</DialogTitle>
+                    <DialogDescription>
+                      Please enter the details for team member.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className='max-h-[60vh] space-y-4 overflow-y-auto'>
+                    <FormField
+                      control={form.control}
+                      name='name3'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Name</FormLabel>
+                          <FormControl>
+                            <Input placeholder='Full Name' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='college3'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>College</FormLabel>
+                          <FormControl>
+                            <Input placeholder='College Name' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='year3'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Year</FormLabel>
+                          <FormControl>
+                            <Input placeholder='Year of Study' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='branch3'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Branch</FormLabel>
+                          <FormControl>
+                            <Input placeholder='Branch of Study' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='whatsApp3'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>WhatsApp Number</FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder='10-digit WhatsApp number'
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                  <DialogFooter className='flex w-full flex-row gap-5'>
+                    <Button
+                      onClick={() => {
+                        if (user3.dirty) {
+                          toast.warning('Invalid form data');
+                          form.trigger([
+                            'year3',
+                            'name3',
+                            'branch3',
+                            'college3',
+                            'whatsApp3',
+                          ]);
+                        } else {
+                          toast.success('Member 3 info saved');
+                        }
+                      }}
+                      className='bg-blue-500'
+                    >
+                      Save Member
+                    </Button>
+                    <Button onClick={() => reset(1)} className=''>
+                      Reset
+                    </Button>
+                    <DialogClose className='rounded-lg bg-gray-500 px-4 py-2 text-gray-50'>
+                      Close
+                    </DialogClose>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
+            </div>
           </div>
-          <div className='space-y-4'>
-            <h3 className='text-xl'>Team Member 2</h3>
-            <FormField
-              control={form.control}
-              name='name2'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Name</FormLabel>
-                  <FormControl>
-                    <Input placeholder='Full Name' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='college2'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>College</FormLabel>
-                  <FormControl>
-                    <Input placeholder='College Name' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='year2'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Year</FormLabel>
-                  <FormControl>
-                    <Input placeholder='Year of Study' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='branch2'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Branch</FormLabel>
-                  <FormControl>
-                    <Input placeholder='Branch of Study' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='whatsApp2'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>WhatsApp Number</FormLabel>
-                  <FormControl>
-                    <Input placeholder='10-digit WhatsApp number' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-          <div className='space-y-4'>
-            <h3 className='text-xl'>Team Member 3</h3>
-            <FormField
-              control={form.control}
-              name='name3'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Name</FormLabel>
-                  <FormControl>
-                    <Input placeholder='Full Name' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='college3'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>College</FormLabel>
-                  <FormControl>
-                    <Input placeholder='College Name' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='year3'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Year</FormLabel>
-                  <FormControl>
-                    <Input placeholder='Year of Study' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='branch3'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Branch</FormLabel>
-                  <FormControl>
-                    <Input placeholder='Branch of Study' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='whatsApp3'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>WhatsApp Number</FormLabel>
-                  <FormControl>
-                    <Input placeholder='10-digit WhatsApp number' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-          <Separator />
+
           <FormField
             control={form.control}
             name='workingOn'
@@ -319,6 +626,7 @@ export default function RegisterForm() {
                 <FormLabel>What are you working on?</FormLabel>
                 <FormControl>
                   <Textarea
+                    className='max-h-56'
                     placeholder='Describe your current project or area of focus'
                     {...field}
                   />
@@ -327,28 +635,72 @@ export default function RegisterForm() {
               </FormItem>
             )}
           />
-          <Separator />
 
-          <div className='space-y-4'>
-            <h3 className='text-xl'>Payment</h3>
-            <div className='mt-5 flex flex-col items-center space-y-2'>
-              <Image
-                src='/tenet/ctf-payment-link.jpeg' // Update with your QR code image path
-                alt='QR Code for payment'
-                width={150}
-                height={150}
-                className='rounded-lg'
-              />
+          <div className='my-10 grid gap-5 border-t py-10 shadow-md'>
+            <div className='space-y-6'>
+              <h1 className='flex items-center justify-center gap-5 text-center text-3xl font-bold text-white'>
+                Payment{' '}
+                {uploadedImage && <IoMdCloudDone className='text-green-400' />}
+              </h1>
 
-              <a
-                href='/tenet/ctf-payment-link.jpeg'
-                download='payment-qr-code.png'
-                className='flex items-center gap-4 rounded-lg bg-gray-600 p-2 text-sm text-white'
-              >
-                <span className=''>Download QR Code for transaction</span>
-                <FiDownload />
-              </a>
+              <div className='flex flex-col gap-6 md:flex-row'>
+                <div className='flex flex-col items-center space-y-4'>
+                  <div className='relative h-48 w-48'>
+                    <Image
+                      src='/tenet/ctf-payment-link.jpeg'
+                      alt='UI ID screenshot'
+                      layout='fill'
+                      objectFit='cover'
+                      className='rounded-lg'
+                    />
+                  </div>
+
+                  <a
+                    href='/tenet/ctf-payment-link.jpeg'
+                    download='/tenet/ctf-payment-link.jpeg'
+                    className='flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm text-white transition-colors hover:bg-blue-700'
+                  >
+                    <span>Download QR Code</span>
+                    <FiDownload className='h-4 w-4' />
+                  </a>
+                </div>
+
+                <div
+                  onClick={handleBoxClick}
+                  className='flex h-64 flex-1 cursor-pointer items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-500 transition-colors hover:bg-gray-700'
+                >
+                  <input
+                    type='file'
+                    accept={acceptedFileTypes.join(',')}
+                    onChange={handleFileChange}
+                    className='hidden'
+                    aria-label='Upload new image'
+                    ref={fileInputRef}
+                  />
+                  {uploadedImage ? (
+                    <div className='relative h-48 w-full md:h-full'>
+                      <Image
+                        src={URL.createObjectURL(uploadedImage)}
+                        alt='UI ID screenshot'
+                        layout='fill'
+                        objectFit='cover'
+                      />
+                    </div>
+                  ) : (
+                    <div className='text-center'>
+                      <FaUpload className='mx-auto mb-4 h-12 w-12 text-gray-50' />
+                      <p className='text-sm text-gray-50'>
+                        Click to upload a new image
+                      </p>
+                      <p className='mt-2 text-xs text-gray-100'>
+                        Supported formats: JPEG, PNG, GIF
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
+
             <FormField
               control={form.control}
               name='transactionId'
@@ -363,7 +715,6 @@ export default function RegisterForm() {
               )}
             />
           </div>
-
           <FormField
             control={form.control}
             name='tnc'
@@ -420,11 +771,20 @@ export default function RegisterForm() {
               </div>
             )}
           />
-          <Button type='submit' className='bg-blue-500 hover:bg-blue-700'>
+          <Button
+            disabled={submitting}
+            type='button'
+            onClick={() => {
+              onSubmit(form.getValues());
+            }}
+            className='bg-blue-500 hover:bg-blue-700'
+          >
             Submit Registration
           </Button>
         </form>
       </Form>
+
+      {showWhatsAppLink && <CongratulationsModal />}
     </div>
   );
 }

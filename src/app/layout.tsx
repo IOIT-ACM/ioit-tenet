@@ -63,7 +63,7 @@ export default function RootLayout({
         {children}
         <MusicPlayer />
         <TenetCommandDialog />
-        <Toaster richColors />
+        <Toaster richColors position='top-center' />
       </body>
     </html>
   );
