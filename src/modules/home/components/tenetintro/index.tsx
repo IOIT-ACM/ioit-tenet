@@ -3,7 +3,7 @@
 'use client';
 
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Environment } from '@react-three/drei';
+import { OrbitControls } from '@react-three/drei';
 import { AnimatedLogo } from '@/lib/AnimatedLogo';
 // import { MovingSpot } from '@/lib/spotlight';
 import { TENET } from './tenet';
@@ -22,27 +22,27 @@ export const TenetHero: React.FC = () => {
           intensity={0.6}
         />
         <OrbitControls enableZoom={false} />
-        <Environment
+        {/* <Environment
           preset='studio'
           background
           blur={100}
           environmentIntensity={0.5}
           backgroundIntensity={0.9}
-        />
+        /> */}
         <AnimatedLogo />
-        {/* <spotLight
+        <spotLight
           angle={0.5}
           penumbra={0.5}
           castShadow
-          intensity={100}
+          intensity={40}
           shadow-mapSize={1024}
           shadow-bias={-0.001}
-        > */}
-        {/* <orthographicCamera
+        >
+          <orthographicCamera
             attach='shadow-camera'
             args={[-10, 10, -10, 10, 0.1, 50]}
-          /> */}
-        {/* </spotLight> */}
+          />
+        </spotLight>
         {/* <MovingSpot color='#0c8cbf' position={[0, 3, 2]} />
         <MovingSpot color='#b00c3f' position={[1, 3, 0]} /> */}
       </Canvas>

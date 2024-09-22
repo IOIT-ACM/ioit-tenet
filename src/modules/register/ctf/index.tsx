@@ -5,7 +5,6 @@
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -21,6 +20,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { registerSchema, initialFormData } from '@/validators/ctf';
 import { Checkbox } from '@/components/ui/checkbox';
 import React from 'react';
+import Image from 'next/image';
+import { FiDownload } from 'react-icons/fi';
+import { Separator } from '@/components/ui/separator';
 import { type CTFUser } from '@/types/forms';
 
 type FormInput = z.infer<typeof registerSchema>;
@@ -32,6 +34,13 @@ export default function RegisterForm() {
   });
 
   async function onSubmit(values: CTFUser) {
+    const timestamp = new Date().toLocaleString('en-GB', {
+      day: '2-digit',
+      month: 'long',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+    });
     const toastId = toast.loading('Recording your preference...');
 
     try {
@@ -40,7 +49,7 @@ export default function RegisterForm() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(values),
+        body: JSON.stringify({ ...values, timestamp }),
       });
 
       const data = await response.json();
@@ -78,9 +87,12 @@ export default function RegisterForm() {
   }
 
   return (
-    <div className='text-white'>
+    <div className='flex items-center justify-center'>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className='w-full space-y-8 text-white md:w-1/2'
+        >
           <FormField
             control={form.control}
             name='email'
@@ -94,9 +106,8 @@ export default function RegisterForm() {
               </FormItem>
             )}
           />
-
           <div className='space-y-4'>
-            <h3>Team Member 1</h3>
+            <h3 className='text-xl'>Team Member 1</h3>
             <FormField
               control={form.control}
               name='name1'
@@ -163,9 +174,8 @@ export default function RegisterForm() {
               )}
             />
           </div>
-
           <div className='space-y-4'>
-            <h3>Team Member 2</h3>
+            <h3 className='text-xl'>Team Member 2</h3>
             <FormField
               control={form.control}
               name='name2'
@@ -232,9 +242,8 @@ export default function RegisterForm() {
               )}
             />
           </div>
-
           <div className='space-y-4'>
-            <h3>Team Member 3</h3>
+            <h3 className='text-xl'>Team Member 3</h3>
             <FormField
               control={form.control}
               name='name3'
@@ -301,7 +310,7 @@ export default function RegisterForm() {
               )}
             />
           </div>
-
+          <Separator />
           <FormField
             control={form.control}
             name='workingOn'
@@ -318,43 +327,99 @@ export default function RegisterForm() {
               </FormItem>
             )}
           />
+          <Separator />
 
-          <FormField
-            control={form.control}
-            name='transactionId'
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Transaction ID</FormLabel>
-                <FormControl>
-                  <Input placeholder='Enter your transaction ID' {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          <div className='space-y-4'>
+            <h3 className='text-xl'>Payment</h3>
+            <div className='mt-5 flex flex-col items-center space-y-2'>
+              <Image
+                src='/tenet/ctf-payment-link.jpeg' // Update with your QR code image path
+                alt='QR Code for payment'
+                width={150}
+                height={150}
+                className='rounded-lg'
+              />
+
+              <a
+                href='/tenet/ctf-payment-link.jpeg'
+                download='payment-qr-code.png'
+                className='flex items-center gap-4 rounded-lg bg-gray-600 p-2 text-sm text-white'
+              >
+                <span className=''>Download QR Code for transaction</span>
+                <FiDownload />
+              </a>
+            </div>
+            <FormField
+              control={form.control}
+              name='transactionId'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Transaction ID</FormLabel>
+                  <FormControl>
+                    <Input placeholder='Enter your transaction ID' {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
 
           <FormField
             control={form.control}
             name='tnc'
             render={({ field }) => (
-              <FormItem className='flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4'>
-                <FormControl>
+              <div className='flex flex-col items-center gap-5 rounded-md border p-4'>
+                <div className='space-y-2'>
+                  <label>Terms & Conditions for Participants:</label>
+                  <ul className='list-inside list-disc space-y-1 text-sm text-gray-500'>
+                    <li>
+                      Participants are strictly prohibited from bringing any
+                      illegal substances or hazardous materials to the workshop.
+                      If any are found, the participant will be excommunicated
+                      from the session without any refund.
+                    </li>
+                    <li>
+                      Thorough security checks will be conducted before entry.
+                      Cooperation with the security team is mandatory.
+                    </li>
+                    <li>
+                      All participants must adhere to the safety protocols
+                      outlined during the workshop to ensure a safe environment.
+                    </li>
+                    <li>
+                      Respectful behavior towards fellow participants and
+                      organizers is expected at all times. Disruptive behavior
+                      will not be tolerated.
+                    </li>
+                    <li>
+                      Participants are required to follow the decided schedule
+                      and attend allotted sessions on time.
+                    </li>
+                    <li>
+                      The participation fee is non-refundable. In case of
+                      cancellation for attendance, no refunds will be issued.
+                    </li>
+                    <li>By attending, you agree to abide by these terms.</li>
+                  </ul>
+                </div>
+                <div className='flex w-full items-center gap-3'>
                   <Checkbox
                     checked={field.value}
                     onCheckedChange={field.onChange}
                   />
-                </FormControl>
-                <div className='space-y-1 leading-none'>
-                  <FormLabel>I agree to the terms and conditions</FormLabel>
-                  <FormDescription>
-                    By checking this box, you agree to our Terms of Service and
-                    Privacy Policy.
-                  </FormDescription>
+                  <div className='leading-none'>
+                    <FormLabel className='text-sm font-medium'>
+                      I agree to the terms and conditions
+                    </FormLabel>
+                    <p className='text-xs text-gray-500'>
+                      By checking this box, you agree to our Terms of Service
+                      and Privacy Policy.
+                    </p>
+                  </div>
                 </div>
-              </FormItem>
+              </div>
             )}
           />
-
           <Button type='submit' className='bg-blue-500 hover:bg-blue-700'>
             Submit Registration
           </Button>

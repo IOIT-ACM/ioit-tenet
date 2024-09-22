@@ -25,6 +25,7 @@ export const POST = async (request: NextRequest) => {
 
     // Prepare the row data
     const rowData = [
+      data.timestamp,
       parsedData.email,
       parsedData.name1,
       parsedData.college1,
@@ -43,13 +44,12 @@ export const POST = async (request: NextRequest) => {
       parsedData.whatsApp3 ?? '',
       parsedData.workingOn,
       parsedData.transactionId,
-      parsedData.tnc ? 'Yes' : 'No',
     ];
 
     // Append the new row to the Google Sheet
     const response = await sheets.spreadsheets.values.append({
       spreadsheetId: env.GOOGLE_SHEETS_ID,
-      range: 'Sheet1!A1:S1', // Adjusted to accommodate all fields
+      range: 'Sheet1!A1:R1',
       valueInputOption: 'RAW',
       requestBody: {
         values: [rowData],
