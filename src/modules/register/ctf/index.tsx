@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 'use client';
 
@@ -30,36 +31,50 @@ export default function RegisterForm() {
     defaultValues: initialFormData,
   });
 
-  function onSubmit(values: CTFUser) {
-    const toastId = toast.loading('Recording your prefrence...');
+  async function onSubmit(values: CTFUser) {
+    const toastId = toast.loading('Recording your preference...');
 
-    fetch('/api/register/ctf', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(values),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.status === 200) {
-          toast.success('Your response has been successfully recorded.', {
-            id: toastId,
-          });
-        } else {
-          toast.error('Failed to record your response. Please try again.', {
-            id: toastId,
-          });
-        }
-      })
-      .catch((error) => {
-        // eslint-disable-next-line no-console
-        console.error('Error submitting form:', error);
-        toast.error(
-          'An error occurred while submitting your response. Please try again.',
-          { id: toastId },
-        );
+    try {
+      const response = await fetch('/api/register/ctf', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
       });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast.success('Your response has been successfully recorded.', {
+          id: toastId,
+        });
+      } else {
+        switch (response.status) {
+          case 400:
+            toast.error(`Validation error: ${data.message}`, {
+              id: toastId,
+              description: data,
+            });
+            break;
+          case 500:
+            toast.error(`Server error: ${data.message}`, {
+              id: toastId,
+            });
+            break;
+          default:
+            toast.error(`An unexpected error occurred: ${data.message}`, {
+              id: toastId,
+            });
+        }
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast.error(
+        'A network error occurred while submitting your response. Please check your internet connection and try again.',
+        { id: toastId },
+      );
+    }
   }
 
   return (
