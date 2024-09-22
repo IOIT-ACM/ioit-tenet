@@ -48,7 +48,7 @@ export const ShiftingCountdown = () => {
   );
 };
 
-const COUNTDOWN_TO = '2024-10-04T09:00:00';
+const COUNTDOWN_TO = '2024-10-04T08:00:00';
 
 const SECOND = 1000;
 const MINUTE = SECOND * 60;

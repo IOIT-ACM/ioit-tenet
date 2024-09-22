@@ -3,7 +3,7 @@
 'use client';
 
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Environment } from '@react-three/drei';
+import { OrbitControls } from '@react-three/drei';
 import { AnimatedLogo } from '@/lib/AnimatedLogo';
 // import { MovingSpot } from '@/lib/spotlight';
 import { TENET } from './tenet';
@@ -19,16 +19,22 @@ export const TenetHero: React.FC = () => {
         <directionalLight
           position={[1, 2, 5]}
           color='lightblue'
-          intensity={0.9}
+          intensity={0.6}
         />
         <OrbitControls enableZoom={false} />
-        <Environment preset='studio' background blur={100} />
+        {/* <Environment
+          preset='studio'
+          background
+          blur={100}
+          environmentIntensity={0.5}
+          backgroundIntensity={0.9}
+        /> */}
         <AnimatedLogo />
         <spotLight
           angle={0.5}
           penumbra={0.5}
           castShadow
-          intensity={10}
+          intensity={40}
           shadow-mapSize={1024}
           shadow-bias={-0.001}
         >
