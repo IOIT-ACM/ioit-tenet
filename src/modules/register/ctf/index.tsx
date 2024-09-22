@@ -21,6 +21,7 @@ import {
   DialogClose,
   DialogFooter,
 } from '@/components/ui/dialog';
+import { Separator } from '@/components/ui/separator';
 import { useForm } from 'react-hook-form';
 import type { z } from 'zod';
 import { toast } from 'sonner';
@@ -99,6 +100,18 @@ export default function RegisterForm() {
   }
 
   const user1 = {
+    dirty:
+      !form.getFieldState('year1').isDirty ||
+      !form.getFieldState('name1').isDirty ||
+      !form.getFieldState('whatsApp1').isDirty ||
+      !form.getFieldState('college1').isDirty ||
+      !form.getFieldState('branch1').isDirty,
+    exists:
+      form.watch('name1') &&
+      form.watch('whatsApp1') &&
+      form.watch('year1') &&
+      form.watch('college1') &&
+      form.watch('branch1'),
     name: form.watch('name1'),
     whatsApp: form.watch('whatsApp1'),
     year: form.watch('year1'),
@@ -107,6 +120,18 @@ export default function RegisterForm() {
   };
 
   const user2 = {
+    dirty:
+      !form.getFieldState('year2').isDirty ||
+      !form.getFieldState('name2').isDirty ||
+      !form.getFieldState('whatsApp2').isDirty ||
+      !form.getFieldState('college2').isDirty ||
+      !form.getFieldState('branch2').isDirty,
+    exists:
+      form.watch('name2') &&
+      form.watch('whatsApp2') &&
+      form.watch('year2') &&
+      form.watch('college2') &&
+      form.watch('branch2'),
     name: form.watch('name2'),
     whatsApp: form.watch('whatsApp2'),
     year: form.watch('year2'),
@@ -115,11 +140,49 @@ export default function RegisterForm() {
   };
 
   const user3 = {
+    dirty:
+      !form.getFieldState('year3').isDirty ||
+      !form.getFieldState('name3').isDirty ||
+      !form.getFieldState('whatsApp3').isDirty ||
+      !form.getFieldState('college3').isDirty ||
+      !form.getFieldState('branch3').isDirty,
+    exists:
+      form.watch('name3') &&
+      form.watch('whatsApp3') &&
+      form.watch('year3') &&
+      form.watch('college3') &&
+      form.watch('branch3'),
     name: form.watch('name3'),
     whatsApp: form.watch('whatsApp3'),
     year: form.watch('year3'),
     college: form.watch('college3'),
     branch: form.watch('branch3'),
+  };
+
+  const reset = (member: number) => {
+    switch (member) {
+      case 1: {
+        form.setValue('name1', '');
+        form.setValue('college1', '');
+        form.setValue('year1', '');
+        form.setValue('branch1', '');
+        form.setValue('whatsApp1', '');
+      }
+      case 2: {
+        form.setValue('name2', '');
+        form.setValue('college2', '');
+        form.setValue('year2', '');
+        form.setValue('branch2', '');
+        form.setValue('whatsApp2', '');
+      }
+      case 31: {
+        form.setValue('name3', undefined);
+        form.setValue('college3', undefined);
+        form.setValue('year3', undefined);
+        form.setValue('branch3', undefined);
+        form.setValue('whatsApp3', undefined);
+      }
+    }
   };
 
   return (
@@ -146,11 +209,7 @@ export default function RegisterForm() {
             <div className='grid grid-cols-3 gap-4'>
               <Dialog>
                 <DialogTrigger asChild>
-                  {user1.name &&
-                  user1.branch &&
-                  user1.college &&
-                  user1.whatsApp &&
-                  user1.year ? (
+                  {user1.exists ? (
                     <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-500 p-4'>
                       <User className='mb-2 h-8 w-8' />
                       <span className='text-sm'>{user1.name}</span>
@@ -242,14 +301,15 @@ export default function RegisterForm() {
                   <DialogFooter className='flex w-full flex-row gap-5'>
                     <Button
                       onClick={() => {
-                        if (
-                          !form.getFieldState('year1').isDirty ||
-                          !form.getFieldState('name1').isDirty ||
-                          !form.getFieldState('whatsApp1').isDirty ||
-                          !form.getFieldState('college1').isDirty ||
-                          !form.getFieldState('branch1').isDirty
-                        ) {
+                        if (user1.dirty) {
                           toast.warning('Invalid form data');
+                          form.trigger([
+                            'year1',
+                            'name1',
+                            'branch1',
+                            'college1',
+                            'whatsApp1',
+                          ]);
                         } else {
                           toast.success('Member 1 info saved');
                         }
@@ -267,11 +327,7 @@ export default function RegisterForm() {
 
               <Dialog>
                 <DialogTrigger asChild>
-                  {user2.name &&
-                  user2.branch &&
-                  user2.college &&
-                  user2.whatsApp &&
-                  user2.year ? (
+                  {user2.exists ? (
                     <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-500 p-4'>
                       <User className='mb-2 h-8 w-8' />
                       <span className='text-sm'>{user2.name}</span>
@@ -363,14 +419,15 @@ export default function RegisterForm() {
                   <DialogFooter className='flex w-full flex-row gap-5'>
                     <Button
                       onClick={() => {
-                        if (
-                          !form.getFieldState('year2').isDirty ||
-                          !form.getFieldState('name2').isDirty ||
-                          !form.getFieldState('whatsApp2').isDirty ||
-                          !form.getFieldState('college2').isDirty ||
-                          !form.getFieldState('branch2').isDirty
-                        ) {
+                        if (user2.dirty) {
                           toast.warning('Invalid form data');
+                          form.trigger([
+                            'year2',
+                            'name2',
+                            'branch2',
+                            'college2',
+                            'whatsApp2',
+                          ]);
                         } else {
                           toast.success('Member 2 info saved');
                         }
@@ -388,11 +445,7 @@ export default function RegisterForm() {
 
               <Dialog>
                 <DialogTrigger asChild>
-                  {user3.name &&
-                  user3.branch &&
-                  user3.college &&
-                  user3.whatsApp &&
-                  user3.year ? (
+                  {user3.exists ? (
                     <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-500 p-4'>
                       <User className='mb-2 h-8 w-8' />
                       <span className='text-sm'>{user3.name}</span>
@@ -484,14 +537,15 @@ export default function RegisterForm() {
                   <DialogFooter className='flex w-full flex-row gap-5'>
                     <Button
                       onClick={() => {
-                        if (
-                          !form.getFieldState('year3').isDirty ||
-                          !form.getFieldState('name3').isDirty ||
-                          !form.getFieldState('whatsApp3').isDirty ||
-                          !form.getFieldState('college3').isDirty ||
-                          !form.getFieldState('branch3').isDirty
-                        ) {
+                        if (user3.dirty) {
                           toast.warning('Invalid form data');
+                          form.trigger([
+                            'year3',
+                            'name3',
+                            'branch3',
+                            'college3',
+                            'whatsApp3',
+                          ]);
                         } else {
                           toast.success('Member 3 info saved');
                         }
@@ -499,6 +553,9 @@ export default function RegisterForm() {
                       className='bg-blue-500'
                     >
                       Save Member
+                    </Button>
+                    <Button onClick={() => reset(1)} className=''>
+                      Reset
                     </Button>
                     <DialogClose className='rounded-lg bg-gray-500 px-4 py-2 text-gray-50'>
                       Close
@@ -508,7 +565,6 @@ export default function RegisterForm() {
               </Dialog>
             </div>
           </div>
-
           <FormField
             control={form.control}
             name='workingOn'
@@ -517,6 +573,7 @@ export default function RegisterForm() {
                 <FormLabel>What are you working on?</FormLabel>
                 <FormControl>
                   <Textarea
+                    className='max-h-56'
                     placeholder='Describe your current project or area of focus'
                     {...field}
                   />
@@ -526,24 +583,51 @@ export default function RegisterForm() {
             )}
           />
 
+          <Separator className='my-5 bg-gray-400' />
+
           <div className='space-y-4'>
             <div className='mt-5 flex flex-col items-center space-y-2'>
-              <Image
-                src='/tenet/ctf-payment-link.jpeg'
-                alt='QR Code for payment'
-                width={150}
-                height={150}
-                className='rounded-lg'
-              />
+              <h1 className='text-xl'>Payment</h1>
 
-              <a
-                href='/tenet/ctf-payment-link.jpeg'
-                download='payment-qr-code.png'
-                className='flex items-center gap-4 rounded-lg bg-gray-600 p-2 text-sm text-white'
-              >
-                <span className=''>Download QR Code for transaction</span>
-                <FiDownload />
-              </a>
+              <div className='flex'>
+                <div className='flex flex-col items-center'>
+                  <Image
+                    src='/tenet/ctf-payment-link.jpeg'
+                    alt='QR Code for payment'
+                    width={150}
+                    height={150}
+                    className='rounded-lg'
+                  />
+
+                  <a
+                    href='/tenet/ctf-payment-link.jpeg'
+                    download='payment-qr-code.png'
+                    className='flex items-center gap-4 rounded-lg bg-gray-600 p-2 text-sm text-white'
+                  >
+                    <span className=''>Download QR Code for transaction</span>
+                    <FiDownload />
+                  </a>
+                </div>
+
+                <div className='flex flex-col items-center'>
+                  <Image
+                    src='/tenet/ctf-payment-link.jpeg'
+                    alt='QR Code for payment'
+                    width={150}
+                    height={150}
+                    className='rounded-lg'
+                  />
+
+                  <a
+                    href='/tenet/ctf-payment-link.jpeg'
+                    download='payment-qr-code.png'
+                    className='flex items-center gap-4 rounded-lg bg-gray-600 p-2 text-sm text-white'
+                  >
+                    <span className=''>Download QR Code for transaction</span>
+                    <FiDownload />
+                  </a>
+                </div>
+              </div>
             </div>
             <FormField
               control={form.control}
@@ -559,7 +643,6 @@ export default function RegisterForm() {
               )}
             />
           </div>
-
           <FormField
             control={form.control}
             name='tnc'
@@ -618,13 +701,6 @@ export default function RegisterForm() {
           />
           <Button type='submit' className='bg-blue-500 hover:bg-blue-700'>
             Submit Registration
-          </Button>
-          <Button
-            type='button'
-            className='bg-blue-500 hover:bg-blue-700'
-            onClick={() => console.log(form.getValues())}
-          >
-            Log values
           </Button>
         </form>
       </Form>
