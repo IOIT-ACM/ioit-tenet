@@ -9,7 +9,6 @@ import Image from 'next/image';
 import { FiDownload } from 'react-icons/fi';
 import { FaUpload } from 'react-icons/fa';
 import { IoMdCloudDone } from 'react-icons/io';
-import { useRouter } from 'next/navigation';
 import {
   Form,
   FormControl,
@@ -28,6 +27,7 @@ import {
   DialogClose,
   DialogFooter,
 } from '@/components/ui/dialog';
+import CongratulationsModal from './modal';
 import { useForm } from 'react-hook-form';
 import type { z } from 'zod';
 import { toast } from 'sonner';
@@ -44,11 +44,10 @@ type FormInput = z.infer<typeof registerSchema>;
 type AcceptedFileType = 'image/jpeg' | 'image/png' | 'image/gif';
 
 export default function RegisterForm() {
-  const { push } = useRouter();
   const form = useForm<FormInput>({
     resolver: zodResolver(registerSchema),
     defaultValues: initialFormData,
-    mode: 'onTouched',
+    mode: 'onChange',
   });
 
   async function onSubmit(values: CTFUser) {
@@ -92,7 +91,7 @@ export default function RegisterForm() {
           toast.success('Your response has been successfully recorded.', {
             id: toastId,
           });
-          push('/');
+          setShowWhatsAppLink(true);
         } else {
           switch (response.status) {
             case 400:
@@ -212,6 +211,7 @@ export default function RegisterForm() {
   };
 
   // Image upload
+  const [showWhatsAppLink, setShowWhatsAppLink] = useState<boolean>(false);
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [uploadedImage, setUploadedImage] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -783,6 +783,8 @@ export default function RegisterForm() {
           </Button>
         </form>
       </Form>
+
+      {showWhatsAppLink && <CongratulationsModal />}
     </div>
   );
 }
