@@ -18,6 +18,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
+  DialogClose,
   DialogFooter,
 } from '@/components/ui/dialog';
 import { useForm } from 'react-hook-form';
@@ -33,6 +34,7 @@ import Image from 'next/image';
 import { FiDownload } from 'react-icons/fi';
 import { type CTFUser } from '@/types/forms';
 import { Plus } from 'lucide-react';
+import { User } from 'lucide-react';
 
 type FormInput = z.infer<typeof registerSchema>;
 
@@ -40,6 +42,7 @@ export default function RegisterForm() {
   const form = useForm<FormInput>({
     resolver: zodResolver(registerSchema),
     defaultValues: initialFormData,
+    mode: 'onTouched',
   });
 
   async function onSubmit(values: CTFUser) {
@@ -95,6 +98,30 @@ export default function RegisterForm() {
     }
   }
 
+  const user1 = {
+    name: form.watch('name1'),
+    whatsApp: form.watch('whatsApp1'),
+    year: form.watch('year1'),
+    college: form.watch('college1'),
+    branch: form.watch('branch1'),
+  };
+
+  const user2 = {
+    name: form.watch('name2'),
+    whatsApp: form.watch('whatsApp2'),
+    year: form.watch('year2'),
+    college: form.watch('college2'),
+    branch: form.watch('branch2'),
+  };
+
+  const user3 = {
+    name: form.watch('name3'),
+    whatsApp: form.watch('whatsApp3'),
+    year: form.watch('year3'),
+    college: form.watch('college3'),
+    branch: form.watch('branch3'),
+  };
+
   return (
     <div className='flex items-center justify-center'>
       <Form {...form}>
@@ -119,10 +146,21 @@ export default function RegisterForm() {
             <div className='grid grid-cols-3 gap-4'>
               <Dialog>
                 <DialogTrigger asChild>
-                  <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-600 p-4'>
-                    <Plus className='mb-2 h-8 w-8' />
-                    <span className='text-sm'>Add member 1</span>
-                  </div>
+                  {user1.name &&
+                  user1.branch &&
+                  user1.college &&
+                  user1.whatsApp &&
+                  user1.year ? (
+                    <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-500 p-4'>
+                      <User className='mb-2 h-8 w-8' />
+                      <span className='text-sm'>{user1.name}</span>
+                    </div>
+                  ) : (
+                    <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-600 p-4'>
+                      <Plus className='mb-2 h-8 w-8' />
+                      <span className='text-sm'>Add member 1</span>
+                    </div>
+                  )}
                 </DialogTrigger>
                 <DialogContent className='sm:max-w-[425px]'>
                   <DialogHeader>
@@ -131,8 +169,7 @@ export default function RegisterForm() {
                       Please enter the details for team member.
                     </DialogDescription>
                   </DialogHeader>
-                  <div className='space-y-4'>
-                    <h3 className='text-xl'>Team Member 1</h3>
+                  <div className='max-h-[60vh] space-y-4 overflow-y-auto'>
                     <FormField
                       control={form.control}
                       name='name1'
@@ -202,30 +239,49 @@ export default function RegisterForm() {
                       )}
                     />
                   </div>
-                  <DialogFooter>
+                  <DialogFooter className='flex w-full flex-row gap-5'>
                     <Button
                       onClick={() => {
-                        form.trigger([
-                          'year1',
-                          'name1',
-                          'whatsApp1',
-                          'college1',
-                          'branch1',
-                        ]);
+                        if (
+                          !form.getFieldState('year1').isDirty ||
+                          !form.getFieldState('name1').isDirty ||
+                          !form.getFieldState('whatsApp1').isDirty ||
+                          !form.getFieldState('college1').isDirty ||
+                          !form.getFieldState('branch1').isDirty
+                        ) {
+                          toast.warning('Invalid form data');
+                        } else {
+                          toast.success('Member 1 info saved');
+                        }
                       }}
+                      className='bg-blue-500'
                     >
-                      Save Member Info
+                      Save Member
                     </Button>
+                    <DialogClose className='rounded-lg bg-gray-500 px-4 py-2 text-gray-50'>
+                      Close
+                    </DialogClose>
                   </DialogFooter>
                 </DialogContent>
               </Dialog>
 
               <Dialog>
                 <DialogTrigger asChild>
-                  <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-600 p-4'>
-                    <Plus className='mb-2 h-8 w-8' />
-                    <span className='text-sm'>Add member 2</span>
-                  </div>
+                  {user2.name &&
+                  user2.branch &&
+                  user2.college &&
+                  user2.whatsApp &&
+                  user2.year ? (
+                    <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-500 p-4'>
+                      <User className='mb-2 h-8 w-8' />
+                      <span className='text-sm'>{user2.name}</span>
+                    </div>
+                  ) : (
+                    <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-600 p-4'>
+                      <Plus className='mb-2 h-8 w-8' />
+                      <span className='text-sm'>Add Second Meber</span>
+                    </div>
+                  )}
                 </DialogTrigger>
                 <DialogContent className='sm:max-w-[425px]'>
                   <DialogHeader>
@@ -234,8 +290,7 @@ export default function RegisterForm() {
                       Please enter the details for team member.
                     </DialogDescription>
                   </DialogHeader>
-                  <div className='space-y-4'>
-                    <h3 className='text-xl'>Team Member 2</h3>
+                  <div className='max-h-[60vh] space-y-4 overflow-y-auto'>
                     <FormField
                       control={form.control}
                       name='name2'
@@ -305,30 +360,49 @@ export default function RegisterForm() {
                       )}
                     />
                   </div>
-                  <DialogFooter>
+                  <DialogFooter className='flex w-full flex-row gap-5'>
                     <Button
                       onClick={() => {
-                        form.trigger([
-                          'year2',
-                          'name2',
-                          'whatsApp2',
-                          'college2',
-                          'branch2',
-                        ]);
+                        if (
+                          !form.getFieldState('year2').isDirty ||
+                          !form.getFieldState('name2').isDirty ||
+                          !form.getFieldState('whatsApp2').isDirty ||
+                          !form.getFieldState('college2').isDirty ||
+                          !form.getFieldState('branch2').isDirty
+                        ) {
+                          toast.warning('Invalid form data');
+                        } else {
+                          toast.success('Member 2 info saved');
+                        }
                       }}
+                      className='bg-blue-500'
                     >
-                      Save Member Info
+                      Save Member
                     </Button>
+                    <DialogClose className='rounded-lg bg-gray-500 px-4 py-2 text-gray-50'>
+                      Close
+                    </DialogClose>
                   </DialogFooter>
                 </DialogContent>
               </Dialog>
 
               <Dialog>
                 <DialogTrigger asChild>
-                  <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-600 p-4'>
-                    <Plus className='mb-2 h-8 w-8' />
-                    <span className='text-sm'>Add member 3</span>
-                  </div>
+                  {user3.name &&
+                  user3.branch &&
+                  user3.college &&
+                  user3.whatsApp &&
+                  user3.year ? (
+                    <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-500 p-4'>
+                      <User className='mb-2 h-8 w-8' />
+                      <span className='text-sm'>{user3.name}</span>
+                    </div>
+                  ) : (
+                    <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-600 p-4'>
+                      <Plus className='mb-2 h-8 w-8' />
+                      <span className='text-sm'>Add Third Member</span>
+                    </div>
+                  )}
                 </DialogTrigger>
                 <DialogContent className='sm:max-w-[425px]'>
                   <DialogHeader>
@@ -337,8 +411,7 @@ export default function RegisterForm() {
                       Please enter the details for team member.
                     </DialogDescription>
                   </DialogHeader>
-                  <div className='space-y-4'>
-                    <h3 className='text-xl'>Team Member 3</h3>
+                  <div className='max-h-[60vh] space-y-4 overflow-y-auto'>
                     <FormField
                       control={form.control}
                       name='name3'
@@ -408,20 +481,28 @@ export default function RegisterForm() {
                       )}
                     />
                   </div>
-                  <DialogFooter>
+                  <DialogFooter className='flex w-full flex-row gap-5'>
                     <Button
                       onClick={() => {
-                        form.trigger([
-                          'year3',
-                          'name3',
-                          'whatsApp3',
-                          'college3',
-                          'branch3',
-                        ]);
+                        if (
+                          !form.getFieldState('year3').isDirty ||
+                          !form.getFieldState('name3').isDirty ||
+                          !form.getFieldState('whatsApp3').isDirty ||
+                          !form.getFieldState('college3').isDirty ||
+                          !form.getFieldState('branch3').isDirty
+                        ) {
+                          toast.warning('Invalid form data');
+                        } else {
+                          toast.success('Member 3 info saved');
+                        }
                       }}
+                      className='bg-blue-500'
                     >
-                      Save Member Info
+                      Save Member
                     </Button>
+                    <DialogClose className='rounded-lg bg-gray-500 px-4 py-2 text-gray-50'>
+                      Close
+                    </DialogClose>
                   </DialogFooter>
                 </DialogContent>
               </Dialog>
@@ -446,7 +527,6 @@ export default function RegisterForm() {
           />
 
           <div className='space-y-4'>
-            <h3 className='text-xl'>Payment</h3>
             <div className='mt-5 flex flex-col items-center space-y-2'>
               <Image
                 src='/tenet/ctf-payment-link.jpeg'

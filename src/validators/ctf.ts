@@ -5,21 +5,21 @@ const phoneRegex = /^\d{10}$/;
 
 export const registerSchema = z.object({
   email: z.string().email({ message: 'Invalid email address' }),
-  name1: z.string().min(2, { message: 'Invalid Name' }).max(255),
+  name1: z.string().min(5, { message: 'Invalid Name' }).max(255),
   college1: z.string().min(2, { message: 'Invalid College name' }).max(255),
   year1: z.string().min(1, { message: 'Year is required' }).max(4),
   branch1: z.string().min(2, { message: 'Invalid Branch' }).max(255),
   whatsApp1: z.string().regex(phoneRegex, {
     message: 'Invalid WhatsApp number. Should be 10 digits',
   }),
-  name2: z.string().min(2, { message: 'Invalid Name' }).max(255),
+  name2: z.string().min(5, { message: 'Invalid Name' }).max(255),
   college2: z.string().min(2, { message: 'Invalid College name' }).max(255),
   year2: z.string().min(1, { message: 'Year is required' }).max(4),
   branch2: z.string().min(2, { message: 'Invalid Branch' }).max(255),
   whatsApp2: z.string().regex(phoneRegex, {
     message: 'Invalid WhatsApp number. Should be 10 digits',
   }),
-  name3: z.string().min(2, { message: 'Invalid Name' }).max(255).optional(),
+  name3: z.string().min(5, { message: 'Invalid Name' }).max(255).optional(),
   college3: z
     .string()
     .min(2, { message: 'Invalid College name' })
