@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 'use client';
@@ -10,8 +11,17 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogFooter,
+} from '@/components/ui/dialog';
 import { useForm } from 'react-hook-form';
-import type z from 'Zod';
+import type { z } from 'zod';
 import { toast } from 'sonner';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -19,11 +29,10 @@ import { Textarea } from '@/components/ui/textarea';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { registerSchema, initialFormData } from '@/validators/ctf';
 import { Checkbox } from '@/components/ui/checkbox';
-import React from 'react';
 import Image from 'next/image';
 import { FiDownload } from 'react-icons/fi';
-import { Separator } from '@/components/ui/separator';
 import { type CTFUser } from '@/types/forms';
+import { Plus } from 'lucide-react';
 
 type FormInput = z.infer<typeof registerSchema>;
 
@@ -41,7 +50,7 @@ export default function RegisterForm() {
       hour: '2-digit',
       minute: '2-digit',
     });
-    const toastId = toast.loading('Recording your preference...');
+    const toastId = toast.loading('Recording your submission...');
 
     try {
       const response = await fetch('/api/register/ctf', {
@@ -106,211 +115,319 @@ export default function RegisterForm() {
               </FormItem>
             )}
           />
-          <div className='space-y-4'>
-            <h3 className='text-xl'>Team Member 1</h3>
-            <FormField
-              control={form.control}
-              name='name1'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Name</FormLabel>
-                  <FormControl>
-                    <Input placeholder='Full Name' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='college1'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>College</FormLabel>
-                  <FormControl>
-                    <Input placeholder='College Name' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='year1'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Year</FormLabel>
-                  <FormControl>
-                    <Input placeholder='Year of Study' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='branch1'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Branch</FormLabel>
-                  <FormControl>
-                    <Input placeholder='Branch of Study' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='whatsApp1'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>WhatsApp Number</FormLabel>
-                  <FormControl>
-                    <Input placeholder='10-digit WhatsApp number' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+          <div className='py-4'>
+            <div className='grid grid-cols-3 gap-4'>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-600 p-4'>
+                    <Plus className='mb-2 h-8 w-8' />
+                    <span className='text-sm'>Add member 1</span>
+                  </div>
+                </DialogTrigger>
+                <DialogContent className='sm:max-w-[425px]'>
+                  <DialogHeader>
+                    <DialogTitle>Team Member</DialogTitle>
+                    <DialogDescription>
+                      Please enter the details for team member.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className='space-y-4'>
+                    <h3 className='text-xl'>Team Member 1</h3>
+                    <FormField
+                      control={form.control}
+                      name='name1'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Name</FormLabel>
+                          <FormControl>
+                            <Input placeholder='Full Name' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='college1'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>College</FormLabel>
+                          <FormControl>
+                            <Input placeholder='College Name' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='year1'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Year</FormLabel>
+                          <FormControl>
+                            <Input placeholder='Year of Study' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='branch1'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Branch</FormLabel>
+                          <FormControl>
+                            <Input placeholder='Branch of Study' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='whatsApp1'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>WhatsApp Number</FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder='10-digit WhatsApp number'
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                  <DialogFooter>
+                    <Button
+                      onClick={() => {
+                        form.trigger([
+                          'year1',
+                          'name1',
+                          'whatsApp1',
+                          'college1',
+                          'branch1',
+                        ]);
+                      }}
+                    >
+                      Save Member Info
+                    </Button>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
+
+              <Dialog>
+                <DialogTrigger asChild>
+                  <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-600 p-4'>
+                    <Plus className='mb-2 h-8 w-8' />
+                    <span className='text-sm'>Add member 2</span>
+                  </div>
+                </DialogTrigger>
+                <DialogContent className='sm:max-w-[425px]'>
+                  <DialogHeader>
+                    <DialogTitle>Team Member</DialogTitle>
+                    <DialogDescription>
+                      Please enter the details for team member.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className='space-y-4'>
+                    <h3 className='text-xl'>Team Member 2</h3>
+                    <FormField
+                      control={form.control}
+                      name='name2'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Name</FormLabel>
+                          <FormControl>
+                            <Input placeholder='Full Name' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='college2'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>College</FormLabel>
+                          <FormControl>
+                            <Input placeholder='College Name' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='year2'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Year</FormLabel>
+                          <FormControl>
+                            <Input placeholder='Year of Study' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='branch2'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Branch</FormLabel>
+                          <FormControl>
+                            <Input placeholder='Branch of Study' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='whatsApp2'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>WhatsApp Number</FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder='10-digit WhatsApp number'
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                  <DialogFooter>
+                    <Button
+                      onClick={() => {
+                        form.trigger([
+                          'year2',
+                          'name2',
+                          'whatsApp2',
+                          'college2',
+                          'branch2',
+                        ]);
+                      }}
+                    >
+                      Save Member Info
+                    </Button>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
+
+              <Dialog>
+                <DialogTrigger asChild>
+                  <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-600 p-4'>
+                    <Plus className='mb-2 h-8 w-8' />
+                    <span className='text-sm'>Add member 3</span>
+                  </div>
+                </DialogTrigger>
+                <DialogContent className='sm:max-w-[425px]'>
+                  <DialogHeader>
+                    <DialogTitle>Team Member</DialogTitle>
+                    <DialogDescription>
+                      Please enter the details for team member.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className='space-y-4'>
+                    <h3 className='text-xl'>Team Member 3</h3>
+                    <FormField
+                      control={form.control}
+                      name='name3'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Name</FormLabel>
+                          <FormControl>
+                            <Input placeholder='Full Name' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='college3'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>College</FormLabel>
+                          <FormControl>
+                            <Input placeholder='College Name' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='year3'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Year</FormLabel>
+                          <FormControl>
+                            <Input placeholder='Year of Study' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='branch3'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Branch</FormLabel>
+                          <FormControl>
+                            <Input placeholder='Branch of Study' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='whatsApp3'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>WhatsApp Number</FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder='10-digit WhatsApp number'
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                  <DialogFooter>
+                    <Button
+                      onClick={() => {
+                        form.trigger([
+                          'year3',
+                          'name3',
+                          'whatsApp3',
+                          'college3',
+                          'branch3',
+                        ]);
+                      }}
+                    >
+                      Save Member Info
+                    </Button>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
+            </div>
           </div>
-          <div className='space-y-4'>
-            <h3 className='text-xl'>Team Member 2</h3>
-            <FormField
-              control={form.control}
-              name='name2'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Name</FormLabel>
-                  <FormControl>
-                    <Input placeholder='Full Name' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='college2'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>College</FormLabel>
-                  <FormControl>
-                    <Input placeholder='College Name' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='year2'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Year</FormLabel>
-                  <FormControl>
-                    <Input placeholder='Year of Study' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='branch2'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Branch</FormLabel>
-                  <FormControl>
-                    <Input placeholder='Branch of Study' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='whatsApp2'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>WhatsApp Number</FormLabel>
-                  <FormControl>
-                    <Input placeholder='10-digit WhatsApp number' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-          <div className='space-y-4'>
-            <h3 className='text-xl'>Team Member 3</h3>
-            <FormField
-              control={form.control}
-              name='name3'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Name</FormLabel>
-                  <FormControl>
-                    <Input placeholder='Full Name' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='college3'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>College</FormLabel>
-                  <FormControl>
-                    <Input placeholder='College Name' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='year3'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Year</FormLabel>
-                  <FormControl>
-                    <Input placeholder='Year of Study' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='branch3'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Branch</FormLabel>
-                  <FormControl>
-                    <Input placeholder='Branch of Study' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='whatsApp3'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>WhatsApp Number</FormLabel>
-                  <FormControl>
-                    <Input placeholder='10-digit WhatsApp number' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-          <Separator />
+
           <FormField
             control={form.control}
             name='workingOn'
@@ -327,13 +444,12 @@ export default function RegisterForm() {
               </FormItem>
             )}
           />
-          <Separator />
 
           <div className='space-y-4'>
             <h3 className='text-xl'>Payment</h3>
             <div className='mt-5 flex flex-col items-center space-y-2'>
               <Image
-                src='/tenet/ctf-payment-link.jpeg' // Update with your QR code image path
+                src='/tenet/ctf-payment-link.jpeg'
                 alt='QR Code for payment'
                 width={150}
                 height={150}
@@ -422,6 +538,13 @@ export default function RegisterForm() {
           />
           <Button type='submit' className='bg-blue-500 hover:bg-blue-700'>
             Submit Registration
+          </Button>
+          <Button
+            type='button'
+            className='bg-blue-500 hover:bg-blue-700'
+            onClick={() => console.log(form.getValues())}
+          >
+            Log values
           </Button>
         </form>
       </Form>
