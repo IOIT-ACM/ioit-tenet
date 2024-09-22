@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/unbound-method */
 /* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
@@ -8,6 +9,7 @@ import Image from 'next/image';
 import { FiDownload } from 'react-icons/fi';
 import { FaUpload } from 'react-icons/fa';
 import { IoMdCloudDone } from 'react-icons/io';
+import { useRouter } from 'next/navigation';
 import {
   Form,
   FormControl,
@@ -42,6 +44,7 @@ type FormInput = z.infer<typeof registerSchema>;
 type AcceptedFileType = 'image/jpeg' | 'image/png' | 'image/gif';
 
 export default function RegisterForm() {
+  const { push } = useRouter();
   const form = useForm<FormInput>({
     resolver: zodResolver(registerSchema),
     defaultValues: initialFormData,
@@ -49,6 +52,7 @@ export default function RegisterForm() {
   });
 
   async function onSubmit(values: CTFUser) {
+    setSubmitting(true);
     const timestamp = new Date().toLocaleString('en-GB', {
       day: '2-digit',
       month: 'long',
@@ -59,6 +63,7 @@ export default function RegisterForm() {
     const toastId = toast.loading('Recording your submission...');
 
     if (!form.formState.isValid) {
+      setSubmitting(false);
       toast.warning('Please fill all data and check terms and conditions', {
         id: toastId,
       });
@@ -66,6 +71,7 @@ export default function RegisterForm() {
       return;
     } else {
       if (!uploadedImage) {
+        setSubmitting(false);
         toast.warning('Please upload the payment screenshot', { id: toastId });
         form.trigger();
         return;
@@ -82,22 +88,27 @@ export default function RegisterForm() {
         const data = await response.json();
 
         if (response.ok) {
+          setSubmitting(false);
           toast.success('Your response has been successfully recorded.', {
             id: toastId,
           });
+          push('/');
         } else {
           switch (response.status) {
             case 400:
+              setSubmitting(false);
               toast.error(`Validation error: ${data.message}`, {
                 id: toastId,
               });
               break;
             case 500:
+              setSubmitting(false);
               toast.error(`Server error: ${data.message}`, {
                 id: toastId,
               });
               break;
             default:
+              setSubmitting(false);
               toast.error(`An unexpected error occurred: ${data.message}`, {
                 id: toastId,
               });
@@ -105,6 +116,7 @@ export default function RegisterForm() {
         }
       } catch (error) {
         console.error('Error submitting form:', error);
+        setSubmitting(false);
         toast.error(
           'A network error occurred while submitting your response. Please check your internet connection and try again.',
           { id: toastId },
@@ -200,6 +212,7 @@ export default function RegisterForm() {
   };
 
   // Image upload
+  const [submitting, setSubmitting] = useState<boolean>(false);
   const [uploadedImage, setUploadedImage] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const acceptedFileTypes: AcceptedFileType[] = [
@@ -623,7 +636,7 @@ export default function RegisterForm() {
             )}
           />
 
-          <div className='my-10 grid gap-5 py-10 shadow-md'>
+          <div className='my-10 grid gap-5 border-t py-10 shadow-md'>
             <div className='space-y-6'>
               <h1 className='flex items-center justify-center gap-5 text-center text-3xl font-bold text-white'>
                 Payment{' '}
@@ -759,6 +772,7 @@ export default function RegisterForm() {
             )}
           />
           <Button
+            disabled={submitting}
             type='button'
             onClick={() => {
               onSubmit(form.getValues());

@@ -27,7 +27,7 @@ export const RegisterLinks: React.FC = () => {
         'Exciting Capture the Flag event to test your hacking skills.',
       imgSrc:
         'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/ctf.jpg',
-      href: 'https://forms.gle/H2p78SKhRZv6YLCZ9',
+      href: '/register/ctf',
     },
     {
       heading: 'LLM-Workshop',

@@ -134,7 +134,7 @@ export const day1: ScheduleItemType[] = [
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/ctf.jpg',
     organizers: [{ name: 'Shreya Kulkarni' }],
-    registration: 'https://forms.gle/H2p78SKhRZv6YLCZ9',
+    registration: '/register/ctf',
   },
   {
     title: 'Drone Workshop',
