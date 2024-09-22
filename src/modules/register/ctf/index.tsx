@@ -3,6 +3,11 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 'use client';
 
+import React, { useRef, useState, type ChangeEvent } from 'react';
+import Image from 'next/image';
+import { FiDownload } from 'react-icons/fi';
+import { FaUpload } from 'react-icons/fa';
+import { IoMdCloudDone } from 'react-icons/io';
 import {
   Form,
   FormControl,
@@ -21,7 +26,6 @@ import {
   DialogClose,
   DialogFooter,
 } from '@/components/ui/dialog';
-import { Separator } from '@/components/ui/separator';
 import { useForm } from 'react-hook-form';
 import type { z } from 'zod';
 import { toast } from 'sonner';
@@ -31,13 +35,11 @@ import { Textarea } from '@/components/ui/textarea';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { registerSchema, initialFormData } from '@/validators/ctf';
 import { Checkbox } from '@/components/ui/checkbox';
-import Image from 'next/image';
-import { FiDownload } from 'react-icons/fi';
 import { type CTFUser } from '@/types/forms';
-import { Plus } from 'lucide-react';
-import { User } from 'lucide-react';
+import { Plus, User } from 'lucide-react';
 
 type FormInput = z.infer<typeof registerSchema>;
+type AcceptedFileType = 'image/jpeg' | 'image/png' | 'image/gif';
 
 export default function RegisterForm() {
   const form = useForm<FormInput>({
@@ -56,46 +58,58 @@ export default function RegisterForm() {
     });
     const toastId = toast.loading('Recording your submission...');
 
-    try {
-      const response = await fetch('/api/register/ctf', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ ...values, timestamp }),
+    if (!form.formState.isValid) {
+      toast.warning('Please fill all data and check terms and conditions', {
+        id: toastId,
       });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        toast.success('Your response has been successfully recorded.', {
-          id: toastId,
-        });
-      } else {
-        switch (response.status) {
-          case 400:
-            toast.error(`Validation error: ${data.message}`, {
-              id: toastId,
-              description: data,
-            });
-            break;
-          case 500:
-            toast.error(`Server error: ${data.message}`, {
-              id: toastId,
-            });
-            break;
-          default:
-            toast.error(`An unexpected error occurred: ${data.message}`, {
-              id: toastId,
-            });
-        }
+      form.trigger();
+      return;
+    } else {
+      if (!uploadedImage) {
+        toast.warning('Please upload the payment screenshot', { id: toastId });
+        form.trigger();
+        return;
       }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      toast.error(
-        'A network error occurred while submitting your response. Please check your internet connection and try again.',
-        { id: toastId },
-      );
+      try {
+        const response = await fetch('/api/register/ctf', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ ...values, timestamp }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          toast.success('Your response has been successfully recorded.', {
+            id: toastId,
+          });
+        } else {
+          switch (response.status) {
+            case 400:
+              toast.error(`Validation error: ${data.message}`, {
+                id: toastId,
+              });
+              break;
+            case 500:
+              toast.error(`Server error: ${data.message}`, {
+                id: toastId,
+              });
+              break;
+            default:
+              toast.error(`An unexpected error occurred: ${data.message}`, {
+                id: toastId,
+              });
+          }
+        }
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        toast.error(
+          'A network error occurred while submitting your response. Please check your internet connection and try again.',
+          { id: toastId },
+        );
+      }
     }
   }
 
@@ -185,6 +199,26 @@ export default function RegisterForm() {
     }
   };
 
+  // Image upload
+  const [uploadedImage, setUploadedImage] = useState<File | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const acceptedFileTypes: AcceptedFileType[] = [
+    'image/jpeg',
+    'image/png',
+    'image/gif',
+  ];
+
+  const handleBoxClick = (): void => {
+    fileInputRef.current?.click();
+  };
+
+  const handleFileChange = (event: ChangeEvent<HTMLInputElement>): void => {
+    const file = event.target.files?.[0];
+    if (file && acceptedFileTypes.includes(file.type as AcceptedFileType)) {
+      setUploadedImage(file);
+    }
+  };
+
   return (
     <div className='flex items-center justify-center'>
       <Form {...form}>
@@ -205,25 +239,26 @@ export default function RegisterForm() {
               </FormItem>
             )}
           />
+
           <div className='py-4'>
-            <div className='grid grid-cols-3 gap-4'>
+            <div className='grid grid-cols-1 gap-4 md:grid-cols-3'>
               <Dialog>
                 <DialogTrigger asChild>
                   {user1.exists ? (
                     <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-500 p-4'>
                       <User className='mb-2 h-8 w-8' />
-                      <span className='text-sm'>{user1.name}</span>
+                      <span className='text-center text-sm'>{user1.name}</span>
                     </div>
                   ) : (
                     <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-600 p-4'>
                       <Plus className='mb-2 h-8 w-8' />
-                      <span className='text-sm'>Add member 1</span>
+                      <span className='text-center text-sm'>Add member 1</span>
                     </div>
                   )}
                 </DialogTrigger>
-                <DialogContent className='sm:max-w-[425px]'>
+                <DialogContent className='bg-gray-100 sm:max-w-[425px]'>
                   <DialogHeader>
-                    <DialogTitle>Team Member</DialogTitle>
+                    <DialogTitle>Team Member 1</DialogTitle>
                     <DialogDescription>
                       Please enter the details for team member.
                     </DialogDescription>
@@ -330,18 +365,20 @@ export default function RegisterForm() {
                   {user2.exists ? (
                     <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-500 p-4'>
                       <User className='mb-2 h-8 w-8' />
-                      <span className='text-sm'>{user2.name}</span>
+                      <span className='text-center text-sm'>{user2.name}</span>
                     </div>
                   ) : (
                     <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-600 p-4'>
                       <Plus className='mb-2 h-8 w-8' />
-                      <span className='text-sm'>Add Second Meber</span>
+                      <span className='text-center text-sm'>
+                        Add Second Meber
+                      </span>
                     </div>
                   )}
                 </DialogTrigger>
-                <DialogContent className='sm:max-w-[425px]'>
+                <DialogContent className='bg-gray-100 sm:max-w-[425px]'>
                   <DialogHeader>
-                    <DialogTitle>Team Member</DialogTitle>
+                    <DialogTitle>Team Member 2</DialogTitle>
                     <DialogDescription>
                       Please enter the details for team member.
                     </DialogDescription>
@@ -448,18 +485,20 @@ export default function RegisterForm() {
                   {user3.exists ? (
                     <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-500 p-4'>
                       <User className='mb-2 h-8 w-8' />
-                      <span className='text-sm'>{user3.name}</span>
+                      <span className='text-center text-sm'>{user3.name}</span>
                     </div>
                   ) : (
                     <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-600 p-4'>
                       <Plus className='mb-2 h-8 w-8' />
-                      <span className='text-sm'>Add Third Member</span>
+                      <span className='text-center text-sm'>
+                        Add Third Member (optionsl)
+                      </span>
                     </div>
                   )}
                 </DialogTrigger>
-                <DialogContent className='sm:max-w-[425px]'>
+                <DialogContent className='bg-gray-100 sm:max-w-[425px]'>
                   <DialogHeader>
-                    <DialogTitle>Team Member</DialogTitle>
+                    <DialogTitle>Team Member 3</DialogTitle>
                     <DialogDescription>
                       Please enter the details for team member.
                     </DialogDescription>
@@ -565,6 +604,7 @@ export default function RegisterForm() {
               </Dialog>
             </div>
           </div>
+
           <FormField
             control={form.control}
             name='workingOn'
@@ -583,52 +623,71 @@ export default function RegisterForm() {
             )}
           />
 
-          <Separator className='my-5 bg-gray-400' />
+          <div className='my-10 grid gap-5 py-10 shadow-md'>
+            <div className='space-y-6'>
+              <h1 className='flex items-center justify-center gap-5 text-center text-3xl font-bold text-white'>
+                Payment{' '}
+                {uploadedImage && <IoMdCloudDone className='text-green-400' />}
+              </h1>
 
-          <div className='space-y-4'>
-            <div className='mt-5 flex flex-col items-center space-y-2'>
-              <h1 className='text-xl'>Payment</h1>
-
-              <div className='flex'>
-                <div className='flex flex-col items-center'>
-                  <Image
-                    src='/tenet/ctf-payment-link.jpeg'
-                    alt='QR Code for payment'
-                    width={150}
-                    height={150}
-                    className='rounded-lg'
-                  />
+              <div className='flex flex-col gap-6 md:flex-row'>
+                <div className='flex flex-col items-center space-y-4'>
+                  <div className='relative h-48 w-48'>
+                    <Image
+                      src='/tenet/ctf-payment-link.jpeg'
+                      alt='UI ID screenshot'
+                      layout='fill'
+                      objectFit='cover'
+                      className='rounded-lg'
+                    />
+                  </div>
 
                   <a
                     href='/tenet/ctf-payment-link.jpeg'
-                    download='payment-qr-code.png'
-                    className='flex items-center gap-4 rounded-lg bg-gray-600 p-2 text-sm text-white'
+                    download='/tenet/ctf-payment-link.jpeg'
+                    className='flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm text-white transition-colors hover:bg-blue-700'
                   >
-                    <span className=''>Download QR Code for transaction</span>
-                    <FiDownload />
+                    <span>Download QR Code</span>
+                    <FiDownload className='h-4 w-4' />
                   </a>
                 </div>
 
-                <div className='flex flex-col items-center'>
-                  <Image
-                    src='/tenet/ctf-payment-link.jpeg'
-                    alt='QR Code for payment'
-                    width={150}
-                    height={150}
-                    className='rounded-lg'
+                <div
+                  onClick={handleBoxClick}
+                  className='flex h-64 flex-1 cursor-pointer items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-500 transition-colors hover:bg-gray-700'
+                >
+                  <input
+                    type='file'
+                    accept={acceptedFileTypes.join(',')}
+                    onChange={handleFileChange}
+                    className='hidden'
+                    aria-label='Upload new image'
+                    ref={fileInputRef}
                   />
-
-                  <a
-                    href='/tenet/ctf-payment-link.jpeg'
-                    download='payment-qr-code.png'
-                    className='flex items-center gap-4 rounded-lg bg-gray-600 p-2 text-sm text-white'
-                  >
-                    <span className=''>Download QR Code for transaction</span>
-                    <FiDownload />
-                  </a>
+                  {uploadedImage ? (
+                    <div className='relative h-48 w-full md:h-full'>
+                      <Image
+                        src={URL.createObjectURL(uploadedImage)}
+                        alt='UI ID screenshot'
+                        layout='fill'
+                        objectFit='cover'
+                      />
+                    </div>
+                  ) : (
+                    <div className='text-center'>
+                      <FaUpload className='mx-auto mb-4 h-12 w-12 text-gray-50' />
+                      <p className='text-sm text-gray-50'>
+                        Click to upload a new image
+                      </p>
+                      <p className='mt-2 text-xs text-gray-100'>
+                        Supported formats: JPEG, PNG, GIF
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
+
             <FormField
               control={form.control}
               name='transactionId'
@@ -699,7 +758,13 @@ export default function RegisterForm() {
               </div>
             )}
           />
-          <Button type='submit' className='bg-blue-500 hover:bg-blue-700'>
+          <Button
+            type='button'
+            onClick={() => {
+              onSubmit(form.getValues());
+            }}
+            className='bg-blue-500 hover:bg-blue-700'
+          >
             Submit Registration
           </Button>
         </form>
