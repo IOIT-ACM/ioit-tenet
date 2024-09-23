@@ -17,7 +17,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { useForm } from 'react-hook-form';
-import type z from 'Zod';
+import type { z } from 'zod';
 import { toast } from 'sonner';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
