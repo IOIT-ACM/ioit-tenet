@@ -5,11 +5,12 @@
 'use client';
 
 import React, { useRef, useState, type ChangeEvent } from 'react';
-import Image from 'next/image';
 import { FiDownload } from 'react-icons/fi';
 import { FaUpload } from 'react-icons/fa';
 import { IoMdCloudDone } from 'react-icons/io';
 import Intro from './intro';
+import Image from 'next/image';
+import { Image as ANTImage } from 'antd';
 import {
   Form,
   FormControl,
@@ -382,7 +383,7 @@ export default function RegisterForm() {
                     <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-600 p-4'>
                       <Plus className='mb-2 h-8 w-8' />
                       <span className='text-center text-sm'>
-                        Add Second Meber
+                        Add Second Member
                       </span>
                     </div>
                   )}
@@ -502,7 +503,7 @@ export default function RegisterForm() {
                     <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-600 p-4'>
                       <Plus className='mb-2 h-8 w-8' />
                       <span className='text-center text-sm'>
-                        Add Third Member (optionsl)
+                        Add Third Member (optional)
                       </span>
                     </div>
                   )}
@@ -638,7 +639,9 @@ export default function RegisterForm() {
             <div className='space-y-6'>
               <h1 className='flex items-center justify-center gap-5 text-center text-3xl font-bold text-white'>
                 Payment{' '}
-                {uploadedImage && <IoMdCloudDone className='text-green-400' />}
+                {uploadedImage && form.watch('transactionId') && (
+                  <IoMdCloudDone className='text-green-400' />
+                )}
               </h1>
               <p className='my-0 text-center text-base text-white'>
                 Please Pay the Fee Rs. 450 and Upload the Screenshot
@@ -646,13 +649,11 @@ export default function RegisterForm() {
 
               <div className='flex flex-col gap-6 md:flex-row'>
                 <div className='flex flex-col items-center space-y-4'>
-                  <div className='relative h-48 w-48'>
-                    <Image
+                  <div className='relative flex h-48 w-48 items-center justify-center'>
+                    <ANTImage
                       src='/tenet/ctf-payment-link.jpeg'
                       alt='UI ID screenshot'
-                      layout='fill'
-                      objectFit='cover'
-                      className='rounded-lg'
+                      height={200}
                     />
                   </div>
 

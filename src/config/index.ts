@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: 'IOIT TENET 2024 | October 4,5,6 | ACM STUDENT CHAPTER AISSMS IOIT',
+  name: 'IOIT TENET 2024 | ACM STUDENT CHAPTER',
   description: 'Techfiesta, Entrepreneurship, Negotiations, E-Sports, Trending',
   url: 'https://www.ioittenet.com/',
 };

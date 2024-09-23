@@ -43,6 +43,13 @@ const DroneWorkshopInfo = () => {
         </p>
       </div>
 
+      <Link
+        href='/events/drone-workshop'
+        className='mt-1 flex w-fit text-gray-200 underline'
+      >
+        View event details
+      </Link>
+
       <div className='space-y-2'>
         <p>
           <strong>For any queries, contact:</strong>
