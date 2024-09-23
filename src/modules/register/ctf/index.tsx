@@ -9,6 +9,7 @@ import Image from 'next/image';
 import { FiDownload } from 'react-icons/fi';
 import { FaUpload } from 'react-icons/fa';
 import { IoMdCloudDone } from 'react-icons/io';
+import Intro from './intro';
 import {
   Form,
   FormControl,
@@ -41,7 +42,7 @@ import { type CTFUser } from '@/types/forms';
 import { Plus, User } from 'lucide-react';
 
 type FormInput = z.infer<typeof registerSchema>;
-type AcceptedFileType = 'image/jpeg' | 'image/png' | 'image/gif';
+type AcceptedFileType = 'image/jpeg' | 'image/png';
 
 export default function RegisterForm() {
   const form = useForm<FormInput>({
@@ -215,11 +216,7 @@ export default function RegisterForm() {
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [uploadedImage, setUploadedImage] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const acceptedFileTypes: AcceptedFileType[] = [
-    'image/jpeg',
-    'image/png',
-    'image/gif',
-  ];
+  const acceptedFileTypes: AcceptedFileType[] = ['image/jpeg', 'image/png'];
 
   const handleBoxClick = (): void => {
     fileInputRef.current?.click();
@@ -233,7 +230,8 @@ export default function RegisterForm() {
   };
 
   return (
-    <div className='flex items-center justify-center'>
+    <div className='flex flex-col items-center justify-center'>
+      <Intro />
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -642,6 +640,9 @@ export default function RegisterForm() {
                 Payment{' '}
                 {uploadedImage && <IoMdCloudDone className='text-green-400' />}
               </h1>
+              <p className='my-0 text-center text-base text-white'>
+                Please Pay the Fee Rs. 450 and Upload the Screenshot
+              </p>
 
               <div className='flex flex-col gap-6 md:flex-row'>
                 <div className='flex flex-col items-center space-y-4'>
@@ -690,10 +691,10 @@ export default function RegisterForm() {
                     <div className='text-center'>
                       <FaUpload className='mx-auto mb-4 h-12 w-12 text-gray-50' />
                       <p className='text-sm text-gray-50'>
-                        Click to upload a new image
+                        Click to upload payment screenshot
                       </p>
                       <p className='mt-2 text-xs text-gray-100'>
-                        Supported formats: JPEG, PNG, GIF
+                        Supported formats: JPEG, PNG
                       </p>
                     </div>
                   )}
@@ -783,7 +784,6 @@ export default function RegisterForm() {
           </Button>
         </form>
       </Form>
-
       {showWhatsAppLink && <CongratulationsModal />}
     </div>
   );

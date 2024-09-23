@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SplitType from 'split-type';
-import { KONFHUB_PAGE } from '@/config';
 import { LOADTIME } from '@/config';
 import { Separator } from '@/components/ui/separator';
 import Link from 'next/link';
@@ -90,8 +89,7 @@ export const TENET: React.FC = () => {
         <>
           <Separator className='mb-4' />
           <Link
-            href={KONFHUB_PAGE}
-            target='_blank'
+            href='/register'
             className='date hidden text-2xl text-gray-200 md:block'
           >
             Get Early bird pass

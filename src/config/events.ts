@@ -151,25 +151,7 @@ export const day1: ScheduleItemType[] = [
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/drone.jpg',
     organizers: [{ name: 'Shreya Kulkarni' }],
-    registration: 'https://forms.gle/PRoAR779QCL4LqyL9',
-  },
-  {
-    title: 'Gen AI (LLM) workshop',
-    icon: 'FaCalendar',
-    id: 'gen-ai-workshop',
-    domain: 'techfiesta',
-    color: 'bg-purple-700',
-    date: 'Oct 4th, 2024',
-    location: 'Multipurpose Hall (MPH)',
-    start: new Date('2024-09-12T14:00:00'),
-    imp: true,
-    time: '2:00 PM',
-    description:
-      'An in-depth workshop on Generative AI and Large Language Models.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/genai.jpeg',
-    organizers: [{ name: 'Shreya Kulkarni' }],
-    registration: 'https://forms.gle/sNcVRhN458bfKP786',
+    registration: '/register/drone-workshop',
   },
   {
     title: 'ARVR',
