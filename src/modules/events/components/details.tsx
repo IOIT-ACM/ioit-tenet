@@ -202,7 +202,6 @@ ${event.title} at AISSMS IOIT TENET 2024
                 <h4>
                   <Link
                     href={event.registration}
-                    target='_blank'
                     rel='noopener noreferrer'
                     className='flex items-center'
                   >

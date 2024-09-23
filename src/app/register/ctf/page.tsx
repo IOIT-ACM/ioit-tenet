@@ -25,7 +25,7 @@ const Register = () => {
     <section className='min-h-screen bg-gradient-to-br from-neutral-950 to-neutral-900 p-6 md:p-12'>
       <div className='mx-auto max-w-6xl'>
         <div>
-          <h1 className='mb-4 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-5xl font-bold text-transparent md:text-7xl'>
+          <h1 className='mb-4 bg-gradient-to-r from-indigo-500 to-blue-200 bg-clip-text text-5xl font-bold text-transparent md:text-7xl'>
             CAPTURE THE FLAG
           </h1>
           <div className='flex gap-3'>
@@ -43,7 +43,7 @@ const Register = () => {
             </Link>
           </div>
         </div>
-        <Separator className='my-8 h-0.5 bg-gradient-to-r from-purple-400 to-pink-600' />
+        <Separator className='my-8 h-0.5 bg-gradient-to-r from-indigo-500 to-blue-200' />
         <RegisterForm />
       </div>
     </section>

@@ -121,7 +121,7 @@ export const day1: ScheduleItemType[] = [
   {
     title: 'Capture the Flag',
     icon: 'FaCalendar',
-    id: 'capture-the-flag',
+    id: 'ctf',
     domain: 'techfiesta',
     color: 'bg-green-700',
     date: 'Oct 4th, 2024',
