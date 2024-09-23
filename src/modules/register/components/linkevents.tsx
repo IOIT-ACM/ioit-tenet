@@ -30,13 +30,6 @@ export const RegisterLinks: React.FC = () => {
       href: '/register/ctf',
     },
     {
-      heading: 'LLM-Workshop',
-      subheading: 'A hands-on workshop on Large Language Models in tech.',
-      imgSrc:
-        'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/ai.jpg',
-      href: 'https://docs.google.com/forms/d/e/1FAIpQLSdVT-YhdD8isBrYVMpp0KXtfOdQItB23_DaZwVp4yte47pYYA/viewform',
-    },
-    {
       heading: 'Drone-Workshop',
       subheading: 'Learn the art of building and flying drones from experts.',
       imgSrc:
@@ -153,7 +146,6 @@ const CustomLink: React.FC<LinkProps> = ({
       ref={ref}
       onMouseMove={handleMouseMove}
       initial='initial'
-      target='_blank'
       whileHover='whileHover'
       className='group relative flex items-center justify-between rounded-lg border-b-2 border-neutral-700 bg-neutral-800 px-6 py-6 transition-all duration-500 hover:border-purple-500 hover:bg-neutral-700'
     >
