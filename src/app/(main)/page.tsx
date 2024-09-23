@@ -16,6 +16,8 @@ import { MusicBtn } from '@/components/common/musicplayer';
 
 import { GameLink } from '@/modules/game';
 
+import ImageCarousel from '@/modules/home/components/imagecarousal';
+
 export default async function HomePage() {
   return (
     <main className=''>
@@ -23,6 +25,7 @@ export default async function HomePage() {
       <Intro />
       <Tickets />
       <EventCountdown />
+      <ImageCarousel />
       <Schedule />
       <TenetSpeakers />
       <SearchEvents />
