@@ -151,7 +151,7 @@ export const day1: ScheduleItemType[] = [
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/drone.jpg',
     organizers: [{ name: 'Shreya Kulkarni' }],
-    registration: 'https://forms.gle/PRoAR779QCL4LqyL9',
+    registration: '/register/drone-workshop',
   },
   {
     title: 'ARVR',

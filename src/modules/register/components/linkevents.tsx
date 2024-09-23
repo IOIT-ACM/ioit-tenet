@@ -34,7 +34,7 @@ export const RegisterLinks: React.FC = () => {
       subheading: 'Learn the art of building and flying drones from experts.',
       imgSrc:
         'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/drone.jpg',
-      href: 'https://forms.gle/PRoAR779QCL4LqyL9',
+      href: '/register/drone-workshop',
     },
     {
       heading: 'Investing-Arena',

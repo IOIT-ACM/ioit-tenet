@@ -19,3 +19,14 @@ export interface CTFUser {
   transactionId: string;
   tnc: boolean;
 }
+
+export interface DRONEUser {
+  email: string;
+  name: string;
+  college: string;
+  year: string;
+  branch: string;
+  whatsApp: string;
+  transactionId: string;
+  tnc: boolean;
+}
