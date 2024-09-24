@@ -29,6 +29,7 @@ import {
   DialogClose,
   DialogFooter,
 } from '@/components/ui/dialog';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import CongratulationsModal from './modal';
 import { useForm } from 'react-hook-form';
 import type { z } from 'zod';
@@ -264,11 +265,11 @@ export default function RegisterForm() {
                   ) : (
                     <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-600 p-4'>
                       <Plus className='mb-2 h-8 w-8' />
-                      <span className='text-center text-sm'>Add member 1</span>
+                      <span className='text-center text-sm'>Add member</span>
                     </div>
                   )}
                 </DialogTrigger>
-                <DialogContent className='bg-gray-100 sm:max-w-[425px]'>
+                <DialogContent className='no-scroll-bar bg-gray-100 sm:max-w-[425px]'>
                   <DialogHeader>
                     <DialogTitle>Team Member 1</DialogTitle>
                     <DialogDescription>
@@ -306,10 +307,63 @@ export default function RegisterForm() {
                       control={form.control}
                       name='year1'
                       render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Year</FormLabel>
+                        <FormItem className='space-y-3'>
+                          <FormLabel>Year of Study</FormLabel>
                           <FormControl>
-                            <Input placeholder='Year of Study' {...field} />
+                            <RadioGroup
+                              onValueChange={field.onChange}
+                              defaultValue={field.value}
+                              className='flex flex-col space-y-1'
+                            >
+                              <FormItem className='flex items-center space-x-3 space-y-0'>
+                                <FormControl>
+                                  <RadioGroupItem value='first-year' />
+                                </FormControl>
+                                <FormLabel className='font-normal'>
+                                  First year
+                                </FormLabel>
+                              </FormItem>
+                              <FormItem className='flex items-center space-x-3 space-y-0'>
+                                <FormControl>
+                                  <RadioGroupItem value='second-year' />
+                                </FormControl>
+                                <FormLabel className='font-normal'>
+                                  Second year
+                                </FormLabel>
+                              </FormItem>
+                              <FormItem className='flex items-center space-x-3 space-y-0'>
+                                <FormControl>
+                                  <RadioGroupItem value='third-year' />
+                                </FormControl>
+                                <FormLabel className='font-normal'>
+                                  Third year
+                                </FormLabel>
+                              </FormItem>
+                              <FormItem className='flex items-center space-x-3 space-y-0'>
+                                <FormControl>
+                                  <RadioGroupItem value='fourth-year' />
+                                </FormControl>
+                                <FormLabel className='font-normal'>
+                                  Fourth year
+                                </FormLabel>
+                              </FormItem>
+                              <FormItem className='flex items-center space-x-3 space-y-0'>
+                                <FormControl>
+                                  <RadioGroupItem value='final-year' />
+                                </FormControl>
+                                <FormLabel className='font-normal'>
+                                  Final year
+                                </FormLabel>
+                              </FormItem>
+                              <FormItem className='flex items-center space-x-3 space-y-0'>
+                                <FormControl>
+                                  <RadioGroupItem value='na' />
+                                </FormControl>
+                                <FormLabel className='font-normal'>
+                                  NA
+                                </FormLabel>
+                              </FormItem>
+                            </RadioGroup>
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -388,7 +442,7 @@ export default function RegisterForm() {
                     </div>
                   )}
                 </DialogTrigger>
-                <DialogContent className='bg-gray-100 sm:max-w-[425px]'>
+                <DialogContent className='no-scroll-bar bg-gray-100 sm:max-w-[425px]'>
                   <DialogHeader>
                     <DialogTitle>Team Member 2</DialogTitle>
                     <DialogDescription>
@@ -426,10 +480,63 @@ export default function RegisterForm() {
                       control={form.control}
                       name='year2'
                       render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Year</FormLabel>
+                        <FormItem className='space-y-3'>
+                          <FormLabel>Year of Study</FormLabel>
                           <FormControl>
-                            <Input placeholder='Year of Study' {...field} />
+                            <RadioGroup
+                              onValueChange={field.onChange}
+                              defaultValue={field.value}
+                              className='flex flex-col space-y-1'
+                            >
+                              <FormItem className='flex items-center space-x-3 space-y-0'>
+                                <FormControl>
+                                  <RadioGroupItem value='first-year' />
+                                </FormControl>
+                                <FormLabel className='font-normal'>
+                                  First year
+                                </FormLabel>
+                              </FormItem>
+                              <FormItem className='flex items-center space-x-3 space-y-0'>
+                                <FormControl>
+                                  <RadioGroupItem value='second-year' />
+                                </FormControl>
+                                <FormLabel className='font-normal'>
+                                  Second year
+                                </FormLabel>
+                              </FormItem>
+                              <FormItem className='flex items-center space-x-3 space-y-0'>
+                                <FormControl>
+                                  <RadioGroupItem value='third-year' />
+                                </FormControl>
+                                <FormLabel className='font-normal'>
+                                  Third year
+                                </FormLabel>
+                              </FormItem>
+                              <FormItem className='flex items-center space-x-3 space-y-0'>
+                                <FormControl>
+                                  <RadioGroupItem value='fourth-year' />
+                                </FormControl>
+                                <FormLabel className='font-normal'>
+                                  Fourth year
+                                </FormLabel>
+                              </FormItem>
+                              <FormItem className='flex items-center space-x-3 space-y-0'>
+                                <FormControl>
+                                  <RadioGroupItem value='final-year' />
+                                </FormControl>
+                                <FormLabel className='font-normal'>
+                                  Final year
+                                </FormLabel>
+                              </FormItem>
+                              <FormItem className='flex items-center space-x-3 space-y-0'>
+                                <FormControl>
+                                  <RadioGroupItem value='na' />
+                                </FormControl>
+                                <FormLabel className='font-normal'>
+                                  NA
+                                </FormLabel>
+                              </FormItem>
+                            </RadioGroup>
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -508,7 +615,7 @@ export default function RegisterForm() {
                     </div>
                   )}
                 </DialogTrigger>
-                <DialogContent className='bg-gray-100 sm:max-w-[425px]'>
+                <DialogContent className='no-scroll-bar bg-gray-100 sm:max-w-[425px]'>
                   <DialogHeader>
                     <DialogTitle>Team Member 3</DialogTitle>
                     <DialogDescription>
@@ -546,10 +653,63 @@ export default function RegisterForm() {
                       control={form.control}
                       name='year3'
                       render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Year</FormLabel>
+                        <FormItem className='space-y-3'>
+                          <FormLabel>Year of Study</FormLabel>
                           <FormControl>
-                            <Input placeholder='Year of Study' {...field} />
+                            <RadioGroup
+                              onValueChange={field.onChange}
+                              defaultValue={field.value}
+                              className='flex flex-col space-y-1'
+                            >
+                              <FormItem className='flex items-center space-x-3 space-y-0'>
+                                <FormControl>
+                                  <RadioGroupItem value='first-year' />
+                                </FormControl>
+                                <FormLabel className='font-normal'>
+                                  First year
+                                </FormLabel>
+                              </FormItem>
+                              <FormItem className='flex items-center space-x-3 space-y-0'>
+                                <FormControl>
+                                  <RadioGroupItem value='second-year' />
+                                </FormControl>
+                                <FormLabel className='font-normal'>
+                                  Second year
+                                </FormLabel>
+                              </FormItem>
+                              <FormItem className='flex items-center space-x-3 space-y-0'>
+                                <FormControl>
+                                  <RadioGroupItem value='third-year' />
+                                </FormControl>
+                                <FormLabel className='font-normal'>
+                                  Third year
+                                </FormLabel>
+                              </FormItem>
+                              <FormItem className='flex items-center space-x-3 space-y-0'>
+                                <FormControl>
+                                  <RadioGroupItem value='fourth-year' />
+                                </FormControl>
+                                <FormLabel className='font-normal'>
+                                  Fourth year
+                                </FormLabel>
+                              </FormItem>
+                              <FormItem className='flex items-center space-x-3 space-y-0'>
+                                <FormControl>
+                                  <RadioGroupItem value='final-year' />
+                                </FormControl>
+                                <FormLabel className='font-normal'>
+                                  Final year
+                                </FormLabel>
+                              </FormItem>
+                              <FormItem className='flex items-center space-x-3 space-y-0'>
+                                <FormControl>
+                                  <RadioGroupItem value='na' />
+                                </FormControl>
+                                <FormLabel className='font-normal'>
+                                  NA
+                                </FormLabel>
+                              </FormItem>
+                            </RadioGroup>
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -773,6 +933,12 @@ export default function RegisterForm() {
               </div>
             )}
           />
+
+          <p className='rounded-xl bg-gradient-to-r from-indigo-500 to-blue-200 p-3 text-lg italic text-gray-950'>
+            NOTE: Please remember to join the WhatsApp Group through the link
+            provided after successfult regestration.
+          </p>
+
           <Button
             disabled={submitting}
             type='button'

@@ -1,6 +1,5 @@
 import {
   SearchEvents,
-  // Gallery,
   TenetSpeakers,
   MUN,
   EventCountdown,
@@ -11,6 +10,8 @@ import {
   Schedule,
   Tickets,
   Sponsors,
+  ZoomParallax,
+  MUNtitle,
 } from '@/modules/home';
 import { MusicBtn } from '@/components/common/musicplayer';
 
@@ -25,10 +26,11 @@ export default async function HomePage() {
       <EventCountdown />
       <Schedule />
       <TenetSpeakers />
+      <ZoomParallax />
       <SearchEvents />
       <Sponsors />
+      <MUNtitle />
       <MUN />
-      {/* <Gallery /> */}
       <FallingCaps />
       <ThatsAllFolks />
       <GameLink />

@@ -9,6 +9,7 @@ import { Image as ANTImage } from 'antd';
 import { FiDownload } from 'react-icons/fi';
 import { FaUpload } from 'react-icons/fa';
 import { IoMdCloudDone } from 'react-icons/io';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import {
   Form,
   FormControl,
@@ -184,10 +185,61 @@ export default function RegisterForm() {
               control={form.control}
               name='year'
               render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Year</FormLabel>
+                <FormItem className='space-y-3'>
+                  <FormLabel>Year of Study</FormLabel>
                   <FormControl>
-                    <Input placeholder='Year of Study' {...field} />
+                    <RadioGroup
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                      className='flex flex-col space-y-1 rounded-xl bg-gray-300 p-3 text-black'
+                    >
+                      <FormItem className='flex items-center space-x-3 space-y-0'>
+                        <FormControl>
+                          <RadioGroupItem value='first-year' />
+                        </FormControl>
+                        <FormLabel className='font-normal'>
+                          First year
+                        </FormLabel>
+                      </FormItem>
+                      <FormItem className='flex items-center space-x-3 space-y-0'>
+                        <FormControl>
+                          <RadioGroupItem value='second-year' />
+                        </FormControl>
+                        <FormLabel className='font-normal'>
+                          Second year
+                        </FormLabel>
+                      </FormItem>
+                      <FormItem className='flex items-center space-x-3 space-y-0'>
+                        <FormControl>
+                          <RadioGroupItem value='third-year' />
+                        </FormControl>
+                        <FormLabel className='font-normal'>
+                          Third year
+                        </FormLabel>
+                      </FormItem>
+                      <FormItem className='flex items-center space-x-3 space-y-0'>
+                        <FormControl>
+                          <RadioGroupItem value='fourth-year' />
+                        </FormControl>
+                        <FormLabel className='font-normal'>
+                          Fourth year
+                        </FormLabel>
+                      </FormItem>
+                      <FormItem className='flex items-center space-x-3 space-y-0'>
+                        <FormControl>
+                          <RadioGroupItem value='final-year' />
+                        </FormControl>
+                        <FormLabel className='font-normal'>
+                          Final year
+                        </FormLabel>
+                      </FormItem>
+                      <FormItem className='flex items-center space-x-3 space-y-0'>
+                        <FormControl>
+                          <RadioGroupItem value='na' />
+                        </FormControl>
+                        <FormLabel className='font-normal'>NA</FormLabel>
+                      </FormItem>
+                    </RadioGroup>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -368,6 +420,11 @@ export default function RegisterForm() {
               </div>
             )}
           />
+
+          <p className='rounded-xl bg-gradient-to-r from-green-400 to-orange-600 p-3 text-lg italic text-gray-950'>
+            NOTE: Please remember to join the WhatsApp Group through the link
+            provided after successfult regestration.
+          </p>
 
           <Button
             disabled={submitting}
