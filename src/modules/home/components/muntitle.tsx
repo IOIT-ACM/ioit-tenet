@@ -5,10 +5,11 @@ import * as THREE from 'three';
 import React, { Suspense, useEffect, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Text } from '@react-three/drei';
+import { useIsMobile } from '@/hooks/useismobile';
 
-const MUNtitle: React.FC = () => {
+export const MUNtitle: React.FC = () => {
   return (
-    <div className='hidden h-screen items-center justify-center md:flex'>
+    <div className='flex h-[30vh] items-center justify-center md:h-[50vh]'>
       <Canvas
         gl={{ alpha: false }}
         camera={{ position: [0, 3, 100], fov: 15 }}
@@ -31,6 +32,7 @@ const MUNtitle: React.FC = () => {
 };
 
 const VideoText: React.FC<{ position: [number, number, number] }> = (props) => {
+  const mobile = useIsMobile();
   const [video] = useState<HTMLVideoElement | null>(() => {
     const videoElement = document.createElement('video');
     videoElement.src =
@@ -52,7 +54,7 @@ const VideoText: React.FC<{ position: [number, number, number] }> = (props) => {
   return (
     <Text
       font='/fonts/Inter-Bold.woff'
-      fontSize={2}
+      fontSize={mobile ? 3 : 4}
       letterSpacing={-0.06}
       {...props}
       maxWidth={200}
@@ -77,5 +79,3 @@ const Intro: React.FC = () => {
     state.camera.lookAt(0, 0, 0);
   });
 };
-
-export default MUNtitle;

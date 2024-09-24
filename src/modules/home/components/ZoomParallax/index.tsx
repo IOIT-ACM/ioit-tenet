@@ -59,7 +59,7 @@ export const ZoomParallax = () => {
 
   return (
     <div>
-      <h1 className='mt-20 text-center text-4xl text-white md:mb-10 md:text-9xl'>
+      <h1 className='mt-20 text-center text-4xl font-bold text-white md:mb-10 md:text-8xl'>
         Highlights
       </h1>
       <div ref={container} className={styles.container}>
@@ -68,7 +68,7 @@ export const ZoomParallax = () => {
             <motion.div key={index} style={{ scale }} className={styles.el}>
               <motion.div
                 className={styles.imageContainer}
-                style={{ filter: grayscale }} // Apply grayscale transition here
+                style={{ filter: grayscale }}
               >
                 <Image src={src} fill alt='image' />
               </motion.div>

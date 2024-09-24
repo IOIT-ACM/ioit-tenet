@@ -1,5 +1,5 @@
 .container {
-  height: 350vh;
+  height: 250vh;
   position: relative;
   background-color: #0a0a0a;
   margin-bottom: 100px;
@@ -21,6 +21,7 @@
         position: relative;
         width: 25vw;
         height: 25vh;
+        border-radius: 20px;
         img {
           object-fit: cover;
         }

@@ -3,7 +3,8 @@
 'use client';
 
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
+import { OrbitControls, Sparkles, Stars, Float } from '@react-three/drei';
+import { Suspense } from 'react';
 import { AnimatedLogo } from '@/lib/AnimatedLogo';
 // import { MovingSpot } from '@/lib/spotlight';
 import { TENET } from './tenet';
@@ -29,7 +30,29 @@ export const TenetHero: React.FC = () => {
           environmentIntensity={0.5}
           backgroundIntensity={0.9}
         /> */}
-        <AnimatedLogo />
+
+        <Suspense fallback={'Loading'}>
+          <Stars
+            radius={100}
+            depth={100}
+            count={4000}
+            factor={4}
+            saturation={0}
+            fade
+            speed={0.2}
+          />
+          <Sparkles
+            count={300}
+            size={3}
+            speed={0.02}
+            opacity={1}
+            scale={10}
+            color='#fff3b0'
+          />
+          <Float speed={1}>
+            <AnimatedLogo />
+          </Float>
+        </Suspense>
         <spotLight
           angle={0.5}
           penumbra={0.5}

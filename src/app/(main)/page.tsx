@@ -11,9 +11,9 @@ import {
   Tickets,
   Sponsors,
   ZoomParallax,
+  MUNtitle,
 } from '@/modules/home';
 import { MusicBtn } from '@/components/common/musicplayer';
-import MUNtitle from '@/modules/home/components/muntitle';
 
 import { GameLink } from '@/modules/game';
 
@@ -24,9 +24,9 @@ export default async function HomePage() {
       <Intro />
       <Tickets />
       <EventCountdown />
-      <ZoomParallax />
       <Schedule />
       <TenetSpeakers />
+      <ZoomParallax />
       <SearchEvents />
       <Sponsors />
       <MUNtitle />
