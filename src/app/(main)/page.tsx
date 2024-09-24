@@ -10,6 +10,7 @@ import {
   Schedule,
   Tickets,
   Sponsors,
+  ZoomParallax,
 } from '@/modules/home';
 import { MusicBtn } from '@/components/common/musicplayer';
 import MUNtitle from '@/modules/home/components/muntitle';
@@ -23,6 +24,7 @@ export default async function HomePage() {
       <Intro />
       <Tickets />
       <EventCountdown />
+      <ZoomParallax />
       <Schedule />
       <TenetSpeakers />
       <SearchEvents />

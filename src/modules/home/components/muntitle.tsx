@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 'use client';
 
 import * as THREE from 'three';
@@ -7,7 +8,7 @@ import { Text } from '@react-three/drei';
 
 const MUNtitle: React.FC = () => {
   return (
-    <div className='flex h-screen items-center justify-center'>
+    <div className='hidden h-screen items-center justify-center md:flex'>
       <Canvas
         gl={{ alpha: false }}
         camera={{ position: [0, 3, 100], fov: 15 }}
@@ -30,15 +31,24 @@ const MUNtitle: React.FC = () => {
 };
 
 const VideoText: React.FC<{ position: [number, number, number] }> = (props) => {
-  const [video] = useState(() =>
-    Object.assign(document.createElement('video'), {
-      src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/mun-clip.mp4',
-      crossOrigin: 'Anonymous',
-      loop: true,
-      muted: true,
-    }),
-  );
-  useEffect(() => void video.play(), [video]);
+  const [video] = useState<HTMLVideoElement | null>(() => {
+    const videoElement = document.createElement('video');
+    videoElement.src =
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/mun-clip.mp4';
+    videoElement.crossOrigin = 'Anonymous';
+    videoElement.loop = true;
+    videoElement.muted = true;
+    return videoElement;
+  });
+
+  useEffect(() => {
+    if (video) {
+      const handleLoaded = () => video.play();
+      video.addEventListener('canplaythrough', handleLoaded);
+      return () => video.removeEventListener('canplaythrough', handleLoaded);
+    }
+  }, [video]);
+
   return (
     <Text
       font='/fonts/Inter-Bold.woff'
@@ -51,7 +61,7 @@ const VideoText: React.FC<{ position: [number, number, number] }> = (props) => {
     >
       MUN
       <meshBasicMaterial toneMapped={false}>
-        <videoTexture attach='map' args={[video]} />
+        {video && <videoTexture attach='map' args={[video]} />}
       </meshBasicMaterial>
     </Text>
   );

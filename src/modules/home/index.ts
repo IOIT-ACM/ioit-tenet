@@ -13,3 +13,4 @@ export { Schedule } from './components/schedule';
 export { EventCountdown } from './components/countdown';
 export { Tickets } from './components/tickets';
 export { Sponsors } from './components/sponcers';
+export { ZoomParallax } from './components/ZoomParallax';
