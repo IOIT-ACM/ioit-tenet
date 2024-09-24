@@ -25,7 +25,7 @@ export default async function Page() {
       <HeroImage
         backgroundImage='https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/esports.jpg'
         title='E-Sports'
-        subtitle='Join us for an exciting event'
+        subtitle='Join Elite Gamers, Influencers, and Innovators at the Ultimate Esports Arena'
         ctaText='Learn More'
         ctaLink='#timeline'
       />

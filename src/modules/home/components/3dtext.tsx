@@ -1,36 +1,24 @@
-/* eslint-disable @typescript-eslint/no-misused-promises */
 'use client';
 
-import { useRef, useEffect, useState, Suspense } from 'react';
-import { type Mesh, VideoTexture } from 'three';
-import { Text3D, OrbitControls, Center, Float } from '@react-three/drei';
+import { useRef, Suspense } from 'react';
+import { type Mesh } from 'three';
+import {
+  Text3D,
+  OrbitControls,
+  Center,
+  Stars,
+  Float,
+  Sparkles,
+  useMatcapTexture,
+} from '@react-three/drei';
 import { Canvas, useThree } from '@react-three/fiber';
 
 function Hero() {
+  const [matcapTexture] = useMatcapTexture('CB4E88_F99AD6_F384C3_ED75B9');
   const ref = useRef<Mesh>(null);
 
   const { viewport } = useThree();
   const { width: w } = viewport;
-
-  const [video] = useState(() => {
-    const vid = document.createElement('video');
-    vid.src =
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/mun-clip.mp4';
-    vid.crossOrigin = 'Anonymous';
-    vid.loop = true;
-    vid.muted = true;
-    return vid;
-  });
-
-  useEffect(() => {
-    if (video) {
-      const playVideo = () => video.play();
-      video.addEventListener('canplaythrough', playVideo);
-      return () => video.removeEventListener('canplaythrough', playVideo);
-    }
-  }, [video]);
-
-  const videoTexture = new VideoTexture(video);
 
   return (
     <Center scale={[0.9, 1, 1]}>
@@ -40,7 +28,7 @@ function Hero() {
           scale={[-1, 1, 1]}
           ref={ref}
           size={w / 9}
-          font={'/fonts/optimer_bold.typeface.json'}
+          font={'/gt.json'}
           curveSegments={24}
           bevelSegments={1}
           bevelEnabled
@@ -51,7 +39,7 @@ function Hero() {
           letterSpacing={0.3}
         >
           MUN
-          <meshBasicMaterial toneMapped={false} map={videoTexture} />
+          <meshMatcapMaterial color='white' matcap={matcapTexture} />
         </Text3D>
       </Float>
     </Center>
@@ -61,11 +49,30 @@ function Hero() {
 export default function TEXT3d() {
   return (
     <div className='h-screen'>
-      <Canvas camera={{ position: [0, 0, -10], fov: 60 }} eventPrefix='client'>
+      <Canvas camera={{ position: [0, 0, -10], fov: 60 }}>
         <OrbitControls enableZoom={false} />
+
         <Suspense fallback={'Loading'}>
+          <Stars
+            radius={100}
+            depth={100}
+            count={4000}
+            factor={4}
+            saturation={0}
+            fade
+            speed={0.2}
+          />
+          <Sparkles
+            count={300}
+            size={3}
+            speed={0.02}
+            opacity={1}
+            scale={10}
+            color='#fff3b0'
+          />
           <Hero />
         </Suspense>
+        <ambientLight intensity={0.6} color={'#dee2ff'} />
       </Canvas>
     </div>
   );

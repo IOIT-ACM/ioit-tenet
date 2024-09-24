@@ -25,7 +25,7 @@ export default function Page() {
       <HeroImage
         backgroundImage='https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/creators.jpeg'
         title='Cultural Night'
-        subtitle='Join us for an exciting event'
+        subtitle='Experience Vibrant Performances and Rich Traditions at the Cultural Night Extravaganza'
         // ctaText='Learn More'
         // ctaLink='#timeline'
       />
