@@ -37,7 +37,7 @@ export const musicConfig: MusicConfig[] = [
   {
     route: '/creators',
     music: [
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/tracks/zenzenzense.mp3',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/tracks/tambdi-chambdi.mp3',
     ],
   },
 ];
