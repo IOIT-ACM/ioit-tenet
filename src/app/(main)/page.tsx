@@ -1,6 +1,5 @@
 import {
   SearchEvents,
-  // Gallery,
   TenetSpeakers,
   MUN,
   EventCountdown,
@@ -13,10 +12,9 @@ import {
   Sponsors,
 } from '@/modules/home';
 import { MusicBtn } from '@/components/common/musicplayer';
+import MUNtitle from '@/modules/home/components/muntitle';
 
 import { GameLink } from '@/modules/game';
-
-import ImageCarousel from '@/modules/home/components/imagecarousal';
 
 export default async function HomePage() {
   return (
@@ -25,13 +23,12 @@ export default async function HomePage() {
       <Intro />
       <Tickets />
       <EventCountdown />
-      <ImageCarousel />
       <Schedule />
       <TenetSpeakers />
       <SearchEvents />
       <Sponsors />
+      <MUNtitle />
       <MUN />
-      {/* <Gallery /> */}
       <FallingCaps />
       <ThatsAllFolks />
       <GameLink />
