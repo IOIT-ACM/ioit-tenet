@@ -1,8 +1,9 @@
 'use client';
 
+'use client';
+
 import styles from './ZoomParallax.module.scss';
 import Image from 'next/image';
-
 import { useScroll, useTransform, motion } from 'framer-motion';
 import { useRef } from 'react';
 
@@ -18,6 +19,12 @@ export const ZoomParallax = () => {
   const scale6 = useTransform(scrollYProgress, [0, 1], [1, 6]);
   const scale8 = useTransform(scrollYProgress, [0, 1], [1, 8]);
   const scale9 = useTransform(scrollYProgress, [0, 1], [1, 9]);
+
+  const grayscale = useTransform(
+    scrollYProgress,
+    [0, 0.3],
+    ['grayscale(70%)', 'grayscale(0%)'],
+  );
 
   const pictures = [
     {
@@ -57,15 +64,16 @@ export const ZoomParallax = () => {
       </h1>
       <div ref={container} className={styles.container}>
         <div className={styles.sticky}>
-          {pictures.map(({ src, scale }, index) => {
-            return (
-              <motion.div key={index} style={{ scale }} className={styles.el}>
-                <div className={styles.imageContainer}>
-                  <Image src={src} fill alt='image' />
-                </div>
+          {pictures.map(({ src, scale }, index) => (
+            <motion.div key={index} style={{ scale }} className={styles.el}>
+              <motion.div
+                className={styles.imageContainer}
+                style={{ filter: grayscale }} // Apply grayscale transition here
+              >
+                <Image src={src} fill alt='image' />
               </motion.div>
-            );
-          })}
+            </motion.div>
+          ))}
         </div>
       </div>
     </div>
