@@ -5,6 +5,7 @@
 import styles from './ZoomParallax.module.scss';
 import Image from 'next/image';
 import { useScroll, useTransform, motion } from 'framer-motion';
+import Description from './Description';
 import { useRef } from 'react';
 
 export const ZoomParallax = () => {
@@ -62,6 +63,7 @@ export const ZoomParallax = () => {
       <h1 className='mt-20 text-center text-4xl font-bold text-white md:mb-10 md:text-8xl'>
         Highlights
       </h1>
+      <Description />
       <div ref={container} className={styles.container}>
         <div className={styles.sticky}>
           {pictures.map(({ src, scale }, index) => (

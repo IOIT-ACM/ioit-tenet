@@ -58,7 +58,6 @@ export const MUN = () => {
 function shuffleArray<T>(array: T[]): T[] {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-
     [array[i], array[j]] = [array[j], array[i]] as [T, T];
   }
   return array;
@@ -119,9 +118,8 @@ const squareData: SquareData[] = [
   },
 ];
 
-const generateSquares = (ismobile: boolean) => {
-  const data = ismobile ? squareData.slice(0, 9) : squareData;
-  return shuffleArray(data).map((sq) => (
+const generateSquares = () => {
+  return shuffleArray(squareData).map((sq) => (
     <motion.div
       key={sq.src}
       layout
@@ -137,8 +135,8 @@ const generateSquares = (ismobile: boolean) => {
 
 const ShuffleGrid = () => {
   const timeoutRef = useRef<any>(null);
-  const ismobile = useIsMobile();
-  const [squares, setSquares] = useState(generateSquares(ismobile));
+  const isMobile = useIsMobile();
+  const [squares, setSquares] = useState(generateSquares());
 
   useEffect(() => {
     shuffleSquares();
@@ -147,14 +145,17 @@ const ShuffleGrid = () => {
   }, []);
 
   const shuffleSquares = () => {
-    setSquares(generateSquares(ismobile));
-
+    setSquares(generateSquares());
     timeoutRef.current = setTimeout(shuffleSquares, 3000);
   };
 
   return (
-    <div className='grid h-full grid-cols-2 grid-rows-2 gap-2 sm:grid-cols-3 sm:grid-rows-3 sm:gap-3 md:h-[450px] md:grid-cols-4 md:grid-rows-4'>
-      {ismobile ? squares.slice(0, 9) : squares}
+    <div
+      className={`grid h-[75vh] gap-2 sm:gap-3 md:h-[450px] ${
+        isMobile ? 'grid-cols-2 grid-rows-8' : 'grid-cols-4 grid-rows-4'
+      }`}
+    >
+      {squares}
     </div>
   );
 };

@@ -9,7 +9,7 @@ export const TenetSpeakers = () => {
   return (
     <div
       id='speakers'
-      className='flex h-screen flex-col justify-around bg-neutral-950'
+      className='flex h-[70vh] flex-col justify-around bg-neutral-950 md:h-screen'
     >
       <h1 className='text-center text-4xl text-white md:text-8xl'>Speakers</h1>
       <TenetSpeakersCarousel />
@@ -19,7 +19,7 @@ export const TenetSpeakers = () => {
 
 const TenetSpeakersCarousel = () => {
   return (
-    <section className='relative py-20'>
+    <section className='relative py-8 md:py-20'>
       <div className='no-scroll-bar sticky top-0 flex items-center overflow-hidden overflow-x-auto px-20 py-10'>
         <div className='flex gap-14'>
           {speakers.slice(0, 6).map((speaker) => {
