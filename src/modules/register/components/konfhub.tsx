@@ -30,7 +30,7 @@ export function KonfHub() {
             className='inline-flex transform cursor-pointer items-center justify-center rounded-md border border-transparent px-8 py-3 text-base font-medium text-white transition duration-150 ease-in-out hover:-translate-y-1 hover:scale-105 md:px-10 md:py-4 md:text-lg'
           >
             <Ticket className='mr-2 h-5 w-5' />
-            Get Early Bird Pass Now
+            Grab Your Tickets Now
           </Button>
         </div>
       </div>

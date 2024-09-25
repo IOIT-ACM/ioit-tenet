@@ -8,7 +8,7 @@ import { Suspense } from 'react';
 import { AnimatedLogo } from '@/lib/AnimatedLogo';
 // import { MovingSpot } from '@/lib/spotlight';
 import { TENET } from './tenet';
-import Machinegun from './machinegun';
+import Machinegun from './machinegun-text';
 import { Links } from './links';
 import { TITLETEXT } from './title';
 

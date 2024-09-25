@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -18,10 +19,10 @@ export const Links: React.FC = () => {
       gsap.from(links, {
         x: 200,
         opacity: 0,
-        duration: 1,
+        duration: ismobile ? 0.5 : 1,
         stagger: 0.3,
         ease: 'power3.out',
-        delay: LOADTIME,
+        delay: ismobile ? LOADTIME - 1.5 : LOADTIME,
       });
     }, linksRef);
 

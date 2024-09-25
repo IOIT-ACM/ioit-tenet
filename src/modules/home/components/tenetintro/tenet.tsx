@@ -92,7 +92,7 @@ export const TENET: React.FC = () => {
             href='/register'
             className='date hidden text-2xl text-gray-200 md:block'
           >
-            Get Early bird pass
+            Grab Your Tickets
           </Link>
         </>
       </div>

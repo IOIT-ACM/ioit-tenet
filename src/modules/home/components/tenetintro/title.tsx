@@ -21,7 +21,7 @@ export const TITLETEXT: React.FC = () => {
           y: 0,
           opacity: 1,
           stagger: 0.1,
-          duration: 1.5,
+          duration: 0.5,
           ease: 'power4.out',
           delay: LOADTIME + 0.7,
           scrollTrigger: {
