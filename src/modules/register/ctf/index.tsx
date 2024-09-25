@@ -50,7 +50,7 @@ export default function RegisterForm() {
   const form = useForm<FormInput>({
     resolver: zodResolver(registerSchema),
     defaultValues: initialFormData,
-    mode: 'onChange',
+    mode: 'all',
   });
 
   async function onSubmit(values: CTFUser) {
@@ -261,6 +261,14 @@ export default function RegisterForm() {
                     <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-500 p-4'>
                       <User className='mb-2 h-8 w-8' />
                       <span className='text-center text-sm'>{user1.name}</span>
+                      {user1.year !== 'na' && (
+                        <span className='text-center text-sm'>
+                          {user1.year}
+                        </span>
+                      )}
+                      <span className='line-clamp-2 text-center text-sm'>
+                        {user1.college}
+                      </span>
                     </div>
                   ) : (
                     <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-600 p-4'>
@@ -432,6 +440,14 @@ export default function RegisterForm() {
                     <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-500 p-4'>
                       <User className='mb-2 h-8 w-8' />
                       <span className='text-center text-sm'>{user2.name}</span>
+                      {user2.year !== 'na' && (
+                        <span className='text-center text-sm'>
+                          {user2.year}
+                        </span>
+                      )}
+                      <span className='line-clamp-2 text-center text-sm'>
+                        {user2.college}
+                      </span>
                     </div>
                   ) : (
                     <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-600 p-4'>
@@ -470,7 +486,19 @@ export default function RegisterForm() {
                         <FormItem>
                           <FormLabel>College</FormLabel>
                           <FormControl>
-                            <Input placeholder='College Name' {...field} />
+                            <>
+                              <Input placeholder='College Name' {...field} />
+                              {user1.college && !user2.college && (
+                                <div
+                                  className='line-clamp-1 cursor-pointer text-sm italic text-blue-700'
+                                  onClick={() =>
+                                    form.setValue('college2', user1.college)
+                                  }
+                                >
+                                  Autocomplete: {user1.college}?
+                                </div>
+                              )}
+                            </>
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -605,6 +633,14 @@ export default function RegisterForm() {
                     <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-500 p-4'>
                       <User className='mb-2 h-8 w-8' />
                       <span className='text-center text-sm'>{user3.name}</span>
+                      {user3.year !== 'na' && (
+                        <span className='text-center text-sm'>
+                          {user3.year}
+                        </span>
+                      )}
+                      <span className='line-clamp-2 text-center text-sm'>
+                        {user3.college}
+                      </span>
                     </div>
                   ) : (
                     <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-600 p-4'>
@@ -643,7 +679,19 @@ export default function RegisterForm() {
                         <FormItem>
                           <FormLabel>College</FormLabel>
                           <FormControl>
-                            <Input placeholder='College Name' {...field} />
+                            <>
+                              <Input placeholder='College Name' {...field} />
+                              {user1.college && !user3.college && (
+                                <div
+                                  className='line-clamp-1 cursor-pointer text-sm italic text-blue-700'
+                                  onClick={() =>
+                                    form.setValue('college3', user1.college)
+                                  }
+                                >
+                                  Autocomplete: {user1.college}?
+                                </div>
+                              )}
+                            </>
                           </FormControl>
                           <FormMessage />
                         </FormItem>

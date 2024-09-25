@@ -112,15 +112,30 @@ export default function FixedNavBar({ className }: { className?: string }) {
   return (
     <div
       ref={navbarRef}
-      className='fixed top-5 z-50 flex w-screen select-none items-center justify-between px-3 md:px-20'
+      className='fixed top-5 z-50 flex w-screen select-none items-center justify-between px-3 md:px-10'
     >
-      <div ref={logoRef}>
+      <div
+        ref={logoRef}
+        className='flex w-fit items-center justify-center gap-1 md:gap-3'
+      >
         <Link
-          className='h-16 w-16 cursor-pointer transition-all hover:scale-105 md:h-20 md:w-20'
+          className='h-10 w-10 cursor-pointer transition-all hover:scale-105 md:h-20 md:w-20'
+          href={'https://ioit.acm.org'}
+        >
+          <Image
+            className='h-full w-full cursor-pointer transition-all hover:scale-105'
+            src={'/acm.png'}
+            alt='Tenet Logo'
+            height={70}
+            width={70}
+          />
+        </Link>
+        <Link
+          className='h-10 w-10 cursor-pointer transition-all hover:scale-105 md:h-20 md:w-20'
           href={'/'}
         >
           <Image
-            className='h-10 w-10 cursor-pointer transition-all hover:scale-105 md:h-20 md:w-20'
+            className='h-full w-full cursor-pointer transition-all hover:scale-105'
             src={'/tenet-white-logo.png'}
             alt='Tenet Logo'
             height={70}

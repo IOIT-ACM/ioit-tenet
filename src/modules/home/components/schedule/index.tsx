@@ -7,8 +7,6 @@ import { FollowCursor } from './cursor';
 import React, { useMemo, useState, useRef } from 'react';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import Link from 'next/link';
-import { Switch } from '@/components/ui/switch';
-import { useStore } from '@/store';
 import type { ScheduleItemType } from '@/types';
 
 const munItem1: ScheduleItemType = {
@@ -52,8 +50,6 @@ const munItem2: ScheduleItemType = {
 export const Schedule = () => {
   const [expanded, setExpanded] = useState<number | null>(null);
   const boundaryRef = useRef(null);
-  const showPreview = useStore((state) => state.showPreview);
-  const setShowPreview = useStore((state) => state.setShowPreview);
 
   const d1 = useMemo(() => {
     const filteredDay1 = day1.filter((item) => item.domain !== 'mun');
@@ -105,17 +101,6 @@ export const Schedule = () => {
           Schedule
         </h1>
 
-        <div className='mb-8 hidden items-center space-x-2 md:flex'>
-          <Switch
-            id='toggle-cards'
-            checked={showPreview}
-            onCheckedChange={setShowPreview}
-          />
-          <label htmlFor='toggle-cards' className='text-white'>
-            Show preview
-          </label>
-        </div>
-
         <div className='gap- hidden pb-2 text-slate-300 md:grid'>
           <Link
             className='w-fit transition-all hover:underline'
@@ -158,13 +143,9 @@ export const Schedule = () => {
           <Separator className='my-4 max-w-full bg-slate-300 md:max-w-36' />
           {d1.map((item, index) => (
             <React.Fragment key={`Day1-${index}`}>
-              {showPreview ? (
-                <FollowCursor data={item} classname='scale-90'>
-                  <ScheduleItem data={item} />
-                </FollowCursor>
-              ) : (
+              <FollowCursor data={item} classname='scale-90'>
                 <ScheduleItem data={item} />
-              )}
+              </FollowCursor>
             </React.Fragment>
           ))}
         </div>
@@ -189,13 +170,9 @@ export const Schedule = () => {
           <Separator className='my-4 max-w-full bg-slate-300 md:max-w-36' />
           {d2.map((item, index) => (
             <React.Fragment key={`Day2-${index}`}>
-              {showPreview ? (
-                <FollowCursor data={item} classname='scale-90'>
-                  <ScheduleItem data={item} />
-                </FollowCursor>
-              ) : (
+              <FollowCursor data={item} classname='scale-90'>
                 <ScheduleItem data={item} />
-              )}
+              </FollowCursor>
             </React.Fragment>
           ))}
         </div>
@@ -220,13 +197,9 @@ export const Schedule = () => {
           <Separator className='my-4 max-w-full bg-slate-300 md:max-w-36' />
           {d3.map((item, index) => (
             <React.Fragment key={`Day3-${index}`}>
-              {showPreview ? (
-                <FollowCursor data={item} classname='scale-90'>
-                  <ScheduleItem data={item} />
-                </FollowCursor>
-              ) : (
+              <FollowCursor data={item} classname='scale-90'>
                 <ScheduleItem data={item} />
-              )}
+              </FollowCursor>
             </React.Fragment>
           ))}
         </div>

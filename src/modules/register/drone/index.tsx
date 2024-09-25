@@ -55,7 +55,7 @@ export default function RegisterForm() {
   const form = useForm<FormInput>({
     resolver: zodResolver(registerSchema),
     defaultValues: initialFormData,
-    mode: 'onChange',
+    mode: 'all',
   });
 
   async function onSubmit(values: DRONEUser) {
