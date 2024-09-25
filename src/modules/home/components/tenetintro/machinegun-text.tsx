@@ -8,9 +8,9 @@ export default function Machinegun() {
         <Link
           href='/register'
           target='_blank'
-          className='z-[9999] rounded-xl bg-gray-200 px-3 py-2 text-xl text-gray-800'
+          className='z-[9999] rounded-full bg-gray-200 bg-opacity-75 px-4 py-2 text-xl text-gray-800'
         >
-          Get Early bird pass
+          Grab Your Tickets
         </Link>
       </MachineGunText>
     </div>

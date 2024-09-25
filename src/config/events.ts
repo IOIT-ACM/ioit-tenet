@@ -25,7 +25,7 @@ export const day1: ScheduleItemType[] = [
     domain: 'techfiesta',
     color: 'bg-blue-700',
     date: 'Oct 4th, 2024',
-    location: 'Room A',
+    location: 'Multipurpose hall (MPH)',
     start: new Date('2024-09-12T11:15:00'),
     imp: true,
     time: '11:15 AM',
@@ -147,7 +147,8 @@ export const day1: ScheduleItemType[] = [
     start: new Date('2024-09-12T13:45:00'),
     imp: true,
     time: '1:45 PM',
-    description: 'Hands-on workshop on drone technology and piloting.',
+    description:
+      'Master the essentials of drone technology at our hands-on drone workshop. Get crucial training in drone assembly and understand the components used. Exercise drone programming and get a chance to practice flight training.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/drone.jpg',
     organizers: [{ name: 'Shreya Kulkarni' }],
