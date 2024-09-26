@@ -45,7 +45,6 @@ export const Sponsors: React.FC = () => {
     return acc;
   }, {} as SponsorsByType);
 
-  // Separate 'Sponsor' type from others and sort the rest
   const mainSponsors = sponsorsByType.Sponsor ?? [];
   const otherTypes = Object.keys(sponsorsByType)
     .filter((type) => type !== 'Sponsor')
@@ -57,7 +56,7 @@ export const Sponsors: React.FC = () => {
       ref={(el) => {
         if (el) sponsorRefs.current.push(el);
       }}
-      className='flex flex-col items-center rounded-lg p-4 transition-colors hover:bg-slate-700'
+      className='group relative flex flex-col items-center rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 p-6 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl'
     >
       {sponsor.websiteUrl ? (
         <Link
@@ -66,52 +65,56 @@ export const Sponsors: React.FC = () => {
           rel='noopener noreferrer'
           className='flex flex-col items-center'
         >
-          <div className='flex h-32 w-32 items-center justify-center overflow-hidden rounded-full bg-white p-1'>
+          <div className='relative h-40 w-40 overflow-hidden rounded-full bg-white p-2 shadow-inner transition-transform duration-300 group-hover:rotate-3'>
             <Image
               src={sponsor.logoUrl}
               alt={sponsor.name}
-              width={128}
-              height={128}
-              style={{ objectFit: 'cover' }}
-              className='rounded-full'
+              layout='fill'
+              objectFit='contain'
+              className='rounded-full transition-opacity duration-300 group-hover:opacity-90'
             />
           </div>
-          <p className='mt-4 text-center text-white'>{sponsor.name}</p>
+          <p className='mt-6 text-center text-lg font-semibold text-white transition-colors duration-300 group-hover:text-blue-300'>
+            {sponsor.name}
+          </p>
         </Link>
       ) : (
         <>
-          <div className='flex h-32 w-32 items-center justify-center overflow-hidden rounded-full bg-white p-2'>
+          <div className='relative h-40 w-40 overflow-hidden rounded-full bg-white p-2 shadow-inner transition-transform duration-300 group-hover:rotate-3'>
             <Image
               src={sponsor.logoUrl}
               alt={sponsor.name}
-              width={128}
-              height={128}
-              style={{ objectFit: 'cover' }}
-              className='rounded-full'
+              layout='fill'
+              objectFit='contain'
+              className='rounded-full transition-opacity duration-300 group-hover:opacity-90'
             />
           </div>
-          <p className='mt-4 text-center text-white'>{sponsor.name}</p>
+          <p className='mt-6 text-center text-lg font-semibold text-white'>
+            {sponsor.name}
+          </p>
         </>
       )}
     </div>
   );
 
   const renderSponsorGroup = (type: string, sponsors: Sponsor[]) => (
-    <div key={type} className='mb-12'>
+    <div key={type} className='mb-16'>
       <h3
-        className={`mb-6 text-center font-semibold text-white md:pl-10 md:text-start ${type === 'Sponsor' ? 'text-4xl' : 'text-2xl'}`}
+        className={`mb-8 text-center font-bold text-white md:text-start ${
+          type === 'Sponsor' ? 'text-4xl md:text-5xl' : 'text-2xl md:text-3xl'
+        }`}
       >
         {type}
       </h3>
-      <div className='grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5'>
+      <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'>
         {sponsors.map((sponsor, index) => renderSponsor(sponsor, index))}
       </div>
     </div>
   );
 
   return (
-    <section className='py-12'>
-      <div className='mx-auto px-4'>
+    <section className='py-16'>
+      <div className='container mx-auto px-4'>
         {mainSponsors.length > 0 && renderSponsorGroup('Sponsor', mainSponsors)}
         {otherTypes.map((type) =>
           renderSponsorGroup(type, sponsorsByType[type] ?? []),
