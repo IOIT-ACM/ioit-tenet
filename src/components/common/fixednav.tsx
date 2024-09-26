@@ -120,11 +120,11 @@ export default function FixedNavBar({ className }: { className?: string }) {
       >
         <Link
           className='h-10 w-10 cursor-pointer transition-all hover:scale-105 md:h-16 md:w-16'
-          href={'https://ioit.acm.org'}
+          href={'/'}
         >
           <Image
             className='h-full w-full cursor-pointer transition-all hover:scale-105'
-            src={'/acm.png'}
+            src={'/tenet-white-logo.png'}
             alt='Tenet Logo'
             height={70}
             width={70}
@@ -132,11 +132,11 @@ export default function FixedNavBar({ className }: { className?: string }) {
         </Link>
         <Link
           className='h-10 w-10 cursor-pointer transition-all hover:scale-105 md:h-16 md:w-16'
-          href={'/'}
+          href={'https://ioit.acm.org'}
         >
           <Image
             className='h-full w-full cursor-pointer transition-all hover:scale-105'
-            src={'/tenet-white-logo.png'}
+            src={'/acm.png'}
             alt='Tenet Logo'
             height={70}
             width={70}

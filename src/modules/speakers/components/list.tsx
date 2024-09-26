@@ -66,9 +66,6 @@ export const Speakers = () => {
           </Link>
         ))}
       </div>
-      <h1 className='flex items-center justify-center py-40 text-center text-4xl font-bold text-white'>
-        speakers revealing soon...
-      </h1>
     </div>
   );
 };
