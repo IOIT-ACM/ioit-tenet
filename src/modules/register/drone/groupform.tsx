@@ -313,20 +313,6 @@ export default function RegisterForm() {
           onSubmit={form.handleSubmit(onSubmit)}
           className='z-[99] w-full space-y-8 text-white'
         >
-          <FormField
-            control={form.control}
-            name='email'
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email</FormLabel>
-                <FormControl>
-                  <Input placeholder='your@email.com' {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
           <div className='py-4'>
             <div className='grid grid-cols-1 gap-4'>
               <Dialog>
@@ -359,6 +345,19 @@ export default function RegisterForm() {
                     </DialogDescription>
                   </DialogHeader>
                   <div className='max-h-[60vh] space-y-4 overflow-y-auto'>
+                    <FormField
+                      control={form.control}
+                      name='email1'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Participant Email</FormLabel>
+                          <FormControl>
+                            <Input placeholder='Email' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
                     <FormField
                       control={form.control}
                       name='name1'
@@ -521,6 +520,19 @@ export default function RegisterForm() {
                     </DialogDescription>
                   </DialogHeader>
                   <div className='max-h-[60vh] space-y-4 overflow-y-auto'>
+                    <FormField
+                      control={form.control}
+                      name='email2'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Participant Email</FormLabel>
+                          <FormControl>
+                            <Input placeholder='Email' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
                     <FormField
                       control={form.control}
                       name='name2'
@@ -697,6 +709,19 @@ export default function RegisterForm() {
                   <div className='max-h-[60vh] space-y-4 overflow-y-auto'>
                     <FormField
                       control={form.control}
+                      name='email3'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Participant Email</FormLabel>
+                          <FormControl>
+                            <Input placeholder='Email' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
                       name='name3'
                       render={({ field }) => (
                         <FormItem>
@@ -871,6 +896,19 @@ export default function RegisterForm() {
                   <div className='max-h-[60vh] space-y-4 overflow-y-auto'>
                     <FormField
                       control={form.control}
+                      name='email4'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Participant Email</FormLabel>
+                          <FormControl>
+                            <Input placeholder='Email' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
                       name='name4'
                       render={({ field }) => (
                         <FormItem>
@@ -1043,6 +1081,19 @@ export default function RegisterForm() {
                     </DialogDescription>
                   </DialogHeader>
                   <div className='max-h-[60vh] space-y-4 overflow-y-auto'>
+                    <FormField
+                      control={form.control}
+                      name='email5'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Participant Email</FormLabel>
+                          <FormControl>
+                            <Input placeholder='Email' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
                     <FormField
                       control={form.control}
                       name='name5'
