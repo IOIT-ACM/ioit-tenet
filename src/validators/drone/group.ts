@@ -4,8 +4,7 @@ import { type DRONETeam } from '@/types/forms';
 const phoneRegex = /^\d{10}$/;
 
 export const groupRegisterSchema = z.object({
-  email: z.string().email({ message: 'Invalid email address' }),
-
+  email1: z.string().email({ message: 'Invalid email address' }),
   name1: z.string().min(5, { message: 'Invalid Name' }).max(255),
   college1: z.string().min(2, { message: 'Invalid College name' }).max(255),
   year1: z.string().min(1, { message: 'Year is required' }).max(20),
@@ -14,6 +13,7 @@ export const groupRegisterSchema = z.object({
     message: 'Invalid WhatsApp number. Should be 10 digits',
   }),
 
+  email2: z.string().email({ message: 'Invalid email address' }),
   name2: z.string().min(5, { message: 'Invalid Name' }).max(255),
   college2: z.string().min(2, { message: 'Invalid College name' }).max(255),
   year2: z.string().min(1, { message: 'Year is required' }).max(20),
@@ -22,6 +22,7 @@ export const groupRegisterSchema = z.object({
     message: 'Invalid WhatsApp number. Should be 10 digits',
   }),
 
+  email3: z.string().email({ message: 'Invalid email address' }),
   name3: z.string().min(5, { message: 'Invalid Name' }).max(255),
   college3: z.string().min(2, { message: 'Invalid College name' }).max(255),
   year3: z.string().min(1, { message: 'Year is required' }).max(20),
@@ -30,6 +31,7 @@ export const groupRegisterSchema = z.object({
     message: 'Invalid WhatsApp number. Should be 10 digits',
   }),
 
+  email4: z.string().email({ message: 'Invalid email address' }),
   name4: z.string().min(5, { message: 'Invalid Name' }).max(255),
   college4: z.string().min(2, { message: 'Invalid College name' }).max(255),
   year4: z.string().min(1, { message: 'Year is required' }).max(20),
@@ -38,6 +40,7 @@ export const groupRegisterSchema = z.object({
     message: 'Invalid WhatsApp number. Should be 10 digits',
   }),
 
+  email5: z.string().email({ message: 'Invalid email address' }),
   name5: z.string().min(5, { message: 'Invalid Name' }).max(255),
   college5: z.string().min(2, { message: 'Invalid College name' }).max(255),
   year5: z.string().min(1, { message: 'Year is required' }).max(20),
@@ -56,27 +59,31 @@ export const groupRegisterSchema = z.object({
 });
 
 export const groupInitialFormData: DRONETeam = {
-  email: '',
+  email1: '',
   name1: '',
   college1: '',
   year1: '',
   branch1: '',
   whatsApp1: '',
+  email2: '',
   name2: '',
   college2: '',
   year2: '',
   branch2: '',
   whatsApp2: '',
+  email3: '',
   name3: '',
   college3: '',
   year3: '',
   branch3: '',
   whatsApp3: '',
+  email4: '',
   name4: '',
   college4: '',
   year4: '',
   branch4: '',
   whatsApp4: '',
+  email5: '',
   name5: '',
   college5: '',
   year5: '',
