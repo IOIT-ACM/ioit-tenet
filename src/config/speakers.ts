@@ -12,6 +12,76 @@ export const speakers: Speaker[] = [
     domain: 'techfiesta',
   },
   {
+    id: 'himanshi-yaduwanshi',
+    name: 'Himanshi Yaduwanshi',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/Himanshi+Yaduwanshi.jpeg',
+    title: 'Senior Product Manager, Telstra',
+    url: 'https://www.linkedin.com/in/himanshi-yaduwanshi/',
+    bio: 'Himanshi has good business acumen and is passionate about the financial domain. She also has sound technical knowledge and is great at coordinating and getting things done. Overall she is great to work with.',
+    domain: 'techfiesta',
+  },
+  {
+    id: 'udaykothari',
+    name: 'Uday Kothari',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/Uday+Kothari.jpeg',
+    title: 'Co-Chair, Tie Pune Angels',
+    url: 'https://www.linkedin.com/in/udaykothari/',
+    bio: 'Uday is Founder and Director of DLT Geeks, a start-up focused on Blockchain based Enterprise Applications. Prior to initiating DLT Geeks, he was founder & CTO of Compulink Systems which he built from 300 sq ft garage to publicly listed company.  Uday is veteran IT professional with 30+ years’ experience in business & technology, Serial Entrepreneur, Angel Investor, ML/AI (ChatGPT), Blockchain Expert/Consultant, Mentor for startups, TiE Pune Charter Member, Chairperson for TiE Pune Angels. He is also Fintech programme alumni of Saïd Business School, University of Oxford.  Uday is also EU/US patent holder on XBRL (Extensible Business Reporting Language) technology.',
+    domain: 'techfiesta',
+  },
+  {
+    id: 'apooravvyas',
+    name: 'Apoorav Vyas',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/Apoorav+Vyas+.jpeg',
+    title: 'Co-Founder, ActualOne',
+    url: 'https://www.linkedin.com/in/udaykothari/',
+    bio: 'Apoorav Vyas is a Web3 professional specializing in product and market research for blockchain projects. He has extensive experience in designing and implementing go-to-market strategies for various Web3 protocols. Currently, Apoorav is focusing on building community and traction in the blockchain space through his venture called ActualOne. To promote awareness about the industry, he creates purposeful content on his social media handles and has experience working in growth and social media roles with various crypto firms. Apooravs professional background includes collaborations with blockchain startups from India, Germany, the UK, and the US. He has held diverse positions ranging from Research Analyst and Developer Relations to Chief of Growth. His expertise particularly lies in the areas of Digital Identity (DID), Real World Assets (RWAs), and Non-Fungible Tokens (NFTs) within the Web3 ecosystem.',
+    domain: 'techfiesta',
+  },
+  {
+    id: 'vishnukorde',
+    name: 'Vishnu Korde',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/Vishnu.jpeg',
+    title: 'Founder and CEO, DeCloud Labs',
+    url: 'https://www.linkedin.com/in/udaykothari/',
+    bio: 'Experienced leader with over a decade spent in cloud, finance and design industries. Now expanding the frontiers of #DePIN, #DeCloud and #AI. Advisor and investor in several blockchain projects and startups. Skilled in cryptography, product management and business development. Masters in Finance from Harvard University.',
+    domain: 'techfiesta',
+  },
+  {
+    id: 'vishekpratap',
+    name: 'Vishek Pratap',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/vishek+pratap.jpeg',
+    title: 'Co-Founder TechVP',
+    url: 'https://www.linkedin.com/in/vishekpratap/',
+    bio: 'Vishek Pratap is a versatile professional combining expertise in technology, entrepreneurship, and education. As the founder of TechValley, he offers consultancy services while also excelling in developer relations, community management, and content creation. His technical skills span Cyber Security, AI-ML, Blockchain, NFTs, and DeFi, alongside proficiency in web development and programming languages. Visheks involvement in the tech community is evident through his roles as a Microsoft Learn Student Ambassador and recognitions from Udacity and the CloudNative Linux Foundation. He has demonstrated his capabilities as a finalist in notable tech competitions and actively engages in digital marketing and mentorship. Visheks professional focus lies in leveraging his diverse skill set to educate, innovate, and empower others, with a particular emphasis on bridging the technological gap in rural India.',
+    domain: 'techfiesta',
+  },
+  {
+    id: 'akhtar-faizan',
+    name: 'Faizan Akhtar',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/Faizan+Akhtar.jpeg',
+    title: 'Expert AR/VR Speaker, Software Engineer at Criteo',
+    url: 'https://www.linkedin.com/in/akhtar-faizan/',
+    bio: 'Faizan Akhtar is a Software Engineer at Criteo, where they focus on building scalable and high-performance web applications using the MERN stack, with expertise in frontend technologies like React, Redux, and REST APIs. Their contributions have led to a 70% improvement in dashboard load times, a 22% increase in media cost efficiency, and a 75% growth in dashboard revenue. They are currently pursuing a Master of Technology in Software Engineering from BITS Pilani, where they delve into advanced software design, development, and maintenance concepts. Beyond their technical prowess, they actively engage with communities as a member of React India and Pune MongoDB User Group, and as a mixed reality evangelist and Microsoft Student Ambassador, promoting emerging technologies. Eager to address real-world challenges, they constantly seek new learning and growth opportunities.',
+    domain: 'techfiesta',
+  },
+  {
+    id: 'saurabh-shahane',
+    name: 'Saurabh Shahane',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/saurabh.jpeg',
+    title: 'Founder, The Machine Learning Company',
+    url: 'https://www.linkedin.com/in/saurabh-shahane/',
+    bio: 'Saurabh Shahane is the CEO of The Machine Learning Company (themlco.com), where he leads a dynamic team dedicated to pushing the boundaries of artificial intelligence through groundbreaking research and development. With a deep-rooted expertise in the data and AI domain, Saurabh leverages his knowledge to spearhead transformative AI initiatives, enabling businesses to optimize operations, foster innovation, and deliver exceptional value. Under his leadership, TMLC specializes in cutting-edge technologies like generative AI, natural language processing, and computer vision. Beyond research, he is committed to education through TMLC Academy (themlco.com/academy), which offers industry-focused AI programs for professionals, executives, and students. Over 5,000 learners globally have benefited from these hands-on, project-based programs. To bridge the gap between education and employment, he established The Data Hire (thedatahire.site), a job portal that connects top AI talent with companies. Saurabh’s mission is to harness AI’s potential to drive innovation and sustainable growth for organizations worldwide.',
+    domain: 'techfiesta',
+  },
+  {
     id: 'atul-mehra-94475b8',
     name: 'Atul Mehra',
     image:

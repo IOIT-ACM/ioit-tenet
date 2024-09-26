@@ -23,7 +23,7 @@ export const TITLETEXT: React.FC = () => {
           stagger: 0.1,
           duration: 0.5,
           ease: 'power4.out',
-          delay: LOADTIME + 0.7,
+          delay: LOADTIME + 1.7,
           scrollTrigger: {
             trigger: '.headline',
             start: 'top 80%',
@@ -40,7 +40,7 @@ export const TITLETEXT: React.FC = () => {
           opacity: 1,
           stagger: 0.08,
           duration: 1.2,
-          delay: LOADTIME + 1,
+          delay: LOADTIME + 2,
           ease: 'power4.out',
           scrollTrigger: {
             trigger: '.date',

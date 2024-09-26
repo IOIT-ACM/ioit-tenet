@@ -4,7 +4,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { LOADTIME } from '@/config';
-import { useIsMobile } from '@/hooks/useismobile';
 
 interface MachineGunTextProps {
   text: string;
@@ -15,7 +14,6 @@ const MachineGunText: React.FC<MachineGunTextProps> = ({ text, children }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isComplete, setIsComplete] = useState(false);
   const _sentenceEndExp = /(\.|\?|!)$/g;
-  const mobile = useIsMobile();
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -23,7 +21,7 @@ const MachineGunText: React.FC<MachineGunTextProps> = ({ text, children }) => {
     const container = containerRef.current;
     const words = text.split(' ');
     const tl = gsap.timeline({
-      delay: mobile ? LOADTIME : LOADTIME + 3.5,
+      delay: LOADTIME,
     });
 
     let time = 0;
