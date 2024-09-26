@@ -3,7 +3,7 @@ import { type DRONEUser } from '@/types/forms';
 
 const phoneRegex = /^\d{10}$/;
 
-export const registerSchema = z.object({
+export const singleRegisterSchema = z.object({
   email: z.string().email({ message: 'Invalid email address' }),
   name: z.string().min(5, { message: 'Invalid Name' }).max(255),
   college: z.string().min(2, { message: 'Invalid College name' }).max(255),
@@ -21,7 +21,7 @@ export const registerSchema = z.object({
   }),
 });
 
-export const initialFormData: DRONEUser = {
+export const singleInitialFormData: DRONEUser = {
   email: '',
   name: '',
   college: '',

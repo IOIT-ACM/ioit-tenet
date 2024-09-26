@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { type Metadata } from 'next';
 import { env } from '@/env';
 import RegisterForm from '@/modules/register/ctf';
+import Intro from '@/modules/register/ctf/intro';
 import { Separator } from '@/components/ui/separator';
 
 export const metadata: Metadata = {
@@ -44,7 +45,10 @@ const Register = () => {
           </div>
         </div>
         <Separator className='my-8 h-0.5 bg-gradient-to-r from-indigo-500 to-blue-200' />
-        <RegisterForm />
+        <div className='grid grid-cols-1 justify-evenly md:grid-cols-2'>
+          <Intro />
+          <RegisterForm />
+        </div>
       </div>
     </section>
   );

@@ -3,6 +3,7 @@ import { type Metadata } from 'next';
 import { env } from '@/env';
 import RegisterForm from '@/modules/register/drone';
 import { Separator } from '@/components/ui/separator';
+import DroneWorkshopInfo from '@/modules/register/drone/intro';
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -43,8 +44,11 @@ const Register = () => {
             </Link>
           </div>
         </div>
-        <Separator className='my-8 h-0.5 bg-gradient-to-r from-green-400 to-orange-600' />
-        <RegisterForm />
+        <Separator className='my-8 h-0.5 gap-10 bg-gradient-to-r from-green-400 to-orange-600 md:gap-10' />
+        <div className='grid grid-cols-1 justify-evenly md:grid-cols-2'>
+          <DroneWorkshopInfo />
+          <RegisterForm />
+        </div>
       </div>
     </section>
   );

@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const DroneWorkshopInfo = () => {
   return (
-    <div className='w-full space-y-8 p-6 pb-20 text-white shadow-lg md:w-1/2'>
+    <div className='h-fit w-full space-y-8 p-6 pb-20 text-white shadow-lg md:sticky md:top-0'>
       <h1 className='text-2xl font-bold'>
         Be a part of <strong>TENET Tech-Fiesta</strong>
       </h1>
