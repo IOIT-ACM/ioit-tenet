@@ -119,7 +119,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
         className='flex w-fit items-center justify-center gap-1 md:gap-3'
       >
         <Link
-          className='h-10 w-10 cursor-pointer transition-all hover:scale-105 md:h-20 md:w-20'
+          className='h-10 w-10 cursor-pointer transition-all hover:scale-105 md:h-16 md:w-16'
           href={'https://ioit.acm.org'}
         >
           <Image
@@ -131,7 +131,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
           />
         </Link>
         <Link
-          className='h-10 w-10 cursor-pointer transition-all hover:scale-105 md:h-20 md:w-20'
+          className='h-10 w-10 cursor-pointer transition-all hover:scale-105 md:h-16 md:w-16'
           href={'/'}
         >
           <Image

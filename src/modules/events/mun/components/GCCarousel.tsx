@@ -21,27 +21,27 @@ const imageData: ImageData[] = [
   {
     title: 'UNSC',
     id: 'unsc',
-    url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unsc.webp',
+    url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNSC.png',
   },
   {
     title: 'UNHRC',
     id: 'unhrc',
-    url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unhcr.webp',
+    url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNHRC.png',
   },
   {
     title: 'AIPPM',
     id: 'aippm',
-    url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/aippm.jpg',
+    url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/AIPPM.png',
   },
   {
     title: 'UNCSW',
     id: 'uncsw',
-    url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/uncsw.webp',
+    url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNCSW.png',
   },
   {
     title: 'UNODC',
     id: 'unodc',
-    url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unodc.jpg',
+    url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNODC.png',
   },
 ];
 
@@ -148,22 +148,24 @@ export const GCCarousel: React.FC = () => {
       {imageData.map((image, index) => (
         <div
           key={index}
-          className={`carousel-image absolute flex h-[100px] w-[100px] items-center justify-center text-white md:h-[200px] md:w-[300px] ${
+          className={`carousel-image absolute flex h-[100px] w-[100px] flex-col items-center justify-center md:h-[200px] md:w-[300px] ${
             index === selectedImageIndex ? 'z-10' : ''
           }`}
           style={{
-            backgroundImage: `url(${image.url})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
             transform: 'translate3d(0, 0, -300px)',
             margin: '0',
           }}
           onClick={() => handleImageClick(index)}
         >
+          <div
+            className='h-full w-full bg-contain bg-center bg-no-repeat'
+            style={{
+              backgroundImage: `url(${image.url})`,
+            }}
+          />
           <Link
             href={'https://www.ioitmun.com/' + image.id}
-            className='text-xl font-bold text-gray-300 drop-shadow-md'
+            className='mt-2 text-xl font-bold text-gray-300 drop-shadow-md'
           >
             {image.title}
           </Link>
