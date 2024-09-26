@@ -4,6 +4,7 @@ import * as Scrollytelling from '@/lib/scrollytelling-client';
 import Image from 'next/image';
 import SMILE_IMAGE from '../../../../../public/parallax/smile.png';
 import PC_IMAGE from '../../../../../public/parallax/pc.png';
+import AnimatedEye from '../ui/animatedeye';
 
 import s from './last-parallax.module.scss';
 
@@ -23,6 +24,7 @@ export const ThatsAllFolks = () => {
               duration: 1.2,
             }}
           />
+          <AnimatedEye />
           <Image
             alt='PC'
             className={s.pc}
