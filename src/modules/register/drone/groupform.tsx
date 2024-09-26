@@ -4,12 +4,14 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 'use client';
 
-import React, { useRef, useState, type ChangeEvent } from 'react';
+import React, { useRef, useState, type ChangeEvent, useEffect } from 'react';
 import { FiDownload } from 'react-icons/fi';
 import { FaUpload } from 'react-icons/fa';
 import { IoMdCloudDone } from 'react-icons/io';
 import Image from 'next/image';
 import { Image as ANTImage } from 'antd';
+import { Separator } from '@/components/ui/separator';
+import confetti from 'canvas-confetti';
 import {
   Form,
   FormControl,
@@ -35,12 +37,15 @@ import type { z } from 'zod';
 import { toast } from 'sonner';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Textarea } from '@/components/ui/textarea';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { registerSchema, initialFormData } from '@/validators/ctf';
 import { Checkbox } from '@/components/ui/checkbox';
-import { type CTFUser } from '@/types/forms';
+import { type DRONETeam } from '@/types/forms';
 import { Plus, User } from 'lucide-react';
+
+import {
+  groupRegisterSchema as registerSchema,
+  groupInitialFormData as initialFormData,
+} from '@/validators/drone';
 
 type FormInput = z.infer<typeof registerSchema>;
 type AcceptedFileType = 'image/jpeg' | 'image/png';
@@ -52,7 +57,7 @@ export default function RegisterForm() {
     mode: 'all',
   });
 
-  async function onSubmit(values: CTFUser) {
+  async function onSubmit(values: DRONETeam) {
     setSubmitting(true);
     const timestamp = new Date().toLocaleString('en-GB', {
       day: '2-digit',
@@ -78,7 +83,7 @@ export default function RegisterForm() {
         return;
       }
       try {
-        const response = await fetch('/api/register/ctf', {
+        const response = await fetch('/api/register/drone/group', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -186,30 +191,44 @@ export default function RegisterForm() {
     branch: form.watch('branch3'),
   };
 
-  const reset = (member: number) => {
-    switch (member) {
-      case 1: {
-        form.setValue('name1', '');
-        form.setValue('college1', '');
-        form.setValue('year1', '');
-        form.setValue('branch1', '');
-        form.setValue('whatsApp1', '');
-      }
-      case 2: {
-        form.setValue('name2', '');
-        form.setValue('college2', '');
-        form.setValue('year2', '');
-        form.setValue('branch2', '');
-        form.setValue('whatsApp2', '');
-      }
-      case 31: {
-        form.setValue('name3', undefined);
-        form.setValue('college3', undefined);
-        form.setValue('year3', undefined);
-        form.setValue('branch3', undefined);
-        form.setValue('whatsApp3', undefined);
-      }
-    }
+  const user4 = {
+    dirty:
+      !form.getFieldState('year4').isDirty ||
+      !form.getFieldState('name4').isDirty ||
+      !form.getFieldState('whatsApp4').isDirty ||
+      !form.getFieldState('college4').isDirty ||
+      !form.getFieldState('branch4').isDirty,
+    exists:
+      form.watch('name4') &&
+      form.watch('whatsApp4') &&
+      form.watch('year4') &&
+      form.watch('college4') &&
+      form.watch('branch4'),
+    name: form.watch('name4'),
+    whatsApp: form.watch('whatsApp4'),
+    year: form.watch('year4'),
+    college: form.watch('college4'),
+    branch: form.watch('branch4'),
+  };
+
+  const user5 = {
+    dirty:
+      !form.getFieldState('year5').isDirty ||
+      !form.getFieldState('name5').isDirty ||
+      !form.getFieldState('whatsApp5').isDirty ||
+      !form.getFieldState('college5').isDirty ||
+      !form.getFieldState('branch5').isDirty,
+    exists:
+      form.watch('name5') &&
+      form.watch('whatsApp5') &&
+      form.watch('year5') &&
+      form.watch('college5') &&
+      form.watch('branch5'),
+    name: form.watch('name5'),
+    whatsApp: form.watch('whatsApp5'),
+    year: form.watch('year5'),
+    college: form.watch('college5'),
+    branch: form.watch('branch5'),
   };
 
   // Image upload
@@ -230,12 +249,69 @@ export default function RegisterForm() {
     }
   };
 
+  // Confetti
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [showconfetti, setShowconfetti] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowconfetti(false);
+    }, 4000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+
+    if (!canvas) return;
+
+    confetti.create(canvas, {
+      resize: true,
+      useWorker: true,
+    })({
+      particleCount: 160,
+      spread: 100,
+      startVelocity: 45,
+      origin: { x: Math.random(), y: Math.random() * 0.6 },
+      gravity: 0.7,
+      scalar: 1.2,
+      shapes: ['square'],
+      ticks: 300,
+      colors: [
+        '#ff4d00',
+        '#ff5e00',
+        '#ff8000',
+        '#ffa200',
+        '#b23500',
+        '#d84000',
+        '#0d8dbf',
+        '#0d77bf',
+        '#0da1bf',
+        '#6d4c41',
+      ],
+    });
+  }, []);
+
   return (
     <div className='flex flex-col items-center justify-center'>
+      {showconfetti && (
+        <canvas
+          ref={canvasRef}
+          className='fixed left-0 top-0 z-0 h-screen w-screen'
+        />
+      )}
+      <h2 className='text-center text-2xl font-semibold text-gray-200'>
+        Group Regestration
+      </h2>
+      <h2 className='text-center text-base font-semibold text-gray-300'>
+        congratulations, you just saved 250₹
+      </h2>
+      <Separator className='my-10' />
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className='w-full space-y-8 text-white'
+          className='z-[99] w-full space-y-8 text-white'
         >
           <FormField
             control={form.control}
@@ -252,7 +328,7 @@ export default function RegisterForm() {
           />
 
           <div className='py-4'>
-            <div className='grid grid-cols-1 gap-4 md:grid-cols-3'>
+            <div className='grid grid-cols-1 gap-4'>
               <Dialog>
                 <DialogTrigger asChild>
                   {user1.exists ? (
@@ -406,27 +482,8 @@ export default function RegisterForm() {
                     />
                   </div>
                   <DialogFooter className='flex w-full flex-row gap-5'>
-                    <Button
-                      onClick={() => {
-                        if (user1.dirty) {
-                          toast.warning('Invalid form data');
-                          form.trigger([
-                            'year1',
-                            'name1',
-                            'branch1',
-                            'college1',
-                            'whatsApp1',
-                          ]);
-                        } else {
-                          toast.success('Member 1 info saved');
-                        }
-                      }}
-                      className='bg-blue-500'
-                    >
-                      Save Member
-                    </Button>
                     <DialogClose className='rounded-lg bg-gray-500 px-4 py-2 text-gray-50'>
-                      Close
+                      Save and Close
                     </DialogClose>
                   </DialogFooter>
                 </DialogContent>
@@ -599,27 +656,8 @@ export default function RegisterForm() {
                     />
                   </div>
                   <DialogFooter className='flex w-full flex-row gap-5'>
-                    <Button
-                      onClick={() => {
-                        if (user2.dirty) {
-                          toast.warning('Invalid form data');
-                          form.trigger([
-                            'year2',
-                            'name2',
-                            'branch2',
-                            'college2',
-                            'whatsApp2',
-                          ]);
-                        } else {
-                          toast.success('Member 2 info saved');
-                        }
-                      }}
-                      className='bg-blue-500'
-                    >
-                      Save Member
-                    </Button>
                     <DialogClose className='rounded-lg bg-gray-500 px-4 py-2 text-gray-50'>
-                      Close
+                      Save and Close
                     </DialogClose>
                   </DialogFooter>
                 </DialogContent>
@@ -644,7 +682,7 @@ export default function RegisterForm() {
                     <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-600 p-4'>
                       <Plus className='mb-2 h-8 w-8' />
                       <span className='text-center text-sm'>
-                        Add Third Member (optional)
+                        Add Third Member
                       </span>
                     </div>
                   )}
@@ -792,54 +830,362 @@ export default function RegisterForm() {
                     />
                   </div>
                   <DialogFooter className='flex w-full flex-row gap-5'>
-                    <Button
-                      onClick={() => {
-                        if (user3.dirty) {
-                          toast.warning('Invalid form data');
-                          form.trigger([
-                            'year3',
-                            'name3',
-                            'branch3',
-                            'college3',
-                            'whatsApp3',
-                          ]);
-                        } else {
-                          toast.success('Member 3 info saved');
-                        }
-                      }}
-                      className='bg-blue-500'
-                    >
-                      Save Member
-                    </Button>
-                    <Button onClick={() => reset(1)} className=''>
-                      Reset
-                    </Button>
                     <DialogClose className='rounded-lg bg-gray-500 px-4 py-2 text-gray-50'>
-                      Close
+                      Save and Close
+                    </DialogClose>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
+
+              <Dialog>
+                <DialogTrigger asChild>
+                  {user4.exists ? (
+                    <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-500 p-4'>
+                      <User className='mb-2 h-8 w-8' />
+                      <span className='text-center text-sm'>{user4.name}</span>
+                      {user4.year !== 'na' && (
+                        <span className='text-center text-sm'>
+                          {user4.year}
+                        </span>
+                      )}
+                      <span className='line-clamp-2 text-center text-sm'>
+                        {user4.college}
+                      </span>
+                    </div>
+                  ) : (
+                    <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-600 p-4'>
+                      <Plus className='mb-2 h-8 w-8' />
+                      <span className='text-center text-sm'>
+                        Add Fourth Member
+                      </span>
+                    </div>
+                  )}
+                </DialogTrigger>
+                <DialogContent className='no-scroll-bar bg-gray-100 sm:max-w-[425px]'>
+                  <DialogHeader>
+                    <DialogTitle>Team Member 4</DialogTitle>
+                    <DialogDescription>
+                      Please enter the details for team member.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className='max-h-[60vh] space-y-4 overflow-y-auto'>
+                    <FormField
+                      control={form.control}
+                      name='name4'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Name</FormLabel>
+                          <FormControl>
+                            <Input placeholder='Full Name' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='college4'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>College</FormLabel>
+                          <FormControl>
+                            <>
+                              <Input placeholder='College Name' {...field} />
+                              {user1.college && !user4.college && (
+                                <div
+                                  className='line-clamp-1 cursor-pointer text-sm italic text-blue-700'
+                                  onClick={() =>
+                                    form.setValue('college4', user1.college)
+                                  }
+                                >
+                                  Autocomplete: {user1.college}?
+                                </div>
+                              )}
+                            </>
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='year4'
+                      render={({ field }) => (
+                        <FormItem className='space-y-3'>
+                          <FormLabel>Year of Study</FormLabel>
+                          <FormControl>
+                            <RadioGroup
+                              onValueChange={field.onChange}
+                              defaultValue={field.value}
+                              className='flex flex-col space-y-1'
+                            >
+                              <FormItem className='flex items-center space-x-3 space-y-0'>
+                                <FormControl>
+                                  <RadioGroupItem value='first-year' />
+                                </FormControl>
+                                <FormLabel className='font-normal'>
+                                  First year
+                                </FormLabel>
+                              </FormItem>
+                              <FormItem className='flex items-center space-x-3 space-y-0'>
+                                <FormControl>
+                                  <RadioGroupItem value='second-year' />
+                                </FormControl>
+                                <FormLabel className='font-normal'>
+                                  Second year
+                                </FormLabel>
+                              </FormItem>
+                              <FormItem className='flex items-center space-x-3 space-y-0'>
+                                <FormControl>
+                                  <RadioGroupItem value='third-year' />
+                                </FormControl>
+                                <FormLabel className='font-normal'>
+                                  Third year
+                                </FormLabel>
+                              </FormItem>
+                              <FormItem className='flex items-center space-x-3 space-y-0'>
+                                <FormControl>
+                                  <RadioGroupItem value='fourth-year' />
+                                </FormControl>
+                                <FormLabel className='font-normal'>
+                                  Fourth year
+                                </FormLabel>
+                              </FormItem>
+                              <FormItem className='flex items-center space-x-3 space-y-0'>
+                                <FormControl>
+                                  <RadioGroupItem value='final-year' />
+                                </FormControl>
+                                <FormLabel className='font-normal'>
+                                  Final year
+                                </FormLabel>
+                              </FormItem>
+                              <FormItem className='flex items-center space-x-3 space-y-0'>
+                                <FormControl>
+                                  <RadioGroupItem value='na' />
+                                </FormControl>
+                                <FormLabel className='font-normal'>
+                                  NA
+                                </FormLabel>
+                              </FormItem>
+                            </RadioGroup>
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='branch4'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Branch</FormLabel>
+                          <FormControl>
+                            <Input placeholder='Branch of Study' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='whatsApp4'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>WhatsApp Number</FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder='10-digit WhatsApp number'
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                  <DialogFooter className='flex w-full flex-row gap-5'>
+                    <DialogClose className='rounded-lg bg-gray-500 px-4 py-2 text-gray-50'>
+                      Save and Close
+                    </DialogClose>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
+
+              <Dialog>
+                <DialogTrigger asChild>
+                  {user5.exists ? (
+                    <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-500 p-4'>
+                      <User className='mb-2 h-8 w-8' />
+                      <span className='text-center text-sm'>{user5.name}</span>
+                      {user5.year !== 'na' && (
+                        <span className='text-center text-sm'>
+                          {user5.year}
+                        </span>
+                      )}
+                      <span className='line-clamp-2 text-center text-sm'>
+                        {user5.college}
+                      </span>
+                    </div>
+                  ) : (
+                    <div className='flex cursor-pointer flex-col items-center justify-center rounded-lg bg-slate-600 p-4'>
+                      <Plus className='mb-2 h-8 w-8' />
+                      <span className='text-center text-sm'>
+                        Add Fifth Member
+                      </span>
+                    </div>
+                  )}
+                </DialogTrigger>
+                <DialogContent className='no-scroll-bar bg-gray-100 sm:max-w-[425px]'>
+                  <DialogHeader>
+                    <DialogTitle>Team Member 5</DialogTitle>
+                    <DialogDescription>
+                      Please enter the details for team member.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className='max-h-[60vh] space-y-4 overflow-y-auto'>
+                    <FormField
+                      control={form.control}
+                      name='name5'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Name</FormLabel>
+                          <FormControl>
+                            <Input placeholder='Full Name' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='college5'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>College</FormLabel>
+                          <FormControl>
+                            <>
+                              <Input placeholder='College Name' {...field} />
+                              {user1.college && !user5.college && (
+                                <div
+                                  className='line-clamp-1 cursor-pointer text-sm italic text-blue-700'
+                                  onClick={() =>
+                                    form.setValue('college5', user1.college)
+                                  }
+                                >
+                                  Autocomplete: {user1.college}?
+                                </div>
+                              )}
+                            </>
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='year5'
+                      render={({ field }) => (
+                        <FormItem className='space-y-3'>
+                          <FormLabel>Year of Study</FormLabel>
+                          <FormControl>
+                            <RadioGroup
+                              onValueChange={field.onChange}
+                              defaultValue={field.value}
+                              className='flex flex-col space-y-1'
+                            >
+                              <FormItem className='flex items-center space-x-3 space-y-0'>
+                                <FormControl>
+                                  <RadioGroupItem value='first-year' />
+                                </FormControl>
+                                <FormLabel className='font-normal'>
+                                  First year
+                                </FormLabel>
+                              </FormItem>
+                              <FormItem className='flex items-center space-x-3 space-y-0'>
+                                <FormControl>
+                                  <RadioGroupItem value='second-year' />
+                                </FormControl>
+                                <FormLabel className='font-normal'>
+                                  Second year
+                                </FormLabel>
+                              </FormItem>
+                              <FormItem className='flex items-center space-x-3 space-y-0'>
+                                <FormControl>
+                                  <RadioGroupItem value='third-year' />
+                                </FormControl>
+                                <FormLabel className='font-normal'>
+                                  Third year
+                                </FormLabel>
+                              </FormItem>
+                              <FormItem className='flex items-center space-x-3 space-y-0'>
+                                <FormControl>
+                                  <RadioGroupItem value='fourth-year' />
+                                </FormControl>
+                                <FormLabel className='font-normal'>
+                                  Fourth year
+                                </FormLabel>
+                              </FormItem>
+                              <FormItem className='flex items-center space-x-3 space-y-0'>
+                                <FormControl>
+                                  <RadioGroupItem value='final-year' />
+                                </FormControl>
+                                <FormLabel className='font-normal'>
+                                  Final year
+                                </FormLabel>
+                              </FormItem>
+                              <FormItem className='flex items-center space-x-3 space-y-0'>
+                                <FormControl>
+                                  <RadioGroupItem value='na' />
+                                </FormControl>
+                                <FormLabel className='font-normal'>
+                                  NA
+                                </FormLabel>
+                              </FormItem>
+                            </RadioGroup>
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='branch5'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Branch</FormLabel>
+                          <FormControl>
+                            <Input placeholder='Branch of Study' {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name='whatsApp5'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>WhatsApp Number</FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder='10-digit WhatsApp number'
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                  <DialogFooter className='flex w-full flex-row gap-5'>
+                    <DialogClose className='rounded-lg bg-gray-500 px-4 py-2 text-gray-50'>
+                      Save and Close
                     </DialogClose>
                   </DialogFooter>
                 </DialogContent>
               </Dialog>
             </div>
           </div>
-
-          <FormField
-            control={form.control}
-            name='workingOn'
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>What are you working on?</FormLabel>
-                <FormControl>
-                  <Textarea
-                    className='max-h-56'
-                    placeholder='Describe your current project or area of focus'
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
 
           <div className='my-10 grid gap-5 border-t py-10 shadow-md'>
             <div className='space-y-6'>
@@ -850,7 +1196,9 @@ export default function RegisterForm() {
                 )}
               </h1>
               <p className='my-0 text-center text-base text-white'>
-                Please Pay the Fee Rs. 450 and Upload the Screenshot
+                Please Pay the Fee Rs.{' '}
+                <span className='line-through'>2,750</span> 2,500₹ and Upload
+                the Screenshot
               </p>
 
               <div className='flex flex-col gap-6 md:flex-row'>
@@ -923,6 +1271,7 @@ export default function RegisterForm() {
               )}
             />
           </div>
+
           <FormField
             control={form.control}
             name='tnc'
@@ -989,7 +1338,7 @@ export default function RegisterForm() {
             disabled={submitting}
             type='button'
             onClick={() => {
-              onSubmit(form.getValues());
+              onSubmit(form.getValues() as DRONETeam);
             }}
             className='bg-blue-500 hover:bg-blue-700'
           >

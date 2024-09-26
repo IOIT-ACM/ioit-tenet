@@ -32,6 +32,16 @@ export const speakers: Speaker[] = [
     domain: 'techfiesta',
   },
   {
+    id: 'almassayyed',
+    name: 'Almas Sayyed',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/Almas+Sayyed+.jpeg',
+    title: 'Founder, PuneDAO',
+    url: 'https://www.linkedin.com/in/almassayyed/',
+    bio: 'Technologically inclined digital marketer & community builder with 3+ yrs of experience building organic marketing funnels for early-stage companies and startups. Familiar with digital trends, inclined to help, build and foster relations',
+    domain: 'techfiesta',
+  },
+  {
     id: 'apooravvyas',
     name: 'Apoorav Vyas',
     image:
@@ -106,9 +116,29 @@ export const speakers: Speaker[] = [
     name: 'Akash Sangole',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/akashsangole.jpeg',
-    title: 'CHRO at Panasonic',
-    url: 'https://www.linkedin.com/in/akash-sangole/',
-    bio: `Presently, as a CHRO responsible for Human Resources, General Administration and CSR for Panasonic Life Solutions India Pvt. Ltd. having 7 plants, 30 sales branches and more than 8000 employees. Qualified Master in Personnel Management from Pune University with Distinction, Over 20 years of Experience in Human Resources with versatile responsibilities like Corporate, Plant, Setting up Green Field Project, Managing IT Company etc. Good experience in working closely with Top Management on Strategic Initiatives, Leadership Development, Talent Acquisition, OD Intervention, Industrial Relations, Wage Settlement, Designing and implementation of Comp and Benefits, Designing and implementation of PMS, Policies, HR Business Partnering etc.`,
+    title: 'CHRO at Panasonic Life Solutions India Pvt. Ltd.',
+    url: 'https://www.linkedin.com/in/akash-sangole-6541964/',
+    bio: `Akash Sangole, a renowned HR leader with 20+ years of experience at Panasonic, Volkswagen, and L'Oreal, will be joining us at the E Summit on October 6th! As the CHRO at Panasonic Life Solutions India, Akash oversees HR, administration, and CSR for thousands of employees across India. Don't miss this opportunity to learn from his insights on strategic HR initiatives, talent development, and industrial relations.`,
+    domain: 'esummit',
+  },
+  {
+    id: 'debi-kar',
+    name: 'Debi Kar',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/debi+kar.png',
+    title: 'Founder & CEO, HYRGPT',
+    url: 'https://www.linkedin.com/in/debikar/',
+    bio: `We are pleased to introduce Debi Kar as a keynote speaker at TENET'24. As the founder of HYRGPT, he specializes in consulting and solutions related to Generative AI in HR, serving as a Culture Officer for the firm. With over 18 years of experience at organizations like Infosys, Deloitte, and Amazon, Debi is passionate about people analytics, digital disruption, and cloud technology. A former member of the Deloitte CTO Council, he authored technology trend research and led initiatives for large digital-native unicorns at AWS. Debi advises CEOs and CTOs on modern digital solutions in Conversational AI and Analytics, while also teaching at various universities. His insights into talent acquisition, employee engagement, and future tech trends will be invaluable at the summit.`,
+    domain: 'esummit',
+  },
+  {
+    id: 'jaywant-patil',
+    name: 'Jaywant Patil',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/jaywant+patil.jpg',
+    title: 'Founder, Humpy Farms',
+    url: 'https://www.linkedin.com/in/jaywantpatil/',
+    bio: `We are excited to welcome Jaywant Patil to TENET'24. As the founder of Humpy Farms, a Shark Tank India-backed D2C brand, Jaywant is dedicated to revitalizing agriculture as a profession through sustainable organic farming practices. His innovative approach combines traditional wisdom with modern digital technologies to enhance the efficiency and profitability of farming.`,
     domain: 'esummit',
   },
   {

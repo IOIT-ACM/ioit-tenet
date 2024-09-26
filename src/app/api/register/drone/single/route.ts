@@ -5,7 +5,7 @@ import { type NextRequest } from 'next/server';
 import { z } from 'zod';
 import { google } from 'googleapis';
 import { env } from '@/env';
-import { registerSchema } from '@/validators/drone';
+import { singleRegisterSchema as registerSchema } from '@/validators/drone';
 
 export const POST = async (request: NextRequest) => {
   try {
@@ -26,13 +26,14 @@ export const POST = async (request: NextRequest) => {
     // Prepare the row data
     const rowData = [
       data.timestamp,
+      'Single',
       parsedData.email,
+      parsedData.transactionId,
       parsedData.name,
       parsedData.college,
       parsedData.year,
       parsedData.branch,
       parsedData.whatsApp,
-      parsedData.transactionId,
     ];
 
     // Append the new row to the Google Sheet
