@@ -89,7 +89,7 @@ export const day1: ScheduleItemType[] = [
         name: 'Nishant Welpulwar',
         image:
           'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/Nishant+Welpulwar.jpeg',
-        title: 'Founder vaayushop.com',
+        title: 'AI Consultant at Google',
         url: 'https://www.linkedin.com/in/nishantwelpulwar/',
         bio: 'Nishant is a Senior Data Scientist with over 10 years of experience in data-driven analytics product development. He has more than 5 years of expertise in predictive analysis, specializing in Machine Learning, Deep Learning, Image Processing, Computer Vision, Python, Statistics, OpenCV, and Cloud technologies. Additionally, he has 5.5 years of experience in descriptive analysis, utilizing tools like PowerBI, SSRS Reports, SQL Server, and SSIS. Nishant has worked closely with customers to understand their requirements and deliver actionable insights through AI-powered, cloud-native software solutions. His deep understanding of both predictive and descriptive analytics allows him to provide data-driven strategies that meet complex business needs.',
         domain: 'techfiesta',
@@ -522,6 +522,16 @@ export const day3: ScheduleItemType[] = [
         bio: `Presently, as a CHRO responsible for Human Resources, General Administration and CSR for Panasonic Life Solutions India Pvt. Ltd. having 7 plants, 30 sales branches and more than 8000 employees. Qualified Master in Personnel Management from Pune University with Distinction, Over 20 years of Experience in Human Resources with versatile responsibilities like Corporate, Plant, Setting up Green Field Project, Managing IT Company etc. Good experience in working closely with Top Management on Strategic Initiatives, Leadership Development, Talent Acquisition, OD Intervention, Industrial Relations, Wage Settlement, Designing and implementation of Comp and Benefits, Designing and implementation of PMS, Policies, HR Business Partnering etc.`,
         domain: 'esummit',
       },
+      {
+        id: 'mathurneha',
+        name: 'Neha Mathur',
+        image:
+          'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/neha+mattur.jpeg',
+        title: 'Co-Founder, HYRGPT',
+        url: 'https://www.linkedin.com/in/mathurneha/',
+        bio: `Neha is an agile thought leader and seasoned professional with over 16 years of industry expertise in managing large-scale operations and corporate strategy. She began her career with Marriott International, quickly rising to become Resident Manager. She went on to hold leadership roles at The Ascott Limited, Della Adventure & Resorts, and Sterling Holidays, where she managed strategic goals across 2,143 units. Neha co-founded WishYogi, an AI-driven guest engagement and upselling platform for hotels, and later launched Personifwy, a SaaS-based employee experience platform focused on real-time employee sentiment and business outcomes for mid-market and enterprise segments. A graduate in Hospitality Management from the University of Huddersfield, she also holds an Executive Program degree from the Haas School of Business, Berkeley.`,
+        domain: 'esummit',
+      },
     ],
   },
   {
@@ -540,6 +550,38 @@ export const day3: ScheduleItemType[] = [
     icon: 'IoRocket',
     description:
       'Get insights from D2C pioneers and learn what it takes to build a successful direct-to-consumer brand in today’s competitive market.',
+    speakers: [
+      {
+        id: 'jaywant-patil',
+        name: 'Jaywant Patil',
+        image:
+          'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/jaywant+patil.jpg',
+        title: 'Founder, Humpy Farms',
+        url: 'https://www.linkedin.com/in/jaywantpatil/',
+        bio: `We are excited to welcome Jaywant Patil to TENET'24. As the founder of Humpy Farms, a Shark Tank India-backed D2C brand, Jaywant is dedicated to revitalizing agriculture as a profession through sustainable organic farming practices. His innovative approach combines traditional wisdom with modern digital technologies to enhance the efficiency and profitability of farming.`,
+        domain: 'esummit',
+      },
+      {
+        id: 'dadasahebbhagat',
+        name: 'Dadasaheb Bhagat',
+        image:
+          'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/Dadasaheb+1.jpg',
+        title: 'Founder and CEO, Design Template (SharkTank S3)',
+        url: 'https://www.linkedin.com/in/dadasahebbhagat/',
+        bio: `Dadasaheb is an accomplished creative leader and entrepreneur with a strong track record in the design industry. He is the founder of DooGraphics, India's first online design and publishing platform, which has rapidly gained traction since its inception in August 2020. With DooGraphics, Dadasaheb is empowering millions of users globally to create impactful social media graphics. His expertise spans business planning, team building, SaaS, leadership, and business development. Prior to DooGraphics, Dadasaheb founded NinthMotion, a company specializing in motion graphics and animation, showcasing his innovative approach to visual storytelling. His ventures reflect a deep commitment to transforming the design landscape and fostering creativity.`,
+        domain: 'esummit',
+      },
+      {
+        id: 'sangeeta-sharma-96b882264',
+        name: 'Sangeeta Sharma',
+        image:
+          'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/Sangeeta+Sharma.jpeg',
+        title: 'Co-Founder, Sharma Ji Ka Aata',
+        url: 'https://www.linkedin.com/in/sangeeta-sharma-96b882264/',
+        bio: `We are thrilled to have Sangeeta Sharma as a speaker at TENET'24. As the founder of Sharma Ji Ka Aata, a brand featured on Shark Tank India, Sangeeta brings a wealth of experience working with startups across the nation. She understands the passion and determination of entrepreneurs striving to succeed in a fast-paced environment.`,
+        domain: 'esummit',
+      },
+    ],
   },
   {
     title: 'Venture Summit',
@@ -557,6 +599,48 @@ export const day3: ScheduleItemType[] = [
     icon: 'IoRocket',
     description:
       'Explore venture capital, startup ecosystems, and investment opportunities with top industry experts. A must-attend for aspiring entrepreneurs.',
+    speakers: [
+      {
+        id: 'rohit-goyal',
+        name: 'Rohit Goyal',
+        image:
+          'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/Rohit+Goyal.jpeg',
+        title: 'Managing Partner, Windrose Capital',
+        url: 'https://www.linkedin.com/in/rohit-goyal/',
+        bio: `Rohit is a Managing Partner at Windrose Capital, a venture capital firm that supports India’s fast-transforming economy through early and mid-stage investments in promising start-ups. He has been active in the venture capital space for nearly a decade and has made multiple investments in domestic and international deals, involving diverse stakeholders and nationalities. He is also a Director at TwarIT Mobility, a technology company that provides mobility solutions for urban transportation. He has entrepreneurial experience in manufacturing and technology, having partnered and set up companies in and outside India, with people from China, Sri Lanka, UK, and Germany. He has a Master of Science in Management from City University, London, with a focus on entrepreneurship and finance. He is also certified as an Associate Financial Planner by FPSB. He is passionate about technology, innovation, and value creation.`,
+        domain: 'esummit',
+      },
+      {
+        id: 'udaykothari-esummit',
+        name: 'Uday Kothari',
+        image:
+          'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/Uday+Kothari.jpeg',
+        title: 'Co-Chair, Tie Pune Angels',
+        url: 'https://www.linkedin.com/in/udaykothari/',
+        bio: 'Uday is Founder and Director of DLT Geeks, a start-up focused on Blockchain based Enterprise Applications. Prior to initiating DLT Geeks, he was founder & CTO of Compulink Systems which he built from 300 sq ft garage to publicly listed company.  Uday is veteran IT professional with 30+ years’ experience in business & technology, Serial Entrepreneur, Angel Investor, ML/AI (ChatGPT), Blockchain Expert/Consultant, Mentor for startups, TiE Pune Charter Member, Chairperson for TiE Pune Angels. He is also Fintech programme alumni of Saïd Business School, University of Oxford.  Uday is also EU/US patent holder on XBRL (Extensible Business Reporting Language) technology.',
+        domain: 'esummit',
+      },
+      {
+        id: 'rajeevmanjrekar',
+        name: 'Rajeev Manjrekar',
+        image:
+          'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/Rajeev+Manjrekar.jpg',
+        title: 'Founder, DataKatalyst Ventures',
+        url: 'https://www.linkedin.com/in/rajeevmanjrekar/',
+        bio: 'As the Founder and Chief Advisor at Datakatalyst Ventures, a prominent investment banking firm, this seasoned professional has made a significant impact in the startup ecosystem over the past six years. Under his leadership, Datakatalyst has completed over 150 advisory mandates, facilitated funding for 26+ startups amounting to USD 78 million, closed 8 M&A deals, and established connections with 500+ investors. With over two decades of experience in channel management, banking, and consulting, he is a 3X serial entrepreneur, having successfully exited two of his ventures. In addition to Datakatalyst, he founded Symbi Angels, an early-stage angel syndicate, and has been an active investment banker since 2018, preparing startups for investor readiness and connecting them with equity funding opportunities. His contributions extend to academia and government initiatives, serving on the boards of various entrepreneurship cells of top educational institutions and being a mentor with Startup India, a Government of India initiative. He is also part of the investment committee of MAGIC Seed Fund. Previously, he held leadership roles at Adecco S.A. as a Zonal Business Head and Strategic Account Director, managing the P&L for the staffing business of its Large Corporate Vertical in India. With nearly 11 years in the banking sector, he was a Client Banker with ICICI Bank, providing strategic commercial banking solutions to CXO-level clients, and led regional teams in the bank’s SME and Mortgage Finance business. His extensive experience makes him a trusted advisor and influencer in the startup and investment communities.',
+        domain: 'esummit',
+      },
+      {
+        id: 'startupconsultantyogeshthite',
+        name: 'Yogesh Thite',
+        image:
+          'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/Yogesh+Tithe+sir.jpg',
+        title: 'Founder, Entie Angels',
+        url: 'https://www.linkedin.com/in/startupconsultantyogeshthite/',
+        bio: 'Mr. Yogesh Thite is a dynamic entrepreneur and investor, known for his pivotal role in shaping the startup ecosystem. He is the founder of Meticulous Business Plans and Entie, a unique business dating platform that connects like-minded entrepreneurs. With a B.Tech from MIT and an MBA from Sinhgad, Mr. Thite brings a wealth of knowledge and experience to his ventures. As the leader of Entie Angels, an investment network of over 200 investors, he has supported 13 startups with funding ranging from ₹25 lakhs to ₹2 crores. Personally, he has invested in 10 early-stage, revenue-generating startups, demonstrating his strong belief in nurturing young businesses.  Mr. Thite also offers selective consulting services, focusing on fundraising for seed to pre-Series stages and SME Pre-IPO preparation. Affiliated with several incubation centers, he frequently conducts sessions to help startups become investment-ready. His generosity is well-known in the community, offering free pitch deck reviews and having guided over 100 founders. His support extends to helping startups secure grants and prepare for high-visibility opportunities like Shark Tank India, making him a valued mentor and advisor in the entrepreneurial space.',
+        domain: 'esummit',
+      },
+    ],
   },
   {
     title: 'Fin-tech Summit',
@@ -576,7 +660,7 @@ export const day3: ScheduleItemType[] = [
       'Discover the future of financial technology with insights on digital payments, blockchain, and fintech innovations shaping the financial sector.',
   },
   {
-    title: 'Starting up in college',
+    title: 'Governments and startups',
     id: 'starting-up-in-college',
     color: 'bg-purple-500',
     date: 'Oct 6th, 2024',
@@ -590,6 +674,18 @@ export const day3: ScheduleItemType[] = [
     organizers: [{ name: 'Laukik Patil' }],
     icon: 'IoRocket',
     description: 'An exciting session for college students',
+    speakers: [
+      {
+        id: 'shyamkerkar',
+        name: 'Shyam Kerkar',
+        image:
+          'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/Shyam+Kerkar.jpeg',
+        title: 'Founder, Pathvisor Ventures',
+        url: 'https://www.linkedin.com/in/shyamkerkar/',
+        bio: 'With an impressive career spanning over two decades, this accomplished professional is not only a Chartered Accountant and Company Secretary but also an Author, Certified Life Coach, and NLP Coach. They have extensive experience in various facets of the finance function, having worked across different segments of a Universal Bank in both India and global locations. Their expertise covers strategic planning, transformation projects, financial services operations management, and process improvement initiatives. Currently, they lead the business management function for the India Shared Service Entity, serving as the Chief of Staff and business manager to the Executive Leadership Group, working closely with India Co-CEOs. Known for their ability to handle multiple projects in fast-paced and challenging environments, they are highly skilled in managing cross-functional teams and fostering collaboration across culturally diverse and virtual teams. With strong interpersonal skills and a global perspective, they continue to drive strategic initiatives and transformational change in the finance industry.',
+        domain: 'esummit',
+      },
+    ],
   },
 
   // {
@@ -632,6 +728,16 @@ export const day3: ScheduleItemType[] = [
         title: 'CxO Advisor',
         url: 'https://www.linkedin.com/in/sumitkjha/',
         bio: `Sumit Jha is a forward-thinking leader with over 24 years of expertise in service management, particularly in the niche consulting space. Known for being customer-focused and outcome-oriented, they have successfully incubated service management practices at top firms like Wipro, TechM, and <<Confidential>>, while shaping IT strategies for various clients during major transformations. Their career reflects a strong track record in driving innovation, developing service offerings, and creating value through strategic leadership. With a deep understanding of Service Integration and Management (SIAM), they've consistently delivered impactful solutions that optimize processes, reduce costs, and enhance business outcomes across diverse industries.`,
+        domain: 'esummit',
+      },
+      {
+        id: 'chetanbulsari',
+        name: 'Chetan Bulsari',
+        image:
+          'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/Chetan+Bulsari+.jpeg',
+        title: 'Founder, Human Compass Coaching',
+        url: 'https://www.linkedin.com/in/chetanbulsari/',
+        bio: 'With an impressive career spanning over two decades, this accomplished professional is not only a Chartered Accountant and Company Secretary but also an Author, Certified Life Coach, and NLP Coach. They have extensive experience in various facets of the finance function, having worked across different segments of a Universal Bank in both India and global locations. Their expertise covers strategic planning, transformation projects, financial services operations management, and process improvement initiatives. Currently, they lead the business management function for the India Shared Service Entity, serving as the Chief of Staff and business manager to the Executive Leadership Group, working closely with India Co-CEOs. Known for their ability to handle multiple projects in fast-paced and challenging environments, they are highly skilled in managing cross-functional teams and fostering collaboration across culturally diverse and virtual teams. With strong interpersonal skills and a global perspective, they continue to drive strategic initiatives and transformational change in the finance industry.',
         domain: 'esummit',
       },
     ],
