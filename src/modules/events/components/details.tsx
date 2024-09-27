@@ -6,6 +6,7 @@ import React, { useEffect, useRef } from 'react';
 import type { ScheduleItemType, Speaker } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
+import { FaPhoneAlt } from 'react-icons/fa';
 import {
   HiCalendar,
   HiClock,
@@ -110,9 +111,13 @@ export const Details = ({ event }: { event: ScheduleItemType }) => {
   }, []);
 
   const msg = `
-  
 ${event.title} at AISSMS IOIT TENET 2024
-  
+
+${event.speakers && event.speakers.length > 0 ? `Speakers: ${event.speakers.map((speaker) => speaker.name).join(', ')} will be speaking at the event.\n` : ''} 
+
+${event.location ? `Location: ${event.location}\n` : ''}
+
+${event.registration ? `Follow this link to register: ${event.registration}\n` : ''}
 `;
 
   return (
@@ -183,10 +188,21 @@ ${event.title} at AISSMS IOIT TENET 2024
                   {event.organizers.map((organizer, index) => (
                     <li
                       key={index}
-                      className='flex items-center text-slate-400'
+                      className='flex flex-col items-start text-slate-400'
                     >
-                      <HiUser className='mr-2 h-5 w-5' />
-                      <div className='hover:underline'>{organizer.name}</div>
+                      <div className='flex items-center'>
+                        <HiUser className='mr-2 h-5 w-5' />
+                        <div className='hover:underline'>{organizer.name}</div>
+                      </div>
+                      {organizer.phone && (
+                        <a
+                          href={`tel:${organizer.phone}`}
+                          className='mt-1 flex items-center text-blue-500 hover:underline'
+                        >
+                          <FaPhoneAlt className='mr-2 h-4 w-4' />
+                          {organizer.phone}
+                        </a>
+                      )}
                     </li>
                   ))}
                 </ul>

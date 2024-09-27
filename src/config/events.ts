@@ -507,7 +507,7 @@ export const day3: ScheduleItemType[] = [
     domain: 'esummit',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/hrsummit.jpeg ',
-    organizers: [{ name: 'Laukik Patil' }],
+    organizers: [{ name: 'Laukik Patil', phone: '9975875657' }],
     icon: 'IoRocket',
     description:
       'Explore the latest trends in Human Resources with industry leaders. Discover the future of HR strategies, talent management, and organizational development.',
@@ -546,7 +546,7 @@ export const day3: ScheduleItemType[] = [
     time: '1:15 PM - 2:15 PM',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/d2d.jpeg ',
-    organizers: [{ name: 'Laukik Patil' }],
+    organizers: [{ name: 'Laukik Patil', phone: '9975875657' }],
     icon: 'IoRocket',
     description:
       'Get insights from D2C pioneers and learn what it takes to build a successful direct-to-consumer brand in today’s competitive market.',
@@ -595,7 +595,7 @@ export const day3: ScheduleItemType[] = [
     time: '2:15 PM - 3:15 PM',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/vc.jpeg ',
-    organizers: [{ name: 'Laukik Patil' }],
+    organizers: [{ name: 'Laukik Patil', phone: '9975875657' }],
     icon: 'IoRocket',
     description:
       'Explore venture capital, startup ecosystems, and investment opportunities with top industry experts. A must-attend for aspiring entrepreneurs.',
@@ -643,23 +643,6 @@ export const day3: ScheduleItemType[] = [
     ],
   },
   {
-    title: 'Fin-tech Summit',
-    id: 'fin-tech-summit',
-    color: 'bg-red-500',
-    date: 'Oct 6th, 2024',
-    location: 'IOIT MPH',
-    start: new Date('2024-10-06T11:15:00'),
-    imp: true,
-    domain: 'esummit',
-    time: '11:15 AM - 12:15 PM',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/fintech.jpeg ',
-    organizers: [{ name: 'Laukik Patil' }],
-    icon: 'IoRocket',
-    description:
-      'Discover the future of financial technology with insights on digital payments, blockchain, and fintech innovations shaping the financial sector.',
-  },
-  {
     title: 'Governments and startups',
     id: 'starting-up-in-college',
     color: 'bg-purple-500',
@@ -671,7 +654,7 @@ export const day3: ScheduleItemType[] = [
     time: '10:00 AM - 11:15 AM',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/startupinclg.jpeg ',
-    organizers: [{ name: 'Laukik Patil' }],
+    organizers: [{ name: 'Laukik Patil', phone: '9975875657' }],
     icon: 'IoRocket',
     description: 'An exciting session for college students',
     speakers: [
@@ -700,7 +683,7 @@ export const day3: ScheduleItemType[] = [
   //   time: '5:30 PM - 7:30 PM',
   //   image:
   //     'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/legacysystem.jpeg',
-  //   organizers: [{ name: 'Laukik Patil' }],
+  //   organizers: [{ name: 'Laukik Patil', phone: '9975875657' }],
   //   icon: 'IoRocket',
   //   description:
   //     'The Legacy Summit brings together pioneers and leaders from various industries to discuss the future of business and innovation. A must-attend for anyone seeking inspiration and strategic insights.',
@@ -717,7 +700,7 @@ export const day3: ScheduleItemType[] = [
     time: '1:15 PM - 2:15 PM',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/advisoryandlegal.jpeg',
-    organizers: [{ name: 'Laukik Patil' }],
+    organizers: [{ name: 'Laukik Patil', phone: '9975875657' }],
     icon: 'IoRocket',
     speakers: [
       {
@@ -756,7 +739,7 @@ export const day3: ScheduleItemType[] = [
     time: '2:15 PM - 3:15 PM',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/incubation.jpeg',
-    organizers: [{ name: 'Laukik Patil' }],
+    organizers: [{ name: 'Laukik Patil', phone: '9975875657' }],
     icon: 'IoRocket',
     description:
       'Explore the opportunities of incubation and grants in this insightful session. Learn how to secure funding and resources to accelerate your startup’s growth from early-stage to success.',
