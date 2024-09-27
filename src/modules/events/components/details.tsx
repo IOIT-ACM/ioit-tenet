@@ -112,12 +112,18 @@ export const Details = ({ event }: { event: ScheduleItemType }) => {
 
   const msg = `
 ${event.title} at AISSMS IOIT TENET 2024
-
-${event.speakers && event.speakers.length > 0 ? `Speakers: ${event.speakers.map((speaker) => speaker.name).join(', ')} will be speaking at the event.\n` : ''} 
-
+${
+  event.speakers && event.speakers.length > 0
+    ? `
+Speakers: ${event.speakers.map((speaker) => speaker.name).join(', ')} will be speaking at the event.\n`
+    : ''
+} 
 ${event.location ? `Location: ${event.location}\n` : ''}
-
-${event.registration ? `Follow this link to register: ${event.registration}\n` : ''}
+${
+  event.registration
+    ? `Follow this link to register for the event: ${event.registration}\n`
+    : ''
+}
 `;
 
   return (
