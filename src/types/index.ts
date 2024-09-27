@@ -35,6 +35,7 @@ export type Speaker = {
   title: string;
   bio?: string;
   domain?: string;
+  sessionid: string;
 };
 
 export type ScheduleItemType = {
@@ -47,7 +48,7 @@ export type ScheduleItemType = {
   date: string;
   location: string;
   organizers?: Organizer[];
-  speakers?: Speaker[];
+  speakers?: string[];
   color: string;
   start: Date;
   time: string;

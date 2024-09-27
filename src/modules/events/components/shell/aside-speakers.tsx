@@ -2,16 +2,42 @@
 
 import { speakers } from '@/config/speakers';
 import Link from 'next/link';
+import { Separator } from '@/components/ui/separator';
 import type { Speaker } from '@/types';
 import { usePathname } from 'next/navigation';
 import { useRef, useEffect } from 'react';
 import Image from 'next/image';
 
+// Group speakers by their domain
+const groupByDomain = (speakers: Speaker[]) => {
+  return speakers.reduce(
+    (acc, speaker) => {
+      const domain = speaker.domain ?? 'Others';
+      if (!acc[domain]) {
+        acc[domain] = [];
+      }
+      acc[domain].push(speaker);
+      return acc;
+    },
+    {} as Record<string, Speaker[]>,
+  );
+};
+
 export const SpeakersSidePanel = () => {
+  const speakersByDomain = groupByDomain(speakers);
+
   return (
     <div className='z-50 h-fit p-2'>
-      {speakers.map((speaker, index) => (
-        <SpeakerItem key={index} data={speaker} />
+      {Object.keys(speakersByDomain).map((domain) => (
+        <div key={domain} className='mt-6'>
+          <h2 className='px-4 text-xl font-semibold capitalize text-white'>
+            {domain}
+          </h2>
+          <Separator className='my-5 w-1/2' />
+          {speakersByDomain[domain]?.map((speaker, index) => (
+            <SpeakerItem key={index} data={speaker} />
+          ))}
+        </div>
       ))}
     </div>
   );
@@ -47,7 +73,7 @@ export const SpeakerItem = ({ data }: { data: Speaker }) => {
         />
         <div>
           <p className='mb-1 text-lg'>{data.name}</p>
-          <p className='text-sm'>{data.title}</p>
+          <p className='line-clamp-2 text-sm'>{data.title}</p>
         </div>
       </Link>
     </div>

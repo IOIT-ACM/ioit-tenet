@@ -8,6 +8,16 @@ export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
   title: 'Speakers at IOIT TENET 2024',
   description: 'Browse through our lineup of speakers at AISSMS IOIT TENET',
+  openGraph: {
+    images: [
+      {
+        url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/speakers.jpeg',
+        width: 800,
+        height: 600,
+        alt: `Speakers in TENET 2024`,
+      },
+    ],
+  },
 };
 
 export default async function Page() {

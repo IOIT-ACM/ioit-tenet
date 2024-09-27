@@ -5,6 +5,8 @@ import type { Speaker } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { gsap } from 'gsap';
+import { Separator } from '@/components/ui/separator';
+import { day1, day2, day3 } from '@/config/events';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -16,6 +18,12 @@ export const SpeakerDetails = ({ speaker }: { speaker: Speaker }) => {
   const titleRef = useRef<HTMLParagraphElement>(null);
   const bioRef = useRef<HTMLDivElement>(null);
   const linkRef = useRef<HTMLAnchorElement>(null);
+
+  const allEvents = [...day1, ...day2, ...day3];
+
+  const speakersession = allEvents.find(
+    (event) => event.id === speaker.sessionid,
+  );
 
   useEffect(() => {
     const container = containerRef.current;
@@ -104,29 +112,28 @@ export const SpeakerDetails = ({ speaker }: { speaker: Speaker }) => {
         <div className='w-full md:flex'>
           <div
             ref={imageRef}
-            className='sticky top-0 h-64 w-full overflow-hidden rounded-lg border md:h-[500px] md:w-1/2'
+            className='relative h-64 w-full overflow-hidden rounded-lg border border-slate-700 shadow-lg md:h-[500px] md:w-1/2 md:rounded-xl'
           >
             <Image
               src={speaker.image}
               alt={speaker.name}
               layout='fill'
               objectFit='cover'
-              className='h-full w-full object-center transition-all duration-1000 hover:scale-105'
+              className='h-full w-full transform object-center transition-all duration-500 ease-in-out hover:scale-110'
             />
           </div>
           <div className='pt-3 md:w-1/2 md:p-8 md:pt-0'>
             <h1 ref={nameRef} className='text-3xl font-bold md:text-4xl'>
               {speaker.name}
             </h1>
-            <p ref={titleRef} className='flex items-center text-xl'>
+            <p ref={titleRef} className='mt-2 flex items-center text-xl'>
               {speaker.title}
             </p>
-            {speaker.bio && (
-              <div ref={bioRef}>
-                <h2 className='mb-4 mt-10 text-xl font-semibold'>About</h2>
-                <p className='text-lg text-slate-400'>{speaker.bio}</p>
-              </div>
-            )}
+            <Separator className='my-5 bg-gray-500' />
+            <div ref={bioRef}>
+              <h2 className='mb-4 text-xl font-semibold'>About</h2>
+              <p className='text-lg text-slate-400'>{speaker.bio}</p>
+            </div>
             <div id='tenet-button-animation' className='mt-5'>
               <h4>
                 <Link ref={linkRef} href={speaker.url} target='_blank'>
@@ -134,6 +141,40 @@ export const SpeakerDetails = ({ speaker }: { speaker: Speaker }) => {
                 </Link>
               </h4>
             </div>
+
+            {speakersession && (
+              <div className='mt-5 flex w-full flex-col gap-5'>
+                <Separator className='my-2 bg-gray-950' />
+                <h1 ref={nameRef} className='text-lg font-bold md:text-xl'>
+                  Attend their session
+                </h1>
+                <Link
+                  href={`/events/${speakersession.id}`}
+                  className='flex w-full items-center space-x-3 p-3 transition-all duration-150 hover:rounded-xl hover:bg-slate-500 md:w-fit'
+                >
+                  <div className='relative h-16 w-16 md:h-20 md:w-20'>
+                    <Image
+                      src={speakersession.image}
+                      alt={speakersession.title}
+                      layout='fill'
+                      objectFit='cover'
+                      className='rounded-full'
+                    />
+                  </div>
+                  <div className='text-left'>
+                    <p className='line-clamp-1 truncate text-base md:text-lg'>
+                      {speakersession.title}
+                    </p>
+                    <p className='line-clamp-1 truncate text-xs md:text-sm'>
+                      {speakersession.time}
+                    </p>
+                    <p className='line-clamp-1 truncate text-xs md:text-sm'>
+                      {speakersession.location}
+                    </p>
+                  </div>
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -17,6 +17,7 @@ import {
 import { handleShare } from '@/utils/share';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { speakers } from '@/config/speakers';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,6 +30,10 @@ export const Details = ({ event }: { event: ScheduleItemType }) => {
   const speakersRef = useRef<HTMLDivElement>(null);
   const organizersRef = useRef<HTMLDivElement>(null);
   const buttonsRef = useRef<HTMLDivElement>(null);
+
+  const sessionSpeakers = speakers.filter((speaker) =>
+    event.speakers?.includes(speaker.id),
+  );
 
   useEffect(() => {
     const container = containerRef.current;
@@ -113,9 +118,9 @@ export const Details = ({ event }: { event: ScheduleItemType }) => {
   const msg = `
 ${event.title} at AISSMS IOIT TENET 2024
 ${
-  event.speakers && event.speakers.length > 0
+  event.speakers && sessionSpeakers
     ? `
-Speakers: ${event.speakers.map((speaker) => speaker.name).join(', ')} will be speaking at the event.\n`
+Speakers: ${sessionSpeakers.map((speaker) => speaker.name).join(', ')} will be speaking at the event.\n`
     : ''
 } 
 ${event.location ? `Location: ${event.location}\n` : ''}
@@ -180,7 +185,7 @@ ${
               <div ref={speakersRef}>
                 <h2 className='mb-4 text-xl font-semibold'>Speakers</h2>
                 <div className='space-y-4'>
-                  {event.speakers.map((speaker, index) => (
+                  {sessionSpeakers.map((speaker, index) => (
                     <SpeakerCard key={index} speaker={speaker} />
                   ))}
                 </div>

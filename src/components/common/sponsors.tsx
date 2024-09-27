@@ -13,26 +13,31 @@ gsap.registerPlugin(ScrollTrigger);
 type SponsorsByType = Record<string, Sponsor[]>;
 
 export const Sponsors: React.FC = () => {
-  const sponsorRefs = useRef<HTMLDivElement[]>([]);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (sponsorRefs.current.length > 0) {
-      gsap.fromTo(
-        sponsorRefs.current,
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          stagger: 0.2,
-          ease: 'power2.out',
-          duration: 1,
-          scrollTrigger: {
-            trigger: sponsorRefs.current,
-            start: 'top 80%',
-            toggleActions: 'play none none none',
+    if (containerRef.current) {
+      const sponsorCards =
+        containerRef.current.querySelectorAll('.sponsor-card');
+
+      sponsorCards.forEach((card) => {
+        gsap.fromTo(
+          card,
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: card,
+              start: 'top bottom-=100',
+              end: 'bottom top+=100',
+              toggleActions: 'play none none reverse',
+            },
           },
-        },
-      );
+        );
+      });
     }
   }, []);
 
@@ -53,10 +58,7 @@ export const Sponsors: React.FC = () => {
   const renderSponsor = (sponsor: Sponsor, index: number) => (
     <div
       key={index}
-      ref={(el) => {
-        if (el) sponsorRefs.current.push(el);
-      }}
-      className='group relative flex flex-col items-center rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 p-6 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl'
+      className='sponsor-card group relative flex flex-col items-center rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 p-6 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl'
     >
       {sponsor.websiteUrl ? (
         <Link
@@ -113,7 +115,7 @@ export const Sponsors: React.FC = () => {
   );
 
   return (
-    <section className='py-16'>
+    <section ref={containerRef} className='py-16'>
       <div className='mx-auto px-4'>
         {mainSponsors.length > 0 && renderSponsorGroup('Sponsor', mainSponsors)}
         {otherTypes.map((type) =>
