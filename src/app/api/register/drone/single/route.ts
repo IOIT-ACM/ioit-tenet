@@ -27,8 +27,8 @@ export const POST = async (request: NextRequest) => {
     const rowData = [
       data.timestamp,
       'Single',
-      parsedData.email,
       parsedData.transactionId,
+      parsedData.email,
       parsedData.name,
       parsedData.college,
       parsedData.year,
