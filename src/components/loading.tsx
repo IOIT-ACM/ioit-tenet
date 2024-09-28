@@ -1,6 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useStore } from '@/store';
 import styles from './WelcomeScreen.module.scss';
 
 /**
@@ -16,11 +18,13 @@ import styles from './WelcomeScreen.module.scss';
  */
 
 const WelcomeScreen = () => {
-  const [loading, setIsLoading] = useState(true);
+  const loading = useStore((state) => state.loading);
+  const sceneLoading = useStore((state) => state.sceneLoading);
+  const setLoading = useStore((state) => state.setLoading);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsLoading(false);
+      setLoading(false);
     }, 600);
 
     return () => clearTimeout(timer);
@@ -28,7 +32,7 @@ const WelcomeScreen = () => {
 
   return (
     <div
-      className={`${styles.welcomeScreen} ${loading ? '' : styles.slideDown}`}
+      className={`${styles.welcomeScreen} ${loading && sceneLoading ? '' : styles.slideDown}`}
     >
       <div className={styles.content}>
         <h1 className={styles.title}>TENET 2024</h1>

@@ -12,10 +12,6 @@ import {
   NextButton,
   usePrevNextButtons,
 } from './embla-carousel-btn';
-import {
-  SelectedSnapDisplay,
-  useSelectedSnapDisplay,
-} from './embla-carousal-display';
 
 type PropType = {
   children: React.ReactNode;
@@ -34,9 +30,6 @@ const EmblaCarousel: React.FC<PropType> = ({ children, options }) => {
     // @ts-ignore
   } = usePrevNextButtons(emblaApi);
 
-  // @ts-ignore
-  const { selectedSnap, snapCount } = useSelectedSnapDisplay(emblaApi);
-
   return (
     <section className='embla'>
       <div className='embla__viewport' ref={emblaRef}>
@@ -54,11 +47,6 @@ const EmblaCarousel: React.FC<PropType> = ({ children, options }) => {
           <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
           <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
         </div>
-
-        <SelectedSnapDisplay
-          selectedSnap={selectedSnap}
-          snapCount={snapCount}
-        />
       </div>
     </section>
   );

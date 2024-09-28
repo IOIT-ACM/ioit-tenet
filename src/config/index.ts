@@ -6,4 +6,4 @@ export const siteConfig = {
 
 export const MUNLINK = 'https://forms.gle/Yhzr1nftHeL18Jaf6';
 export const KONFHUB_PAGE = 'https://konfhub.com/tenet2024';
-export const LOADTIME = 2.8;
+export const LOADTIME = 2;
