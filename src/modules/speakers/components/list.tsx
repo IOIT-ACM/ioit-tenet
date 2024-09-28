@@ -43,8 +43,8 @@ export const Speakers = () => {
             ease: 'power2.out',
             scrollTrigger: {
               trigger: speaker,
-              start: 'top bottom-=30',
-              end: 'bottom top+=30',
+              start: 'top bottom-=5',
+              end: 'bottom top+=5',
               toggleActions: 'play none none reverse',
             },
           },
