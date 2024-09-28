@@ -158,7 +158,7 @@ export const day1: ScheduleItemType[] = [
     description:
       'Machine Learning Unleashed" is excited to present a speaker session featuring Saurabh Shahane, Founder and CEO of The Machine Learning Company. With extensive expertise in data and AI, Saurabh leads a team focused on groundbreaking research in generative AI, NLP, and computer vision. He has also established TMLC Academy, offering specialized AI programs, and The Data Hire, a job portal connecting top AI talent with companies. Join us to hear Saurabh share his insights on harnessing AI for innovation, business optimization, and sustainable growth.',
     image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/development.jpeg',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/machine+learning.jpeg',
     organizers: [{ name: 'Shreya Kulkarni' }],
     speakers: ['saurabh-shahane'],
   },
