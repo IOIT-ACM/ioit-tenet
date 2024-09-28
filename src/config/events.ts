@@ -19,21 +19,45 @@ export const day1: ScheduleItemType[] = [
     organizers: [{ name: 'Niranjana Patil' }],
   },
   {
-    title: 'Product Management',
+    title: 'Product Management in Tech',
     icon: 'FaCalendar',
     id: 'product-management',
     domain: 'techfiesta',
     color: 'bg-blue-700',
     date: 'Oct 4th, 2024',
     location: 'Multipurpose hall (MPH)',
-    start: new Date('2024-09-12T11:15:00'),
+    start: new Date('2024-09-12T11:14:00'),
     imp: true,
-    time: '11:15 AM',
+    time: '2:00 - 3:00',
     description:
       'The Product Management session at TechFiesta will delve into effective product management strategies and best practices tailored for the tech industry. Set in the Multipurpose Hall (MPH) on October 4th, 2024, at 11:15 AM, this session will feature Himanshi Yaduwanshi, Senior Product Manager at Telstra. Himanshi brings a wealth of experience and expertise in balancing business acumen with technical proficiency to successfully deliver products in the competitive tech landscape. This session will cover various facets of product management, such as navigating the product lifecycle, aligning development with customer needs, and creating a cohesive roadmap. With a focus on the dynamic nature of technology, attendees will gain insights into overcoming challenges unique to tech product management and how to build cross-functional teams that drive innovation and growth. This is an ideal opportunity for aspiring and seasoned product managers to learn from a leader in the field and refine their approach to building successful tech products.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/pm.jpg',
-    organizers: [{ name: 'Shreya Kulkarni' }],
+    organizers: [
+      { name: 'Gargi Bharshankar', phone: '8669033795' },
+      { name: 'Shreya Kulkarni', phone: '8669033795' },
+    ],
+    speakers: ['himanshi-yaduwanshi'],
+  },
+  {
+    title: 'Den Of Code',
+    icon: 'FaCalendar',
+    id: 'denofcode',
+    domain: 'techfiesta',
+    color: 'bg-green-700',
+    date: 'Oct 4th, 2024',
+    location: 'Admin Area, IOIT',
+    start: new Date('2024-09-12T11:11:00'),
+    imp: true,
+    time: '11:00 - 4:00',
+    description:
+      'Den of Code is an engaging coding event where participants can choose between two thrilling challenges: Webmaster Wars, where they recreate HTML components, or Catch the Bug, where they debug and solve Python code. Participants who successfully complete their chosen challenge will be rewarded with exciting goodies! This event is perfect for those looking to showcase their coding skills and problem-solving abilities in a competitive and fun environment.',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/den+of+code.jpeg',
+    organizers: [
+      { name: 'Atharva Pednekar', phone: '9130912373' },
+      { name: 'Swaroop Patil', phone: '9172061027' },
+    ],
     speakers: ['himanshi-yaduwanshi'],
   },
   {
@@ -46,12 +70,15 @@ export const day1: ScheduleItemType[] = [
     location: 'Multipurpose hall (MPH)',
     start: new Date('2024-09-12T11:15:00'),
     imp: true,
-    time: '11:15 AM',
+    time: '11:15 - 12: 15',
     description:
       'The panel features industry veterans like Uday Kothari, Co-Chair of TiE Pune Angels and Founder of DLT Geeks. With over 30 years of experience in technology and business, Uday brings deep expertise in AI, blockchain, and entrepreneurial mentorship. He will be joined by other distinguished speakers who will discuss AI’s role in business transformation, ethical considerations, and emerging opportunities. Attendees can expect an engaging session that highlights real-world applications of AI, insights into startup ecosystems, and how businesses can leverage AI to stay competitive. This session is perfect for AI enthusiasts, entrepreneurs, and professionals looking to deepen their understanding of AIs capabilities and explore the future possibilities of this transformative technology.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/ai.jpg',
-    organizers: [{ name: 'Shreya Kulkarni' }],
+    organizers: [
+      { name: 'Manav Nayyar', phone: '8698991836' },
+      { name: 'Shreya Kulkarni', phone: '8669033795' },
+    ],
     speakers: ['udaykothari', 'atul-mehra-94475b8', 'nishantwelpulwar'],
   },
   {
@@ -61,15 +88,18 @@ export const day1: ScheduleItemType[] = [
     domain: 'techfiesta',
     color: 'bg-yellow-700',
     date: 'Oct 4th, 2024',
-    location: 'Multipurpose Hall (MPH)',
+    location: 'COE Auditorium',
     start: new Date('2024-09-12T12:30:00'),
     imp: true,
-    time: '12:30 PM',
+    time: '12:30 - 1:45',
     description:
       'Join us for the Web 3.0 Panel at TechFiesta on October 4th, 2024, at 12:30 PM in the Multipurpose Hall (MPH). This insightful discussion will focus on the transformative technologies of Web 3.0, including decentralized networks, blockchain, digital identities, and NFTs. Featuring industry experts like Almas Sayyed, Founder of PuneDAO, Apoorav Vyas, Co-Founder of ActualOne, and Vishnu Korde, Founder and CEO of DeCloud Labs, the panel will explore current trends and future applications of Web 3.0. Don’t miss this opportunity to gain valuable insights and understand how these innovations are reshaping the digital landscape!',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/web3.jpg',
-    organizers: [{ name: 'Shreya Kulkarni' }],
+    organizers: [
+      { name: 'Aditya Godse', phone: '7248945402' },
+      { name: 'Laukik Patil', phone: '9975875657' },
+    ],
     speakers: ['almassayyed', 'apooravvyas', 'vishnukorde'],
   },
   {
@@ -82,12 +112,12 @@ export const day1: ScheduleItemType[] = [
     location: 'Multipurposr Hall (MPH)',
     start: new Date('2024-09-12T12:30:00'),
     imp: true,
-    time: '12:30 PM',
+    time: '12:30 - 1:45',
     description:
       'Join us for "First Steps into Development: A Beginners Guide" at TechFiesta on October 4th, 2024, at 12:30 PM in the Multipurpose Hall (MPH). This session is designed for individuals who are new to software development, providing a foundational understanding of key concepts, tools, and best practices. Led by Vishek Pratap, Co-Founder of TechVP, the session will cover essential topics in programming, web development, and emerging technologies like AI, Cyber Security, and Blockchain. With a passion for education and community engagement, Vishek aims to empower participants to kickstart their journey in the tech world. Don’t miss this opportunity to gain insights from an experienced professional and set the stage for your development career!',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/development.jpeg',
-    organizers: [{ name: 'Shreya Kulkarni' }],
+    organizers: [{ name: 'Manav Nayyar', phone: '8698991836' }],
     speakers: ['vishekpratap'],
   },
   {
@@ -97,7 +127,7 @@ export const day1: ScheduleItemType[] = [
     domain: 'techfiesta',
     color: 'bg-green-700',
     date: 'Oct 4th, 2024',
-    location: '112, 4th floor lab',
+    location: 'AISSMS IOIT 112, 406',
     start: new Date('2024-09-12T13:45:00'),
     imp: true,
     time: '1:45 PM',
@@ -105,7 +135,10 @@ export const day1: ScheduleItemType[] = [
       'The Capture the Flag (CTF) event is an engaging cybersecurity competition, structured around themes like CTI (Cyber Threat Intelligence), reverse engineering, and cryptography. Designed in a Jeopardy-style format, participants will tackle a series of challenges that increase in difficulty over three levels. The event tests both technical and analytical skills, requiring teams to work together to find and exploit vulnerabilities in various systems to capture virtual flags, each represented in {} format. Over the span of 6 hours, participants will navigate through a wide array of puzzles and challenges, starting with basic security concepts and escalating to advanced topics such as malware analysis and cryptographic breaking. Each level will push the teams further, making this an exciting test of endurance, skill, and strategy. Get ready to dive into the world of ethical hacking and prove your expertise in this adrenaline-fueled competition!',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/ctf.jpg',
-    organizers: [{ name: 'Shreya Kulkarni' }],
+    organizers: [
+      { name: 'Shreya Kulkarni', phone: '8669033795' },
+      { name: 'Aditya Godse', phone: '7248945402' },
+    ],
     registration: 'https://www.ioittenet.com/register/ctf',
   },
   {
@@ -123,7 +156,10 @@ export const day1: ScheduleItemType[] = [
       'Master the essentials of drone technology at our hands-on drone workshop. Get crucial training in drone assembly and understand the components used. Exercise drone programming and get a chance to practice flight training.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/drone.jpg',
-    organizers: [{ name: 'Shreya Kulkarni' }],
+    organizers: [
+      { name: 'Shreya Kulkarni', phone: '8669033795' },
+      { name: 'Aditya Sarade', phone: '8451025156' },
+    ],
     registration: 'https://www.ioittenet.com/register/drone-workshop',
   },
   {
@@ -133,15 +169,15 @@ export const day1: ScheduleItemType[] = [
     domain: 'techfiesta',
     color: 'bg-yellow-700',
     date: 'Oct 4th, 2024',
-    location: 'Room 016',
+    location: 'COE Auditorium',
     start: new Date('2024-09-12T14:00:00'),
     imp: true,
-    time: '2:00 PM',
+    time: '2:00 - 3:00',
     description:
       'Exploration of Augmented and Virtual Reality technologies and applications.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/arvr.jpeg',
-    organizers: [{ name: 'Shreya Kulkarni' }],
+    organizers: [{ name: 'Laukik Patil', phone: '9975875657' }],
     speakers: ['akhtar-faizan'],
   },
   {
@@ -154,12 +190,15 @@ export const day1: ScheduleItemType[] = [
     location: 'Room 407',
     start: new Date('2024-09-12T15:30:00'),
     imp: true,
-    time: '3:30 PM',
+    time: '3:30 - 4:45',
     description:
       'Machine Learning Unleashed" is excited to present a speaker session featuring Saurabh Shahane, Founder and CEO of The Machine Learning Company. With extensive expertise in data and AI, Saurabh leads a team focused on groundbreaking research in generative AI, NLP, and computer vision. He has also established TMLC Academy, offering specialized AI programs, and The Data Hire, a job portal connecting top AI talent with companies. Join us to hear Saurabh share his insights on harnessing AI for innovation, business optimization, and sustainable growth.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/machine+learning.jpeg',
-    organizers: [{ name: 'Shreya Kulkarni' }],
+    organizers: [
+      { name: 'Shreya Kulkarni', phone: '8669033795' },
+      { name: 'Gargi Bharshankar', phone: '9356026528' },
+    ],
     speakers: ['saurabh-shahane'],
   },
 ];
