@@ -40,7 +40,7 @@ export const speakers: Speaker[] = [
     name: 'Sumit Jha',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/sumit+jha.jpeg',
-    title: 'CxO Advisor',
+    title: 'Founder of CXBerries, CxO Advisor',
     url: 'https://www.linkedin.com/in/sumitkjha/',
     bio: `Sumit Jha is a forward-thinking leader with over 24 years of expertise in service management, particularly in the niche consulting space. Known for being customer-focused and outcome-oriented, they have successfully incubated service management practices at top firms like Wipro, TechM, and <<Confidential>>, while shaping IT strategies for various clients during major transformations. Their career reflects a strong track record in driving innovation, developing service offerings, and creating value through strategic leadership. With a deep understanding of Service Integration and Management (SIAM), they've consistently delivered impactful solutions that optimize processes, reduce costs, and enhance business outcomes across diverse industries.`,
     domain: 'esummit',
