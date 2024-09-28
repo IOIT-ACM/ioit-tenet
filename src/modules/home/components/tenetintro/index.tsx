@@ -5,6 +5,7 @@
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Sparkles, Stars, Float } from '@react-three/drei';
 import { Suspense } from 'react';
+import { useStore } from '@/store';
 import { AnimatedLogo } from '@/lib/AnimatedLogo';
 // import { MovingSpot } from '@/lib/spotlight';
 import { TENET } from './tenet';
@@ -13,6 +14,8 @@ import { Links } from './links';
 import { TITLETEXT } from './title';
 
 export const TenetHero: React.FC = () => {
+  const sceneLoading = useStore((state) => state.sceneLoading);
+
   return (
     <div className='relative h-screen w-screen overflow-hidden bg-neutral-950 drop-shadow-md'>
       <Canvas eventPrefix='client'>
@@ -69,10 +72,14 @@ export const TenetHero: React.FC = () => {
         {/* <MovingSpot color='#0c8cbf' position={[0, 3, 2]} />
         <MovingSpot color='#b00c3f' position={[1, 3, 0]} /> */}
       </Canvas>
-      <Links />
-      <TENET />
-      <Machinegun />
-      <TITLETEXT />
+      {!sceneLoading && (
+        <>
+          <Links />
+          <TENET />
+          <Machinegun />
+          <TITLETEXT />
+        </>
+      )}
       {/* <div className='absolute bottom-0 left-0 right-0 z-0 h-56 bg-gradient-to-b from-zinc-950/0 to-neutral-950 sm:h-96' /> */}
     </div>
   );

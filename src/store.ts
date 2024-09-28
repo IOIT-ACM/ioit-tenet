@@ -20,6 +20,8 @@ export interface State {
   htmlcode: string;
   csscode: string;
   showMenu: boolean;
+  loading: boolean;
+  sceneLoading: boolean;
 }
 
 export type Game = 'webmasterwars' | 'catchthebug' | null;
@@ -42,6 +44,8 @@ interface Action {
   setPlayerState: (player: PlayerState) => void;
   setHTML: (htmlcode: string) => void;
   setCSS: (csscode: string) => void;
+  setLoading: (loading: boolean) => void;
+  setSceneLoading: (sceneLoading: boolean) => void;
 }
 
 export const useStateStore = create<State & Action>()(
@@ -54,6 +58,8 @@ export const useStateStore = create<State & Action>()(
       music: false,
       characters: [],
       showMenu: false,
+      loading: true,
+      sceneLoading: true,
       playerState: {
         name: '',
         selectedGame: null,
@@ -67,6 +73,8 @@ export const useStateStore = create<State & Action>()(
       setPlayerState: (playerState) => set(() => ({ playerState })),
       setHTML: (htmlcode) => set(() => ({ htmlcode })),
       setCSS: (csscode) => set(() => ({ csscode })),
+      setLoading: (loading) => set(() => ({ loading })),
+      setSceneLoading: (sceneLoading) => set(() => ({ sceneLoading })),
     }),
     {
       name: 'ioit-tenet-storage',
