@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { type EmblaCarouselType } from 'embla-carousel';
 
 type UseSelectedSnapDisplayType = {
@@ -30,18 +30,3 @@ export const useSelectedSnapDisplay = (
     snapCount,
   };
 };
-
-type PropType = {
-  selectedSnap: number;
-  snapCount: number;
-};
-
-// eslint-disable-next-line react/function-component-definition
-export const SelectedSnapDisplay: React.FC<PropType> = ({
-  selectedSnap,
-  snapCount,
-}) => (
-  <div className='embla__selected-snap-display'>
-    {selectedSnap + 1} / {snapCount}
-  </div>
-);
