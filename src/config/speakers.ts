@@ -3,6 +3,17 @@ import type { Speaker } from '@/types';
 export const speakers: Speaker[] = [
   // ESUMMIT
   {
+    id: 'saurabh-mangrulkar',
+    name: 'Saurabh Mangrulkar',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/Saurabh+Mangrulkar.jpeg',
+    title: 'Co-Founder and CEO, EventBeep',
+    url: 'https://www.linkedin.com/in/saurabh-mangrulkar/',
+    bio: `Saurabh Mangrulkar, Co-Founder and CEO of EventBeep, is dedicated to creating a vibrant community for Indian college students. Through EventBeep—a leading college events ticketing platform with over 500K users—Saurabh has enabled countless students to connect and engage with opportunities that fuel their passions. A recipient of the Global Students Entrepreneurs Award, he has gained international recognition for his contributions. Beyond his entrepreneurial success, Saurabh is also a community builder, having founded the Pune Events Association and Nature Lovers NGO. His mission is to inspire students to pursue their dreams and transform their college experiences into stepping stones for future success. Join him in this journey of empowerment and innovation!`,
+    domain: 'esummit',
+    sessionid: 'starting-up-in-college',
+  },
+  {
     id: 'akash-sangole',
     name: 'Akash Sangole',
     image:
@@ -132,7 +143,7 @@ export const speakers: Speaker[] = [
     url: 'https://www.linkedin.com/in/shyamkerkar/',
     bio: 'With an impressive career spanning over two decades, this accomplished professional is not only a Chartered Accountant and Company Secretary but also an Author, Certified Life Coach, and NLP Coach. They have extensive experience in various facets of the finance function, having worked across different segments of a Universal Bank in both India and global locations. Their expertise covers strategic planning, transformation projects, financial services operations management, and process improvement initiatives. Currently, they lead the business management function for the India Shared Service Entity, serving as the Chief of Staff and business manager to the Executive Leadership Group, working closely with India Co-CEOs. Known for their ability to handle multiple projects in fast-paced and challenging environments, they are highly skilled in managing cross-functional teams and fostering collaboration across culturally diverse and virtual teams. With strong interpersonal skills and a global perspective, they continue to drive strategic initiatives and transformational change in the finance industry.',
     domain: 'esummit',
-    sessionid: 'starting-up-in-college',
+    sessionid: 'governments-and-startups',
   },
 
   // TECHFIESTA

@@ -30,7 +30,7 @@ export const day1: ScheduleItemType[] = [
     imp: true,
     time: '11:15 AM',
     description:
-      'A session focused on product management strategies and best practices.',
+      'The Product Management session at TechFiesta will delve into effective product management strategies and best practices tailored for the tech industry. Set in the Multipurpose Hall (MPH) on October 4th, 2024, at 11:15 AM, this session will feature Himanshi Yaduwanshi, Senior Product Manager at Telstra. Himanshi brings a wealth of experience and expertise in balancing business acumen with technical proficiency to successfully deliver products in the competitive tech landscape. This session will cover various facets of product management, such as navigating the product lifecycle, aligning development with customer needs, and creating a cohesive roadmap. With a focus on the dynamic nature of technology, attendees will gain insights into overcoming challenges unique to tech product management and how to build cross-functional teams that drive innovation and growth. This is an ideal opportunity for aspiring and seasoned product managers to learn from a leader in the field and refine their approach to building successful tech products.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/pm.jpg',
     organizers: [{ name: 'Shreya Kulkarni' }],
@@ -48,7 +48,7 @@ export const day1: ScheduleItemType[] = [
     imp: true,
     time: '11:15 AM',
     description:
-      'A panel discussion on the latest trends and developments in AI.',
+      'The panel features industry veterans like Uday Kothari, Co-Chair of TiE Pune Angels and Founder of DLT Geeks. With over 30 years of experience in technology and business, Uday brings deep expertise in AI, blockchain, and entrepreneurial mentorship. He will be joined by other distinguished speakers who will discuss AI’s role in business transformation, ethical considerations, and emerging opportunities. Attendees can expect an engaging session that highlights real-world applications of AI, insights into startup ecosystems, and how businesses can leverage AI to stay competitive. This session is perfect for AI enthusiasts, entrepreneurs, and professionals looking to deepen their understanding of AIs capabilities and explore the future possibilities of this transformative technology.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/ai.jpg',
     organizers: [{ name: 'Shreya Kulkarni' }],
@@ -66,7 +66,7 @@ export const day1: ScheduleItemType[] = [
     imp: true,
     time: '12:30 PM',
     description:
-      'A discussion on Web 3.0 technologies and their impact on the future of the internet.',
+      'Join us for the Web 3.0 Panel at TechFiesta on October 4th, 2024, at 12:30 PM in the Multipurpose Hall (MPH). This insightful discussion will focus on the transformative technologies of Web 3.0, including decentralized networks, blockchain, digital identities, and NFTs. Featuring industry experts like Almas Sayyed, Founder of PuneDAO, Apoorav Vyas, Co-Founder of ActualOne, and Vishnu Korde, Founder and CEO of DeCloud Labs, the panel will explore current trends and future applications of Web 3.0. Don’t miss this opportunity to gain valuable insights and understand how these innovations are reshaping the digital landscape!',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/web3.jpg',
     organizers: [{ name: 'Shreya Kulkarni' }],
@@ -84,7 +84,7 @@ export const day1: ScheduleItemType[] = [
     imp: true,
     time: '12:30 PM',
     description:
-      'An introductory session for those new to software development.',
+      'Join us for "First Steps into Development: A Beginners Guide" at TechFiesta on October 4th, 2024, at 12:30 PM in the Multipurpose Hall (MPH). This session is designed for individuals who are new to software development, providing a foundational understanding of key concepts, tools, and best practices. Led by Vishek Pratap, Co-Founder of TechVP, the session will cover essential topics in programming, web development, and emerging technologies like AI, Cyber Security, and Blockchain. With a passion for education and community engagement, Vishek aims to empower participants to kickstart their journey in the tech world. Don’t miss this opportunity to gain insights from an experienced professional and set the stage for your development career!',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/development.jpeg',
     organizers: [{ name: 'Shreya Kulkarni' }],
@@ -102,7 +102,7 @@ export const day1: ScheduleItemType[] = [
     imp: true,
     time: '1:45 PM',
     description:
-      'A cybersecurity challenge where participants compete to find and exploit vulnerabilities.',
+      'The Capture the Flag (CTF) event is an engaging cybersecurity competition, structured around themes like CTI (Cyber Threat Intelligence), reverse engineering, and cryptography. Designed in a Jeopardy-style format, participants will tackle a series of challenges that increase in difficulty over three levels. The event tests both technical and analytical skills, requiring teams to work together to find and exploit vulnerabilities in various systems to capture virtual flags, each represented in {} format. Over the span of 6 hours, participants will navigate through a wide array of puzzles and challenges, starting with basic security concepts and escalating to advanced topics such as malware analysis and cryptographic breaking. Each level will push the teams further, making this an exciting test of endurance, skill, and strategy. Get ready to dive into the world of ethical hacking and prove your expertise in this adrenaline-fueled competition!',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/ctf.jpg',
     organizers: [{ name: 'Shreya Kulkarni' }],
@@ -404,7 +404,7 @@ export const day3: ScheduleItemType[] = [
     organizers: [{ name: 'Laukik Patil', phone: '9975875657' }],
     icon: 'IoRocket',
     description:
-      'Explore the latest trends in Human Resources with industry leaders. Discover the future of HR strategies, talent management, and organizational development.',
+      'HR Summit" brings together industry leaders to explore the latest trends and innovations in Human Resources. This session will cover topics such as future HR strategies, talent management, and organizational development, providing attendees with valuable insights into building a dynamic and resilient workforce. Speakers like Akash Sangole and Neha Mathur will share their expertise on navigating the evolving HR landscape. Join us at AISSMS COE on Oct 6th, 2024, from 11:15 AM to 12:15 PM to discover new approaches to managing human capital and driving business success.',
     speakers: ['akash-sangole', 'mathurneha'],
   },
   {
@@ -422,7 +422,7 @@ export const day3: ScheduleItemType[] = [
     organizers: [{ name: 'Laukik Patil', phone: '9975875657' }],
     icon: 'IoRocket',
     description:
-      'Get insights from D2C pioneers and learn what it takes to build a successful direct-to-consumer brand in today’s competitive market.',
+      'D2C Summit" is a unique opportunity to learn from pioneers in the direct-to-consumer space and understand what it takes to build a successful brand in today’s competitive market. Featuring prominent speakers like Jaywant Patil, Dadasaheb Bhagat, and Sangeeta Sharma, this session will delve into the nuances of brand building, customer engagement, and scaling D2C businesses. Dont miss this chance to gain valuable insights at AISSMS MBA College on Oct 6th, 2024, from 1:15 PM to 2:15 PM and take your D2C venture to new heights.',
     speakers: ['jaywant-patil', 'dadasahebbhagat', 'sangeeta-sharma-96b882264'],
   },
   {
@@ -440,7 +440,7 @@ export const day3: ScheduleItemType[] = [
     organizers: [{ name: 'Laukik Patil', phone: '9975875657' }],
     icon: 'IoRocket',
     description:
-      'Explore venture capital, startup ecosystems, and investment opportunities with top industry experts. A must-attend for aspiring entrepreneurs.',
+      'Venture Summit" offers a deep dive into the world of venture capital, startup ecosystems, and investment opportunities. With distinguished speakers like Rohit Goyal, Uday Kothari, Rajeev Manjrekar, and Yogesh Thite, this session is a must-attend for aspiring entrepreneurs seeking to navigate the complexities of fundraising and startup growth. Join us at AISSMS MBA College on Oct 6th, 2024, from 2:15 PM to 3:15 PM to gain firsthand knowledge from industry experts and learn how to secure funding and scale your business successfully.',
     speakers: [
       'rohit-goyal',
       'udaykothari-esummit',
@@ -449,8 +449,26 @@ export const day3: ScheduleItemType[] = [
     ],
   },
   {
-    title: 'Governments and startups',
+    title: 'Starting up in College',
     id: 'starting-up-in-college',
+    color: 'bg-orange-500',
+    date: 'Oct 6th, 2024',
+    location: 'IOIT MPH',
+    start: new Date('2024-10-06T10:00:00'),
+    imp: true,
+    domain: 'esummit',
+    time: '10:00 AM - 11:15 AM',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/startupinclg.jpeg ',
+    organizers: [{ name: 'Laukik Patil', phone: '9975875657' }],
+    icon: 'IoRocket',
+    description:
+      'Starting Up in College" is an exciting session designed to inspire and empower college students to explore entrepreneurship from a young age. Led by dynamic speakers like Saurabh Mangrulkar, Co-Founder and CEO of EventBeep, this session will delve into the journey of building startups while still pursuing academics. Attendees will gain insights into leveraging college resources, building networks, and converting their ideas into thriving ventures. Join us at IOIT MPH on Oct 6th, 2024, from 10:00 AM to 11:15 AM to discover how to kickstart your entrepreneurial journey right from college!',
+    speakers: ['saurabh-mangrulkar'],
+  },
+  {
+    title: 'Governments and startups',
+    id: 'governments-and-startups',
     color: 'bg-purple-500',
     date: 'Oct 6th, 2024',
     location: 'IOIT MPH',
@@ -462,7 +480,8 @@ export const day3: ScheduleItemType[] = [
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/startupinclg.jpeg ',
     organizers: [{ name: 'Laukik Patil', phone: '9975875657' }],
     icon: 'IoRocket',
-    description: 'An exciting session for college students',
+    description:
+      'Governments and Startups" explores the crucial relationship between government bodies and the startup ecosystem. This session will highlight how governments can play a pivotal role in nurturing startups through policies, grants, and regulatory support. Esteemed speakers will discuss real-world examples and strategies to bridge the gap between innovation and policy, helping startups thrive in a structured environment. Be part of this insightful discussion at IOIT MPH on Oct 6th, 2024, from 10:00 AM to 11:15 AM, and understand how to navigate government frameworks to fuel startup growth and success.',
     speakers: ['shyamkerkar'],
   },
   {
@@ -481,7 +500,7 @@ export const day3: ScheduleItemType[] = [
     icon: 'IoRocket',
     speakers: ['sumit-jha', 'chetanbulsari'],
     description:
-      'This session focuses on the vital aspects of advisory and legal support for startups and businesses. Learn from experts how to navigate legal frameworks and obtain the right advice to fuel your growth.',
+      'Advisory and Legal" is a crucial session tailored to help startups and businesses understand the importance of legal frameworks and advisory support. Featuring industry experts like Sumit Jha and Chetan Bulsari, the session will guide entrepreneurs on navigating complex legal landscapes, managing compliance, and seeking the right counsel to mitigate risks and drive sustainable growth. Join us at AISSMS COE on Oct 6th, 2024, from 1:15 PM to 2:15 PM to gain invaluable insights that could help you make informed decisions and protect your business interests.',
   },
   {
     title: 'Incubation and Grants',
@@ -498,7 +517,7 @@ export const day3: ScheduleItemType[] = [
     organizers: [{ name: 'Laukik Patil', phone: '9975875657' }],
     icon: 'IoRocket',
     description:
-      'Explore the opportunities of incubation and grants in this insightful session. Learn how to secure funding and resources to accelerate your startup’s growth from early-stage to success.',
+      'Incubation and Grants" offers an opportunity for budding entrepreneurs to delve into the various avenues of securing incubation support and grant funding. This session will cover the fundamentals of applying for incubator programs and grants, equipping participants with the knowledge to access critical resources that can accelerate their startup’s journey from ideation to execution. Attend this session at AISSMS COE on Oct 6th, 2024, from 2:15 PM to 3:15 PM to learn how to leverage these opportunities to scale your venture and achieve success.',
   },
 
   // MUN (Day 2)
