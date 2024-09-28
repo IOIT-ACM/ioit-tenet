@@ -173,14 +173,16 @@ ${
               {event.description}
             </p>
             {event.munpage && (
-              <Link
-                href={event.munpage}
-                target='_blank'
-                className='flex items-center text-lg font-semibold underline'
-              >
-                View more details
-                <HiExternalLink className='ml-2 h-5 w-5' />
-              </Link>
+              <div ref={organizersRef}>
+                <Link
+                  href={event.munpage}
+                  target='_blank'
+                  className='flex items-center text-lg font-semibold underline'
+                >
+                  View more details
+                  <HiExternalLink className='ml-2 h-5 w-5' />
+                </Link>
+              </div>
             )}
             {event.speakers && event.speakers.length > 0 && (
               <div ref={speakersRef}>
@@ -193,20 +195,21 @@ ${
               </div>
             )}
             {event.organizers && event.organizers.length > 0 && (
-              <div
-                ref={organizersRef}
-                className='rounded-lg bg-gray-800 px-3 py-1'
-              >
-                <h2 className='mb-4 text-xl font-semibold'>Organizers</h2>
-                <ul className='space-y-5'>
-                  {event.organizers.map((organizer, index) => (
+              <div ref={organizersRef} className='rounded-lg bg-gray-800 p-5'>
+                <h2 className='mb-4 text-xl font-semibold text-white'>
+                  Organizers
+                </h2>
+                <ul className='space-y-4'>
+                  {event.organizers.map((organizer) => (
                     <li
-                      key={index}
+                      key={organizer.name}
                       className='flex flex-col items-start text-slate-300'
                     >
-                      <div className='mt-1 flex items-center hover:underline'>
-                        <HiUser className='mr-2 h-5 w-5' />
-                        <div className='hover:underline'>{organizer.name}</div>
+                      <div className='mt-1 flex items-center hover:text-white'>
+                        <HiUser className='mr-2 h-5 w-5 text-slate-400' />
+                        <span className='hover:underline'>
+                          {organizer.name}
+                        </span>
                       </div>
                       {organizer.phone && (
                         <a

@@ -23,16 +23,16 @@ export const Sponsors: React.FC = () => {
       sponsorCards.forEach((card) => {
         gsap.fromTo(
           card,
-          { opacity: 0, y: 50 },
+          { opacity: 0, y: 20 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.5,
+            duration: 0.4,
             ease: 'power2.out',
             scrollTrigger: {
               trigger: card,
-              start: 'top bottom-=100',
-              end: 'bottom top+=100',
+              start: 'top bottom-=150',
+              end: 'bottom top+=150',
               toggleActions: 'play none none reverse',
             },
           },
@@ -58,7 +58,7 @@ export const Sponsors: React.FC = () => {
   const renderSponsor = (sponsor: Sponsor, index: number) => (
     <div
       key={index}
-      className='sponsor-card group relative flex flex-col items-center rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 p-6 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl'
+      className='sponsor-card group relative flex flex-col items-center rounded-lg bg-gradient-to-br from-gray-800 to-gray-900 p-4 shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-xl'
     >
       {sponsor.websiteUrl ? (
         <Link
@@ -67,31 +67,31 @@ export const Sponsors: React.FC = () => {
           rel='noopener noreferrer'
           className='flex flex-col items-center'
         >
-          <div className='relative h-40 w-40 overflow-hidden rounded-full bg-white p-2 shadow-inner transition-transform duration-300 group-hover:rotate-3'>
+          <div className='relative h-24 w-24 overflow-hidden rounded-lg bg-white p-1 shadow-inner transition-transform duration-300 group-hover:rotate-1'>
             <Image
               src={sponsor.logoUrl}
               alt={sponsor.name}
               layout='fill'
               objectFit='contain'
-              className='rounded-full transition-opacity duration-300 group-hover:opacity-90'
+              className='rounded-lg transition-opacity duration-300 group-hover:opacity-90'
             />
           </div>
-          <p className='mt-6 text-center text-lg font-semibold text-white transition-colors duration-300 group-hover:text-blue-300'>
+          <p className='mt-4 text-center text-sm font-medium text-white transition-colors duration-300 group-hover:text-blue-300'>
             {sponsor.name}
           </p>
         </Link>
       ) : (
         <>
-          <div className='relative h-40 w-40 overflow-hidden rounded-full bg-white p-2 shadow-inner transition-transform duration-300 group-hover:rotate-3'>
+          <div className='relative h-24 w-24 overflow-hidden rounded-lg bg-white p-1 shadow-inner transition-transform duration-300 group-hover:rotate-1'>
             <Image
               src={sponsor.logoUrl}
               alt={sponsor.name}
               layout='fill'
               objectFit='contain'
-              className='rounded-full transition-opacity duration-300 group-hover:opacity-90'
+              className='rounded-lg transition-opacity duration-300 group-hover:opacity-90'
             />
           </div>
-          <p className='mt-6 text-center text-lg font-semibold text-white'>
+          <p className='mt-4 text-center text-sm font-medium text-white'>
             {sponsor.name}
           </p>
         </>
@@ -100,23 +100,23 @@ export const Sponsors: React.FC = () => {
   );
 
   const renderSponsorGroup = (type: string, sponsors: Sponsor[]) => (
-    <div key={type} className='mb-16'>
+    <div key={type} className='mb-20'>
       <h3
         className={`mb-8 text-center font-bold text-white md:text-start ${
-          type === 'Sponsor' ? 'text-4xl md:text-5xl' : 'text-2xl md:text-3xl'
+          type === 'Sponsor' ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'
         }`}
       >
         {type}
       </h3>
-      <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'>
+      <div className='grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7'>
         {sponsors.map((sponsor, index) => renderSponsor(sponsor, index))}
       </div>
     </div>
   );
 
   return (
-    <section ref={containerRef} className='py-16'>
-      <div className='mx-auto px-4'>
+    <section ref={containerRef} className='bg-gray-950 py-16'>
+      <div className='mx-auto px-6'>
         {mainSponsors.length > 0 && renderSponsorGroup('Sponsor', mainSponsors)}
         {otherTypes.map((type) =>
           renderSponsorGroup(type, sponsorsByType[type] ?? []),
