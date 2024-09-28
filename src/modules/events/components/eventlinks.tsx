@@ -20,7 +20,7 @@ export const EventLinksStructure: React.FC<{ day: number }> = ({ day }) => {
                 src={event.image}
                 alt={event.title}
                 layout='fill'
-                objectFit='cover'
+                objectFit={event.domain === 'mun' ? 'contain' : 'cover'}
                 className='bg-gray-500 transition-transform duration-500 group-hover:rotate-1 group-hover:scale-110'
               />
             </div>

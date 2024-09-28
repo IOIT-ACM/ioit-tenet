@@ -305,7 +305,7 @@ export const day2: ScheduleItemType[] = [
     description:
       'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
     image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unsc.webp',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNSC.png',
     organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
     munpage: 'https://www.ioitmun.com/unsc',
   },
@@ -324,7 +324,7 @@ export const day2: ScheduleItemType[] = [
     description:
       'The UNHRC promotes and protects human rights globally through dialogue and cooperation. Agenda: Discussing the role of state and non-state actors in the Venezuelan crisis, with emphasis on the humanitarian emergency following the presidential elections.',
     image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unhcr.webp',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNHRC.png',
     organizers: [{ name: 'Chinmay Nakwa' }, { name: 'Shriya Naphade' }],
     munpage: 'https://www.ioitmun.com/unhrc',
   },
@@ -343,7 +343,7 @@ export const day2: ScheduleItemType[] = [
     description:
       'AIPPM brings together diverse political factions to discuss national policies and reforms. Agenda: Deliberating on the introduction of the Aparajita Bill and the demand for a Central Protection Act.',
     image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/aippm.jpg',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/AIPPM.png',
     organizers: [{ name: 'Tanisha Londhe' }, { name: 'Atharva Pednekar' }],
     munpage: 'https://www.ioitmun.com/aippm',
   },
@@ -362,7 +362,7 @@ export const day2: ScheduleItemType[] = [
     description:
       "UNCSW is dedicated to promoting gender equality and women's empowerment globally. Agenda: Implications of human rights violations on women, with emphasis on religion-driven nations.",
     image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/uncsw.webp',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNCSW.png',
     organizers: [{ name: 'Sajal Gulati' }, { name: 'Devang Gandhi' }],
     munpage: 'https://www.ioitmun.com/uncsw',
   },
@@ -381,7 +381,7 @@ export const day2: ScheduleItemType[] = [
     description:
       'UNODC combats global drug trafficking and organized crime while promoting justice and integrity. Agenda: Addressing the challenges of money and drug laundering in Special Economic Zones, with special emphasis on the Golden Triangle SEZ.',
     image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unodc.jpg',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNODC.png',
     organizers: [{ name: 'Aditya Sarade' }, { name: 'Tanisha Londhe' }],
     munpage: 'https://www.ioitmun.com/unodc',
   },
@@ -459,7 +459,7 @@ export const day3: ScheduleItemType[] = [
     domain: 'esummit',
     time: '10:00 AM - 11:15 AM',
     image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/startupinclg.jpeg ',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/startupincollege.jpeg',
     organizers: [{ name: 'Laukik Patil', phone: '9975875657' }],
     icon: 'IoRocket',
     description:
@@ -587,7 +587,7 @@ export const day3: ScheduleItemType[] = [
     description:
       'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
     image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unsc.webp',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNSC.png',
     organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
   },
   {
@@ -606,7 +606,7 @@ export const day3: ScheduleItemType[] = [
     description:
       'The UNHRC promotes and protects human rights globally through dialogue and cooperation. Agenda: Discussing the role of state and non-state actors in the Venezuelan crisis, with emphasis on the humanitarian emergency following the presidential elections.',
     image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unhcr.webp',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNHRC.png',
     organizers: [{ name: 'Chinmay Nakwa' }, { name: 'Shriya Naphade' }],
   },
   {
@@ -625,7 +625,7 @@ export const day3: ScheduleItemType[] = [
     description:
       'AIPPM brings together diverse political factions to discuss national policies and reforms. Agenda: Deliberating on the introduction of the Aparajita Bill and the demand for a Central Protection Act.',
     image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/aippm.jpg',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/AIPPM.png',
     organizers: [{ name: 'Tanisha Londhe' }, { name: 'Atharva Pednekar' }],
   },
   {
@@ -644,7 +644,7 @@ export const day3: ScheduleItemType[] = [
     description:
       'UNCSW is dedicated to promoting gender equality and women’s empowerment globally. Agenda: Implications of human rights violations on women, with emphasis on religion-driven nations.',
     image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/uncsw.webp',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNCSW.png',
     organizers: [{ name: 'Sajal Gulati' }, { name: 'Devang Gandhi' }],
   },
   {
@@ -663,7 +663,7 @@ export const day3: ScheduleItemType[] = [
     description:
       'UNODC combats global drug trafficking and organized crime while promoting justice and integrity. Agenda: Addressing the challenges of money and drug laundering in Special Economic Zones, with special emphasis on the Golden Triangle SEZ.',
     image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unodc.jpg',
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNODC.png',
     organizers: [{ name: 'Aditya Sarade' }, { name: 'Tanisha Londhe' }],
   },
 ];

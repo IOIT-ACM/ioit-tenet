@@ -48,7 +48,7 @@ const TextParallaxContent = ({
         paddingRight: IMG_PADDING,
       }}
     >
-      <div className='relative h-[150vh]'>
+      <div className='relative h-[110vh]'>
         <StickyImage imgUrl={imgUrl} />
         <OverlayCopy heading={heading} subheading={subheading} url={url} />
       </div>
@@ -147,7 +147,7 @@ const data = [
     imgUrl:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/events/building.jpeg',
     subheading: 'Day 2',
-    heading: 'MUN eSports & Cultural Night',
+    heading: 'MUN, eSports & Cultural Night',
     url: '/esummit',
   },
   {
