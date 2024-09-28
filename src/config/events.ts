@@ -26,7 +26,7 @@ export const day1: ScheduleItemType[] = [
     color: 'bg-blue-700',
     date: 'Oct 4th, 2024',
     location: 'Multipurpose hall (MPH)',
-    start: new Date('2024-09-12T11:14:00'),
+    start: new Date('2024-09-12T14:00:00'),
     imp: true,
     time: '2:00 - 3:00',
     description:
@@ -47,7 +47,7 @@ export const day1: ScheduleItemType[] = [
     color: 'bg-green-700',
     date: 'Oct 4th, 2024',
     location: 'Admin Area, IOIT',
-    start: new Date('2024-09-12T11:11:00'),
+    start: new Date('2024-09-12T11:00:00'),
     imp: true,
     time: '11:00 - 4:00',
     description:
@@ -132,7 +132,7 @@ export const day1: ScheduleItemType[] = [
     imp: true,
     time: '1:45 PM',
     description:
-      'The Capture the Flag (CTF) event is an engaging cybersecurity competition, structured around themes like CTI (Cyber Threat Intelligence), reverse engineering, and cryptography. Designed in a Jeopardy-style format, participants will tackle a series of challenges that increase in difficulty over three levels. The event tests both technical and analytical skills, requiring teams to work together to find and exploit vulnerabilities in various systems to capture virtual flags, each represented in {} format. Over the span of 6 hours, participants will navigate through a wide array of puzzles and challenges, starting with basic security concepts and escalating to advanced topics such as malware analysis and cryptographic breaking. Each level will push the teams further, making this an exciting test of endurance, skill, and strategy. Get ready to dive into the world of ethical hacking and prove your expertise in this adrenaline-fueled competition!',
+      'This Capture the Flag (CTF) competition involves solving complex problems and uncovering hidden "flags" across multiple themes, such as Cryptography & Steganography, Cyber Threat Intelligence (CTI) & Open Source Intelligence (OSINT), and Reverse Engineering. Participants can collaborate in teams to decode messages, analyze cyber threat patterns, and reverse-engineer code to find flags. The competition caters to varying levels of expertise, offering step-by-step hints to help competitors progress through tasks. Each challenge is designed to test participants problem-solving and technical abilities, with the goal of sharpening their cybersecurity skills in an engaging and competitive environment. The flag type is flag{} and the event will be on for the entire day at two locations, First floor lab 112 and 4th floor lab 405, AISSMS IOIT building.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/ctf.jpg',
     organizers: [
@@ -197,7 +197,7 @@ export const day1: ScheduleItemType[] = [
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/machine+learning.jpeg',
     organizers: [
       { name: 'Shreya Kulkarni', phone: '8669033795' },
-      { name: 'Gargi Bharshankar', phone: '9356026528' },
+      { name: 'Gargi Bharshankar' },
     ],
     speakers: ['saurabh-shahane'],
   },
@@ -215,7 +215,7 @@ export const day2: ScheduleItemType[] = [
     location: 'MPH',
     start: new Date('2024-10-05T09:00:00'),
     imp: true,
-    time: '9:00 AM',
+    time: '9:00 AM onwards',
     description:
       'Join the exciting BGMI LAN tournament as top teams battle it out in a competitive setting.',
     image:
@@ -234,7 +234,7 @@ export const day2: ScheduleItemType[] = [
     location: 'Room 105',
     start: new Date('2024-10-05T09:00:00'),
     imp: true,
-    time: '9:00 AM',
+    time: '9:00 AM onwards',
     description:
       'Experience the thrill of FIFA FC 24 on the PS5. Compete with other players for the top spot!',
     image:
@@ -252,7 +252,7 @@ export const day2: ScheduleItemType[] = [
     location: 'Online',
     start: new Date('2024-10-05T09:00:00'),
     imp: true,
-    time: '9:00 AM',
+    time: '9:00 AM onwards',
     description:
       'Gear up for a competitive Valorant showdown as players from across the globe participate in this online tournament.',
     image:
@@ -345,7 +345,10 @@ export const day2: ScheduleItemType[] = [
       'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNSC.png',
-    organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
+    organizers: [
+      { name: 'Gargi Bharshankar' },
+      { name: 'Vedant Rajput', phone: '9960273408' },
+    ],
     munpage: 'https://www.ioitmun.com/unsc',
   },
   {
@@ -364,7 +367,10 @@ export const day2: ScheduleItemType[] = [
       'The UNHRC promotes and protects human rights globally through dialogue and cooperation. Agenda: Discussing the role of state and non-state actors in the Venezuelan crisis, with emphasis on the humanitarian emergency following the presidential elections.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNHRC.png',
-    organizers: [{ name: 'Chinmay Nakwa' }, { name: 'Shriya Naphade' }],
+    organizers: [
+      { name: 'Gargi Bharshankar' },
+      { name: 'Shreya Kulkarni', phone: '8669033795' },
+    ],
     munpage: 'https://www.ioitmun.com/unhrc',
   },
   {
@@ -383,7 +389,10 @@ export const day2: ScheduleItemType[] = [
       'AIPPM brings together diverse political factions to discuss national policies and reforms. Agenda: Deliberating on the introduction of the Aparajita Bill and the demand for a Central Protection Act.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/AIPPM.png',
-    organizers: [{ name: 'Tanisha Londhe' }, { name: 'Atharva Pednekar' }],
+    organizers: [
+      { name: 'Gargi Bharshankar' },
+      { name: 'Sakshi Mane', phone: '8552847070' },
+    ],
     munpage: 'https://www.ioitmun.com/aippm',
   },
   {
@@ -402,7 +411,10 @@ export const day2: ScheduleItemType[] = [
       "UNCSW is dedicated to promoting gender equality and women's empowerment globally. Agenda: Implications of human rights violations on women, with emphasis on religion-driven nations.",
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNCSW.png',
-    organizers: [{ name: 'Sajal Gulati' }, { name: 'Devang Gandhi' }],
+    organizers: [
+      { name: 'Gargi Bharshankar' },
+      { name: 'Madiha Shaikh', phone: '9850993963' },
+    ],
     munpage: 'https://www.ioitmun.com/uncsw',
   },
   {
@@ -421,7 +433,10 @@ export const day2: ScheduleItemType[] = [
       'UNODC combats global drug trafficking and organized crime while promoting justice and integrity. Agenda: Addressing the challenges of money and drug laundering in Special Economic Zones, with special emphasis on the Golden Triangle SEZ.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNODC.png',
-    organizers: [{ name: 'Aditya Sarade' }, { name: 'Tanisha Londhe' }],
+    organizers: [
+      { name: 'Gargi Bharshankar' },
+      { name: 'Vaishnav Shinde', phone: '9356608108' },
+    ],
     munpage: 'https://www.ioitmun.com/unodc',
   },
 ];
@@ -429,18 +444,43 @@ export const day2: ScheduleItemType[] = [
 export const day3: ScheduleItemType[] = [
   // Esummit
   {
+    title: "Investing Arena TENET'24",
+    icon: 'FcMoneyTransfer',
+    id: 'investing-arena-tenet-24',
+    domain: 'esummit',
+    date: 'Oct 6th, 2024',
+    location: 'AISSMS IOIT',
+    start: new Date('2024-10-06T16:00:00'),
+    imp: true,
+    time: '4:00-7:00',
+    description:
+      "Your Startup's Launchpad! AISSMS IOIT in association with Entie: A Business Dating Platform brings you Investing Arena under TENET 2024. Are you ready to pitch your idea to top investors and secure funding? All Stage Startups Can Apply! TENET 2024's Investing Arena is your chance to showcase your startup to a panel of 15+ investors, startup CEOs, and venture capitalists. Network with potential customers, users, startup mentors, and founders. Secure your chances for on-spot funding commitments of up to ₹50 Lakhs in the grand finale. Win fixed cash prizes of up to ₹1,00,000 and complimentary day passes to the E Summit. Secure your chances in the Redbull Basement: Global Innovation Challenge, National qualifiers with a potential trip to Tokyo and Los Angeles. Early bird TENET pass access available exclusively for all Round One qualifiers. Don't miss this opportunity to accelerate your startup's growth. Register now and prepare your pitch for the Investing Arena.",
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/pitchersden.jpeg',
+    registration:
+      'https://docs.google.com/forms/d/e/1FAIpQLSdz4AXaeYZAy7jFUagt3g-zvJJV38If5njMlMiZ-49fMpXWjw/viewform',
+    organizers: [
+      { name: 'Manav Nayyar', phone: '8698991836' },
+      { name: 'Laukik Patil', phone: '9975875657' },
+    ],
+    color: 'bg-green-500',
+  },
+  {
     title: 'HR Summit',
     id: 'hr-summit',
     color: 'bg-blue-500',
     date: 'Oct 6th, 2024',
-    location: 'AISSMS COE',
+    location: 'Auditorium, COE',
     start: new Date('2024-10-06T11:15:00'),
     imp: true,
     time: '11:15 AM - 12:15 PM',
     domain: 'esummit',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/hrsummit.jpeg ',
-    organizers: [{ name: 'Laukik Patil', phone: '9975875657' }],
+    organizers: [
+      { name: 'Laukik Patil', phone: '9975875657' },
+      { name: 'Pranav Vetkar', phone: '9321646038' },
+    ],
     icon: 'IoRocket',
     description:
       'HR Summit" brings together industry leaders to explore the latest trends and innovations in Human Resources. This session will cover topics such as future HR strategies, talent management, and organizational development, providing attendees with valuable insights into building a dynamic and resilient workforce. Speakers like Akash Sangole and Neha Mathur will share their expertise on navigating the evolving HR landscape. Join us at AISSMS COE on Oct 6th, 2024, from 11:15 AM to 12:15 PM to discover new approaches to managing human capital and driving business success.',
@@ -451,14 +491,17 @@ export const day3: ScheduleItemType[] = [
     id: 'd2c-summit',
     color: 'bg-green-500',
     date: 'Oct 6th, 2024',
-    location: 'AISSMS MBA College',
+    location: 'Auditorium, Pharma',
     start: new Date('2024-10-06T13:15:00'),
     imp: true,
     domain: 'esummit',
     time: '1:15 PM - 2:15 PM',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/d2d.jpeg ',
-    organizers: [{ name: 'Laukik Patil', phone: '9975875657' }],
+    organizers: [
+      { name: 'Laukik Patil', phone: '9975875657' },
+      { name: 'Shreya Kulkarni', phone: '8669033795' },
+    ],
     icon: 'IoRocket',
     description:
       'D2C Summit" is a unique opportunity to learn from pioneers in the direct-to-consumer space and understand what it takes to build a successful brand in today’s competitive market. Featuring prominent speakers like Jaywant Patil, Dadasaheb Bhagat, and Sangeeta Sharma, this session will delve into the nuances of brand building, customer engagement, and scaling D2C businesses. Dont miss this chance to gain valuable insights at AISSMS MBA College on Oct 6th, 2024, from 1:15 PM to 2:15 PM and take your D2C venture to new heights.',
@@ -469,14 +512,17 @@ export const day3: ScheduleItemType[] = [
     id: 'venture-summit',
     color: 'bg-yellow-500',
     date: 'Oct 6th, 2024',
-    location: 'AISSMS MBA College',
+    location: 'Auditorium, Pharma',
     start: new Date('2024-10-06T14:15:00'),
     imp: true,
     domain: 'esummit',
     time: '2:15 PM - 3:15 PM',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/vc.jpeg ',
-    organizers: [{ name: 'Laukik Patil', phone: '9975875657' }],
+    organizers: [
+      { name: 'Laukik Patil', phone: '9975875657' },
+      { name: 'Shreya Kulkarni', phone: '8669033795' },
+    ],
     icon: 'IoRocket',
     description:
       'Venture Summit" offers a deep dive into the world of venture capital, startup ecosystems, and investment opportunities. With distinguished speakers like Rohit Goyal, Uday Kothari, Rajeev Manjrekar, and Yogesh Thite, this session is a must-attend for aspiring entrepreneurs seeking to navigate the complexities of fundraising and startup growth. Join us at AISSMS MBA College on Oct 6th, 2024, from 2:15 PM to 3:15 PM to gain firsthand knowledge from industry experts and learn how to secure funding and scale your business successfully.',
@@ -528,14 +574,17 @@ export const day3: ScheduleItemType[] = [
     id: 'advisory-and-legal',
     color: 'bg-gray-500',
     date: 'Oct 6th, 2024',
-    location: 'AISSMS COE',
+    location: 'Auditorium, COE',
     start: new Date('2024-10-06T13:15:00'),
     imp: true,
     domain: 'esummit',
     time: '1:15 PM - 2:15 PM',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/advisoryandlegal.jpeg',
-    organizers: [{ name: 'Laukik Patil', phone: '9975875657' }],
+    organizers: [
+      { name: 'Laukik Patil', phone: '9975875657' },
+      { name: 'Pranav Vetkar', phone: '9321646038' },
+    ],
     icon: 'IoRocket',
     speakers: ['sumit-jha', 'chetanbulsari'],
     description:
@@ -546,14 +595,17 @@ export const day3: ScheduleItemType[] = [
     id: 'incubation-and-grants',
     color: 'bg-indigo-500',
     date: 'Oct 6th, 2024',
-    location: 'AISSMS COE',
+    location: 'Auditorium, COE',
     start: new Date('2024-10-06T14:15:00'),
     imp: true,
     domain: 'esummit',
     time: '2:15 PM - 3:15 PM',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/incubation.jpeg',
-    organizers: [{ name: 'Laukik Patil', phone: '9975875657' }],
+    organizers: [
+      { name: 'Laukik Patil', phone: '9975875657' },
+      { name: 'Pranav Vetkar', phone: '9321646038' },
+    ],
     icon: 'IoRocket',
     description:
       'Incubation and Grants" offers an opportunity for budding entrepreneurs to delve into the various avenues of securing incubation support and grant funding. This session will cover the fundamentals of applying for incubator programs and grants, equipping participants with the knowledge to access critical resources that can accelerate their startup’s journey from ideation to execution. Attend this session at AISSMS COE on Oct 6th, 2024, from 2:15 PM to 3:15 PM to learn how to leverage these opportunities to scale your venture and achieve success.',
@@ -627,7 +679,10 @@ export const day3: ScheduleItemType[] = [
       'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNSC.png',
-    organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
+    organizers: [
+      { name: 'Gargi Bharshankar' },
+      { name: 'Vedant Rajput', phone: '9960273408' },
+    ],
   },
   {
     title: 'UNHRC Committee Session',
@@ -646,7 +701,10 @@ export const day3: ScheduleItemType[] = [
       'The UNHRC promotes and protects human rights globally through dialogue and cooperation. Agenda: Discussing the role of state and non-state actors in the Venezuelan crisis, with emphasis on the humanitarian emergency following the presidential elections.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNHRC.png',
-    organizers: [{ name: 'Chinmay Nakwa' }, { name: 'Shriya Naphade' }],
+    organizers: [
+      { name: 'Gargi Bharshankar' },
+      { name: 'Shreya Kulkarni', phone: '8669033795' },
+    ],
   },
   {
     title: 'AIPPM Committee Session',
@@ -665,7 +723,10 @@ export const day3: ScheduleItemType[] = [
       'AIPPM brings together diverse political factions to discuss national policies and reforms. Agenda: Deliberating on the introduction of the Aparajita Bill and the demand for a Central Protection Act.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/AIPPM.png',
-    organizers: [{ name: 'Tanisha Londhe' }, { name: 'Atharva Pednekar' }],
+    organizers: [
+      { name: 'Gargi Bharshankar' },
+      { name: 'Sakshi Mane', phone: '8552847070' },
+    ],
   },
   {
     title: 'UNCSW Committee Session',
@@ -684,7 +745,10 @@ export const day3: ScheduleItemType[] = [
       'UNCSW is dedicated to promoting gender equality and women’s empowerment globally. Agenda: Implications of human rights violations on women, with emphasis on religion-driven nations.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNCSW.png',
-    organizers: [{ name: 'Sajal Gulati' }, { name: 'Devang Gandhi' }],
+    organizers: [
+      { name: 'Gargi Bharshankar' },
+      { name: 'Madiha Shaikh', phone: '9850993963' },
+    ],
   },
   {
     title: 'UNODC Committee Session',
@@ -703,6 +767,9 @@ export const day3: ScheduleItemType[] = [
       'UNODC combats global drug trafficking and organized crime while promoting justice and integrity. Agenda: Addressing the challenges of money and drug laundering in Special Economic Zones, with special emphasis on the Golden Triangle SEZ.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNODC.png',
-    organizers: [{ name: 'Aditya Sarade' }, { name: 'Tanisha Londhe' }],
+    organizers: [
+      { name: 'Gargi Bharshankar' },
+      { name: 'Vaishnav Shinde', phone: '9356608108' },
+    ],
   },
 ];
