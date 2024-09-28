@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
-/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import React, { useEffect, useRef } from 'react';
@@ -142,10 +141,14 @@ ${
             ref={imageRef}
             className='sticky top-0 h-64 w-full overflow-hidden rounded-lg border bg-gray-200 md:h-[500px] md:w-1/2'
           >
-            <img
+            <Image
               src={event.image}
               alt={event.title}
-              className='h-full w-full object-cover object-center transition-all duration-1000 hover:scale-105'
+              layout='fill'
+              objectFit={
+                event.domain === 'mun' && event.imp ? 'contain' : 'cover'
+              }
+              className='bg-gray-700 transition-transform duration-500 group-hover:rotate-1 group-hover:scale-110'
             />
           </div>
           <div className='space-y-6 pt-3 md:w-1/2 md:p-8 md:pt-0'>
@@ -166,10 +169,9 @@ ${
                 {event.location}
               </p>
             </div>
-            <p ref={descriptionRef} className='pb-3 text-lg text-slate-400'>
+            <p ref={descriptionRef} className='pb-3 text-lg text-slate-300'>
               {event.description}
             </p>
-
             {event.munpage && (
               <Link
                 href={event.munpage}
@@ -180,7 +182,6 @@ ${
                 <HiExternalLink className='ml-2 h-5 w-5' />
               </Link>
             )}
-
             {event.speakers && event.speakers.length > 0 && (
               <div ref={speakersRef}>
                 <h2 className='mb-4 text-xl font-semibold'>Speakers</h2>
@@ -191,24 +192,26 @@ ${
                 </div>
               </div>
             )}
-
             {event.organizers && event.organizers.length > 0 && (
-              <div ref={organizersRef}>
+              <div
+                ref={organizersRef}
+                className='rounded-lg bg-gray-800 px-3 py-1'
+              >
                 <h2 className='mb-4 text-xl font-semibold'>Organizers</h2>
                 <ul className='space-y-5'>
                   {event.organizers.map((organizer, index) => (
                     <li
                       key={index}
-                      className='flex flex-col items-start text-slate-400'
+                      className='flex flex-col items-start text-slate-300'
                     >
-                      <div className='flex items-center'>
+                      <div className='mt-1 flex items-center hover:underline'>
                         <HiUser className='mr-2 h-5 w-5' />
                         <div className='hover:underline'>{organizer.name}</div>
                       </div>
                       {organizer.phone && (
                         <a
                           href={`tel:${organizer.phone}`}
-                          className='mt-1 flex items-center text-blue-500 hover:underline'
+                          className='mt-1 flex items-center text-blue-400 hover:underline'
                         >
                           <FaPhoneAlt className='mr-2 h-4 w-4' />
                           {organizer.phone}
@@ -219,7 +222,6 @@ ${
                 </ul>
               </div>
             )}
-
             <div
               id='tenet-button-animation'
               ref={buttonsRef}
