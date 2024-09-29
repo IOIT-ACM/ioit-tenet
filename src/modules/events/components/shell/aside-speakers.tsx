@@ -69,7 +69,7 @@ export const SpeakerItem = ({ data }: { data: Speaker }) => {
           alt={data.name}
           width={50}
           height={50}
-          className='rounded-full'
+          className='h-[50px] w-[50px] rounded-full bg-contain'
         />
         <div>
           <p className='mb-1 text-lg'>{data.name}</p>
