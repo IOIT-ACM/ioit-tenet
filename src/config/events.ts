@@ -16,7 +16,6 @@ export const day1: ScheduleItemType[] = [
     description: 'The official opening ceremony for Tenet 2024.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/inaugration.jpeg',
-    organizers: [{ name: 'Niranjana Patil' }],
   },
   {
     title: 'Product Management in Tech',
@@ -40,7 +39,7 @@ export const day1: ScheduleItemType[] = [
     speakers: ['himanshi-yaduwanshi'],
   },
   {
-    title: 'Den Of Code',
+    title: 'Den Of Code (Experience Zone)',
     icon: 'FaCalendar',
     id: 'denofcode',
     domain: 'techfiesta',
@@ -108,7 +107,7 @@ export const day1: ScheduleItemType[] = [
     domain: 'techfiesta',
     color: 'bg-red-700',
     date: 'Oct 4th, 2024',
-    location: 'Multipurposr Hall (MPH)',
+    location: 'Multipurpose Hall (MPH)',
     start: new Date('2024-09-12T12:30:00'),
     imp: true,
     time: '12:30 - 1:45',
@@ -127,9 +126,9 @@ export const day1: ScheduleItemType[] = [
     color: 'bg-green-700',
     date: 'Oct 4th, 2024',
     location: 'AISSMS IOIT 112, 406',
-    start: new Date('2024-09-12T13:45:00'),
+    start: new Date('2024-09-12T11:00:00'),
     imp: true,
-    time: '1:45 PM',
+    time: '11:00 - 6:00',
     description:
       'This Capture the Flag (CTF) competition involves solving complex problems and uncovering hidden "flags" across multiple themes, such as Cryptography & Steganography, Cyber Threat Intelligence (CTI) & Open Source Intelligence (OSINT), and Reverse Engineering. Participants can collaborate in teams to decode messages, analyze cyber threat patterns, and reverse-engineer code to find flags. The competition caters to varying levels of expertise, offering step-by-step hints to help competitors progress through tasks. Each challenge is designed to test participants problem-solving and technical abilities, with the goal of sharpening their cybersecurity skills in an engaging and competitive environment. The flag type is flag{} and the event will be on for the entire day at two locations, First floor lab 112 and 4th floor lab 405, AISSMS IOIT building.',
     image:
@@ -148,9 +147,9 @@ export const day1: ScheduleItemType[] = [
     color: 'bg-blue-700',
     date: 'Oct 4th, 2024',
     location: 'Room 407',
-    start: new Date('2024-09-12T13:45:00'),
+    start: new Date('2024-09-12T11:30:00'),
     imp: true,
-    time: '1:45 PM',
+    time: '11:30 - 5:00',
     description:
       'Master the essentials of drone technology at our hands-on drone workshop. Get crucial training in drone assembly and understand the components used. Exercise drone programming and get a chance to practice flight training.',
     image:
@@ -186,7 +185,7 @@ export const day1: ScheduleItemType[] = [
     domain: 'techfiesta',
     color: 'bg-red-700',
     date: 'Oct 4th, 2024',
-    location: 'Room 407',
+    location: 'Multipurpose Hall (MPH)',
     start: new Date('2024-09-12T15:30:00'),
     imp: true,
     time: '3:30 - 4:45',
@@ -203,6 +202,24 @@ export const day1: ScheduleItemType[] = [
 ];
 
 export const day2: ScheduleItemType[] = [
+  // Cultural
+  {
+    icon: 'FaCalendar',
+    title: 'Navratri Carnival',
+    id: 'navratri-carnival',
+    domain: 'creators',
+    color: 'bg-red-500',
+    date: 'Oct 5th, 2024',
+    location: 'AISSMS GROUND',
+    start: new Date('2024-10-05T16:00:00'),
+    imp: true,
+    time: '4:00 PM onwards',
+    description:
+      'Get ready to immerse yourself in the vibrant celebration of Navratri like never before at the Navratri Carnival, happening at AISSMS IOIT, Shivaji Nagar, Pune on October 5th from 4 PM onwards! Organized in collaboration with TENET, the youth partner, this grand event promises a spectacular blend of traditional and modern music, making it an unmissable experience. The highlight of the evening will be an electrifying performance by Kratex, the Mumbai-based DJ and music producer known for his unique “M-House” genre—a fusion of Marathi and House music. Known for hit tracks like “Taambdi Chaamdi,” Kratex has garnered international acclaim and support from the biggest names in the industry. Adding to the thrill is Aghori Muzik and the Bandish Projekt featuring Aishwarya Joshi, also known as the “Dakla Queen,” who will set the stage ablaze with their dynamic performances. The event will also feature stunning visual and stage setups, ensuring an unforgettable night of dance and celebration. Join us at the AISSMS Ground for a night of music, dance, and cultural extravaganza that brings together the best of tradition and innovation.',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/creators.jpeg',
+  },
+
   // E-Sports
   {
     icon: 'FaCalendar',
@@ -210,7 +227,7 @@ export const day2: ScheduleItemType[] = [
     id: 'bgmi-lan-event',
     domain: 'esports',
     color: 'bg-red-500',
-    date: 'Oct 6th, 2024',
+    date: 'Oct 5th, 2024',
     location: 'MPH',
     start: new Date('2024-10-05T09:00:00'),
     imp: true,
@@ -229,7 +246,7 @@ export const day2: ScheduleItemType[] = [
     id: 'fifa-console-event',
     domain: 'esports',
     color: 'bg-green-500',
-    date: 'Oct 6th, 2024',
+    date: 'Oct 5th, 2024',
     location: 'Room 105',
     start: new Date('2024-10-05T09:00:00'),
     imp: true,
@@ -247,7 +264,7 @@ export const day2: ScheduleItemType[] = [
     id: 'valorant-online',
     domain: 'esports',
     color: 'bg-purple-500',
-    date: 'Oct 6th, 2024',
+    date: 'Oct 5th, 2024',
     location: 'Online',
     start: new Date('2024-10-05T09:00:00'),
     imp: true,

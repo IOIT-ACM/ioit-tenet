@@ -85,7 +85,7 @@ const CongratulationsModal = () => {
           Congratulations!
         </h2>
         <p className='mb-8 text-lg text-gray-700'>
-          Welcome to TENET 2024, see you on Oct 4th 2024 at 1 PM
+          Welcome to TENET 2024, see you on Oct 4th 2024 at 10 AM
         </p>
         <p className='mb-8 text-base text-gray-700'>
           Please don&#39;t forget to join the Whatsapp group after submission.
