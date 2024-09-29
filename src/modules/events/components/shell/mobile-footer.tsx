@@ -81,9 +81,14 @@ const MobileFooter = () => {
                       <Image
                         src={event.image}
                         alt={event.title}
-                        className='rounded-full border border-black'
+                        className={`rounded-full border border-black bg-gray-700 ${event.domain === 'mun' && event.imp ? 'p-5' : 'p-0'}`}
                         height={200}
                         width={200}
+                        style={{
+                          objectFit: 'cover',
+                          height: '200px',
+                          width: '200px',
+                        }} // Enforces fixed height and width with square ratio
                       />
                       {event.domain === 'mun' && (
                         <Image
