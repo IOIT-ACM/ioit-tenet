@@ -14,7 +14,6 @@ import {
   MUNtitle,
 } from '@/modules/home';
 import { MusicBtn } from '@/components/common/musicplayer';
-
 import { GameLink } from '@/modules/game';
 
 export default async function HomePage() {
