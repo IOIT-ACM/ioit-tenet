@@ -1,46 +1,11 @@
-'use client';
-
-import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import Link from 'next/link';
 import { type Sponsor } from '@/types';
 import { sponsor } from '@/config/sponsors';
 
-gsap.registerPlugin(ScrollTrigger);
-
 type SponsorsByType = Record<string, Sponsor[]>;
 
 export const Sponsors: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (containerRef.current) {
-      const sponsorCards =
-        containerRef.current.querySelectorAll('.sponsor-card');
-
-      sponsorCards.forEach((card) => {
-        gsap.fromTo(
-          card,
-          { opacity: 0, y: 20 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.4,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: card,
-              start: 'top bottom-=150',
-              end: 'bottom top+=150',
-              toggleActions: 'play none none reverse',
-            },
-          },
-        );
-      });
-    }
-  }, []);
-
   const sponsorsByType: SponsorsByType = sponsor.reduce((acc, sponsor) => {
     const type = sponsor.type ?? 'Other';
     if (!acc[type]) {
@@ -115,7 +80,7 @@ export const Sponsors: React.FC = () => {
   );
 
   return (
-    <section ref={containerRef} className='bg-gray-950 py-16'>
+    <section className='bg-neutral-950 py-16'>
       <div className='mx-auto px-6'>
         {mainSponsors.length > 0 && renderSponsorGroup('Sponsor', mainSponsors)}
         {otherTypes.map((type) =>

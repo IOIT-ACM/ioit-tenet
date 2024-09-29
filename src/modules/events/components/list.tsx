@@ -1,6 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 'use client';
 
-import React, { type ReactNode, useRef } from 'react';
+import React, { type ReactNode, useRef, useEffect } from 'react';
+import { gsap } from 'gsap';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
 import { EventLinksStructure } from './eventlinks';
@@ -99,6 +102,36 @@ const OverlayCopy = ({
   heading: string;
   url: string;
 }) => {
+  const subheadingRef = useRef(null);
+  const headingRef = useRef(null);
+
+  useEffect(() => {
+    const handleMouseMove = (event: { clientX: any; clientY: any }) => {
+      const { clientX, clientY } = event;
+      const movementFactor = 20;
+
+      gsap.to(subheadingRef.current, {
+        x: (clientX / window.innerWidth - 0.7) * movementFactor * 2.3,
+        y: (clientY / window.innerHeight - 0.7) * movementFactor * 1.5,
+        duration: 0.7,
+        ease: 'power3.out',
+      });
+
+      gsap.to(headingRef.current, {
+        x: (clientX / window.innerWidth - 0.7) * movementFactor * 1.9,
+        y: (clientY / window.innerHeight - 0.7) * movementFactor * 2.6,
+        duration: 0.7,
+        ease: 'power3.out',
+      });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -117,11 +150,15 @@ const OverlayCopy = ({
       ref={targetRef}
       className='absolute left-0 top-0 flex h-screen w-full flex-col items-center justify-center text-white'
     >
-      <p className='mb-2 text-center text-xl md:mb-4 md:text-3xl'>
+      <p
+        ref={subheadingRef}
+        className='mb-2 text-center text-xl md:mb-4 md:text-3xl'
+      >
         {subheading}
       </p>
       <Link
         href={url}
+        ref={headingRef}
         className='max-w-screen-lg text-center text-4xl font-bold md:text-7xl'
       >
         {heading}

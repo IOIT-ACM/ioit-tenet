@@ -17,7 +17,8 @@ export const SpeakerDetails = ({ speaker }: { speaker: Speaker }) => {
   const nameRef = useRef<HTMLHeadingElement>(null);
   const titleRef = useRef<HTMLParagraphElement>(null);
   const bioRef = useRef<HTMLDivElement>(null);
-  const linkRef = useRef<HTMLAnchorElement>(null);
+  const linkRef = useRef<HTMLDivElement>(null);
+  const sessionRef = useRef<HTMLDivElement>(null);
 
   const allEvents = [...day1, ...day2, ...day3];
 
@@ -58,6 +59,15 @@ export const SpeakerDetails = ({ speaker }: { speaker: Speaker }) => {
     if (titleRef.current) {
       tl.fromTo(
         titleRef.current,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' },
+        '-=0.2',
+      );
+    }
+
+    if (sessionRef.current) {
+      tl.fromTo(
+        sessionRef.current,
         { opacity: 0, y: 20 },
         { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' },
         '-=0.2',
@@ -134,18 +144,18 @@ export const SpeakerDetails = ({ speaker }: { speaker: Speaker }) => {
               <h2 className='mb-4 text-xl font-semibold'>About</h2>
               <p className='text-lg text-slate-400'>{speaker.bio}</p>
             </div>
-            <div id='tenet-button-animation' className='mt-5'>
+            <div ref={linkRef} id='tenet-button-animation' className='mt-5'>
               <h4>
-                <Link ref={linkRef} href={speaker.url} target='_blank'>
+                <Link href={speaker.url} target='_blank'>
                   View LinkedIn
                 </Link>
               </h4>
             </div>
 
             {speakersession && (
-              <div className='mt-5 flex w-full flex-col gap-5'>
+              <div ref={sessionRef} className='mt-5 flex w-full flex-col gap-5'>
                 <Separator className='my-2 bg-gray-950' />
-                <h1 ref={nameRef} className='text-lg font-bold md:text-xl'>
+                <h1 className='text-lg font-bold md:text-xl'>
                   Attend their session
                 </h1>
                 <Link
