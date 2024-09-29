@@ -66,9 +66,11 @@ export const EventLinksStructure: React.FC<{ day: number }> = ({ day }) => {
           )}
 
           <div className='grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-12'>
-            {domainEvents.map((event) => (
-              <EventCard key={event.id} event={event} />
-            ))}
+            {domainEvents
+              .sort((a, b) => a.start.getTime() - b.start.getTime())
+              .map((event) => (
+                <EventCard key={event.id} event={event} />
+              ))}
           </div>
         </div>
       ))}

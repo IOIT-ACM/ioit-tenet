@@ -16,7 +16,9 @@ import {
 import { handleShare } from '@/utils/share';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Separator } from '@/components/ui/separator';
 import { speakers } from '@/config/speakers';
+import EventNavigation from './eventnavigation';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -26,6 +28,8 @@ export const Details = ({ event }: { event: ScheduleItemType }) => {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const detailsRef = useRef<HTMLDivElement>(null);
   const descriptionRef = useRef<HTMLParagraphElement>(null);
+  const scheduleRef = useRef<HTMLParagraphElement>(null);
+  const mundetailsRef = useRef<HTMLParagraphElement>(null);
   const speakersRef = useRef<HTMLDivElement>(null);
   const organizersRef = useRef<HTMLDivElement>(null);
   const buttonsRef = useRef<HTMLDivElement>(null);
@@ -76,6 +80,24 @@ export const Details = ({ event }: { event: ScheduleItemType }) => {
     if (descriptionRef.current) {
       tl.fromTo(
         descriptionRef.current,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' },
+        '-=0.2',
+      );
+    }
+
+    if (scheduleRef.current) {
+      tl.fromTo(
+        scheduleRef.current,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' },
+        '-=0.2',
+      );
+    }
+
+    if (mundetailsRef.current) {
+      tl.fromTo(
+        mundetailsRef.current,
         { opacity: 0, y: 20 },
         { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' },
         '-=0.2',
@@ -151,10 +173,12 @@ ${
               className='bg-gray-700 transition-transform duration-500 group-hover:rotate-1 group-hover:scale-110'
             />
           </div>
+
           <div className='space-y-6 pt-3 md:w-1/2 md:p-8 md:pt-0'>
             <h1 ref={titleRef} className='text-3xl font-bold md:text-4xl'>
               {event.title}
             </h1>
+            <Separator className='my-2' />
             <div ref={detailsRef} className='flex flex-col space-y-4'>
               <p className='flex items-center'>
                 <HiCalendar className='mr-2 h-5 w-5' />
@@ -172,8 +196,39 @@ ${
             <p ref={descriptionRef} className='pb-3 text-lg text-slate-300'>
               {event.description}
             </p>
+            {event.schedule && (
+              <div ref={scheduleRef}>
+                <h1 className='mb-4 text-2xl font-semibold text-slate-300'>
+                  Schedule
+                </h1>
+                <table className='min-w-full divide-y divide-slate-600'>
+                  <thead>
+                    <tr>
+                      <th className='px-6 py-3 text-left text-xs font-medium uppercase text-slate-400'>
+                        Title
+                      </th>
+                      <th className='px-6 py-3 text-left text-xs font-medium uppercase text-slate-400'>
+                        Time
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className='divide-y divide-slate-600'>
+                    {event.schedule.map((item, index) => (
+                      <tr key={index} className='hover:bg-slate-700'>
+                        <td className='px-6 py-4 text-slate-200'>
+                          {item.title}
+                        </td>
+                        <td className='px-6 py-4 text-slate-400'>
+                          {item.time}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
             {event.munpage && (
-              <div ref={organizersRef}>
+              <div ref={mundetailsRef}>
                 <Link
                   href={event.munpage}
                   target='_blank'
@@ -197,7 +252,7 @@ ${
             {event.organizers && event.organizers.length > 0 && (
               <div ref={organizersRef} className='rounded-lg bg-gray-800 p-5'>
                 <h2 className='mb-4 text-xl font-semibold text-white'>
-                  Organizers
+                  Event Head
                 </h2>
                 <ul className='space-y-4'>
                   {event.organizers.map((organizer) => (
@@ -254,6 +309,7 @@ ${
                 </button>
               </h4>
             </div>
+            <EventNavigation eventid={event.id} />
           </div>
         </div>
       </div>
