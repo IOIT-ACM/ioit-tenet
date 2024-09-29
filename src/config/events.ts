@@ -58,7 +58,6 @@ export const day1: ScheduleItemType[] = [
       { name: 'Atharva Pednekar', phone: '9130912373' },
       { name: 'Swaroop Patil', phone: '9172061027' },
     ],
-    speakers: ['himanshi-yaduwanshi'],
   },
   {
     title: 'AI summit panel',
