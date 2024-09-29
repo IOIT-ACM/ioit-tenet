@@ -13,9 +13,48 @@ export const day1: ScheduleItemType[] = [
     start: new Date('2024-09-12T09:00:00'),
     imp: false,
     time: '8:30 AM',
-    description: 'The official opening ceremony for Tenet 2024.',
+    description:
+      'We are thrilled to invite you to the Grand Inauguration Ceremony of TENET 2024, a flagship event powered by the IOIT ACM Student Chapter. Join us as we kick off three days of technological innovation, entrepreneurial brilliance, and creative expression. The inauguration will set the stage for a transformative experience, featuring a distinguished lineup of guests, industry leaders, and speakers who will inspire and ignite a spirit of innovation and collaboration.',
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/inaugration.jpeg',
+    schedule: [
+      {
+        title: 'Welcoming the Guests',
+        time: '8:00 PM - 8:15 PM',
+      },
+      {
+        title: 'Saraswati Vandana',
+        time: '8:15 PM - 8:30 PM',
+      },
+      {
+        title: 'Facilitating the Guest',
+        time: '8:30 PM - 8:45 PM',
+      },
+      {
+        title: 'Chief Guest’s Speech',
+        time: '8:45 PM - 9:00 PM',
+      },
+      {
+        title: 'Principal Sir’s Speech',
+        time: '9:00 PM - 9:15 PM',
+      },
+      {
+        title: 'Thalor Ma’am’s Speech',
+        time: '9:15 PM - 9:30 PM',
+      },
+      {
+        title: 'Director’s Speech',
+        time: '9:30 PM - 9:45 PM',
+      },
+      {
+        title: 'CEO’s Speech',
+        time: '9:45 PM - 10:00 PM',
+      },
+      {
+        title: 'Vote of Thanks',
+        time: '10:00 PM - 10:15 PM',
+      },
+    ],
   },
   {
     title: 'Product Management in Tech',
@@ -138,6 +177,20 @@ export const day1: ScheduleItemType[] = [
       { name: 'Aditya Godse', phone: '7248945402' },
     ],
     registration: 'https://www.ioittenet.com/register/ctf',
+    schedule: [
+      {
+        title: 'Briefing',
+        time: '11:30 AM - 12:30 PM',
+      },
+      {
+        title: 'Competition',
+        time: '1:00 PM - 5:00 PM',
+      },
+      {
+        title: 'Prize Distribution',
+        time: '5:00 PM - 6:00 PM',
+      },
+    ],
   },
   {
     title: 'Drone Workshop',
@@ -247,7 +300,7 @@ export const day2: ScheduleItemType[] = [
     domain: 'esports',
     color: 'bg-green-500',
     date: 'Oct 5th, 2024',
-    location: 'Room 105',
+    location: 'Room 111, 113, 114',
     start: new Date('2024-10-05T09:00:00'),
     imp: true,
     time: '9:00 AM onwards',
@@ -353,7 +406,7 @@ export const day2: ScheduleItemType[] = [
     registration: MUNLINK,
     color: 'bg-blue-500',
     date: 'Oct 5th, 2024',
-    location: 'Room 25',
+    location: 'Room 002',
     start: new Date('2024-10-05T11:00:00'),
     imp: true,
     time: '11:00 AM',
@@ -458,6 +511,167 @@ export const day2: ScheduleItemType[] = [
 ];
 
 export const day3: ScheduleItemType[] = [
+  // MUN (Day 2)
+  {
+    title: 'MUN Breakfast and Reporting',
+    icon: 'FcGlobe',
+    id: 'breakfast-reporting-day2',
+    domain: 'mun',
+    color: 'bg-blue-500',
+    date: 'Oct 6th, 2024',
+    location: 'Admin Office, 3rd Floor',
+    start: new Date('2024-10-06T09:00:00'),
+    imp: false,
+    time: '9:00 AM - 10:00 AM',
+    description: 'Start your day with breakfast and reporting.',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/breakfast.jpeg',
+    organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
+  },
+  {
+    title: 'MUN Lunch',
+    icon: 'FcGlobe',
+    id: 'lunch-day2',
+    domain: 'mun',
+    color: 'bg-green-500',
+    date: 'Oct 6th, 2024',
+    location: '3rd Floor Terrace',
+    start: new Date('2024-10-06T13:00:00'),
+    imp: false,
+    time: '1:00 PM - 2:00 PM',
+    description: 'Lunch break for all IOIT MUN 2024 participants.',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/munlunch.jpeg',
+    organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
+  },
+  {
+    title: 'MUN Valedictory Ceremony',
+    icon: 'FcGlobe',
+    id: 'high-tea-closing-ceremony',
+    domain: 'mun',
+    color: 'bg-orange-500',
+    date: 'Oct 6th, 2024',
+    location: 'MPH',
+    start: new Date('2024-10-06T16:00:00'),
+    imp: false,
+    time: '4:00 PM - 5:00 PM',
+    description: 'High tea and closing ceremony to conclude IOIT MUN 2024.',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/inaugration.jpeg',
+    organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
+  },
+
+  {
+    title: 'UNSC Committee Session',
+    icon: 'FcGlobe',
+    id: 'unsc-session-day2',
+    domain: 'mun',
+    munpage: 'https://www.ioitmun.com/unsc',
+    registration: MUNLINK,
+    color: 'bg-blue-500',
+    date: 'Oct 6th, 2024',
+    location: 'Room 002',
+    start: new Date('2024-10-06T10:00:00'),
+    imp: true,
+    time: '10:00 AM',
+    description:
+      'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNSC.png',
+    organizers: [
+      { name: 'Gargi Bharshankar' },
+      { name: 'Vedant Rajput', phone: '9960273408' },
+    ],
+  },
+  {
+    title: 'UNHRC Committee Session',
+    icon: 'FcGlobe',
+    id: 'unhrc-session-day2',
+    domain: 'mun',
+    munpage: 'https://www.ioitmun.com/unhrc',
+    registration: MUNLINK,
+    color: 'bg-red-500',
+    date: 'Oct 6th, 2024',
+    location: 'Room 305',
+    start: new Date('2024-10-06T10:00:00'),
+    imp: true,
+    time: '10:00 AM',
+    description:
+      'The UNHRC promotes and protects human rights globally through dialogue and cooperation. Agenda: Discussing the role of state and non-state actors in the Venezuelan crisis, with emphasis on the humanitarian emergency following the presidential elections.',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNHRC.png',
+    organizers: [
+      { name: 'Gargi Bharshankar' },
+      { name: 'Shreya Kulkarni', phone: '8669033795' },
+    ],
+  },
+  {
+    title: 'AIPPM Committee Session',
+    icon: 'FcGlobe',
+    id: 'aippm-session-day2',
+    domain: 'mun',
+    munpage: 'https://www.ioitmun.com/aippm',
+    registration: MUNLINK,
+    color: 'bg-yellow-500',
+    date: 'Oct 6th, 2024',
+    location: 'Room 206',
+    start: new Date('2024-10-06T10:00:00'),
+    imp: true,
+    time: '10:00 AM',
+    description:
+      'AIPPM brings together diverse political factions to discuss national policies and reforms. Agenda: Deliberating on the introduction of the Aparajita Bill and the demand for a Central Protection Act.',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/AIPPM.png',
+    organizers: [
+      { name: 'Gargi Bharshankar' },
+      { name: 'Sakshi Mane', phone: '8552847070' },
+    ],
+  },
+  {
+    title: 'UNCSW Committee Session',
+    icon: 'FcGlobe',
+    id: 'uncsw-session-day2',
+    domain: 'mun',
+    munpage: 'https://www.ioitmun.com/uncsw',
+    registration: MUNLINK,
+    color: 'bg-pink-500',
+    date: 'Oct 6th, 2024',
+    location: 'Room 405',
+    start: new Date('2024-10-06T10:00:00'),
+    imp: true,
+    time: '10:00 AM',
+    description:
+      'UNCSW is dedicated to promoting gender equality and women’s empowerment globally. Agenda: Implications of human rights violations on women, with emphasis on religion-driven nations.',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNCSW.png',
+    organizers: [
+      { name: 'Gargi Bharshankar' },
+      { name: 'Madiha Shaikh', phone: '9850993963' },
+    ],
+  },
+  {
+    title: 'UNODC Committee Session',
+    icon: 'FcGlobe',
+    id: 'unodc-session-day2',
+    domain: 'mun',
+    munpage: 'https://www.ioitmun.com/unodc',
+    registration: MUNLINK,
+    color: 'bg-gray-500',
+    date: 'Oct 6th, 2024',
+    location: 'Room 409',
+    start: new Date('2024-10-06T10:00:00'),
+    imp: true,
+    time: '10:00 AM',
+    description:
+      'UNODC combats global drug trafficking and organized crime while promoting justice and integrity. Agenda: Addressing the challenges of money and drug laundering in Special Economic Zones, with special emphasis on the Golden Triangle SEZ.',
+    image:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNODC.png',
+    organizers: [
+      { name: 'Gargi Bharshankar' },
+      { name: 'Vaishnav Shinde', phone: '9356608108' },
+    ],
+  },
+
   // Esummit
   {
     title: "Investing Arena TENET'24",
@@ -605,187 +819,5 @@ export const day3: ScheduleItemType[] = [
     speakers: ['sumit-jha', 'chetanbulsari'],
     description:
       'Advisory and Legal" is a crucial session tailored to help startups and businesses understand the importance of legal frameworks and advisory support. Featuring industry experts like Sumit Jha and Chetan Bulsari, the session will guide entrepreneurs on navigating complex legal landscapes, managing compliance, and seeking the right counsel to mitigate risks and drive sustainable growth. Join us at AISSMS COE on Oct 6th, 2024, from 1:15 PM to 2:15 PM to gain invaluable insights that could help you make informed decisions and protect your business interests.',
-  },
-  {
-    title: 'Incubation and Grants',
-    id: 'incubation-and-grants',
-    color: 'bg-indigo-500',
-    date: 'Oct 6th, 2024',
-    location: 'Auditorium, COE',
-    start: new Date('2024-10-06T14:15:00'),
-    imp: true,
-    domain: 'esummit',
-    time: '2:15 PM - 3:15 PM',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/incubation.jpeg',
-    organizers: [
-      { name: 'Laukik Patil', phone: '9975875657' },
-      { name: 'Pranav Vetkar', phone: '9321646038' },
-    ],
-    icon: 'IoRocket',
-    description:
-      'Incubation and Grants" offers an opportunity for budding entrepreneurs to delve into the various avenues of securing incubation support and grant funding. This session will cover the fundamentals of applying for incubator programs and grants, equipping participants with the knowledge to access critical resources that can accelerate their startup’s journey from ideation to execution. Attend this session at AISSMS COE on Oct 6th, 2024, from 2:15 PM to 3:15 PM to learn how to leverage these opportunities to scale your venture and achieve success.',
-  },
-
-  // MUN (Day 2)
-
-  {
-    title: 'MUN Breakfast and Reporting',
-    icon: 'FcGlobe',
-    id: 'breakfast-reporting-day2',
-    domain: 'mun',
-    color: 'bg-blue-500',
-    date: 'Oct 6th, 2024',
-    location: 'Admin Office, 3rd Floor',
-    start: new Date('2024-10-06T09:00:00'),
-    imp: false,
-    time: '9:00 AM - 10:00 AM',
-    description: 'Start your day with breakfast and reporting.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/breakfast.jpeg',
-    organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
-  },
-  {
-    title: 'MUN Lunch',
-    icon: 'FcGlobe',
-    id: 'lunch-day2',
-    domain: 'mun',
-    color: 'bg-green-500',
-    date: 'Oct 6th, 2024',
-    location: '3rd Floor Terrace',
-    start: new Date('2024-10-06T13:00:00'),
-    imp: false,
-    time: '1:00 PM - 2:00 PM',
-    description: 'Lunch break for all IOIT MUN 2024 participants.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/munlunch.jpeg',
-    organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
-  },
-  {
-    title: 'MUN High tea and Closing Ceremony',
-    icon: 'FcGlobe',
-    id: 'high-tea-closing-ceremony',
-    domain: 'mun',
-    color: 'bg-orange-500',
-    date: 'Oct 6th, 2024',
-    location: 'MPH',
-    start: new Date('2024-10-06T16:00:00'),
-    imp: false,
-    time: '4:00 PM - 5:00 PM',
-    description: 'High tea and closing ceremony to conclude IOIT MUN 2024.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/inaugration.jpeg',
-    organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
-  },
-
-  {
-    title: 'UNSC Committee Session',
-    icon: 'FcGlobe',
-    id: 'unsc-session-day2',
-    domain: 'mun',
-    munpage: 'https://www.ioitmun.com/unsc',
-    registration: MUNLINK,
-    color: 'bg-blue-500',
-    date: 'Oct 6th, 2024',
-    location: 'Room 002',
-    start: new Date('2024-10-06T10:00:00'),
-    imp: true,
-    time: '10:00 AM',
-    description:
-      'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNSC.png',
-    organizers: [
-      { name: 'Gargi Bharshankar' },
-      { name: 'Vedant Rajput', phone: '9960273408' },
-    ],
-  },
-  {
-    title: 'UNHRC Committee Session',
-    icon: 'FcGlobe',
-    id: 'unhrc-session-day2',
-    domain: 'mun',
-    munpage: 'https://www.ioitmun.com/unhrc',
-    registration: MUNLINK,
-    color: 'bg-red-500',
-    date: 'Oct 6th, 2024',
-    location: 'Room 305',
-    start: new Date('2024-10-06T10:00:00'),
-    imp: true,
-    time: '10:00 AM',
-    description:
-      'The UNHRC promotes and protects human rights globally through dialogue and cooperation. Agenda: Discussing the role of state and non-state actors in the Venezuelan crisis, with emphasis on the humanitarian emergency following the presidential elections.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNHRC.png',
-    organizers: [
-      { name: 'Gargi Bharshankar' },
-      { name: 'Shreya Kulkarni', phone: '8669033795' },
-    ],
-  },
-  {
-    title: 'AIPPM Committee Session',
-    icon: 'FcGlobe',
-    id: 'aippm-session-day2',
-    domain: 'mun',
-    munpage: 'https://www.ioitmun.com/aippm',
-    registration: MUNLINK,
-    color: 'bg-yellow-500',
-    date: 'Oct 6th, 2024',
-    location: 'Room 206',
-    start: new Date('2024-10-06T10:00:00'),
-    imp: true,
-    time: '10:00 AM',
-    description:
-      'AIPPM brings together diverse political factions to discuss national policies and reforms. Agenda: Deliberating on the introduction of the Aparajita Bill and the demand for a Central Protection Act.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/AIPPM.png',
-    organizers: [
-      { name: 'Gargi Bharshankar' },
-      { name: 'Sakshi Mane', phone: '8552847070' },
-    ],
-  },
-  {
-    title: 'UNCSW Committee Session',
-    icon: 'FcGlobe',
-    id: 'uncsw-session-day2',
-    domain: 'mun',
-    munpage: 'https://www.ioitmun.com/uncsw',
-    registration: MUNLINK,
-    color: 'bg-pink-500',
-    date: 'Oct 6th, 2024',
-    location: 'Room 405',
-    start: new Date('2024-10-06T10:00:00'),
-    imp: true,
-    time: '10:00 AM',
-    description:
-      'UNCSW is dedicated to promoting gender equality and women’s empowerment globally. Agenda: Implications of human rights violations on women, with emphasis on religion-driven nations.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNCSW.png',
-    organizers: [
-      { name: 'Gargi Bharshankar' },
-      { name: 'Madiha Shaikh', phone: '9850993963' },
-    ],
-  },
-  {
-    title: 'UNODC Committee Session',
-    icon: 'FcGlobe',
-    id: 'unodc-session-day2',
-    domain: 'mun',
-    munpage: 'https://www.ioitmun.com/unodc',
-    registration: MUNLINK,
-    color: 'bg-gray-500',
-    date: 'Oct 6th, 2024',
-    location: 'Room 409',
-    start: new Date('2024-10-06T10:00:00'),
-    imp: true,
-    time: '10:00 AM',
-    description:
-      'UNODC combats global drug trafficking and organized crime while promoting justice and integrity. Agenda: Addressing the challenges of money and drug laundering in Special Economic Zones, with special emphasis on the Golden Triangle SEZ.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNODC.png',
-    organizers: [
-      { name: 'Gargi Bharshankar' },
-      { name: 'Vaishnav Shinde', phone: '9356608108' },
-    ],
   },
 ];

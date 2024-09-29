@@ -17,7 +17,7 @@ function SpeakerCard({ speaker }: Props) {
           <img
             src={speaker.image}
             alt={`${speaker.name}'s Profile`}
-            className='h-full w-full object-cover transition-transform duration-300 group-hover:scale-105'
+            className='h-full w-full select-none object-cover transition-transform duration-300 group-hover:scale-105'
           />
           <div className='absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent'>
             <div className='absolute bottom-0 left-0 right-0 translate-y-2 p-6 text-white transition-transform duration-300 group-hover:translate-y-0'>
@@ -28,26 +28,6 @@ function SpeakerCard({ speaker }: Props) {
             </div>
           </div>
         </div>
-        {/* <div className='p-4'>
-          <div className='flex items-center justify-between'>
-            <div className='text-center'>
-              <div className='line-clamp-1 text-lg font-semibold text-gray-800'>
-                {user.locationPreference}
-              </div>
-              <div className='text-left text-xs text-gray-500 dark:text-gray-400'>
-                Desired Location
-              </div>
-            </div>
-            <div className='text-md flex flex-col items-center justify-center font-semibold text-gray-800'>
-              {user.profession === 'student' ? (
-                <PiStudentBold size={20} />
-              ) : (
-                <MdOutlineWork size={20} />
-              )}
-              {user.profession}
-            </div>
-          </div>
-        </div> */}
       </Card>
     </Link>
   );

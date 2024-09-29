@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 import { FaWindows } from 'react-icons/fa';
-import { ImCommand } from 'react-icons/im';
+import { MdKeyboardControlKey } from 'react-icons/md';
 import { CiSearch } from 'react-icons/ci';
 
 import { useState, useEffect } from 'react';
@@ -50,11 +50,9 @@ export function TenetCommandDialog() {
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
-      if (e.metaKey || e.ctrlKey) {
-        if (e.key === 'j' || e.key === 'k') {
-          e.preventDefault();
-          setOpen((open) => !open);
-        }
+      if (e.ctrlKey && e.key === 'j') {
+        e.preventDefault();
+        setOpen((open) => !open);
       }
     };
 
@@ -147,7 +145,7 @@ export function TenetCommandDialog() {
       setWinKey(
         <>
           <span>Press </span>
-          <ImCommand className='mx-2' />
+          <MdKeyboardControlKey className='mx-2' />
           <span>+ J </span>
         </>,
       );

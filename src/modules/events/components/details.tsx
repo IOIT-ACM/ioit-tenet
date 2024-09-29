@@ -26,6 +26,8 @@ export const Details = ({ event }: { event: ScheduleItemType }) => {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const detailsRef = useRef<HTMLDivElement>(null);
   const descriptionRef = useRef<HTMLParagraphElement>(null);
+  const scheduleRef = useRef<HTMLParagraphElement>(null);
+  const mundetailsRef = useRef<HTMLParagraphElement>(null);
   const speakersRef = useRef<HTMLDivElement>(null);
   const organizersRef = useRef<HTMLDivElement>(null);
   const buttonsRef = useRef<HTMLDivElement>(null);
@@ -76,6 +78,24 @@ export const Details = ({ event }: { event: ScheduleItemType }) => {
     if (descriptionRef.current) {
       tl.fromTo(
         descriptionRef.current,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' },
+        '-=0.2',
+      );
+    }
+
+    if (scheduleRef.current) {
+      tl.fromTo(
+        scheduleRef.current,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' },
+        '-=0.2',
+      );
+    }
+
+    if (mundetailsRef.current) {
+      tl.fromTo(
+        mundetailsRef.current,
         { opacity: 0, y: 20 },
         { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' },
         '-=0.2',
@@ -172,8 +192,41 @@ ${
             <p ref={descriptionRef} className='pb-3 text-lg text-slate-300'>
               {event.description}
             </p>
+
+            {event.schedule && (
+              <div ref={scheduleRef}>
+                <h1 className='mb-4 text-2xl font-semibold text-slate-300'>
+                  Schedule
+                </h1>
+                <table className='min-w-full divide-y divide-slate-600'>
+                  <thead>
+                    <tr>
+                      <th className='px-6 py-3 text-left text-xs font-medium uppercase text-slate-400'>
+                        Title
+                      </th>
+                      <th className='px-6 py-3 text-left text-xs font-medium uppercase text-slate-400'>
+                        Time
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className='divide-y divide-slate-600'>
+                    {event.schedule.map((item, index) => (
+                      <tr key={index} className='hover:bg-slate-700'>
+                        <td className='px-6 py-4 text-slate-200'>
+                          {item.title}
+                        </td>
+                        <td className='px-6 py-4 text-slate-400'>
+                          {item.time}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+
             {event.munpage && (
-              <div ref={organizersRef}>
+              <div ref={mundetailsRef}>
                 <Link
                   href={event.munpage}
                   target='_blank'
@@ -184,6 +237,7 @@ ${
                 </Link>
               </div>
             )}
+
             {event.speakers && event.speakers.length > 0 && (
               <div ref={speakersRef}>
                 <h2 className='mb-4 text-xl font-semibold'>Speakers</h2>
@@ -194,6 +248,7 @@ ${
                 </div>
               </div>
             )}
+
             {event.organizers && event.organizers.length > 0 && (
               <div ref={organizersRef} className='rounded-lg bg-gray-800 p-5'>
                 <h2 className='mb-4 text-xl font-semibold text-white'>
@@ -225,6 +280,7 @@ ${
                 </ul>
               </div>
             )}
+
             <div
               id='tenet-button-animation'
               ref={buttonsRef}

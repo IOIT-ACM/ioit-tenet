@@ -55,6 +55,10 @@ export type ScheduleItemType = {
   registration?: string;
   icon?: string;
   munpage?: string;
+  schedule?: {
+    title: string;
+    time: string;
+  }[];
 };
 
 export interface Sponsor {
