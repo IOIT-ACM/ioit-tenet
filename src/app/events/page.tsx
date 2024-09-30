@@ -8,7 +8,8 @@ import { Footer } from '@/modules/events';
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
   title: 'Events at TENET',
-  description: 'Explore the events happening at IOIT TENET 2024',
+  description:
+    'Join us for engaging workshops, competitions, and networking opportunities that celebrate innovation, creativity, and collaboration! IOIT TENET 2024 features an exciting lineup of events, including TechFiesta for tech enthusiasts, an E-Summit for aspiring entrepreneurs, and a Model United Nations for future diplomats. ',
   openGraph: {
     images: [
       {

@@ -45,7 +45,7 @@ export const TENET: React.FC = () => {
           opacity: 1,
           stagger: 0.03,
           duration: 1.2,
-          delay: LOADTIME + 2,
+          delay: LOADTIME + 1,
           ease: 'power4.out',
           scrollTrigger: {
             trigger: '.date',
