@@ -81,13 +81,12 @@ export const Intro: React.FC = () => {
         </>
       )}
       <div className='reveal-type text-md md:text-[35px]'>
-        TENET 2024 is organized by the IOIT ACM Student Chapter of AISSMS
-        Institute of Information Technology. Our team is focused on bringing
-        together innovation, creativity, and excellence to create an
-        unforgettable experience for all participants. TENET is a space where
-        people can learn, network, and celebrate, and it&apos;s driven by a
-        passion for technology, entrepreneurship, and culture. We can&apos;t
-        wait for you to join us on this amazing journey!
+        TENET 2024 is a multi-faceted event hosted by the IOIT ACM Student
+        Chapter, featuring thrilling experiences in technology,
+        entrepreneurship, global diplomacy, and e-sports. From tech conferences
+        and workshops to MUN simulations and LAN tournaments, it offers
+        something for everyone. Join us to connect, learn, and showcase your
+        skills at AISSMS IOIT, Pune—where passion meets innovation
       </div>
     </div>
   );
