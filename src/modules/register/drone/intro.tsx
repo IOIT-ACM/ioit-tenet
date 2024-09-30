@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { DRONE_FEE_INDIVIDUAL } from '@/config';
 
 const DroneWorkshopInfo = () => {
   return (
@@ -18,7 +19,7 @@ const DroneWorkshopInfo = () => {
       </p>
 
       <p>
-        Register at the price of just <strong>₹400/-</strong>
+        Register at the price of just <strong>₹{DRONE_FEE_INDIVIDUAL}/-</strong>
       </p>
 
       <p>
