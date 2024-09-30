@@ -27,13 +27,13 @@ export default function RegisterForm() {
           <div className='mb-8 flex flex-col items-start rounded-lg bg-slate-100 p-4'>
             <p className='mb-2 text-gray-700'>
               <span className='font-medium'>Single User: </span>
-              550 ₹
+              400 ₹
             </p>
             <p className='text-gray-700'>
               <span className='font-medium'>Group of 5: </span>
-              500 ₹ per person <br /> (Total:{' '}
+              350 ₹ per person <br /> (Total:{' '}
               <span className='font-semibold text-green-600'>
-                <span className='line-through'>2,750</span> 2500 ₹
+                <span className='line-through'>1,750</span> 2500 ₹
               </span>
               )
             </p>

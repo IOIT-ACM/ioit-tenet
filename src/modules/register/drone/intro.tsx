@@ -18,7 +18,7 @@ const DroneWorkshopInfo = () => {
       </p>
 
       <p>
-        Register at the price of just <strong>₹550/-</strong>
+        Register at the price of just <strong>₹400/-</strong>
       </p>
 
       <p>
