@@ -134,7 +134,7 @@ export const day1: ScheduleItemType[] = [
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/web3.jpg',
     organizers: [
-      { name: 'Aditya Godse', phone: '7248945402' },
+      { name: 'Aditya Godse', email: 'adimail2404@gmail.com' },
       { name: 'Laukik Patil', phone: '9975875657' },
     ],
     speakers: ['almassayyed', 'apooravvyas', 'vishnukorde'],
@@ -174,7 +174,7 @@ export const day1: ScheduleItemType[] = [
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/ctf.jpg',
     organizers: [
       { name: 'Shreya Kulkarni', phone: '8669033795' },
-      { name: 'Aditya Godse', phone: '7248945402' },
+      { name: 'Aditya Godse', email: 'adimail2404@gmail.com' },
     ],
     registration: 'https://www.ioittenet.com/register/ctf',
     schedule: [

@@ -6,6 +6,7 @@ import type { ScheduleItemType, Speaker } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaPhoneAlt } from 'react-icons/fa';
+import { MdOutlineEmail } from 'react-icons/md';
 import {
   HiCalendar,
   HiClock,
@@ -273,6 +274,15 @@ ${
                         >
                           <FaPhoneAlt className='mr-2 h-4 w-4' />
                           {organizer.phone}
+                        </a>
+                      )}
+                      {organizer.email && (
+                        <a
+                          href={`mailto:${organizer.email}`}
+                          className='mt-1 flex items-center text-blue-400 hover:underline'
+                        >
+                          <MdOutlineEmail className='mr-2 h-4 w-4' />
+                          {organizer.email}
                         </a>
                       )}
                     </li>

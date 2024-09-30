@@ -25,6 +25,7 @@ export interface MusicConfig {
 export type Organizer = {
   name: string;
   phone?: string;
+  email?: string;
 };
 
 export type Speaker = {
