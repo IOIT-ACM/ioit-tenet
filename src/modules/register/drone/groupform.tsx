@@ -1248,7 +1248,7 @@ export default function RegisterForm() {
               </h1>
               <p className='my-0 text-center text-base text-white'>
                 Please Pay the Fee Rs.{' '}
-                <span className='line-through'>2,750</span> 2,500₹ and Upload
+                <span className='line-through'>2,000</span> 1,750₹ and Upload
                 the Screenshot
               </p>
 
