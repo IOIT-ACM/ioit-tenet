@@ -2,6 +2,7 @@
 
 'use client';
 
+import React from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Sparkles, Stars, Float } from '@react-three/drei';
 import { Suspense } from 'react';

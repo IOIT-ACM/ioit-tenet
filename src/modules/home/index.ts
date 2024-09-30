@@ -15,3 +15,4 @@ export { Tickets } from './components/tickets';
 export { Sponsors } from './components/sponcers';
 export { ZoomParallax } from './components/ZoomParallax';
 export { MUNtitle } from './components/muntitle';
+export { ScrollableEvents } from './components/sphere-events';

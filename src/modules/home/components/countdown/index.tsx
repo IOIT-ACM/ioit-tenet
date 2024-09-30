@@ -6,7 +6,7 @@ import { ShiftingCountdown } from './countdown';
 
 export const EventCountdown = () => {
   return (
-    <div className='pt-[100px] md:pt-[200px]'>
+    <div className='pb-[80px] pt-[80px] md:pt-[150px]'>
       <Scrollytelling.Root start='top bottom' end='bottom top' scrub={1.1}>
         <div className={s.container}>
           <ShiftingCountdown />
