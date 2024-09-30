@@ -7,7 +7,7 @@ import DroneWorkshopInfo from '@/modules/register/drone/intro';
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
-  title: 'Drone workshop',
+  title: 'Register - Drone workshop',
   description: 'Register for CTF at IOIT TENET 2024',
   openGraph: {
     images: [
