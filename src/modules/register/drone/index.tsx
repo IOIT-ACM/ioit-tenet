@@ -33,7 +33,7 @@ export default function RegisterForm() {
               <span className='font-medium'>Group of 5: </span>
               350 ₹ per person <br /> (Total:{' '}
               <span className='font-semibold text-green-600'>
-                <span className='line-through'>1,750</span> 2500 ₹
+                <span className='line-through'>2,000</span> 1,750₹
               </span>
               )
             </p>
