@@ -32,7 +32,7 @@ export default function RegisterForm() {
             </p>
             <p className='text-gray-700'>
               <span className='font-medium'>Group of 5: </span>
-              {DRONE_FEE_GROUP} ₹ per person <br /> (Total:{' '}
+              {DRONE_FEE_GROUP / 5} ₹ per person <br /> (Total:{' '}
               <span className='font-semibold text-green-600'>
                 <span className='line-through'>{DRONE_FEE_INDIVIDUAL * 5}</span>{' '}
                 {DRONE_FEE_GROUP} ₹
