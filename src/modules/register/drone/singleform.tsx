@@ -31,6 +31,7 @@ import {
   singleRegisterSchema as registerSchema,
   singleInitialFormData as initialFormData,
 } from '@/validators/drone';
+import { DRONE_FEE_INDIVIDUAL } from '@/config';
 
 type FormInput = z.infer<typeof registerSchema>;
 type AcceptedFileType = 'image/jpeg' | 'image/png';
@@ -287,7 +288,8 @@ export default function SingleDroneRegisterForm() {
                 )}
               </h1>
               <p className='my-0 text-center text-base text-white'>
-                Please Pay the Fee Rs. 400 and Upload the Screenshot
+                Please Pay the Fee Rs. {DRONE_FEE_INDIVIDUAL} and Upload the
+                Screenshot
               </p>
 
               <div className='flex flex-col gap-6 md:flex-row'>
