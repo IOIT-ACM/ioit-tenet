@@ -41,6 +41,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Checkbox } from '@/components/ui/checkbox';
 import { type DRONETeam } from '@/types/forms';
 import { Plus, User } from 'lucide-react';
+import { DRONE_FEE_GROUP, DRONE_FEE_INDIVIDUAL } from '@/config';
 
 import {
   groupRegisterSchema as registerSchema,
@@ -1248,8 +1249,8 @@ export default function RegisterForm() {
               </h1>
               <p className='my-0 text-center text-base text-white'>
                 Please Pay the Fee Rs.{' '}
-                <span className='line-through'>2,000</span> 1,750₹ and Upload
-                the Screenshot
+                <span className='line-through'>{DRONE_FEE_INDIVIDUAL * 5}</span>{' '}
+                {DRONE_FEE_GROUP}₹ and Upload the Screenshot
               </p>
 
               <div className='flex flex-col gap-6 md:flex-row'>

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { FaUser, FaUsers } from 'react-icons/fa';
 import SingleDroneRegisterForm from './singleform';
 import GroupDroneRegisterForm from './groupform';
+import { DRONE_FEE_GROUP, DRONE_FEE_INDIVIDUAL } from '@/config';
 
 export default function RegisterForm() {
   const [isGroup, setIsGroup] = useState<boolean | null>(null);
@@ -27,18 +28,20 @@ export default function RegisterForm() {
           <div className='mb-8 flex flex-col items-start rounded-lg bg-slate-100 p-4'>
             <p className='mb-2 text-gray-700'>
               <span className='font-medium'>Single User: </span>
-              400 ₹
+              {DRONE_FEE_INDIVIDUAL} ₹
             </p>
             <p className='text-gray-700'>
               <span className='font-medium'>Group of 5: </span>
-              350 ₹ per person <br /> (Total:{' '}
+              {DRONE_FEE_GROUP} ₹ per person <br /> (Total:{' '}
               <span className='font-semibold text-green-600'>
-                <span className='line-through'>2,000</span> 1,750₹
+                <span className='line-through'>{DRONE_FEE_INDIVIDUAL * 5}</span>{' '}
+                {DRONE_FEE_GROUP} ₹
               </span>
               )
             </p>
             <p className='mt-2 text-sm text-gray-500'>
-              Save 50 ₹ per person by registering as a group!
+              Save {DRONE_FEE_INDIVIDUAL - DRONE_FEE_GROUP / 5} ₹ per person by
+              registering as a group!
             </p>
           </div>
 
