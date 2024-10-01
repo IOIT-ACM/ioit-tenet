@@ -6,6 +6,7 @@ import type { ScheduleItemType } from '@/types';
 import { Separator } from '@/components/ui/separator';
 import { getEventStatus } from '@/utils';
 import { useIsMobile } from '@/hooks/useismobile';
+import React from 'react';
 
 export const FollowCursor = ({
   data,
