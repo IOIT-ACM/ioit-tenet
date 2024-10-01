@@ -23,7 +23,7 @@ export function Carousal() {
   }, []);
 
   return (
-    <div className='absolute bottom-0 left-0 right-0 z-10 flex select-none items-center bg-opacity-50 pb-[5vh] md:px-20 md:pb-[15vh]'>
+    <div className='absolute bottom-0 left-0 right-0 z-10 flex select-none items-center bg-opacity-50 pb-[5vh] md:px-20 md:pb-[17vh]'>
       <div className='no-scroll-bar flex h-fit gap-16 overflow-x-auto overflow-y-visible px-2 py-[80px] md:px-10'>
         {allEvents.map((event, index) => (
           <motion.div

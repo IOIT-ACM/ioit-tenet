@@ -22,7 +22,7 @@ export function ScrollableEvents() {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className='absolute left-0 right-0 top-4 z-50 mx-auto mt-10 max-w-2xl px-10 text-center text-white md:top-[10vh]'>
+      <div className='absolute left-0 right-0 top-4 z-50 mx-auto mt-10 max-w-2xl px-10 text-center text-white md:top-[11vh]'>
         <h1 className='text-4xl font-bold md:text-6xl'>Events at IOIT TENET</h1>
         <p className='mt-4 text-sm md:text-lg'>
           Join us to discover technological innovations and connect with
