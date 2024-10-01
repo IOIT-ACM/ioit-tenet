@@ -60,7 +60,7 @@ export const ZoomParallax = () => {
 
   return (
     <div>
-      <h1 className='mt-20 text-center text-4xl font-bold text-white md:mb-10 md:text-8xl'>
+      <h1 className='text-center text-4xl font-bold text-white md:mb-10 md:mt-20 md:text-8xl'>
         Highlights
       </h1>
       <Description />
