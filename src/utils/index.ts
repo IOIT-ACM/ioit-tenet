@@ -8,7 +8,7 @@ export function getEventStatus(targetDate?: Date): string {
   }
 
   if (timeDifference <= 0) {
-    return 'Event started';
+    return '';
   }
 
   const daysLeft = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
