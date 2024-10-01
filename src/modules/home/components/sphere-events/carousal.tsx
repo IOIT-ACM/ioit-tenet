@@ -20,7 +20,7 @@ export function Carousal() {
   }, []);
 
   return (
-    <div className='absolute bottom-0 left-0 right-0 z-10 flex -translate-y-[5vh] select-none items-center bg-opacity-50 md:-translate-y-[15vh] md:px-20'>
+    <div className='absolute bottom-0 left-0 right-0 z-10 flex select-none items-center bg-opacity-50 py-[5vh] md:px-20 md:py-[15vh]'>
       <div className='no-scroll-bar flex h-fit gap-16 overflow-x-auto overflow-y-visible px-5 py-[80px]'>
         {allEvents.map((event, index) => (
           <Link
