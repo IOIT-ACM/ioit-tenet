@@ -37,7 +37,7 @@ export function CursorArrow({ visible }: { visible: boolean }) {
         transition: 'opacity 2s ease-in-out',
       }}
     >
-      <BsArrows size={30} />
+      <BsArrows size={30} className='z-[999]' />
     </div>
   );
 }

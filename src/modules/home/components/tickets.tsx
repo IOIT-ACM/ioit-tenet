@@ -18,7 +18,7 @@ const images = [
   {
     url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/techfiesta.jpeg',
     alt: 'Tech Fiesta',
-    style: 'left-[5%] top-[5%] h-[30vh] md:h-[20vh] w-[30vw] md:w-[10vw]',
+    style: 'left-[5%] top-[0%] h-[30vh] md:h-[20vh] w-[30vw] md:w-[10vw]',
   },
   {
     url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/esummit.jpeg',
@@ -51,7 +51,7 @@ export function Tickets() {
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
       const { clientX, clientY } = event;
-      const movementFactors = [45, 50, 45, 50, 40];
+      const movementFactors = [45, 50, 65, 40, 100];
 
       refs.current.forEach((ref, index) => {
         if (ref) {
