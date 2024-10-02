@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { type Sponsor } from '@/types';
 import { sponsor } from '@/config/sponsors';
+import React from 'react';
 
 type SponsorsByType = Record<string, Sponsor[]>;
 

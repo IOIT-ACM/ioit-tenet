@@ -2,4 +2,3 @@ export { HeroImage } from '@/components/common/heroimage';
 export { Timeline } from '@/components/common/timeline';
 export { Sponsors } from '@/components/common/sponsors';
 export { Speakers } from '@/components/common/view';
-export { Cyllinder } from './cyllinder';

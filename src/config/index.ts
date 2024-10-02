@@ -10,3 +10,5 @@ export const LOADTIME = 2;
 
 export const DRONE_FEE_INDIVIDUAL = 550;
 export const DRONE_FEE_GROUP = 2500;
+
+export const GameDuration = 200;

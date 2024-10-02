@@ -1,11 +1,7 @@
-export { Events } from './components/events';
 export { SearchEvents } from './components/search-events';
-export { Gallery } from './components/gallery';
 export { TenetSpeakers } from './components/speakers';
 export { MUN } from './components/mun';
-export { Agenda } from './components/agendabutton';
 export { Intro } from './components/intro';
-export { HorizontalMarquee } from './components/three/horizontal-marquee';
 export { ThatsAllFolks } from './components/last-parallax';
 export { FallingCaps } from './components/falling-caps';
 export { TenetHero } from './components/tenetintro';

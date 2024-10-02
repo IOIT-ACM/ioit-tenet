@@ -1,6 +1,6 @@
 'use client';
 
-import { HTMLEditor, HTMLPreview } from './editor/web';
+import { HTMLEditor, HTMLPreview } from './web';
 
 export const WebMasterScreen = () => {
   return (

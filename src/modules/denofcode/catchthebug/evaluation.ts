@@ -1,8 +1,4 @@
-// Define types for test cases
-interface TestCase {
-  inputs: string[];
-  outputs: string[];
-}
+import type { TestCase } from '../types';
 
 // Define a type for the WASM module interface
 export interface WasmModule {

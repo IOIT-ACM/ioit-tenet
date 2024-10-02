@@ -4,12 +4,7 @@
 import { create } from 'zustand';
 import type { StoreApi, UseBoundStore } from 'zustand';
 import { persist } from 'zustand/middleware';
-
-import {
-  initialCss,
-  initialHtml,
-} from './modules/denofcode/components/editor/init';
-import type { Bug } from './modules/denofcode/components/editor/bugconfig';
+import { initialCss, initialHtml, type PlayerState } from './modules/denofcode';
 
 export interface State {
   videoPlayed: boolean;
@@ -22,17 +17,6 @@ export interface State {
   showMenu: boolean;
   loading: boolean;
   sceneLoading: boolean;
-}
-
-export type Game = 'webmasterwars' | 'catchthebug' | null;
-export type Language = 'cpp' | 'python';
-
-export interface PlayerState {
-  name: string;
-  selectedGame: Game;
-  language?: string;
-  code?: string;
-  bug?: Bug;
 }
 
 interface Action {
@@ -62,6 +46,7 @@ export const useStateStore = create<State & Action>()(
       sceneLoading: true,
       playerState: {
         name: '',
+        id: '',
         selectedGame: null,
       },
 

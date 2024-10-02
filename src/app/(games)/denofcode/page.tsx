@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
   title: 'Den of code',
   description:
-    'den of code is an game for participants to complete a programming challange in the given time',
+    'Solve bugs or create web components to win exciting goodies at tenet 2024',
   openGraph: {
     title: 'Den of code',
     description: 'A fun programming game',

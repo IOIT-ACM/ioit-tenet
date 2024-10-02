@@ -50,19 +50,6 @@ export const FallingCaps = () => {
     <Scrollytelling.Root end='bottom bottom'>
       <section className={s.spacer}>
         <div className={s.pin}>
-          {/* <div className={s['canvas-container']}>
-            <Canvas
-              camera={{ position: [0, 0, 10], fov: 35 }}
-              gl={{
-                alpha: true,
-                antialias: true,
-                powerPreference: 'high-performance',
-              }}
-            >
-              <CapsModel />
-            </Canvas>
-          </div> */}
-
           <p className={s.paragraph}>
             <Scrollytelling.Stagger
               overlap={0}

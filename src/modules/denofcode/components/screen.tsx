@@ -3,9 +3,10 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { WebMasterScreen } from './webmaster';
-import { CatchTheBugScreen } from './catchthebug';
-import { useStore, type Game } from '@/store';
+import type { Game } from '../types';
+import { CatchTheBugScreen } from '../catchthebug';
+import { WebMasterScreen } from '../webmasterwars';
+import { useStore } from '@/store';
 
 interface GameInfo {
   title: string;
@@ -17,7 +18,7 @@ const gameInfo: Record<Exclude<Game, null>, GameInfo> = {
   webmasterwars: {
     title: 'WebMaster Wars',
     description:
-      'Battle against other web developers in a race to create the most impressive website. Test your HTML, CSS, and JavaScript skills in real-time challenges!',
+      'Battle against other web developers in a race to create the most impressive website. Test your HTML and CSS skills in real-time challenges!',
     image:
       'https://images.unsplash.com/photo-1576633587382-13ddf37b1fc1?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
@@ -34,6 +35,7 @@ export const GameScreen = () => {
   const playerState = useStore.use.playerState();
   const setPlayerState = useStore.use.setPlayerState();
   const [nameInput, setNameInput] = useState<string>('');
+  const [id, setID] = useState<string>('');
 
   const handleNameSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,6 +43,7 @@ export const GameScreen = () => {
       setPlayerState({
         ...playerState,
         name: nameInput.trim(),
+        id: id.trim(),
       });
     }
   };
@@ -81,6 +84,14 @@ export const GameScreen = () => {
             onChange={(e) => setNameInput(e.target.value)}
             required
             placeholder='Your name'
+          />
+          <input
+            type='text'
+            className='mb-4 w-64 rounded p-2 text-white'
+            value={id}
+            onChange={(e) => setID(e.target.value)}
+            required
+            placeholder='Your BookingID'
           />
           <button
             type='submit'
