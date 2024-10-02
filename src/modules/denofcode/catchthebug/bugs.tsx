@@ -1,35 +1,20 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 
 import MonacoEditor, { type OnChange } from '@monaco-editor/react';
-import { useEffect, useState } from 'react';
-import { useStore, type Language } from '@/store';
+import React, { useEffect, useState } from 'react';
+import { useStore } from '@/store';
 import { bugs } from './bugconfig';
 import { Separator } from '@/components/ui/separator';
 import { usePython } from 'react-py';
-
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from '@/components/ui/alert-dialog';
+import { GameDuration } from '@/config';
+import type { PlayerGameState, TestResult } from '../types';
 
 export const BUGSEditor = () => {
   const playerState = useStore.use.playerState();
   const setPlayerState = useStore.use.setPlayerState();
-
-  const handleLanguageSelection = (language: Language) => {
-    setPlayerState({
-      ...playerState,
-      language: language,
-    });
-  };
 
   const onChange: OnChange = (value) => {
     if (playerState.bug) {
@@ -40,14 +25,6 @@ export const BUGSEditor = () => {
           bug: {
             ...playerState.bug,
             pythonCode: updatedValue,
-          },
-        });
-      } else {
-        setPlayerState({
-          ...playerState,
-          bug: {
-            ...playerState.bug,
-            cppCode: updatedValue,
           },
         });
       }
@@ -66,52 +43,12 @@ export const BUGSEditor = () => {
 
   return (
     <div className='flex h-full flex-col'>
-      <div className='flex'>
-        <button
-          className={`mr-2 rounded px-4 py-2 ${playerState.language === 'python' ? 'bg-blue-500 text-white' : 'bg-none'}`}
-          onClick={() => handleLanguageSelection('python')}
-        >
-          Python
-        </button>
-
-        <AlertDialog>
-          <AlertDialogTrigger asChild>
-            <button
-              className={`rounded px-4 py-2 ${playerState.language === 'cpp' ? 'bg-blue-500 text-white' : 'bg-none'}`}
-              onClick={() => handleLanguageSelection('cpp')}
-            >
-              C++
-            </button>
-          </AlertDialogTrigger>
-          <AlertDialogContent>
-            <AlertDialogHeader>
-              <AlertDialogTitle>C++ not supported yet</AlertDialogTitle>
-              <AlertDialogDescription>
-                Current modules only support python code. Please change your
-                language to Python
-              </AlertDialogDescription>
-            </AlertDialogHeader>
-            <AlertDialogFooter>
-              <AlertDialogAction
-                onClick={() => handleLanguageSelection('python')}
-              >
-                Switch to Python
-              </AlertDialogAction>
-            </AlertDialogFooter>
-          </AlertDialogContent>
-        </AlertDialog>
-      </div>
-
-      <div className='mt-5 flex-grow'>
+      <div className='flex-grow'>
         <MonacoEditor
           height='100%'
           width='100%'
           language={playerState.language}
-          value={
-            playerState.language === 'python'
-              ? playerState.bug?.pythonCode
-              : playerState.bug?.cppCode
-          }
+          value={playerState.bug?.pythonCode}
           onChange={onChange}
           theme='vs-dark'
           options={{
@@ -129,7 +66,7 @@ export const BUGSEditor = () => {
 
 export const Description = () => {
   const playerState = useStore.use.playerState();
-  const [timeLeft, setTimeLeft] = useState(150);
+  const [timeLeft, setTimeLeft] = useState(GameDuration);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -154,12 +91,13 @@ export const Description = () => {
           {playerState.name ?? 'Unknown'}
         </p>
         <p className='text-gray-800'>
-          <span className='font-medium'>Selected Game:</span>{' '}
-          {playerState.selectedGame ?? 'None'}
+          <span className='font-medium'>Booking ID:</span> {playerState.id}
         </p>
         <p className='text-gray-800'>
-          <span className='font-medium'>Language:</span>{' '}
-          {playerState.language ?? 'Not selected'}
+          <span className='font-medium'>Selected Game:</span>{' '}
+          {playerState.selectedGame === 'catchthebug'
+            ? 'Catch the bug'
+            : 'Web Master Wars'}
         </p>
         <p className='pt-3 font-bold text-gray-900'>
           <span>Time Left:</span> {formatTime(timeLeft)}
@@ -170,8 +108,8 @@ export const Description = () => {
               Time limit is over, but you can still continue solving the bug!
             </p>
             <p className='text-sm text-orange-700'>
-              In order to win the goodies, you must solve the bug in less than
-              150 seconds minutes
+              In order to win the goodies, you must solve the bug in less than{' '}
+              {GameDuration} seconds
             </p>
           </>
         )}
@@ -189,34 +127,8 @@ export const Description = () => {
   );
 };
 
-interface TestCase {
-  inputs: string[];
-  outputs: string[];
-}
-
-interface Bug {
-  id: string;
-  title: string;
-  description: string;
-  pythonCode: string;
-  cppCode: string;
-  testCases: TestCase[];
-}
-
-interface TestResult {
-  status: string;
-  input: string;
-  output: string;
-  expected: string;
-}
-
-interface PlayerState {
-  bug: Bug | null;
-  language: string;
-}
-
 export const TestCases: React.FC = () => {
-  const playerState = useStore.use.playerState() as PlayerState;
+  const playerState = useStore.use.playerState() as PlayerGameState;
   const { runPython, stdout, stderr, isLoading, isRunning } = usePython();
   const [testResults, setTestResults] = useState<TestResult[]>([]);
 

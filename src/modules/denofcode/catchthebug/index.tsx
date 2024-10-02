@@ -1,6 +1,6 @@
 'use client';
 
-import { BUGSEditor, Description, TestCases } from './editor/bugs';
+import { BUGSEditor, Description, TestCases } from './bugs';
 
 export const CatchTheBugScreen = () => {
   return (
