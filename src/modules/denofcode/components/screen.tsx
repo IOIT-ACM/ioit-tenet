@@ -7,6 +7,7 @@ import type { Game } from '../types';
 import { CatchTheBugScreen } from '../catchthebug';
 import { WebMasterScreen } from '../webmasterwars';
 import { useStore } from '@/store';
+import { DENOFCODE_PASSKEY } from '@/config';
 
 interface GameInfo {
   title: string;
@@ -36,6 +37,9 @@ export const GameScreen = () => {
   const setPlayerState = useStore.use.setPlayerState();
   const [nameInput, setNameInput] = useState<string>('');
   const [id, setID] = useState<string>('');
+
+  const passkey = useStore.use.denofcodepasskey();
+  const setPasskey = useStore.use.setDenofcodepasskey();
 
   const handleNameSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -93,6 +97,14 @@ export const GameScreen = () => {
             required
             placeholder='Your BookingID'
           />
+          <input
+            type='password'
+            className='mb-4 w-64 rounded p-2 text-white'
+            value={passkey}
+            onChange={(e) => setPasskey(e.target.value)}
+            required
+            placeholder='TENET passkey'
+          />
           <button
             type='submit'
             className='rounded bg-blue-500 px-4 py-2 transition-colors hover:bg-blue-600'
@@ -111,9 +123,19 @@ export const GameScreen = () => {
             Hello <span className='text-green-500'>{playerState.name}</span>,
             choose your game:
           </h2>
-          <div className='grid w-2/3 grid-cols-2 gap-4'>
-            {(Object.keys(gameInfo) as Array<keyof typeof gameInfo>).map(
-              (game) => (
+          <div
+            className={`grid ${
+              passkey === 'DENOFCODE_PASSKEY'
+                ? 'w-2/3 grid-cols-2'
+                : 'mx-auto max-w-2xl grid-cols-1'
+            } gap-4`}
+          >
+            {(Object.keys(gameInfo) as Array<keyof typeof gameInfo>)
+              .filter((game) => {
+                const isAuthorized = passkey === DENOFCODE_PASSKEY;
+                return isAuthorized || game === 'catchthebug';
+              })
+              .map((game) => (
                 <motion.div
                   key={game}
                   variants={itemVariants}
@@ -141,8 +163,7 @@ export const GameScreen = () => {
                     </button>
                   </div>
                 </motion.div>
-              ),
-            )}
+              ))}
           </div>
         </motion.div>
       ) : (

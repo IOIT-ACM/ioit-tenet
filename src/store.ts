@@ -5,6 +5,7 @@ import { create } from 'zustand';
 import type { StoreApi, UseBoundStore } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { initialCss, initialHtml, type PlayerState } from './modules/denofcode';
+import { type ImageObject } from './modules/denofcode';
 
 export interface State {
   videoPlayed: boolean;
@@ -14,6 +15,8 @@ export interface State {
   playerState: PlayerState;
   htmlcode: string;
   csscode: string;
+  denofcodepasskey: string;
+  webmasterPS?: ImageObject;
   showMenu: boolean;
   loading: boolean;
   sceneLoading: boolean;
@@ -25,6 +28,8 @@ interface Action {
   setShowMenu: (showMenu: boolean) => void;
   setMusic: (music: boolean) => void;
   setCharacters: (characters: string[]) => void;
+  setDenofcodepasskey: (denofcodepasskey: string) => void;
+  setWebmasterPS: (webmasterPS: ImageObject) => void;
   setPlayerState: (player: PlayerState) => void;
   setHTML: (htmlcode: string) => void;
   setCSS: (csscode: string) => void;
@@ -39,7 +44,9 @@ export const useStateStore = create<State & Action>()(
       csscode: initialCss,
       videoPlayed: true,
       showPreview: true,
+      webmasterPS: undefined,
       music: false,
+      denofcodepasskey: '',
       characters: [],
       showMenu: false,
       loading: true,
@@ -55,6 +62,9 @@ export const useStateStore = create<State & Action>()(
       setShowMenu: (showMenu) => set(() => ({ showMenu })),
       setMusic: (music) => set(() => ({ music })),
       setCharacters: (characters) => set(() => ({ characters })),
+      setDenofcodepasskey: (denofcodepasskey) =>
+        set(() => ({ denofcodepasskey })),
+      setWebmasterPS: (webmasterPS) => set(() => ({ webmasterPS })),
       setPlayerState: (playerState) => set(() => ({ playerState })),
       setHTML: (htmlcode) => set(() => ({ htmlcode })),
       setCSS: (csscode) => set(() => ({ csscode })),
@@ -67,6 +77,7 @@ export const useStateStore = create<State & Action>()(
         // characters: state.characters,
         videoPlayed: state.videoPlayed,
         showPreview: state.showPreview,
+        denofcodepasskey: state.denofcodepasskey,
       }),
     },
   ),
