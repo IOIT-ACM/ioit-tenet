@@ -79,7 +79,7 @@ export const HTMLPreview = () => {
   };
 
   return (
-    <div className='h-full w-full overflow-hidden rounded-xl border border-gray-300'>
+    <div className='h-full w-full overflow-hidden border border-gray-300'>
       <iframe
         ref={previewRef}
         title='Preview'

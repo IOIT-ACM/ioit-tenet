@@ -4,7 +4,7 @@ import { Target } from "./target";
 
 export const SwitchTabs = () => {
   return (
-    <Tabs defaultValue='preview' className="flex flex-grow flex-col gap-5">
+    <Tabs defaultValue='preview' className="flex flex-grow flex-col gap-3">
       <TabsList className="text-dark w-48">
         <TabsTrigger value='preview'>Preview</TabsTrigger>
         <TabsTrigger value='target'>Target Image</TabsTrigger>
@@ -12,7 +12,7 @@ export const SwitchTabs = () => {
       <TabsContent value='preview' className="w-full h-full">
         <HTMLPreview />
       </TabsContent>
-      <TabsContent value='target'>
+      <TabsContent value='target' className="w-full h-full">
         <Target imgSrc="/imgs/esports/fifa.jpg"/>
       </TabsContent>
     </Tabs>

@@ -7,7 +7,7 @@ export const Target = ({ imgSrc }: { imgSrc: string }) => {
         src={imgSrc} 
         alt="target" 
         layout="responsive"
-        objectFit="contain"
+        objectFit="cover"
         width={400} 
         height={400}
       />
