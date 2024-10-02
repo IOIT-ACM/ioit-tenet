@@ -1,6 +1,8 @@
 'use client';
 
-import { HTMLEditor, HTMLPreview } from './web';
+import { HTMLEditor } from './web';
+import { Description } from './description';
+import { SwitchTabs } from './tabs';
 
 export const WebMasterScreen = () => {
   return (
@@ -8,8 +10,10 @@ export const WebMasterScreen = () => {
       <div className='w-1/2'>
         <HTMLEditor />
       </div>
-      <div className='w-1/2'>
-        <HTMLPreview />
+
+      <div className='flex w-1/3 flex-grow flex-col gap-5'>
+        <SwitchTabs/>
+        <Description />
       </div>
     </div>
   );

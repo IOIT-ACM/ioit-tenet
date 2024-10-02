@@ -83,7 +83,7 @@ export const Description = () => {
   };
 
   return (
-    <div className='rounded bg-white p-4 text-black shadow'>
+    <div className='bg-white p-4 text-black shadow'>
       <div>
         <h3 className='text-2xl font-semibold'>Player Info</h3>
         <p className='text-gray-800'>
@@ -149,7 +149,7 @@ export const TestCases: React.FC = () => {
   };
 
   return (
-    <div className='rounded bg-white p-4 text-black shadow'>
+    <div className='bg-white p-4 text-black shadow'>
       <h3 className='mb-2 text-2xl font-bold'>Test Cases</h3>
       <Separator className='my-3' />
       {playerState.bug?.testCases ? (

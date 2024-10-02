@@ -5,6 +5,7 @@ import MonacoEditor, { type OnChange } from '@monaco-editor/react';
 import { useState, useRef, useEffect } from 'react';
 import { useStore } from '@/store';
 
+
 export const HTMLEditor = () => {
   const htmlcode = useStore((state) => state.htmlcode);
   const csscode = useStore((state) => state.csscode);
@@ -79,7 +80,7 @@ export const HTMLPreview = () => {
   };
 
   return (
-    <div className='h-full w-full overflow-hidden rounded-xl border border-gray-300'>
+    <div className='h-full w-full overflow-hidden border border-gray-300'>
       <iframe
         ref={previewRef}
         title='Preview'
