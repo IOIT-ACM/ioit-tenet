@@ -1,7 +1,7 @@
 'use client';
 
 import { HTMLEditor } from './web';
-import { Description } from '../catchthebug/bugs';
+import { Description } from './description';
 import { SwitchTabs } from './tabs';
 
 export const WebMasterScreen = () => {
