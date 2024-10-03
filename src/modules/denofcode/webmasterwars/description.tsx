@@ -1,21 +1,35 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @next/next/no-img-element */
-/* eslint-disable react-hooks/exhaustive-deps */
 import { GameDuration } from '@/config';
 import React, { useEffect, useState, useRef } from 'react';
 import { useStore } from '@/store';
 import Image from 'next/image';
 
 const GameOverModal = () => {
-  const htmlcode = useStore((state) => state.htmlcode);
+    const htmlcode = useStore((state) => state.htmlcode);
   const csscode = useStore((state) => state.csscode);
   const previewRef = useRef<HTMLIFrameElement>(null);
   const webmasterPS = useStore((state) => state.webmasterPS);
   const [scale, setScale] = useState(1);
 
+const setHTML = useStore((state) => state.setHTML);
+const setCSS = useStore((state) => state.setCSS);
+const setPlayerState = useStore((state) => state.setPlayerState);
+
   useEffect(() => {
     updatePreview();
-  }, [htmlcode, csscode]);
+  });
+
+  const handleRefresh = () => {
+    setHTML('');
+    setCSS('');
+    setPlayerState({
+      name: '',
+      id: '',
+      selectedGame: null,
+      language: undefined,
+      code: undefined,
+      bug: undefined
+    });
+  }
 
   const updatePreview = () => {
     if (previewRef.current) {
@@ -37,7 +51,7 @@ const GameOverModal = () => {
 
   return (
 <div className='fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50'>
-  <div className='flex flex-col rounded-lg bg-white shadow-lg w-4/5 h-4/5 border-2 border-gray-800'>
+  <div className='flex flex-col rounded-lg bg-white shadow-lg  w-4/5 h-[90vh] border-2 border-gray-800'>
 
     <div className='flex flex-col w-full justify-center items-center m-2'>
       <h2 className='text-5xl font-bold text-red-600'>Game Over</h2>
@@ -47,7 +61,7 @@ const GameOverModal = () => {
 
     <div className='flex flex-grow p-4 gap-3'>
       
-      <div className='flex flex-col flex-grow p-4 h-full w-full border border-gray-400 bg-[#f0f0f0]'>
+      <div className='flex flex-col flex-grow p-4 w-full border border-gray-400 bg-[#f0f0f0] overflow-hidden'>
         <iframe
           ref={previewRef}
           title='Preview'
@@ -74,11 +88,11 @@ const GameOverModal = () => {
         </div>
       </div>
 
-      <div className='flex flex-col flex-grow p-4 h-full w-full border border-gray-400'>
+      <div className='flex flex-col flex-grow p-4 w-full h-full border border-gray-400'>
         <h3 className='text-xl font-semibold text-center'>Target Image</h3>
         <div className='flex-grow'>
           <Image
-            src={webmasterPS?.imageURL}
+            src={webmasterPS?.imageURL ?? ''}
             alt='Target'
             layout='responsive'
             objectFit='contain'
@@ -91,8 +105,7 @@ const GameOverModal = () => {
     </div>
 
     <div className='flex justify-center items-center py-4'>
-      <button className='mx-2 rounded bg-green-500 px-7 py-1 text-white'>Submit</button>
-      <button className='mx-2 rounded bg-red-500 px-3 py-1 text-white'>New Game</button>
+      <button className='mx-2 rounded bg-green-500 px-3 py-1 text-white text-xl' onClick={()=> handleRefresh()}>New Game</button>
     </div>
   </div>
 </div>
