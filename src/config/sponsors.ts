@@ -10,6 +10,12 @@ export const sponsor: Sponsor[] = [
     type: 'Media Partner',
   },
   {
+    name: 'Budhani Bros',
+    logoUrl:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/sponcers/budhani.jpeg',
+    type: 'Snacking Partner',
+  },
+  {
     name: 'Abhibus',
     logoUrl:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/sponcers/abhibus.png',
