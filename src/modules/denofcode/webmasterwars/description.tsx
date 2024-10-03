@@ -51,7 +51,7 @@ const setPlayerState = useStore((state) => state.setPlayerState);
 
   return (
 <div className='fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50'>
-  <div className='flex flex-col rounded-lg bg-white shadow-lg  w-4/5 h-[80vh] h-min-fit border-2 border-gray-800'>
+  <div className='flex flex-col rounded-lg bg-white shadow-lg  w-4/5 h-[90vh] border-2 border-gray-800'>
 
     <div className='flex flex-col w-full justify-center items-center m-2'>
       <h2 className='text-5xl font-bold text-red-600'>Game Over</h2>
@@ -88,7 +88,7 @@ const setPlayerState = useStore((state) => state.setPlayerState);
         </div>
       </div>
 
-      <div className='flex flex-col flex-grow p-4 w-full h-5/6 border border-gray-400'>
+      <div className='flex flex-col flex-grow p-4 w-full h-full border border-gray-400'>
         <h3 className='text-xl font-semibold text-center'>Target Image</h3>
         <div className='flex-grow'>
           <Image
