@@ -10,6 +10,24 @@ export const sponsor: Sponsor[] = [
     type: 'Media Partner',
   },
   {
+    name: 'PuneDao',
+    logoUrl:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/sponcers/Pune+Dao.png',
+    type: 'Web3 Community Partner',
+  },
+  {
+    name: 'Entie Angels',
+    logoUrl:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/sponcers/Entie.jpg',
+    type: 'Venture Partner',
+  },
+  {
+    name: 'IDFC First Bank',
+    logoUrl:
+      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/sponcers/IDFC+First+Bank.png',
+    type: 'Official Banking Sponsor',
+  },
+  {
     name: 'Budhani Bros',
     logoUrl:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/sponcers/budhani.jpeg',
