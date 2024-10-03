@@ -3,6 +3,7 @@
 import { GameDuration } from '@/config';
 import React, { useEffect, useState, useRef } from 'react';
 import { useStore } from '@/store';
+import Image from 'next/image';
 
 const GameOverModal = () => {
   const htmlcode = useStore((state) => state.htmlcode);
@@ -42,7 +43,7 @@ const GameOverModal = () => {
         <div className='flex w-1/2 flex-col p-4'>
           <h2 className='text-2xl font-bold text-red-600'>Game Over</h2>
           <p className='mt-2 text-gray-800'>Time is up!</p>
-          <div className='h-full w-full overflow-hidden border border-gray-300'>
+          <div className='h-full w-full overflow-hidden border border-gray-300 bg-[#f0f0f0]'>
             <iframe
               ref={previewRef}
               title='Preview'
@@ -52,38 +53,40 @@ const GameOverModal = () => {
                 transform: `scale(${scale})`,
                 transformOrigin: '0 0',
                 width: '100%',
-                height: '100%',
+                height: '90%',
               }}
             />
-          </div>
-          <div className='mt-4 flex justify-center'>
-            <button
-              className='mx-2 rounded bg-blue-500 px-3 py-1 text-white'
-              onClick={handleZoomIn}
-            >
-              Zoom In
-            </button>
-            <button
-              className='mx-2 rounded bg-blue-500 px-3 py-1 text-white'
-              onClick={handleZoomOut}
-            >
-              Zoom Out
-            </button>
+            <div className='bottom-0 mt-4 flex justify-end'>
+              <button
+                className='mx-2 rounded bg-blue-500 px-3 py-1 text-white'
+                onClick={handleZoomIn}
+              >
+                Zoom In
+              </button>
+              <button
+                className='mx-2 rounded bg-blue-500 px-3 py-1 text-white'
+                onClick={handleZoomOut}
+              >
+                Zoom Out
+              </button>
+            </div>
           </div>
         </div>
 
-        <div className='flex w-1/2 flex-col items-center justify-center border-l border-gray-300 p-4'>
+        <div className='flex w-1/2 flex-col items-center justify-center border-l border-gray-300 pb-16 pl-4 pr-4 pt-9'>
           <h3 className='text-xl font-semibold'>Target Image</h3>
           <canvas
-            className='mt-4 border border-gray-300'
+            className='mt-4 h-full w-full border border-gray-300'
             id='targetCanvas'
             width={400}
             height={400}
           />
-          <img
+          <Image
             src={webmasterPS?.imageURL}
             alt='Target'
             className='hidden'
+            layout='fill'
+            objectFit='contain'
             onLoad={(e) => {
               const canvas = document.getElementById(
                 'targetCanvas',
