@@ -1,4 +1,3 @@
-'use client'
 import { GameDuration } from '@/config';
 import React, { useEffect, useState, useRef } from 'react';
 import { useStore } from '@/store';
