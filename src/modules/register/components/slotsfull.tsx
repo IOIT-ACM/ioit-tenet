@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
-export default function RegistrationFull() {
+export function RegistrationFull() {
   return (
     <Card className='mx-auto h-fit w-full max-w-lg shadow-lg'>
       <CardHeader className='bg-primary text-primary-foreground'>
