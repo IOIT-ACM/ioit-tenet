@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @next/next/no-img-element */
 'use client';
 
@@ -22,6 +23,7 @@ const generateImageArray = (): ImageObject[] => {
 
 export const WebMasterScreen = () => {
   const webmasterPS = useStore((state) => state.webmasterPS);
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const setWebmasterPS = useStore((state) => state.setWebmasterPS);
   const [loading, setLoading] = useState(false);
   const images = generateImageArray();
