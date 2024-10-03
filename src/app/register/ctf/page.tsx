@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { type Metadata } from 'next';
 import { env } from '@/env';
-import RegisterForm from '@/modules/register/ctf';
+// import RegisterForm from '@/modules/register/ctf';
 import Intro from '@/modules/register/ctf/intro';
 import { Separator } from '@/components/ui/separator';
+import { RegistrationFull } from '@/modules/register';
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -47,7 +48,7 @@ const Register = () => {
         <Separator className='my-8 h-0.5 bg-gradient-to-r from-indigo-500 to-blue-200' />
         <div className='grid grid-cols-1 justify-evenly md:grid-cols-2'>
           <Intro />
-          <RegisterForm />
+          <RegistrationFull />
         </div>
       </div>
     </section>
