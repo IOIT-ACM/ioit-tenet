@@ -44,7 +44,7 @@ export const speakers: Speaker[] = [
     url: 'https://www.linkedin.com/in/sumitkjha/',
     bio: `Sumit Jha is a forward-thinking leader with over 24 years of expertise in service management, particularly in the niche consulting space. Known for being customer-focused and outcome-oriented, they have successfully incubated service management practices at top firms like Wipro, TechM, and <<Confidential>>, while shaping IT strategies for various clients during major transformations. Their career reflects a strong track record in driving innovation, developing service offerings, and creating value through strategic leadership. With a deep understanding of Service Integration and Management (SIAM), they've consistently delivered impactful solutions that optimize processes, reduce costs, and enhance business outcomes across diverse industries.`,
     domain: 'esummit',
-    sessionid: 'advisory-and-legal',
+    sessionid: 'hr-summit',
   },
   {
     id: 'jaywant-patil',
@@ -132,7 +132,7 @@ export const speakers: Speaker[] = [
     url: 'https://www.linkedin.com/in/chetanbulsari/',
     bio: 'With an impressive career spanning over two decades, this accomplished professional is not only a Chartered Accountant and Company Secretary but also an Author, Certified Life Coach, and NLP Coach. They have extensive experience in various facets of the finance function, having worked across different segments of a Universal Bank in both India and global locations. Their expertise covers strategic planning, transformation projects, financial services operations management, and process improvement initiatives. Currently, they lead the business management function for the India Shared Service Entity, serving as the Chief of Staff and business manager to the Executive Leadership Group, working closely with India Co-CEOs. Known for their ability to handle multiple projects in fast-paced and challenging environments, they are highly skilled in managing cross-functional teams and fostering collaboration across culturally diverse and virtual teams. With strong interpersonal skills and a global perspective, they continue to drive strategic initiatives and transformational change in the finance industry.',
     domain: 'esummit',
-    sessionid: 'advisory-and-legal',
+    sessionid: 'starting-up-in-college',
   },
   {
     id: 'shyamkerkar',
@@ -143,7 +143,7 @@ export const speakers: Speaker[] = [
     url: 'https://www.linkedin.com/in/shyamkerkar/',
     bio: 'With an impressive career spanning over two decades, this accomplished professional is not only a Chartered Accountant and Company Secretary but also an Author, Certified Life Coach, and NLP Coach. They have extensive experience in various facets of the finance function, having worked across different segments of a Universal Bank in both India and global locations. Their expertise covers strategic planning, transformation projects, financial services operations management, and process improvement initiatives. Currently, they lead the business management function for the India Shared Service Entity, serving as the Chief of Staff and business manager to the Executive Leadership Group, working closely with India Co-CEOs. Known for their ability to handle multiple projects in fast-paced and challenging environments, they are highly skilled in managing cross-functional teams and fostering collaboration across culturally diverse and virtual teams. With strong interpersonal skills and a global perspective, they continue to drive strategic initiatives and transformational change in the finance industry.',
     domain: 'esummit',
-    sessionid: 'governments-and-startups',
+    sessionid: 'hr-summit',
   },
 
   // TECHFIESTA
@@ -186,7 +186,7 @@ export const speakers: Speaker[] = [
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/Apoorav+Vyas+.jpeg',
     title: 'Co-Founder, ActualOne',
-    url: 'https://www.linkedin.com/in/udaykothari/',
+    url: 'https://www.linkedin.com/in/apooravvyas/',
     bio: 'Apoorav Vyas is a Web3 professional specializing in product and market research for blockchain projects. He has extensive experience in designing and implementing go-to-market strategies for various Web3 protocols. Currently, Apoorav is focusing on building community and traction in the blockchain space through his venture called ActualOne. To promote awareness about the industry, he creates purposeful content on his social media handles and has experience working in growth and social media roles with various crypto firms. Apooravs professional background includes collaborations with blockchain startups from India, Germany, the UK, and the US. He has held diverse positions ranging from Research Analyst and Developer Relations to Chief of Growth. His expertise particularly lies in the areas of Digital Identity (DID), Real World Assets (RWAs), and Non-Fungible Tokens (NFTs) within the Web3 ecosystem.',
     sessionid: 'web3-panel',
     domain: 'techfiesta',
@@ -197,7 +197,7 @@ export const speakers: Speaker[] = [
     image:
       'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/speakers/Vishnu.jpeg',
     title: 'Founder and CEO, DeCloud Labs',
-    url: 'https://www.linkedin.com/in/udaykothari/',
+    url: 'https://www.linkedin.com/in/vishnukorde/',
     bio: 'Experienced leader with over a decade spent in cloud, finance and design industries. Now expanding the frontiers of #DePIN, #DeCloud and #AI. Advisor and investor in several blockchain projects and startups. Skilled in cryptography, product management and business development. Masters in Finance from Harvard University.',
     sessionid: 'web3-panel',
     domain: 'techfiesta',

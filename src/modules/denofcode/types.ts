@@ -34,3 +34,8 @@ export interface PlayerGameState {
   bug: Bug | null;
   language: string;
 }
+
+export interface ImageObject {
+  id: number;
+  imageURL: string;
+}

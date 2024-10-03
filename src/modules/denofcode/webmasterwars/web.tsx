@@ -5,7 +5,6 @@ import MonacoEditor, { type OnChange } from '@monaco-editor/react';
 import { useState, useRef, useEffect } from 'react';
 import { useStore } from '@/store';
 
-
 export const HTMLEditor = () => {
   const htmlcode = useStore((state) => state.htmlcode);
   const csscode = useStore((state) => state.csscode);

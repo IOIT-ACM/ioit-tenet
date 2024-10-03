@@ -14,6 +14,10 @@ const config = {
       },
       {
         protocol: 'https',
+        hostname: 'ioit.acm.org',
+      },
+      {
+        protocol: 'https',
         hostname: 'plus.unsplash.com',
       },
       {
