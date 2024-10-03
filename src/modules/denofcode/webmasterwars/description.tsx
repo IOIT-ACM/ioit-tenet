@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { GameDuration } from '@/config';
@@ -35,73 +36,67 @@ const GameOverModal = () => {
   };
 
   return (
-    <div className='fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50'>
-      <div
-        className='flex rounded bg-white shadow-lg'
-        style={{ width: '80%', height: '80%' }}
-      >
-        <div className='flex w-1/2 flex-col p-4'>
-          <h2 className='text-2xl font-bold text-red-600'>Game Over</h2>
-          <p className='mt-2 text-gray-800'>Time is up!</p>
-          <div className='h-full w-full overflow-hidden border border-gray-300 bg-[#f0f0f0]'>
-            <iframe
-              ref={previewRef}
-              title='Preview'
-              className='h-full w-full border-none'
-              sandbox='allow-scripts'
-              style={{
-                transform: `scale(${scale})`,
-                transformOrigin: '0 0',
-                width: '100%',
-                height: '90%',
-              }}
-            />
-            <div className='bottom-0 mt-4 flex justify-end'>
-              <button
-                className='mx-2 rounded bg-blue-500 px-3 py-1 text-white'
-                onClick={handleZoomIn}
-              >
-                Zoom In
-              </button>
-              <button
-                className='mx-2 rounded bg-blue-500 px-3 py-1 text-white'
-                onClick={handleZoomOut}
-              >
-                Zoom Out
-              </button>
-            </div>
-          </div>
-        </div>
+<div className='fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50'>
+  <div className='flex flex-col rounded-lg bg-white shadow-lg w-4/5 h-4/5 border-2 border-gray-800'>
 
-        <div className='flex w-1/2 flex-col items-center justify-center border-l border-gray-300 pb-16 pl-4 pr-4 pt-9'>
-          <h3 className='text-xl font-semibold'>Target Image</h3>
-          <canvas
-            className='mt-4 h-full w-full border border-gray-300'
-            id='targetCanvas'
-            width={400}
-            height={400}
-          />
+    <div className='flex flex-col w-full justify-center items-center m-2'>
+      <h2 className='text-5xl font-bold text-red-600'>Game Over</h2>
+      <p className='mt-2 text-gray-800 text-lg'>Time is up!</p>
+    </div>
+
+
+    <div className='flex flex-grow p-4 gap-3'>
+      
+      <div className='flex flex-col flex-grow p-4 h-full w-full border border-gray-400 bg-[#f0f0f0]'>
+        <iframe
+          ref={previewRef}
+          title='Preview'
+          className='h-full w-full border-none'
+          sandbox='allow-scripts'
+          style={{
+            transform: `scale(${scale})`,
+            transformOrigin: '0 0',
+          }}
+        />
+        <div className='mt-4 flex justify-end'>
+          <button
+            className='mx-2 rounded bg-blue-500 px-3 py-1 text-white'
+            onClick={handleZoomIn}
+          >
+            Zoom In
+          </button>
+          <button
+            className='mx-2 rounded bg-blue-500 px-3 py-1 text-white'
+            onClick={handleZoomOut}
+          >
+            Zoom Out
+          </button>
+        </div>
+      </div>
+
+      <div className='flex flex-col flex-grow p-4 h-full w-full border border-gray-400'>
+        <h3 className='text-xl font-semibold text-center'>Target Image</h3>
+        <div className='flex-grow'>
           <Image
             src={webmasterPS?.imageURL}
             alt='Target'
-            className='hidden'
-            layout='fill'
+            layout='responsive'
             objectFit='contain'
-            onLoad={(e) => {
-              const canvas = document.getElementById(
-                'targetCanvas',
-              ) as HTMLCanvasElement;
-              const ctx = canvas.getContext('2d');
-              const img = e.currentTarget;
-
-              if (ctx) {
-                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-              }
-            }}
+            width={300}
+            height={400}
           />
         </div>
       </div>
+
     </div>
+
+    <div className='flex justify-center items-center py-4'>
+      <button className='mx-2 rounded bg-green-500 px-7 py-1 text-white'>Submit</button>
+      <button className='mx-2 rounded bg-red-500 px-3 py-1 text-white'>New Game</button>
+    </div>
+  </div>
+</div>
+
   );
 };
 
