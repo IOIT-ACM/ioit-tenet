@@ -131,6 +131,9 @@ export function TenetCommandDialog() {
     '/events',
     '/speakers',
     '/register',
+    '/24',
+    '/25',
+    '/26',
   ];
   const shouldShowText = !noTextRoutes.some((route) =>
     pathname.startsWith(route),

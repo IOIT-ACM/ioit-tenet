@@ -46,7 +46,7 @@ const TenetLive: React.FC = () => {
 
   return (
     <div className='text-white'>
-      <div className='container mx-auto px-4 py-12'>
+      <div className='mx-auto px-10 py-12'>
         <h1 className='mb-8 text-center text-6xl font-extrabold md:text-7xl'>
           {isLive ? (
             'TENET IS LIVE'
@@ -99,7 +99,7 @@ const TenetLive: React.FC = () => {
 
             <div className='flex flex-col items-center justify-start space-y-4 sm:flex-row sm:space-x-6 sm:space-y-0'>
               <Link
-                href='/tenet2024'
+                href='/24'
                 className='flex items-center justify-center space-x-2 rounded-full bg-blue-600 px-6 py-3 font-bold text-white transition duration-300 ease-in-out hover:bg-blue-700'
               >
                 <Calendar className='h-5 w-5' />
