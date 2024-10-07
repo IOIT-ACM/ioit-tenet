@@ -1,8 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { Calendar, Users, Calendar as EventIcon, Award } from 'lucide-react';
+import { Users, Calendar as EventIcon, Award } from 'lucide-react';
+import { GALLERY_PAGE } from '@/config';
+import { Button } from '@/components/ui/RoundedButton';
 import NumberTicker from '@/components/ui/ticker';
 
 const TenetLive: React.FC = () => {
@@ -97,14 +98,8 @@ const TenetLive: React.FC = () => {
               </div>
             )}
 
-            <div className='flex flex-col items-center justify-start space-y-4 sm:flex-row sm:space-x-6 sm:space-y-0'>
-              <Link
-                href='/24'
-                className='flex items-center justify-center space-x-2 rounded-full bg-blue-600 px-6 py-3 font-bold text-white transition duration-300 ease-in-out hover:bg-blue-700'
-              >
-                <Calendar className='h-5 w-5' />
-                <span>View Gallery</span>
-              </Link>
+            <div className='flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-6 sm:space-y-0'>
+              <Button link={GALLERY_PAGE}>View gallery</Button>
             </div>
           </div>
           <div className='relative hidden md:block'>

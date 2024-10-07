@@ -2,9 +2,12 @@
 
 import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import { GALLERY_PAGE } from '@/config';
 import { useRouter } from 'next/navigation';
 
-const TARGET_TEXT = 'Register';
+const TARGET_TEXT = 'Gallery';
+// const TARGET_LINK = '/register';
+const TARGET_LINK = GALLERY_PAGE;
 const CYCLES_PER_LETTER = 3;
 const SHUFFLE_TIME = 60;
 
@@ -58,7 +61,7 @@ export const RegisterButton = () => {
       }}
       onMouseEnter={scramble}
       onMouseLeave={stopScramble}
-      onClick={() => router.push('/register')}
+      onClick={() => router.push(TARGET_LINK)}
       className='group relative hidden overflow-hidden rounded-full border-[1px] border-neutral-500 bg-neutral-700 px-4 py-2 font-mono font-medium uppercase text-neutral-300 transition-colors hover:text-indigo-300 md:block'
     >
       <div className='relative z-10 flex items-center gap-2 text-xl'>

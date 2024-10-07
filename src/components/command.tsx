@@ -5,8 +5,8 @@
 import { FaWindows } from 'react-icons/fa';
 import { MdKeyboardControlKey } from 'react-icons/md';
 import { CiSearch } from 'react-icons/ci';
-
-import { useState, useEffect } from 'react';
+import { GALLERY_PAGE } from '@/config';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSearch } from '@/hooks/use-search';
 import { useStore } from '@/store';
@@ -131,9 +131,7 @@ export function TenetCommandDialog() {
     '/events',
     '/speakers',
     '/register',
-    '/24',
-    '/25',
-    '/26',
+    GALLERY_PAGE,
   ];
   const shouldShowText = !noTextRoutes.some((route) =>
     pathname.startsWith(route),

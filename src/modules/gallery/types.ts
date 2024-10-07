@@ -1,4 +1,9 @@
 export interface Card {
   title: string;
-  description: string;
 }
+
+export type ImageItem = {
+  id: number;
+  url: string;
+  title: string;
+};

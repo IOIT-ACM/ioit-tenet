@@ -164,10 +164,10 @@ const OverlayCopy = ({
         {heading}
       </Link>
 
-      <Button newpage link={KONFHUB_PAGE} className='mt-10'>
+      {/* <Button newpage link={KONFHUB_PAGE} className='mt-10'>
         Get Tickets
         <HiExternalLink className='ml-2 h-5 w-5' />
-      </Button>
+      </Button> */}
     </motion.div>
   );
 };

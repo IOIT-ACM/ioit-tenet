@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SplitType from 'split-type';
 import { LOADTIME } from '@/config';
 import { Separator } from '@/components/ui/separator';
+import { GALLERY_PAGE } from '@/config';
 import Link from 'next/link';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -89,11 +90,17 @@ export const TENET: React.FC = () => {
         <>
           <Separator className='mb-4' />
           <Link
+            href={GALLERY_PAGE}
+            className='date hidden text-2xl text-gray-200 md:block'
+          >
+            View Gallery
+          </Link>
+          {/* <Link
             href='/register'
             className='date hidden text-2xl text-gray-200 md:block'
           >
             Grab Your Tickets
-          </Link>
+          </Link> */}
         </>
       </div>
     </div>

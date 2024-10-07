@@ -20,23 +20,21 @@ import {
 const events: Card[] = [
   {
     title: 'Techfiesta',
-    description: '',
   },
   {
     title: 'E-Sports',
-    description: '',
   },
   {
     title: 'MUN',
-    description: '',
   },
   {
     title: 'E-Summit',
-    description: '',
   },
   {
     title: 'Cultural Night',
-    description: '',
+  },
+  {
+    title: 'Organising Commitee',
   },
 ];
 
@@ -50,7 +48,7 @@ export function FixedNav() {
   };
 
   return (
-    <div className='fixed top-5 flex w-screen items-start justify-between px-10'>
+    <div className='fixed top-5 z-[999] flex w-screen items-start justify-between px-3 md:px-10'>
       {/* Left section: Logos */}
       <div className='flex items-center gap-3'>
         <Link
@@ -59,7 +57,7 @@ export function FixedNav() {
         >
           <Image
             className='h-full w-full'
-            src={'/tenet-white-logo.png'}
+            src={'/tenet.png'}
             alt='Tenet Logo'
             height={40}
             width={40}
@@ -82,11 +80,11 @@ export function FixedNav() {
       {/* Center section: Search bar */}
       <motion.div
         layoutId='search-container'
-        className={` ${isExpanded ? 'w-[40vw]' : 'w-[25vw]'}`}
+        className={` ${isExpanded ? 'w-[65vw] md:w-[40vw]' : 'w-[50vw] md:w-[25vw]'}`}
       >
         <motion.div
           layout
-          className={`rounded-full bg-white bg-opacity-90 shadow-lg backdrop-blur-sm transition-shadow duration-300 ${
+          className={`rounded-full bg-white bg-opacity-60 shadow-lg backdrop-blur-sm transition-shadow duration-300 ${
             isExpanded ? 'shadow-xl' : 'shadow-md'
           }`}
         >
@@ -133,17 +131,16 @@ export function FixedNav() {
         </motion.div>
 
         {isExpanded && (
-          <div className='no-scroll-bar mt-5 grid max-h-[300px] grid-cols-2 gap-4 overflow-y-auto rounded-xl bg-white/80 p-5 shadow-lg backdrop-blur-md'>
+          <div className='no-scroll-bar mt-5 grid max-h-[300px] grid-cols-2 gap-4 overflow-y-auto rounded-xl bg-white bg-opacity-60 p-5 shadow-lg backdrop-blur-sm'>
             {events.map((card) => (
               <div
                 key={card.title}
                 onClick={() => handleCardClick(card)}
-                className='cursor-pointer rounded-lg border border-gray-200 bg-gray-50 p-4 shadow transition-transform duration-200 ease-in-out hover:bg-gray-100 hover:shadow-md'
+                className='cursor-pointer rounded-lg border border-gray-200 bg-gray-50 p-4 text-center shadow transition-transform duration-200 ease-in-out hover:bg-gray-100 hover:shadow-md md:text-left'
               >
-                <h3 className='mb-2 text-lg font-medium text-gray-700'>
+                <h3 className='mb-2 text-sm font-medium text-gray-700 md:text-lg'>
                   {card.title}
                 </h3>
-                <p className='text-sm text-gray-500'>{card.description}</p>
               </div>
             ))}
           </div>
@@ -162,8 +159,28 @@ export function FixedNav() {
       {/* Right section: Info button */}
       <Dialog>
         <DialogTrigger
-          className={`cursor-pointer rounded-full bg-white p-2 backdrop-blur-sm`}
-          bg-opacity-90
+          className={`hidden cursor-pointer rounded-full bg-white bg-opacity-60 p-2 shadow-lg backdrop-blur-sm md:block`}
+        >
+          <BsInfo
+            color='black'
+            className='text-2xl transition-all hover:scale-110'
+          />
+        </DialogTrigger>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>TENET 2024</DialogTitle>
+            <DialogDescription>
+              Tenet2024 featured the IOIT MUN second edition, Techfiesta, and
+              several technical workshops, creating a platform for students to
+              showcase their skills and engage in collaborative learning.
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog>
+        <DialogTrigger
+          className={`fixed bottom-4 right-4 block cursor-pointer rounded-full bg-white bg-opacity-60 p-2 shadow-lg backdrop-blur-sm md:hidden`}
         >
           <BsInfo
             color='black'
