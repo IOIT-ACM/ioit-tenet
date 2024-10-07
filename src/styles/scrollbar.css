@@ -4,7 +4,12 @@ body::-webkit-scrollbar {
 }
 
 .no-scroll-bar::-webkit-scrollbar {
-  width: 0px;
+  display: none;
+}
+
+.no-scroll-bar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* In your styles.css or a separate CSS module */
