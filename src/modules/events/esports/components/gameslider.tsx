@@ -22,19 +22,19 @@ const imageData: ImageData[] = [
   {
     title: 'BGMI',
     id: 'unsc',
-    url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/bgmi.jpeg',
+    url: 'https://ioit.acm.org/tenet/events/bgmi.avif',
     link: 'https://forms.gle/kaE3hKPiuJ7M44qw9',
   },
   {
     title: 'Valorent',
     id: 'unhrc',
-    url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/valo.jpeg',
+    url: 'https://ioit.acm.org/tenet/events/valo.jpeg',
     link: 'https://forms.gle/UgM7pZ5yCEys9aq69',
   },
   {
     title: 'FIFA',
     id: 'aippm',
-    url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/fifa.jpeg',
+    url: 'https://ioit.acm.org/tenet/events/fifa.jpeg',
     link: 'https://forms.gle/dqRBt7KwQF284b2z7',
   },
 ];

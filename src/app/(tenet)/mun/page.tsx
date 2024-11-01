@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun.jpeg',
+        url: 'https://ioit.acm.org/tenet/ui/mun.jpeg',
         width: 800,
         height: 600,
         alt: `Event Image`,
@@ -26,7 +26,7 @@ export default function Page() {
   return (
     <main>
       <HeroImage
-        backgroundImage='https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun.jpeg'
+        backgroundImage='https://ioit.acm.org/tenet/ui/mun.jpeg'
         title='IOIT MUN 2024'
         subtitle='Unity through diplomacy. Engage with Global Diplomats, Policy Makers, and Visionaries at MUN 2024'
         ctaText='Learn More'

@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { gsap } from 'gsap';
 import { Separator } from '@/components/ui/separator';
-import { day1, day2, day3 } from '@/config/events';
+import { day1, day2, day3 } from '@/config/data/24/events';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -129,7 +129,7 @@ export const SpeakerDetails = ({ speaker }: { speaker: Speaker }) => {
               alt={speaker.name}
               layout='fill'
               objectFit='cover'
-              className='h-full w-full transform object-center transition-all duration-500 ease-in-out hover:scale-110'
+              className='h-full w-full transform bg-gray-300 object-center transition-all duration-500 ease-in-out hover:scale-110'
             />
           </div>
           <div className='pt-3 md:w-1/2 md:p-8 md:pt-0'>

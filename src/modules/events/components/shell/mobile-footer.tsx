@@ -13,11 +13,11 @@ import {
   type CarouselApi,
 } from '@/components/ui/carousel';
 import { useState, useEffect } from 'react';
-import { day1, day2, day3 } from '@/config/events';
+import { day1, day2, day3 } from '@/config/data/24/events';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { speakers } from '@/config/speakers';
+import { speakers } from '@/config/data/24/speakers';
 
 const MobileFooter = () => {
   const allEvents = [...day1, ...day2, ...day3];
@@ -92,7 +92,7 @@ const MobileFooter = () => {
                       />
                       {event.domain === 'mun' && (
                         <Image
-                          src='https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/mun3.png'
+                          src='https://ioit.acm.org/tenet/ui/mun3.png'
                           alt='MUN image'
                           height={35}
                           width={35}

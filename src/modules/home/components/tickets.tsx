@@ -11,32 +11,33 @@ import { FaArrowRightLong } from 'react-icons/fa6';
 import Image from 'next/image';
 import { Button } from '@/components/ui/RoundedButton';
 import { useIsMobile } from '@/hooks/useismobile';
+import { GALLERY_PAGE } from '@/config';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const images = [
   {
-    url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/techfiesta.jpeg',
+    url: 'https://ioit.acm.org/tenet/ui/techfiesta.jpeg',
     alt: 'Tech Fiesta',
     style: 'left-[5%] top-[0%] h-[30vh] md:h-[20vh] w-[30vw] md:w-[10vw]',
   },
   {
-    url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/esummit.jpeg',
+    url: 'https://ioit.acm.org/tenet/gallery/24/inaugration/11.jpeg',
     alt: 'E-Summit',
     style: 'right-[10%] top-[5%] h-[25vh] md:h-[15vh] w-[40vw] md:w-[20vw]',
   },
   {
-    url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/creators.jpeg',
+    url: 'https://ioit.acm.org/tenet/ui/creators.jpeg',
     alt: 'Creators',
     style: 'bottom-0 left-[10%] h-[30vh] md:h-[20vh] w-[40vw] md:w-[20vw]',
   },
   {
-    url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/esports.jpg',
+    url: 'https://ioit.acm.org/tenet/events/denofcode.jpeg',
     alt: 'Esports',
     style: 'bottom-[5%] right-[15%] h-[30vh] md:h-[20vh] w-[55vw] md:w-[10vw]',
   },
   {
-    url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun.jpeg',
+    url: 'https://ioit.acm.org/tenet/ui/mun.jpeg',
     alt: 'MUN',
     style: 'left-[20%] top-[10%] h-[30vh] md:h-[20vh] w-[45vw] md:w-[25vw]',
   },
@@ -119,9 +120,7 @@ export function Tickets() {
           className='mb-10 w-full text-center md:w-5/6 md:text-left'
           ref={headerRef}
         >
-          <h1 className='text-4xl font-bold sm:text-6xl'>
-            Grab your Tickets Now
-          </h1>
+          <h1 className='text-4xl font-bold sm:text-6xl'>TENET 2024</h1>
           <p className='mt-4 text-lg sm:text-xl'>
             Don&lsquo;t miss out on IOIT TENET 2024! Secure your VIP pass now
             and gain exclusive access to all events, premium seating, special
@@ -150,12 +149,19 @@ export function Tickets() {
 
         {/* Button in the center */}
         <Button
+          link={GALLERY_PAGE}
+          className='absolute left-[50%] top-[50%] z-50 translate-x-[-50%] translate-y-[-50%] scale-125 items-center justify-center'
+        >
+          Gallery
+          <FaArrowRightLong className='ml-2 h-4 w-4' />
+        </Button>
+        {/* <Button
           link='register'
           className='absolute left-[50%] top-[50%] z-50 translate-x-[-50%] translate-y-[-50%] scale-125 items-center justify-center'
         >
           Get Tickets
           <FaArrowRightLong className='ml-2 h-4 w-4' />
-        </Button>
+        </Button> */}
       </div>
     </div>
   );

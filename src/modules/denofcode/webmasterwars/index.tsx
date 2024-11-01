@@ -9,8 +9,7 @@ import { Description } from './description';
 import { SwitchTabs } from './tabs';
 import { type ImageObject } from '../types';
 
-const CPANEL_BASE =
-  'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/denofcode/';
+const CPANEL_BASE = 'https://ioit.acm.org/tenet/denofcode/';
 
 const IMAGE_COUNT = 12;
 

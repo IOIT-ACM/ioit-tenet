@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/esports.jpg',
+        url: 'https://ioit.acm.org/tenet/events/esports.jpg',
         width: 800,
         height: 600,
         alt: `Event Image`,
@@ -23,7 +23,7 @@ export default async function Page() {
   return (
     <main className=''>
       <HeroImage
-        backgroundImage='https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/esports.jpg'
+        backgroundImage='https://ioit.acm.org/tenet/events/esports.jpg'
         title='E-Sports'
         subtitle='Join Elite Gamers, Influencers, and Innovators at the Ultimate Esports Arena'
         ctaText='Learn More'

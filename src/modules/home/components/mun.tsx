@@ -23,13 +23,13 @@ export const MUN = () => {
     >
       <div>
         <span className='mb-3 block text-base font-medium text-[#26a7ff] sm:mb-4 sm:text-lg md:text-xl'>
-          Glimpses from last year
+          Glimpses from this year
         </span>
         <h3 className='text-3xl font-semibold sm:text-4xl md:text-5xl lg:text-7xl xl:text-9xl'>
-          IOIT MUN&lsquo;23
+          IOIT MUN&lsquo;24
         </h3>
         <p className='my-3 text-sm text-slate-300 sm:my-4 sm:text-base md:my-6 md:text-lg'>
-          Reflecting on the highlights from IOIT MUN 2023, the two-day
+          Reflecting on the highlights from IOIT MUN 2024, the two-day
           conference commemorating AISSMS IOIT Silver Jubilee featured
           distinguished speakers such as Mr. Abhay Vaidya and Dr. Arjun Deore.
           Read further on the IOIT MUN website
@@ -43,9 +43,14 @@ export const MUN = () => {
               Visit site
             </Link>
           </h4>
-          <h4>
+          {/* <h4>
             <Link href={MUNLINK} target='_blank'>
               Register for MUN&lsquo;24
+            </Link>
+          </h4> */}
+          <h4>
+            <Link href={MUNLINK} target='_blank'>
+              Gallery
             </Link>
           </h4>
         </div>
@@ -69,52 +74,52 @@ interface SquareData {
 
 const squareData: SquareData[] = [
   {
-    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/1.jpeg',
+    src: 'https://ioit.acm.org/tenet/mun/2024/1.jpeg',
   },
   {
-    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/2.jpeg',
+    src: 'https://ioit.acm.org/tenet/mun/2024/2.jpeg',
   },
   {
-    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/3.jpeg',
+    src: 'https://ioit.acm.org/tenet/mun/2024/3.jpeg',
   },
   {
-    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/4.jpeg',
+    src: 'https://ioit.acm.org/tenet/mun/2024/4.jpeg',
   },
   {
-    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/5.jpeg',
+    src: 'https://ioit.acm.org/tenet/mun/2024/5.jpeg',
   },
   {
-    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/6.jpeg',
+    src: 'https://ioit.acm.org/tenet/mun/2024/6.jpeg',
   },
   {
-    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/7.jpeg',
+    src: 'https://ioit.acm.org/tenet/mun/2024/7.jpeg',
   },
   {
-    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/8.jpeg',
+    src: 'https://ioit.acm.org/tenet/mun/2024/8.jpeg',
   },
   {
-    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/9.jpeg',
+    src: 'https://ioit.acm.org/tenet/mun/2024/9.jpeg',
   },
   {
-    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/10.jpeg',
+    src: 'https://ioit.acm.org/tenet/mun/2024/10.jpeg',
   },
   {
-    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/11.jpeg',
+    src: 'https://ioit.acm.org/tenet/mun/2024/11.jpeg',
   },
   {
-    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/12.jpeg',
+    src: 'https://ioit.acm.org/tenet/mun/2024/12.jpeg',
   },
   {
-    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/13.jpeg',
+    src: 'https://ioit.acm.org/tenet/mun/2024/13.jpeg',
   },
   {
-    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/14.jpeg',
+    src: 'https://ioit.acm.org/tenet/mun/2024/14.jpeg',
   },
   {
-    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/15.jpeg',
+    src: 'https://ioit.acm.org/tenet/mun/2024/15.jpeg',
   },
   {
-    src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/2023/16.jpeg',
+    src: 'https://ioit.acm.org/tenet/mun/2024/16.jpeg',
   },
 ];
 

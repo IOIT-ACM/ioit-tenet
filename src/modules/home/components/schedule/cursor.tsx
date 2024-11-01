@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import type { ScheduleItemType } from '@/types';
+import type { EventType } from '@/types';
 import { Separator } from '@/components/ui/separator';
 import { getEventStatus } from '@/utils';
 import { useIsMobile } from '@/hooks/useismobile';
@@ -14,7 +14,7 @@ export const FollowCursor = ({
   classname,
 }: {
   children: React.ReactNode;
-  data: ScheduleItemType;
+  data: EventType;
   classname?: string;
 }) => {
   const [isHovering, setIsHovering] = useState(false);
@@ -77,7 +77,7 @@ const HoverCard = ({
   data,
   classname,
 }: {
-  data: ScheduleItemType;
+  data: EventType;
   classname: string | undefined;
 }) => {
   return (

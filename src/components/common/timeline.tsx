@@ -8,14 +8,14 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import Link from 'next/link';
-import { day1, day2, day3 } from '@/config/events';
-import { type ScheduleItemType } from '@/types';
+import { day1, day2, day3 } from '@/config/data/24/events';
+import { type EventType } from '@/types';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const allEvents: ScheduleItemType[] = [...day1, ...day2, ...day3];
+const allEvents: EventType[] = [...day1, ...day2, ...day3];
 
-const munItem1: ScheduleItemType = {
+const munItem1: EventType = {
   title: 'MUN Committee Session 1',
   id: 'unsc-session',
   domain: 'home',
@@ -27,11 +27,10 @@ const munItem1: ScheduleItemType = {
   time: '11:00 AM - 2:00 PM',
   description:
     'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
-  image:
-    'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unsc.webp',
+  image: 'https://ioit.acm.org/tenet/mun/mun/unsc.webp',
 };
 
-const munItem2: ScheduleItemType = {
+const munItem2: EventType = {
   title: 'MUN Committee Session 2',
   id: 'unsc-session',
   domain: 'home',
@@ -43,11 +42,10 @@ const munItem2: ScheduleItemType = {
   time: '3:00 PM - 5:00 PM',
   description:
     'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
-  image:
-    'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unsc.webp',
+  image: 'https://ioit.acm.org/tenet/mun/mun/unsc.webp',
 };
 
-const munItem3: ScheduleItemType = {
+const munItem3: EventType = {
   title: 'MUN Committee Session 1',
   id: 'unsc-session',
   domain: 'home',
@@ -59,11 +57,10 @@ const munItem3: ScheduleItemType = {
   time: '11:00 AM - 2:00 PM',
   description:
     'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
-  image:
-    'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unsc.webp',
+  image: 'https://ioit.acm.org/tenet/mun/mun/unsc.webp',
 };
 
-const munItem4: ScheduleItemType = {
+const munItem4: EventType = {
   title: 'MUN Committee Session 2',
   id: 'unsc-session-day2',
   domain: 'home',
@@ -75,8 +72,7 @@ const munItem4: ScheduleItemType = {
   time: '3:00 PM - 5:00 PM',
   description:
     'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
-  image:
-    'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unsc.webp',
+  image: 'https://ioit.acm.org/tenet/mun/mun/unsc.webp',
 };
 
 const munEvents = [munItem1, munItem2, munItem3, munItem4];
@@ -163,7 +159,7 @@ export const Timeline: React.FC<{ domain: string }> = ({ domain }) => {
         />
 
         <div className='flex w-full flex-col pl-8 md:pl-0'>
-          {esummit_events.map((event: ScheduleItemType, index: number) => (
+          {esummit_events.map((event: EventType, index: number) => (
             <TimelineItem
               key={event.id}
               event={event}
@@ -179,7 +175,7 @@ export const Timeline: React.FC<{ domain: string }> = ({ domain }) => {
 };
 
 const TimelineItem: React.FC<{
-  event: ScheduleItemType;
+  event: EventType;
   index: number;
   activeEventIndex: number;
   isLast: boolean;
@@ -214,7 +210,7 @@ const TimeMarker: React.FC<{ time: string; isActive: boolean }> = ({
 );
 
 const EventContent: React.FC<{
-  event: ScheduleItemType;
+  event: EventType;
   index: number;
   isActive: boolean;
 }> = ({ event, index }) => (

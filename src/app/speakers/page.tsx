@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/speakers.jpeg',
+        url: 'https://ioit.acm.org/tenet/ui/speakers.jpeg',
         width: 800,
         height: 600,
         alt: `Speakers in TENET 2024`,

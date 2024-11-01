@@ -1,22 +1,5 @@
 export { type VideoProps } from './video';
 
-export type Experiment = {
-  filename: string;
-  title: string;
-  href: string;
-  tags: string[];
-  number: number;
-  og: string | null;
-  contributors: Array<{
-    id: string;
-    url: string;
-    name: string;
-    avatarUrl: string;
-    email: string;
-    company: string;
-  }>;
-};
-
 export interface MusicConfig {
   route: string;
   music: string[];
@@ -39,7 +22,7 @@ export type Speaker = {
   sessionid: string;
 };
 
-export type ScheduleItemType = {
+export type EventType = {
   title: string;
   id: string;
   domain: 'techfiesta' | 'esports' | 'mun' | 'esummit' | 'creators' | 'home';
@@ -56,6 +39,7 @@ export type ScheduleItemType = {
   registration?: string;
   icon?: string;
   munpage?: string;
+  gallery?: string;
   schedule?: {
     title: string;
     time: string;

@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import type { Speaker } from '@/types';
-import { speakers } from '@/config/speakers';
+import { speakers } from '@/config/data/24/speakers';
 import '@/styles/speakers.css';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';

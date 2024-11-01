@@ -3,7 +3,7 @@
 import EmblaCarousel from '@/components/embla-carousel/embla-carousel';
 import { type EmblaOptionsType } from 'embla-carousel';
 import SpeakerCard from './ui/speakercard';
-import { speakers } from '@/config/speakers';
+import { speakers } from '@/config/data/24/speakers';
 import '@/styles/embla.css';
 import Link from 'next/link';
 

@@ -35,8 +35,7 @@ const VideoText: React.FC<{ position: [number, number, number] }> = (props) => {
   const mobile = useIsMobile();
   const [video] = useState<HTMLVideoElement | null>(() => {
     const videoElement = document.createElement('video');
-    videoElement.src =
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/mun-clip.mp4';
+    videoElement.src = './tenet/mun-clip.mp4';
     videoElement.crossOrigin = 'Anonymous';
     videoElement.loop = true;
     videoElement.muted = true;

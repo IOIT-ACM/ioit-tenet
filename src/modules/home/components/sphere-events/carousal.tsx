@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
 import Link from 'next/link';
-import { day1, day2, day3 } from '@/config/events';
+import { day1, day2, day3 } from '@/config/data/24/events';
 import { useEffect, useState } from 'react';
 import { HiCalendar } from 'react-icons/hi';
 import { motion } from 'framer-motion';

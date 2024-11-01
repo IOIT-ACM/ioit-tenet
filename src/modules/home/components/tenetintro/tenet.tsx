@@ -81,7 +81,9 @@ export const TENET: React.FC = () => {
       className='absolute top-0 hidden h-fit transform flex-col justify-center md:left-10 md:flex md:h-full'
     >
       <h2 className='headline hidden text-5xl font-extrabold text-white md:block'>
-        FIRST EDITION <br /> OF TENET <br /> 2024
+        FIRST EDITION
+        <br />
+        OF IOIT TENET
       </h2>
       <h2 className='date hidden text-lg text-gray-200 md:block'>
         4th - 6th October 2024

@@ -6,8 +6,9 @@ import { BsInfo } from 'react-icons/bs';
 import { IoIosCloseCircle } from 'react-icons/io';
 import { motion } from 'framer-motion';
 import { Search } from 'lucide-react';
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import type { Card } from '../types';
+import { type GalleryImageGroup } from '../types';
 import {
   Dialog,
   DialogContent,
@@ -17,35 +18,27 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 
-const events: Card[] = [
-  {
-    title: 'Techfiesta',
-  },
-  {
-    title: 'E-Sports',
-  },
-  {
-    title: 'MUN',
-  },
-  {
-    title: 'E-Summit',
-  },
-  {
-    title: 'Cultural Night',
-  },
-  {
-    title: 'Organising Commitee',
-  },
-];
-
-export function FixedNav() {
+export function FixedNav({ data }: { data: GalleryImageGroup[] }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [searchValue, setSearchValue] = useState('');
+
+  const events: Card[] = Array.from(
+    new Map(
+      data.map((group) => [group.label, { title: group.label }]),
+    ).values(),
+  );
 
   const handleCardClick = (card: Card) => {
     setSearchValue(card.title);
     setIsExpanded(false);
   };
+
+  const filteredEvents = useMemo(() => {
+    if (!searchValue) return events;
+    return events.filter((event) =>
+      event.title.toLowerCase().includes(searchValue.toLowerCase()),
+    );
+  }, [searchValue, events]);
 
   return (
     <div className='fixed top-5 z-[999] flex w-screen items-start justify-between px-3 md:px-10'>
@@ -84,13 +77,13 @@ export function FixedNav() {
       >
         <motion.div
           layout
-          className={`rounded-full bg-white bg-opacity-60 shadow-lg backdrop-blur-sm transition-shadow duration-300 ${
+          className={`rounded-full bg-white bg-opacity-80 shadow-lg backdrop-blur-sm transition-shadow duration-300 ${
             isExpanded ? 'shadow-xl' : 'shadow-md'
           }`}
         >
           {!isExpanded ? (
             <div
-              className='flex cursor-pointer items-center justify-center gap-2 px-6 py-3 text-gray-600'
+              className='flex cursor-pointer items-center justify-center gap-2 overflow-hidden truncate px-6 py-3 text-black'
               onClick={() => setIsExpanded(true)}
             >
               <Search size={18} />
@@ -106,10 +99,10 @@ export function FixedNav() {
             >
               <div className='flex w-full items-center justify-between gap-2'>
                 <div className='flex w-full items-center gap-2'>
-                  <Search size={18} className='text-gray-400' />
+                  <Search size={18} className='text-black' />
                   <input
                     type='text'
-                    className='w-full border-none bg-transparent text-gray-700 placeholder-gray-400 outline-none'
+                    className='w-full border-none bg-transparent text-black placeholder-gray-800 outline-none'
                     placeholder='Type to search...'
                     value={searchValue}
                     onChange={(e) => setSearchValue(e.target.value)}
@@ -132,16 +125,17 @@ export function FixedNav() {
 
         {isExpanded && (
           <div className='no-scroll-bar mt-5 grid max-h-[300px] grid-cols-2 gap-4 overflow-y-auto rounded-xl bg-white bg-opacity-60 p-5 shadow-lg backdrop-blur-sm'>
-            {events.map((card) => (
-              <div
+            {filteredEvents.map((card) => (
+              <Link
                 key={card.title}
                 onClick={() => handleCardClick(card)}
+                href={`#${card.title}`}
                 className='cursor-pointer rounded-lg border border-gray-200 bg-gray-50 p-4 text-center shadow transition-transform duration-200 ease-in-out hover:bg-gray-100 hover:shadow-md md:text-left'
               >
                 <h3 className='mb-2 text-sm font-medium text-gray-700 md:text-lg'>
                   {card.title}
                 </h3>
-              </div>
+              </Link>
             ))}
           </div>
         )}

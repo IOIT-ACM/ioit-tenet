@@ -16,22 +16,6 @@ const config = {
         protocol: 'https',
         hostname: 'ioit.acm.org',
       },
-      {
-        protocol: 'https',
-        hostname: 'plus.unsplash.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'hosteze-little-boy.s3.ap-south-1.amazonaws.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'assets.aceternity.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'wallpaper.forfun.com',
-      },
     ],
   },
 };

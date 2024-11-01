@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
-import { speakers } from '@/config/speakers';
+import { speakers } from '@/config/data/24/speakers';
 import type { Speaker } from '@/types';
-import { day1, day2, day3 } from '@/config/events';
+import { day1, day2, day3 } from '@/config/data/24/events';
 
 interface Item {
   id: string;

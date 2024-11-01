@@ -29,31 +29,31 @@ export const ZoomParallax = () => {
 
   const pictures = [
     {
-      src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun.jpeg',
+      src: 'https://ioit.acm.org/tenet/events/drone.jpeg',
       scale: scale4,
     },
     {
-      src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/esports/esports/bgmi.avif',
+      src: 'https://ioit.acm.org/tenet/events/bgmi.avif',
       scale: scale5,
     },
     {
-      src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/creators.jpeg',
+      src: 'https://ioit.acm.org/tenet/ui/creators.jpeg',
       scale: scale6,
     },
     {
-      src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/d2d.jpeg',
+      src: 'https://ioit.acm.org/tenet/events/d2d.jpeg',
       scale: scale5,
     },
     {
-      src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/ctf.jpg',
+      src: 'https://ioit.acm.org/tenet/events/ctf.jpeg',
       scale: scale6,
     },
     {
-      src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/drone.jpg',
+      src: 'https://ioit.acm.org/tenet/gallery/24/unscw/1.jpeg',
       scale: scale8,
     },
     {
-      src: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/web3.jpg',
+      src: 'https://ioit.acm.org/tenet/events/web3.jpeg',
       scale: scale9,
     },
   ];

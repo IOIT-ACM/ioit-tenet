@@ -1,9 +1,9 @@
 'use client';
 
-import { day1, day2, day3 } from '@/config/events';
+import { day1, day2, day3 } from '@/config/data/24/events';
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
-import type { ScheduleItemType } from '@/types';
+import type { EventType } from '@/types';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { Clock } from '../clock';
@@ -32,7 +32,7 @@ export const EventsSidePannel = () => {
   );
 };
 
-export const ScheduleItem = ({ data }: { data: ScheduleItemType }) => {
+export const ScheduleItem = ({ data }: { data: EventType }) => {
   const pathname = usePathname();
   const isActive = pathname.split('/').pop() === data.id;
   const itemRef = useRef<HTMLDivElement>(null);
@@ -56,7 +56,7 @@ export const ScheduleItem = ({ data }: { data: ScheduleItemType }) => {
         <div className='mb-2 text-lg'>
           {data.domain === 'mun' && (
             <Image
-              src='https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/mun12.png'
+              src='https://ioit.acm.org/tenet/ui/mun12.png'
               alt='MUN image'
               height={isActive ? 20 : 15}
               width={isActive ? 20 : 15}

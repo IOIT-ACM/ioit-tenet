@@ -1,15 +1,15 @@
 'use client';
 
 import { ScheduleItem } from './scheduleitem';
-import { day1, day2, day3 } from '@/config/events';
+import { day1, day2, day3 } from '@/config/data/24/events';
 import { Separator } from '@/components/ui/separator';
 import { FollowCursor } from './cursor';
 import React, { useMemo, useState, useRef } from 'react';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import Link from 'next/link';
-import type { ScheduleItemType } from '@/types';
+import type { EventType } from '@/types';
 
-const munItem1: ScheduleItemType = {
+const munItem1: EventType = {
   title: 'MUN Committee Session',
   icon: 'FcGlobe',
   id: 'unsc-session',
@@ -23,12 +23,11 @@ const munItem1: ScheduleItemType = {
   time: 'morning to evening',
   description:
     'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
-  image:
-    'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unsc.webp',
+  image: 'https://ioit.acm.org/tenet/mun/mun/unsc.webp',
   organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
 };
 
-const munItem2: ScheduleItemType = {
+const munItem2: EventType = {
   title: 'MUN Committee Session',
   icon: 'FcGlobe',
   id: 'unsc-session-day2',
@@ -42,8 +41,7 @@ const munItem2: ScheduleItemType = {
   time: 'morning to evening',
   description:
     'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
-  image:
-    'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unsc.webp',
+  image: 'https://ioit.acm.org/tenet/mun/mun/unsc.webp',
   organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
 };
 
