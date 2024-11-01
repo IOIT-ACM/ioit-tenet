@@ -21,27 +21,27 @@ const imageData: ImageData[] = [
   {
     title: 'UNSC',
     id: 'unsc',
-    url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNSC.png',
+    url: 'https://ioit.acm.org/tenet/mun/UNSC.png',
   },
   {
     title: 'UNHRC',
     id: 'unhrc',
-    url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNHRC.png',
+    url: 'https://ioit.acm.org/tenet/mun/UNHRC.png',
   },
   {
     title: 'AIPPM',
     id: 'aippm',
-    url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/AIPPM.png',
+    url: 'https://ioit.acm.org/tenet/mun/AIPPM.png',
   },
   {
     title: 'UNCSW',
     id: 'uncsw',
-    url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNCSW.png',
+    url: 'https://ioit.acm.org/tenet/mun/UNCSW.png',
   },
   {
     title: 'UNODC',
     id: 'unodc',
-    url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNODC.png',
+    url: 'https://ioit.acm.org/tenet/mun/UNODC.png',
   },
 ];
 

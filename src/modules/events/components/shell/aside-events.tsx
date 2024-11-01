@@ -56,7 +56,7 @@ export const ScheduleItem = ({ data }: { data: ScheduleItemType }) => {
         <div className='mb-2 text-lg'>
           {data.domain === 'mun' && (
             <Image
-              src='https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/mun12.png'
+              src='https://ioit.acm.org/tenet/ui/mun12.png'
               alt='MUN image'
               height={isActive ? 20 : 15}
               width={isActive ? 20 : 15}

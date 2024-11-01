@@ -15,8 +15,7 @@ export const day1: ScheduleItemType[] = [
     time: '8:30 AM',
     description:
       'We are thrilled to invite you to the Grand Inauguration Ceremony of TENET 2024, a flagship event powered by the IOIT ACM Student Chapter. Join us as we kick off three days of technological innovation, entrepreneurial brilliance, and creative expression. The inauguration will set the stage for a transformative experience, featuring a distinguished lineup of guests, industry leaders, and speakers who will inspire and ignite a spirit of innovation and collaboration.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/inaugration.jpeg',
+    image: 'https://ioit.acm.org/tenet/gallery/24/inaugration/11.jpeg',
     schedule: [
       {
         title: 'Welcoming the Guests',
@@ -69,8 +68,7 @@ export const day1: ScheduleItemType[] = [
     time: '2:00 - 3:00',
     description:
       'The Product Management session at TechFiesta will delve into effective product management strategies and best practices tailored for the tech industry. Set in the Multipurpose Hall (MPH) on October 4th, 2024, at 11:15 AM, this session will feature Himanshi Yaduwanshi, Senior Product Manager at Telstra. Himanshi brings a wealth of experience and expertise in balancing business acumen with technical proficiency to successfully deliver products in the competitive tech landscape. This session will cover various facets of product management, such as navigating the product lifecycle, aligning development with customer needs, and creating a cohesive roadmap. With a focus on the dynamic nature of technology, attendees will gain insights into overcoming challenges unique to tech product management and how to build cross-functional teams that drive innovation and growth. This is an ideal opportunity for aspiring and seasoned product managers to learn from a leader in the field and refine their approach to building successful tech products.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/pm.jpg',
+    image: 'https://ioit.acm.org/tenet/events/pm.jpeg',
     organizers: [
       { name: 'Gargi Bharshankar', phone: '8669033795' },
       { name: 'Shreya Kulkarni', phone: '8669033795' },
@@ -90,8 +88,7 @@ export const day1: ScheduleItemType[] = [
     time: '11:00 - 4:00',
     description:
       'Den of Code is an engaging coding event where participants can choose between two thrilling challenges: Webmaster Wars, where they recreate HTML components, or Catch the Bug, where they debug and solve Python code. Participants who successfully complete their chosen challenge will be rewarded with exciting goodies! This event is perfect for those looking to showcase their coding skills and problem-solving abilities in a competitive and fun environment.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/den+of+code.jpeg',
+    image: 'https://ioit.acm.org/tenet/events/denofcode.jpeg',
     organizers: [
       { name: 'Atharva Pednekar', phone: '9130912373' },
       { name: 'Swaroop Patil', phone: '9172061027' },
@@ -110,8 +107,7 @@ export const day1: ScheduleItemType[] = [
     time: '11:15 - 12: 15',
     description:
       'The panel features industry veterans like Uday Kothari, Co-Chair of TiE Pune Angels and Founder of DLT Geeks. With over 30 years of experience in technology and business, Uday brings deep expertise in AI, blockchain, and entrepreneurial mentorship. He will be joined by other distinguished speakers who will discuss AI’s role in business transformation, ethical considerations, and emerging opportunities. Attendees can expect an engaging session that highlights real-world applications of AI, insights into startup ecosystems, and how businesses can leverage AI to stay competitive. This session is perfect for AI enthusiasts, entrepreneurs, and professionals looking to deepen their understanding of AIs capabilities and explore the future possibilities of this transformative technology.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/ai.jpg',
+    image: 'https://ioit.acm.org/tenet/events/ai.jpg',
     organizers: [
       { name: 'Manav Nayyar', phone: '8698991836' },
       { name: 'Shreya Kulkarni', phone: '8669033795' },
@@ -131,8 +127,7 @@ export const day1: ScheduleItemType[] = [
     time: '12:30 - 1:45',
     description:
       'Join us for the Web 3.0 Panel at TechFiesta on October 4th, 2024, at 12:30 PM in the Multipurpose Hall (MPH). This insightful discussion will focus on the transformative technologies of Web 3.0, including decentralized networks, blockchain, digital identities, and NFTs. Featuring industry experts like Almas Sayyed, Founder of PuneDAO, Apoorav Vyas, Co-Founder of ActualOne, and Vishnu Korde, Founder and CEO of DeCloud Labs, the panel will explore current trends and future applications of Web 3.0. Don’t miss this opportunity to gain valuable insights and understand how these innovations are reshaping the digital landscape!',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/web3.jpg',
+    image: 'https://ioit.acm.org/tenet/events/web3.jpeg',
     organizers: [
       { name: 'Aditya Godse', email: 'adimail2404@gmail.com' },
       { name: 'Laukik Patil', phone: '9975875657' },
@@ -152,8 +147,7 @@ export const day1: ScheduleItemType[] = [
     time: '12:30 - 1:45',
     description:
       'Join us for "First Steps into Development: A Beginners Guide" at TechFiesta on October 4th, 2024, at 12:30 PM in the Multipurpose Hall (MPH). This session is designed for individuals who are new to software development, providing a foundational understanding of key concepts, tools, and best practices. Led by Vishek Pratap, Co-Founder of TechVP, the session will cover essential topics in programming, web development, and emerging technologies like AI, Cyber Security, and Blockchain. With a passion for education and community engagement, Vishek aims to empower participants to kickstart their journey in the tech world. Don’t miss this opportunity to gain insights from an experienced professional and set the stage for your development career!',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/development.jpeg',
+    image: 'https://ioit.acm.org/tenet/events/development.jpeg',
     organizers: [{ name: 'Manav Nayyar', phone: '8698991836' }],
     speakers: ['vishekpratap'],
   },
@@ -170,8 +164,7 @@ export const day1: ScheduleItemType[] = [
     time: '11:00 - 6:00',
     description:
       'This Capture the Flag (CTF) competition involves solving complex problems and uncovering hidden "flags" across multiple themes, such as Cryptography & Steganography, Cyber Threat Intelligence (CTI) & Open Source Intelligence (OSINT), and Reverse Engineering. Participants can collaborate in teams to decode messages, analyze cyber threat patterns, and reverse-engineer code to find flags. The competition caters to varying levels of expertise, offering step-by-step hints to help competitors progress through tasks. Each challenge is designed to test participants problem-solving and technical abilities, with the goal of sharpening their cybersecurity skills in an engaging and competitive environment. The flag type is flag{} and the event will be on for the entire day at two locations, First floor lab 112 and 4th floor lab 405, AISSMS IOIT building.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/ctf.jpg',
+    image: 'https://ioit.acm.org/tenet/events/ctf.jpeg',
     organizers: [
       { name: 'Shreya Kulkarni', phone: '8669033795' },
       { name: 'Aditya Godse', email: 'adimail2404@gmail.com' },
@@ -205,8 +198,7 @@ export const day1: ScheduleItemType[] = [
     time: '11:30 - 5:00',
     description:
       'Master the essentials of drone technology at our hands-on drone workshop. Get crucial training in drone assembly and understand the components used. Exercise drone programming and get a chance to practice flight training.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/drone.jpg',
+    image: 'https://ioit.acm.org/tenet/events/drone.jpeg',
     organizers: [
       { name: 'Shreya Kulkarni', phone: '8669033795' },
       { name: 'Aditya Sarade', phone: '8451025156' },
@@ -226,31 +218,9 @@ export const day1: ScheduleItemType[] = [
     time: '2:00 - 3:00',
     description:
       'Exploration of Augmented and Virtual Reality technologies and applications.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/arvr.jpeg',
+    image: 'https://ioit.acm.org/tenet/events/arvr.jpeg',
     organizers: [{ name: 'Laukik Patil', phone: '9975875657' }],
     speakers: ['akhtar-faizan'],
-  },
-  {
-    title: 'Machine Learning unleashed',
-    icon: 'FaCalendar',
-    id: 'mlunleashed',
-    domain: 'techfiesta',
-    color: 'bg-red-700',
-    date: 'Oct 4th, 2024',
-    location: 'Multipurpose Hall (MPH)',
-    start: new Date('2024-09-12T15:30:00'),
-    imp: true,
-    time: '3:30 - 4:45',
-    description:
-      'Machine Learning Unleashed" is excited to present a speaker session featuring Saurabh Shahane, Founder and CEO of The Machine Learning Company. With extensive expertise in data and AI, Saurabh leads a team focused on groundbreaking research in generative AI, NLP, and computer vision. He has also established TMLC Academy, offering specialized AI programs, and The Data Hire, a job portal connecting top AI talent with companies. Join us to hear Saurabh share his insights on harnessing AI for innovation, business optimization, and sustainable growth.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/machine+learning.jpeg',
-    organizers: [
-      { name: 'Shreya Kulkarni', phone: '8669033795' },
-      { name: 'Gargi Bharshankar' },
-    ],
-    speakers: ['saurabh-shahane'],
   },
 ];
 
@@ -269,8 +239,7 @@ export const day2: ScheduleItemType[] = [
     time: '4:00 PM onwards',
     description:
       'Get ready to immerse yourself in the vibrant celebration of Navratri like never before at the Navratri Carnival, happening at AISSMS IOIT, Shivaji Nagar, Pune on October 5th from 4 PM onwards! Organized in collaboration with TENET, the youth partner, this grand event promises a spectacular blend of traditional and modern music, making it an unmissable experience. The highlight of the evening will be an electrifying performance by Kratex, the Mumbai-based DJ and music producer known for his unique “M-House” genre—a fusion of Marathi and House music. Known for hit tracks like “Taambdi Chaamdi,” Kratex has garnered international acclaim and support from the biggest names in the industry. Adding to the thrill is Aghori Muzik and the Bandish Projekt featuring Aishwarya Joshi, also known as the “Dakla Queen,” who will set the stage ablaze with their dynamic performances. The event will also feature stunning visual and stage setups, ensuring an unforgettable night of dance and celebration. Join us at the AISSMS Ground for a night of music, dance, and cultural extravaganza that brings together the best of tradition and innovation.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/creators.jpeg',
+    image: 'https://ioit.acm.org/tenet/ui/creators.jpeg',
   },
 
   // E-Sports
@@ -287,8 +256,7 @@ export const day2: ScheduleItemType[] = [
     time: '9:00 AM onwards',
     description:
       'Join the exciting BGMI LAN tournament as top teams battle it out in a competitive setting.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/esports/esports/bgmi.avif',
+    image: 'https://ioit.acm.org/tenet/events/bgmi.jpeg',
     organizers: [{ name: 'Ayush Sangole' }, { name: 'Avdhoot Chavan' }],
     registration:
       'https://docs.google.com/forms/d/e/1FAIpQLScsw5pMP3SjBaMcMrs1i1D96Cu7WttNDxu9vBYcPTS9Yr5oag/closedform',
@@ -306,8 +274,7 @@ export const day2: ScheduleItemType[] = [
     time: '9:00 AM onwards',
     description:
       'Experience the thrill of FIFA FC 24 on the PS5. Compete with other players for the top spot!',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/esports/esports/fifa.webp',
+    image: 'https://ioit.acm.org/tenet/events/fifa.webp',
     organizers: [{ name: 'Ayush Sangole' }, { name: 'Avdhoot Chavan' }],
     registration: 'https://forms.gle/dqRBt7KwQF284b2z7',
   },
@@ -324,8 +291,7 @@ export const day2: ScheduleItemType[] = [
     time: '9:00 AM onwards',
     description:
       'Gear up for a competitive Valorant showdown as players from across the globe participate in this online tournament.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/esports/esports/valo.webp',
+    image: 'https://ioit.acm.org/tenet/events/valo.webp',
     organizers: [{ name: 'Ayush Sangole' }, { name: 'Avdhoot Chavan' }],
     registration:
       'https://docs.google.com/forms/d/e/1FAIpQLSdr4PZfpLjOrNdW5JFIcW09oYEjoDIPhvumvIWhOX78MeIaZQ/viewform',
@@ -354,8 +320,7 @@ export const day2: ScheduleItemType[] = [
     imp: false,
     time: '8:00 AM - 9:00 AM',
     description: 'Start your day with breakfast and reporting.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/breakfast.jpeg',
+    image: 'https://ioit.acm.org/tenet/events/breakfast.jpeg',
     organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
   },
   {
@@ -379,8 +344,7 @@ export const day2: ScheduleItemType[] = [
     imp: false,
     time: '9:00 AM - 11:00 AM',
     description: 'The official opening ceremony of IOIT MUN 2024.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/inaugration.jpeg',
+    image: 'https://ioit.acm.org/tenet/events/inaugration.jpeg',
     organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
   },
   {
@@ -404,8 +368,7 @@ export const day2: ScheduleItemType[] = [
     imp: false,
     time: '2:00 PM - 3:00 PM',
     description: 'Lunch break for all IOIT MUN 2024 participants.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/munlunch.jpeg',
+    image: 'https://ioit.acm.org/tenet/events/munlunch.jpeg',
     organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
   },
   {
@@ -429,8 +392,7 @@ export const day2: ScheduleItemType[] = [
     imp: false,
     time: '5:00 PM - 5:30 PM',
     description: 'High tea session for all IOIT MUN 2024 attendees.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/hightea.jpeg',
+    image: 'https://ioit.acm.org/tenet/events/hightea.jpeg',
     organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
   },
 
@@ -457,8 +419,7 @@ export const day2: ScheduleItemType[] = [
     time: '11:00 AM',
     description:
       'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNSC.png',
+    image: 'https://ioit.acm.org/tenet/mun/UNSC.png',
     organizers: [
       { name: 'Gargi Bharshankar' },
       { name: 'Vedant Rajput', phone: '9960273408' },
@@ -488,8 +449,7 @@ export const day2: ScheduleItemType[] = [
     time: '11:00 AM',
     description:
       'The UNHRC promotes and protects human rights globally through dialogue and cooperation. Agenda: Discussing the role of state and non-state actors in the Venezuelan crisis, with emphasis on the humanitarian emergency following the presidential elections.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNHRC.png',
+    image: 'https://ioit.acm.org/tenet/mun/UNHRC.png',
     organizers: [
       { name: 'Gargi Bharshankar' },
       { name: 'Shreya Kulkarni', phone: '8669033795' },
@@ -519,8 +479,7 @@ export const day2: ScheduleItemType[] = [
     time: '11:00 AM',
     description:
       'AIPPM brings together diverse political factions to discuss national policies and reforms. Agenda: Deliberating on the introduction of the Aparajita Bill and the demand for a Central Protection Act.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/AIPPM.png',
+    image: 'https://ioit.acm.org/tenet/mun/AIPPM.png',
     organizers: [
       { name: 'Gargi Bharshankar' },
       { name: 'Sakshi Mane', phone: '8552847070' },
@@ -550,8 +509,7 @@ export const day2: ScheduleItemType[] = [
     time: '11:00 AM',
     description:
       "UNCSW is dedicated to promoting gender equality and women's empowerment globally. Agenda: Implications of human rights violations on women, with emphasis on religion-driven nations.",
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNCSW.png',
+    image: 'https://ioit.acm.org/tenet/mun/UNCSW.png',
     organizers: [
       { name: 'Gargi Bharshankar' },
       { name: 'Madiha Shaikh', phone: '9850993963' },
@@ -581,8 +539,7 @@ export const day2: ScheduleItemType[] = [
     time: '11:00 AM',
     description:
       'UNODC combats global drug trafficking and organized crime while promoting justice and integrity. Agenda: Addressing the challenges of money and drug laundering in Special Economic Zones, with special emphasis on the Golden Triangle SEZ.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNODC.png',
+    image: 'https://ioit.acm.org/tenet/mun/UNODC.png',
     organizers: [
       { name: 'Gargi Bharshankar' },
       { name: 'Vaishnav Shinde', phone: '9356608108' },
@@ -613,8 +570,7 @@ export const day3: ScheduleItemType[] = [
     imp: false,
     time: '9:00 AM - 10:00 AM',
     description: 'Start your day with breakfast and reporting.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/breakfast.jpeg',
+    image: 'https://ioit.acm.org/tenet/events/breakfast.jpeg',
     organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
   },
   {
@@ -637,8 +593,7 @@ export const day3: ScheduleItemType[] = [
     imp: false,
     time: '1:00 PM - 2:00 PM',
     description: 'Lunch break for all IOIT MUN 2024 participants.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/munlunch.jpeg',
+    image: 'https://ioit.acm.org/tenet/events/munlunch.jpeg',
     organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
   },
   {
@@ -661,8 +616,7 @@ export const day3: ScheduleItemType[] = [
     imp: false,
     time: '4:00 PM - 5:00 PM',
     description: 'High tea and closing ceremony to conclude IOIT MUN 2024.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/inaugration.jpeg',
+    image: 'https://ioit.acm.org/tenet/gallery/24/mun-closing/19.jpeg',
     organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
   },
   {
@@ -688,8 +642,7 @@ export const day3: ScheduleItemType[] = [
     time: '10:00 AM',
     description:
       'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNSC.png',
+    image: 'https://ioit.acm.org/tenet/mun/UNSC.png',
     organizers: [
       { name: 'Gargi Bharshankar' },
       { name: 'Vedant Rajput', phone: '9960273408' },
@@ -718,8 +671,7 @@ export const day3: ScheduleItemType[] = [
     time: '10:00 AM',
     description:
       'The UNHRC promotes and protects human rights globally through dialogue and cooperation. Agenda: Discussing the role of state and non-state actors in the Venezuelan crisis, with emphasis on the humanitarian emergency following the presidential elections.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNHRC.png',
+    image: 'https://ioit.acm.org/tenet/mun/UNHRC.png',
     organizers: [
       { name: 'Gargi Bharshankar' },
       { name: 'Shreya Kulkarni', phone: '8669033795' },
@@ -748,8 +700,7 @@ export const day3: ScheduleItemType[] = [
     time: '10:00 AM',
     description:
       'AIPPM brings together diverse political factions to discuss national policies and reforms. Agenda: Deliberating on the introduction of the Aparajita Bill and the demand for a Central Protection Act.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/AIPPM.png',
+    image: 'https://ioit.acm.org/tenet/mun/AIPPM.png',
     organizers: [
       { name: 'Gargi Bharshankar' },
       { name: 'Sakshi Mane', phone: '8552847070' },
@@ -778,8 +729,7 @@ export const day3: ScheduleItemType[] = [
     time: '10:00 AM',
     description:
       'UNCSW is dedicated to promoting gender equality and women’s empowerment globally. Agenda: Implications of human rights violations on women, with emphasis on religion-driven nations.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNCSW.png',
+    image: 'https://ioit.acm.org/tenet/mun/UNCSW.png',
     organizers: [
       { name: 'Gargi Bharshankar' },
       { name: 'Madiha Shaikh', phone: '9850993963' },
@@ -808,8 +758,7 @@ export const day3: ScheduleItemType[] = [
     time: '10:00 AM',
     description:
       'UNODC combats global drug trafficking and organized crime while promoting justice and integrity. Agenda: Addressing the challenges of money and drug laundering in Special Economic Zones, with special emphasis on the Golden Triangle SEZ.',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/UNODC.png',
+    image: 'https://ioit.acm.org/tenet/mun/UNODC.png',
     organizers: [
       { name: 'Gargi Bharshankar' },
       { name: 'Vaishnav Shinde', phone: '9356608108' },
@@ -829,8 +778,7 @@ export const day3: ScheduleItemType[] = [
     time: '4:00-7:00',
     description:
       "Your Startup's Launchpad! AISSMS IOIT in association with Entie: A Business Dating Platform brings you Investing Arena under TENET 2024. Are you ready to pitch your idea to top investors and secure funding? All Stage Startups Can Apply! TENET 2024's Investing Arena is your chance to showcase your startup to a panel of 15+ investors, startup CEOs, and venture capitalists. Network with potential customers, users, startup mentors, and founders. Secure your chances for on-spot funding commitments of up to ₹50 Lakhs in the grand finale. Win fixed cash prizes of up to ₹1,00,000 and complimentary day passes to the E Summit. Secure your chances in the Redbull Basement: Global Innovation Challenge, National qualifiers with a potential trip to Tokyo and Los Angeles. Early bird TENET pass access available exclusively for all Round One qualifiers. Don't miss this opportunity to accelerate your startup's growth. Register now and prepare your pitch for the Investing Arena.",
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/pitchersden.jpeg',
+    image: 'https://ioit.acm.org/tenet/events/investingarena.jpeg',
     registration:
       'https://docs.google.com/forms/d/e/1FAIpQLSdz4AXaeYZAy7jFUagt3g-zvJJV38If5njMlMiZ-49fMpXWjw/viewform',
     organizers: [
@@ -849,8 +797,7 @@ export const day3: ScheduleItemType[] = [
     imp: true,
     time: '11:15 AM - 12:15 PM',
     domain: 'esummit',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/hrsummit.jpeg ',
+    image: 'https://ioit.acm.org/tenet/events/hr.jpeg ',
     organizers: [
       { name: 'Laukik Patil', phone: '9975875657' },
       { name: 'Pranav Vetkar', phone: '9321646038' },
@@ -859,27 +806,6 @@ export const day3: ScheduleItemType[] = [
     description:
       'HR Summit" brings together industry leaders to explore the latest trends and innovations in Human Resources. This session will cover topics such as future HR strategies, talent management, and organizational development, providing attendees with valuable insights into building a dynamic and resilient workforce. Speakers like Akash Sangole and Neha Mathur will share their expertise on navigating the evolving HR landscape. Join us at AISSMS COE on Oct 6th, 2024, from 11:15 AM to 12:15 PM to discover new approaches to managing human capital and driving business success.',
     speakers: ['akash-sangole', 'mathurneha', 'shyamkerkar', 'sumit-jha'],
-  },
-  {
-    title: 'D2C Summit',
-    id: 'd2c-summit',
-    color: 'bg-green-500',
-    date: 'Oct 6th, 2024',
-    location: 'Auditorium, Pharma',
-    start: new Date('2024-10-06T13:15:00'),
-    imp: true,
-    domain: 'esummit',
-    time: '1:15 PM - 2:15 PM',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/d2d.jpeg ',
-    organizers: [
-      { name: 'Laukik Patil', phone: '9975875657' },
-      { name: 'Shreya Kulkarni', phone: '8669033795' },
-    ],
-    icon: 'IoRocket',
-    description:
-      'D2C Summit" is a unique opportunity to learn from pioneers in the direct-to-consumer space and understand what it takes to build a successful brand in today’s competitive market. Featuring prominent speakers like Jaywant Patil, Dadasaheb Bhagat, and Sangeeta Sharma, this session will delve into the nuances of brand building, customer engagement, and scaling D2C businesses. Dont miss this chance to gain valuable insights at AISSMS MBA College on Oct 6th, 2024, from 1:15 PM to 2:15 PM and take your D2C venture to new heights.',
-    speakers: ['jaywant-patil', 'dadasahebbhagat', 'sangeeta-sharma-96b882264'],
   },
   {
     title: 'Venture Summit',
@@ -891,8 +817,7 @@ export const day3: ScheduleItemType[] = [
     imp: true,
     domain: 'esummit',
     time: '2:15 PM - 3:15 PM',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/vc.jpeg ',
+    image: 'https://ioit.acm.org/tenet/events/venture.jpeg ',
     organizers: [
       { name: 'Laukik Patil', phone: '9975875657' },
       { name: 'Shreya Kulkarni', phone: '8669033795' },
@@ -917,8 +842,7 @@ export const day3: ScheduleItemType[] = [
     imp: true,
     domain: 'esummit',
     time: '10:00 AM - 11:15 AM',
-    image:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/startupincollege.jpeg',
+    image: 'https://ioit.acm.org/tenet/events/startupincollege.jpeg',
     organizers: [{ name: 'Laukik Patil', phone: '9975875657' }],
     icon: 'IoRocket',
     description:

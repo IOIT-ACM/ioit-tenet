@@ -68,6 +68,10 @@ export function TenetCommandDialog() {
       name: 'Home',
     },
     {
+      url: GALLERY_PAGE,
+      name: 'View gallery',
+    },
+    {
       url: '/register',
       name: 'Get Tickets',
     },

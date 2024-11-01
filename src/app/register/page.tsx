@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/registration.png',
+        url: 'https://ioit.acm.org/tenet/ui/registration.png',
         width: 800,
         height: 600,
         alt: `Register Image`,

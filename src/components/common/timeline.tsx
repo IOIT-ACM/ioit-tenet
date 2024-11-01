@@ -27,8 +27,7 @@ const munItem1: ScheduleItemType = {
   time: '11:00 AM - 2:00 PM',
   description:
     'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
-  image:
-    'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unsc.webp',
+  image: 'https://ioit.acm.org/tenet/mun/mun/unsc.webp',
 };
 
 const munItem2: ScheduleItemType = {
@@ -43,8 +42,7 @@ const munItem2: ScheduleItemType = {
   time: '3:00 PM - 5:00 PM',
   description:
     'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
-  image:
-    'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unsc.webp',
+  image: 'https://ioit.acm.org/tenet/mun/mun/unsc.webp',
 };
 
 const munItem3: ScheduleItemType = {
@@ -59,8 +57,7 @@ const munItem3: ScheduleItemType = {
   time: '11:00 AM - 2:00 PM',
   description:
     'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
-  image:
-    'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unsc.webp',
+  image: 'https://ioit.acm.org/tenet/mun/mun/unsc.webp',
 };
 
 const munItem4: ScheduleItemType = {
@@ -75,8 +72,7 @@ const munItem4: ScheduleItemType = {
   time: '3:00 PM - 5:00 PM',
   description:
     'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
-  image:
-    'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unsc.webp',
+  image: 'https://ioit.acm.org/tenet/mun/mun/unsc.webp',
 };
 
 const munEvents = [munItem1, munItem2, munItem3, munItem4];

@@ -9,11 +9,11 @@ import React, { type MouseEventHandler, useRef } from 'react';
 import { FlipLink } from './fliplink';
 
 const images = [
-  'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/socials/instagram.png',
-  'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/socials/keyboard.png',
-  'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/socials/linkedin.png',
-  'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/socials/x.png',
-  'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/socials/twitter.png',
+  'https://ioit.acm.org/tenet/ui/socials/instagram.png',
+  'https://ioit.acm.org/tenet/ui/socials/keyboard.png',
+  'https://ioit.acm.org/tenet/ui/socials/linkedin.png',
+  'https://ioit.acm.org/tenet/ui/socials/x.png',
+  'https://ioit.acm.org/tenet/ui/socials/twitter.png',
 ];
 
 export const Socials = () => {

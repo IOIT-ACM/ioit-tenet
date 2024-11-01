@@ -5,5 +5,5 @@ interface SiteLayoutProps {
 }
 
 export default async function SiteLayout({ children }: SiteLayoutProps) {
-  return <Shell>{children};</Shell>;
+  return <Shell>{children}</Shell>;
 }

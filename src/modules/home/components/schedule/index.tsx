@@ -23,8 +23,7 @@ const munItem1: ScheduleItemType = {
   time: 'morning to evening',
   description:
     'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
-  image:
-    'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unsc.webp',
+  image: 'https://ioit.acm.org/tenet/mun/mun/unsc.webp',
   organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
 };
 
@@ -42,8 +41,7 @@ const munItem2: ScheduleItemType = {
   time: 'morning to evening',
   description:
     'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
-  image:
-    'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun/mun/unsc.webp',
+  image: 'https://ioit.acm.org/tenet/mun/mun/unsc.webp',
   organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
 };
 

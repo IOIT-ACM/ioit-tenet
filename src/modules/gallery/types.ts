@@ -5,5 +5,9 @@ export interface Card {
 export type ImageItem = {
   id: number;
   url: string;
-  title: string;
+};
+
+export type GalleryImageGroup = {
+  label: string;
+  imagedata: ImageItem[];
 };

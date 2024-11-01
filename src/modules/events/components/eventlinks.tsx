@@ -103,7 +103,7 @@ const EventCard: React.FC<{ event: ScheduleItemType }> = ({ event }) => {
       <div className='flex items-center justify-between p-4 md:p-6'>
         {event.domain === 'mun' && (
           <Image
-            src='https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/mun3.png'
+            src='https://ioit.acm.org/tenet/ui/mun3.png'
             alt='MUN image'
             height={35}
             width={35}

@@ -129,7 +129,7 @@ export const SpeakerDetails = ({ speaker }: { speaker: Speaker }) => {
               alt={speaker.name}
               layout='fill'
               objectFit='cover'
-              className='h-full w-full transform object-center transition-all duration-500 ease-in-out hover:scale-110'
+              className='h-full w-full transform bg-gray-300 object-center transition-all duration-500 ease-in-out hover:scale-110'
             />
           </div>
           <div className='pt-3 md:w-1/2 md:p-8 md:pt-0'>

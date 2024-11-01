@@ -7,9 +7,9 @@ import { gsap } from 'gsap';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
 import { EventLinksStructure } from './eventlinks';
-import { KONFHUB_PAGE } from '@/config';
-import { HiExternalLink } from 'react-icons/hi';
-import { Button } from '@/components/ui/RoundedButton';
+// import { KONFHUB_PAGE } from '@/config';
+// import { HiExternalLink } from 'react-icons/hi';
+// import { Button } from '@/components/ui/RoundedButton';
 
 export const EventsList = () => {
   return (
@@ -174,22 +174,19 @@ const OverlayCopy = ({
 
 const data = [
   {
-    imgUrl:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/events/tech.jpeg',
+    imgUrl: 'https://ioit.acm.org/tenet/ui/events/tech.jpeg',
     subheading: 'Day 1',
     heading: 'Tech Fiesta',
     url: '/techfiesta',
   },
   {
-    imgUrl:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/events/building.jpeg',
+    imgUrl: 'https://ioit.acm.org/tenet/ui/events/building.jpeg',
     subheading: 'Day 2',
     heading: 'MUN, eSports & Cultural Night',
     url: '/esummit',
   },
   {
-    imgUrl:
-      'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/ui/events/mun.jpeg',
+    imgUrl: 'https://ioit.acm.org/tenet/ui/events/mun.jpeg',
     subheading: 'Day 3',
     heading: 'MUN Day-2 and E-Summit',
     url: '/esummit',

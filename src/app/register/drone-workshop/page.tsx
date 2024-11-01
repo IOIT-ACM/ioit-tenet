@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/drone-og.jpeg',
+        url: 'https://ioit.acm.org/tenet/events/drone-og.jpeg',
         width: 800,
         height: 600,
         alt: `CTF Image`,

@@ -1,46 +1,52 @@
-/* eslint-disable @next/next/no-img-element */
 'use client';
 
-import { type ImageItem } from '../types';
+import { type GalleryImageGroup } from '../types';
+import { Image } from 'antd';
+import { FixedNav } from './nav';
 
-export function Canvas({
-  imageData,
-  ready,
-}: {
-  imageData: ImageItem[];
-  ready?: boolean;
-}) {
+export function Canvas({ data }: { data: GalleryImageGroup[] }) {
+  const allImages = data.flatMap((group, groupIndex) =>
+    group.imagedata.map((image, imageIndex) => ({
+      ...image,
+      groupLabel: group.label,
+      groupIndex,
+      imageIndex,
+    })),
+  );
+
   return (
     <div className=''>
-      <div className='no-scroll-bar m-0 max-h-[200vh] columns-3 overflow-auto bg-[#e7ddd2] p-0'>
-        {imageData.map((item, index) => (
-          <div key={index} className='bg-[#e5dfd9]'>
-            <img
-              src={item.url}
-              alt={`Gallery Image ${index}`}
-              className='h-full w-full object-cover'
-            />
-          </div>
-        ))}
+      <FixedNav data={data} />
+      <style jsx global>{`
+        .ant-image-preview-root .ant-image-preview-mask {
+          background-color: rgba(0, 0, 0, 0.85) !important;
+        }
+        .ant-image-preview-root .ant-image-preview-wrap {
+          background-color: transparent !important;
+        }
+      `}</style>
+      <div className='no-scroll-bar m-0 grid min-h-screen grid-cols-2 gap-4 overflow-auto bg-[#e7ddd2] p-4 md:grid-cols-3'>
+        <Image.PreviewGroup
+          preview={{
+            icons: {},
+          }}
+        >
+          {allImages.map((image) => (
+            <div
+              key={`${image.groupIndex}-${image.imageIndex}`}
+              className='bg-[#5a5753]'
+              id={image.groupLabel}
+            >
+              <Image
+                src={image.url}
+                height='100%'
+                alt={`${image.groupLabel} Image ${image.imageIndex + 1} ${image.url}`}
+                className='h-full w-full border-2 border-white object-cover'
+              />
+            </div>
+          ))}
+        </Image.PreviewGroup>
       </div>
-
-      {!ready && (
-        <div className='fixed inset-0 flex items-center justify-center bg-white/50 text-center backdrop-blur-md'>
-          <div className='animate-fade-in max-w-lg'>
-            <div className='flex items-center justify-center text-4xl'>
-              <div className='font-semibold'>Processing Event Photos</div>
-            </div>
-            <div className='mt-2 text-xl'>
-              Our media team is currently curating and processing the
-              photographs from the event. The complete gallery will be available
-              for viewing shortly.
-            </div>
-            <div className='mt-4 flex items-center justify-center gap-2'>
-              <span className='text-xl'>Please check back soon</span>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

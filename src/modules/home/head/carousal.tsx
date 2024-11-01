@@ -43,30 +43,14 @@ const ThreeJSImageCarousel: React.FC = () => {
     // Load texture
     const textureLoader = new THREE.TextureLoader();
     const textures = [
-      textureLoader.load(
-        `https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/creators.jpeg`,
-      ),
-      textureLoader.load(
-        `https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/esports.jpg`,
-      ),
-      textureLoader.load(
-        `https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/esummit.jpeg`,
-      ),
-      textureLoader.load(
-        `https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/creators.jpeg`,
-      ),
-      textureLoader.load(
-        `https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/events/esports.jpg`,
-      ),
-      textureLoader.load(
-        `https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/esummit.jpeg`,
-      ),
-      textureLoader.load(
-        `https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/mun.jpeg`,
-      ),
-      textureLoader.load(
-        `https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/techfiesta.jpeg`,
-      ),
+      textureLoader.load(`https://ioit.acm.org/tenet/creators.jpeg`),
+      textureLoader.load(`https://ioit.acm.org/tenet/events/esports.jpg`),
+      textureLoader.load(`https://ioit.acm.org/tenet/esummit.jpeg`),
+      textureLoader.load(`https://ioit.acm.org/tenet/creators.jpeg`),
+      textureLoader.load(`https://ioit.acm.org/tenet/events/esports.jpg`),
+      textureLoader.load(`https://ioit.acm.org/tenet/esummit.jpeg`),
+      textureLoader.load(`https://ioit.acm.org/tenet/mun.jpeg`),
+      textureLoader.load(`https://ioit.acm.org/tenet/techfiesta.jpeg`),
     ];
 
     // Create and position the planes

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: 'https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/creators.jpeg',
+        url: 'https://ioit.acm.org/tenet/ui/creators.jpeg',
         width: 800,
         height: 600,
         alt: `Event Image`,
@@ -23,7 +23,7 @@ export default function Page() {
   return (
     <main>
       <HeroImage
-        backgroundImage='https://hosteze-little-boy.s3.ap-south-1.amazonaws.com/assets/static/tenet/creators.jpeg'
+        backgroundImage='https://ioit.acm.org/tenet/ui/creators.jpeg'
         title='Cultural Night'
         subtitle='Experience Vibrant Performances and Rich Traditions at the Cultural Night Extravaganza'
         // ctaText='Learn More'
