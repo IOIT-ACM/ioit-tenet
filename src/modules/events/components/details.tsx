@@ -2,7 +2,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import type { ScheduleItemType, Speaker } from '@/types';
+import type { EventType, Speaker } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaPhoneAlt } from 'react-icons/fa';
@@ -18,12 +18,12 @@ import { handleShare } from '@/utils/share';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Separator } from '@/components/ui/separator';
-import { speakers } from '@/config/speakers';
+import { speakers } from '@/config/data/24/speakers';
 import EventNavigation from './eventnavigation';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const Details = ({ event }: { event: ScheduleItemType }) => {
+export const Details = ({ event }: { event: EventType }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -176,9 +176,17 @@ ${
           </div>
 
           <div className='space-y-6 pt-3 md:w-1/2 md:p-8 md:pt-0'>
-            <h1 ref={titleRef} className='text-3xl font-bold md:text-4xl'>
-              {event.title}
-            </h1>
+            <div ref={titleRef} className='grid gap-2'>
+              <h1 className='text-3xl font-bold md:text-4xl'>{event.title}</h1>
+              {event.gallery && (
+                <Link
+                  href={event.gallery}
+                  className='bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-lg font-bold text-transparent'
+                >
+                  View gallery
+                </Link>
+              )}
+            </div>
             <Separator className='my-2' />
             <div ref={detailsRef} className='flex flex-col space-y-4'>
               <p className='flex items-center'>

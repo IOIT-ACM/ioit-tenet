@@ -1,6 +1,6 @@
 'use client';
 
-import { speakers } from '@/config/speakers';
+import { speakers } from '@/config/data/24/speakers';
 import Link from 'next/link';
 import { Separator } from '@/components/ui/separator';
 import type { Speaker } from '@/types';

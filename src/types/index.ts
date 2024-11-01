@@ -22,7 +22,7 @@ export type Speaker = {
   sessionid: string;
 };
 
-export type ScheduleItemType = {
+export type EventType = {
   title: string;
   id: string;
   domain: 'techfiesta' | 'esports' | 'mun' | 'esummit' | 'creators' | 'home';
@@ -39,6 +39,7 @@ export type ScheduleItemType = {
   registration?: string;
   icon?: string;
   munpage?: string;
+  gallery?: string;
   schedule?: {
     title: string;
     time: string;

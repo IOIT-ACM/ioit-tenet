@@ -1,6 +1,6 @@
 'use client';
 
-import { day1, day2, day3 } from '@/config/events';
+import { day1, day2, day3 } from '@/config/data/24/events';
 import '@/styles/ImageCarousel.css';
 import gsap from 'gsap';
 

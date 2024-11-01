@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { env } from '@/env';
-import { speakers } from '@/config/speakers';
+import { speakers } from '@/config/data/24/speakers';
 import { SpeakerDetails } from '@/modules/speakers';
 
 export async function generateMetadata({

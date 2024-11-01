@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { env } from '@/env';
-import { day1, day2, day3 } from '@/config/events';
+import { day1, day2, day3 } from '@/config/data/24/events';
 import { Details } from '@/modules/events';
 
 export async function generateMetadata({

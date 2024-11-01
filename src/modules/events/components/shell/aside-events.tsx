@@ -1,9 +1,9 @@
 'use client';
 
-import { day1, day2, day3 } from '@/config/events';
+import { day1, day2, day3 } from '@/config/data/24/events';
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
-import type { ScheduleItemType } from '@/types';
+import type { EventType } from '@/types';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { Clock } from '../clock';
@@ -32,7 +32,7 @@ export const EventsSidePannel = () => {
   );
 };
 
-export const ScheduleItem = ({ data }: { data: ScheduleItemType }) => {
+export const ScheduleItem = ({ data }: { data: EventType }) => {
   const pathname = usePathname();
   const isActive = pathname.split('/').pop() === data.id;
   const itemRef = useRef<HTMLDivElement>(null);

@@ -2,10 +2,10 @@
 
 import { FiMapPin, FiPhone } from 'react-icons/fi';
 import Link from 'next/link';
-import type { ScheduleItemType } from '@/types';
+import type { EventType } from '@/types';
 import { useIsMobile } from '@/hooks/useismobile';
 
-export const ScheduleItem = ({ data }: { data: ScheduleItemType }) => {
+export const ScheduleItem = ({ data }: { data: EventType }) => {
   const isMobile = useIsMobile();
 
   return (

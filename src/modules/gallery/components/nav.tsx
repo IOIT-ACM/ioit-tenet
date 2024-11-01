@@ -6,7 +6,7 @@ import { BsInfo } from 'react-icons/bs';
 import { IoIosCloseCircle } from 'react-icons/io';
 import { motion } from 'framer-motion';
 import { Search } from 'lucide-react';
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import type { Card } from '../types';
 import { type GalleryImageGroup } from '../types';
 import {
@@ -32,6 +32,13 @@ export function FixedNav({ data }: { data: GalleryImageGroup[] }) {
     setSearchValue(card.title);
     setIsExpanded(false);
   };
+
+  const filteredEvents = useMemo(() => {
+    if (!searchValue) return events;
+    return events.filter((event) =>
+      event.title.toLowerCase().includes(searchValue.toLowerCase()),
+    );
+  }, [searchValue, events]);
 
   return (
     <div className='fixed top-5 z-[999] flex w-screen items-start justify-between px-3 md:px-10'>
@@ -76,7 +83,7 @@ export function FixedNav({ data }: { data: GalleryImageGroup[] }) {
         >
           {!isExpanded ? (
             <div
-              className='textblack flex cursor-pointer items-center justify-center gap-2 overflow-hidden truncate px-6 py-3'
+              className='flex cursor-pointer items-center justify-center gap-2 overflow-hidden truncate px-6 py-3 text-black'
               onClick={() => setIsExpanded(true)}
             >
               <Search size={18} />
@@ -92,7 +99,7 @@ export function FixedNav({ data }: { data: GalleryImageGroup[] }) {
             >
               <div className='flex w-full items-center justify-between gap-2'>
                 <div className='flex w-full items-center gap-2'>
-                  <Search size={18} className='textblack' />
+                  <Search size={18} className='text-black' />
                   <input
                     type='text'
                     className='w-full border-none bg-transparent text-black placeholder-gray-800 outline-none'
@@ -118,7 +125,7 @@ export function FixedNav({ data }: { data: GalleryImageGroup[] }) {
 
         {isExpanded && (
           <div className='no-scroll-bar mt-5 grid max-h-[300px] grid-cols-2 gap-4 overflow-y-auto rounded-xl bg-white bg-opacity-60 p-5 shadow-lg backdrop-blur-sm'>
-            {events.map((card) => (
+            {filteredEvents.map((card) => (
               <Link
                 key={card.title}
                 onClick={() => handleCardClick(card)}

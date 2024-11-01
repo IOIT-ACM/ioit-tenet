@@ -4,8 +4,8 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import { day1, day2, day3 } from '@/config/events';
-import type { ScheduleItemType } from '@/types';
+import { day1, day2, day3 } from '@/config/data/24/events';
+import type { EventType } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { gsap } from 'gsap';
@@ -44,7 +44,7 @@ export const EventLinksStructure: React.FC<{ day: number }> = ({ day }) => {
     return () => ctx.revert();
   }, []);
 
-  const eventsByDomain = events.reduce<Record<string, ScheduleItemType[]>>(
+  const eventsByDomain = events.reduce<Record<string, EventType[]>>(
     (acc, event) => {
       if (!acc[event.domain]) {
         acc[event.domain] = [];
@@ -78,7 +78,7 @@ export const EventLinksStructure: React.FC<{ day: number }> = ({ day }) => {
   );
 };
 
-const EventCard: React.FC<{ event: ScheduleItemType }> = ({ event }) => {
+const EventCard: React.FC<{ event: EventType }> = ({ event }) => {
   return (
     <Link
       href={`/events/${event.id}`}
@@ -122,7 +122,7 @@ const EventCard: React.FC<{ event: ScheduleItemType }> = ({ event }) => {
   );
 };
 
-const getEventsForDay = (day: number): ScheduleItemType[] => {
+const getEventsForDay = (day: number): EventType[] => {
   switch (day) {
     case 1:
       return day1.filter((item) => item.imp);

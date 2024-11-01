@@ -1,15 +1,15 @@
 'use client';
 
 import { ScheduleItem } from './scheduleitem';
-import { day1, day2, day3 } from '@/config/events';
+import { day1, day2, day3 } from '@/config/data/24/events';
 import { Separator } from '@/components/ui/separator';
 import { FollowCursor } from './cursor';
 import React, { useMemo, useState, useRef } from 'react';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import Link from 'next/link';
-import type { ScheduleItemType } from '@/types';
+import type { EventType } from '@/types';
 
-const munItem1: ScheduleItemType = {
+const munItem1: EventType = {
   title: 'MUN Committee Session',
   icon: 'FcGlobe',
   id: 'unsc-session',
@@ -27,7 +27,7 @@ const munItem1: ScheduleItemType = {
   organizers: [{ name: 'Gargi Bharshankar' }, { name: 'Aditya Sarade' }],
 };
 
-const munItem2: ScheduleItemType = {
+const munItem2: EventType = {
   title: 'MUN Committee Session',
   icon: 'FcGlobe',
   id: 'unsc-session-day2',

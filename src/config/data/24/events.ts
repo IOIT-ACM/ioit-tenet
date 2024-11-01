@@ -1,7 +1,7 @@
-import type { ScheduleItemType } from '@/types';
+import type { EventType } from '@/types';
 import { MUNLINK } from '@/config';
 
-export const day1: ScheduleItemType[] = [
+export const day1: EventType[] = [
   {
     title: 'Tenet Inaugration ceremony',
     icon: 'FaCalendar',
@@ -54,6 +54,7 @@ export const day1: ScheduleItemType[] = [
         time: '10:00 PM - 10:15 PM',
       },
     ],
+    gallery: '/24#Inaugration',
   },
   {
     title: 'Product Management in Tech',
@@ -74,6 +75,7 @@ export const day1: ScheduleItemType[] = [
       { name: 'Shreya Kulkarni', phone: '8669033795' },
     ],
     speakers: ['himanshi-yaduwanshi'],
+    gallery: '/24#Product%20Managment',
   },
   {
     title: 'Den Of Code (Experience Zone)',
@@ -113,6 +115,7 @@ export const day1: ScheduleItemType[] = [
       { name: 'Shreya Kulkarni', phone: '8669033795' },
     ],
     speakers: ['udaykothari', 'atul-mehra-94475b8', 'nishantwelpulwar'],
+    gallery: '/24#AI%20Summit',
   },
   {
     title: 'Web - 3 panel',
@@ -133,6 +136,7 @@ export const day1: ScheduleItemType[] = [
       { name: 'Laukik Patil', phone: '9975875657' },
     ],
     speakers: ['almassayyed', 'apooravvyas', 'vishnukorde'],
+    gallery: '/24#Web3%20Pannel%20Discussion',
   },
   {
     title: "First Steps into Development: A Beginner's Guide",
@@ -150,6 +154,7 @@ export const day1: ScheduleItemType[] = [
     image: 'https://ioit.acm.org/tenet/events/development.jpeg',
     organizers: [{ name: 'Manav Nayyar', phone: '8698991836' }],
     speakers: ['vishekpratap'],
+    gallery: '/24#First%20Steps%20in%20development',
   },
   {
     title: 'Capture the Flag',
@@ -184,6 +189,7 @@ export const day1: ScheduleItemType[] = [
         time: '5:00 PM - 6:00 PM',
       },
     ],
+    gallery: '/24#Capture%20The%20Flag',
   },
   {
     title: 'Drone Workshop',
@@ -204,6 +210,7 @@ export const day1: ScheduleItemType[] = [
       { name: 'Aditya Sarade', phone: '8451025156' },
     ],
     registration: 'https://www.ioittenet.com/register/drone-workshop',
+    gallery: '/24#Drone%20Workshop',
   },
   {
     title: 'Exploring the Depths of AR/VR',
@@ -221,10 +228,11 @@ export const day1: ScheduleItemType[] = [
     image: 'https://ioit.acm.org/tenet/events/arvr.jpeg',
     organizers: [{ name: 'Laukik Patil', phone: '9975875657' }],
     speakers: ['akhtar-faizan'],
+    gallery: '/24#AR&VR',
   },
 ];
 
-export const day2: ScheduleItemType[] = [
+export const day2: EventType[] = [
   // Cultural
   {
     icon: 'FaCalendar',
@@ -260,6 +268,7 @@ export const day2: ScheduleItemType[] = [
     organizers: [{ name: 'Ayush Sangole' }, { name: 'Avdhoot Chavan' }],
     registration:
       'https://docs.google.com/forms/d/e/1FAIpQLScsw5pMP3SjBaMcMrs1i1D96Cu7WttNDxu9vBYcPTS9Yr5oag/closedform',
+    gallery: '/24#BGMI',
   },
   {
     title: 'FIFA (FC 24) PS5 Console Event',
@@ -277,6 +286,7 @@ export const day2: ScheduleItemType[] = [
     image: 'https://ioit.acm.org/tenet/events/fifa.webp',
     organizers: [{ name: 'Ayush Sangole' }, { name: 'Avdhoot Chavan' }],
     registration: 'https://forms.gle/dqRBt7KwQF284b2z7',
+    gallery: '/24#FIFA%20tournament',
   },
   {
     title: 'Valorant',
@@ -304,6 +314,7 @@ export const day2: ScheduleItemType[] = [
     icon: 'FcGlobe',
     id: 'breakfast-reporting-day1',
     domain: 'mun',
+    gallery: '/24#MUN',
     schedule: [
       { title: 'Breakfast and reporting', time: '08:00 AM - 09:00 AM' },
       { title: 'Opening Ceremony', time: '09:00 AM - 11:00 AM' },
@@ -328,6 +339,7 @@ export const day2: ScheduleItemType[] = [
     icon: 'FcGlobe',
     id: 'opening-ceremony',
     domain: 'mun',
+    gallery: '/24#MUN',
     schedule: [
       { title: 'Breakfast and reporting', time: '08:00 AM - 09:00 AM' },
       { title: 'Opening Ceremony', time: '09:00 AM - 11:00 AM' },
@@ -352,6 +364,7 @@ export const day2: ScheduleItemType[] = [
     icon: 'FcGlobe',
     id: 'lunch-day1',
     domain: 'mun',
+    gallery: '/24#MUN',
     schedule: [
       { title: 'Breakfast and reporting', time: '08:00 AM - 09:00 AM' },
       { title: 'Opening Ceremony', time: '09:00 AM - 11:00 AM' },
@@ -376,6 +389,7 @@ export const day2: ScheduleItemType[] = [
     icon: 'FcGlobe',
     id: 'high-tea-day1',
     domain: 'mun',
+    gallery: '/24#MUN',
     schedule: [
       { title: 'Breakfast and reporting', time: '08:00 AM - 09:00 AM' },
       { title: 'Opening Ceremony', time: '09:00 AM - 11:00 AM' },
@@ -401,6 +415,7 @@ export const day2: ScheduleItemType[] = [
     icon: 'FcGlobe',
     id: 'unsc-session',
     domain: 'mun',
+    gallery: '/24#MUN',
     schedule: [
       { title: 'Breakfast and reporting', time: '08:00 AM - 09:00 AM' },
       { title: 'Opening Ceremony', time: '09:00 AM - 11:00 AM' },
@@ -431,6 +446,7 @@ export const day2: ScheduleItemType[] = [
     icon: 'FcGlobe',
     id: 'unhrc-session',
     domain: 'mun',
+    gallery: '/24#MUN',
     schedule: [
       { title: 'Breakfast and reporting', time: '08:00 AM - 09:00 AM' },
       { title: 'Opening Ceremony', time: '09:00 AM - 11:00 AM' },
@@ -461,6 +477,7 @@ export const day2: ScheduleItemType[] = [
     icon: 'FcGlobe',
     id: 'aippm-session',
     domain: 'mun',
+    gallery: '/24#MUN',
     schedule: [
       { title: 'Breakfast and reporting', time: '08:00 AM - 09:00 AM' },
       { title: 'Opening Ceremony', time: '09:00 AM - 11:00 AM' },
@@ -491,6 +508,7 @@ export const day2: ScheduleItemType[] = [
     icon: 'FcGlobe',
     id: 'uncsw-session',
     domain: 'mun',
+    gallery: '/24#MUN',
     schedule: [
       { title: 'Breakfast and reporting', time: '08:00 AM - 09:00 AM' },
       { title: 'Opening Ceremony', time: '09:00 AM - 11:00 AM' },
@@ -521,6 +539,7 @@ export const day2: ScheduleItemType[] = [
     icon: 'FcGlobe',
     id: 'unodc-session',
     domain: 'mun',
+    gallery: '/24#MUN',
     schedule: [
       { title: 'Breakfast and reporting', time: '08:00 AM - 09:00 AM' },
       { title: 'Opening Ceremony', time: '09:00 AM - 11:00 AM' },
@@ -548,13 +567,14 @@ export const day2: ScheduleItemType[] = [
   },
 ];
 
-export const day3: ScheduleItemType[] = [
+export const day3: EventType[] = [
   // MUN (Day 2)
   {
     title: 'MUN Breakfast and Reporting',
     icon: 'FcGlobe',
     id: 'breakfast-reporting-day2',
     domain: 'mun',
+    gallery: '/24#MUN',
     schedule: [
       { title: 'Breakfast and reporting', time: '09:00 AM - 10:00 AM' },
       { title: 'Official Committee Photographs', time: '10:00 AM - 10:30 AM' },
@@ -578,6 +598,7 @@ export const day3: ScheduleItemType[] = [
     icon: 'FcGlobe',
     id: 'lunch-day2',
     domain: 'mun',
+    gallery: '/24#MUN',
     schedule: [
       { title: 'Breakfast and reporting', time: '09:00 AM - 10:00 AM' },
       { title: 'Official Committee Photographs', time: '10:00 AM - 10:30 AM' },
@@ -601,6 +622,7 @@ export const day3: ScheduleItemType[] = [
     icon: 'FcGlobe',
     id: 'high-tea-closing-ceremony',
     domain: 'mun',
+    gallery: '/24#MUN%20Valedictory%20Ceremony',
     schedule: [
       { title: 'Breakfast and reporting', time: '09:00 AM - 10:00 AM' },
       { title: 'Official Committee Photographs', time: '10:00 AM - 10:30 AM' },
@@ -624,6 +646,7 @@ export const day3: ScheduleItemType[] = [
     icon: 'FcGlobe',
     id: 'unsc-session-day2',
     domain: 'mun',
+    gallery: '/24#MUN',
     schedule: [
       { title: 'Breakfast and reporting', time: '09:00 AM - 10:00 AM' },
       { title: 'Official Committee Photographs', time: '10:00 AM - 10:30 AM' },
@@ -653,6 +676,7 @@ export const day3: ScheduleItemType[] = [
     icon: 'FcGlobe',
     id: 'unhrc-session-day2',
     domain: 'mun',
+    gallery: '/24#MUN',
     schedule: [
       { title: 'Breakfast and reporting', time: '09:00 AM - 10:00 AM' },
       { title: 'Official Committee Photographs', time: '10:00 AM - 10:30 AM' },
@@ -682,6 +706,7 @@ export const day3: ScheduleItemType[] = [
     icon: 'FcGlobe',
     id: 'aippm-session-day2',
     domain: 'mun',
+    gallery: '/24#MUN',
     schedule: [
       { title: 'Breakfast and reporting', time: '09:00 AM - 10:00 AM' },
       { title: 'Official Committee Photographs', time: '10:00 AM - 10:30 AM' },
@@ -711,6 +736,7 @@ export const day3: ScheduleItemType[] = [
     icon: 'FcGlobe',
     id: 'uncsw-session-day2',
     domain: 'mun',
+    gallery: '/24#MUN',
     schedule: [
       { title: 'Breakfast and reporting', time: '09:00 AM - 10:00 AM' },
       { title: 'Official Committee Photographs', time: '10:00 AM - 10:30 AM' },
@@ -740,6 +766,7 @@ export const day3: ScheduleItemType[] = [
     icon: 'FcGlobe',
     id: 'unodc-session-day2',
     domain: 'mun',
+    gallery: '/24#MUN',
     schedule: [
       { title: 'Breakfast and reporting', time: '09:00 AM - 10:00 AM' },
       { title: 'Official Committee Photographs', time: '10:00 AM - 10:30 AM' },
@@ -786,6 +813,7 @@ export const day3: ScheduleItemType[] = [
       { name: 'Laukik Patil', phone: '9975875657' },
     ],
     color: 'bg-green-500',
+    gallery: '/24#Investing%20Arena',
   },
   {
     title: 'HR Summit',
@@ -806,6 +834,7 @@ export const day3: ScheduleItemType[] = [
     description:
       'HR Summit" brings together industry leaders to explore the latest trends and innovations in Human Resources. This session will cover topics such as future HR strategies, talent management, and organizational development, providing attendees with valuable insights into building a dynamic and resilient workforce. Speakers like Akash Sangole and Neha Mathur will share their expertise on navigating the evolving HR landscape. Join us at AISSMS COE on Oct 6th, 2024, from 11:15 AM to 12:15 PM to discover new approaches to managing human capital and driving business success.',
     speakers: ['akash-sangole', 'mathurneha', 'shyamkerkar', 'sumit-jha'],
+    gallery: '/24#HR%20Summit',
   },
   {
     title: 'Venture Summit',
@@ -831,6 +860,7 @@ export const day3: ScheduleItemType[] = [
       'rajeevmanjrekar',
       'startupconsultantyogeshthite',
     ],
+    gallery: '/24#Starting%20up%20in%20college',
   },
   {
     title: 'Starting up in College',
@@ -848,5 +878,6 @@ export const day3: ScheduleItemType[] = [
     description:
       'Starting Up in College" is an exciting session designed to inspire and empower college students to explore entrepreneurship from a young age. Led by dynamic speakers like Saurabh Mangrulkar, Co-Founder and CEO of EventBeep, this session will delve into the journey of building startups while still pursuing academics. Attendees will gain insights into leveraging college resources, building networks, and converting their ideas into thriving ventures. Join us at IOIT MPH on Oct 6th, 2024, from 10:00 AM to 11:15 AM to discover how to kickstart your entrepreneurial journey right from college!',
     speakers: ['saurabh-mangrulkar', 'chetanbulsari'],
+    gallery: '/24#Starting%20up%20in%20college',
   },
 ];

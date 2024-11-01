@@ -1,5 +1,5 @@
 import React from 'react';
-import { day1, day2, day3 } from '@/config/events';
+import { day1, day2, day3 } from '@/config/data/24/events';
 import { FaArrowRightLong, FaArrowLeftLong } from 'react-icons/fa6';
 import Link from 'next/link';
 

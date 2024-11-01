@@ -1,6 +1,6 @@
 'use client';
 
-import { speakers } from '@/config/speakers';
+import { speakers } from '@/config/data/24/speakers';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useRef } from 'react';
