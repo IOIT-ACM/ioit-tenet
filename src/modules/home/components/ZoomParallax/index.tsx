@@ -49,7 +49,7 @@ export const ZoomParallax = () => {
       scale: scale6,
     },
     {
-      src: 'https://ioit.acm.org/tenet/gallery/24/unscw/1.jpeg',
+      src: 'https://ioit.acm.org/tenet/gallery/24/unscw/10.jpeg',
       scale: scale8,
     },
     {

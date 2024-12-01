@@ -230,6 +230,24 @@ export const day1: EventType[] = [
     speakers: ['akhtar-faizan'],
     gallery: '/24#AR&VR',
   },
+  {
+    title: 'Machine learning unleashed',
+    icon: 'FaCalendar',
+    id: 'machine-learning-unleashed',
+    domain: 'techfiesta',
+    color: 'bg-green-700',
+    date: 'Oct 4th, 2024',
+    location: 'Room 206',
+    start: new Date('2024-09-12T14:00:00'),
+    imp: true,
+    time: '2:00 - 3:00',
+    description:
+      'In the session “Machine Learning Unleashed”, Saurabh Shahane explored the exciting potential of machine learning, offering valuable insights that sparked curiosity and inspiration in the audience.',
+    image: 'https://ioit.acm.org/tenet/events/mlunleashed.jpeg',
+    organizers: [{ name: 'Laukik Patil', phone: '9975875657' }],
+    speakers: ['saurabh-shahan'],
+    gallery: '/24#AR&VR',
+  },
 ];
 
 export const day2: EventType[] = [

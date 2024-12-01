@@ -145,6 +145,16 @@ export const speakers: Speaker[] = [
     sessionid: 'product-management',
   },
   {
+    id: 'saurabh-shahan',
+    name: 'Saurabh Shahane',
+    image: 'https://ioit.acm.org/tenet/speakers/saurabh-shahan.jpeg',
+    title: 'CEO, The Machine Learning Company (TMLC)',
+    url: 'https://www.linkedin.com/in/himanshi-yaduwanshi/',
+    bio: 'Saurabh Shahane is the visionary CEO of The Machine Learning Company (TMLC), where he leads a team pioneering advancements in artificial intelligence across generative AI, NLP, and computer vision. With a strong background in data and AI, he has spearheaded innovative research and practical AI solutions that redefine industry standards. He also established TMLC Academy, an educational initiative offering project-based AI programs that have empowered over 5,000 learners globally, and launched The Data Hire, a dedicated job portal connecting top AI talent with leading companies. His mission is to harness AIs transformative power to drive growth and innovation worldwide.',
+    domain: 'techfiesta',
+    sessionid: 'machine-learning-unleashed',
+  },
+  {
     id: 'udaykothari',
     name: 'Uday Kothari',
     image: 'https://ioit.acm.org/tenet/speakers/UdayKothari.jpeg',
