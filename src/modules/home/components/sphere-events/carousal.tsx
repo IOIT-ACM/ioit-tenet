@@ -38,7 +38,7 @@ export function Carousal() {
               velocity: 2,
             }}
             viewport={{ amount: 0.3, once: false }}
-            className='relative h-[200px] w-auto min-w-[200px] max-w-[250px] flex-shrink-0 md:h-[250px] md:max-w-[300px]'
+            className='relative h-[200px] w-auto min-w-[200px] max-w-[250px] flex-shrink-0 md:h-[200px] md:max-w-[270px]'
           >
             <div
               className='h-full w-full'

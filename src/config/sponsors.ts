@@ -9,6 +9,16 @@ export const sponsor: Sponsor[] = [
     type: 'Media Partner',
   },
   {
+    name: 'IDFC First Bank',
+    logoUrl: 'https://ioit.acm.org/tenet/sponcers/IDFC%20First%20Bank.png',
+    type: 'Banking Sponsor',
+  },
+  {
+    name: 'Abhibus',
+    logoUrl: 'https://ioit.acm.org/tenet/sponcers/abhibus.png',
+    type: 'Travel Partner',
+  },
+  {
     name: 'PuneDao',
     logoUrl: 'https://ioit.acm.org/tenet/sponcers/Pune%20Dao.png',
     type: 'Web3 Community Partner',
@@ -19,19 +29,9 @@ export const sponsor: Sponsor[] = [
     type: 'Venture Partner',
   },
   {
-    name: 'IDFC First Bank',
-    logoUrl: 'https://ioit.acm.org/tenet/sponcers/IDFC%20First%20Bank.png',
-    type: 'Official Banking Sponsor',
-  },
-  {
     name: 'Budhani Bros',
     logoUrl: 'https://ioit.acm.org/tenet/sponcers/budhani.jpeg',
     type: 'Snacking Partner',
-  },
-  {
-    name: 'Abhibus',
-    logoUrl: 'https://ioit.acm.org/tenet/sponcers/abhibus.png',
-    type: 'Travel Partner',
   },
   {
     name: 'Edwise',

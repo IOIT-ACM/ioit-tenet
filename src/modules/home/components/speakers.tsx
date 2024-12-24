@@ -17,7 +17,7 @@ export const TenetSpeakers = () => {
     >
       <Link
         href={'/speakers'}
-        className='text-center text-4xl text-white md:text-8xl'
+        className='text-center text-4xl text-white md:text-5xl'
       >
         Speakers
       </Link>
@@ -32,7 +32,7 @@ const TenetSpeakersCarousel = () => {
       {speakers.map((speaker) => (
         <div
           key={speaker.id}
-          className='h-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4'
+          className='h-1/2 md:basis-1/2 lg:basis-1/3 xl:basis-1/4'
         >
           <SpeakerCard speaker={speaker} key={speaker.name} />
         </div>

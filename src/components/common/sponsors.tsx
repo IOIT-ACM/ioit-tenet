@@ -33,7 +33,7 @@ export const Sponsors: React.FC = () => {
           rel='noopener noreferrer'
           className='flex flex-col items-center'
         >
-          <div className='relative h-24 w-24 overflow-hidden rounded-lg bg-white p-1 shadow-inner transition-transform duration-300 group-hover:rotate-1'>
+          <div className='relative h-20 w-20 overflow-hidden rounded-lg bg-white p-1 shadow-inner transition-transform duration-300 group-hover:rotate-1'>
             <Image
               src={sponsor.logoUrl}
               alt={sponsor.name}

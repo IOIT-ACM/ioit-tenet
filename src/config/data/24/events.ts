@@ -301,7 +301,7 @@ export const day2: EventType[] = [
     time: '9:00 AM onwards',
     description:
       'Experience the thrill of FIFA FC 24 on the PS5. Compete with other players for the top spot!',
-    image: 'https://ioit.acm.org/tenet/events/fifa.webp',
+    image: 'https://ioit.acm.org/tenet/gallery/24/fifa/3.jpeg',
     organizers: [{ name: 'Ayush Sangole' }, { name: 'Avdhoot Chavan' }],
     registration: 'https://forms.gle/dqRBt7KwQF284b2z7',
     gallery: '/24#FIFA%20tournament',
@@ -319,7 +319,7 @@ export const day2: EventType[] = [
     time: '9:00 AM onwards',
     description:
       'Gear up for a competitive Valorant showdown as players from across the globe participate in this online tournament.',
-    image: 'https://ioit.acm.org/tenet/events/valo.webp',
+    image: 'https://ioit.acm.org/tenet/gallery/24/bgmi/8.jpeg',
     organizers: [{ name: 'Ayush Sangole' }, { name: 'Avdhoot Chavan' }],
     registration:
       'https://docs.google.com/forms/d/e/1FAIpQLSdr4PZfpLjOrNdW5JFIcW09oYEjoDIPhvumvIWhOX78MeIaZQ/viewform',
@@ -838,7 +838,7 @@ export const day3: EventType[] = [
     id: 'hr-summit',
     color: 'bg-blue-500',
     date: 'Oct 6th, 2024',
-    location: 'Auditorium, COE',
+    location: 'Room 407',
     start: new Date('2024-10-06T11:15:00'),
     imp: true,
     time: '11:15 AM - 12:15 PM',
@@ -850,8 +850,29 @@ export const day3: EventType[] = [
     ],
     icon: 'IoRocket',
     description:
-      'HR Summit" brings together industry leaders to explore the latest trends and innovations in Human Resources. This session will cover topics such as future HR strategies, talent management, and organizational development, providing attendees with valuable insights into building a dynamic and resilient workforce. Speakers like Akash Sangole and Neha Mathur will share their expertise on navigating the evolving HR landscape. Join us at AISSMS COE on Oct 6th, 2024, from 11:15 AM to 12:15 PM to discover new approaches to managing human capital and driving business success.',
-    speakers: ['akash-sangole', 'mathurneha', 'shyamkerkar', 'sumit-jha'],
+      'Join us at the HR Summit for an engaging session led by Neha Mathur, a distinguished thought leader in agile strategies and employee experience. With over 16 years of expertise, Neha will delve into groundbreaking HR practices, sharing her journey from managing strategic goals across global organizations to founding innovative SaaS platforms like Personifwy. This summit is your chance to explore cutting-edge HR strategies, employee sentiment analytics, and tools for driving business success. Be inspired by Nehas vision at Room 407, AISSMS COE, on Oct 6th, 2024, from 11:15 AM to 12:15 PM. Don’t miss this opportunity to redefine how you approach talent management and organizational development.',
+    speakers: ['mathurneha'],
+    gallery: '/24#HR%20Summit',
+  },
+  {
+    title: 'HR Summit 2',
+    id: 'hr-summit-2',
+    color: 'bg-blue-500',
+    date: 'Oct 6th, 2024',
+    location: 'Multipurpose Hall',
+    start: new Date('2024-10-06T11:15:00'),
+    imp: true,
+    time: '11:15 AM - 12:15 PM',
+    domain: 'esummit',
+    image: 'https://ioit.acm.org/tenet/gallery/24/hr/10.jpeg',
+    organizers: [
+      { name: 'Laukik Patil', phone: '9975875657' },
+      { name: 'Pranav Vetkar', phone: '9321646038' },
+    ],
+    icon: 'IoRocket',
+    description:
+      'Experience unparalleled insights at the HR Summit 2, featuring Akash Sangole, an industry stalwart with two decades of leadership experience across global giants like Panasonic, Volkswagen, and L’Oreal. As the CHRO of Panasonic Life Solutions India, Akash will uncover the art of strategic HR, talent cultivation, and innovative approaches to industrial relations. This session offers a rare opportunity to learn from one of the most influential HR leaders shaping workforce strategies in dynamic business environments. Join us at the Multipurpose Hall, AISSMS COE, on Oct 6th, 2024, from 11:15 AM to 12:15 PM to elevate your HR perspective and network with like-minded professionals.',
+    speakers: ['akash-sangole'],
     gallery: '/24#HR%20Summit',
   },
   {
