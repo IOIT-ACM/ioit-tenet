@@ -1,11 +1,14 @@
+import { Footer } from '@/components/footer';
+
 interface SiteLayoutProps {
   children: React.ReactNode;
 }
 
 export default async function SiteLayout({ children }: SiteLayoutProps) {
   return (
-    <div className='min-h-screen w-screen flex-grow bg-[#e7ddd2]'>
+    <div className='flex min-h-screen flex-col'>
       {children}
+      <Footer />
     </div>
   );
 }
