@@ -121,12 +121,15 @@ export function Tickets() {
           ref={headerRef}
         >
           <h1 className='text-4xl font-bold sm:text-6xl'>TENET 2024</h1>
-          <p className='mt-4 text-lg sm:text-xl'>
-            Don&lsquo;t miss out on IOIT TENET 2024! Secure your VIP pass now
-            and gain exclusive access to all events, premium seating, special
-            goodies, and unparalleled networking opportunities. Experience the
-            excitement of cutting-edge tech, inspiring talks, intense
-            competitions, and cultural showcases—all in one pass.
+          <p className='mt-4 text-lg'>
+            TENET 2024 was an exhilarating event hosted by the IOIT ACM Student
+            Chapter, bringing together over 1,500 participants to celebrate
+            technology, innovation, and collaboration. Spanning 3 days, it
+            featured 25 diverse events, including tech conferences, workshops,
+            MUN, and e-sports tournaments. With 15+ expert speakers,
+            cutting-edge discussions, and a total prize pool exceeding ₹3 lakh,
+            TENET 2024 provided unparalleled opportunities for networking,
+            learning, and showcasing talent.
           </p>
         </div>
       )}

@@ -134,6 +134,9 @@ dependencies:
   next-auth:
     specifier: ^4.24.7
     version: 4.24.8(next@14.2.14)(react-dom@18.3.1)(react@18.3.1)
+  photoswipe:
+    specifier: ^5.4.4
+    version: 5.4.4
   prop-types:
     specifier: ^15.8.1
     version: 15.8.1
@@ -155,6 +158,9 @@ dependencies:
   react-konva:
     specifier: ^18.2.10
     version: 18.2.10(konva@9.3.15)(react-dom@18.3.1)(react@18.3.1)
+  react-photoswipe-gallery:
+    specifier: ^3.0.2
+    version: 3.0.2(photoswipe@5.4.4)(prop-types@15.8.1)(react@18.3.1)
   react-py:
     specifier: ^1.11.2
     version: 1.11.2(react-dom@18.3.1)(react@18.3.1)
@@ -4796,6 +4802,11 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /photoswipe@5.4.4:
+    resolution: {integrity: sha512-WNFHoKrkZNnvFFhbHL93WDkW3ifwVOXSW3w1UuZZelSmgXpIGiZSNlZJq37rR8YejqME2rHs9EhH9ZvlvFH2NA==}
+    engines: {node: '>= 0.12.0'}
+    dev: false
+
   /picocolors@1.1.0:
     resolution: {integrity: sha512-TQ92mBOW0l3LeMeyLV6mzy/kWr8lkd/hp3mTg7wYK7zJhuBStmGMBG0BdeDZS/dZx1IukaX6Bk11zcln25o1Aw==}
 
@@ -5594,6 +5605,18 @@ packages:
       react-dom: 18.3.1(react@18.3.1)
       react-reconciler: 0.29.2(react@18.3.1)
       scheduler: 0.23.2
+    dev: false
+
+  /react-photoswipe-gallery@3.0.2(photoswipe@5.4.4)(prop-types@15.8.1)(react@18.3.1):
+    resolution: {integrity: sha512-TLkpzp2BSUUL/4GPRU5SQWXfJ8xuUBKgS8qUaHyhsT1co6CStr1mVCl4oQrSSFbWxAKhB5fHbr12l1R+TkqFcQ==}
+    peerDependencies:
+      photoswipe: '>= 5.2.2'
+      prop-types: '>= 15.7.0'
+      react: '>= 16.8.0'
+    dependencies:
+      photoswipe: 5.4.4
+      prop-types: 15.8.1
+      react: 18.3.1
     dev: false
 
   /react-py@1.11.2(react-dom@18.3.1)(react@18.3.1):

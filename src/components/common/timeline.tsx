@@ -141,7 +141,7 @@ export const Timeline: React.FC<{ domain: string }> = ({ domain }) => {
   return (
     <main
       id='timeline'
-      className='flex flex-col items-center overflow-hidden bg-neutral-950 p-4 text-white'
+      className='mt-10 flex flex-col items-center overflow-hidden bg-neutral-950 p-4 text-white'
     >
       <h1 className='my-12 bg-gradient-to-r from-indigo-300 to-indigo-600 bg-clip-text text-center text-4xl font-bold text-transparent md:my-24 md:text-6xl'>
         {domain.toLocaleUpperCase()} Events Timeline

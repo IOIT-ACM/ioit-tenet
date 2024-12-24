@@ -48,9 +48,10 @@ export const Footer = () => {
               </Scrollytelling.Animation>
             </div>
           </div>
-          <div className={s.links}>
+          <div className='mt-10 flex w-full flex-col justify-between gap-4 md:flex-row md:gap-0'>
             <div>
               <span>get in touch</span>
+              <br />
               <Link
                 className='link'
                 href='mailto:ioit.tenet@aissmsioit.org'
@@ -60,19 +61,28 @@ export const Footer = () => {
                 ioit.tenet@aissmsioit.org
               </Link>
             </div>
-            <div className='md:text-center'>
-              <Link
-                className='link'
-                href='mailto:adimail2404@gmail.com'
-                target='_blank'
-                rel='noreferrer'
-              >
-                Contact developers
-              </Link>
-              <Link href={'#'}>Go to top</Link>
+            <div className='max-w-[300px]'>
+              <div className='text-left md:text-center'>
+                Designed and developed by{' '}
+                <Link
+                  className='link underline'
+                  href='https://github.com/adimail'
+                  target='_blank'
+                >
+                  Aditya Godse
+                </Link>{' '}
+                with{' '}
+                <Link
+                  className='link underline'
+                  href='https://github.com/swarooppatilx'
+                  target='_blank'
+                >
+                  Swaroop Patil
+                </Link>
+              </div>
             </div>
-            <div>
-              <span>&copy; {new Date().getFullYear()} ACM IOIT</span>
+            <div className='md:text-right'>
+              <span>&copy; {new Date().getFullYear()} ACM IOIT</span> <br />
               <span>All rights reserved.</span>
             </div>
           </div>

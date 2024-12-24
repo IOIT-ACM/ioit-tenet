@@ -71,7 +71,7 @@ const TenetLive: React.FC = () => {
                 <div className='flex flex-col items-center rounded-lg bg-white bg-opacity-10 p-4 backdrop-blur-lg'>
                   <EventIcon className='mb-2 h-8 w-8 text-blue-400' />
                   <NumberTicker
-                    value={50}
+                    value={25}
                     direction='up'
                     className='text-4xl font-bold text-blue-400'
                   />
@@ -80,7 +80,7 @@ const TenetLive: React.FC = () => {
                 <div className='flex flex-col items-center rounded-lg bg-white bg-opacity-10 p-4 backdrop-blur-lg'>
                   <Users className='mb-2 h-8 w-8 text-green-400' />
                   <NumberTicker
-                    value={520}
+                    value={1500}
                     direction='up'
                     className='text-4xl font-bold text-green-400'
                   />

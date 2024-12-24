@@ -6,11 +6,15 @@ import { useIsMobile } from '@/hooks/useismobile';
 
 const section1 = [
   'Top industry leaders',
-  '50+ expert speakers',
-  '3000+ attendees',
+  '15+ expert speakers',
+  '1500+ attendees',
 ];
 
-const section2 = ['Exclusive merch', 'Welcome kits', 'Certifications'];
+const section2 = [
+  '3 Lakh+ clubbed prizepool',
+  'recieved 1.4cr of funding',
+  'commitments in investing arena',
+];
 
 const section3 = [
   'Job & internship fair',
@@ -20,7 +24,7 @@ const section3 = [
 
 export default function Description() {
   return (
-    <div className='font-roboto relative mx-[5vw] mb-20 mt-[10vw] overflow-hidden text-xl text-white/80 md:mb-48 md:text-6xl'>
+    <div className='font-roboto relative mx-[5vw] mb-20 mt-[10vw] overflow-hidden text-xl text-white/80 md:mb-48 md:text-5xl'>
       <div className='mt-[5vw] text-left'>
         {section1.map((phrase, index) => (
           <AnimatedTextLeft key={index}>{phrase}</AnimatedTextLeft>

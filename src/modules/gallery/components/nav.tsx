@@ -50,7 +50,7 @@ export function FixedNav({ data }: { data: GalleryImageGroup[] }) {
         >
           <Image
             className='h-full w-full'
-            src={'/tenet.png'}
+            src={'/tenet-white-logo.png'}
             alt='Tenet Logo'
             height={40}
             width={40}
@@ -84,7 +84,10 @@ export function FixedNav({ data }: { data: GalleryImageGroup[] }) {
           {!isExpanded ? (
             <div
               className='flex cursor-pointer items-center justify-center gap-2 overflow-hidden truncate px-6 py-3 text-black'
-              onClick={() => setIsExpanded(true)}
+              onClick={() => {
+                setSearchValue('');
+                setIsExpanded(true);
+              }}
             >
               <Search size={18} />
               <span>{searchValue ? searchValue : 'Search'}</span>
