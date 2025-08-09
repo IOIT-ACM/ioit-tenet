@@ -52,3 +52,8 @@ export interface Sponsor {
   websiteUrl?: string;
   type?: string;
 }
+
+export interface navbarType {
+  name: string;
+  path: string;
+}

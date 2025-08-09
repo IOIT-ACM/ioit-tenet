@@ -34,13 +34,13 @@ export function RegistrationFull() {
         </p>
         <div className='flex space-x-4'>
           <Button asChild variant='outline'>
-            <Link href='/speakers' className='flex items-center'>
+            <Link href='/24/speakers' className='flex items-center'>
               <Users className='mr-2 h-4 w-4' />
               Speakers
             </Link>
           </Button>
           <Button asChild variant='outline'>
-            <Link href='/events' className='flex items-center'>
+            <Link href='/24/events' className='flex items-center'>
               <Calendar className='mr-2 h-4 w-4' />
               Events
             </Link>

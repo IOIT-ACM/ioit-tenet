@@ -221,7 +221,7 @@ const EventContent: React.FC<{
         : 'md:ml-auto md:pl-6 md:text-right lg:pl-12'
     }`}
   >
-    <Link href={`/events/${event.id}`} passHref>
+    <Link href={`/24/events/${event.id}`} passHref>
       <div className='group rounded-lg p-2 transition-all duration-300 ease-in-out hover:bg-slate-800 md:p-4'>
         <h3 className='md:text-md mb-2 text-sm text-indigo-500'>
           {event.date}

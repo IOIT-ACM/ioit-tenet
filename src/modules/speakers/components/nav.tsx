@@ -14,13 +14,7 @@ import {
 } from '@/components/ui/sheet';
 import { MusicBtn } from '@/components/common/musicplayer';
 import { FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
-
-const routes = [
-  { path: '/', name: 'Home' },
-  { path: '/events', name: 'Agenda' },
-  { path: '/speakers', name: 'Speakers & Guests' },
-  { path: '/register', name: 'Registrations' },
-];
+import { routes } from '@/config/data/24/navbar';
 
 export const Nav = () => {
   return (
@@ -50,10 +44,10 @@ export const Nav = () => {
           <Link className='transition-all hover:underline' href='/'>
             Home
           </Link>
-          <Link className='transition-all hover:underline' href='/speakers'>
+          <Link className='transition-all hover:underline' href='/24/speakers'>
             Speakers
           </Link>
-          <Link className='transition-all hover:underline' href='/events'>
+          <Link className='transition-all hover:underline' href='/24/events'>
             Events
           </Link>
           <Link className='transition-all hover:underline' href='/register'>

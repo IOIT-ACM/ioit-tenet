@@ -69,7 +69,7 @@ export const Speakers = () => {
             <div className='grid grid-cols-2 gap-14 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
               {domainSpeakers.map((speaker) => (
                 <Link
-                  href={`/speakers/${speaker.id}`}
+                  href={`/24/speakers/${speaker.id}`}
                   key={speaker.id}
                   passHref
                 >

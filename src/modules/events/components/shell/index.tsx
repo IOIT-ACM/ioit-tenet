@@ -18,13 +18,7 @@ import {
 } from '@/components/ui/sheet';
 import { MusicBtn } from '@/components/common/musicplayer';
 import { FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
-
-const routes = [
-  { path: '/', name: 'Home' },
-  { path: '/events', name: 'Events' },
-  { path: '/speakers', name: 'Speakers & Guests' },
-  { path: '/register', name: 'Registrations' },
-];
+import { routes } from '@/config/data/24/navbar';
 
 import { CiMenuFries } from 'react-icons/ci';
 
@@ -65,10 +59,13 @@ export function Shell({ children }: ShellProps) {
             <Link className='transition-all hover:underline' href='/'>
               Home
             </Link>
-            <Link className='transition-all hover:underline' href='/events'>
+            <Link className='transition-all hover:underline' href='/24/events'>
               Events
             </Link>
-            <Link className='transition-all hover:underline' href='/speakers'>
+            <Link
+              className='transition-all hover:underline'
+              href='/24/speakers'
+            >
               Speakers
             </Link>
             <Link className='transition-all hover:underline' href='/register'>

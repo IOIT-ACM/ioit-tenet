@@ -11,7 +11,7 @@ interface Props {
 
 function SpeakerCard({ speaker }: Props) {
   return (
-    <Link href={`/speakers/${speaker.id}`} className='flex justify-center'>
+    <Link href={`/24/speakers/${speaker.id}`} className='flex justify-center'>
       <Card className='group h-full w-[260px] transform overflow-hidden rounded-3xl border border-gray-200 transition-transform md:w-[300px]'>
         <div className='group relative mx-auto aspect-[6/8] w-full max-w-sm overflow-hidden shadow-lg'>
           <img

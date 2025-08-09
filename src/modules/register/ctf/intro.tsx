@@ -39,7 +39,7 @@ export default function Intro() {
       </div>
 
       <Link
-        href='/events/ctf'
+        href='/24/events/ctf'
         className='mt-1 flex w-fit text-gray-200 underline'
       >
         View event details

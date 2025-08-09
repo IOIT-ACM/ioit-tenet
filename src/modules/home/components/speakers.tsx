@@ -16,7 +16,7 @@ export const TenetSpeakers = () => {
       className='flex h-[100vh] flex-col justify-around bg-neutral-950'
     >
       <Link
-        href={'/speakers'}
+        href={'/24/speakers'}
         className='text-center text-4xl text-white md:text-5xl'
       >
         Speakers

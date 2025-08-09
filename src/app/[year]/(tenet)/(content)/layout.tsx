@@ -3,6 +3,7 @@ import { Providers } from '@/modules/providers';
 import { Footer } from '@/modules/events';
 import { MusicBtn } from '@/components/common/musicplayer';
 import { Sponsors } from '@/components/common';
+import { routes } from '@/config/data/24/navbar';
 
 interface SiteLayoutProps {
   children: React.ReactNode;
@@ -11,7 +12,7 @@ interface SiteLayoutProps {
 export default async function SiteLayout({ children }: SiteLayoutProps) {
   return (
     <div className='min-h-screen w-screen flex-grow'>
-      <FixedNavBar />
+      <FixedNavBar routes={routes} />
       <Providers>
         {children} <Sponsors />
       </Providers>
