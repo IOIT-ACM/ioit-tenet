@@ -1,3 +1,3 @@
-import Magnetic from "./Magnetic";
+import Magnetic from './Magnetic';
 
 export default Magnetic;

@@ -5,50 +5,27 @@ import { gsap } from 'gsap';
 import TenetLive from './live';
 
 export const ShiftingCountdown = () => {
-  const [isCountdownEnded, setIsCountdownEnded] = useState(false);
-
   return (
     <section id='timeline' className='flex items-center justify-center'>
       <div>
-        {isCountdownEnded ? (
-          <TenetLive />
-        ) : (
-          <>
-            <p className='text-center text-4xl font-extrabold text-white md:text-9xl'>
-              TENET BEGINS IN
-            </p>
-            <div className='z-50 p-4 py-8 md:py-14'>
-              <div className='mx-auto flex w-full max-w-5xl flex-col items-center gap-4 bg-none md:flex-row'>
-                <CountdownItem
-                  unit='Day'
-                  text='days'
-                  setIsCountdownEnded={setIsCountdownEnded}
-                />
-                <CountdownItem
-                  unit='Hour'
-                  text='hours'
-                  setIsCountdownEnded={setIsCountdownEnded}
-                />
-                <CountdownItem
-                  unit='Minute'
-                  text='minutes'
-                  setIsCountdownEnded={setIsCountdownEnded}
-                />
-                <CountdownItem
-                  unit='Second'
-                  text='seconds'
-                  setIsCountdownEnded={setIsCountdownEnded}
-                />
-              </div>
-            </div>
-          </>
-        )}
+        <p className='text-center text-4xl font-extrabold text-white md:text-9xl'>
+          TENET&apos;25 BEGINS IN
+        </p>
+        <div className='z-50 p-4 py-8 md:py-14'>
+          <div className='mx-auto flex w-full max-w-5xl flex-col items-center gap-4 bg-none md:flex-row'>
+            <CountdownItem unit='Day' text='days' />
+            <CountdownItem unit='Hour' text='hours' />
+            <CountdownItem unit='Minute' text='minutes' />
+            <CountdownItem unit='Second' text='seconds' />
+          </div>
+        </div>
+        <TenetLive />
       </div>
     </section>
   );
 };
 
-const COUNTDOWN_TO = '2024-10-04T08:00:00';
+const COUNTDOWN_TO = '2025-10-11T08:00:00';
 
 const SECOND = 1000;
 const MINUTE = SECOND * 60;
@@ -60,15 +37,10 @@ type Unit = 'Day' | 'Hour' | 'Minute' | 'Second';
 interface CountdownItemProps {
   unit: Unit;
   text: string;
-  setIsCountdownEnded: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const CountdownItem: React.FC<CountdownItemProps> = ({
-  unit,
-  text,
-  setIsCountdownEnded,
-}) => {
-  const { time } = useTimer(unit, setIsCountdownEnded);
+const CountdownItem: React.FC<CountdownItemProps> = ({ unit, text }) => {
+  const { time } = useTimer(unit);
   const timeRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
@@ -96,10 +68,7 @@ const CountdownItem: React.FC<CountdownItemProps> = ({
   );
 };
 
-const useTimer = (
-  unit: Unit,
-  setIsCountdownEnded: React.Dispatch<React.SetStateAction<boolean>>,
-) => {
+const useTimer = (unit: Unit) => {
   const [time, setTime] = useState(0);
   const endDateRef = useRef(new Date(COUNTDOWN_TO));
 
@@ -108,7 +77,6 @@ const useTimer = (
     const distance = endDateRef.current.getTime() - now.getTime();
 
     if (distance <= 0) {
-      setIsCountdownEnded(true);
       return 0;
     }
 
@@ -122,7 +90,7 @@ const useTimer = (
       case 'Second':
         return Math.floor((distance % MINUTE) / SECOND);
     }
-  }, [unit, setIsCountdownEnded]);
+  }, [unit]);
 
   useEffect(() => {
     const updateTime = () => {

@@ -62,7 +62,7 @@ const Marquee = ({
       >
         {Array.from({ length: 10 }, (_, i) => (
           <div key={i} className={s.marqueeItem}>
-            OCTOBER 4-5-6 2024
+            OCTOBER 11-12-13 2025
             <SlCalender />
           </div>
         ))}

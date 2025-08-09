@@ -8,14 +8,14 @@
   justify-content: center;
   white-space: nowrap;
   color: black;
-  
+
   & > span:first-child {
     position: relative;
     margin: 0;
     z-index: 1;
     transition: color 0.4s linear;
   }
-  
+
   &:hover {
     span:first-child {
       color: white;
@@ -33,13 +33,12 @@
   color: white;
   padding: 4px;
 
-  &>span:first-child {
+  & > span:first-child {
     position: relative;
     margin: 0;
     z-index: 1;
     transition: color 0.4s linear;
   }
-
 }
 
 .circle {

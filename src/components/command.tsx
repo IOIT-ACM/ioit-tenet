@@ -50,7 +50,11 @@ export function TenetCommandDialog() {
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
-      if (e.ctrlKey && e.key === 'j') {
+      // Check for Ctrl+J on Mac and Win+J on Windows/Linux
+      if (
+        ((e.ctrlKey || e.metaKey) && e.key === 'j') ||
+        (e.key === 'j' && e.metaKey)
+      ) {
         e.preventDefault();
         setOpen((open) => !open);
       }
@@ -163,7 +167,7 @@ export function TenetCommandDialog() {
     } else {
       setWinKey(
         <>
-          <span>Press </span>
+          <span>Press</span>
           <FaWindows className='mx-2' />
           <span>+ J </span>
         </>,
