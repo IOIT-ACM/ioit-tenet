@@ -2,7 +2,7 @@ import { EventsList } from '@/modules/events';
 import { type Metadata } from 'next';
 import { env } from '@/env';
 import FixedNavBar from '@/components/common/fixednav';
-
+import { routes } from '@/config/data/24/navbar';
 import { Footer } from '@/modules/events';
 
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ const Page = () => {
   return (
     <div className='bg-slate-200'>
       <EventsList />
-      <FixedNavBar />
+      <FixedNavBar routes={routes} />
       <Footer />
     </div>
   );

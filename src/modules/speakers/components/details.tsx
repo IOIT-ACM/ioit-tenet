@@ -159,7 +159,7 @@ export const SpeakerDetails = ({ speaker }: { speaker: Speaker }) => {
                   Attend their session
                 </h1>
                 <Link
-                  href={`/events/${speakersession.id}`}
+                  href={`/24/events/${speakersession.id}`}
                   className='flex w-full items-center space-x-3 p-3 transition-all duration-150 hover:rounded-xl hover:bg-slate-500 md:w-fit'
                 >
                   <div className='relative h-16 w-16 md:h-20 md:w-20'>

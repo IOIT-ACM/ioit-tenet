@@ -46,7 +46,7 @@ export function Carousal() {
                 transform: `translateY(${yTranslations[index]}px)`,
               }}
             >
-              <Link href={'/events/' + event.id}>
+              <Link href={'/24/events/' + event.id}>
                 <div
                   className='relative h-full w-full rounded-lg border-2 border-dotted bg-contain bg-center bg-no-repeat shadow-lg'
                   style={{

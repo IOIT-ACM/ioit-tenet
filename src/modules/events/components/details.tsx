@@ -320,7 +320,7 @@ ${
                   type='button'
                   className='text-black hover:text-white'
                   onClick={() =>
-                    handleShare({ msg, url: `/events/${event.id}` })
+                    handleShare({ msg, url: `/24/events/${event.id}` })
                   }
                 >
                   Share
@@ -338,7 +338,7 @@ ${
 const SpeakerCard = ({ speaker }: { speaker: Speaker }) => {
   return (
     <Link
-      href={`/speakers/${speaker.id}`}
+      href={`/24/speakers/${speaker.id}`}
       className='flex w-full items-center space-x-3 p-3 transition-all duration-150 hover:rounded-xl hover:bg-slate-500 md:w-fit'
     >
       <div className='relative h-16 w-16 md:h-20 md:w-20'>

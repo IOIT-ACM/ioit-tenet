@@ -76,7 +76,10 @@ const MobileFooter = () => {
             <CarouselContent>
               {allEvents.map((event, index) => (
                 <CarouselItem key={index}>
-                  <Link href={`/events/${event.id}`} onClick={handleItemClick}>
+                  <Link
+                    href={`/24/events/${event.id}`}
+                    onClick={handleItemClick}
+                  >
                     <div className='relative flex h-full select-none flex-col items-center justify-between px-4 py-10 text-center'>
                       <Image
                         src={event.image}
@@ -123,7 +126,7 @@ const MobileFooter = () => {
               {speakers.map((speaker, index) => (
                 <CarouselItem key={index}>
                   <Link
-                    href={`/speakers/${speaker.id}`}
+                    href={`/24/speakers/${speaker.id}`}
                     onClick={handleItemClick}
                   >
                     <div className='flex h-full select-none flex-col items-center justify-between px-4 py-10 text-center'>

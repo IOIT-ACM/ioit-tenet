@@ -18,14 +18,7 @@ import Link from 'next/link';
 import { MusicBtn } from './musicplayer';
 import { usePathname } from 'next/navigation';
 import { gsap } from 'gsap';
-
-const routes = [
-  { path: '/techfiesta', name: 'Techfiesta' },
-  { path: '/esports', name: 'E-Sports' },
-  { path: '/mun', name: 'MUN' },
-  { path: '/esummit', name: 'E-Summit' },
-  { path: '/creators', name: 'Cultural Night' },
-];
+import { type navbarType } from '@/types';
 
 const transition = {
   type: 'spring',
@@ -41,7 +34,13 @@ const transition = {
 // GSAP: Scroll triggers
 // Framer motion: Links and SVG logo
 
-export default function FixedNavBar({ className }: { className?: string }) {
+export default function FixedNavBar({
+  className,
+  routes,
+}: {
+  className?: string;
+  routes?: navbarType[];
+}) {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const [hovering, setHovering] = useState<null | string>(null);
@@ -151,7 +150,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
         )}
       >
         <div className='relative flex gap-0 rounded-full border-2 border-slate-600 bg-slate-300 p-2 text-black'>
-          {routes.map((route) => (
+          {routes?.map((route) => (
             <motion.div
               key={route.path}
               className='relative cursor-pointer rounded-xl'
@@ -238,7 +237,7 @@ export default function FixedNavBar({ className }: { className?: string }) {
                 />
               </motion.svg>
               <nav className='relative z-10 flex flex-col items-center gap-12 text-center text-2xl text-white'>
-                {routes.map((route) => (
+                {routes?.map((route) => (
                   <SheetClose key={route.path} asChild>
                     <Link
                       className='transform font-semibold transition-transform duration-200'
@@ -260,13 +259,13 @@ export default function FixedNavBar({ className }: { className?: string }) {
                   <div className='flex gap-5'>
                     <Link
                       className='transform font-semibold transition-transform duration-200'
-                      href='/events'
+                      href='/24/events'
                     >
                       Events
                     </Link>
                     <Link
                       className='transform font-semibold transition-transform duration-200'
-                      href='/speakers'
+                      href='/24/speakers'
                     >
                       Speakers
                     </Link>

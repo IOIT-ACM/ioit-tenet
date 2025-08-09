@@ -57,7 +57,7 @@ export const SpeakerItem = ({ data }: { data: Speaker }) => {
   return (
     <div ref={itemRef}>
       <Link
-        href={`/speakers/${data.id}`}
+        href={`/24/speakers/${data.id}`}
         className={`mb-5 flex cursor-pointer items-center gap-3 border-b p-4 transition-all hover:text-slate-300 md:mb-0 md:border-none ${
           isActive
             ? 'rounded-xl border-opacity-25 bg-white/10 text-white'

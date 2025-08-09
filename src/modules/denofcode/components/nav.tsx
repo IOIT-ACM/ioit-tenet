@@ -33,13 +33,13 @@ export const Nav = () => {
           <Link className='transition-all hover:underline' href='/'>
             Home
           </Link>
-          <Link className='transition-all hover:underline' href='/speakers'>
+          <Link className='transition-all hover:underline' href='/24/speakers'>
             Speakers
           </Link>
-          <Link className='transition-all hover:underline' href='/events'>
+          <Link className='transition-all hover:underline' href='/24/events'>
             Events
           </Link>
-          <Link className='transition-all hover:underline' href='/register'>
+          <Link className='transition-all hover:underline' href='/24/register'>
             Registrations
           </Link>
         </nav>

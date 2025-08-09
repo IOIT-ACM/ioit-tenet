@@ -46,7 +46,7 @@ export const ScheduleItem = ({ data }: { data: EventType }) => {
   return (
     <div ref={itemRef}>
       <Link
-        href={`/events/${data.id}`}
+        href={`/24/events/${data.id}`}
         className={`relative mb-5 flex flex-col p-4 transition-all hover:text-slate-300 md:mb-0 md:border-none ${
           isActive
             ? 'rounded-xl border-opacity-25 bg-white/10 text-white'
