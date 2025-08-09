@@ -35,7 +35,7 @@ const WelcomeScreen = () => {
       className={`${styles.welcomeScreen} ${loading && sceneLoading ? '' : styles.slideDown}`}
     >
       <div className={styles.content}>
-        <h1 className={styles.title}>TENET 2024</h1>
+        <h1 className={styles.title}>TENET 2025</h1>
         <p className={styles.subtitle}>Loading, please wait...</p>
       </div>
     </div>

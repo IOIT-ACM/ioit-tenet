@@ -1,6 +1,5 @@
 import {
   SearchEvents,
-  TenetSpeakers,
   MUN,
   EventCountdown,
   Intro,
@@ -16,17 +15,15 @@ import {
 } from '@/modules/home';
 import { MusicBtn } from '@/components/common/musicplayer';
 import { GameLink } from '@/modules/game';
-
 export default async function HomePage() {
   return (
     <main className=''>
       <TenetHero />
       <Intro />
-      <Tickets />
       <EventCountdown />
+      <Tickets />
       <ScrollableEvents />
       <Schedule />
-      <TenetSpeakers />
       <ZoomParallax />
       <SearchEvents />
       <Sponsors />

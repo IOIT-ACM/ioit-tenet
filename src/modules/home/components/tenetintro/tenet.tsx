@@ -81,12 +81,12 @@ export const TENET: React.FC = () => {
       className='absolute top-0 hidden h-fit transform flex-col justify-center md:left-10 md:flex md:h-full'
     >
       <h2 className='headline hidden text-5xl font-extrabold text-white md:block'>
-        FIRST EDITION
+        SECOND EDITION
         <br />
         OF IOIT TENET
       </h2>
       <h2 className='date hidden text-lg text-gray-200 md:block'>
-        4th - 6th October 2024
+        11th - 13th October 2025
       </h2>
       <div className='link-item flex w-screen items-center justify-center text-center md:mt-5 md:w-full md:flex-col md:items-start md:justify-start md:text-right md:text-2xl'>
         <>

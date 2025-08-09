@@ -23,7 +23,7 @@ export const MUN = () => {
     >
       <div>
         <span className='mb-3 block text-base font-medium text-[#26a7ff] sm:mb-4 sm:text-lg md:text-xl'>
-          Glimpses from this year
+          Glimpses from last year
         </span>
         <h3 className='text-3xl font-semibold sm:text-4xl md:text-5xl lg:text-7xl xl:text-9xl'>
           IOIT MUN&lsquo;24

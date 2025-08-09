@@ -4,15 +4,15 @@ import { useStore } from '@/store';
 import Image from 'next/image';
 
 const GameOverModal = () => {
-    const htmlcode = useStore((state) => state.htmlcode);
+  const htmlcode = useStore((state) => state.htmlcode);
   const csscode = useStore((state) => state.csscode);
   const previewRef = useRef<HTMLIFrameElement>(null);
   const webmasterPS = useStore((state) => state.webmasterPS);
   const [scale, setScale] = useState(1);
 
-const setHTML = useStore((state) => state.setHTML);
-const setCSS = useStore((state) => state.setCSS);
-const setPlayerState = useStore((state) => state.setPlayerState);
+  const setHTML = useStore((state) => state.setHTML);
+  const setCSS = useStore((state) => state.setCSS);
+  const setPlayerState = useStore((state) => state.setPlayerState);
 
   useEffect(() => {
     updatePreview();
@@ -27,9 +27,9 @@ const setPlayerState = useStore((state) => state.setPlayerState);
       selectedGame: null,
       language: undefined,
       code: undefined,
-      bug: undefined
+      bug: undefined,
     });
-  }
+  };
 
   const updatePreview = () => {
     if (previewRef.current) {
@@ -50,66 +50,66 @@ const setPlayerState = useStore((state) => state.setPlayerState);
   };
 
   return (
-<div className='fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50'>
-  <div className='flex flex-col rounded-lg bg-white shadow-lg  w-4/5 h-[90vh] border-2 border-gray-800'>
+    <div className='fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50'>
+      <div className='flex h-[90vh] w-4/5 flex-col rounded-lg border-2 border-gray-800 bg-white shadow-lg'>
+        <div className='m-2 flex w-full flex-col items-center justify-center'>
+          <h2 className='text-5xl font-bold text-red-600'>Game Over</h2>
+          <p className='mt-2 text-lg text-gray-800'>Time is up!</p>
+        </div>
 
-    <div className='flex flex-col w-full justify-center items-center m-2'>
-      <h2 className='text-5xl font-bold text-red-600'>Game Over</h2>
-      <p className='mt-2 text-gray-800 text-lg'>Time is up!</p>
-    </div>
+        <div className='flex flex-grow gap-3 p-4'>
+          <div className='flex w-full flex-grow flex-col overflow-hidden border border-gray-400 bg-[#f0f0f0] p-4'>
+            <iframe
+              ref={previewRef}
+              title='Preview'
+              className='h-full w-full border-none'
+              sandbox='allow-scripts'
+              style={{
+                transform: `scale(${scale})`,
+                transformOrigin: '0 0',
+              }}
+            />
+            <div className='mt-4 flex justify-end'>
+              <button
+                className='mx-2 rounded bg-blue-500 px-3 py-1 text-white'
+                onClick={handleZoomIn}
+              >
+                Zoom In
+              </button>
+              <button
+                className='mx-2 rounded bg-blue-500 px-3 py-1 text-white'
+                onClick={handleZoomOut}
+              >
+                Zoom Out
+              </button>
+            </div>
+          </div>
 
+          <div className='flex h-full w-full flex-grow flex-col border border-gray-400 p-4'>
+            <h3 className='text-center text-xl font-semibold'>Target Image</h3>
+            <div className='flex-grow'>
+              <Image
+                src={webmasterPS?.imageURL ?? ''}
+                alt='Target'
+                layout='responsive'
+                objectFit='contain'
+                width={300}
+                height={400}
+              />
+            </div>
+          </div>
+        </div>
 
-    <div className='flex flex-grow p-4 gap-3'>
-      
-      <div className='flex flex-col flex-grow p-4 w-full border border-gray-400 bg-[#f0f0f0] overflow-hidden'>
-        <iframe
-          ref={previewRef}
-          title='Preview'
-          className='h-full w-full border-none'
-          sandbox='allow-scripts'
-          style={{
-            transform: `scale(${scale})`,
-            transformOrigin: '0 0',
-          }}
-        />
-        <div className='mt-4 flex justify-end'>
+        <div className='flex items-center justify-center py-4'>
           <button
-            className='mx-2 rounded bg-blue-500 px-3 py-1 text-white'
-            onClick={handleZoomIn}
+            className='mx-2 rounded bg-green-500 px-3 py-1 text-xl text-white'
+            onClick={() => handleRefresh()}
           >
-            Zoom In
-          </button>
-          <button
-            className='mx-2 rounded bg-blue-500 px-3 py-1 text-white'
-            onClick={handleZoomOut}
-          >
-            Zoom Out
+            New Game
           </button>
         </div>
       </div>
-
-      <div className='flex flex-col flex-grow p-4 w-full h-full border border-gray-400'>
-        <h3 className='text-xl font-semibold text-center'>Target Image</h3>
-        <div className='flex-grow'>
-          <Image
-            src={webmasterPS?.imageURL ?? ''}
-            alt='Target'
-            layout='responsive'
-            objectFit='contain'
-            width={300}
-            height={400}
-          />
-        </div>
-      </div>
-
     </div>
-
-    <div className='flex justify-center items-center py-4'>
-      <button className='mx-2 rounded bg-green-500 px-3 py-1 text-white text-xl' onClick={()=> handleRefresh()}>New Game</button>
-    </div>
-  </div>
-</div>
-
   );
 };
 

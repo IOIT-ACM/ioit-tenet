@@ -201,7 +201,7 @@ html.fonts-loaded body {
 }
 
 #tenet-button-animation h4::after {
-  content: "";
+  content: '';
   position: absolute;
   height: 100%;
   width: 100%;
@@ -217,18 +217,22 @@ html.fonts-loaded body {
   border-radius: 0;
 }
 
-#tenet-button-animation h4 a,button {
+#tenet-button-animation h4 a,
+button {
   color: #000000bb;
   text-decoration: none;
   position: relative;
   z-index: 9;
 }
 
-#tenet-button-animation h4:hover a,button {
+#tenet-button-animation h4:hover a,
+button {
   color: #fff;
 }
 
 .glow {
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 0 10px rgba(255, 255, 255, 0.7),
+    0 0 20px rgba(255, 255, 255, 0.5);
   transform: scale(1.05);
 }
