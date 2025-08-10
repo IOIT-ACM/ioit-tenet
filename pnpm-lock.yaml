@@ -194,6 +194,9 @@ dependencies:
   three-stdlib:
     specifier: ^2.32.1
     version: 2.33.0(three@0.167.1)
+  tweakpane:
+    specifier: ^4.0.5
+    version: 4.0.5
   valtio:
     specifier: ^2.0.0
     version: 2.0.0(@types/react@18.3.11)(react@18.3.1)
@@ -6366,6 +6369,10 @@ packages:
       - '@types/react'
       - immer
       - react
+    dev: false
+
+  /tweakpane@4.0.5:
+    resolution: {integrity: sha512-rxEXdSI+ArlG1RyO6FghC4ZUX8JkEfz8F3v1JuteXSV0pEtHJzyo07fcDG+NsJfN5L39kSbCYbB9cBGHyuI/tQ==}
     dev: false
 
   /type-check@0.4.0:
