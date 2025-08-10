@@ -15,4 +15,4 @@ export const GameDuration = 540;
 
 export const DENOFCODE_PASSKEY = 'asci';
 
-export const GALLERY_PAGE = '/24';
+export const GALLERY_PAGE = '/24/gallery';
