@@ -41,6 +41,9 @@ export const Links: React.FC = () => {
         <Magnets link='/24/speakers' className='link-item text-white'>
           Speakers
         </Magnets>
+        <Magnets link='/schedule' className='link-item text-white'>
+          Schedule
+        </Magnets>
         <Magnets
           link='mailto:ioit.tenet@aissmsioit.org'
           className='link-item text-white'
