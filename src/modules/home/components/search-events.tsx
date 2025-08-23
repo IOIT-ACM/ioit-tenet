@@ -134,7 +134,7 @@ export const SearchEvents: React.FC = () => {
             <button
               onClick={() =>
                 setTimeout(() => {
-                  router.push('/events');
+                  router.push('/24/events');
                 }, 500)
               }
               className='rounded-2xl border-2 border-dashed border-black bg-slate-200 py-2 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_slate] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none md:px-6 md:py-3'
@@ -144,7 +144,7 @@ export const SearchEvents: React.FC = () => {
             <button
               onClick={() =>
                 setTimeout(() => {
-                  router.push('/speakers');
+                  router.push('/24/speakers');
                 }, 500)
               }
               className='rounded-2xl border-2 border-dashed border-black bg-slate-200 py-2 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_slate] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none md:px-6 md:py-3'
@@ -171,14 +171,14 @@ export const SearchEvents: React.FC = () => {
                       (item) =>
                         item.name.toLowerCase() === searchTerm.toLowerCase(),
                     )?.type === 'speaker'
-                      ? `/speakers/${
+                      ? `24/speakers/${
                           allItems.find(
                             (item) =>
                               item.name.toLowerCase() ===
                               searchTerm.toLowerCase(),
                           )?.id
                         }`
-                      : `/events/${
+                      : `24/events/${
                           allItems.find(
                             (item) =>
                               item.name.toLowerCase() ===
@@ -235,8 +235,8 @@ export const SearchEvents: React.FC = () => {
                 key={item.id}
                 href={
                   item.type === 'speaker'
-                    ? `/speakers/${item.id}`
-                    : `/events/${item.id}`
+                    ? `24/speakers/${item.id}`
+                    : `24/events/${item.id}`
                 }
                 className='scroll-item z-[9999999] flex cursor-pointer items-center p-2 text-sm sm:text-lg md:p-4 md:text-xl'
               >

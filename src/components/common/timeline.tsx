@@ -27,7 +27,7 @@ const munItem1: EventType = {
   time: '11:00 AM - 2:00 PM',
   description:
     'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
-  image: 'https://ioit.acm.org/tenet/mun/mun/unsc.webp',
+  image: 'https://ioit.acm.org/tenet/mun/UNSC.png',
 };
 
 const munItem2: EventType = {
@@ -42,7 +42,7 @@ const munItem2: EventType = {
   time: '3:00 PM - 5:00 PM',
   description:
     'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
-  image: 'https://ioit.acm.org/tenet/mun/mun/unsc.webp',
+  image: 'https://ioit.acm.org/tenet/mun/UNSC.png',
 };
 
 const munItem3: EventType = {
@@ -57,7 +57,7 @@ const munItem3: EventType = {
   time: '11:00 AM - 2:00 PM',
   description:
     'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
-  image: 'https://ioit.acm.org/tenet/mun/mun/unsc.webp',
+  image: 'https://ioit.acm.org/tenet/mun/UNSC.png',
 };
 
 const munItem4: EventType = {
@@ -72,7 +72,7 @@ const munItem4: EventType = {
   time: '3:00 PM - 5:00 PM',
   description:
     'The UNSC addresses global peace and security issues, focusing on conflict resolution, sanctions, and peacekeeping efforts to maintain international stability. Agenda: Assessing global export controls and technology transfer under the Wassenaar Arrangement.',
-  image: 'https://ioit.acm.org/tenet/mun/mun/unsc.webp',
+  image: 'https://ioit.acm.org/tenet/mun/UNSC.png',
 };
 
 const munEvents = [munItem1, munItem2, munItem3, munItem4];
