@@ -30,7 +30,7 @@ export default function Page() {
         title='IOIT MUN 2024'
         subtitle='Unity through diplomacy. Engage with Global Diplomats, Policy Makers, and Visionaries at MUN 2024'
         ctaText='Learn More'
-        ctaLink='https://www.ioitmun.com/'
+        ctaLink='https://mun.ioittenet.com/'
         ctaText2='Register now'
         ctaLink2={MUNLINK}
         ctalink1color='#739e9e'

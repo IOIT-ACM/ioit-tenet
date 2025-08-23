@@ -20,7 +20,7 @@ export default function EventNavigation({ eventid }: { eventid: string }) {
     <div className='mt-14 grid w-full grid-cols-2 items-center justify-between gap-3 md:hidden'>
       {previousEvent ? (
         <Link
-          href={'/events/' + previousEvent.id}
+          href={'/24/events/' + previousEvent.id}
           className='flex h-full flex-col items-center justify-between gap-2 rounded-xl bg-slate-500 p-1'
         >
           <span className='line-clamp-2 text-center text-sm font-medium'>
@@ -34,7 +34,7 @@ export default function EventNavigation({ eventid }: { eventid: string }) {
 
       {nextEvent ? (
         <Link
-          href={'/events/' + nextEvent.id}
+          href={'/24/events/' + nextEvent.id}
           className='flex h-full flex-col items-center justify-between gap-2 rounded-xl bg-slate-500 p-1'
         >
           <span className='line-clamp-2 text-center text-sm font-medium'>

@@ -49,7 +49,7 @@ export const BubbleTextLogo = () => {
 
   return (
     <h2 className='hover-text text-center text-5xl font-thin text-indigo-300'>
-      <Text>IOIT TENET 2024</Text>
+      <Text>IOIT TENET 2025</Text>
     </h2>
   );
 };

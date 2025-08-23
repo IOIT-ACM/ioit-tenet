@@ -13,7 +13,7 @@ export const Footer: React.FC = () => {
               href={'/'}
               className='text-2xl font-bold transition-all hover:underline'
             >
-              TENET 2024
+              TENET 2025
             </Link>
             <p className='mt-4 text-slate-400'>
               Empowering innovators, connecting leaders, and shaping the future

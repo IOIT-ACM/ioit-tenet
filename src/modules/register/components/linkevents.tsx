@@ -15,52 +15,23 @@ interface EventLink {
 export const RegisterLinks: React.FC = () => {
   const eventLinks: EventLink[] = [
     {
-      heading: 'IOIT-MUN-2024',
-      subheading: 'Join us for the IOIT MUN 2024 happening at TENET 2024',
-      imgSrc: 'https://ioit.acm.org/tenet/mun.jpeg',
+      heading: 'IOIT-MUN-2025',
+      subheading: 'Join us for the IOIT MUN 2025 happening at TENET 2025',
+      imgSrc: 'https://ioit.acm.org/tenet/gallery/24/mun-closing/19.jpeg',
       href: MUNLINK,
     },
     {
       heading: 'CTF',
       subheading:
         'Exciting Capture the Flag event to test your hacking skills.',
-      imgSrc: 'https://ioit.acm.org/tenet/events/ctf.jpg',
-      href: '/register/ctf',
+      imgSrc: 'https://ioit.acm.org/tenet/events/ctf.jpeg',
+      href: '#ctf',
     },
     {
       heading: 'Drone-Workshop',
       subheading: 'Learn the art of building and flying drones from experts.',
-      imgSrc: 'https://ioit.acm.org/tenet/events/drone.jpg',
-      href: '/register/drone-workshop',
-    },
-    {
-      heading: 'Investing-Arena',
-      subheading: 'Master the stock market with our Investing Arena challenge.',
-      imgSrc: 'https://ioit.acm.org/tenet/events/investingarena.jpeg',
-      href: 'https://docs.google.com/forms/d/e/1FAIpQLSdz4AXaeYZAy7jFUagt3g-zvJJV38If5njMlMiZ-49fMpXWjw/viewform',
-    },
-  ];
-
-  const esportsLinks: EventLink[] = [
-    {
-      heading: 'Valorant',
-      subheading:
-        'Show off your tactical shooter skills in the Valorant tournament.',
-      imgSrc: 'https://ioit.acm.org/tenet/events/valo.jpeg',
-      href: 'https://docs.google.com/forms/d/e/1FAIpQLSdr4PZfpLjOrNdW5JFIcW09oYEjoDIPhvumvIWhOX78MeIaZQ/viewform',
-    },
-    {
-      heading: 'BGMI',
-      subheading: 'Join the battle royale action in the BGMI tournament.',
-      imgSrc: 'https://ioit.acm.org/tenet/events/bgmi.jpeg',
-      href: 'https://docs.google.com/forms/d/e/1FAIpQLScsw5pMP3SjBaMcMrs1i1D96Cu7WttNDxu9vBYcPTS9Yr5oag/closedform',
-    },
-    {
-      heading: 'FIFA',
-      subheading:
-        'Score big in the FIFA tournament and show your football skills.',
-      imgSrc: 'https://ioit.acm.org/tenet/events/fifa.jpeg',
-      href: 'https://forms.gle/dqRBt7KwQF284b2z7',
+      imgSrc: 'https://ioit.acm.org/tenet/events/drone.jpeg',
+      href: '#drone',
     },
   ];
 
@@ -74,18 +45,6 @@ export const RegisterLinks: React.FC = () => {
       </div>
       <div className='mt-16 space-y-8'>
         {eventLinks.map((event, index) => (
-          <CustomLink
-            key={index}
-            heading={event.heading}
-            subheading={event.subheading}
-            imgSrc={event.imgSrc}
-            href={event.href}
-          />
-        ))}
-        <h1 className='text-2xl italic text-white'>
-          eSports registration links
-        </h1>
-        {esportsLinks.map((event, index) => (
           <CustomLink
             key={index}
             heading={event.heading}

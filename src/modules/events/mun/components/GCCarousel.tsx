@@ -164,7 +164,7 @@ export const GCCarousel: React.FC = () => {
             }}
           />
           <Link
-            href={'https://www.ioitmun.com/' + image.id}
+            href={'https://mun.ioittenet.com/' + image.id}
             className='mt-2 text-xl font-bold text-gray-300 drop-shadow-md'
           >
             {image.title}

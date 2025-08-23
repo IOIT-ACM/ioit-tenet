@@ -2,12 +2,10 @@
 
 import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { GALLERY_PAGE } from '@/config';
 import { useRouter } from 'next/navigation';
 
-const TARGET_TEXT = 'Gallery';
-// const TARGET_LINK = '/register';
-const TARGET_LINK = GALLERY_PAGE;
+const TARGET_TEXT = 'Register';
+const TARGET_LINK = '/register';
 const CYCLES_PER_LETTER = 3;
 const SHUFFLE_TIME = 60;
 

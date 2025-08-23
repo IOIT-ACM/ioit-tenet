@@ -6,7 +6,7 @@ import { Separator } from '@/components/ui/separator';
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
   title: 'Register',
-  description: 'Register for events at IOIT TENET 2024',
+  description: 'Register for events at IOIT TENET 2025',
   openGraph: {
     images: [
       {

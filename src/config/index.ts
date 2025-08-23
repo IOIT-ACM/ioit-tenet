@@ -4,8 +4,8 @@ export const siteConfig = {
   url: 'https://www.ioittenet.com/',
 };
 
-export const MUNLINK = 'https://forms.gle/Yhzr1nftHeL18Jaf6';
-export const KONFHUB_PAGE = 'https://konfhub.com/tenet2024';
+export const MUNLINK = 'https://forms.gle/2eQvXreJDHapQRgQ6';
+export const KONFHUB_PAGE = '#konfhub';
 export const LOADTIME = 2;
 
 export const DRONE_FEE_INDIVIDUAL = 550;
@@ -15,4 +15,4 @@ export const GameDuration = 540;
 
 export const DENOFCODE_PASSKEY = 'asci';
 
-export const GALLERY_PAGE = '/24';
+export const GALLERY_PAGE = '/24/gallery';

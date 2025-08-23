@@ -177,18 +177,18 @@ const data = [
     imgUrl: 'https://ioit.acm.org/tenet/ui/events/tech.jpeg',
     subheading: 'Day 1',
     heading: 'Tech Fiesta',
-    url: '/techfiesta',
+    url: '/24/techfiesta',
   },
   {
     imgUrl: 'https://ioit.acm.org/tenet/ui/events/building.jpeg',
     subheading: 'Day 2',
     heading: 'MUN, eSports & Cultural Night',
-    url: '/esummit',
+    url: '/24/esummit',
   },
   {
     imgUrl: 'https://ioit.acm.org/tenet/ui/events/mun.jpeg',
     subheading: 'Day 3',
     heading: 'MUN Day-2 and E-Summit',
-    url: '/esummit',
+    url: '/24/esummit',
   },
 ];
