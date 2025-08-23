@@ -50,11 +50,7 @@ export function TenetCommandDialog() {
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
-      // Check for Ctrl+J on Mac and Win+J on Windows/Linux
-      if (
-        ((e.ctrlKey || e.metaKey) && e.key === 'j') ||
-        (e.key === 'j' && e.metaKey)
-      ) {
+      if (e.metaKey && e.key.toLowerCase() === 'j') {
         e.preventDefault();
         setOpen((open) => !open);
       }
@@ -100,16 +96,12 @@ export function TenetCommandDialog() {
       name: 'View all speakers at TENET 2024',
     },
     {
-      url: '/events',
+      url: '/24/events',
       name: 'View all events at TENET 2024',
     },
-    {
-      url: '/events',
-      name: 'View TENET Agenda for TENET 2024',
-    },
-    { url: '/techfiesta', name: 'Techfiesta Events Page' },
-    { url: '/esports', name: 'E-Sports Events Page' },
-    { url: '/mun', name: 'MUN Events Page' },
+    { url: '/24/techfiesta', name: 'Techfiesta Events Page' },
+    { url: '/24/esports', name: 'E-Sports Events Page' },
+    { url: '/24/mun', name: 'MUN Events Page' },
     {
       url: 'mailto:ioit.tenet@aissmsioit.org',
       name: 'Contact ACM student chapter',
@@ -118,15 +110,15 @@ export function TenetCommandDialog() {
       url: 'mailto:adimail2404@gmail.com',
       name: 'Contact developer',
     },
-    { url: '/esummit', name: 'E-Summit Events Page' },
-    { url: '/creators', name: 'Cultural Night Events Page' },
+    { url: '/24/esummit', name: 'E-Summit Events Page' },
+    { url: '/24/creators', name: 'Cultural Night Events Page' },
   ];
 
   const handleSelect = (item: any) => {
     if (item.type === 'event') {
-      router.push(`/events/${item.id}`);
+      router.push(`/24/events/${item.id}`);
     } else if (item.type === 'speaker') {
-      router.push(`/speakers/${item.id}`);
+      router.push(`/24/speakers/${item.id}`);
     } else {
       router.push(item.url);
     }
@@ -136,8 +128,8 @@ export function TenetCommandDialog() {
   const noTextRoutes = [
     '/game',
     '/denofcode',
-    '/events',
-    '/speakers',
+    '/24/events',
+    '/24/speakers',
     '/register',
     GALLERY_PAGE,
   ];
@@ -167,7 +159,7 @@ export function TenetCommandDialog() {
     } else {
       setWinKey(
         <>
-          <span>Press</span>
+          <span>Press </span>
           <FaWindows className='mx-2' />
           <span>+ J </span>
         </>,
