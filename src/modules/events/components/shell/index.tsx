@@ -29,7 +29,7 @@ interface ShellProps extends React.HTMLAttributes<HTMLDivElement> {
 export function Shell({ children }: ShellProps) {
   const pathname = usePathname();
 
-  const isEventsPath = pathname.startsWith('/events');
+  const isEventsPath = pathname.startsWith('/24/events');
 
   return (
     <div className={cn('flex h-screen flex-col')}>
