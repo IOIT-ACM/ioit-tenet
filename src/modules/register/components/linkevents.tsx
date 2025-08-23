@@ -15,8 +15,8 @@ interface EventLink {
 export const RegisterLinks: React.FC = () => {
   const eventLinks: EventLink[] = [
     {
-      heading: 'IOIT-MUN-2024',
-      subheading: 'Join us for the IOIT MUN 2024 happening at TENET 2024',
+      heading: 'IOIT-MUN-2025',
+      subheading: 'Join us for the IOIT MUN 2025 happening at TENET 2025',
       imgSrc: 'https://ioit.acm.org/tenet/mun.jpeg',
       href: MUNLINK,
     },

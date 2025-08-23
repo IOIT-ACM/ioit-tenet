@@ -6,7 +6,7 @@ export default function Machinegun() {
     <div className='absolute bottom-44 z-[9999] w-full md:hidden'>
       <MachineGunText text='IOIT TENET 2025'>
         <Link
-          href='/24'
+          href='/24/gallery'
           className='z-[9999] rounded-full bg-gray-200 bg-opacity-75 px-4 py-2 text-xl text-gray-800'
         >
           View gallery
