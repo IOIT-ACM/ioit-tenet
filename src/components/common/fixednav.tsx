@@ -250,12 +250,6 @@ export default function FixedNavBar({
               </nav>
               <div className='absolute bottom-0 flex flex-col items-center justify-center gap-5 text-white'>
                 <div className='flex flex-col gap-5 text-center'>
-                  <Link
-                    className='transform font-semibold transition-transform duration-200'
-                    href='/register'
-                  >
-                    Register
-                  </Link>
                   <div className='flex gap-5'>
                     <Link
                       className='transform font-semibold transition-transform duration-200'

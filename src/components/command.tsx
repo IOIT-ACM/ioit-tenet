@@ -84,15 +84,15 @@ export function TenetCommandDialog() {
       name: 'Den of code',
     },
     {
-      url: 'https://www.ioitmun.com/',
+      url: 'https://mun.ioittenet.com/',
       name: 'IOIT MUN website',
     },
     {
       url: '/register',
-      name: 'Register for TENET 2024',
+      name: 'Register for TENET 2025',
     },
     {
-      url: '/speakers',
+      url: '/24/speakers',
       name: 'View all speakers at TENET 2024',
     },
     {

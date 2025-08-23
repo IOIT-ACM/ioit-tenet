@@ -39,15 +39,15 @@ export const MUN = () => {
           className='flex flex-col gap-4 sm:flex-row sm:gap-5'
         >
           <h4>
-            <Link href={'https://www.ioitmun.com/'} target='_blank'>
+            <Link href={'https://mun.ioittenet.com/'} target='_blank'>
               Visit site
             </Link>
           </h4>
-          {/* <h4>
+          <h4>
             <Link href={MUNLINK} target='_blank'>
-              Register for MUN&lsquo;24
+              Register for MUN&lsquo;25
             </Link>
-          </h4> */}
+          </h4>
           <h4>
             <Link href={MUNLINK} target='_blank'>
               Gallery

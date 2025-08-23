@@ -167,7 +167,7 @@ export function FixedNav({ data }: { data: GalleryImageGroup[] }) {
           <DialogHeader>
             <DialogTitle>TENET 2024</DialogTitle>
             <DialogDescription>
-              Tenet2024 featured the IOIT MUN second edition, Techfiesta, and
+              Tenet 2024 featured the IOIT MUN second edition, Techfiesta, and
               several technical workshops, creating a platform for students to
               showcase their skills and engage in collaborative learning.
             </DialogDescription>
@@ -188,7 +188,7 @@ export function FixedNav({ data }: { data: GalleryImageGroup[] }) {
           <DialogHeader>
             <DialogTitle>TENET 2024</DialogTitle>
             <DialogDescription>
-              Tenet2024 featured the IOIT MUN second edition, Techfiesta, and
+              Tenet 2024 featured the IOIT MUN second edition, Techfiesta, and
               several technical workshops, creating a platform for students to
               showcase their skills and engage in collaborative learning.
             </DialogDescription>
