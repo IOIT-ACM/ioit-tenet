@@ -20,19 +20,31 @@ import { usePathname } from 'next/navigation';
 import { gsap } from 'gsap';
 import { type navbarType } from '@/types';
 
-const transition = {
-  type: 'spring',
-  mass: 0.5,
-  damping: 11.5,
-  stiffness: 100,
-  restDelta: 0.001,
-  restSpeed: 0.001,
+const AnimatedNavLink = ({ href, active, children }: { href: string; active?: boolean; children: React.ReactNode }) => {
+  return (
+    <Link
+      href={href}
+      className={cn(
+        'group relative inline-block overflow-hidden h-6 flex items-center text-sm px-3 transition-colors duration-200 text-center',
+        active ? 'text-white font-semibold' : 'text-gray-300 hover:text-white font-normal'
+      )}
+    >
+      <span className={cn(
+        'block w-full transition-transform duration-300 ease-out group-hover:-translate-y-6',
+        active ? 'font-semibold' : 'font-normal'
+      )}>
+        {children}
+      </span>
+      <span className={cn(
+        'block absolute left-0 top-0 w-full transition-transform duration-300 ease-out translate-y-6 group-hover:translate-y-0 pointer-events-none text-white',
+        active ? 'font-semibold' : 'font-normal'
+      )}>
+        {children}
+      </span>
+    </Link>
+  );
 };
 
-// This is the navbar componet for the fixed navigation
-// Dependencies:
-// GSAP: Scroll triggers
-// Framer motion: Links and SVG logo
 
 export default function FixedNavBar({
   className,
@@ -43,30 +55,25 @@ export default function FixedNavBar({
 }) {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollTop, setLastScrollTop] = useState(0);
-  const [hovering, setHovering] = useState<null | string>(null);
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up');
   const [atTop, setAtTop] = useState(true);
   const isMobile = useIsMobile();
   const pathname = usePathname();
 
-  // Refs for GSAP
   const navbarRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLDivElement>(null);
   const registerBtnRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollTop =
-        window.scrollY || document.documentElement.scrollTop;
+      const currentScrollTop = window.scrollY || document.documentElement.scrollTop;
 
-      // Detect scroll direction
       if (currentScrollTop > lastScrollTop) {
         setScrollDirection('down');
       } else {
         setScrollDirection('up');
       }
 
-      // Show or hide based on scroll position
       setIsVisible(scrollDirection === 'up');
       setAtTop(currentScrollTop <= 10);
       setLastScrollTop(currentScrollTop);
@@ -77,7 +84,6 @@ export default function FixedNavBar({
   }, [lastScrollTop, scrollDirection]);
 
   useEffect(() => {
-    // navbar
     if (navbarRef.current && !isMobile) {
       gsap.to(navbarRef.current, {
         y: scrollDirection === 'down' && !atTop ? -100 : 0,
@@ -87,7 +93,6 @@ export default function FixedNavBar({
       });
     }
 
-    // logo (show when at top, hide when scrolling)
     if (logoRef.current) {
       gsap.to(logoRef.current, {
         y: atTop ? 0 : -100,
@@ -97,7 +102,6 @@ export default function FixedNavBar({
       });
     }
 
-    // register button (same behavior as logo)
     if (registerBtnRef.current) {
       gsap.to(registerBtnRef.current, {
         y: atTop ? 0 : -100,
@@ -111,99 +115,52 @@ export default function FixedNavBar({
   return (
     <div
       ref={navbarRef}
-      className='fixed top-5 z-50 flex w-screen select-none items-center justify-between px-3 md:px-10'
+      className="fixed top-5 z-50 flex w-screen select-none items-center justify-between px-3 md:px-10"
     >
+      {/* Logo Section */}
       <div
         ref={logoRef}
-        className='flex w-fit items-center justify-center gap-1 md:gap-3'
+        className="flex w-fit items-center justify-center gap-1 md:gap-3"
       >
-        <Link
-          className='h-10 w-10 cursor-pointer transition-all hover:scale-105 md:h-16 md:w-16'
-          href={'/'}
-        >
+        <Link href={'/'} className="h-10 w-10 md:h-14 md:w-14">
           <Image
-            className='h-full w-full cursor-pointer transition-all hover:scale-105'
+            className="h-full w-full rounded-lg transition-transform hover:scale-105"
             src={'/tenet-white-logo.png'}
-            alt='Tenet Logo'
+            alt="Tenet Logo"
             height={70}
             width={70}
           />
         </Link>
-        <Link
-          className='h-10 w-10 cursor-pointer transition-all hover:scale-105 md:h-16 md:w-16'
-          href={'https://ioit.acm.org'}
-        >
+        <Link href={'https://ioit.acm.org'} className="h-10 w-10 md:h-14 md:w-14">
           <Image
-            className='h-full w-full cursor-pointer transition-all hover:scale-105'
+            className="h-full w-full rounded-lg transition-transform hover:scale-105"
             src={'/acm.png'}
-            alt='Tenet Logo'
+            alt="ACM Logo"
             height={70}
             width={70}
           />
         </Link>
       </div>
 
+      {/* Desktop Navigation */}
       <div
         className={cn(
-          'inset-x-0 z-50 mx-auto hidden max-w-fit sm:fixed md:block',
+          'hidden sm:flex items-center gap-1 rounded-full border border-white/10 bg-gradient-to-br from-white/5 via-indigo-200/5 to-black/30 backdrop-blur-2xl px-4 py-3 shadow-lg shadow-[0_0_24px_4px_rgba(99,102,241,0.25)]',
           className,
         )}
       >
-        <div className='relative flex gap-0 rounded-full border-2 border-slate-600 bg-slate-300 p-2 text-black'>
-          {routes?.map((route) => (
-            <motion.div
-              key={route.path}
-              className='relative cursor-pointer rounded-xl'
-              onMouseEnter={() => {
-                setHovering(route.path);
-              }}
-              onMouseLeave={() => {
-                setHovering(null);
-              }}
-              transition={transition}
-            >
-              <Link href={route.path}>
-                {route.path === hovering && (
-                  <motion.div
-                    initial={{ scale: 0.7 }}
-                    key='hoveredBackground'
-                    layoutId='hoveredBackground'
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{
-                      opacity: 0,
-                      scale: 0.1,
-                    }}
-                    transition={{ type: 'spring', bounce: 0.3, duration: 0.6 }}
-                    className='absolute inset-0 rounded-full bg-slate-100'
-                  />
-                )}
-                {pathname === route.path && (
-                  <motion.div
-                    initial={{ scale: 0.7 }}
-                    key='activepathname'
-                    layoutId='activepathname'
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{
-                      opacity: 0,
-                      scale: 0.1,
-                    }}
-                    transition={{ type: 'spring', bounce: 0.2, duration: 1 }}
-                    className='animate-gradient-x absolute inset-0 rounded-full bg-gradient-to-r from-purple-400 via-blue-400 to-indigo-400'
-                  />
-                )}
-                <span className={'relative block px-4 py-2 text-black'}>
-                  {route.name}
-                </span>
-              </Link>
-            </motion.div>
-          ))}
-        </div>
+        {routes?.map((route) => (
+          <AnimatedNavLink key={route.path} href={route.path} active={pathname === route.path}>
+            <span className="text-lg md:text-xl font-semibold drop-shadow-[0_1px_2px_rgba(0,0,0,0.15)]">{route.name}</span>
+          </AnimatedNavLink>
+        ))}
       </div>
 
       <div ref={registerBtnRef}>
         <RegisterButton />
       </div>
 
+      {/* Mobile Menu (old one retained) */}
       <div className='sm:hidden'>
         <Sheet>
           <SheetTrigger>
@@ -251,24 +208,9 @@ export default function FixedNavBar({
               <div className='absolute bottom-0 flex flex-col items-center justify-center gap-5 text-white'>
                 <div className='flex flex-col gap-5 text-center'>
                   <div className='flex gap-5'>
-                    <Link
-                      className='transform font-semibold transition-transform duration-200'
-                      href='/24/events'
-                    >
-                      Events
-                    </Link>
-                    <Link
-                      className='transform font-semibold transition-transform duration-200'
-                      href='/24/speakers'
-                    >
-                      Speakers
-                    </Link>
-                    <Link
-                      className='transform font-semibold transition-transform duration-200'
-                      href='mailto:ioit.tenet@aissmsioit.org'
-                    >
-                      Contact
-                    </Link>
+                    <Link className='transform font-semibold transition-transform duration-200' href='/24/events'>Events</Link>
+                    <Link className='transform font-semibold transition-transform duration-200' href='/24/speakers'>Speakers</Link>
+                    <Link className='transform font-semibold transition-transform duration-200' href='mailto:ioit.tenet@aissmsioit.org'>Contact</Link>
                   </div>
                 </div>
               </div>
