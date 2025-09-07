@@ -1,3 +1,5 @@
+"use client";
+
 import clsx from 'clsx';
 import * as Scrollytelling from '@/lib/scrollytelling-client';
 import { SlCalender } from 'react-icons/sl';
@@ -6,10 +8,10 @@ import { ShiftingCountdown } from './countdown';
 
 export const EventCountdown = () => {
   return (
-    <div className='pb-[80px] pt-[80px] md:pt-[150px]'>
-      <Scrollytelling.Root start='top bottom' end='bottom top' scrub={1.1}>
+    <div className="pb-[80px] pt-[80px] md:pt-[150px]">
+      <Scrollytelling.Root start="top bottom" end="bottom top" scrub={1.1}>
         <div className={s.container}>
-          <ShiftingCountdown />
+          <ShiftingCountdown endDate={new Date('2025-10-11T08:00:00')} />
           <div className={s.marquees}>
             <Marquee className={s.marquee1} tenetblue />
             <Marquee className={s.marquee2} reverse />
@@ -35,8 +37,6 @@ export const EventCountdown = () => {
     </div>
   );
 };
-
-// MARQUEE STUFF
 
 const Marquee = ({
   reverse,
