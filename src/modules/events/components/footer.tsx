@@ -1,127 +1,110 @@
-'use client';
+import React from "react";
+import { FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 
-import Link from 'next/link';
-import { FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
+const sections = [
+  {
+    title: "Explore",
+    links: [
+      { name: "Home", href: "/" },
+      { name: "Events", href: "/24/events" },
+      { name: "Speakers", href: "/24/speakers" },
+      { name: "Game", href: "/game" },
+    ],
+  },
+  {
+    title: "Get Involved",
+    links: [
+      { name: "Register", href: "/register" },
+      { name: "Den of Code", href: "/denofcode" },
+    ],
+  },
+  {
+    title: "Resources",
+    links: [
+      { name: "Contact", href: "mailto:ioit.tenet@aissmsioit.org" },
+    ],
+  },
+];
+
+const socialLinks = [
+  { icon: <FaInstagram className="size-5" />, href: "https://www.instagram.com/ioit_tenet/", label: "Instagram" },
+  { icon: <FaLinkedin className="size-5" />, href: "https://www.linkedin.com/company/ioit-tenet/", label: "LinkedIn" },
+  { icon: <FaWhatsapp className="size-5" />, href: "https://chat.whatsapp.com/HUYXxh75M618GNCExQ3NPZ", label: "WhatsApp" },
+];
 
 export const Footer: React.FC = () => {
   return (
-    <footer className='border-t bg-slate-900 pb-8 pt-12 text-white'>
-      <div className='mx-auto px-4'>
-        <div className='grid grid-cols-1 gap-8 md:grid-cols-4'>
-          <div className='mb-8 md:mb-0'>
-            <Link
-              href={'/'}
-              className='text-2xl font-bold transition-all hover:underline'
-            >
-              TENET 2025
-            </Link>
-            <p className='mt-4 text-slate-400'>
-              Empowering innovators, connecting leaders, and shaping the future
-              of technology.
+    <footer className="bg-black py-12 text-white">
+      <div className="container mx-auto">
+        {/* ---- Desktop Footer ---- */}
+        <div className="hidden lg:flex w-full flex-col justify-between gap-12 lg:flex-row lg:items-start">
+          <div className="flex w-full flex-col gap-6 lg:w-1/3">
+            <h2 className="text-2xl font-bold">TENET 2025</h2>
+            <p className="max-w-md text-sm text-gray-400">
+              AISSMS IOIT’s annual tech fest — where innovation meets ambition.
+              Explore events, connect with leaders, and shape the future of
+              technology.
             </p>
-          </div>
-
-          <div>
-            <h4 className='mb-4 text-lg font-semibold'>Quick Links</h4>
-            <ul className='space-y-2'>
-              <li>
-                <Link
-                  href='/game'
-                  className='text-slate-400 transition-colors hover:text-green-400'
-                >
-                  TENET game
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href='/denofcode'
-                  className='text-slate-400 transition-colors hover:text-green-400'
-                >
-                  Den of code
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href='/24/speakers'
-                  className='text-slate-400 transition-colors hover:text-green-400'
-                >
-                  Speakers
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href='/24/events'
-                  className='text-slate-400 transition-colors hover:text-green-400'
-                >
-                  Events
-                </Link>
-              </li>
+            <ul className="flex items-center space-x-6 text-gray-400">
+              {socialLinks.map((social, idx) => (
+                <li key={idx} className="hover:text-white">
+                  <a href={social.href} aria-label={social.label}>
+                    {social.icon}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          <div>
-            <h4 className='mb-4 text-lg font-semibold'>More Info</h4>
-            <ul className='space-y-2'>
-              <li>
-                <Link
-                  href='/register'
-                  className='text-slate-400 transition-colors hover:text-green-400'
-                >
-                  Registrations
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href='mailto:ioit.tenet@aissmsioit.org'
-                  className='text-slate-400 transition-colors hover:text-green-400'
-                >
-                  Contact Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href='mailto:adimail2404@gmail.com'
-                  className='text-slate-400 transition-colors hover:text-green-400'
-                >
-                  Developers
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className='mb-4 text-lg font-semibold'>Stay Connected</h4>
-            <div className='flex space-x-4'>
-              <Link
-                href='https://chat.whatsapp.com/HUYXxh75M618GNCExQ3NPZ'
-                target='_blank'
-                rel='noopener noreferrer'
-                className='text-slate-400 transition-colors hover:text-blue-500'
-              >
-                <FaWhatsapp size={24} />
-              </Link>
-              <Link
-                href='https://www.instagram.com/ioit_tenet/'
-                target='_blank'
-                rel='noopener noreferrer'
-                className='text-slate-400 transition-colors hover:text-pink-500'
-              >
-                <FaInstagram size={24} />
-              </Link>
-              <Link
-                href='https://www.linkedin.com/company/ioit-tenet/'
-                target='_blank'
-                rel='noopener noreferrer'
-                className='text-slate-400 transition-colors hover:text-blue-700'
-              >
-                <FaLinkedin size={24} />
-              </Link>
-            </div>
+          {/* Sections */}
+          <div className="grid w-full gap-10 md:grid-cols-3 lg:w-2/3 lg:gap-20">
+            {sections.map((section, idx) => (
+              <div key={idx}>
+                <h3 className="mb-4 text-lg font-semibold">{section.title}</h3>
+                <ul className="space-y-3 text-sm text-gray-400">
+                  {section.links.map((link, linkIdx) => (
+                    <li key={linkIdx} className="hover:text-white">
+                      <a href={link.href}>{link.name}</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
 
-        <div className='mt-8 border-t border-slate-800 pt-8 text-center text-slate-400'>
-          <p>&copy; {new Date().getFullYear()} IOIT ACM Student Chapter</p>
+        {/* ---- Mobile Footer ---- */}
+        <div className="lg:hidden text-center">
+          <h2 className="text-xl font-bold">TENET 2025</h2>
+          <div className="my-6 flex flex-wrap justify-center gap-4 text-sm">
+            {sections.flatMap((section) => section.links).map((link, idx) => (
+              <a
+                key={idx}
+                href={link.href}
+                className="text-gray-400 hover:text-white transition"
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
+
+          {/* Socials */}
+          <div className="mb-6 flex justify-center gap-6">
+            {socialLinks.map((social, i) => (
+              <a
+                key={i}
+                href={social.href}
+                aria-label={social.label}
+                className="text-gray-400 hover:text-white transition"
+              >
+                {social.icon}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-8 flex flex-col justify-between gap-4 border-t border-white/10 pt-6 text-xs text-gray-400 md:flex-row">
+          <p>© 2025 TENET. All rights reserved.</p>
         </div>
       </div>
     </footer>

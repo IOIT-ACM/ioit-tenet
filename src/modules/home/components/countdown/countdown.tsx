@@ -1,110 +1,107 @@
-'use client';
+"use client";
 
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { gsap } from 'gsap';
-import TenetLive from './live';
+import { useEffect, useState } from "react";
+import NumberFlow from "@number-flow/react";
+import { motion } from "framer-motion";
 
-export const ShiftingCountdown = () => {
-  return (
-    <section id='timeline' className='flex items-center justify-center'>
-      <div>
-        <p className='text-center text-4xl font-extrabold text-white md:text-9xl'>
-          TENET&apos;25 BEGINS IN
-        </p>
-        <div className='z-50 p-4 py-8 md:py-14'>
-          <div className='mx-auto flex w-full max-w-5xl flex-col items-center gap-4 bg-none md:flex-row'>
-            <CountdownItem unit='Day' text='days' />
-            <CountdownItem unit='Hour' text='hours' />
-            <CountdownItem unit='Minute' text='minutes' />
-            <CountdownItem unit='Second' text='seconds' />
-          </div>
-        </div>
-        <TenetLive />
-      </div>
-    </section>
-  );
-};
-
-const COUNTDOWN_TO = '2025-10-11T08:00:00';
+// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+const MotionNumberFlow = motion(NumberFlow);
 
 const SECOND = 1000;
 const MINUTE = SECOND * 60;
 const HOUR = MINUTE * 60;
 const DAY = HOUR * 24;
 
-type Unit = 'Day' | 'Hour' | 'Minute' | 'Second';
-
-interface CountdownItemProps {
-  unit: Unit;
-  text: string;
+interface TimeLeft {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
 }
 
-const CountdownItem: React.FC<CountdownItemProps> = ({ unit, text }) => {
-  const { time } = useTimer(unit);
-  const timeRef = useRef<HTMLSpanElement>(null);
+interface CountdownProps {
+  endDate: Date;
+  className?: string;
+}
+
+export const ShiftingCountdown: React.FC<CountdownProps> = ({ endDate, className }) => {
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
 
   useEffect(() => {
-    if (timeRef.current) {
-      gsap.fromTo(
-        timeRef.current,
-        { y: '50%', opacity: 0 },
-        { y: '0%', opacity: 1, duration: 0.35 },
-      );
-    }
-  }, [time]);
+    const calculateTimeLeft = () => {
+      const now = new Date();
+      const difference = endDate.getTime() - now.getTime();
 
-  return (
-    <div className='flex h-24 w-1/4 min-w-28 flex-col items-center justify-center gap-1 rounded-xl bg-white font-mono md:h-36 md:gap-2'>
-      <span
-        ref={timeRef}
-        className='block text-3xl font-medium text-black md:text-4xl lg:text-6xl xl:text-7xl'
-      >
-        {time}
-      </span>
-      <span className='text-xs font-light text-slate-500 md:text-lg lg:text-base'>
-        {text}
-      </span>
-    </div>
-  );
-};
-
-const useTimer = (unit: Unit) => {
-  const [time, setTime] = useState(0);
-  const endDateRef = useRef(new Date(COUNTDOWN_TO));
-
-  const calculateTime = useCallback(() => {
-    const now = new Date();
-    const distance = endDateRef.current.getTime() - now.getTime();
-
-    if (distance <= 0) {
-      return 0;
-    }
-
-    switch (unit) {
-      case 'Day':
-        return Math.floor(distance / DAY);
-      case 'Hour':
-        return Math.floor((distance % DAY) / HOUR);
-      case 'Minute':
-        return Math.floor((distance % HOUR) / MINUTE);
-      case 'Second':
-        return Math.floor((distance % MINUTE) / SECOND);
-    }
-  }, [unit]);
-
-  useEffect(() => {
-    const updateTime = () => {
-      const newTime = calculateTime();
-      if (newTime !== time) {
-        setTime(newTime);
+      if (difference > 0) {
+        const days = Math.floor(difference / DAY);
+        const hours = Math.floor((difference % DAY) / HOUR);
+        const minutes = Math.floor((difference % HOUR) / MINUTE);
+        const seconds = Math.floor((difference % MINUTE) / SECOND);
+        setTimeLeft({ days, hours, minutes, seconds });
+      } else {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
       }
     };
 
-    updateTime();
-    const intervalId = setInterval(updateTime, 1000);
+    calculateTimeLeft();
+    const timer = setInterval(calculateTimeLeft, 1000);
 
-    return () => clearInterval(intervalId);
-  }, [calculateTime, time]);
+    return () => clearInterval(timer);
+  }, [endDate]);
 
-  return { time };
+  return (
+    <section id="timeline" className="flex flex-col items-center justify-center">
+      <div className="relative inline-block w-full text-center mb-4">
+        {/* Main text layer */}
+        <h1 className="text-center text-4xl md:text-9xl font-extrabold inline-block">
+          TENET&apos;25 BEGINS IN
+        </h1>
+      </div>
+
+      <div className={`flex items-center justify-center gap-4 p-4 py-8 md:py-14 ${className}`}>
+        <div className="flex flex-col items-center">
+          <MotionNumberFlow
+            value={timeLeft.days}
+            className="font-[Inter] text-4xl font-extrabold text-white md:text-7xl lg:text-8xl xl:text-9xl drop-shadow-lg tabular-nums"
+            format={{ minimumIntegerDigits: 2 }}
+          />
+          <span className="text-sm font-semibold text-white/80 md:text-xl lg:text-lg">Days</span>
+        </div>
+        <div className="text-4xl font-extrabold text-white md:text-7xl lg:text-8xl xl:text-9xl drop-shadow-lg relative" style={{ top: '-0.2em' }}>:</div>
+        <div className="flex flex-col items-center">
+          <MotionNumberFlow
+            value={timeLeft.hours}
+            className="font-[Inter] text-4xl font-extrabold text-white md:text-7xl lg:text-8xl xl:text-9xl drop-shadow-lg tabular-nums"
+            format={{ minimumIntegerDigits: 2 }}
+          />
+          <span className="text-sm font-semibold text-white/80 md:text-xl lg:text-lg">Hours</span>
+        </div>
+        <div className="text-4xl font-extrabold text-white md:text-7xl lg:text-8xl xl:text-9xl drop-shadow-lg relative" style={{ top: '-0.2em' }}>:</div>
+        <div className="flex flex-col items-center">
+          <MotionNumberFlow
+            value={timeLeft.minutes}
+            className="font-[Inter] text-4xl font-extrabold text-white md:text-7xl lg:text-8xl xl:text-9xl drop-shadow-lg tabular-nums"
+            format={{ minimumIntegerDigits: 2 }}
+          />
+          <span className="text-sm font-semibold text-white/80 md:text-xl lg:text-lg">Minutes</span>
+        </div>
+        <div className="text-4xl font-extrabold text-white md:text-7xl lg:text-8xl xl:text-9xl drop-shadow-lg relative" style={{ top: '-0.2em' }}>:</div>
+        <div className="flex flex-col items-center">
+          <MotionNumberFlow
+            value={timeLeft.seconds}
+            className="font-[Inter] text-4xl font-extrabold text-white md:text-7xl lg:text-8xl xl:text-9xl drop-shadow-lg tabular-nums"
+            format={{ minimumIntegerDigits: 2 }}
+          />
+          <span className="text-sm font-semibold text-white/80 md:text-xl lg:text-lg">Seconds</span>
+        </div>
+      </div>
+    </section>
+  );
 };
+
+export default ShiftingCountdown;
