@@ -82,7 +82,7 @@ export const Footer = () => {
               </div>
             </div>
             <div className='md:text-right'>
-              <span>&copy; {new Date().getFullYear()} ACM IOIT</span> <br />
+              <span>&copy; {new Date().getFullYear()} IOIT ACM</span> <br />
               <span>All rights reserved.</span>
             </div>
           </div>

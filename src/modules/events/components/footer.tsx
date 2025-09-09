@@ -106,7 +106,7 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="mt-8 flex flex-col justify-between gap-4 border-t border-white/10 pt-6 text-xs text-gray-400 md:flex-row">
-          <p>© 2025 TENET. All rights reserved.</p>
+          <p> © {new Date().getFullYear()} IOIT ACM</p>
         </div>
       </div>
     </footer>
