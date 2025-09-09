@@ -10,7 +10,8 @@ export default function TenetPage() {
         { name: "Hackathon", href: "#", disabled: true },
         { name: "Capture the Flag", href: "#", disabled: true },
         { name: "Drone Workshop", href: "#", disabled: true },
-        { name: "Robo War", href: "#", disabled: true },
+        { name: "Robo Race", href: "#", disabled: true },
+        { name: "Robo Soccer", href: "#", disabled: true },
     ];
 
     return (
