@@ -1,5 +1,6 @@
 import React from "react";
 import { FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const sections = [
   {
@@ -30,6 +31,7 @@ const socialLinks = [
   { icon: <FaInstagram className="size-5" />, href: "https://www.instagram.com/ioit_tenet/", label: "Instagram" },
   { icon: <FaLinkedin className="size-5" />, href: "https://www.linkedin.com/company/ioit-tenet/", label: "LinkedIn" },
   { icon: <FaWhatsapp className="size-5" />, href: "https://chat.whatsapp.com/HUYXxh75M618GNCExQ3NPZ", label: "WhatsApp" },
+  { icon: <FaXTwitter className="size-5" />, href: "https://x.com/ioit-acm", label: "Twitter" },
 ];
 
 export const Footer: React.FC = () => {
