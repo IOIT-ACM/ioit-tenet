@@ -111,7 +111,7 @@ export default function TenetPage() {
 
             {/* Footer */}
             <footer className="mt-10 text-sm text-gray-500">
-                © {new Date().getFullYear()} TENET • AISSMS IOIT ACM Student Chapter
+                © {new Date().getFullYear()} IOIT ACM
             </footer>
         </main>
     );
