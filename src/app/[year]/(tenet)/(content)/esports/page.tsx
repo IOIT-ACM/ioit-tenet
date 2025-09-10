@@ -19,7 +19,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function Page() {
+export default async function Page({ params }: { params: { year: string } }) {
+  const { year } = params;
   return (
     <main className=''>
       <HeroImage
@@ -30,7 +31,7 @@ export default async function Page() {
         ctaLink='#timeline'
       />
       <GCCarousel />
-      <Timeline domain='esports' />
+      <Timeline domain='esports' year={year}/>
     </main>
   );
 }

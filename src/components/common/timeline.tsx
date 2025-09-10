@@ -8,12 +8,10 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import Link from 'next/link';
-import { day1, day2, day3 } from '@/config/data/24/events';
 import { type EventType } from '@/types';
+import { getEventsByYear } from '@/lib/getEvents';
 
 gsap.registerPlugin(ScrollTrigger);
-
-const allEvents: EventType[] = [...day1, ...day2, ...day3];
 
 const munItem1: EventType = {
   title: 'MUN Committee Session 1',
@@ -77,7 +75,8 @@ const munItem4: EventType = {
 
 const munEvents = [munItem1, munItem2, munItem3, munItem4];
 
-export const Timeline: React.FC<{ domain: string }> = ({ domain }) => {
+export const Timeline: React.FC<{ domain: string; year: string}> = ({ domain, year }) => {
+  const allEvents: EventType[] = useMemo(() => getEventsByYear(year), [year]);
   const esummit_events = useMemo(() => {
     const filteredEvents = allEvents.filter((event) => event.domain === domain);
 
@@ -86,7 +85,7 @@ export const Timeline: React.FC<{ domain: string }> = ({ domain }) => {
           .filter((event) => !event.imp)
           .sort((a, b) => a.start.getTime() - b.start.getTime())
       : filteredEvents.sort((a, b) => a.start.getTime() - b.start.getTime());
-  }, [domain]);
+  }, [allEvents, domain]);
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeEventIndex, setActiveEventIndex] = useState<number>(0);
 
