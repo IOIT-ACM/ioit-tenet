@@ -18,7 +18,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function Page() {
+export default async function Page({ params }: { params: { year: string } }) {
+  const { year } = params;
   return (
     <main>
       <HeroImage
@@ -28,7 +29,7 @@ export default async function Page() {
         ctaText='Learn More'
         ctaLink='#timeline'
       />
-      <Timeline domain='techfiesta' />
+      <Timeline domain='techfiesta' year={year}/>
     </main>
   );
 }

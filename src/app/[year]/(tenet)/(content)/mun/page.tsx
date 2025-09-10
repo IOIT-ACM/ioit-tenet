@@ -22,7 +22,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Page() {
+export default function Page({ params }: { params: { year: string } }) {
+  const { year } = params;
   return (
     <main>
       <HeroImage
@@ -36,7 +37,7 @@ export default function Page() {
         ctalink1color='#739e9e'
       />
       <GCCarousel />
-      <Timeline domain='mun' />
+      <Timeline domain='mun' year={year}/>
     </main>
   );
 }
