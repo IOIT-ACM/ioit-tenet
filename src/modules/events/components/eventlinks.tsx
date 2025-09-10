@@ -82,6 +82,7 @@ const EventCard: React.FC<{ event: EventType }> = ({ event }) => {
   return (
     <Link
       href={`/24/events/${event.id}`}
+      shallow={true}
       className='event-card group block transform overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg transition duration-300 hover:shadow-xl'
     >
       <div className='relative h-40 w-full overflow-hidden md:h-64'>
