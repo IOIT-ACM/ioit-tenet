@@ -11,7 +11,7 @@ export default function Linktree() {
 
     const allEvents = [
         { id: "mun", name: "Model United Nations", href: "https://forms.gle/2eQvXreJDHapQRgQ6", disabled: false },
-        { id: "hack", name: "Hackathon", href: "#", disabled: true },
+        { id: "hack", name: "Hackathon", href: "https://unstop.com/hackathons/tenet-hack-25-tenet-aissms-institute-of-information-technology-pune-maharashtra-1551923", disabled: false },
         { id: "ctf", name: "Capture the Flag", href: "#", disabled: true },
         { id: "drone", name: "Drone Workshop", href: "#", disabled: true },
         { id: "race", name: "Robo Race", href: "#", disabled: true },
