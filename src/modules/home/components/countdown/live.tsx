@@ -99,7 +99,7 @@ const TenetLive: React.FC = () => {
             )}
 
             <div className='flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-6 sm:space-y-0'>
-              <Button link={GALLERY_PAGE}>View gallery</Button>
+              <Button link={GALLERY_PAGE}>View Gallery</Button>
             </div>
           </div>
           <div className='relative hidden md:block'>

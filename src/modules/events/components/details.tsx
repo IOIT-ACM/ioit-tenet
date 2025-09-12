@@ -183,7 +183,7 @@ ${
                   href={event.gallery}
                   className='bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-lg font-bold text-transparent'
                 >
-                  View gallery
+                  Gallery
                 </Link>
               )}
             </div>

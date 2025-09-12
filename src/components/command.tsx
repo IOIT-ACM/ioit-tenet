@@ -69,7 +69,7 @@ export function TenetCommandDialog() {
     },
     {
       url: GALLERY_PAGE,
-      name: 'View gallery',
+      name: 'View Gallery',
     },
     {
       url: '/register',

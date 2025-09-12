@@ -9,14 +9,14 @@ export default function Machinegun() {
           href='/24/gallery'
           className='z-[9999] rounded-full bg-gray-200 bg-opacity-75 px-4 py-2 mx-2 text-lg text-gray-800'
         >
-          View gallery
+          Gallery
         </Link>
         <Link
           href='/register'
           target='_blank'
           className='z-[9999] rounded-full bg-gray-200 bg-opacity-75 px-4 py-2 mx-2 text-lg text-gray-800'
         >
-          Grab Your Tickets
+          Register
         </Link>
       </MachineGunText>
     </div>
