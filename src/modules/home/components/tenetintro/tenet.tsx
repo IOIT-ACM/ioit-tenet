@@ -91,18 +91,20 @@ export const TENET: React.FC = () => {
       <div className='link-item flex w-screen items-center justify-center text-center md:mt-5 md:w-full md:flex-col md:items-start md:justify-start md:text-right md:text-2xl'>
         <>
           <Separator className='mb-4' />
-          <Link
-            href={GALLERY_PAGE}
-            className='date hidden text-2xl text-gray-200 md:block'
-          >
-            View Gallery
-          </Link>
-          {/* <Link
-            href='/register'
-            className='date hidden text-2xl text-gray-200 md:block'
-          >
-            Grab Your Tickets
-          </Link> */}
+          <div className='flex flex-row gap-10'>
+        <Link
+          href={GALLERY_PAGE}
+          className='date hidden text-2xl text-gray-200 md:block'
+        >
+          View Gallery
+        </Link>
+        <Link
+          href='/register'
+          className='date hidden text-2xl text-gray-200 md:block'
+        >
+          Register Now
+        </Link>
+          </div>
         </>
       </div>
     </div>
