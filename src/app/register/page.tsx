@@ -16,6 +16,8 @@ export default function Linktree() {
         { id: "drone", name: "Drone Workshop", href: "#", disabled: true },
         { id: "race", name: "Robo Race", href: "#", disabled: true },
         { id: "soccer", name: "Robo Soccer", href: "#", disabled: true },
+        { id: "robo-workshop", name: "Robotics Workshops", href: "#", disabled: true },
+        { id: "bnb", name: "Bluff & Bargain", href: "#", disabled: true },
     ];
 
     let events = allEvents;
