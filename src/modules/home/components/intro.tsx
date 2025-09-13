@@ -81,12 +81,8 @@ export const Intro: React.FC = () => {
         </>
       )}
       <div className='reveal-type text-md md:text-[35px]'>
-        TENET 2025 is a multi-faceted event hosted by the IOIT ACM Student
-        Chapter, featuring exciting experiences in technology, robotics, global
-        diplomacy, and hackathons. From tech conferences and workshops to MUN
-        simulations and hands-on competitions, it offers something for everyone.
-        Join us to connect, learn, and showcase your skills at AISSMS IOIT,
-        Pune—where passion meets innovation.
+        TENET is the flagship techfest of AISSMS IOIT, created by students for students. Across its three verticals, Hackathon, Model United Nations, and TechFiesta, it brings together programmers, diplomats, makers, and dreamers to build, debate, and explore the future of technology.
+        From AI hackathons that challenge students to build futuristic solutions, to MUN debates shaping perspectives on global technology policy, to hands-on competitions and workshops in robotics, drones, cybersecurity, and immersive tech, TENET is designed as a hub of creativity, learning, and leadership.
       </div>
     </div>
   );

@@ -36,7 +36,7 @@ export default function Linktree() {
                     alt="TENET Logo"
                     width={1620}
                     height={1620}
-                    className="w-28 h-28 mx-auto mb-4"
+                    className="w-28 h-28 mx-auto mb-4 mt-4"
                 />
                 <p className="text-gray-400 mt-1">
                     Tech • Robotics • Diplomacy • Hackathon
