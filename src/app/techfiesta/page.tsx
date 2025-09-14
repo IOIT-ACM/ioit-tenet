@@ -21,9 +21,27 @@ export const metadata: Metadata = {
 
 export default function Techfiesta() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-4 gap-5 text-white p-12">
+    <div className="flex flex-col items-center justify-center min-h-screen px-4 gap-5 text-white pt-12">
       <Hero />
       <EventList />
+      <div className="flex flex-wrap justify-center gap-6 my-8">
+        <a
+          href="https://discord.gg/dkVV2VDw"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-semibold px-6 py-3 rounded-lg transition-all duration-300 bg-black/30 backdrop-blur-sm border border-blue-500 text-blue-400 shadow-[0_0_8px_theme(colors.blue.500)] hover:shadow-[0_0_20px_theme(colors.blue.500)]"
+        >
+          Join Discord
+        </a>
+        <a
+          href="https://www.instagram.com/ioit_tenet/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-semibold px-6 py-3 rounded-lg transition-all duration-300 bg-black/30 backdrop-blur-sm border border-pink-500 text-pink-500 shadow-[0_0_8px_theme(colors.pink.500)] hover:shadow-[0_0_20px_theme(colors.pink.500)]"
+        >
+          Follow on Instagram
+        </a>
+      </div>
     </div>
   );
 }

@@ -14,36 +14,37 @@ export default async function SiteLayout({ children }: SiteLayoutProps) {
 
   return (
     <main style={{
-
+      backgroundColor: '#0B0D22',
       backgroundImage: "url('/25/techfiesta/logo/bg.png')",
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
       backgroundAttachment: 'fixed',
-      minHeight: '75vh',
+      minHeight: '100vh',
       width: '100vw',
-    }} className='min-h-screen w-screen overflow-hidden'>
-      {/* Logos */}
-      <div className="flex absolute top-0 left-0 gap-2 md:gap-3 m-5 md:m-8">
-        <Link href="/" className="h-10 w-10 md:h-14 md:w-14">
-          <Image
-            className="h-full w-full rounded-lg transition-transform hover:scale-105"
-            src="/tenet-white-logo.png"
-            alt="Tenet Logo"
-            height={70}
-            width={70}
-          />
-        </Link>
-        <Link href="https://ioit.acm.org" className="h-10 w-10 md:h-14 md:w-14">
-          <Image
-            className="h-full w-full rounded-lg transition-transform hover:scale-105"
-            src="/acm.png"
-            alt="ACM Logo"
-            height={70}
-            width={70}
-          />
-        </Link>
-      </div>
+    }} className='min-h-screen w-screen overflow-x-hidden'>
+      <header className="absolute top-0 left-0 right-0 z-10 p-5 md:p-8">
+        <div className="flex justify-between items-center w-full">
+          <Link href="/" className="h-10 w-10 md:h-14 md:w-14">
+            <Image
+              className="h-full w-full rounded-lg transition-transform hover:scale-105"
+              src="/tenet-white-logo.png"
+              alt="Tenet Logo"
+              height={70}
+              width={70}
+            />
+          </Link>
+          <Link href="https://ioit.acm.org" className="h-10 w-10 md:h-14 md:w-14">
+            <Image
+              className="h-full w-full rounded-lg transition-transform hover:scale-105"
+              src="/acm.png"
+              alt="ACM Logo"
+              height={70}
+              width={70}
+            />
+          </Link>
+        </div>
+      </header>
       {children}
     </main>
   );
