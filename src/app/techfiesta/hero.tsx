@@ -3,13 +3,13 @@
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
+import Link from "next/link";
 
-const LandingHero: React.FC = () => {
+const TechfiestaHero: React.FC<{ leftImg?: string }> = ({ leftImg = "/25/techfiesta/logo/planet2.png" }) => {
   const leftPlanetRef = useRef<HTMLImageElement | null>(null);
   const rightPlanetRef = useRef<HTMLImageElement | null>(null);
   const headerRef = useRef<HTMLHeadingElement | null>(null);
   const subHeaderRef = useRef<HTMLParagraphElement | null>(null);
-
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
       const { clientX, clientY } = event;
@@ -17,13 +17,17 @@ const LandingHero: React.FC = () => {
       const movementFactors = {
         left: 40,
         right: 60,
-        text: 15,
+        header: 20,
+        sub: 35,
       };
+
+      const nx = clientX / window.innerWidth - 0.5;
+      const ny = clientY / window.innerHeight - 0.5;
 
       if (leftPlanetRef.current) {
         gsap.to(leftPlanetRef.current, {
-          x: (clientX / window.innerWidth - 0.5) * movementFactors.left,
-          y: (clientY / window.innerHeight - 0.5) * movementFactors.left,
+          x: nx * movementFactors.left,
+          y: ny * movementFactors.left,
           duration: 0.7,
           ease: "power3.out",
         });
@@ -31,18 +35,27 @@ const LandingHero: React.FC = () => {
 
       if (rightPlanetRef.current) {
         gsap.to(rightPlanetRef.current, {
-          x: (clientX / window.innerWidth - 0.5) * movementFactors.right,
-          y: (clientY / window.innerHeight - 0.5) * movementFactors.right,
+          x: nx * movementFactors.right,
+          y: ny * movementFactors.right,
           duration: 0.7,
           ease: "power3.out",
         });
       }
 
-      if (headerRef.current ?? subHeaderRef.current) {
-        gsap.to([headerRef.current, subHeaderRef.current], {
-          x: (clientX / window.innerWidth - 0.5) * movementFactors.text,
-          y: (clientY / window.innerHeight - 0.5) * movementFactors.text,
-          duration: 0.7,
+      if (headerRef.current) {
+        gsap.to(headerRef.current, {
+          x: nx * movementFactors.header,
+          y: ny * movementFactors.header,
+          duration: 0.6,
+          ease: "power3.out",
+        });
+      }
+
+      if (subHeaderRef.current) {
+        gsap.to(subHeaderRef.current, {
+          x: nx * movementFactors.sub,
+          y: ny * movementFactors.sub,
+          duration: 0.9,
           ease: "power3.out",
         });
       }
@@ -56,9 +69,42 @@ const LandingHero: React.FC = () => {
 
   return (
     <section
-      style={{ fontFamily: "BrickSans" }}
-      className="relative flex items-center justify-center py-10"
+      style={{
+        fontFamily: "BrickSans",
+        backgroundImage: "url('/25/techfiesta/logo/bg.png')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        minHeight: '100vh',
+        width: '100vw',
+      }}
+      className="relative flex items-center justify-center py-10 overflow-hidden"
     >
+      <div
+        className="flex fixed top-0 left-0 w-fit items-center justify-center gap-1 md:gap-3 md:m-8 m-5"
+      >
+        <Link href={'/'} className="h-10 w-10 md:h-14 md:w-14">
+          <Image
+            className="h-full w-full rounded-lg transition-transform hover:scale-105"
+            src={'/tenet-white-logo.png'}
+            alt="Tenet Logo"
+            height={70}
+            width={70}
+          />
+        </Link>
+        <Link
+          href={'https://ioit.acm.org'}
+          className="h-10 w-10 md:h-14 md:w-14"
+        >
+          <Image
+            className="h-full w-full rounded-lg transition-transform hover:scale-105"
+            src={'/acm.png'}
+            alt="ACM Logo"
+            height={70}
+            width={70}
+          />
+        </Link>
+      </div>
       <div className="relative">
         <Image
           src="/25/techfiesta/graphics/t-blue-border.png"
@@ -86,7 +132,7 @@ const LandingHero: React.FC = () => {
 
         <Image
           ref={leftPlanetRef}
-          src="/25/techfiesta/graphics/t-planet-2.png"
+          src={leftImg}
           alt="Planet Left"
           width={300}
           height={300}
@@ -95,7 +141,7 @@ const LandingHero: React.FC = () => {
 
         <Image
           ref={rightPlanetRef}
-          src="/25/techfiesta/graphics/t-planet.png"
+          src="/25/techfiesta/logo/planet1.png"
           alt="Planet Right"
           width={350}
           height={350}
@@ -106,4 +152,4 @@ const LandingHero: React.FC = () => {
   );
 };
 
-export default LandingHero;
+export default TechfiestaHero;
