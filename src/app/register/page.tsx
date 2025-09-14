@@ -1,6 +1,6 @@
 "use client";
 
-import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaDiscord, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
@@ -22,44 +22,45 @@ export default function Linktree() {
     const allEvents: EventType[] = [
         { id: "mun", name: "Model United Nations", href: "https://forms.gle/2eQvXreJDHapQRgQ6", disabled: false },
         { id: "hack", name: "Hackathon", href: "https://unstop.com/hackathons/tenet-hack-25-tenet-aissms-institute-of-information-technology-pune-maharashtra-1551923", disabled: false },
-        { id: "race", name: "Robo Race", href: "/techfiesta/robo_race", disabled: false },
-        { id: "soccer", name: "Robo Soccer", href: "/techfiesta/robo_soccer", disabled: false },
-        { id: "robo-workshop", name: "Robotics Workshops", href: "/techfiesta/robotics_workshop", disabled: false },
+        { id: "tech", name: "Techfiesta", href: "?d=techfiesta", disabled: false },
         { id: "ctf", name: "Capture the Flag", href: "/techfiesta/capture_the_flag", disabled: true },
         { id: "drone", name: "Drone Workshop", href: "/techfiesta/drone_workshop", disabled: true },
+        { id: "robo-workshop", name: "Robotics Workshop", href: "/techfiesta/robotics_workshop", disabled: true },
+        { id: "race", name: "Robo Race", href: "/techfiesta/robo_race", disabled: true },
+        { id: "soccer", name: "Robo Soccer", href: "/techfiesta/robo_soccer", disabled: true },
         { id: "bnb", name: "Bluff & Bargain", href: "/techfiesta/bluff_n_bargain", disabled: true },
     ];
 
     const techFiestaEventIds = ["ctf", "drone", "race", "soccer", "robo-workshop", "bnb"];
+    const mainEventIds = ["mun", "hack", "tech", "ctf"];
 
-    let baseEvents: EventType[];
-    let otherEvents: EventType[] = [];
+    let events: EventType[];
 
     if (isTechFiesta) {
-        baseEvents = allEvents.filter(event => techFiestaEventIds.includes(event.id));
-        otherEvents = allEvents.filter(event => !techFiestaEventIds.includes(event.id));
+        events = allEvents.filter(event => techFiestaEventIds.includes(event.id));
     } else {
-        baseEvents = allEvents;
+        events = allEvents.filter(event => mainEventIds.includes(event.id));
     }
 
-    let events = baseEvents;
-    if (f && baseEvents.some(e => e.id === f)) {
+    if (f && events.some(e => e.id === f)) {
         events = [
-            ...baseEvents.filter(e => e.id === f),
-            ...baseEvents.filter(e => e.id !== f)
+            ...events.filter(e => e.id === f),
+            ...events.filter(e => e.id !== f)
         ];
     }
 
     return (
         <main className={`flex py-20 flex-col items-center justify-center min-h-screen px-4 ${isTechFiesta ? 'text-white bg-gradient-to-b from-[#0B0D22] via-[#1A103F] to-[#120C2B]' : 'bg-gray-950 text-white'}`}>
             <div className="text-center my-4">
-                <Image
-                    src="/tenet-logo.png"
-                    alt="TENET Logo"
-                    width={1620}
-                    height={1620}
-                    className="w-28 h-28 mx-auto mb-4"
-                />
+                <Link href="/" aria-label="Go to homepage">
+                    <Image
+                        src="/tenet-logo.png"
+                        alt="TENET Logo"
+                        width={1620}
+                        height={1620}
+                        className="w-28 h-28 mx-auto mb-4"
+                    />
+                </Link>
                 {isTechFiesta ? (
                     <>
                         <Link href="/techfiesta" className="text-5xl font-bold text-[#00F0FF] uppercase tracking-widest" style={{ textShadow: '0 0 10px #00F0FF, 0 0 15px #00F0FF' }}>
@@ -111,35 +112,17 @@ export default function Linktree() {
                 })}
             </div>
 
-            {isTechFiesta && otherEvents.length > 0 && (
-                <div className="mt-8 w-full max-w-md">
-                    <div className="relative flex py-5 items-center">
-                        <div className="flex-grow border-t border-gray-600"></div>
-                        <span className="flex-shrink mx-4 text-gray-400 font-semibold">Other TENET Events</span>
-                        <div className="flex-grow border-t border-gray-600"></div>
-                    </div>
-                    <div className="flex flex-col gap-4">
-                        {otherEvents.map((event) => (
-                            <a
-                                key={event.id}
-                                href={event.href}
-                                className="relative w-full py-3 px-4 rounded-xl border shadow-md transition font-semibold flex justify-center items-center bg-gray-900 border-gray-800 hover:bg-gray-800 hover:border-gray-700"
-                            >
-                                {event.name}
-                            </a>
-                        ))}
-                    </div>
-                </div>
-            )}
-
             <div className="mt-10 flex gap-6 text-2xl text-gray-400">
-                <a href="https://www.instagram.com/ioit_tenet/" target="_blank" rel="noopener noreferrer" className={isTechFiesta ? "hover:text-[#FF4DBB] transition" : "hover:text-pink-500 transition"}>
+                <a href="https://www.instagram.com/ioit_tenet/" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500 transition">
                     <FaInstagram />
                 </a>
-                <a href="https://www.linkedin.com/company/ioit-tenet/" target="_blank" rel="noopener noreferrer" className={isTechFiesta ? "hover:text-[#00F0FF] transition" : "hover:text-blue-500 transition"}>
+                <a href="https://discord.gg/ZK6b2NkqSB" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-500 transition">
+                    <FaDiscord />
+                </a>
+                <a href="https://www.linkedin.com/company/ioit-tenet/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 transition">
                     <FaLinkedin />
                 </a>
-                <a href="https://x.com/ioit_acm" target="_blank" rel="noopener noreferrer" className={isTechFiesta ? "hover:text-[#C77DFF] transition" : "hover:text-sky-400 transition"}>
+                <a href="https://x.com/ioit_acm" target="_blank" rel="noopener noreferrer" className="hover:text-sky-400 transition">
                     <FaXTwitter />
                 </a>
                 <a href="https://github.com/ioit-acm" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition">
@@ -147,7 +130,7 @@ export default function Linktree() {
                 </a>
             </div>
 
-            <footer className={`mt-10 mb-4 text-sm ${isTechFiesta ? 'text-gray-400' : 'text-gray-500'}`}>
+            <footer className="mt-10 mb-4 text-sm text-gray-400">
                 © {new Date().getFullYear()} IOIT ACM
             </footer>
         </main>

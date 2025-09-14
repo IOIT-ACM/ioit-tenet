@@ -20,10 +20,10 @@ export const metadata: Metadata = {
 };
 
 export default function Techfiesta() {
-    return (
-        <div className="flex flex-col items-center justify-center min-h-screen px-4 gap-5 text-white">
-            <Hero/>
-            <EventList/>
-        </div>
-    ); 
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen px-4 gap-5 text-white p-12">
+      <Hero />
+      <EventList />
+    </div>
+  );
 }
