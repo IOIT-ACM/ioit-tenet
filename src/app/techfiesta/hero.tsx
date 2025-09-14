@@ -3,7 +3,6 @@
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
-import Link from "next/link";
 import { type TechfiestaData } from "@/config/data/25/techfiesta";
 import { ChevronDown } from "lucide-react";
 
@@ -75,44 +74,45 @@ const TechfiestaHero = ({ event }: TechfiestaHeroProps) => {
   return (
     <section className="flex items-center justify-center py-40 md:py-60 relative">
       <div className="relative">
-        {/* Center frame */}
         <Image
           src="/25/techfiesta/graphics/t-blue-border.png"
           alt="TechFiesta Frame"
           width={400}
           height={400}
           className="mx-auto md:w-[700px] md:h-[400px] w-[300px] h-[200px]"
+          style={{ filter: 'drop-shadow(0 0 15px #00F0FF)' }}
           priority
         />
 
-        {/* Text */}
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <h1
+            <h1
             ref={headerRef}
-            className="text-3xl md:text-5xl font-bold text-white text-center select-none"
-            style={{ fontFamily: "BrickSans" }}
-          >
+            className={`font-bold text-center select-none text-[#00F0FF] ${
+              typeof window !== "undefined" && window.location.pathname === "/techfiesta"
+              ? "text-4xl md:text-7xl"
+              : "text-3xl md:text-5xl"
+            }`}
+            style={{ fontFamily: "BrickSans", textShadow: '0 0 3px #00F0FF, 0 0 5px #00F0FF, 0 0 10px #00F0FF' }}
+            >
             {event?.title ?? "TECHFIESTA"}
-          </h1>
+            </h1>
           <p
             ref={subHeaderRef}
-            className="mt-2 text-lg text-gray-300 select-none"
+            className="mt-2 text-lg text-white font-bold select-none"
           >
             Building Cool
           </p>
         </div>
 
-        {/* Left planet */}
         <Image
           ref={leftPlanetRef}
           src={event?.logo_img ?? "/25/techfiesta/logo/planet2.png"}
           alt="Planet Left"
           width={180}
           height={180}
-          className="absolute -bottom-16 -left-16 md:w-[300px] md:h-[300px] w-[150px] h-[150px] md:-bottom-28 md:-left-32 select-none"
+          className="absolute -bottom-16 -left-16 md:w-auto md:h-[300px] w-auto h-[150px] md:-bottom-28 md:-left-32 select-none"
         />
 
-        {/* Right planet */}
         <Image
           ref={rightPlanetRef}
           src="/25/techfiesta/logo/planet1.png"
@@ -123,7 +123,6 @@ const TechfiestaHero = ({ event }: TechfiestaHeroProps) => {
         />
       </div>
 
-      {/* Scroll indicator */}
       <div className="absolute bottom-2 md:bottom-8 w-full flex flex-col items-center animate-bounce">
         <span className="text-sm text-gray-300 mb-1">Scroll Down</span>
         <ChevronDown className="h-5 w-5 md:h-6 md:w-6 text-white opacity-80" />

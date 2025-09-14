@@ -12,6 +12,26 @@ export interface TechfiestaData {
 }
 export const data: TechfiestaData[] = [
   {
+    slug: 'capture_the_flag',
+    title: 'Capture The Flag',
+    logo_img: '/25/techfiesta/logo/ctf.png',
+    description: `Get ready to step into the world of hacking, puzzles, and problem-solving !
+We present to you, TENET CTF, a National Level cybersecurity competition, a Jeopardy style cybersecurity challenge where teams crack codes, uncover secrets, and race against time.
+From web exploits to cryptography, forensics, reverse engineering, and OSINT ; every round tests your skills and strategy.
+Whether you’re a beginner curious about hacking or a pro ready to dominate, this is your arena to shine.
+Join the hunt, capture the flags, and prove your cyber-prowess! 
+Refer to the content file to know more!`,
+    contacts: [
+      {
+        name: 'Krushi Soni',
+        mobile: '+91 72494 53073',
+      },
+    ],
+    date: 'Monday 13th October 2025',
+    time: '9:00 am to 10:99 am',
+    venue: 'AISSMS IOIT',
+  },
+  {
     slug: 'drone_workshop',
     title: 'Drone Workshop',
     logo_img: '/25/techfiesta/logo/drone.png',
@@ -86,6 +106,29 @@ Refer to the content file to know more.`,
     venue: 'AISSMS IOIT',
   },
   {
+    slug: 'robo_soccer',
+    title: 'Robo Soccer',
+    logo_img: '/25/techfiesta/logo/robosoccer.png',
+    manual:
+      'https://raw.githubusercontent.com/IOIT-ACM/static-assets/main/TENET25/techfiesta25_robosoccer.pdf',
+    link: 'https://unstop.com/o/o1LnDph?lb=Nv7Ojnt1&utm_medium=Share&utm_source=krushson17612&utm_campaign=Competitions',
+    description: `Step into the arena of Robo Soccer at TENET 25 and let your bots battle it out on the field!
+It’s a high-energy clash where speed, control, and strategy decide the champions.
+Score goals, defend smartly, and outplay your rivals in this thrilling 1v1 showdown.
+Whether you bring your own bot or play with the ones provided, the excitement is guaranteed.
+Join the game where robotics meets football, and every move counts toward victory!
+Refer to the content file to know more!`,
+    contacts: [
+      {
+        name: 'Krushi Soni',
+        mobile: '+91 72494 53073',
+      },
+    ],
+    date: 'Monday 13th October 2025',
+    time: '9:00 am to 10:99 am',
+    venue: 'AISSMS IOIT',
+  },
+  {
     slug: 'bluff_n_bargain',
     title: 'Bluff & Bargain',
     logo_img: '/25/techfiesta/logo/bnb.png',
@@ -119,49 +162,6 @@ Refer to the content file to know more about the competition`,
       },
     ],
     date: '13 October',
-    time: '9:00 am to 10:99 am',
-    venue: 'AISSMS IOIT',
-  },
-  {
-    slug: 'capture_the_flag',
-    title: 'Capture The Flag',
-    logo_img: '/25/techfiesta/graphics/t-planet-2.png',
-    description: `Get ready to step into the world of hacking, puzzles, and problem-solving !
-We present to you, TENET CTF, a National Level cybersecurity competition, a Jeopardy style cybersecurity challenge where teams crack codes, uncover secrets, and race against time.
-From web exploits to cryptography, forensics, reverse engineering, and OSINT ; every round tests your skills and strategy.
-Whether you’re a beginner curious about hacking or a pro ready to dominate, this is your arena to shine.
-Join the hunt, capture the flags, and prove your cyber-prowess! 
-Refer to the content file to know more!`,
-    contacts: [
-      {
-        name: 'Krushi Soni',
-        mobile: '+91 72494 53073',
-      },
-    ],
-    date: 'Monday 13th October 2025',
-    time: '9:00 am to 10:99 am',
-    venue: 'AISSMS IOIT',
-  },
-  {
-    slug: 'robo_soccer',
-    title: 'Robo Soccer',
-    logo_img: '/25/techfiesta/logo/robosoccer.png',
-    manual:
-      'https://raw.githubusercontent.com/IOIT-ACM/static-assets/main/TENET25/techfiesta25_robosoccer.pdf',
-    link: 'https://unstop.com/o/o1LnDph?lb=Nv7Ojnt1&utm_medium=Share&utm_source=krushson17612&utm_campaign=Competitions',
-    description: `Step into the arena of Robo Soccer at TENET 25 and let your bots battle it out on the field!
-It’s a high-energy clash where speed, control, and strategy decide the champions.
-Score goals, defend smartly, and outplay your rivals in this thrilling 1v1 showdown.
-Whether you bring your own bot or play with the ones provided, the excitement is guaranteed.
-Join the game where robotics meets football, and every move counts toward victory!
-Refer to the content file to know more!`,
-    contacts: [
-      {
-        name: 'Krushi Soni',
-        mobile: '+91 72494 53073',
-      },
-    ],
-    date: 'Monday 13th October 2025',
     time: '9:00 am to 10:99 am',
     venue: 'AISSMS IOIT',
   },
