@@ -4,12 +4,19 @@ import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import Link from "next/link";
+import { type TechfiestaData } from "@/config/data/25/techfiesta";
 
-const TechfiestaHero: React.FC<{ leftImg?: string }> = ({ leftImg = "/25/techfiesta/logo/planet2.png" }) => {
+interface TechfiestaHeroProps {
+
+  event?: TechfiestaData
+}
+
+const TechfiestaHero = ({ event }: TechfiestaHeroProps) => {
   const leftPlanetRef = useRef<HTMLImageElement | null>(null);
   const rightPlanetRef = useRef<HTMLImageElement | null>(null);
   const headerRef = useRef<HTMLHeadingElement | null>(null);
   const subHeaderRef = useRef<HTMLParagraphElement | null>(null);
+
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
       const { clientX, clientY } = event;
@@ -69,16 +76,8 @@ const TechfiestaHero: React.FC<{ leftImg?: string }> = ({ leftImg = "/25/techfie
 
   return (
     <section
-      style={{
-        fontFamily: "BrickSans",
-        backgroundImage: "url('/25/techfiesta/logo/bg.png')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        minHeight: '100vh',
-        width: '100vw',
-      }}
-      className="relative flex items-center justify-center py-10 overflow-hidden"
+
+      className="pt-40 flex items-center justify-center py-10 "
     >
       <div
         className="flex fixed top-0 left-0 w-fit items-center justify-center gap-1 md:gap-3 md:m-8 m-5"
@@ -119,20 +118,23 @@ const TechfiestaHero: React.FC<{ leftImg?: string }> = ({ leftImg = "/25/techfie
           <h1
             ref={headerRef}
             className="text-5xl font-bold text-white select-none"
+            style={{
+              fontFamily: "BrickSans"
+            }}
           >
-            TECHFIESTA
+            {event?.title ?? "TECHFIESTA"}
           </h1>
           <p
             ref={subHeaderRef}
             className="mt-2 text-lg text-gray-300 select-none"
           >
-            building cool
+            Building Cool
           </p>
         </div>
 
         <Image
           ref={leftPlanetRef}
-          src={leftImg}
+          src={event?.logo_img ?? "/25/techfiesta/logo/planet2.png"}
           alt="Planet Left"
           width={300}
           height={300}
