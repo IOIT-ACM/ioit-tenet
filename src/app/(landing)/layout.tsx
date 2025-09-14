@@ -3,7 +3,7 @@ import FixedNavBar from '@/components/common/fixednav';
 import { Providers } from '@/modules/providers';
 import WelcomeScreen from '@/components/loading';
 import { Footer } from '@/components/footer';
-import { routes } from '@/config/data/24/navbar';
+import { routes } from '@/config/data/25/navbar';
 
 import dynamic from 'next/dynamic';
 const ScrollIcon = dynamic(() => import('@/components/common/scrollicon'), {

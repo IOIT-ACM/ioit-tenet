@@ -90,6 +90,13 @@ html {
 }
 
 @font-face {
+  font-family: 'BrickSans';
+  src: url('/fonts/NTBrickSans.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'Caveat';
   src: url('/fonts/Caveat.ttf') format('truetype');
   font-weight: normal;

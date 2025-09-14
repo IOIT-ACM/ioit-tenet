@@ -231,13 +231,7 @@ export default function FixedNavBar({
                       className="transform font-semibold transition-transform duration-200"
                       href="/24/events"
                     >
-                      Events
-                    </Link>
-                    <Link
-                      className="transform font-semibold transition-transform duration-200"
-                      href="/24/speakers"
-                    >
-                      Speakers
+                      TENET&apos;24
                     </Link>
                     <Link
                       className="transform font-semibold transition-transform duration-200"
