@@ -17,6 +17,7 @@ export default async function SiteLayout({ children }: SiteLayoutProps) {
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
+      backgroundAttachment: 'fixed',
       minHeight: '75vh',
       width: '100vw',
     }} className='min-h-screen w-screen '>

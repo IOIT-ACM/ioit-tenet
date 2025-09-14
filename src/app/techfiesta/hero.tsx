@@ -5,6 +5,7 @@ import Image from "next/image";
 import { gsap } from "gsap";
 import Link from "next/link";
 import { type TechfiestaData } from "@/config/data/25/techfiesta";
+import { ChevronDown } from "lucide-react";
 
 interface TechfiestaHeroProps {
 
@@ -77,7 +78,7 @@ const TechfiestaHero = ({ event }: TechfiestaHeroProps) => {
   return (
     <section
 
-      className="pt-40 flex items-center justify-center py-10 "
+      className="flex items-center justify-center py-80"
     >
       <div
         className="flex fixed top-0 left-0 w-fit items-center justify-center gap-1 md:gap-3 md:m-8 m-5"
@@ -149,6 +150,9 @@ const TechfiestaHero = ({ event }: TechfiestaHeroProps) => {
           height={350}
           className="absolute -top-40 -right-32 select-none"
         />
+      </div>
+      <div className="absolute bottom-6 animate-bounce">
+        <ChevronDown size={32} className="text-white opacity-70" />
       </div>
     </section>
   );

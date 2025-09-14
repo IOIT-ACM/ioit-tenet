@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { env } from '@/env';
 import Hero from './hero';
+import EventList from './eventlist';
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -20,8 +21,9 @@ export const metadata: Metadata = {
 
 export default function Techfiesta() {
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen px-4 bg-gray-950 text-white">
+        <div className="flex flex-col items-center justify-center min-h-screen px-4 gap-5 text-white">
             <Hero/>
+            <EventList/>
         </div>
     ); 
 }
