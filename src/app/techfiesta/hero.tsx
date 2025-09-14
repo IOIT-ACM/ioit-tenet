@@ -118,7 +118,7 @@ const TechfiestaHero = ({ event }: TechfiestaHeroProps) => {
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <h1
             ref={headerRef}
-            className="text-5xl font-bold text-white select-none"
+            className="text-5xl font-bold text-white select-none text-center"
             style={{
               fontFamily: "BrickSans"
             }}
@@ -139,7 +139,7 @@ const TechfiestaHero = ({ event }: TechfiestaHeroProps) => {
           alt="Planet Left"
           width={300}
           height={300}
-          className="absolute -bottom-28 -left-32 select-none"
+          className="absolute -bottom-28 -left-32 select-none "
         />
 
         <Image

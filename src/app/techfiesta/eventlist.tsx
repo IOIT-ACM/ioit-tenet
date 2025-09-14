@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { data as events } from "@/config/data/25/techfiesta";
 import { type TechfiestaData } from "@/config/data/25/techfiesta";
+import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -41,8 +42,7 @@ const EventList: React.FC = () => {
             {events.map((event: TechfiestaData, index) => (
                 <div
                     key={event.slug}
-                    className="event-item flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-16"
-                    style={{ flexDirection: index % 2 === 0 ? "row" : "row-reverse" }}
+                    className={cn("event-item flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-16", index % 2 == 0 ? "md:flex-row" : "md:flex-row-reverse")}
                 >
                     <Image
                         src={event.logo_img !== "#" ? event.logo_img : "/25/techfiesta/graphics/placeholder.png"}

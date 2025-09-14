@@ -22,12 +22,12 @@ export default function Linktree() {
     const allEvents: EventType[] = [
         { id: "mun", name: "Model United Nations", href: "https://forms.gle/2eQvXreJDHapQRgQ6", disabled: false },
         { id: "hack", name: "Hackathon", href: "https://unstop.com/hackathons/tenet-hack-25-tenet-aissms-institute-of-information-technology-pune-maharashtra-1551923", disabled: false },
-        { id: "race", name: "Robo Race", href: "https://unstop.com/o/4d58jwm", disabled: false },
-        { id: "soccer", name: "Robo Soccer", href: "https://unstop.com/o/o1LnDph", disabled: false },
-        { id: "robo-workshop", name: "Robotics Workshops", href: "https://unstop.com/o/PGZyFNp", disabled: false },
-        { id: "ctf", name: "Capture the Flag", href: "#", disabled: true },
-        { id: "drone", name: "Drone Workshop", href: "#", disabled: true },
-        { id: "bnb", name: "Bluff & Bargain", href: "#", disabled: true },
+        { id: "race", name: "Robo Race", href: "/techfiesta/robo_race", disabled: false },
+        { id: "soccer", name: "Robo Soccer", href: "/techfiesta/robo_soccer", disabled: false },
+        { id: "robo-workshop", name: "Robotics Workshops", href: "/techfiesta/robotics_workshop", disabled: false },
+        { id: "ctf", name: "Capture the Flag", href: "/techfiesta/capture_the_flag", disabled: true },
+        { id: "drone", name: "Drone Workshop", href: "/techfiesta/drone_workshop", disabled: true },
+        { id: "bnb", name: "Bluff & Bargain", href: "/techfiesta/bluff_n_bargain", disabled: true },
     ];
 
     const techFiestaEventIds = ["ctf", "drone", "race", "soccer", "robo-workshop", "bnb"];

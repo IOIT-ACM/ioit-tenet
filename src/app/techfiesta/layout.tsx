@@ -20,7 +20,7 @@ export default async function SiteLayout({ children }: SiteLayoutProps) {
       backgroundAttachment: 'fixed',
       minHeight: '75vh',
       width: '100vw',
-    }} className='min-h-screen w-screen '>
+    }} className='min-h-screen w-screen overflow-hidden'>
 
       {children}
 

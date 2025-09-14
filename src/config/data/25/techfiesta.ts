@@ -15,8 +15,11 @@ export const data: TechfiestaData[] = [
     slug: 'drone_workshop',
     title: 'Drone Workshop',
     logo_img: '/25/techfiesta/logo/drone.png',
-    description:
-      'Take to the skies with our Drone Workshop! Learn the basics of drone design, flight mechanics, and hands-on piloting skills. Perfect for beginners and enthusiasts who want to explore aerial robotics and future tech applications.',
+    description: `TENET '25 presents Drone Workshop ,
+ Back after its grand success last year! this time, we’re bringing even more hands-on learning and fun as you explore the world of drones.
+Discover how drones are built, learn to control them, and experience the thrill of flying your own creation.
+Perfect for beginners and enthusiasts alike, it’s your chance to take innovation to the skies and be part of an unforgettable journey.
+Refer to the content file to know more!`,
     contacts: [
       {
         name: 'Krushi Soni',
@@ -36,9 +39,13 @@ export const data: TechfiestaData[] = [
     title: 'Robotics Workshop',
     logo_img: '/25/techfiesta/logo/robotics-workshop.png',
     manual:
-      'https://raw.githubusercontent.com/IOIT-ACM/static-assets/main/TENET/25/techfiesta/logo/techfiesta25_roboworkshop.pdf',
-    description:
-      'Dive into the exciting world of robotics! This workshop will cover fundamental concepts, sensors, actuators, and programming. Get hands-on experience building robots and understanding how they interact with the real world.',
+      'https://raw.githubusercontent.com/IOIT-ACM/static-assets/main/TENET25/techfiesta25_roboworkshop.pdf',
+    description: `Step into the future with our 2-day Robotics Workshop at TENET 25!
+Get hands-on experience building and programming your own bot, guided by experts who make learning fun and impactful.
+Whether you’re a beginner or a tech enthusiast, this workshop is designed to spark creativity, teamwork, and innovation.
+Don’t just watch technology ,create it!
+Join us and be part of the movement to build a thriving robotics culture in our college.
+Refer to the content file to know more.`,
     contacts: [
       {
         name: 'Krushi Soni',
@@ -49,7 +56,8 @@ export const data: TechfiestaData[] = [
         mobile: '+91 98765 43210',
       },
     ],
-    date: '13 October',
+    date: `Sunday, 12th October 2025 and,
+          Monday 13th October 2025`,
     time: '9:00 am to 10:99 am',
     venue: 'AISSMS IOIT',
   },
@@ -58,9 +66,11 @@ export const data: TechfiestaData[] = [
     title: 'Robo Race',
     logo_img: '/25/techfiesta/logo/robo-race.png',
     manual:
-      'https://raw.githubusercontent.com/IOIT-ACM/static-assets/main/TENET/25/techfiesta/logo/techfiesta25_robosoccer.pdf',
-    description:
-      'Speed, precision, and strategy collide in the ultimate Robo Race! Build and program your bot to navigate tricky tracks and overcome obstacles. Only the fastest and smartest robots will claim the title.',
+      'https://raw.githubusercontent.com/IOIT-ACM/static-assets/main/TENET25/techfiesta25_roborace.pdf',
+    description: `Get ready to rev up your bots and conquer the ultimate challenge at Robo Race at TENET 25!
+Navigate twists, turns, ramps, and obstacles as your robot battles against time and rivals for glory. It’s not just about speed , precision, control, and smart design will decide the champions. Whether you’re a rookie or a pro, the track promises adrenaline, innovation, and nonstop action.
+Bring your bot, bring your skills, and race your way into the spotlight!
+Refer to the content file to know more.`,
     contacts: [
       {
         name: 'Krushi Soni',
@@ -71,7 +81,7 @@ export const data: TechfiestaData[] = [
         mobile: '+91 98765 43210',
       },
     ],
-    date: '13 October',
+    date: 'Monday 13th October 2025',
     time: '9:00 am to 10:99 am',
     venue: 'AISSMS IOIT',
   },
@@ -79,15 +89,20 @@ export const data: TechfiestaData[] = [
     slug: 'bluff_n_bargain',
     title: 'Bluff & Bargain',
     logo_img: '/25/techfiesta/logo/bnb.png',
-    description:
-      'Put your wits and negotiation skills to the test! Bluff & Bargain is a thrilling event of strategy, persuasion, and quick thinking where only the sharpest minds and smoothest talkers can win big.',
+    description: `TENET' 25 presents Bluff & Bargain , the ultimate showdown of wit, words, and strategy!
+Here, it’s not the smartest who wins, but the one who can outsmart, outtalk, and outplay their rivals.
+Negotiate, persuade, and bluff your way through tricky deals where every word counts.
+Quick thinking, sharp communication, and a bit of boldness will be your greatest weapons.
+After all, It’s not the time to play the odds, it’s time to play the man.
+Step in, test your game, and see if you can bargain your way to victory!
+Refer to the content file to know more about the competition`,
     contacts: [
       {
         name: 'Krushi Soni',
         mobile: '+91 72494 53073',
       },
     ],
-    date: '13 October',
+    date: 'Sunday, 12th October 2025',
     time: '9:00 am to 10:99 am',
     venue: 'AISSMS IOIT',
   },
@@ -110,16 +125,20 @@ export const data: TechfiestaData[] = [
   {
     slug: 'capture_the_flag',
     title: 'Capture The Flag',
-    logo_img: '#',
-    description:
-      'Gear up for a battle of brains in our Capture The Flag (CTF) challenge! Solve puzzles, crack codes, and exploit vulnerabilities in a safe environment. A must for aspiring cybersecurity enthusiasts.',
+    logo_img: '/25/techfiesta/graphics/t-planet-2.png',
+    description: `Get ready to step into the world of hacking, puzzles, and problem-solving !
+We present to you, TENET CTF, a National Level cybersecurity competition, a Jeopardy style cybersecurity challenge where teams crack codes, uncover secrets, and race against time.
+From web exploits to cryptography, forensics, reverse engineering, and OSINT ; every round tests your skills and strategy.
+Whether you’re a beginner curious about hacking or a pro ready to dominate, this is your arena to shine.
+Join the hunt, capture the flags, and prove your cyber-prowess! 
+Refer to the content file to know more!`,
     contacts: [
       {
         name: 'Krushi Soni',
         mobile: '+91 72494 53073',
       },
     ],
-    date: '13 October',
+    date: 'Monday 13th October 2025',
     time: '9:00 am to 10:99 am',
     venue: 'AISSMS IOIT',
   },
@@ -128,17 +147,21 @@ export const data: TechfiestaData[] = [
     title: 'Robo Soccer',
     logo_img: '/25/techfiesta/logo/robosoccer.png',
     manual:
-      'https://raw.githubusercontent.com/IOIT-ACM/static-assets/main/TENET/25/techfiesta/logo/techfiesta25_robosoccer.pdf',
+      'https://raw.githubusercontent.com/IOIT-ACM/static-assets/main/TENET25/techfiesta25_robosoccer.pdf',
     link: 'https://unstop.com/o/o1LnDph?lb=Nv7Ojnt1&utm_medium=Share&utm_source=krushson17612&utm_campaign=Competitions',
-    description:
-      'Soccer with a robotic twist! Build and control your bot to dribble, defend, and score goals in a high-energy competition. Teamwork, coding, and creativity will decide the champions.',
+    description: `Step into the arena of Robo Soccer at TENET 25 and let your bots battle it out on the field!
+It’s a high-energy clash where speed, control, and strategy decide the champions.
+Score goals, defend smartly, and outplay your rivals in this thrilling 1v1 showdown.
+Whether you bring your own bot or play with the ones provided, the excitement is guaranteed.
+Join the game where robotics meets football, and every move counts toward victory!
+Refer to the content file to know more!`,
     contacts: [
       {
         name: 'Krushi Soni',
         mobile: '+91 72494 53073',
       },
     ],
-    date: '13 October',
+    date: 'Monday 13th October 2025',
     time: '9:00 am to 10:99 am',
     venue: 'AISSMS IOIT',
   },
