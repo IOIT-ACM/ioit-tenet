@@ -48,11 +48,6 @@ export const MUN = () => {
               Register for MUN&lsquo;25
             </Link>
           </h4>
-          <h4>
-            <Link href={MUNLINK} target='_blank'>
-              Gallery
-            </Link>
-          </h4>
         </div>
       </div>
       {!loading && <ShuffleGrid />}

@@ -6,7 +6,7 @@
 
 import Image from 'next/image';
 import * as Scrollytelling from '@/lib/scrollytelling-client';
-import QRImg from '../../../public/tenet/tenet-linktree.png';
+import QRImg from '../../../public/tenet/tenet-instagram-qr.jpeg';
 import confetti from 'canvas-confetti';
 import teamImage from '../../../public/tenet/team.jpeg';
 import s from './footer.module.scss';
@@ -17,7 +17,7 @@ import { cn } from '@/lib/utils';
 
 import React, { useRef, useCallback } from 'react';
 
-const ghHref = 'https://linktr.ee/ioit_tenet';
+const ghHref = 'https://www.instagram.com/ioit_tenet/';
 
 export const Footer = () => {
   const isDesktopSm = useMedia('(min-width: 1024px)');
