@@ -63,7 +63,7 @@ export default function EventDetails({ event }: TechfiestaProps) {
         {event.slug && (
           <Link
             target="_blank"
-            href={event.slug}
+            href={event.link ?? '/register?d=techfiesta'}
             className="rounded-md border border-pink-500 bg-black/30 px-5 py-2 text-pink-400 shadow-[0_0_8px_theme(colors.pink.500)] hover:shadow-[0_0_15px_theme(colors.pink.500)]"
           >
             Register
