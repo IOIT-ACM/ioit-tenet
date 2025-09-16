@@ -56,7 +56,7 @@ const EventList: React.FC = () => {
                     </div>
                     <div className="flex flex-col gap-4 max-w-lg text-center md:text-left">
                         <h3 className="text-3xl font-bold text-white" style={{ fontFamily: 'BrickSans', textShadow: '0 0 5px #FFFFFF' }}>{event.title}</h3>
-                        <p className="text-lg md:text-xl line-clamp-5 md:line-clamp-none text-gray-100">{event.description}</p>
+                        <p className="text-lg md:text-xl line-clamp-5 text-gray-100">{event.description}</p>
 
                         <div className="flex gap-4 justify-center md:justify-start">
                             {event.slug && (
