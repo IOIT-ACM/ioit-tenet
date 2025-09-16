@@ -92,7 +92,7 @@ const TechfiestaHero = ({ event }: TechfiestaHeroProps) => {
               ? "text-4xl md:text-7xl"
               : "text-3xl md:text-5xl"
             }`}
-            style={{ fontFamily: "BrickSans", textShadow: '0 0 3px #00F0FF, 0 0 5px #00F0FF, 0 0 10px #00F0FF' }}
+            style={{ fontFamily: "BrickSans", textShadow: '0 0 3px #00F0FF, 0 0 5px #00F0FF, 0 0 5px #00F0FF' }}
             >
             {event?.title ?? "TECHFIESTA"}
             </h1>
