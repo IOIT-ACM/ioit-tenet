@@ -15,6 +15,7 @@ export const data: TechfiestaData[] = [
     slug: 'capture_the_flag',
     title: 'Capture The Flag',
     logo_img: '/25/techfiesta/logo/ctf.png',
+    link: 'https://unstop.com/p/tenet-ctf-tenet-aissms-institute-of-information-technology-pune-maharashtra-1557733',
     description: `Get ready to step into the world of hacking, puzzles, and problem-solving !
 We present to you, TENET CTF, a National Level cybersecurity competition, a Jeopardy style cybersecurity challenge where teams crack codes, uncover secrets, and race against time.
 From web exploits to cryptography, forensics, reverse engineering, and OSINT ; every round tests your skills and strategy.
@@ -35,6 +36,7 @@ Refer to the content file to know more!`,
     slug: 'drone_workshop',
     title: 'Drone Workshop',
     logo_img: '/25/techfiesta/logo/drone.png',
+    link: 'https://unstop.com/p/drone-workshop-tenet-aissms-institute-of-information-technology-pune-maharashtra-1556047',
     description: `TENET '25 presents Drone Workshop ,
  Back after its grand success last year! this time, we’re bringing even more hands-on learning and fun as you explore the world of drones.
 Discover how drones are built, learn to control them, and experience the thrill of flying your own creation.
@@ -58,6 +60,7 @@ Refer to the content file to know more!`,
     slug: 'robotics_workshop',
     title: 'Robotics Workshop',
     logo_img: '/25/techfiesta/logo/robotics-workshop.png',
+    link: 'https://unstop.com/p/robotics-workshop-tenet-aissms-institute-of-information-technology-pune-maharashtra-1556956',
     manual:
       'https://raw.githubusercontent.com/IOIT-ACM/static-assets/main/TENET25/techfiesta25_roboworkshop.pdf',
     description: `Step into the future with our 2-day Robotics Workshop at TENET 25!
@@ -85,6 +88,7 @@ Refer to the content file to know more.`,
     slug: 'robo_race',
     title: 'Robo Race',
     logo_img: '/25/techfiesta/logo/robo-race.png',
+    link: 'https://unstop.com/p/robo-race-tenet-aissms-institute-of-information-technology-pune-maharashtra-1556840',
     manual:
       'https://raw.githubusercontent.com/IOIT-ACM/static-assets/main/TENET25/techfiesta25_roborace.pdf',
     description: `Get ready to rev up your bots and conquer the ultimate challenge at Robo Race at TENET 25!
@@ -111,7 +115,7 @@ Refer to the content file to know more.`,
     logo_img: '/25/techfiesta/logo/robosoccer.png',
     manual:
       'https://raw.githubusercontent.com/IOIT-ACM/static-assets/main/TENET25/techfiesta25_robosoccer.pdf',
-    link: 'https://unstop.com/o/o1LnDph?lb=Nv7Ojnt1&utm_medium=Share&utm_source=krushson17612&utm_campaign=Competitions',
+    link: 'https://unstop.com/p/robo-soccer-tenet-aissms-institute-of-information-technology-pune-maharashtra-1557101',
     description: `Step into the arena of Robo Soccer at TENET 25 and let your bots battle it out on the field!
 It’s a high-energy clash where speed, control, and strategy decide the champions.
 Score goals, defend smartly, and outplay your rivals in this thrilling 1v1 showdown.
@@ -132,6 +136,7 @@ Refer to the content file to know more!`,
     slug: 'bluff_n_bargain',
     title: 'Bluff & Bargain',
     logo_img: '/25/techfiesta/logo/bnb.png',
+    link: 'https://unstop.com/p/bluff-and-bargain-tenet-aissms-institute-of-information-technology-pune-maharashtra-1558418',
     description: `TENET' 25 presents Bluff & Bargain , the ultimate showdown of wit, words, and strategy!
 Here, it’s not the smartest who wins, but the one who can outsmart, outtalk, and outplay their rivals.
 Negotiate, persuade, and bluff your way through tricky deals where every word counts.
