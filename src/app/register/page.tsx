@@ -23,7 +23,7 @@ export default function Linktree() {
         { id: "mun", name: "Model United Nations", href: "https://forms.gle/2eQvXreJDHapQRgQ6", disabled: false },
         { id: "hack", name: "Hackathon", href: "https://unstop.com/hackathons/tenet-hack-25-tenet-aissms-institute-of-information-technology-pune-maharashtra-1551923", disabled: false },
         { id: "tech", name: "Techfiesta", href: "?d=techfiesta", disabled: false },
-        { id: "ctf", name: "Capture the Flag", href: "https://unstop.com/p/tenet-ctf-tenet-aissms-institute-of-information-technology-pune-maharashtra-1557733", disabled: false },
+        { id: "ctf", name: "Capture the Flag", href: "https://unstop.com/competitions/capture-the-flag-tenet-aissms-institute-of-information-technology-pune-maharashtra-1557733", disabled: false },
         { id: "drone", name: "Drone Workshop", href: "/techfiesta/drone_workshop", disabled: false },
         { id: "robo-workshop", name: "Robotics Workshop", href: "/techfiesta/robotics_workshop", disabled: false },
         { id: "race", name: "Robo Race", href: "/techfiesta/robo_race", disabled: false },
