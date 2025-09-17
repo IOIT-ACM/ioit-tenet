@@ -11,11 +11,18 @@ export default function EventDetails({ event }: TechfiestaProps) {
     <div className="mt-20 w-full">
       <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
         <div className="flex col-span-2 md:col-auto flex-col w-full items-center gap-6">
+          <h1
+            className="text-center text-2xl font-bold text-[#FF4DBB] sm:text-3xl"
+            style={{ fontFamily: "BrickSans" }}
+          >
+            {event.title}
+          </h1>
+
           {event.logo_img && (
             <div className="relative h-64 w-64 overflow-hidden">
               <Image
                 src={event.logo_img}
-                alt={`${event.time} logo`}
+                alt={`${event.title} logo`}
                 fill
                 className="object-cover"
               />
@@ -63,7 +70,7 @@ export default function EventDetails({ event }: TechfiestaProps) {
         {event.slug && (
           <Link
             target="_blank"
-            href={event.link ?? '/register?d=techfiesta'}
+            href={event.link ?? "/register?d=techfiesta"}
             className="rounded-md border border-pink-500 bg-black/30 px-5 py-2 text-pink-400 shadow-[0_0_8px_theme(colors.pink.500)] hover:shadow-[0_0_15px_theme(colors.pink.500)]"
           >
             Register
