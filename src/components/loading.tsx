@@ -3,19 +3,7 @@
 
 import { useEffect } from 'react';
 import { useStore } from '@/store';
-import styles from './WelcomeScreen.module.scss';
-
-/**
- * WelcomeScreen Component
- *
- * This component displays a full-screen welcome message while the page is loading.
- * The `loading` state ensures that a welcome screen is shown during the initial render,
- * while Framer Motion or other heavy animations are loading in the background.
- *
- * Once the component is mounted, the `loading` state is set to `false`, allowing the
- * rest of the page content to be displayed. This helps to prevent a flash of unstyled
- * content (FOUC) or abrupt transitions, providing a smoother user experience.
- */
+import Image from 'next/image';
 
 const WelcomeScreen = () => {
   const loading = useStore((state) => state.loading);
@@ -25,18 +13,24 @@ const WelcomeScreen = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 600);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <div
-      className={`${styles.welcomeScreen} ${loading && sceneLoading ? '' : styles.slideDown}`}
+      className={`fixed inset-0 z-[9999] flex items-center justify-center bg-black transition-transform duration-700 ${loading && sceneLoading ? '' : '-translate-y-full'
+        }`}
     >
-      <div className={styles.content}>
-        <h1 className={styles.title}>TENET 2025</h1>
-        <p className={styles.subtitle}>Loading, please wait...</p>
+      <div className="flex flex-col items-center justify-center gap-4">
+        <Image
+          src="/tenet-logo.png"
+          alt="Logo"
+          width={90}
+          height={90}
+          className="animate-pulse"
+        />
       </div>
     </div>
   );
