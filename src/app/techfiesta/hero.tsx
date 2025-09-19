@@ -89,7 +89,7 @@ const TechfiestaHero = ({ event }: TechfiestaHeroProps) => {
             ref={headerRef}
             className={`font-bold text-center select-none text-[#00F0FF] ${
               typeof window !== "undefined" && window.location.pathname === "/techfiesta"
-              ? "text-4xl md:text-7xl"
+              ? "text-4xl md:text-9xl"
               : "text-3xl md:text-5xl"
             }`}
             style={{ fontFamily: "BrickSans", textShadow: '0 0 3px #00F0FF, 0 0 5px #00F0FF, 0 0 5px #00F0FF' }}
@@ -98,7 +98,7 @@ const TechfiestaHero = ({ event }: TechfiestaHeroProps) => {
             </h1>
           <p
             ref={subHeaderRef}
-            className="mt-2 text-lg text-white font-bold select-none"
+            className="mt-2 md:text-3xl text-lg text-white font-bold select-none"
           >
             Building Cool
           </p>
@@ -110,7 +110,7 @@ const TechfiestaHero = ({ event }: TechfiestaHeroProps) => {
           alt="Planet Left"
           width={180}
           height={180}
-          className="absolute -bottom-16 -left-16 md:w-auto md:h-[300px] w-auto h-[150px] md:-bottom-28 md:-left-32 select-none"
+          className="absolute -bottom-16 -left-16 md:w-auto md:h-[250px] w-auto h-[150px] md:-bottom-28 md:-left-32 select-none"
         />
 
         <Image

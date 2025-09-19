@@ -7,8 +7,8 @@ const sections = [
     title: "Explore",
     links: [
       { name: "Home", href: "/" },
-      { name: "Events", href: "/24/events" },
-      { name: "Speakers", href: "/24/speakers" },
+      { name: "Hackathon", href: "https://hack.ioittenet.com/" },
+      { name: "MUN", href: "https://mun.ioittenet.com/" },
       { name: "Game", href: "/game" },
     ],
   },
@@ -16,13 +16,15 @@ const sections = [
     title: "Get Involved",
     links: [
       { name: "Register", href: "/register" },
-      { name: "Den of Code", href: "/denofcode" },
+      { name: "IOIT ACM", href: "https://ioit.acm.org/" },
+      { name: "TENET'24", href: "/24/events" },
     ],
   },
   {
     title: "Resources",
     links: [
       { name: "Contact", href: "mailto:ioit.tenet@aissmsioit.org" },
+      { name: "Sponsorship", href: "mailto:ioit.tenet@aissmsioit.org" },
     ],
   },
 ];
@@ -36,7 +38,7 @@ const socialLinks = [
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-black py-12 text-white px-5">
+    <footer className="bg-black py-12 text-white px-5 z-[999999]">
       <div className="mx-auto">
         {/* ---- Desktop Footer ---- */}
         <div className="hidden lg:flex w-full flex-col justify-between gap-12 lg:flex-row lg:items-start">

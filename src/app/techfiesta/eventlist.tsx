@@ -50,12 +50,12 @@ const EventList: React.FC = () => {
                             alt={event.title}
                             width={400}
                             height={400}
-                            className="w-full h-full object-contain"
+                            className="md:w-full md:h-full w-[200px] h-[200px] object-contain"
                             priority={index === 0}
                         />
                     </div>
                     <div className="flex flex-col gap-4 max-w-lg text-center md:text-left">
-                        <h3 className="text-3xl font-bold text-white" style={{ fontFamily: 'BrickSans', textShadow: '0 0 5px #FFFFFF' }}>{event.title}</h3>
+                        <h3 className="md:text-3xl text-2xl font-bold text-white" style={{ fontFamily: 'BrickSans', textShadow: '0 0 5px #FFFFFF' }}>{event.title}</h3>
                         <p className="text-lg md:text-xl line-clamp-5 text-gray-100">{event.description}</p>
 
                         <div className="flex gap-4 justify-center md:justify-start">
