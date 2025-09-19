@@ -36,7 +36,7 @@ const socialLinks = [
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-black py-12 text-white">
+    <footer className="bg-black py-12 text-white px-5">
       <div className="mx-auto">
         {/* ---- Desktop Footer ---- */}
         <div className="hidden lg:flex w-full flex-col justify-between gap-12 lg:flex-row lg:items-start">

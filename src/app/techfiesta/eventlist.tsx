@@ -78,22 +78,6 @@ const EventList: React.FC = () => {
                     </div>
                 </div>
             ))}
-            <footer className="mt-20 w-full text-center p-8 md:p-10 bg-white/5 backdrop-blur-lg rounded-lg border border-[#00F0FF]/50 shadow-[0_0_15px_rgba(0,240,255,0.3)]">
-                <div className="flex flex-col md:flex-row gap-6 sm:gap-10 justify-around items-center">
-                    <div className="flex flex-col gap-1 sm:gap-2">
-                        <p className="text-base sm:text-lg font-bold text-white" style={{ fontFamily: 'BrickSans' }}>Krushi Soni</p>
-                        <Link href="tel:+917249453073" className="text-sm sm:text-base text-gray-300 hover:text-cyan-400 transition-colors">
-                            +91 72494 53073
-                        </Link>
-                    </div>
-                    <div className="flex flex-col gap-1 sm:gap-2">
-                        <p className="text-base sm:text-lg font-bold text-white" style={{ fontFamily: 'BrickSans' }}>Nilay Bhandari</p>
-                        <Link href="tel:+919876543210" className="text-sm sm:text-base text-gray-300 hover:text-cyan-400 transition-colors">
-                            +91 98765 43210
-                        </Link>
-                    </div>
-                </div>
-            </footer>
         </div>
     );
 };
