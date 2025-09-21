@@ -32,7 +32,7 @@ export default function Linktree() {
     ];
 
     const techFiestaEventIds = ["ctf", "drone", "race", "soccer", "robo-workshop", "bnb"];
-    const mainEventIds = ["mun", "hack", "tech", "ctf"];
+    const mainEventIds = ["mun", "hack", "tech"];
 
     let events: EventType[];
 
@@ -72,7 +72,7 @@ export default function Linktree() {
                     </>
                 ) : (
                     <p className="text-gray-400 mt-1">
-                        Tech • Robotics • Diplomacy • Hackathon
+                        Tech • Robotics • Diplomacy • Hackathon • Cybersecurity
                     </p>
                 )}
             </div>
