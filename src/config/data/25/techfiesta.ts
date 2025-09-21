@@ -63,7 +63,7 @@ export const data: TechfiestaData[] = [
     date: 'Monday, 13th October 2025',
     time: '10:00 AM to 5:00 PM',
     venue: 'AISSMS IOIT, Pune',
-    registration_fees: '₹300 per participant.',
+    registration_fees: '₹550 per participant.',
     structure: [
       'Session 1: Introduction to Drone Technology and Aerodynamics.',
       'Session 2: Hands-on Assembly of a Quadcopter Kit.',
