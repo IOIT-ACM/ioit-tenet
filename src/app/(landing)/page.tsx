@@ -26,7 +26,7 @@ export default async function HomePage() {
       {/* <Schedule /> */}
       <ZoomParallax />
       {/* <SearchEvents /> */}
-      {/* <Sponsors /> */}
+      <Sponsors />
       <MUNtitle />
       <MUN />
       <FallingCaps />
