@@ -61,7 +61,7 @@ export const data: TechfiestaData[] = [
     description: `TENET '25 presents Drone Workshop, back after its grand success last year! This time, we’re bringing even more hands-on learning and fun as you explore the world of drones. Discover how drones are built, learn to control them, and experience the thrill of flying your own creation. Perfect for beginners and enthusiasts alike.`,
     contacts: [{ name: 'Krushi Soni', mobile: '+91 72494 53073' }, { name: 'Nilay Bhandari', mobile: '+91 94204 22512' }],
     date: 'Monday, 13th October 2025',
-    time: '10:00 AM to 5:00 PM',
+    time: '9:30 AM to 5:00 PM',
     venue: 'AISSMS IOIT, Pune',
     registration_fees: '₹550 per participant.',
     structure: [
@@ -118,7 +118,7 @@ export const data: TechfiestaData[] = [
     date: 'Monday, 13th October 2025',
     time: '12:00 PM to 6:00 PM',
     venue: 'AISSMS IOIT, Pune',
-    registration_fees: '₹200 per team.',
+    registration_fees: '₹149 per team (with bot) | ₹99 per team (without bot).',
     structure: [
       'Each team is allowed one practice run and one official timed run.',
       'The track may include curves, slopes, bridges, ramps, and rough surfaces.',
@@ -132,6 +132,7 @@ export const data: TechfiestaData[] = [
       { question: 'Do I need to bring my own bot?', answer: 'No, teams without a bot may participate using bots provided by the organizers.' }
     ],
     rules: [
+      'Reporting to the venue at the given time is mandatory and may lead to disqualification.',
       'A 5-second penalty is added for touching the bot during a run.',
       'A 10-second penalty is added for skipping a checkpoint or restarting after a fall.',
       'The bot must be student-built; ready-made toy cars are not allowed.',
@@ -143,14 +144,14 @@ export const data: TechfiestaData[] = [
     slug: 'robo_soccer',
     title: 'Robo Soccer',
     logo_img: '/25/techfiesta/logo/robosoccer.png',
-    manual: 'https://raw.githubusercontent.com/IOIT-ACM/static-assets/main/TENET25/techfiesta25_robosoccer.pdf',
-    link: 'https://drive.google.com/open?id=1tZXN5-7Qn-6oGH30NoFDVvs24SdZ0LyP&usp=drive_copy',
+    manual: 'https://drive.google.com/open?id=1tZXN5-7Qn-6oGH30NoFDVvs24SdZ0LyP&usp=drive_copy',
+    link: 'https://unstop.com/competitions/robo-soccer-tenet-aissms-institute-of-information-technology-pune-maharashtra-1557101',
     description: `Robo Soccer is a thrilling 1v1 robotics challenge where participants operate their bots to outscore opponents in a fast-paced soccer match. The game combines precision, strategy, and quick reflexes.`,
     contacts: [{ name: 'Krushi Soni', mobile: '+91 72494 53073' }, { name: 'Nilay Bhandari', mobile: '+91 94204 22512' }],
     date: 'Monday, 13th October 2025',
     time: '12:00 PM to 6:00 PM',
     venue: 'AISSMS IOIT, Pune',
-    registration_fees: '₹150 per team.',
+    registration_fees: '₹149 per participant (with bot) | ₹99 per participant (without bot).',
     structure: [
       'The event follows a 1v1 knockout format.',
       'Each match consists of two halves of 3 minutes each.',
@@ -162,6 +163,7 @@ export const data: TechfiestaData[] = [
       { question: 'Is this a team or individual event?', answer: 'This is an individual (1v1) event.' }
     ],
     rules: [
+      'Reporting to the venue at the given time is mandatory and may lead to disqualification.',
       'A match consists of two halves of 3 minutes each.',
       'Intentionally damaging the opponent\'s bot is forbidden and will result in penalties or disqualification.',
       'Grabbing, clamping, or holding the ball is strictly prohibited; only pushing or shooting mechanisms are allowed.',
@@ -179,7 +181,7 @@ export const data: TechfiestaData[] = [
     date: 'Sunday, 12th October 2025',
     time: '10:00 AM to 4:00 PM',
     venue: 'AISSMS IOIT, Pune',
-    registration_fees: '₹100 per participant.',
+    registration_fees: '₹100 per team.',
     structure: [
       'Stage 1 (Online Quiz): A short quiz on business logic and negotiation awareness.',
       'Stage 2 (The Negotiations): Teams are assigned a company and must negotiate with an investor, using leverage and bluffing to secure a deal.',
