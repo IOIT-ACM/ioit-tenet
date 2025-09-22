@@ -5,12 +5,12 @@ import Image from 'next/image';
 import { gsap } from 'gsap';
 import { ChevronDown, CheckSquare, Dribbble, Compass, Rocket, ArrowLeft, Glasses } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import Link from 'next/link';
 
 interface FormData {
     name: string;
     college: string;
     contact: string;
+    email: string;
     interests: string[];
 }
 
@@ -40,8 +40,8 @@ const experienceZones = [
         icon: <Compass className="h-6 w-6" />,
     },
     {
-        id: 'vrzone',
-        title: 'VR Zone',
+        id: 'arvr',
+        title: 'AR/VR Zone',
         description: 'Immerse yourself in virtual reality experiences with cutting-edge headsets and interactive games.',
         icon: <Glasses className="h-6 w-6" />,
     },
@@ -93,11 +93,12 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ title, sectionId, isOpen,
 };
 
 export default function ExpZonePage() {
-    const [openSection, setOpenSection] = useState<string | null>('pss');
+    const [openSection, setOpenSection] = useState<string | null>('ps5');
     const [formData, setFormData] = useState<FormData>({
         name: '',
         college: '',
         contact: '',
+        email: '',
         interests: [],
     });
     const [submissionStatus, setSubmissionStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
@@ -137,7 +138,7 @@ export default function ExpZonePage() {
 
             if (response.ok) {
                 setSubmissionStatus('success');
-                setFormData({ name: '', college: '', contact: '', interests: [] });
+                setFormData({ name: '', college: '', contact: '', email: '', interests: [] });
             } else {
                 throw new Error('Form submission failed.');
             }
@@ -151,13 +152,13 @@ export default function ExpZonePage() {
         <div className="flex flex-col items-center justify-center min-h-screen mt-10 py-8 md:py-16 px-4 font-sans text-white bg-[#0c0418]">
             <div className="bg-[#0c0418] p-6 md:p-8 w-full max-w-4xl backdrop-blur-sm rounded-xl">
                 <div className="mb-8 mt-4 flex items-center justify-start">
-                    <Link
-                        href="/register"
+                    <button
+                        onClick={() => window.history.back()}
                         className="flex items-center gap-2 rounded-md border border-pink-500/50 bg-black/30 px-4 py-2 text-pink-400 shadow-[0_0_8px_theme(colors.pink.500)] transition-all hover:scale-105 hover:shadow-[0_0_15px_theme(colors.pink.500)]"
                     >
                         <ArrowLeft className="h-5 w-5" />
                         Back
-                    </Link>
+                    </button>
                 </div>
                 <div className="relative w-full mx-auto rounded-t-lg overflow-hidden" style={{ aspectRatio: '1920 / 557' }}>
                     <Image
@@ -218,60 +219,33 @@ export default function ExpZonePage() {
                                 className="bg-transparent border-2 border-[#7A1FA2] focus:border-[#00F0FF] p-2 rounded-lg text-sm md:text-base transition-all duration-300 outline-none placeholder-[#D1D5DB]/60"
                                 required
                             />
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="Email"
+                                value={formData.email}
+                                onChange={handleInputChange}
+                                className="bg-transparent border-2 border-[#7A1FA2] focus:border-[#00F0FF] p-2 rounded-lg text-sm md:text-base transition-all duration-300 outline-none placeholder-[#D1D5DB]/60"
+                                required
+                            />
 
                             <div className="grid grid-cols-2 gap-3 md:gap-4">
-                                <label
-                                    className={`border-2 p-3 text-center text-sm md:text-base cursor-pointer rounded-lg backdrop-blur-sm transition-all duration-300 ${formData.interests.includes('PS5') ? 'border-[#00F0FF] bg-[#00F0FF]/20 shadow-[0_0_10px_rgba(0,240,255,0.2)]' : 'border-[#7A1FA2] bg-white/5 hover:border-[#C77DFF]'}`}
-                                >
-                                    <input
-                                        type="checkbox"
-                                        name="interests"
-                                        value="PS5"
-                                        checked={formData.interests.includes('PS5')}
-                                        onChange={handleCheckboxChange}
-                                        className="hidden"
-                                    />
-                                    <span className="font-semibold text-white">PSS</span>
-                                </label>
-                                <label
-                                    className={`border-2 p-3 text-center text-sm md:text-base cursor-pointer rounded-lg backdrop-blur-sm transition-all duration-300 ${formData.interests.includes('AI Sports Lab') ? 'border-[#00F0FF] bg-[#00F0FF]/20 shadow-[0_0_10px_rgba(0,240,255,0.2)]' : 'border-[#7A1FA2] bg-white/5 hover:border-[#C77DFF]'}`}
-                                >
-                                    <input
-                                        type="checkbox"
-                                        name="interests"
-                                        value="AI Sports Lab"
-                                        checked={formData.interests.includes('AI Sports Lab')}
-                                        onChange={handleCheckboxChange}
-                                        className="hidden"
-                                    />
-                                    <span className="font-semibold text-white">Ai Sports Lab</span>
-                                </label>
-                                <label
-                                    className={`border-2 p-3 text-center text-sm md:text-base cursor-pointer rounded-lg backdrop-blur-sm transition-all duration-300 ${formData.interests.includes('Car Sim') ? 'border-[#00F0FF] bg-[#00F0FF]/20 shadow-[0_0_10px_rgba(0,240,255,0.2)]' : 'border-[#7A1FA2] bg-white/5 hover:border-[#C77DFF]'}`}
-                                >
-                                    <input
-                                        type="checkbox"
-                                        name="interests"
-                                        value="Car Sim"
-                                        checked={formData.interests.includes('Car Sim')}
-                                        onChange={handleCheckboxChange}
-                                        className="hidden"
-                                    />
-                                    <span className="font-semibold text-white">Car Sim</span>
-                                </label>
-                                <label
-                                    className={`border-2 p-3 text-center text-sm md:text-base cursor-pointer rounded-lg backdrop-blur-sm transition-all duration-300 ${formData.interests.includes('Cycle Sim') ? 'border-[#00F0FF] bg-[#00F0FF]/20 shadow-[0_0_10px_rgba(0,240,255,0.2)]' : 'border-[#7A1FA2] bg-white/5 hover:border-[#C77DFF]'}`}
-                                >
-                                    <input
-                                        type="checkbox"
-                                        name="interests"
-                                        value="Cycle Sim"
-                                        checked={formData.interests.includes('Cycle Sim')}
-                                        onChange={handleCheckboxChange}
-                                        className="hidden"
-                                    />
-                                    <span className="font-semibold text-white">Cycle Sim</span>
-                                </label>
+                                {experienceZones.map((zone) => (
+                                    <label
+                                        key={zone.id}
+                                        className={`border-2 p-3 text-center text-sm md:text-base cursor-pointer rounded-lg backdrop-blur-sm transition-all duration-300 ${formData.interests.includes(zone.title) ? 'border-[#00F0FF] bg-[#00F0FF]/20 shadow-[0_0_10px_rgba(0,240,255,0.2)]' : 'border-[#7A1FA2] bg-white/5 hover:border-[#C77DFF]'}`}
+                                    >
+                                        <input
+                                            type="checkbox"
+                                            name="interests"
+                                            value={zone.title}
+                                            checked={formData.interests.includes(zone.title)}
+                                            onChange={handleCheckboxChange}
+                                            className="hidden"
+                                        />
+                                        <span className="font-semibold text-white">{zone.title}</span>
+                                    </label>
+                                ))}
                             </div>
 
                             <button
