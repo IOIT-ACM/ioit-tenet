@@ -4,6 +4,7 @@ interface FormData {
     name: string;
     college: string;
     contact: string;
+    email: string;
     interests: string[];
 }
 
@@ -34,6 +35,7 @@ export async function POST(req: NextRequest) {
                     name: formData.name,
                     college: formData.college,
                     contact: formData.contact,
+                    email: formData.email,
                     interests: formData.interests.join(', '),
                 },
             }),
