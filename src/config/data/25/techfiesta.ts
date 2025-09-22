@@ -200,6 +200,7 @@ export const data: TechfiestaData[] = [
     slug: 'experience_zone',
     title: 'Experience Zone',
     logo_img: '/25/techfiesta/logo/experiencezone.png',
+    link: '/register/experience_zone',
     description: 'Step into the Experience Zone – a space where innovation meets fun! Explore cutting-edge gadgets, interactive demos, and immersive tech showcases designed to spark curiosity and creativity. Featuring VR gaming, 3D printing, and interactive AI exhibits.',
     contacts: [{ name: 'Krushi Soni', mobile: '+91 72494 53073' }],
     date: 'Saturday, 11th to Monday, 13th October 2025',
