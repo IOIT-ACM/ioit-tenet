@@ -29,9 +29,10 @@ export default function Linktree() {
         { id: "race", name: "Robo Race", href: "/techfiesta/robo_race", disabled: false },
         { id: "soccer", name: "Robo Soccer", href: "/techfiesta/robo_soccer", disabled: false },
         { id: "bnb", name: "Bluff & Bargain", href: "/techfiesta/bluff_n_bargain", disabled: false },
+        { id: "exp", name: "Experience Zone", href: "/register/experience_zone", disabled: false },
     ];
 
-    const techFiestaEventIds = ["ctf", "drone", "race", "soccer", "robo-workshop", "bnb"];
+    const techFiestaEventIds = ["ctf", "drone", "race", "soccer", "robo-workshop", "bnb", "exp"];
     const mainEventIds = ["mun", "hack", "tech"];
 
     let events: EventType[];
