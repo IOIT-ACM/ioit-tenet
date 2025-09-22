@@ -8,7 +8,7 @@ export { TenetHero } from './components/tenetintro';
 export { Schedule } from './components/schedule';
 export { EventCountdown } from './components/countdown';
 export { Tickets } from './components/tickets';
-export { Sponsors } from './components/sponcers';
+export { Sponsors } from './components/sponsors';
 export { ZoomParallax } from './components/ZoomParallax';
 export { MUNtitle } from './components/muntitle';
 export { ScrollableEvents } from './components/sphere-events';
