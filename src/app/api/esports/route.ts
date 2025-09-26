@@ -27,7 +27,7 @@ const esportsSchema = z.object({
   member3IGNId: z.string().min(1),
   member3Contact: z.string().regex(/^\d{10}$/),
   member3Email: z.string().email(),
-  transactionId: z.string().min(1),
+  transactionId: z.string().regex(/^\d{12}$/, 'Transaction ID must be exactly 12 digits'),
 });
 
 export const POST = async (request: NextRequest) => {
