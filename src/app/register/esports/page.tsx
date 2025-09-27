@@ -8,6 +8,7 @@ import { QRCodeSVG } from 'qrcode.react';
 import Link from 'next/link';
 import { esportsSchema, type FormInput, type MemberInput } from './schemas';
 import { ESPORTS_FEE, UPI_ID, PAYEE_NAME, FORM_STEPS, memberFields } from './constants';
+import { FaLocationDot } from 'react-icons/fa6';
 
 export default function EsportsRegisterPage() {
     const [currentStep, setCurrentStep] = useState(0);
@@ -259,39 +260,41 @@ export default function EsportsRegisterPage() {
                         <div className="relative w-full" style={{ aspectRatio: '4/3' }}>
                             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10"></div>
 
-                            <div className="w-full h-full bg-[url('https://via.placeholder.com/1200x900/bb86fc/121212?text=TENET+eSports+2025')] bg-cover bg-center flex items-center justify-center">
+                            <div className="w-full h-full bg-[url('/imgs/esports/peshwa-conquest.webp')] bg-cover bg-center flex items-center justify-center">
                                 <FaTrophy className="text-white/30 text-6xl sm:text-8xl opacity-50" />
                             </div>
 
-                            <div className="absolute bottom-4 left-4 bg-[#bb86fc] px-3 py-1.5 rounded-full text-xs font-semibold text-white flex items-center z-20">
-                                <FaGamepad className="mr-1.5" />
-                                TENET 2025
-                            </div>
-
                             <div className="absolute bottom-4 right-4 text-white z-20 text-right">
-                                <h2 className="text-xl sm:text-2xl font-bold">eSports Tournament</h2>
+                                <h2 className="text-xl sm:text-2xl font-bold">Peshwa Conquest S02</h2>
                                 <p className="text-sm opacity-90">October 11, 2025</p>
                             </div>
                         </div>
 
                         <div className="p-4 sm:p-5">
-                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4 text-sm">
+                            <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 mb-4 text-sm">
                                 <div className="flex items-center bg-[#2d2d2d] p-3 rounded-lg border border-[#444]">
-                                    <FaUsers className="text-[#bb86fc] mr-2" />
+                                    <FaUsers className="text-[#bb86fc] mr-2 text-2xl" />
                                     <div>
                                         <div className="text-gray-400 text-xs">Team Size</div>
                                         <div className="text-white font-medium">4 Players</div>
                                     </div>
                                 </div>
                                 <div className="flex items-center bg-[#2d2d2d] p-3 rounded-lg border border-[#444]">
-                                    <FaCreditCard className="text-[#bb86fc] mr-2" />
+                                    <FaTrophy className="text-[#bb86fc] mr-2 text-2xl" />
+                                    <div>
+                                        <div className="text-gray-400 text-xs">Prize Pool</div>
+                                        <div className="text-white font-medium">1 Lakh</div>
+                                    </div>
+                                </div>
+                                <div className="flex items-center bg-[#2d2d2d] p-3 rounded-lg border border-[#444]">
+                                    <FaCreditCard className="text-[#bb86fc] mr-2 text-2xl" />
                                     <div>
                                         <div className="text-gray-400 text-xs">Registration Fee</div>
                                         <div className="text-white font-medium">₹{ESPORTS_FEE}</div>
                                     </div>
                                 </div>
                                 <div className="flex items-center bg-[#2d2d2d] p-3 rounded-lg border border-[#444]">
-                                    <FaTrophy className="text-[#bb86fc] mr-2" />
+                                    <FaLocationDot className="text-[#bb86fc] mr-2 text-2xl" />
                                     <div>
                                         <div className="text-gray-400 text-xs">Venue</div>
                                         <div className="text-white font-medium">IOIT Campus</div>
@@ -383,10 +386,6 @@ export default function EsportsRegisterPage() {
                             Your team is registered for TENET eSports 2025! See you on <strong>October 11th, 2025</strong>.
                         </p>
                         <div className="flex flex-col gap-3">
-                            <button className="w-full bg-[#00bfa5] hover:bg-[#009688] text-white rounded-lg py-2 px-4 flex items-center justify-center transition-colors">
-                                <FaWhatsapp className="mr-2 h-4 w-4" />
-                                Join WhatsApp Group
-                            </button>
                             <Link href="/" className="w-full border border-gray-500 text-gray-300 hover:bg-[#2d2d2d] hover:text-white rounded-lg py-2 px-4 flex items-center justify-center transition-colors">
                                 <FaArrowLeft className="mr-2 h-4 w-4" />
                                 Back to Home
