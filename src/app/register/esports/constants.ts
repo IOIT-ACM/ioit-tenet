@@ -1,8 +1,8 @@
 import { FaUsers, FaUserShield, FaCreditCard } from 'react-icons/fa';
 
 export const ESPORTS_FEE = 500;
-export const UPI_ID = 'adimail2404@oksbi';
-export const PAYEE_NAME = 'Aditya Godse';
+export const UPI_ID = 'vipulbarmukh-2@okicici';
+export const PAYEE_NAME = 'Vipul Barmukh';
 
 export const FORM_STEPS = [
     { id: 'team', title: 'Team Info', icon: FaUsers },
