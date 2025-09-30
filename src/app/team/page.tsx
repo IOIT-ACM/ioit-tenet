@@ -1,32 +1,43 @@
+"use client";
+import { useSearchParams } from 'next/navigation';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import TeamCard from "@/components/ui/team-card";
+import LinktreeCard from "./linktree"; // New component
+import Link from 'next/link';
 import { core, hackathon, mun, techfiesta } from "@/config/data/25/team";
 
-export const metadata = {
-    title: "Team | TENET 2025",
-    description:
-        "Meet the team behind TENET 2025! Discover the faces and roles of the passionate individuals who are working tirelessly to make the fest a grand success.",
-    keywords: "Team, TENET, AISSMS IOIT, Fest, College, Organizers, ACM",
-    openGraph: {
-        title: "Team | TENET 2025",
-        description:
-            "Meet the team behind TENET 2025! Discover the faces and roles of the passionate individuals who are working tirelessly to make the fest a grand success.",
-        url: "https://tenet.in/team",
-        images: [
-            {
-                url: "",
-                width: 1200,
-                height: 630,
-                alt: "TENET 2025 Team",
-            },
-        ],
-        siteName: "TENET 2025",
-        type: "website",
-        locale: "en_US",
-    },
-};
-
 const Team = () => {
+    const searchParams = useSearchParams();
+    const nameParam = searchParams.get('n')?.toLowerCase();
+
+    const findMember = () => {
+        const allMembers = [...core, ...hackathon, ...mun, ...techfiesta];
+        return allMembers.find(m =>
+            m.name.toLowerCase().includes(nameParam ?? '')
+        );
+    };
+
+    const member = nameParam ? findMember() : null;
+
+    if (nameParam && member) {
+        return (
+            <div className="min-h-screen bg-[#121212] text-white px-4 py-12">
+                <div className="max-w-md mx-auto text-center">
+                    <Link
+                        href="/team"
+                        className="inline-flex items-center mb-8 text-gray-400 hover:text-white transition-colors"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                        </svg>
+                        Back to Team
+                    </Link>
+                    <LinktreeCard {...member} />
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className="min-h-screen bg-[#121212] text-white px-4 sm:px-8 md:px-16 py-12 md:py-20">
             {/* Header Section */}
@@ -42,7 +53,6 @@ const Team = () => {
             {/* Tabs Section */}
             <div className="max-w-7xl mx-auto">
                 <Tabs defaultValue="core" className="w-full">
-                    {/* Floating Tabs */}
                     <TabsList className="mb-12 flex gap-2 md:gap-4 justify-start bg-transparent">
                         <TabsTrigger
                             value="core"
@@ -90,7 +100,6 @@ const Team = () => {
                             ))}
                         </div>
                     </TabsContent>
-
                     <TabsContent value="hackathon">
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                             {hackathon.map((member, index) => (
@@ -98,7 +107,6 @@ const Team = () => {
                             ))}
                         </div>
                     </TabsContent>
-
                     <TabsContent value="mun">
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                             {mun.map((member, index) => (
@@ -106,7 +114,6 @@ const Team = () => {
                             ))}
                         </div>
                     </TabsContent>
-
                     <TabsContent value="techfiesta">
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                             {techfiesta.map((member, index) => (

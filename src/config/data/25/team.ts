@@ -3,6 +3,7 @@ const core = [
         name: "Aditya Godse",
         linkedin: "https://www.linkedin.com/in/adimail",
         github: "https://github.com/adimail",
+        instagram: "https://www.instagram.com/adimail",
         twitter: "https://x.com/adimail",
         role: "Organizer",
     },
