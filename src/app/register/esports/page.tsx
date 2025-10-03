@@ -266,7 +266,7 @@ export default function EsportsRegisterPage() {
 
                             <div className="absolute bottom-4 right-4 text-white z-20 text-right">
                                 <h2 className="text-xl sm:text-2xl font-bold">Peshwa Conquest S02</h2>
-                                <p className="text-sm opacity-90">October 11, 2025</p>
+                                <p className="text-sm opacity-90">October 12, 2025</p>
                             </div>
                         </div>
 
@@ -383,7 +383,7 @@ export default function EsportsRegisterPage() {
                     <div className="w-full max-w-md rounded-xl bg-[#1e1e1e] border border-[#444] p-6 space-y-6 text-center shadow-lg">
                         <h2 className="text-2xl font-bold">Congratulations!</h2>
                         <p className="text-gray-300">
-                            Your team is registered for TENET eSports 2025! See you on <strong>October 11th, 2025</strong>.
+                            Your team is registered for TENET eSports 2025! See you on <strong>October 12th, 2025</strong>.
                         </p>
                         <div className="flex flex-col gap-3">
                             <Link href="/" className="w-full border border-gray-500 text-gray-300 hover:bg-[#2d2d2d] hover:text-white rounded-lg py-2 px-4 flex items-center justify-center transition-colors">
