@@ -1,6 +1,8 @@
 'use client';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Html5Qrcode, Html5QrcodeScannerState } from 'html5-qrcode';
+import { z } from 'zod';
+import { attendanceSchema } from '@/validators/attendance';
 
 const Spinner = () => (
     <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -77,6 +79,7 @@ export default function AttendancePage() {
         type: 'success' | 'error' | 'warning';
     } | null>(null);
     const [scannerError, setScannerError] = useState<string | null>(null);
+
     const qrScannerRef = useRef<Html5Qrcode | null>(null);
     const scannerCleanupRef = useRef<boolean>(false);
 
@@ -86,21 +89,29 @@ export default function AttendancePage() {
         setGoodies('No');
     };
 
-    const validateInputs = () => {
-        if (!id.trim()) {
-            setStatusMessage({ message: 'Please enter an Attendee ID', type: 'warning' });
+    const validateForm = () => {
+        try {
+            attendanceSchema.parse({
+                timestamp: new Date().toISOString(),
+                id: id.trim(),
+                eventName: eventName.trim(),
+                meal,
+                goodies,
+            });
+            return true;
+        } catch (err) {
+            if (err instanceof z.ZodError) {
+                const errorMessage = err.errors[0]?.message ?? 'Invalid form data';
+                setStatusMessage({ message: errorMessage, type: 'warning' });
+            } else {
+                setStatusMessage({ message: 'Validation failed', type: 'error' });
+            }
             return false;
         }
-        if (!eventName.trim()) {
-            setStatusMessage({ message: 'Please enter an Event Name', type: 'warning' });
-            return false;
-        }
-        return true;
     };
 
     const markAttendance = useCallback(async (scannedId?: string) => {
         if (isSubmitting) return;
-
         const attendeeId = scannedId ?? id;
         if (!attendeeId.trim() || !eventName.trim()) {
             setStatusMessage({
@@ -109,7 +120,6 @@ export default function AttendancePage() {
             });
             return;
         }
-
         setIsSubmitting(true);
         setStatusMessage(null);
 
@@ -125,7 +135,6 @@ export default function AttendancePage() {
                     eventName: eventName.trim(),
                 }),
             });
-
             const result = await response.json() as { message?: string };
 
             if (response.ok) {
@@ -135,7 +144,6 @@ export default function AttendancePage() {
                 });
                 resetForm();
             } else {
-                // Handle specific error cases
                 if (response.status === 404) {
                     setStatusMessage({
                         message: result.message ?? 'ID not found or sheet does not exist',
@@ -165,9 +173,33 @@ export default function AttendancePage() {
     }, [id, meal, goodies, eventName, isSubmitting]);
 
     const handleManualSubmit = async () => {
-        if (validateInputs()) {
+        if (validateForm()) {
             await markAttendance();
         }
+    };
+
+    const startScanner = () => {
+        setScannerError(null);
+        setIsScanning(true);
+    };
+
+    const stopScanner = async () => {
+        if (qrScannerRef.current && !scannerCleanupRef.current) {
+            try {
+                scannerCleanupRef.current = true;
+                const state = qrScannerRef.current.getState();
+                if (state === Html5QrcodeScannerState.SCANNING || state === Html5QrcodeScannerState.PAUSED) {
+                    await qrScannerRef.current.stop();
+                }
+                qrScannerRef.current.clear();
+            } catch (err) {
+                console.error('Scanner stop error:', err);
+            } finally {
+                scannerCleanupRef.current = false;
+            }
+        }
+        setIsScanning(false);
+        setScannerError(null);
     };
 
     useEffect(() => {
@@ -175,22 +207,17 @@ export default function AttendancePage() {
             const initializeScanner = async () => {
                 try {
                     await new Promise(resolve => setTimeout(resolve, 200));
-
                     const element = document.getElementById('qr-reader-container');
                     if (!element) {
                         throw new Error('QR reader container not found in DOM');
                     }
-
                     if (!qrScannerRef.current) {
                         qrScannerRef.current = new Html5Qrcode('qr-reader-container');
                     }
-
                     const scanner = qrScannerRef.current;
-
                     if (scanner.getState() === Html5QrcodeScannerState.SCANNING) {
                         return;
                     }
-
                     await scanner.start(
                         { facingMode: 'environment' },
                         {
@@ -204,7 +231,7 @@ export default function AttendancePage() {
                             void markAttendance(decodedText.trim());
                         },
                         (_errorMessage) => {
-                            // Ignore parse errors - they're normal when no QR code is visible
+                            // Ignore parse errors
                         }
                     );
                 } catch (err: unknown) {
@@ -218,41 +245,38 @@ export default function AttendancePage() {
                     setIsScanning(false);
                 }
             };
-
             void initializeScanner();
+        } else {
+            const cleanupScanner = async () => {
+                if (qrScannerRef.current && !scannerCleanupRef.current) {
+                    try {
+                        const state = qrScannerRef.current.getState();
+                        if (state === Html5QrcodeScannerState.SCANNING || state === Html5QrcodeScannerState.PAUSED) {
+                            await qrScannerRef.current.stop();
+                        }
+                    } catch (err) {
+                        console.error('Failed to stop scanner:', err);
+                    }
+                }
+            };
+            void cleanupScanner();
         }
-    }, [isScanning, markAttendance]);
-
-    const startScanner = () => {
-        setScannerError(null);
-        setIsScanning(true);
-    };
-
-    const stopScanner = async () => {
-        if (qrScannerRef.current && !scannerCleanupRef.current) {
-            try {
-                scannerCleanupRef.current = true;
-                await qrScannerRef.current.stop();
-                qrScannerRef.current.clear();
-            } catch (err) {
-                console.error('Scanner stop error:', err);
-            } finally {
-                scannerCleanupRef.current = false;
-            }
-        }
-        setIsScanning(false);
-        setScannerError(null);
-    };
-
-    useEffect(() => {
         return () => {
-            if (qrScannerRef.current && !scannerCleanupRef.current) {
-                qrScannerRef.current.stop().catch(err =>
-                    console.error('Failed to stop scanner on unmount:', err)
-                );
-            }
+            const cleanup = async () => {
+                if (qrScannerRef.current && !scannerCleanupRef.current) {
+                    try {
+                        const state = qrScannerRef.current.getState();
+                        if (state === Html5QrcodeScannerState.SCANNING || state === Html5QrcodeScannerState.PAUSED) {
+                            await qrScannerRef.current.stop();
+                        }
+                    } catch (err) {
+                        console.error('Failed to stop scanner on unmount:', err);
+                    }
+                }
+            };
+            void cleanup();
         };
-    }, []);
+    }, [isScanning, markAttendance]);
 
     return (
         <div className="min-h-screen bg-gray-50 flex flex-col items-center p-4">
@@ -263,13 +287,11 @@ export default function AttendancePage() {
                     onClose={() => setStatusMessage(null)}
                 />
             )}
-
             <div className="w-full max-w-md bg-white rounded-xl shadow-md p-6 sm:p-8 space-y-6">
                 <div className="text-center">
                     <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">Event Attendance</h1>
                     <p className="text-gray-500">Scan a QR code or enter an ID manually</p>
                 </div>
-
                 {isScanning ? (
                     <div className="space-y-4">
                         <div className="text-center">
@@ -309,7 +331,6 @@ export default function AttendancePage() {
                         </button>
                     </div>
                 )}
-
                 <div className="relative">
                     <div className="absolute inset-0 flex items-center">
                         <div className="w-full border-t border-gray-300" />
@@ -318,7 +339,6 @@ export default function AttendancePage() {
                         <span className="px-2 bg-white text-gray-500">OR</span>
                     </div>
                 </div>
-
                 <div className="space-y-5">
                     <div>
                         <label htmlFor="id" className="block text-sm font-medium text-gray-700 mb-1">
@@ -331,11 +351,12 @@ export default function AttendancePage() {
                             value={id}
                             onChange={(e) => setId(e.target.value)}
                             disabled={isSubmitting}
-                            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 disabled:bg-gray-50 disabled:cursor-not-allowed transition-colors text-white"
-                            placeholder="e.g., QR-101"
+                            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 disabled:bg-gray-50 disabled:cursor-not-allowed transition-colors text-gray-900"
+                            placeholder="e.g., A123"
+                            pattern="[A-Z]\d{1,3}"
+                            title="ID must be in format AZXXX (e.g., A123)"
                         />
                     </div>
-
                     <div>
                         <label htmlFor="eventName" className="block text-sm font-medium text-gray-700 mb-1">
                             Event Name *
@@ -351,7 +372,6 @@ export default function AttendancePage() {
                             placeholder="e.g., Hackathon"
                         />
                     </div>
-
                     <div className="grid grid-cols-2 gap-4">
                         <div>
                             <label htmlFor="meal" className="block text-sm font-medium text-gray-700 mb-1">
@@ -363,13 +383,12 @@ export default function AttendancePage() {
                                 value={meal}
                                 onChange={(e) => setMeal(e.target.value as 'Yes' | 'No')}
                                 disabled={isSubmitting}
-                                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 disabled:bg-gray-50 disabled:cursor-not-allowed transition-colors text-white"
+                                className="w-full p-3 text-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 disabled:bg-gray-50 disabled:cursor-not-allowed transition-colors"
                             >
                                 <option value="No">No</option>
                                 <option value="Yes">Yes</option>
                             </select>
                         </div>
-
                         <div>
                             <label htmlFor="goodies" className="block text-sm font-medium text-gray-700 mb-1">
                                 Goodies
@@ -380,14 +399,13 @@ export default function AttendancePage() {
                                 value={goodies}
                                 onChange={(e) => setGoodies(e.target.value as 'Yes' | 'No')}
                                 disabled={isSubmitting}
-                                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 disabled:bg-gray-50 disabled:cursor-not-allowed transition-colors text-white"
+                                className="w-full p-3 border border-gray-300 text-white rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 disabled:bg-gray-50 disabled:cursor-not-allowed transition-colors"
                             >
                                 <option value="No">No</option>
                                 <option value="Yes">Yes</option>
                             </select>
                         </div>
                     </div>
-
                     <button
                         onClick={handleManualSubmit}
                         disabled={isSubmitting || !id.trim() || !eventName.trim()}
@@ -397,7 +415,6 @@ export default function AttendancePage() {
                         {isSubmitting ? 'Submitting...' : 'Mark Attendance Manually'}
                     </button>
                 </div>
-
                 <div className="text-center text-xs text-gray-500">
                     <p>Fields marked with * are required</p>
                 </div>

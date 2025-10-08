@@ -2,14 +2,7 @@ import { type NextRequest } from 'next/server';
 import { google } from 'googleapis';
 import { env } from '@/env';
 import { z } from 'zod';
-
-export const attendanceSchema = z.object({
-    timestamp: z.string(),
-    id: z.string().min(1, 'ID is required'),
-    eventName: z.string().min(1, 'Event name is required'),
-    meal: z.enum(['Yes', 'No']),
-    goodies: z.enum(['Yes', 'No']),
-});
+import { attendanceSchema } from '@/validators/attendance';
 
 const columnIndexToLetter = (index: number): string => {
     let letter = '';
@@ -106,20 +99,6 @@ export const POST = async (request: NextRequest) => {
             return createErrorResponse(
                 `ID "${id}" not found in the "${headers[headerMap.id ?? 0]}" column.`,
                 404,
-            );
-        }
-
-        const timestampColumnLetter = columnIndexToLetter(headerMap.timestamp ?? 0);
-        const existingTimestampRange = `'${eventName}'!${timestampColumnLetter}${rowIndex}`;
-        const existingTimestampResponse = await sheets.spreadsheets.values.get({
-            spreadsheetId,
-            range: existingTimestampRange,
-        });
-        const existingTimestamp = existingTimestampResponse.data.values?.[0]?.[0] as string | undefined;
-        if (existingTimestamp?.toString()?.trim()) {
-            return createErrorResponse(
-                `Attendance already marked for ID "${id}" at ${existingTimestamp}.`,
-                409,
             );
         }
 
