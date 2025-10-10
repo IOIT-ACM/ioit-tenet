@@ -46,7 +46,7 @@ export const Schedule = () => {
           Schedule
         </h1>
 
-        <div className="gap- hidden pb-2 text-slate-300 md:grid">
+        {/* <div className="gap- hidden pb-2 text-slate-300 md:grid">
           <Link className="w-fit transition-all hover:underline" href={'/register'}>
             Registrations
           </Link>
@@ -56,7 +56,7 @@ export const Schedule = () => {
           <Link className="w-fit transition-all hover:underline" href={'/24/speakers'}>
             View Speakers Lineup
           </Link>
-        </div>
+        </div> */}
       </div>
 
       <div ref={boundaryRef} className="w-full md:col-span-5">
