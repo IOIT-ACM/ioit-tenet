@@ -1,7 +1,7 @@
 'use client';
 
 import { ScheduleItem } from './scheduleitem';
-import { day1, day2, day3 } from '@/config/data/24/events';
+import { day1, day2, day3 } from '@/config/data/25/events';
 import { Separator } from '@/components/ui/separator';
 import { FollowCursor } from './cursor';
 import React, { useMemo, useState, useRef } from 'react';
@@ -63,7 +63,7 @@ export const Schedule = () => {
 
   const d2 = useMemo(() => {
     const filteredDay2 = [...day2, munItem1].filter(
-      (item) => item.domain !== 'mun',
+      true
     );
     const sortedDay2 = filteredDay2.sort(
       (a, b) => a.start.getTime() - b.start.getTime(),

@@ -25,7 +25,7 @@ export type Speaker = {
 export type EventType = {
   title: string;
   id: string;
-  domain: 'techfiesta' | 'esports' | 'mun' | 'esummit' | 'creators' | 'home';
+  domain: 'techfiesta' | 'esports' | 'mun' | 'esummit' | 'creators' | 'home' | 'hackathon';
   description?: string;
   image: string;
   imp: boolean;
