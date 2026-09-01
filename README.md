@@ -1,5 +1,7 @@
 # IOIT-TENET 2025 website
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+
 ## Repository Structure
 
 - The code components are structured in a modular way. We have a `/modules` directory that contain code components for each module _(ie. Home page, search page, etc)_
