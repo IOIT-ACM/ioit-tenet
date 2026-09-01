@@ -26,10 +26,10 @@ export const MUN = () => {
           Glimpses from last year
         </span>
         <h3 className='text-3xl font-semibold sm:text-4xl md:text-5xl lg:text-7xl xl:text-9xl'>
-          IOIT MUN&lsquo;24
+          IOIT MUN&lsquo;25
         </h3>
         <p className='my-3 text-sm text-slate-300 sm:my-4 sm:text-base md:my-6 md:text-lg'>
-          Reflecting on the highlights from IOIT MUN 2024, the two-day
+          Reflecting on the highlights from IOIT MUN 2025, the two-day
           conference commemorating AISSMS IOIT Silver Jubilee featured
           distinguished speakers such as Mr. Abhay Vaidya and Dr. Arjun Deore.
           Read further on the IOIT MUN website
@@ -45,7 +45,7 @@ export const MUN = () => {
           </h4>
           <h4>
             <Link href={MUNLINK} target='_blank'>
-              Register for MUN&lsquo;25
+              Register for MUN&lsquo;26
             </Link>
           </h4>
         </div>
