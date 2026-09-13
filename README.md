@@ -1,4 +1,6 @@
-# IOIT-TENET 2025 website
+# IOIT-TENET 2026 website
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
 ## Repository Structure
 

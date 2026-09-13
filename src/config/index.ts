@@ -5,6 +5,7 @@ export const siteConfig = {
 };
 
 export const MUNLINK = 'https://unstop.com/conferences/ioit-mun-2026-tenet-aissms-institute-of-information-technology-pune-maharashtra-1699491';
+export const MUN_PAGE = 'https://mun.ioittenet.com/';
 export const KONFHUB_PAGE = '#konfhub';
 export const LOADTIME = 2;
 

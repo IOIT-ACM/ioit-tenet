@@ -36,10 +36,13 @@ export const Links: React.FC = () => {
     >
       <div className='flex w-screen flex-row items-center justify-center gap-5 text-xl drop-shadow-md md:w-fit md:flex-col md:text-2xl'>
         <Magnets link='/24/events' className='link-item text-white'>
-          TENET&apos;24
+          TENET&apos;25
         </Magnets>
         <Magnets link='https://www.instagram.com/ioit_tenet/' className='link-item text-white'>
           Instagram
+        </Magnets>
+        <Magnets link='https://chat.whatsapp.com/BHLhWtnA8CdK0dTbduJWPZ' className='link-item text-white'>
+          WhatsApp
         </Magnets>
         <Magnets
           link='mailto:ioit.tenet@aissmsioit.org'
