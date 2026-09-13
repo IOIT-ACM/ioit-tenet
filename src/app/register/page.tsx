@@ -20,7 +20,7 @@ export default function Linktree() {
     const isTechFiesta = d === "techfiesta";
 
     const allEvents: EventType[] = [
-        { id: "mun", name: "Model United Nations", href: "https://forms.gle/2eQvXreJDHapQRgQ6", disabled: false },
+        { id: "mun", name: "Model United Nations", href: "https://unstop.com/conferences/ioit-mun-2026-tenet-aissms-institute-of-information-technology-pune-maharashtra-1699491", disabled: false },
         { id: "hack", name: "Hackathon", href: "https://unstop.com/hackathons/tenet-hack-25-tenet-aissms-institute-of-information-technology-pune-maharashtra-1551923", disabled: false },
         { id: "tech", name: "Techfiesta", href: "?d=techfiesta", disabled: false },
         { id: "esports", name: "E-Sports", href: "/register/esports", disabled: false },
