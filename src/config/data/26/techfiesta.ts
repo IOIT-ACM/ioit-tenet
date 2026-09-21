@@ -454,11 +454,76 @@ export const data: TechfiestaEvent[] = [
   {
     slug: 'robotics_workshop',
     title: 'Robotics Workshop',
-    tagline: 'Two-day workshop.',
+    tagline: 'Where Ideas Become Robots.',
     logo: '/26/techfiesta/logo/robotics-workshop.webp',
     day: '23–24',
     dateLabel: '23–24 Oct 2026',
-    cardDescription: 'Two days from first circuit to moving machine. Learn the basics of sensors, motors and control by building as you go.',
+    cardDescription: 'Two days from first circuit to a working Robo Soccer bot. Learn electronics, CAD and soldering by building as you go.',
     registerLink: '/register?d=techfiesta',
+    detail: {
+      about: [
+        'This two day hands-on workshop takes participants from the fundamentals of electronics and mechanical design through to the assembly and testing of a functional Robo Soccer robot.',
+        'The learning path moves from concepts and circuit practice to CAD, digital assembly, physical construction, soldering, testing and final preparation.',
+      ],
+      howItWorks: [
+        {
+          title: 'Basic electronics and H-bridge theory',
+          description: 'Voltage, current, resistance and multimeter measurements, then the purpose of an H-bridge and how it reverses DC motor direction.',
+        },
+        {
+          title: 'DPDT switch and chassis CAD',
+          description: 'Wire a DPDT switch as a manual H-bridge, then sketch and model the robot chassis in Fusion 360 using sheet metal tools.',
+        },
+        {
+          title: 'Digital robot assembly',
+          description: 'Import the CAD parts, apply joints and constraints, check for interference and validate the movement digitally before building.',
+        },
+        {
+          title: 'Physical assembly and soldering',
+          description: 'Assemble the chassis, wheels, motors and supports, then solder motor, switch and power connections with safe technique.',
+        },
+        {
+          title: 'Testing and final preparation',
+          description: 'Inspect the robot, correct any loose or unsafe connections, verify movement and prepare the competition-ready soccer bot.',
+        },
+        {
+          title: 'Mini competition',
+          description: 'A closing competition after the workshop puts the bots participants built to the test.',
+        },
+      ],
+      registration: [
+        { label: 'Solo participant', meta: 'Grouped by organizers, no take-home bot', price: 'Rs. 650' },
+        { label: 'Group of 4', meta: 'Take the bot you build home', price: 'Rs. 600 / participant' },
+      ],
+      keyRules: [
+        'Follow the instructions of the workshop coordinators at all times.',
+        'Never operate equipment, circuits or robots in an unsafe manner.',
+        'Disconnect power before changing, rewiring, modifying or soldering any circuit.',
+        'Check circuit connections and polarity before powering the system.',
+        'Handle tools, components and equipment carefully, and return them after use.',
+        'Report any damaged component, loose connection, overheating or unusual behaviour immediately.',
+        'During Robo Soccer, use only approved robots and do not intentionally interfere with or damage another robot or the field.',
+        'Groups of 4 may take their bot home; solo participants are grouped by organizers and will not take a bot home.',
+        "The referee and coordinators' decisions on safety, discipline and competition conduct are final.",
+      ],
+      prizes: [
+        { label: 'Mini competition', description: 'A closing competition after the workshop tests the bots participants have built.' },
+        { label: 'Certificate', description: 'Attend the complete workshop schedule to receive a Certificate of Participation, subject to the organizer’s final policy.' },
+      ],
+      quickFacts: [
+        { label: 'Date', value: '23–24 Oct 2026' },
+        { label: 'Reporting', value: '9:30 AM' },
+        { label: 'Timing', value: '10:00 AM – 4:00 PM' },
+        { label: 'Venue', value: 'AISSMS IOIT, Kennedy Road, Pune' },
+        { label: 'Format', value: 'Solo or group of 4' },
+        { label: 'Entry fee', value: 'Rs. 600 to 650' },
+        { label: 'Awards', value: 'Certificate' },
+      ],
+      contacts: [
+        { name: 'Sujal Gaikwad', mobile: '+91 85309 43237' },
+        { name: 'Parth Kamble', mobile: '+91 80551 50505' },
+      ],
+      rulebook: '/26/techfiesta/rulebooks/robotics-workshop-rulebook.pdf',
+    },
   },
 ];
