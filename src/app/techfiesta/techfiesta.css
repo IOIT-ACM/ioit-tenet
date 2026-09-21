@@ -160,6 +160,13 @@
   transform: translateY(0);
 }
 
+.tf-arrow-nudge {
+  transition: transform 0.12s steps(2);
+}
+a:hover .tf-arrow-nudge {
+  transform: translate(3px, -3px);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .tf-reveal {
     opacity: 1;
@@ -172,7 +179,8 @@
   .tf-card,
   .tf-card-dark,
   .tf-dd-menu,
-  .tf-f-soc {
+  .tf-f-soc,
+  .tf-arrow-nudge {
     transition: none !important;
   }
 }
