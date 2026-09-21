@@ -36,7 +36,7 @@ export const Links: React.FC = () => {
     >
       <div className='flex w-screen flex-row items-center justify-center gap-5 text-xl drop-shadow-md md:w-fit md:flex-col md:text-2xl'>
         <Magnets link='/24/events' className='link-item text-white'>
-          TENET&apos;25
+          TENET&apos;24
         </Magnets>
         <Magnets link='/25/events' className='link-item text-white'>
           TENET&apos;25
