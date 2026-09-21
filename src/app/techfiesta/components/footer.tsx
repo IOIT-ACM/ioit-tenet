@@ -10,13 +10,10 @@ const exploreLinks = [
 
 const involvedLinks = [
   { label: 'Register', href: '#register' },
-  { label: 'Sponsorship', href: '#' },
+  { label: 'Sponsorship', href: 'mailto:ioit.tenet@aissmsioit.org' },
 ];
 
-const resourceLinks = [
-  { label: 'Contact', href: '#' },
-  { label: 'FAQ', href: '#' },
-];
+const resourceLinks = [{ label: 'Contact', href: 'mailto:ioit.tenet@aissmsioit.org' }];
 
 export default function TechfiestaFooter() {
   return (
@@ -42,10 +39,22 @@ export default function TechfiestaFooter() {
             >
               <InstagramIcon />
             </a>
-            <a href="#" aria-label="Linkedin" className="tf-f-soc flex h-11 w-11 items-center justify-center border-2 border-[#2a2a40] text-white">
+            <a
+              href="https://www.linkedin.com/company/ioit-tenet/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Linkedin"
+              className="tf-f-soc flex h-11 w-11 items-center justify-center border-2 border-[#2a2a40] text-white"
+            >
               <LinkedinIcon />
             </a>
-            <a href="#" aria-label="X" className="tf-f-soc flex h-11 w-11 items-center justify-center border-2 border-[#2a2a40] text-white">
+            <a
+              href="https://x.com/ioit_acm"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="X"
+              className="tf-f-soc flex h-11 w-11 items-center justify-center border-2 border-[#2a2a40] text-white"
+            >
               <XIcon />
             </a>
           </div>
