@@ -359,8 +359,7 @@ export const data: TechfiestaEvent[] = [
         { label: 'Entry fee', value: 'Rs. 150 / team' },
       ],
       contacts: [
-        { name: 'Parth Kamble', mobile: '+91 80551 50505' },
-        { name: 'Vishakha Shahakar', mobile: '+91 96994 57989' },
+        { name: 'Siddhesh Waghmare', mobile: '+91 70286 63868' },
       ],
       rulebook: '/26/techfiesta/rulebooks/vibe-a-thon-rulebook.pdf',
     },
@@ -447,7 +446,7 @@ export const data: TechfiestaEvent[] = [
     logo: '#',
     day: 'TBA',
     dateLabel: 'TBA',
-    cardDescription: '[CTF description: one or two lines on the challenge format, once details are final.]',
+    cardDescription: 'Coming soon.',
     // Was the 2025 Unstop link, carried over by mistake — not confirmed live for '26. Falls
     // back to the generic register page until a real 2026 link is available.
     registerLink: '/register?d=techfiesta',
