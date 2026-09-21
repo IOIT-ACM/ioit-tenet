@@ -1,26 +1,51 @@
+'use client';
+
+import { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { festivalDates } from '@/config/data/26/techfiesta';
 import Reveal from './reveal';
+import ParallaxLayer from './parallax-layer';
 
 export default function Hero() {
+  const photoRef = useRef<HTMLDivElement>(null);
+
   return (
     <section id="top" className="relative w-full bg-white">
-      <div className="relative h-[680px] w-full overflow-hidden sm:h-[780px] md:h-[920px]">
-        <Image
-          src="/26/techfiesta/graphics/hero-bg.png"
-          alt=""
-          fill
-          priority
-          className="object-cover object-top"
-        />
+      <div ref={photoRef} className="relative h-[680px] w-full overflow-hidden sm:h-[780px] md:h-[920px]">
+        {/* Layer 1: sky and clouds — farthest back, drifts the least. */}
+        <ParallaxLayer containerRef={photoRef} range={[0, 40]} className="absolute inset-0">
+          <Image src="/26/techfiesta/graphics/sky-clouds-bg.webp" alt="" fill priority className="object-cover object-top" />
+        </ParallaxLayer>
 
-        <div className="absolute inset-0 flex flex-col items-center justify-center px-5 pb-[clamp(96px,27vw,100px)] sm:px-10 md:px-10">
+        {/* Layer 2: the astronaut, sitting mid-scene above the foreground transition. */}
+        <ParallaxLayer
+          containerRef={photoRef}
+          range={[0, 90]}
+          className="absolute bottom-0 right-[2%] w-[150px] translate-y-[12%] sm:right-[6%] sm:w-[230px] md:w-[300px] lg:w-[360px]"
+        >
+          <Image
+            src="/26/techfiesta/graphics/astronaut.webp"
+            alt=""
+            width={983}
+            height={1277}
+            className="h-auto w-full"
+          />
+        </ParallaxLayer>
+
+        {/* Layer 3: title, logos and CTAs — drifts gently opposite the background and fades
+            as the hero scrolls past, reading as the closest, most "camera-facing" layer. */}
+        <ParallaxLayer
+          containerRef={photoRef}
+          range={[0, -20]}
+          opacityRange={[1, 0.25]}
+          className="absolute inset-0 flex flex-col items-center justify-center px-5 pb-[clamp(96px,27vw,100px)] sm:px-10 md:px-10"
+        >
           <Reveal className="flex w-full max-w-[380px] flex-col items-start gap-6 sm:max-w-[560px] sm:gap-8 md:max-w-[760px] lg:max-w-[940px]">
-            <div className="flex items-center -mb-7  lg:-mb-10">
-              <Image src="/26/techfiesta/logo/ti.png" alt="AISSMS IOIT" width={90} height={90} className="h-24 w-24 sm:h-[100px] sm:w-[100px] z-10 -mb-2" />
-              <Image src="/26/techfiesta/logo/acm.png" alt="ACM" width={90} height={90} className="h-24 w-24 sm:h-[100px] sm:w-[100px] -ml-4 mr-4 -mb-2" />
-              <div className="flex flex-col ">
+            <div className="flex items-center -mb-7 lg:-mb-10">
+              <Image src="/26/techfiesta/logo/ti.png" alt="AISSMS IOIT" width={90} height={90} className="z-10 -mb-2 h-24 w-24 sm:h-[100px] sm:w-[100px]" />
+              <Image src="/26/techfiesta/logo/acm.png" alt="ACM" width={90} height={90} className="-mb-2 -ml-4 mr-4 h-24 w-24 sm:h-[100px] sm:w-[100px]" />
+              <div className="flex flex-col">
                 <span
                   className="text-sm font-semibold tracking-[0.14em] text-[#cfd5ff] sm:text-lg"
                   style={{ fontFamily: 'var(--font-pixelify)', textShadow: '2px 2px 0 #050530' }}
@@ -60,7 +85,7 @@ export default function Hero() {
               </Link>
             </div>
           </Reveal>
-        </div>
+        </ParallaxLayer>
       </div>
 
       {/* Zero-height seam sitting exactly on the boundary between the photo above and the
