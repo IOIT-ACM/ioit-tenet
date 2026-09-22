@@ -74,6 +74,7 @@ export const schedule: ScheduleDay[] = [
     weekday: 'DAY 1 · FRIDAY',
     items: [
       { event: 'Robo Race', time: '9 AM – 5 PM' },
+      { event: 'Robo Soccer', time: '9 AM – 5 PM' },
       { event: 'Fox Hunt', time: '11 AM onwards' },
       { event: 'Vibe-a-Thon', time: '10:30 AM – 5 PM' },
       { event: 'Robotics Workshop', time: 'TBD' },
@@ -84,7 +85,6 @@ export const schedule: ScheduleDay[] = [
     date: 'OCT',
     weekday: 'DAY 2 · SATURDAY',
     items: [
-      { event: 'Robo Soccer', time: '9 AM – 5 PM' },
       { event: 'Bluff & Bargain – 2nd Edition', time: '10 AM – 5 PM' },
       { event: 'Drone Workshop', time: '10 AM – 5 PM' },
       { event: 'Robotics Workshop', time: 'TBD' },
@@ -172,8 +172,8 @@ export const data: TechfiestaEvent[] = [
     title: 'Robo Soccer',
     tagline: 'Build. Control. Score. Win.',
     logo: '/26/techfiesta/logo/robo-soccer.webp',
-    day: '24',
-    dateLabel: '24 Oct 2026',
+    day: '23',
+    dateLabel: '23 Oct 2026',
     cardDescription:
       'A 1v1 knockout football tournament for custom-built robots. Two halves, a Golden Goal and plenty of quick reflexes.',
     registerLink: 'https://unstop.com/p/robo-soccer-tenet-aissms-institute-of-information-technology-pune-maharashtra-1749383',
@@ -203,8 +203,7 @@ export const data: TechfiestaEvent[] = [
         },
       ],
       registration: [
-        { label: 'Category 1', meta: 'Organizer provided bot, 1 to 4 members', price: 'Rs. 149 / team' },
-        { label: 'Category 2', meta: 'Your own bot, 1 to 4 members', price: 'Rs. 199 / team' },
+        { label: 'Category 1', meta: 'Your own bot, 1 to 4 members', price: 'Rs. 199 / team' },
       ],
       keyRules: [
         'Every team nominates one operator who controls the robot during the match. Solo teams operate their own robot.',
@@ -215,19 +214,19 @@ export const data: TechfiestaEvent[] = [
         'Robots must be student built or student integrated. Completely pre-built commercial robots are not permitted.',
         "The referee's decision on fouls, goals, penalties and results is final.",
       ],
-      prizePool: 'Rs. 8,000',
+      prizePool: 'Rs. 5,000',
       prizes: [
         { label: 'Champion', description: 'Winner of the final match.' },
         { label: 'Runner up', description: 'Finalist team.' },
       ],
       certificateNote: 'Certificates go to the champion, the runner up and participants as specified by the organizers.',
       quickFacts: [
-        { label: 'Date', value: '24 Oct 2026' },
+        { label: 'Date', value: '23 Oct 2026' },
         { label: 'Timing', value: '9:00 AM – 5:00 PM' },
         { label: 'Venue', value: 'AISSMS IOIT, Kennedy Road, Pune' },
         { label: 'Participation', value: 'Solo or team of up to 4' },
-        { label: 'Entry fee', value: 'Rs. 149 / 199 per team' },
-        { label: 'Prize pool', value: 'Rs. 8,000' },
+        { label: 'Entry fee', value: 'Rs.  199 per team' },
+        { label: 'Prize pool', value: 'Rs. 5,000' },
         { label: 'Awards', value: 'Trophy & certificate' },
       ],
       contacts: [
