@@ -458,7 +458,7 @@ export const data: TechfiestaEvent[] = [
     day: '23–24',
     dateLabel: '23–24 Oct 2026',
     cardDescription: 'Two days from first circuit to a working Robo Soccer bot. Learn electronics, CAD and soldering by building as you go.',
-    registerLink: '/register?d=techfiesta',
+    registerLink: 'https://unstop.com/p/robo-workshop-aissms-institute-of-information-technology-pune-maharashtra-1759652',
     detail: {
       about: [
         'This two day hands-on workshop takes participants from the fundamentals of electronics and mechanical design through to the assembly and testing of a functional Robo Soccer robot.',
