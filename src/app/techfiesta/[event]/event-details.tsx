@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { type TechfiestaEvent } from '@/config/data/26/techfiesta';
-import { ArrowDiagIcon, PdfIcon } from '../components/icons';
+import { ArrowDiagIcon, CtfFlagIcon, PdfIcon } from '../components/icons';
 import Reveal from '../components/reveal';
 import DecryptText from '../components/decrypt-text';
 
@@ -24,7 +24,7 @@ export default function EventDetails({ event }: EventDetailsProps) {
           <div className="absolute inset-0 flex flex-col items-start justify-center gap-6 px-5 pb-[clamp(56px,13vw,140px)] sm:px-10 md:flex-row md:items-center md:gap-11 md:px-[120px] md:pb-0">
             <div className="tf-art flex h-[140px] w-[180px] flex-none items-center justify-center border-4 border-white p-3.5 sm:h-[200px] sm:w-[260px]">
               {event.logo === '#' ? (
-                <span className="text-2xl font-bold text-[#050530]">CTF</span>
+                <CtfFlagIcon className="h-full w-auto" />
               ) : (
                 <Image src={event.logo} alt={`${event.title} logo`} width={260} height={200} className="block h-full w-full object-contain" />
               )}

@@ -17,8 +17,9 @@ export default function EventCard({ event, featured }: EventCardProps) {
             <EventLogo event={event} />
           </div>
           <div className="flex flex-none gap-7">
-            <DateBlock day="23" dark />
-            <DateBlock day="24" dark />
+            {event.day.split('–').map((day) => (
+              <DateBlock key={day} day={day} dark />
+            ))}
           </div>
         </div>
         <div

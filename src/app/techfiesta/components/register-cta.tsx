@@ -41,7 +41,7 @@ export default function RegisterCta() {
             className="max-w-[520px] text-lg leading-[1.45] text-white sm:text-xl md:text-[22px]"
             style={{ textShadow: '2px 2px 0 #050530' }}
           >
-            Eight events across two days. Register now and lock in your spot.
+            Eight events across three days. Register now and lock in your spot.
           </p>
           <div className="mt-2 flex flex-wrap items-center gap-6 sm:gap-8">
             <Link

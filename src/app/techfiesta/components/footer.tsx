@@ -26,7 +26,7 @@ export default function TechfiestaFooter() {
             <Image src="/26/techfiesta/graphics/techfiesta-wordmark.png" alt="TechFiesta" width={210} height={40} />
           </div>
           <p className="max-w-[400px] text-base leading-[1.55] text-[#b4b6d6] md:text-[17px]">
-            TechFiesta is part of TENET &rsquo;26, the flagship event of the AISSMS IOIT ACM Student Chapter. 23 and 24
+            TechFiesta is part of TENET &rsquo;26, the flagship event of the AISSMS IOIT ACM Student Chapter. 23 to 25
             October 2026.
           </p>
           <div className="flex gap-3">
