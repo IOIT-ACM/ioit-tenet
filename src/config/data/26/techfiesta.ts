@@ -65,7 +65,7 @@ export interface ScheduleDay {
   items: ScheduleItem[];
 }
 
-export const festivalDates = '23 – 24 October 2026';
+export const festivalDates = '23 – 25 October 2026';
 
 export const schedule: ScheduleDay[] = [
   {
@@ -75,9 +75,8 @@ export const schedule: ScheduleDay[] = [
     items: [
       { event: 'Robo Race', time: '9 AM – 5 PM' },
       { event: 'Robo Soccer', time: '9 AM – 5 PM' },
-      { event: 'Fox Hunt', time: '11 AM onwards' },
+      { event: 'Fox Hunt', time: '10:30 AM onwards' },
       { event: 'Vibe-a-Thon', time: '10:30 AM – 5 PM' },
-      { event: 'Robotics Workshop', time: 'TBD' },
     ],
   },
   {
@@ -87,8 +86,15 @@ export const schedule: ScheduleDay[] = [
     items: [
       { event: 'Bluff & Bargain – 2nd Edition', time: '10 AM – 5 PM' },
       { event: 'Drone Workshop', time: '10 AM – 5 PM' },
-      { event: 'Robotics Workshop', time: 'TBD' },
+      { event: 'Capture the Flag', time: '10 AM – 4 PM' },
+      { event: 'Robotics Workshop', time: '10 AM – 4 PM' },
     ],
+  },
+  {
+    day: '25',
+    date: 'OCT',
+    weekday: 'DAY 3 · SUNDAY',
+    items: [{ event: 'Robotics Workshop', time: '10 AM – 4 PM' }],
   },
 ];
 
@@ -107,6 +113,7 @@ export const data: TechfiestaEvent[] = [
       about: [
         'Robo Race is a robotics competition where custom-built robots navigate an obstacle track designed to test speed, balance, maneuverability and control. Guide your robot through every checkpoint without losing control.',
         'The winner is the team with the fastest adjusted completion time: the actual time on the track plus any penalties.',
+        'Teams build and bring their own robot. Organizer bots are not available for this event.',
       ],
       howItWorks: [
         {
@@ -130,10 +137,8 @@ export const data: TechfiestaEvent[] = [
         },
       ],
       registration: [
-        { label: 'Solo, own bot', meta: '1 member', price: 'Rs. 99' },
-        { label: 'Solo, organizer bot', meta: '1 member', price: 'Rs. 149' },
-        { label: 'Team, own bot', meta: '2 to 4 members', price: 'Rs. 149' },
-        { label: 'Team, organizer bot', meta: '2 to 4 members', price: 'Rs. 199' },
+        { label: 'Solo', meta: 'Own bot, 1 member', price: 'Rs. 99' },
+        { label: 'Team', meta: 'Own bot, 2 to 4 members', price: 'Rs. 149' },
       ],
       keyRules: [
         'Only one team member may enter the track and operate the robot during a run.',
@@ -156,7 +161,8 @@ export const data: TechfiestaEvent[] = [
         { label: 'Timing', value: '9:00 AM – 5:00 PM' },
         { label: 'Venue', value: 'AISSMS IOIT, Kennedy Road, Pune' },
         { label: 'Participation', value: 'Solo or team of 2–4' },
-        { label: 'Entry fee', value: 'Rs. 99 to 199' },
+        { label: 'Robot', value: 'Bring your own' },
+        { label: 'Entry fee', value: 'Rs. 99 to 149' },
         { label: 'Prize pool', value: 'Rs. 10,000' },
         { label: 'Awards', value: 'Trophy & certificate' },
       ],
@@ -175,12 +181,13 @@ export const data: TechfiestaEvent[] = [
     day: '23',
     dateLabel: '23 Oct 2026',
     cardDescription:
-      'A 1v1 knockout football tournament for custom-built robots. Two halves, a Golden Goal and plenty of quick reflexes.',
+      'A 1v1 knockout football tournament on organizer-provided bots. Two halves, a Golden Goal and plenty of quick reflexes.',
     registerLink: 'https://unstop.com/p/robo-soccer-tenet-aissms-institute-of-information-technology-pune-maharashtra-1749383',
     detail: {
       about: [
-        'Robo Soccer is a 1v1 robotics competition where teams battle it out on a dedicated football arena with custom-built robots. It tests control, speed, maneuverability, strategy and real-time decision making.',
+        'Robo Soccer is a 1v1 robotics competition where teams battle it out on a dedicated football arena using robots provided by the organizers. It tests control, speed, maneuverability, strategy and real-time decision making.',
         'Teams compete head to head in a knockout format. The winner of each match advances until the final decides the champion.',
+        'Bots are provided by the organizers, so teams do not need to bring a robot.',
       ],
       howItWorks: [
         {
@@ -203,15 +210,16 @@ export const data: TechfiestaEvent[] = [
         },
       ],
       registration: [
-        { label: 'Category 1', meta: 'Your own bot, 1 to 4 members', price: 'Rs. 199 / team' },
+        { label: 'Registration fee', meta: 'Organizer bot, 1 to 4 members', price: 'Rs. 199 / team' },
       ],
       keyRules: [
-        'Every team nominates one operator who controls the robot during the match. Solo teams operate their own robot.',
+        'Every team nominates one operator who controls the robot during the match. In teams of two or more, the operator may change between matches with organizer approval.',
         'Teams must be ready when their match is called. Delayed teams may face a walkover or disqualification.',
         "Physical interference with the opponent's robot by team members is strictly prohibited.",
         'Nobody enters the arena during a match unless the referee or organizers allow it.',
-        'Own-bot teams: maximum 30 x 30 x 30 cm, maximum 5 kg, maximum 12V DC from on-board batteries, wheels or tracks only.',
-        'Robots must be student built or student integrated. Completely pre-built commercial robots are not permitted.',
+        'Bots are allotted by the organizers. Do not modify, dismantle, rewire or replace any component without permission.',
+        'Handle the allotted robot with care and return it at the end. Intentional or negligent damage can mean disqualification and recovery of repair cost.',
+        'Report any damage, loose connection or unusual behaviour to the organizers immediately.',
         "The referee's decision on fouls, goals, penalties and results is final.",
       ],
       prizePool: 'Rs. 5,000',
@@ -222,18 +230,21 @@ export const data: TechfiestaEvent[] = [
       certificateNote: 'Certificates go to the champion, the runner up and participants as specified by the organizers.',
       quickFacts: [
         { label: 'Date', value: '23 Oct 2026' },
+        { label: 'Reporting', value: '9:00 AM' },
+        { label: 'Competition', value: '9:30 AM onwards' },
         { label: 'Timing', value: '9:00 AM – 5:00 PM' },
         { label: 'Venue', value: 'AISSMS IOIT, Kennedy Road, Pune' },
         { label: 'Participation', value: 'Solo or team of up to 4' },
-        { label: 'Entry fee', value: 'Rs.  199 per team' },
+        { label: 'Robot', value: 'Provided by organizers' },
+        { label: 'Entry fee', value: 'Rs. 199 per team' },
         { label: 'Prize pool', value: 'Rs. 5,000' },
-        { label: 'Awards', value: 'Trophy & certificate' },
+        { label: 'Awards', value: 'Prizes & certificates' },
       ],
       contacts: [
         { name: 'Sujal Gaikwad', mobile: '+91 85309 43237' },
         { name: 'Vishakha Shahakar', mobile: '+91 96994 57989' },
       ],
-      rulebook: 'https://d8it4huxumps7.cloudfront.net/uploads/attachements/files/015e9e00-5e1a-43a1-82a5-b67bb215c244.pdf',
+      rulebook: '/26/techfiesta/rulebooks/robo-soccer-rulebook.pdf',
     },
   },
   {
@@ -352,6 +363,7 @@ export const data: TechfiestaEvent[] = [
       certificateNote: 'Every team receives a certificate of participation.',
       quickFacts: [
         { label: 'Date', value: '23 Oct 2026' },
+        { label: 'Reporting', value: '9:30 AM' },
         { label: 'Timing', value: '10:30 AM – 5:00 PM' },
         { label: 'Venue', value: 'AISSMS IOIT, Kennedy Road, Pune' },
         { label: 'Team size', value: 'Solo or team of 2' },
@@ -371,7 +383,7 @@ export const data: TechfiestaEvent[] = [
     day: '24',
     dateLabel: '24 Oct 2026',
     cardDescription: 'The game of deals and deception is back. Trade smart, read the table and bluff your way past every rival.',
-    registerLink: '/register?d=techfiesta',
+    registerLink: 'https://unstop.com/p/bluff-bargain-aissms-institute-of-information-technology-pune-maharashtra-1761970',
   },
   {
     slug: 'drone_workshop',
@@ -441,22 +453,87 @@ export const data: TechfiestaEvent[] = [
   {
     slug: 'capture_the_flag',
     title: 'Capture the Flag',
-    tagline: 'Crack it before they do.',
+    tagline: 'Think. Hack. Explore. Capture.',
     logo: '#',
-    day: 'TBA',
-    dateLabel: 'TBA',
-    cardDescription: 'Coming soon.',
+    day: '24',
+    dateLabel: '24 Oct 2026',
+    cardDescription:
+      'A six hour, offline, Jeopardy-style CTF. Crack 25 challenges across web, forensics, crypto, reversing and OSINT.',
     // Was the 2025 Unstop link, carried over by mistake — not confirmed live for '26. Falls
     // back to the generic register page until a real 2026 link is available.
     registerLink: '/register?d=techfiesta',
+    detail: {
+      about: [
+        'Capture the Flag is a six hour, offline, Jeopardy-style cybersecurity competition. Solve challenges, find the hidden flags and submit them for points.',
+        'There are 25 questions across web, forensics, cryptography, reverse engineering, and miscellaneous and OSINT. Compete solo or as a team of 2 to 3.',
+      ],
+      howItWorks: [
+        {
+          title: 'Briefing',
+          description: '9:00 to 10:00 AM: registrations, opening, rules briefing and a walkthrough of the CTF platform.',
+        },
+        {
+          title: 'Competition',
+          description: '10:00 AM to 4:00 PM: attempt challenges and submit flags. Flags follow the format CTF{...} unless stated otherwise.',
+        },
+        {
+          title: 'Scoring',
+          description:
+            'Each challenge carries points based on difficulty, and some use dynamic scoring that drops as more teams solve them. The first team to solve a challenge earns a first blood bonus.',
+        },
+        {
+          title: 'Ranking',
+          description: 'Teams are ranked by total points. On a tie, the team that reached the score earlier ranks higher.',
+        },
+        {
+          title: 'Score freeze and results',
+          description: 'Scores freeze at 4:00 PM for verification, followed by the closing ceremony and prize distribution from 4:30 PM.',
+        },
+      ],
+      registration: [
+        { label: 'Solo', meta: '1 participant', price: 'Rs. 250' },
+        { label: 'Team', meta: '2 to 3 members', price: 'Rs. 450 / team' },
+      ],
+      keyRules: [
+        'Flags must be solved by the team itself. Sharing solutions or flags between teams is strictly prohibited.',
+        'No pre-solved write-ups, online solutions or third party help.',
+        'Personal laptops, virtual machines and open source tools are allowed unless explicitly restricted.',
+        'DDoS attacks, interfering with the infrastructure or brute forcing the platform means immediate disqualification.',
+        'Bring your own laptop and chargers. Internet may be provided or restricted to LAN depending on the setup.',
+        'Keep backups of your tools and scripts. No extra time is given for technical issues.',
+        "The organizers' judgment is final in case of disputes.",
+      ],
+      prizePool: 'Rs. 12,000',
+      prizes: [
+        { label: 'Winner', description: 'Rs. 6,000 and a certificate.' },
+        { label: 'First runner up', description: 'Rs. 4,000 and a certificate.' },
+        { label: 'Second runner up', description: 'Rs. 2,000 and a certificate.' },
+      ],
+      certificateNote: 'All participants receive a Certificate of Participation.',
+      quickFacts: [
+        { label: 'Date', value: '24 Oct 2026' },
+        { label: 'Reporting', value: '9:00 AM' },
+        { label: 'Competition', value: '10:00 AM – 4:00 PM' },
+        { label: 'Venue', value: 'AISSMS IOIT, Kennedy Road, Pune' },
+        { label: 'Format', value: 'Jeopardy style, offline' },
+        { label: 'Participation', value: 'Solo or team of 2–3' },
+        { label: 'Entry fee', value: 'Rs. 250 to 450' },
+        { label: 'Prize pool', value: 'Rs. 12,000' },
+      ],
+      contacts: [
+        { name: 'Siddhesh Waghmare', mobile: '+91 70286 63868' },
+        { name: 'Prathamesh Vaydande', mobile: '+91 80108 61038' },
+      ],
+      rulebook: '/26/techfiesta/rulebooks/capture-the-flag-rulebook.pdf',
+    },
   },
   {
     slug: 'robotics_workshop',
     title: 'Robotics Workshop',
     tagline: 'Where Ideas Become Robots.',
     logo: '/26/techfiesta/logo/robotics-workshop.webp',
-    day: '23–24',
-    dateLabel: '23–24 Oct 2026',
+    day: '24–25',
+    dateLabel: '24–25 Oct 2026',
     cardDescription: 'Two days from first circuit to a working Robo Soccer bot. Learn electronics, CAD and soldering by building as you go.',
     registerLink: 'https://unstop.com/p/robo-workshop-aissms-institute-of-information-technology-pune-maharashtra-1759652',
     detail: {
@@ -510,10 +587,11 @@ export const data: TechfiestaEvent[] = [
         { label: 'Certificate', description: 'Attend the complete workshop schedule to receive a Certificate of Participation, subject to the organizer’s final policy.' },
       ],
       quickFacts: [
-        { label: 'Date', value: '23–24 Oct 2026' },
+        { label: 'Date', value: '24–25 Oct 2026' },
         { label: 'Reporting', value: '9:30 AM' },
         { label: 'Timing', value: '10:00 AM – 4:00 PM' },
         { label: 'Venue', value: 'AISSMS IOIT, Kennedy Road, Pune' },
+        { label: 'Partner', value: 'The Robotics Forum Club' },
         { label: 'Format', value: 'Solo or group of 4' },
         { label: 'Entry fee', value: 'Rs. 600 to 650' },
         { label: 'Awards', value: 'Certificate' },

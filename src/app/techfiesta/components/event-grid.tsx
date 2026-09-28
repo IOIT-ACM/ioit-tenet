@@ -12,7 +12,7 @@ export default function EventGrid() {
             className="text-base font-medium tracking-[0.16em] text-[#0000c8] sm:text-lg md:text-[22px]"
             style={{ fontFamily: 'var(--font-pixelify)' }}
           >
-            TENET &rsquo;26 · EIGHT EVENTS · TWO DAYS
+            TENET &rsquo;26 · EIGHT EVENTS · THREE DAYS
           </div>
           <h2
             className="text-5xl font-bold leading-[0.95] sm:text-7xl md:text-[104px]"

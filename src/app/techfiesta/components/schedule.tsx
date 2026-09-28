@@ -10,7 +10,7 @@ export default function Schedule() {
           className="text-base font-medium tracking-[0.16em] text-[#0000c8] sm:text-lg md:text-[22px]"
           style={{ fontFamily: 'var(--font-pixelify)' }}
         >
-          TWO DAYS
+          THREE DAYS
         </div>
         <h2 className="text-4xl font-bold leading-none sm:text-6xl md:text-[80px]" style={{ fontFamily: 'var(--font-pixelify)' }}>
           <SplitText text="Plan your weekend." />
@@ -19,7 +19,7 @@ export default function Schedule() {
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-10">
         {schedule.map((day, index) => {
-          const dark = index === 1;
+          const dark = index % 2 === 1;
           return (
             <Reveal
               key={day.day}
