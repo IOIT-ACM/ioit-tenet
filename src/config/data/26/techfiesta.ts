@@ -321,7 +321,7 @@ export const data: TechfiestaEvent[] = [
     dateLabel: '23 Oct 2026',
     cardDescription:
       'A surprise problem statement, five hours and your laptop. Build a working prototype from scratch and demo it to the judges.',
-    registerLink: '/register?d=techfiesta',
+    registerLink: 'https://unstop.com/hackathons/vibe-a-thon-aissms-institute-of-information-technology-1758905',
     detail: {
       about: [
         'Vibe-a-Thon is a fast-paced, on-site build challenge. A surprise problem statement is revealed, and you turn it into a working digital solution in a single continuous session.',
@@ -461,7 +461,7 @@ export const data: TechfiestaEvent[] = [
       'A six hour, offline, Jeopardy-style CTF. Crack 25 challenges across web, forensics, crypto, reversing and OSINT.',
     // Was the 2025 Unstop link, carried over by mistake — not confirmed live for '26. Falls
     // back to the generic register page until a real 2026 link is available.
-    registerLink: '/register?d=techfiesta',
+    registerLink: 'https://unstop.com/competitions/tenet26-ctf-tenet-aissms-institute-of-information-technology-pune-maharashtra-1758898',
     detail: {
       about: [
         'Capture the Flag is a six hour, offline, Jeopardy-style cybersecurity competition. Solve challenges, find the hidden flags and submit them for points.',
