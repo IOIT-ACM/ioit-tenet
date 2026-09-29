@@ -7,7 +7,7 @@ import { useSearchParams } from 'next/navigation';
 import { FaDiscord, FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { data as techfiestaEvents, type TechfiestaEvent } from '@/config/data/26/techfiesta';
-import { InstagramIcon, LinkedinIcon, ArrowDiagIcon } from '../techfiesta/components/icons';
+import { InstagramIcon, LinkedinIcon, ArrowDiagIcon, CtfFlagIcon } from '../techfiesta/components/icons';
 import '../techfiesta/techfiesta.css';
 
 const pixelifySans = Pixelify_Sans({
@@ -143,7 +143,6 @@ function TechfiestaRegister({ highlight }: { highlight: string | null }) {
     techfiestaEvents.filter((event) => event.registerLink?.startsWith('http')),
     highlight,
   );
-  const pendingEvents = techfiestaEvents.filter((event) => !event.registerLink?.startsWith('http'));
 
   return (
     <main
@@ -160,7 +159,7 @@ function TechfiestaRegister({ highlight }: { highlight: string | null }) {
             </div>
             <p className="text-base text-[#2b2d5c]">Registrations are live for these {liveEvents.length} events.</p>
           </div>
-          <div className="mb-14 flex flex-col gap-4">
+          <div className="mb-16 flex flex-col gap-4">
             {liveEvents.map((event) => (
               <a
                 key={event.slug}
@@ -235,7 +234,7 @@ function EventThumb({ event, small }: { event: TechfiestaEvent; small?: boolean 
   return (
     <div className={`tf-art flex flex-none items-center justify-center border-2 border-[#050530] ${boxClass}`}>
       {event.logo === '#' ? (
-        <span className="text-[10px] font-bold text-[#050530]">CTF</span>
+        <CtfFlagIcon className="h-full w-auto" />
       ) : (
         <Image src={event.logo} alt="" width={intrinsic} height={intrinsic} className="block h-full w-full object-contain p-1" />
       )}
