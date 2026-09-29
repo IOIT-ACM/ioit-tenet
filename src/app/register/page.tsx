@@ -187,6 +187,38 @@ function TechfiestaRegister({ highlight }: { highlight: string | null }) {
               </a>
             ))}
           </div>
+
+          <div className="mb-6 flex flex-col gap-1">
+            <div className="text-sm font-medium tracking-[0.16em] text-[#8c96ff]" style={{ fontFamily: 'var(--font-pixelify)' }}>
+              COMING SOON
+            </div>
+            <p className="text-base text-[#2b2d5c]">Registration for these events opens shortly. Tap through for details.</p>
+          </div>
+          <div className="mb-16 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {pendingEvents.map((event) => (
+              <Link
+                key={event.slug}
+                href={`/techfiesta/${event.slug}`}
+                className="flex items-center justify-between gap-3 border-[3px] border-dashed border-[#8c96ff] bg-[#eef0ff]/40 px-4 py-4 sm:gap-4 sm:px-5"
+              >
+                <div className="flex min-w-0 flex-1 items-center gap-3">
+                  <EventThumb event={event} small />
+                  <span
+                    className="min-w-0 break-words text-lg font-semibold leading-tight"
+                    style={{ fontFamily: 'var(--font-pixelify)' }}
+                  >
+                    {event.title}
+                  </span>
+                </div>
+                <span
+                  className="flex-none text-xs font-semibold uppercase tracking-[0.1em] text-[#0000c8]"
+                  style={{ fontFamily: 'var(--font-pixelify)' }}
+                >
+                  Soon
+                </span>
+              </Link>
+            ))}
+          </div>
         </div>
 
         <TechfiestaSocialRow />
@@ -195,13 +227,16 @@ function TechfiestaRegister({ highlight }: { highlight: string | null }) {
   );
 }
 
-function EventThumb({ event }: { event: TechfiestaEvent }) {
+function EventThumb({ event, small }: { event: TechfiestaEvent; small?: boolean }) {
+  const intrinsic = small ? 40 : 56;
+  const boxClass = small ? 'h-10 w-10' : 'h-11 w-11 sm:h-14 sm:w-14';
+
   return (
-    <div className="tf-art flex h-11 w-11 flex-none items-center justify-center border-2 border-[#050530] sm:h-14 sm:w-14">
+    <div className={`tf-art flex flex-none items-center justify-center border-2 border-[#050530] ${boxClass}`}>
       {event.logo === '#' ? (
         <CtfFlagIcon className="h-full w-auto" />
       ) : (
-        <Image src={event.logo} alt="" width={56} height={56} className="block h-full w-full object-contain p-1" />
+        <Image src={event.logo} alt="" width={intrinsic} height={intrinsic} className="block h-full w-full object-contain p-1" />
       )}
     </div>
   );

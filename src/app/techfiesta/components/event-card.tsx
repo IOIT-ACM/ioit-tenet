@@ -11,7 +11,7 @@ interface EventCardProps {
 export default function EventCard({ event, featured }: EventCardProps) {
   if (featured) {
     return (
-      <div className="tf-card-dark group/card flex h-full flex-col border-[3px] border-[#050530] bg-[#050530] p-7 text-white">
+      <div className="tf-card-dark group/card flex h-full flex-col border-[3px] border-[#050530] bg-[#050530] p-5 text-white sm:p-7">
         <div className="flex flex-col items-start justify-between gap-6 sm:flex-row">
           <div className="tf-art flex h-[160px] w-full items-center justify-center border-[3px] border-white p-3 transition-transform duration-150 ease-out group-hover/card:scale-[1.03] sm:h-[220px] sm:w-auto sm:flex-grow">
             <EventLogo event={event} />
@@ -28,7 +28,7 @@ export default function EventCard({ event, featured }: EventCardProps) {
         >
           TWO-DAY WORKSHOP
         </div>
-        <h3 className="mt-2 text-2xl font-semibold leading-none sm:text-[40px]" style={{ fontFamily: 'var(--font-pixelify)' }}>
+        <h3 className="mt-2 text-balance break-words text-2xl font-semibold leading-[1.05] sm:text-[40px]" style={{ fontFamily: 'var(--font-pixelify)' }}>
           {event.title}
         </h3>
         <p className="mt-3 max-w-[640px] text-base leading-[1.55] text-[#dfe3ff] sm:text-[17px]">{event.cardDescription}</p>
@@ -43,14 +43,14 @@ export default function EventCard({ event, featured }: EventCardProps) {
   }
 
   return (
-    <div className="tf-card group/card flex h-full flex-col border-[3px] border-[#050530] bg-white p-7 text-[#050530]">
+    <div className="tf-card group/card flex h-full flex-col border-[3px] border-[#050530] bg-white p-5 text-[#050530] sm:p-7">
       <div className="flex items-start justify-between gap-4">
         <div className="tf-art flex h-[160px] flex-grow items-center justify-center border-[3px] border-[#050530] p-3 transition-transform duration-150 ease-out group-hover/card:scale-[1.03]">
           <EventLogo event={event} />
         </div>
         <DateBlock day={event.day} />
       </div>
-      <h3 className="mt-6 min-h-[70px] text-2xl font-semibold leading-[1.08] sm:text-[32px]" style={{ fontFamily: 'var(--font-pixelify)' }}>
+      <h3 className="mt-6 min-h-[2.3em] text-balance break-words text-2xl font-semibold leading-[1.15] sm:text-[32px]" style={{ fontFamily: 'var(--font-pixelify)' }}>
         {event.title}
       </h3>
       <p className="mt-3.5 text-base leading-[1.55] text-[#2b2d5c] sm:text-[17px]">{event.cardDescription}</p>

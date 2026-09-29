@@ -32,7 +32,7 @@ export default function EventGrid() {
         {data.map((event, index) => {
           const featured = event.slug === 'robotics_workshop';
           return (
-            <Reveal key={event.slug} delay={(index % 3) * 80} className={featured ? 'sm:col-span-2' : undefined}>
+            <Reveal key={event.slug} delay={(index % 3) * 80} className={`h-full ${featured ? 'sm:col-span-2' : ''}`}>
               <EventCard event={event} featured={featured} />
             </Reveal>
           );
