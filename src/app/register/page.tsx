@@ -167,12 +167,15 @@ function TechfiestaRegister({ highlight }: { highlight: string | null }) {
                 href={event.registerLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="tf-card group/reg flex h-20 items-center justify-between gap-4 border-[3px] border-[#050530] bg-white px-6"
+                className="tf-card group/reg flex min-h-[80px] items-center justify-between gap-3 border-[3px] border-[#050530] bg-white px-4 py-4 sm:gap-4 sm:px-6"
               >
-                <div className="flex items-center gap-4">
+                <div className="flex min-w-0 flex-1 items-center gap-3 sm:gap-4">
                   <EventThumb event={event} />
-                  <div className="flex flex-col">
-                    <span className="text-xl font-semibold" style={{ fontFamily: 'var(--font-pixelify)' }}>
+                  <div className="flex min-w-0 flex-col">
+                    <span
+                      className="break-words text-xl font-semibold leading-tight"
+                      style={{ fontFamily: 'var(--font-pixelify)' }}
+                    >
                       {event.title}
                     </span>
                     <span className="text-sm text-[#2b2d5c]">{event.dateLabel}</span>
@@ -197,11 +200,14 @@ function TechfiestaRegister({ highlight }: { highlight: string | null }) {
               <Link
                 key={event.slug}
                 href={`/techfiesta/${event.slug}`}
-                className="flex items-center justify-between gap-4 border-[3px] border-dashed border-[#8c96ff] bg-[#eef0ff]/40 px-5 py-4"
+                className="flex items-center justify-between gap-3 border-[3px] border-dashed border-[#8c96ff] bg-[#eef0ff]/40 px-4 py-4 sm:gap-4 sm:px-5"
               >
-                <div className="flex items-center gap-3">
+                <div className="flex min-w-0 flex-1 items-center gap-3">
                   <EventThumb event={event} small />
-                  <span className="text-lg font-semibold" style={{ fontFamily: 'var(--font-pixelify)' }}>
+                  <span
+                    className="min-w-0 break-words text-lg font-semibold leading-tight"
+                    style={{ fontFamily: 'var(--font-pixelify)' }}
+                  >
                     {event.title}
                   </span>
                 </div>
@@ -223,16 +229,15 @@ function TechfiestaRegister({ highlight }: { highlight: string | null }) {
 }
 
 function EventThumb({ event, small }: { event: TechfiestaEvent; small?: boolean }) {
-  const size = small ? 40 : 56;
+  const intrinsic = small ? 40 : 56;
+  const boxClass = small ? 'h-10 w-10' : 'h-11 w-11 sm:h-14 sm:w-14';
+
   return (
-    <div
-      className="tf-art flex flex-none items-center justify-center border-2 border-[#050530]"
-      style={{ width: size, height: size }}
-    >
+    <div className={`tf-art flex flex-none items-center justify-center border-2 border-[#050530] ${boxClass}`}>
       {event.logo === '#' ? (
         <span className="text-[10px] font-bold text-[#050530]">CTF</span>
       ) : (
-        <Image src={event.logo} alt="" width={size} height={size} className="block h-full w-full object-contain p-1" />
+        <Image src={event.logo} alt="" width={intrinsic} height={intrinsic} className="block h-full w-full object-contain p-1" />
       )}
     </div>
   );
