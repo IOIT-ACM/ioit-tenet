@@ -7,7 +7,7 @@ import { useSearchParams } from 'next/navigation';
 import { FaDiscord, FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { data as techfiestaEvents, type TechfiestaEvent } from '@/config/data/26/techfiesta';
-import { InstagramIcon, LinkedinIcon, ArrowDiagIcon } from '../techfiesta/components/icons';
+import { InstagramIcon, LinkedinIcon, ArrowDiagIcon, CtfFlagIcon } from '../techfiesta/components/icons';
 import '../techfiesta/techfiesta.css';
 
 const pixelifySans = Pixelify_Sans({
@@ -143,7 +143,6 @@ function TechfiestaRegister({ highlight }: { highlight: string | null }) {
     techfiestaEvents.filter((event) => event.registerLink?.startsWith('http')),
     highlight,
   );
-  const pendingEvents = techfiestaEvents.filter((event) => !event.registerLink?.startsWith('http'));
 
   return (
     <main
@@ -160,19 +159,22 @@ function TechfiestaRegister({ highlight }: { highlight: string | null }) {
             </div>
             <p className="text-base text-[#2b2d5c]">Registrations are live for these {liveEvents.length} events.</p>
           </div>
-          <div className="mb-14 flex flex-col gap-4">
+          <div className="mb-16 flex flex-col gap-4">
             {liveEvents.map((event) => (
               <a
                 key={event.slug}
                 href={event.registerLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="tf-card group/reg flex h-20 items-center justify-between gap-4 border-[3px] border-[#050530] bg-white px-6"
+                className="tf-card group/reg flex min-h-[80px] items-center justify-between gap-3 border-[3px] border-[#050530] bg-white px-4 py-4 sm:gap-4 sm:px-6"
               >
-                <div className="flex items-center gap-4">
+                <div className="flex min-w-0 flex-1 items-center gap-3 sm:gap-4">
                   <EventThumb event={event} />
-                  <div className="flex flex-col">
-                    <span className="text-xl font-semibold" style={{ fontFamily: 'var(--font-pixelify)' }}>
+                  <div className="flex min-w-0 flex-col">
+                    <span
+                      className="break-words text-xl font-semibold leading-tight"
+                      style={{ fontFamily: 'var(--font-pixelify)' }}
+                    >
                       {event.title}
                     </span>
                     <span className="text-sm text-[#2b2d5c]">{event.dateLabel}</span>
@@ -185,35 +187,6 @@ function TechfiestaRegister({ highlight }: { highlight: string | null }) {
               </a>
             ))}
           </div>
-
-          <div className="mb-6 flex flex-col gap-1">
-            <div className="text-sm font-medium tracking-[0.16em] text-[#8c96ff]" style={{ fontFamily: 'var(--font-pixelify)' }}>
-              COMING SOON
-            </div>
-            <p className="text-base text-[#2b2d5c]">Registration for these events opens shortly. Tap through for details.</p>
-          </div>
-          <div className="mb-16 grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {pendingEvents.map((event) => (
-              <Link
-                key={event.slug}
-                href={`/techfiesta/${event.slug}`}
-                className="flex items-center justify-between gap-4 border-[3px] border-dashed border-[#8c96ff] bg-[#eef0ff]/40 px-5 py-4"
-              >
-                <div className="flex items-center gap-3">
-                  <EventThumb event={event} small />
-                  <span className="text-lg font-semibold" style={{ fontFamily: 'var(--font-pixelify)' }}>
-                    {event.title}
-                  </span>
-                </div>
-                <span
-                  className="flex-none text-xs font-semibold uppercase tracking-[0.1em] text-[#0000c8]"
-                  style={{ fontFamily: 'var(--font-pixelify)' }}
-                >
-                  Soon
-                </span>
-              </Link>
-            ))}
-          </div>
         </div>
 
         <TechfiestaSocialRow />
@@ -222,17 +195,13 @@ function TechfiestaRegister({ highlight }: { highlight: string | null }) {
   );
 }
 
-function EventThumb({ event, small }: { event: TechfiestaEvent; small?: boolean }) {
-  const size = small ? 40 : 56;
+function EventThumb({ event }: { event: TechfiestaEvent }) {
   return (
-    <div
-      className="tf-art flex flex-none items-center justify-center border-2 border-[#050530]"
-      style={{ width: size, height: size }}
-    >
+    <div className="tf-art flex h-11 w-11 flex-none items-center justify-center border-2 border-[#050530] sm:h-14 sm:w-14">
       {event.logo === '#' ? (
-        <span className="text-[10px] font-bold text-[#050530]">CTF</span>
+        <CtfFlagIcon className="h-full w-auto" />
       ) : (
-        <Image src={event.logo} alt="" width={size} height={size} className="block h-full w-full object-contain p-1" />
+        <Image src={event.logo} alt="" width={56} height={56} className="block h-full w-full object-contain p-1" />
       )}
     </div>
   );
