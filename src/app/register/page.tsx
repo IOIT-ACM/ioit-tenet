@@ -144,6 +144,7 @@ function TechfiestaRegister({ highlight }: { highlight: string | null }) {
     techfiestaEvents.filter((event) => event.registerLink?.startsWith('http')),
     highlight,
   );
+  const pendingEvents = techfiestaEvents.filter((event) => !event.registerLink?.startsWith('http'));
 
   return (
     <main
