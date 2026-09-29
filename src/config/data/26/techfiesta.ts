@@ -459,7 +459,8 @@ export const data: TechfiestaEvent[] = [
     dateLabel: '24 Oct 2026',
     cardDescription:
       'A six hour, offline, Jeopardy-style CTF. Crack 25 challenges across web, forensics, crypto, reversing and OSINT.',
-    // 2026 Unstop link, added when CTF registrations went live.
+    // Was the 2025 Unstop link, carried over by mistake — not confirmed live for '26. Falls
+    // back to the generic register page until a real 2026 link is available.
     registerLink: 'https://unstop.com/competitions/tenet26-ctf-tenet-aissms-institute-of-information-technology-pune-maharashtra-1758898',
     detail: {
       about: [
