@@ -44,6 +44,7 @@ interface EventType {
 const mainAllEvents: EventType[] = [
   { id: 'mun', name: 'Model United Nations', href: 'https://unstop.com/conferences/ioit-mun-2026-tenet-aissms-institute-of-information-technology-pune-maharashtra-1699491', disabled: false },
   { id: 'tech', name: 'Techfiesta', href: '?d=techfiesta', disabled: false },
+  { id: 'halloween', name: 'Halloween Party', href: '/halloween', disabled: false },
 ];
 
 function MainRegister() {
@@ -143,6 +144,7 @@ function TechfiestaRegister({ highlight }: { highlight: string | null }) {
     techfiestaEvents.filter((event) => event.registerLink?.startsWith('http')),
     highlight,
   );
+  const pendingEvents = techfiestaEvents.filter((event) => !event.registerLink?.startsWith('http'));
 
   return (
     <main

@@ -10,4 +10,5 @@ export const routes: navbarType[] = [
 export const homeRoutes: navbarType[] = [
   { path: '/techfiesta', name: 'Techfiesta' },
   { path: 'https://mun.ioittenet.com/', name: 'MUN' },
+  { path: '/halloween', name: 'Halloween' },
 ];
