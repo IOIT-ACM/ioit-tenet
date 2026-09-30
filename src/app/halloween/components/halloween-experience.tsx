@@ -37,7 +37,7 @@ const NAV_LINKS = [
 
 const FACT_ROWS = [
   { n: '01', label: 'Date', value: 'Saturday, 24 October 2026' },
-  { n: '02', label: 'Doors', value: '6:00 PM onwards' },
+  { n: '02', label: 'Doors', value: '5:00 PM onwards' },
   { n: '03', label: 'Venue', value: 'MPH, AISSMS IOIT, Pune' },
   { n: '04', label: 'Entry', value: 'Unique QR pass only' },
 ];
@@ -45,7 +45,7 @@ const FACT_ROWS = [
 const RITUAL_STEPS = [
   { n: 1, title: 'Register and pay', body: 'Grab your solo pass, fill in your details and pay online.' },
   { n: 2, title: 'Get your QR pass', body: 'A unique QR code is generated for you the moment payment goes through.' },
-  { n: 3, title: 'Show it at the MPH', body: "Scan in at the door on 24 October from 6 PM. Then you're ours." },
+  { n: 3, title: 'Show it at the MPH', body: "Scan in at the door on 24 October from 5 PM. Then you're ours." },
 ];
 
 const FAQS = [
@@ -60,6 +60,10 @@ const FAQS = [
   {
     q: 'Can students from other colleges come?',
     a: 'This one is open to AISSMS IOIT students — carry your college ID for verification at the door.',
+  },
+  {
+    q: 'Can I be refused entry or asked to leave?',
+    a: 'Yes. The organising team reserves the right of admission and may refuse entry. Anyone who misbehaves or does not follow the code of conduct may be removed from the party.',
   },
   {
     q: 'Can I pay at the door, or get a refund?',
@@ -98,7 +102,7 @@ function TicketCard() {
           <div className="grid grid-cols-3 gap-3 border-t pt-3 md:gap-5 md:pt-5" style={{ borderColor: 'rgba(20,10,4,.2)' }}>
             {[
               ['Date', '24.10.26'],
-              ['Doors', '18:00'],
+              ['Doors', '17:00'],
               ['Venue', 'MPH'],
             ].map(([k, v]) => (
               <div key={k} className="flex flex-col gap-0.5 md:gap-1.5">
@@ -219,7 +223,7 @@ export function HalloweenExperience() {
             ))}
           </nav>
           <span className="hw-mono text-xs leading-[1.8]" style={{ color: '#9d957f' }}>
-            24.10.2026 · 18:00 IST
+            24.10.2026 · 17:00 IST
             <br />
             MPH · AISSMS IOIT, Pune
           </span>
@@ -291,7 +295,7 @@ export function HalloweenExperience() {
           </span>
           <span className="hw-mono flex items-center gap-2 text-[13px] md:gap-2.5 md:text-[15px]" style={{ color: '#9d957f' }}>
             <span className="h-[7px] w-[7px] rounded-full" style={{ background: ACCENT, animation: 'hw-pulse 1.6s infinite' }} />
-            24.10.2026 — 18:00 IST
+            24.10.2026 — 17:00 IST
           </span>
         </div>
 
@@ -440,7 +444,7 @@ export function HalloweenExperience() {
       >
         <div className="flex items-center justify-between">
           <span className="hw-mono text-[13px] md:text-[15px]">(02) — The veil lifts in</span>
-          <span className="hw-mono text-[13px] md:text-[15px]">Sat 24.10 · 18:00 IST</span>
+          <span className="hw-mono text-[13px] md:text-[15px]">Sat 24.10 · 17:00 IST</span>
         </div>
         <div className="hw-rv grid grid-cols-2 gap-2 border-t-2 pt-3 md:grid-cols-4 md:gap-6" style={{ borderColor: '#140a04' }}>
           {[
@@ -618,7 +622,7 @@ export function HalloweenExperience() {
               </span>
             </a>
             <span className="hw-mono text-[15px] leading-[1.8]" style={{ color: '#9d957f' }}>
-              24.10.2026 · 18:00 IST
+              24.10.2026 · 17:00 IST
               <br />
               MPH · AISSMS IOIT, Pune
               <br />
@@ -662,7 +666,7 @@ export function HalloweenExperience() {
             </span>
             <div className="flex flex-col gap-2 text-lg leading-[1.4]" style={{ color: '#efe6d2' }}>
               <span>Sat, 24 Oct 2026</span>
-              <span>6:00 PM IST</span>
+              <span>5:00 PM IST</span>
               <span>MPH, AISSMS IOIT</span>
               <span style={{ color: '#9d957f' }}>Pune</span>
             </div>

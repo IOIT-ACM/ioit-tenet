@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-const TARGET_ISO = '2026-10-24T18:00:00+05:30';
+const TARGET_ISO = '2026-10-24T17:00:00+05:30';
 
 export interface Countdown {
   d: string;
