@@ -190,12 +190,12 @@ function TechfiestaRegister({ highlight }: { highlight: string | null }) {
             ))}
           </div>
 
-          <div className="mb-6 flex flex-col gap-1">
+          {/*<div className="mb-6 flex flex-col gap-1">
             <div className="text-sm font-medium tracking-[0.16em] text-[#8c96ff]" style={{ fontFamily: 'var(--font-pixelify)' }}>
               COMING SOON
             </div>
             <p className="text-base text-[#2b2d5c]">Registration for these events opens shortly. Tap through for details.</p>
-          </div>
+          </div> */}
           <div className="mb-16 grid grid-cols-1 gap-4 sm:grid-cols-2">
             {pendingEvents.map((event) => (
               <Link
