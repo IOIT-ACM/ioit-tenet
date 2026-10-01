@@ -41,6 +41,7 @@ const FACT_ROWS = [
   { n: '02', label: 'Doors', value: '5:00 PM onwards' },
   { n: '03', label: 'Venue', value: 'MPH, AISSMS IOIT, Pune' },
   { n: '04', label: 'Entry', value: 'Unique QR pass only' },
+  { n: '05', label: 'Open to', value: 'AISSMS IOIT first years only' },
 ];
 
 const RITUAL_STEPS = [
@@ -63,8 +64,8 @@ const FAQS = [
     a: "That stays sealed until the night. The organising team picks the best Halloween look at the party and announces the winner there. Every pass holder is in the running.",
   },
   {
-    q: 'Can students from other colleges come?',
-    a: 'This one is open to AISSMS IOIT students — carry your college ID for verification at the door.',
+    q: 'Who can come?',
+    a: 'Only first-year students of AISSMS IOIT. Registration accepts first years only, and your college ID is checked against your pass at the door. Students from other years or other colleges cannot attend this one.',
   },
   {
     q: 'Can I be refused entry or asked to leave?',
@@ -326,6 +327,32 @@ export function HalloweenExperience() {
             ))}
           </span>
         </h1>
+
+        {/* best-look sticker */}
+        <a
+          href="#best-look"
+          className="hw-seal absolute right-5 top-[300px] z-[2] block h-[104px] w-[104px] rounded-full no-underline shadow-[0_12px_40px_rgba(0,0,0,0.55)] md:left-[30%] md:right-auto md:top-[430px] md:h-[164px] md:w-[164px]"
+          style={{ background: ACCENT, color: '#140a04', rotate: '-10deg' }}
+          aria-label="A prize for the best Halloween look. See the details."
+        >
+          <svg viewBox="0 0 160 160" className="hw-seal-ring absolute inset-0 h-full w-full" aria-hidden="true">
+            <defs>
+              <path id="hw-seal-path" d="M80 80m-60 0a60 60 0 1 1 120 0a60 60 0 1 1 -120 0" />
+            </defs>
+            {/* Stretched to the ring's exact length (2 x pi x 60), so the two halves meet without a gap or overlap. */}
+            <text className="hw-mono" fontSize="12" fontWeight="700" fill="#140a04">
+              <textPath href="#hw-seal-path" textLength="376" lengthAdjust="spacing">
+                PRIZE FOR THE BEST LOOK ✦ PRIZE FOR THE BEST LOOK ✦{' '}
+              </textPath>
+            </text>
+          </svg>
+          <span
+            className="hw-serif absolute inset-0 grid place-items-center text-[44px] font-bold italic leading-none md:text-[68px]"
+            aria-hidden="true"
+          >
+            ?
+          </span>
+        </a>
 
         <div className="absolute left-5 top-[400px] flex max-w-[300px] flex-col gap-6 md:left-[60px] md:top-[600px] md:max-w-[440px] md:gap-8">
           <p className="hw-serif m-0 text-[21px] italic leading-[1.4] md:text-[25px]" style={{ color: '#d8cfbb' }}>

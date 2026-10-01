@@ -488,6 +488,27 @@
   }
 }
 
+/* The hero's best-look sticker: its ring of text turns slowly, the "?" stays put. */
+@keyframes hw-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.hw-seal-ring {
+  animation: hw-spin 18s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+.hw-seal {
+  transition: transform 0.3s ease;
+}
+
+.hw-seal:hover,
+.hw-seal:focus-visible {
+  transform: rotate(-4deg) scale(1.06);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hw-scope * {
     animation: none !important;
