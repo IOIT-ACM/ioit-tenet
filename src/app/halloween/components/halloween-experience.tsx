@@ -31,6 +31,7 @@ const DISCORD_URL = 'https://discord.gg/ZK6b2NkqSB';
 const NAV_LINKS = [
   { href: '#night', label: 'The night' },
   { href: '#passes', label: 'Passes' },
+  { href: '#best-look', label: 'Best look' },
   { href: '#ritual', label: 'Ritual' },
   { href: '#faq', label: 'FAQ' },
 ];
@@ -40,6 +41,7 @@ const FACT_ROWS = [
   { n: '02', label: 'Doors', value: '5:00 PM onwards' },
   { n: '03', label: 'Venue', value: 'MPH, AISSMS IOIT, Pune' },
   { n: '04', label: 'Entry', value: 'Unique QR pass only' },
+  { n: '05', label: 'Open to', value: 'AISSMS IOIT first years only' },
 ];
 
 const RITUAL_STEPS = [
@@ -55,11 +57,15 @@ const FAQS = [
   },
   {
     q: 'Is there a dress code?',
-    a: "Costumes are strongly encouraged — come as your favorite icon of horror. It's not compulsory, but you'll fit right in.",
+    a: "Costumes are strongly encouraged — come as your favorite icon of horror. It's not compulsory, but you'll fit right in. And the best Halloween look of the night wins a prize.",
   },
   {
-    q: 'Can students from other colleges come?',
-    a: 'This one is open to AISSMS IOIT students — carry your college ID for verification at the door.',
+    q: 'What do I win for the best look?',
+    a: "That stays sealed until the night. The organising team picks the best Halloween look at the party and announces the winner there. Every pass holder is in the running.",
+  },
+  {
+    q: 'Who can come?',
+    a: 'Only first-year students of AISSMS IOIT. Registration accepts first years only, and your college ID is checked against your pass at the door. Students from other years or other colleges cannot attend this one.',
   },
   {
     q: 'Can I be refused entry or asked to leave?',
@@ -71,8 +77,8 @@ const FAQS = [
   },
 ];
 
-const MARQUEE_WORDS = 'Costumes ✦ Chaos ✦ Screams ✦ Candy ✦ ';
-const TICKER_WORDS = 'Halloween Party ✦ 24.10.26 ✦ MPH ✦ AISSMS IOIT ✦ ₹150 Per Person ✦ ';
+const MARQUEE_WORDS = 'Costumes ✦ Chaos ✦ Best look wins ✦ Screams ✦ Candy ✦ ';
+const TICKER_WORDS = 'Halloween Party ✦ 24.10.26 ✦ MPH ✦ AISSMS IOIT ✦ ₹150 Per Person ✦ Prize for the best look ✦ ';
 
 function TicketCard() {
   const tiltRef = useTilt<HTMLDivElement>();
@@ -322,10 +328,48 @@ export function HalloweenExperience() {
           </span>
         </h1>
 
+        {/*
+          best-look sticker. From 1640px wide, HALLOWEEN has reached its
+          largest size (1296px) and leaves an empty band to its right, so the
+          sticker is centred there; narrower, it sits below, beside PARTY.
+        */}
+        <a
+          href="#best-look"
+          className="hw-seal absolute right-5 top-[300px] z-[2] block h-[104px] w-[104px] rounded-full no-underline shadow-[0_12px_40px_rgba(0,0,0,0.55)] md:left-[30%] md:right-auto md:top-[430px] md:h-[164px] md:w-[164px] min-[1640px]:left-[calc((1296px_+_100vw)/2_-_82px)] min-[1640px]:top-[248px]"
+          style={{ background: ACCENT, color: '#140a04', rotate: '-10deg' }}
+          aria-label="A prize for the best Halloween look. See the details."
+        >
+          <svg viewBox="0 0 160 160" className="hw-seal-ring absolute inset-0 h-full w-full" aria-hidden="true">
+            <defs>
+              <path id="hw-seal-path" d="M80 80m-60 0a60 60 0 1 1 120 0a60 60 0 1 1 -120 0" />
+            </defs>
+            {/* Stretched to the ring's exact length (2 x pi x 60), so the two halves meet without a gap or overlap. */}
+            <text className="hw-mono" fontSize="12" fontWeight="700" fill="#140a04">
+              <textPath href="#hw-seal-path" textLength="376" lengthAdjust="spacing">
+                PRIZE FOR THE BEST LOOK ✦ PRIZE FOR THE BEST LOOK ✦{' '}
+              </textPath>
+            </text>
+          </svg>
+          <span
+            className="hw-serif absolute inset-0 grid place-items-center text-[44px] font-bold italic leading-none md:text-[68px]"
+            aria-hidden="true"
+          >
+            ?
+          </span>
+        </a>
+
         <div className="absolute left-5 top-[400px] flex max-w-[300px] flex-col gap-6 md:left-[60px] md:top-[600px] md:max-w-[440px] md:gap-8">
           <p className="hw-serif m-0 text-[21px] italic leading-[1.4] md:text-[25px]" style={{ color: '#d8cfbb' }}>
             One night in the MPH at AISSMS IOIT. Costumes, chaos, and whatever crawls out after dark.
           </p>
+          <a
+            href="#best-look"
+            className="hw-mono hw-ul -mt-2 flex w-fit items-center gap-2 text-[13px] md:-mt-3 md:text-sm"
+            style={{ color: ACCENT }}
+          >
+            <span className="h-[7px] w-[7px] rounded-full" style={{ background: ACCENT, animation: 'hw-pulse 1.6s infinite' }} />
+            A prize for the best Halloween look
+          </a>
           <div className="flex flex-col gap-2.5 md:flex-row md:items-center md:gap-7">
             <a
               ref={heroMagnetRef}
@@ -496,6 +540,82 @@ export function HalloweenExperience() {
         <TicketCard />
       </section>
 
+      {/* ============ BEST LOOK ============ */}
+      <section
+        id="best-look"
+        className="relative flex flex-shrink-0 flex-col gap-12 overflow-hidden px-5 py-20 md:grid md:grid-cols-12 md:items-center md:gap-6 md:px-[60px] md:py-[150px]"
+        style={{ background: 'radial-gradient(ellipse 620px 440px at 78% 50%, rgba(240,122,26,0.16), transparent 70%), #0b0c0a' }}
+      >
+        <div className="flex flex-col gap-6 md:col-span-6 md:gap-9">
+          <span className="hw-rv hw-mono text-[13px] md:text-[15px]" style={{ color: ACCENT }}>
+            (04) — Best look
+          </span>
+          <h2 className="hw-rv hw-clip hw-zf m-0 text-[clamp(44px,9vw,128px)] leading-[1.05] pt-[0.3em]" style={{ color: '#efe6d2', transitionDelay: '.1s' }}>
+            Dress to
+            <br />
+            <span style={{ color: ACCENT }}>haunt</span>
+          </h2>
+          <p className="hw-rv hw-serif m-0 max-w-[520px] text-[22px] leading-[1.35] md:text-[30px]" style={{ color: '#efe6d2', transitionDelay: '.15s' }}>
+            The best Halloween look of the night{' '}
+            <span className="italic" style={{ color: ACCENT }}>
+              walks away with a prize
+            </span>
+            .
+          </p>
+          <p className="hw-rv m-0 max-w-[460px] text-[15px] leading-[1.6] md:text-[17px]" style={{ color: '#9d957f', transitionDelay: '.2s' }}>
+            Every pass holder is in the running. Commit to the character, go all out on the details, and make the room look twice. The organising team picks the winner on the night.
+          </p>
+          <a
+            href={REGISTER_URL}
+            className="hw-rv hw-cta flex h-[60px] w-full items-center justify-between gap-4 pl-[22px] pr-3 text-lg font-extrabold no-underline md:inline-flex md:h-[68px] md:w-fit md:justify-start md:pl-[34px] md:pr-[30px] md:text-[19px]"
+            style={{ background: ACCENT, color: '#140a04', transitionDelay: '.25s' }}
+          >
+            <span>Get your pass, then suit up</span>
+            <span className="hw-cta-ar grid h-[38px] w-[38px] place-items-center md:h-9 md:w-9" style={{ background: '#140a04', color: ACCENT }}>
+              <ArrowUpRightIcon width={18} height={18} />
+            </span>
+          </a>
+        </div>
+
+        <div className="hw-rv flex justify-center md:col-span-5 md:col-start-8" style={{ transitionDelay: '.15s' }}>
+          <article
+            className="relative w-full max-w-[420px] p-7 shadow-[0_20px_60px_rgba(0,0,0,0.5)] md:p-10"
+            style={{ background: '#efe6d2', color: '#140a04', transform: 'rotate(2.5deg)' }}
+            aria-label="The best look prize"
+          >
+            <div className="hw-mono flex justify-between text-xs md:text-sm">
+              <span>TENET ✦ Halloween</span>
+              <span>Award</span>
+            </div>
+            <div className="mt-4 flex items-end gap-4 md:mt-6">
+              <span className="hw-serif text-[120px] font-bold italic leading-[0.8] md:text-[160px]" style={{ color: ACCENT }} aria-hidden="true">
+                ?
+              </span>
+              <div className="flex flex-col pb-2">
+                <span className="hw-zf text-[clamp(30px,6vw,44px)] leading-[1.05] pt-[0.25em]">Best look</span>
+                <span className="hw-serif text-lg italic md:text-xl" style={{ color: '#5a4a36' }}>
+                  Prize sealed until the night
+                </span>
+              </div>
+            </div>
+            <dl className="m-0 mt-6 grid grid-cols-1 gap-3 border-t pt-4 md:mt-8 md:gap-4 md:pt-5" style={{ borderColor: 'rgba(20,10,4,.2)' }}>
+              {[
+                ['Who can win', 'Every pass holder'],
+                ['Judged by', 'The organising team'],
+                ['Winner', 'Announced at the party'],
+              ].map(([k, v]) => (
+                <div key={k} className="flex items-baseline justify-between gap-4">
+                  <dt className="hw-mono text-[11px] md:text-[13px]" style={{ color: '#6b5c47' }}>
+                    {k}
+                  </dt>
+                  <dd className="m-0 text-right text-[15px] font-bold md:text-[17px]">{v}</dd>
+                </div>
+              ))}
+            </dl>
+          </article>
+        </div>
+      </section>
+
       {/* ============ RITUAL ============ */}
       <section
         id="ritual"
@@ -504,7 +624,7 @@ export function HalloweenExperience() {
       >
         <div className="flex flex-col gap-2">
           <span className="hw-rv hw-mono text-[13px] md:text-[15px]" style={{ color: ACCENT }}>
-            (04) — The ritual
+            (05) — The ritual
           </span>
           <h2 className="hw-rv hw-clip hw-zf m-0 text-[clamp(36px,7vw,104px)] leading-none pt-[0.3em]" style={{ color: '#efe6d2', transitionDelay: '.1s' }}>
             From sign-up to scare
@@ -534,7 +654,7 @@ export function HalloweenExperience() {
       <section id="faq" className="flex flex-shrink-0 flex-col gap-9 px-5 py-20 md:grid md:grid-cols-12 md:gap-6 md:px-[60px] md:py-[150px]" style={{ background: '#0b0c0a' }}>
         <div className="flex flex-col gap-5 md:sticky md:top-[120px] md:col-span-4 md:h-fit">
           <span className="hw-rv hw-mono text-[13px] md:text-[15px]" style={{ color: ACCENT }}>
-            (05) — Whispers
+            (06) — Whispers
           </span>
           <h2 className="hw-rv hw-clip hw-zf m-0 text-[clamp(48px,7vw,92px)] leading-[1.15] pt-[0.28em]" style={{ color: '#efe6d2', transitionDelay: '.1s' }}>
             Before
@@ -602,7 +722,7 @@ export function HalloweenExperience() {
       >
         <div className="flex flex-col gap-7 md:col-span-7 md:gap-10">
           <span className="hw-rv hw-mono text-[13px] md:text-[15px]" style={{ color: ACCENT }}>
-            (06) — Last call
+            (07) — Last call
           </span>
           <h2 className="hw-rv hw-clip hw-zf m-0 text-[clamp(48px,13vw,170px)] leading-none pt-[0.3em]" style={{ color: '#efe6d2', transitionDelay: '.1s' }}>
             The dead
@@ -627,6 +747,8 @@ export function HalloweenExperience() {
               MPH · AISSMS IOIT, Pune
               <br />
               ₹150 per person
+              <br />
+              <span style={{ color: ACCENT }}>Prize for the best look</span>
             </span>
           </div>
         </div>
@@ -640,7 +762,7 @@ export function HalloweenExperience() {
         <div className="grid grid-cols-1 gap-12 px-5 py-16 md:grid-cols-12 md:gap-6 md:px-[60px] md:py-[110px]">
           <div className="hw-rv flex flex-col gap-8 md:col-span-6">
             <span className="hw-mono text-[15px]" style={{ color: ACCENT }}>
-              (07) — Until then
+              (08) — Until then
             </span>
             <p className="hw-serif m-0 text-[clamp(32px,7vw,64px)] leading-[1.05]" style={{ color: '#efe6d2' }}>
               See you on the
