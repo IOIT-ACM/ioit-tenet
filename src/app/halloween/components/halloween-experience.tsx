@@ -328,10 +328,14 @@ export function HalloweenExperience() {
           </span>
         </h1>
 
-        {/* best-look sticker */}
+        {/*
+          best-look sticker. From 1640px wide, HALLOWEEN has reached its
+          largest size (1296px) and leaves an empty band to its right, so the
+          sticker is centred there; narrower, it sits below, beside PARTY.
+        */}
         <a
           href="#best-look"
-          className="hw-seal absolute right-5 top-[300px] z-[2] block h-[104px] w-[104px] rounded-full no-underline shadow-[0_12px_40px_rgba(0,0,0,0.55)] md:left-[30%] md:right-auto md:top-[430px] md:h-[164px] md:w-[164px]"
+          className="hw-seal absolute right-5 top-[300px] z-[2] block h-[104px] w-[104px] rounded-full no-underline shadow-[0_12px_40px_rgba(0,0,0,0.55)] md:left-[30%] md:right-auto md:top-[430px] md:h-[164px] md:w-[164px] min-[1640px]:left-[calc((1296px_+_100vw)/2_-_82px)] min-[1640px]:top-[248px]"
           style={{ background: ACCENT, color: '#140a04', rotate: '-10deg' }}
           aria-label="A prize for the best Halloween look. See the details."
         >
