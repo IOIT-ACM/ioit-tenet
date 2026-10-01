@@ -347,7 +347,7 @@ export const data: TechfiestaEvent[] = [
           description: 'UI and UX, functionality, solution feasibility, innovation and the clarity of your demonstration.',
         },
       ],
-      registration: [{ label: 'Per team', meta: 'Solo or team of 2', price: 'Rs. 150' }],
+      registration: [{ label: 'Per team', meta: 'Solo or team of 2', price: 'Rs. 100' }],
       keyRules: [
         'Open to enrolled undergraduate and postgraduate students and working professionals. Cross-college teams are allowed.',
         'Register solo or in a team of up to 2. Team members cannot be changed after registration.',
@@ -367,7 +367,7 @@ export const data: TechfiestaEvent[] = [
         { label: 'Timing', value: '10:30 AM – 5:00 PM' },
         { label: 'Venue', value: 'AISSMS IOIT, Kennedy Road, Pune' },
         { label: 'Team size', value: 'Solo or team of 2' },
-        { label: 'Entry fee', value: 'Rs. 150 / team' },
+        { label: 'Entry fee', value: 'Rs. 100 / team' },
       ],
       contacts: [
         { name: 'Siddhesh Waghmare', mobile: '+91 70286 63868' },
