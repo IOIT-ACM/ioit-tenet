@@ -202,7 +202,7 @@ export default function EventDetails({ event }: EventDetailsProps) {
               href={event.registerLink ?? '/register?d=techfiesta'}
               target={event.registerLink?.startsWith('http') ? '_blank' : undefined}
               rel={event.registerLink?.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className="tf-btn-b mt-7 flex h-16 items-center justify-center gap-3.5 text-xl font-semibold"
+              className="tf-btn-b mt-7 flex min-h-16 items-center justify-center gap-3.5 px-4 py-3 text-center text-xl font-semibold"
             >
               Register for {event.title} <ArrowDiagIcon className="tf-arrow-nudge" />
             </Link>
