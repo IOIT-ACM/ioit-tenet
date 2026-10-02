@@ -120,9 +120,10 @@ export function Tickets() {
           className='mb-10 w-full text-center md:w-5/6 md:text-left'
           ref={headerRef}
         >
-          <h1 className='text-4xl font-bold sm:text-6xl'>TENET 2025</h1>
-          <p className='mt-4 text-lg'>
-            TENET 2025, organized by the AISSMS IOIT ACM Student Chapter, marked another milestone in our journey of fostering innovation and collaboration. This year, we proudly hosted the first edition of the TENET Hackathon and the third edition of IOIT MUN, alongside a range of exciting technical and non-technical events. Our focus for this edition was to create an engaging and memorable experience for all participants while nurturing a culture of building and problem-solving within our region. To support this vision, we introduced robotics competitions, workshops, and hands-on learning experiences that inspired students to innovate, explore, and collaborate. TENET 2025 truly embodied the spirit of creativity, teamwork, and technological growth.
+          <h1 className='text-4xl font-bold sm:text-6xl'>TENET 2026</h1>
+          <p className='mt-4 text-lg'>TENET 2026, organized by the AISSMS IOIT ACM Student Chapter, marks another milestone in our journey of fostering innovation, creativity, and collaboration. This edition brings together the Model United Nations, TechFiesta, and Halloween Party, creating a diverse platform for students to debate, compete, learn, and celebrate.
+With engaging technical and non-technical events, hands-on competitions, workshops, and immersive experiences, TENET 2026 encourages students to explore new ideas, challenge themselves, and collaborate beyond the classroom.
+From thought-provoking MUN debates to the exciting challenges of TechFiesta, and the energy of our Halloween celebration, TENET 2026 embodies the spirit of creativity, technology, leadership, and community.
           </p>
         </div>
       )}

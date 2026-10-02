@@ -81,8 +81,35 @@ export const Intro: React.FC = () => {
         </>
       )}
       <div className='reveal-type text-md md:text-[35px]'>
-        TENET is the flagship techfest of AISSMS IOIT, created by students for students. Across its three verticals, Hackathon, Model United Nations, and TechFiesta, it brings together programmers, diplomats, makers, and dreamers to build, debate, and explore the future of technology.
-        From AI hackathons that challenge students to build futuristic solutions, to MUN debates shaping perspectives on global technology policy, to hands-on competitions and workshops in robotics, drones, cybersecurity, and immersive tech, TENET is designed as a hub of creativity, learning, and leadership.
+        <strong>TENET 2026</strong>
+        <br />
+        is the flagship techfest of <strong>AISSMS IOIT</strong>, organized by AISSMS IOIT ACM Student Chapter.
+      </div>
+      <div className='reveal-type text-md mt-6 md:text-[35px]'>
+        Through its two dynamic verticals —{' '}
+        <strong>Model United Nations and TechFiesta</strong> — TENET 2026 brings
+        together{' '}
+        <strong>
+          diplomats, innovators, makers, programmers, and dreamers
+        </strong>{' '}
+        to debate, compete, create, and explore the future of technology.
+      </div>
+      <div className='reveal-type text-md mt-6 md:text-[35px]'>
+        From thought-provoking <strong>MUN debates</strong> that encourage
+        global perspectives and critical thinking, to{' '}
+        <strong>
+          TechFiesta&apos;s hands-on competitions, workshops, and challenges
+        </strong>{' '}
+        across robotics, drones, cybersecurity, immersive technology, and more,
+        TENET creates a space where{' '}
+        <strong>ideas meet innovation and students take the lead</strong>.
+      </div>
+      <div className='reveal-type text-md mt-6 md:text-[35px]'>
+        More than a techfest, TENET 2026 is a celebration of{' '}
+        <strong>
+          technology, creativity, leadership, and the spirit of building what
+          comes next.
+        </strong>
       </div>
     </div>
   );
