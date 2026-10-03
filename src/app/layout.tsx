@@ -8,6 +8,7 @@ import { siteConfig } from '@/config';
 import { MusicPlayer } from '@/components/common/musicplayer';
 import { TenetCommandDialog } from '@/components/command';
 import Script from 'next/script';
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -87,6 +88,7 @@ export default function RootLayout({
         <MusicPlayer />
         <TenetCommandDialog />
         <Toaster richColors position='top-center' />
+        <Analytics />
       </body>
     </html>
   );
