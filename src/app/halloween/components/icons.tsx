@@ -130,6 +130,56 @@ export function JackOLanternIcon({ className, width = 440, height = 370 }: IconP
   );
 }
 
+const WITCH_HAT_CONE =
+  'M20 82C30 58 42 36 58 22C72 9 92 8 100 24C90 22 80 27 73 35C85 49 93 66 97 84Z';
+
+export function WitchHatIcon({ className }: IconProps) {
+  return (
+    <svg
+      viewBox='0 0 120 112'
+      role='img'
+      aria-label='Witch hat'
+      className={className}
+    >
+      <defs>
+        <clipPath id='hwhatcone'>
+          <path d={WITCH_HAT_CONE} />
+        </clipPath>
+      </defs>
+      <ellipse cx='58' cy='90' rx='54' ry='14' fill='#2b1740' />
+      <ellipse cx='58' cy='84' rx='54' ry='14' fill='#6b3fa0' />
+      <path d={WITCH_HAT_CONE} fill='#4c2880' />
+      <rect
+        x='0'
+        y='62'
+        width='120'
+        height='18'
+        fill='#f07a1a'
+        clipPath='url(#hwhatcone)'
+      />
+      <rect x='49' y='62' width='18' height='18' rx='3' fill='#140a04' />
+      <rect
+        x='49.75'
+        y='62.75'
+        width='16.5'
+        height='16.5'
+        rx='2.25'
+        fill='none'
+        stroke='#ffa04d'
+        strokeWidth='1.5'
+      />
+      <rect x='58' y='70' width='12' height='2.5' fill='#ffa04d' />
+      <path
+        d='M31 78C41 57 51 35 65 21'
+        fill='none'
+        stroke='#8a5fc4'
+        strokeWidth='3'
+        strokeLinecap='round'
+      />
+    </svg>
+  );
+}
+
 const QR_SIZE = 21;
 
 /** A static, non-scannable QR silhouette — real codes are generated per registration once that goes live. */
