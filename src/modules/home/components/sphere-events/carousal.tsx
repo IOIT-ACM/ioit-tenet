@@ -42,7 +42,7 @@ const carouselEvents: CarouselEvent[] = [
   {
     id: 'mun',
     title: 'IOIT MUN 2026',
-    date: '23–24 Oct 2026',
+    date: '24-25 Oct 2026',
     image: '/mun_logo.png',
     href: MUN_PAGE,
     registerLink: MUNLINK,
