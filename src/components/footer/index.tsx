@@ -63,21 +63,14 @@ export const Footer = () => {
             </div>
             <div className='max-w-[300px]'>
               <div className='text-left md:text-center'>
-                Designed and developed by{' '}
+                Managed by Web Team,{' '}
                 <Link
                   className='link underline'
-                  href='https://github.com/adimail'
+                  href='https://github.com/IOIT-ACM'
                   target='_blank'
+                  rel='noreferrer'
                 >
-                  Aditya Godse
-                </Link>{' '}
-                with{' '}
-                <Link
-                  className='link underline'
-                  href='https://github.com/swarooppatilx'
-                  target='_blank'
-                >
-                  Swaroop Patil
+                  AISSMS IOIT ACM Student Chapter
                 </Link>
               </div>
             </div>
