@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import s from "./countdown.module.scss";
 
-const TARGET_DATE = new Date("2026-10-23T00:00:00");
+const TARGET_DATE = new Date("2026-10-23T08:30:00");
 
 interface TimeLeft {
   days: number;
