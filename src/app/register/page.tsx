@@ -77,8 +77,8 @@ function MainRegister() {
             <div key={event.id} className={`${buttonClasses} relative overflow-hidden`}>
               {event.name}
               <span className="absolute -right-8 top-2 w-32 rotate-45 bg-yellow-400 py-2 text-center text-[9px] font-bold text-black shadow-md">
-                Coming Soon
-              </span>
+      TENET
+    </span>
             </div>
           ) : (
             <a key={event.id} href={event.href} className={buttonClasses}>

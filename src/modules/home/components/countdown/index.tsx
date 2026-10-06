@@ -11,7 +11,7 @@ export const EventCountdown = () => {
     <div className="pb-[80px] pt-[80px] md:pt-[150px]">
       <Scrollytelling.Root start="top bottom" end="bottom top" scrub={1.1}>
         <div className={s.container}>
-          <ShiftingCountdown endDate={new Date('2025-10-11T08:00:00')} />
+          <ShiftingCountdown />
           <div className={s.marquees}>
             <Marquee className={s.marquee1} tenetblue />
             <Marquee className={s.marquee2} reverse />
@@ -62,7 +62,7 @@ const Marquee = ({
       >
         {Array.from({ length: 10 }, (_, i) => (
           <div key={i} className={s.marqueeItem}>
-            COMING SOON
+            23-24-25 October
             <SlCalender />
           </div>
         ))}

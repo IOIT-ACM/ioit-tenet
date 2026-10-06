@@ -81,7 +81,7 @@ export const Intro: React.FC = () => {
         </>
       )}
       <div className='reveal-type text-md md:text-[35px]'>
-      TENET is the flagship techfest of AISSMS IOIT, organized by AISSMS IOIT ACM Student Chapter. Through its two dynamic verticals — Model United Nations and TechFiesta — TENET brings together diplomats, innovators, makers, programmers, and dreamers to debate, compete, create, and explore the future of technology. From thought-provoking MUN debates that encourage global perspectives and critical thinking, to TechFiesta's hands-on competitions, workshops, and challenges across robotics, drones, cybersecurity, immersive technology, and more, TENET creates a space where ideas meet innovation and students take the lead. More than a techfest, TENET is a celebration of technology, creativity, leadership, and the spirit of building what comes next.
+      TENET is the flagship techfest of AISSMS IOIT, organized by AISSMS IOIT ACM Student Chapter. Through its two dynamic verticals  Model United Nations and TechFiesta  TENET brings together diplomats, innovators, makers, programmers, and dreamers to debate, compete, create, and explore the future of technology. From thought-provoking MUN debates that encourage global perspectives and critical thinking, to TechFiesta&apos;s hands-on competitions, workshops, and challenges across robotics, drones, cybersecurity, immersive technology, and more, TENET creates a space where ideas meet innovation and students take the lead. More than a techfest, TENET is a celebration of technology, creativity, leadership, and the spirit of building what comes next.
       </div>
     </div>
   );
