@@ -86,6 +86,7 @@ const HoverCard = ({
         className={`min-w-[282px] max-w-[300px] rounded-lg ${data.color} z-[99999] p-4 ${classname}`}
       >
         <p className='text-2xl'>{data.title}</p>
+        <p className='text-lg uppercase'>{data.time}</p>
         <h3 className='font-bold'>{getEventStatus(data.start)}</h3>
         <div className='mt-20 flex justify-between gap-5'>
           <p>{data.date}</p>

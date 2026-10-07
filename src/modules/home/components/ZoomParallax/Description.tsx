@@ -6,7 +6,7 @@ import { useIsMobile } from '@/hooks/useismobile';
 
 const section1 = [
   'Top industry leaders',
-  '15+ expert speakers',
+  'Diplomatic Debates',
   '2000+ participants',
 ];
 
@@ -18,8 +18,8 @@ const section2 = [
 
 const section3 = [
   'Hackathon',
-  'AI • Web3 tracks',
-  '50k+ impressions',
+  'AI • Vibecoding',
+  '100k+ impressions',
 ];
 
 export default function Description() {

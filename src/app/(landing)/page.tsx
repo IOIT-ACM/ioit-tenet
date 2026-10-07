@@ -19,7 +19,9 @@ export default async function HomePage() {
     <main className=''>
       <TenetHero />
       <Intro />
-      <EventCountdown />
+      <div className='mt-20 md:mt-40'>
+        <EventCountdown />
+      </div>
       <Tickets />
       <ScrollableEvents />
       <Schedule />
