@@ -33,14 +33,14 @@ export async function generateMetadata({
     twitter: {
       card: 'summary_large_image',
       title,
+
       description,
       images: [image],
     },
   };
 }
 
-export default function Page({ params }: { params: { year: string } }) {
-  const { year } = params;
+export default function Page() {
   return (
     <main>
       <HeroImage
