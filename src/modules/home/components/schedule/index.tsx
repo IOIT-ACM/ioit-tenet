@@ -8,23 +8,28 @@ import React, { useMemo, useState, useRef } from 'react';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 
 export const Schedule = () => {
-  const [expanded, setExpanded] = useState<number | null>(null);
+  const [collapsed, setCollapsed] = useState<number[]>([]);
+
+  const toggle = (day: number) =>
+    setCollapsed((prev) =>
+      prev.includes(day) ? prev.filter((d) => d !== day) : [...prev, day],
+    );
   const boundaryRef = useRef(null);
 
   const d1 = useMemo(() => {
-    if (expanded === 1) return day1;
+    if (!collapsed.includes(1)) return day1;
     return day1.filter((item) => item.imp).slice(0, 4);
-  }, [expanded]);
+  }, [collapsed]);
 
   const d2 = useMemo(() => {
-    if (expanded === 2) return day2;
+    if (!collapsed.includes(2)) return day2;
     return day2.filter((item) => item.imp).slice(0, 4);
-  }, [expanded]);
+  }, [collapsed]);
 
   const d3 = useMemo(() => {
-    if (expanded === 3) return day3;
+    if (!collapsed.includes(3)) return day3;
     return day3.filter((item) => item.imp).slice(0, 4);
-  }, [expanded]);
+  }, [collapsed]);
 
   return (
     <section
@@ -54,14 +59,14 @@ export const Schedule = () => {
           <div className="mb-4 flex w-full items-center justify-between text-3xl font-bold text-slate-300">
             <span>Day 1 Events</span>
             <span>
-              {expanded === 1 ? (
+              {!collapsed.includes(1) ? (
                 <IoIosArrowUp
-                  onClick={() => setExpanded(null)}
+                  onClick={() => toggle(1)}
                   className="cursor-pointer transition-all hover:scale-125"
                 />
               ) : (
                 <IoIosArrowDown
-                  onClick={() => setExpanded(1)}
+                  onClick={() => toggle(1)}
                   className="cursor-pointer transition-all hover:scale-125"
                 />
               )}
@@ -81,14 +86,14 @@ export const Schedule = () => {
           <div className="mb-4 flex w-full items-center justify-between text-3xl font-bold text-slate-300">
             <span>Day 2 Events</span>
             <span>
-              {expanded === 2 ? (
+              {!collapsed.includes(2) ? (
                 <IoIosArrowUp
-                  onClick={() => setExpanded(null)}
+                  onClick={() => toggle(2)}
                   className="cursor-pointer transition-all hover:scale-125"
                 />
               ) : (
                 <IoIosArrowDown
-                  onClick={() => setExpanded(2)}
+                  onClick={() => toggle(2)}
                   className="cursor-pointer transition-all hover:scale-125"
                 />
               )}
@@ -108,14 +113,14 @@ export const Schedule = () => {
           <div className="mb-4 flex w-full items-center justify-between text-3xl font-bold text-slate-300">
             <span>Day 3 Events</span>
             <span>
-              {expanded === 3 ? (
+              {!collapsed.includes(3) ? (
                 <IoIosArrowUp
-                  onClick={() => setExpanded(null)}
+                  onClick={() => toggle(3)}
                   className="cursor-pointer transition-all hover:scale-125"
                 />
               ) : (
                 <IoIosArrowDown
-                  onClick={() => setExpanded(3)}
+                  onClick={() => toggle(3)}
                   className="cursor-pointer transition-all hover:scale-125"
                 />
               )}
