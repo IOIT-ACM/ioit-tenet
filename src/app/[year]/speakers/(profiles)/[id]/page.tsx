@@ -13,16 +13,17 @@ export async function generateMetadata({
   if (foundSpeaker === undefined) {
     return {
       metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
-      title: 'Explore speakers at IOIT TENET 2024',
+      title: 'Explore speakers at IOIT TENET',
       description: 'Browse through our lineup of speakers at AISSMS IOIT TENET',
     };
   }
 
   return {
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
-    title: `${foundSpeaker.name} is comming at AISSMS IOIT TENET`,
-    description: `${foundSpeaker.name}, ${foundSpeaker.title} is comming at AISSMS IOIT TENET 2024`,
+    title: `${foundSpeaker.name} is coming to AISSMS IOIT TENET`,
+    description: `${foundSpeaker.name}, ${foundSpeaker.title}, is coming to AISSMS IOIT TENET`,
     openGraph: {
+      title: `${foundSpeaker.name} is coming to AISSMS IOIT TENET`,
       images: [
         {
           url: foundSpeaker.image,
@@ -31,6 +32,11 @@ export async function generateMetadata({
           alt: `${foundSpeaker.name} Image`,
         },
       ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${foundSpeaker.name} is coming to AISSMS IOIT TENET`,
+      images: [foundSpeaker.image],
     },
   };
 }
