@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://www.ioittenet.org/
+Host: https://www.ioittenet.com/
 
 # Sitemaps
-Sitemap: https://www.ioittenet.org/sitemap.xml
+Sitemap: https://www.ioittenet.com/sitemap.xml

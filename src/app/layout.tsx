@@ -31,11 +31,8 @@ export const metadata: Metadata = {
   ],
   authors: [
     {
-      name: 'Aditya Godse',
-      url: 'https://adimail.github.io',
-    },
-    {
-      name: 'Swaroop Patil',
+      name: 'IOIT ACM Web Team',
+      url: siteConfig.url,
     },
   ],
   creator: 'IOIT ACM',

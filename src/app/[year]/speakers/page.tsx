@@ -6,17 +6,24 @@ import { Footer } from '@/modules/events';
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
-  title: 'Speakers at IOIT TENET 2024',
+  title: 'Speakers at IOIT TENET',
   description: 'Browse through our lineup of speakers at AISSMS IOIT TENET',
   openGraph: {
+    title: 'Speakers at IOIT TENET',
+    description: 'Browse through our lineup of speakers at AISSMS IOIT TENET',
     images: [
       {
-        url: 'https://ioit.acm.org/tenet/ui/speakers.jpeg',
+        url: '/tenet-logo.png',
         width: 800,
         height: 600,
-        alt: `Speakers in TENET 2024`,
+        alt: 'Speakers at TENET',
       },
     ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Speakers at IOIT TENET',
+    images: ['/tenet-logo.png'],
   },
 };
 

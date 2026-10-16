@@ -12,14 +12,22 @@ export const metadata: Metadata = {
   description:
     'Join us for engaging workshops, competitions, and networking opportunities that celebrate innovation, creativity, and collaboration! IOIT TENET features an exciting lineup of events, including TechFiesta for tech enthusiasts, an E-Summit for aspiring entrepreneurs, and a Model United Nations for future diplomats. ',
   openGraph: {
+    title: 'Events at TENET',
+    description:
+      'Join us for engaging workshops, competitions, and networking opportunities that celebrate innovation, creativity, and collaboration!',
     images: [
       {
-        url: 'https://ioit.acm.org/tenet/events/events-og.jpeg',
+        url: '/tenet-logo.png',
         width: 800,
         height: 600,
-        alt: `Events in TENET`,
+        alt: 'Events in TENET',
       },
     ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Events at TENET',
+    images: ['/tenet-logo.png'],
   },
 };
 
